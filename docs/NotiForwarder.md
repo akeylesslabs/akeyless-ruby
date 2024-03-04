@@ -26,6 +26,7 @@
 | **to_emails** | [**Array&lt;EmailEntry&gt;**](EmailEntry.md) |  | [optional] |
 | **user_email** | **String** |  | [optional] |
 | **username** | **String** | Auth - User Password | [optional] |
+| **webhook_noti_forwarder_public_details** | [**WebHookNotiForwarderPublicDetails**](WebHookNotiForwarderPublicDetails.md) |  | [optional] |
 | **with_customer_fragment** | **Boolean** |  | [optional] |
 
 ## Example
@@ -56,6 +57,7 @@ instance = Akeyless::NotiForwarder.new(
   to_emails: null,
   user_email: null,
   username: null,
+  webhook_noti_forwarder_public_details: null,
   with_customer_fragment: null
 )
 ```

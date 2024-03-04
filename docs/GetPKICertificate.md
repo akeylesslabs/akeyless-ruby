@@ -9,6 +9,7 @@
 | **common_name** | **String** | The common name to be included in the PKI certificate (if CSR is supplied this flag is ignored and the CSR subject CN is taken) | [optional] |
 | **csr_data_base64** | **String** | Certificate Signing Request contents encoded in base64 to generate the certificate with | [optional] |
 | **extended_key_usage** | **String** | A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: &#39;clientauth&#39;, &#39;serverauth&#39;. | [optional] |
+| **extra_extensions** | **String** | A json string that defines the requested extra extensions for the certificate | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_data_base64** | **String** | PKI key file contents. If this option is used, the certificate will be printed to stdout | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -27,6 +28,7 @@ instance = Akeyless::GetPKICertificate.new(
   common_name: null,
   csr_data_base64: null,
   extended_key_usage: null,
+  extra_extensions: null,
   json: null,
   key_data_base64: null,
   token: null,

@@ -11,7 +11,7 @@
 | **base_url** | **String** | Base URL | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |

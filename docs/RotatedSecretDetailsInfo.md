@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **delete_previous_version_in_days** | **Integer** |  | [optional] |
+| **grace_rotation** | **Boolean** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
 | **number_of_versions_to_save** | **Integer** |  | [optional] |
@@ -24,6 +25,7 @@ require 'akeyless'
 
 instance = Akeyless::RotatedSecretDetailsInfo.new(
   delete_previous_version_in_days: null,
+  grace_rotation: null,
   gw_cluster_id: null,
   last_rotation_error: null,
   number_of_versions_to_save: null,

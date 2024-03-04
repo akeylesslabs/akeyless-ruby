@@ -7,8 +7,9 @@
 | **creation_statements** | **String** | Redshift Creation statements | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key** | **String** | Dynamic producer encryption key | [optional] |
 | **redshift_db_name** | **String** | Redshift DB Name | [optional] |
 | **redshift_host** | **String** | Redshift Host | [optional][default to &#39;127.0.0.1&#39;] |
@@ -35,6 +36,7 @@ instance = Akeyless::GatewayUpdateProducerRedshift.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key: null,
   redshift_db_name: null,
   redshift_host: null,

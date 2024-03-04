@@ -13,8 +13,9 @@
 | **hanadb_revocation_statements** | **String** | HanaDb Revocation statements | [optional] |
 | **hanadb_username** | **String** | HanaDb Username | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema | [optional] |
@@ -44,6 +45,7 @@ instance = Akeyless::GatewayUpdateProducerHanaDb.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
   secure_access_db_schema: null,

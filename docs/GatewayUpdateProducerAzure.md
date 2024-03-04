@@ -12,8 +12,9 @@
 | **fixed_user_claim_keyname** | **String** | FixedUserClaimKeyname | [optional][default to &#39;false&#39;] |
 | **fixed_user_only** | **Boolean** | Fixed user | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
@@ -46,6 +47,7 @@ instance = Akeyless::GatewayUpdateProducerAzure.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   secure_access_enable: null,
   secure_access_web: null,

@@ -13,7 +13,8 @@
 | **mssql_port** | **String** | MSSQL Port | [optional][default to &#39;1433&#39;] |
 | **mssql_revocation_statements** | **String** | MSSQL Revocation statements | [optional] |
 | **mssql_username** | **String** | MSSQL Username | [optional] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema | [optional] |
@@ -42,6 +43,7 @@ instance = Akeyless::GatewayCreateProducerMSSQL.new(
   mssql_revocation_statements: null,
   mssql_username: null,
   name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
   secure_access_db_schema: null,

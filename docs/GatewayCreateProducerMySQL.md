@@ -15,7 +15,8 @@
 | **mysql_revocation_statements** | **String** | MySQL Revocation statements | [optional] |
 | **mysql_screation_statements** | **String** | MySQL Creation statements | [optional] |
 | **mysql_username** | **String** | MySQL Username | [optional] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
@@ -47,6 +48,7 @@ instance = Akeyless::GatewayCreateProducerMySQL.new(
   mysql_screation_statements: null,
   mysql_username: null,
   name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
   secure_access_enable: null,

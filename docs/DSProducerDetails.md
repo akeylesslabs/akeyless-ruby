@@ -103,6 +103,7 @@
 | **github_installation_token_permissions** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **github_installation_token_repositories** | **Array&lt;String&gt;** |  | [optional] |
 | **github_installation_token_repositories_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **github_organization_name** | **String** |  | [optional] |
 | **github_repository_path** | **String** |  | [optional] |
 | **gke_cluster_ca_certificate** | **String** |  | [optional] |
 | **gke_cluster_endpoint** | **String** |  | [optional] |
@@ -329,6 +330,7 @@ instance = Akeyless::DSProducerDetails.new(
   github_installation_token_permissions: null,
   github_installation_token_repositories: null,
   github_installation_token_repositories_ids: null,
+  github_organization_name: null,
   github_repository_path: null,
   gke_cluster_ca_certificate: null,
   gke_cluster_endpoint: null,

@@ -9,7 +9,7 @@
 | **dockerhub_token_scopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; | [optional] |
 | **dockerhub_username** | **String** | DockerhubUsername is the name of the user in dockerhub | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |

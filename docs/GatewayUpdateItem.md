@@ -15,6 +15,7 @@
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **gcp_service_account_email** | **String** | The email of the gcp service account to rotate | [optional] |
 | **gcp_service_account_key_id** | **String** | The key id of the gcp service account to rotate | [optional] |
+| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. (relevant only for --type&#x3D;rotated-secret). If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -22,6 +23,7 @@
 | **new_metadata** | **String** | Deprecated - use description | [optional][default to &#39;default_metadata&#39;] |
 | **new_name** | **String** | New item name | [optional] |
 | **new_version** | **Boolean** | Deprecated | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected \\\&quot;use-self-creds\\\&quot; at rotator-creds-type, this username will try to rotate it&#39;s own password, if \\\&quot;use-target-creds\\\&quot; is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) | [optional] |
@@ -49,6 +51,7 @@ instance = Akeyless::GatewayUpdateItem.new(
   gcp_key: null,
   gcp_service_account_email: null,
   gcp_service_account_key_id: null,
+  grace_rotation: null,
   json: null,
   keep_prev_version: null,
   key: null,
@@ -56,6 +59,7 @@ instance = Akeyless::GatewayUpdateItem.new(
   new_metadata: null,
   new_name: null,
   new_version: null,
+  password_length: null,
   rm_tag: null,
   rotated_password: null,
   rotated_username: null,

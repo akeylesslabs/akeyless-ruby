@@ -40,6 +40,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_gke_target**](V2Api.md#create_gke_target) | **POST** /create-gke-target |  |
 | [**create_global_sign_atlas_target**](V2Api.md#create_global_sign_atlas_target) | **POST** /create-globalsign-atlas-target |  |
 | [**create_global_sign_target**](V2Api.md#create_global_sign_target) | **POST** /create-globalsign-target |  |
+| [**create_godaddy_target**](V2Api.md#create_godaddy_target) | **POST** /create-godaddy-target |  |
 | [**create_group**](V2Api.md#create_group) | **POST** /create-group |  |
 | [**create_key**](V2Api.md#create_key) | **POST** /create-key |  |
 | [**create_linked_target**](V2Api.md#create_linked_target) | **POST** /create-linked-target |  |
@@ -86,6 +87,63 @@ All URIs are relative to *https://api.akeyless.io*
 | [**describe_permissions**](V2Api.md#describe_permissions) | **POST** /describe-permissions |  |
 | [**describe_sub_claims**](V2Api.md#describe_sub_claims) | **POST** /describe-sub-claims |  |
 | [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize |  |
+| [**dynamic_secret_create_artifactory**](V2Api.md#dynamic_secret_create_artifactory) | **POST** /dynamic-secret-create-artifactory |  |
+| [**dynamic_secret_create_aws**](V2Api.md#dynamic_secret_create_aws) | **POST** /dynamic-secret-create-aws |  |
+| [**dynamic_secret_create_azure**](V2Api.md#dynamic_secret_create_azure) | **POST** /dynamic-secret-create-azure |  |
+| [**dynamic_secret_create_cassandra**](V2Api.md#dynamic_secret_create_cassandra) | **POST** /dynamic-secret-create-cassandra |  |
+| [**dynamic_secret_create_custom**](V2Api.md#dynamic_secret_create_custom) | **POST** /dynamic-secret-create-custom |  |
+| [**dynamic_secret_create_dockerhub**](V2Api.md#dynamic_secret_create_dockerhub) | **POST** /dynamic-secret-create-dockerhub |  |
+| [**dynamic_secret_create_eks**](V2Api.md#dynamic_secret_create_eks) | **POST** /dynamic-secret-create-eks |  |
+| [**dynamic_secret_create_gcp**](V2Api.md#dynamic_secret_create_gcp) | **POST** /dynamic-secret-create-gcp |  |
+| [**dynamic_secret_create_github**](V2Api.md#dynamic_secret_create_github) | **POST** /dynamic-secret-create-github |  |
+| [**dynamic_secret_create_gke**](V2Api.md#dynamic_secret_create_gke) | **POST** /dynamic-secret-create-gke |  |
+| [**dynamic_secret_create_hana_db**](V2Api.md#dynamic_secret_create_hana_db) | **POST** /dynamic-secret-create-hanadb |  |
+| [**dynamic_secret_create_k8s**](V2Api.md#dynamic_secret_create_k8s) | **POST** /dynamic-secret-create-k8s |  |
+| [**dynamic_secret_create_ldap**](V2Api.md#dynamic_secret_create_ldap) | **POST** /dynamic-secret-create-ldap |  |
+| [**dynamic_secret_create_mongo_db**](V2Api.md#dynamic_secret_create_mongo_db) | **POST** /dynamic-secret-create-mongo |  |
+| [**dynamic_secret_create_ms_sql**](V2Api.md#dynamic_secret_create_ms_sql) | **POST** /dynamic-secret-create-mssql |  |
+| [**dynamic_secret_create_my_sql**](V2Api.md#dynamic_secret_create_my_sql) | **POST** /dynamic-secret-create-mysql |  |
+| [**dynamic_secret_create_oracle_db**](V2Api.md#dynamic_secret_create_oracle_db) | **POST** /dynamic-secret-create-oracle |  |
+| [**dynamic_secret_create_ping**](V2Api.md#dynamic_secret_create_ping) | **POST** /dynamic-secret-create-ping |  |
+| [**dynamic_secret_create_postgre_sql**](V2Api.md#dynamic_secret_create_postgre_sql) | **POST** /dynamic-secret-create-postgresql |  |
+| [**dynamic_secret_create_rabbit_mq**](V2Api.md#dynamic_secret_create_rabbit_mq) | **POST** /dynamic-secret-create-rabbitmq |  |
+| [**dynamic_secret_create_rdp**](V2Api.md#dynamic_secret_create_rdp) | **POST** /dynamic-secret-create-rdp |  |
+| [**dynamic_secret_create_redis**](V2Api.md#dynamic_secret_create_redis) | **POST** /dynamic-secret-create-redis |  |
+| [**dynamic_secret_create_redshift**](V2Api.md#dynamic_secret_create_redshift) | **POST** /dynamic-secret-create-redshift |  |
+| [**dynamic_secret_create_snowflake**](V2Api.md#dynamic_secret_create_snowflake) | **POST** /dynamic-secret-create-snowflake |  |
+| [**dynamic_secret_create_venafi**](V2Api.md#dynamic_secret_create_venafi) | **POST** /dynamic-secret-create-venafi |  |
+| [**dynamic_secret_delete**](V2Api.md#dynamic_secret_delete) | **POST** /dynamic-secret-delete |  |
+| [**dynamic_secret_get**](V2Api.md#dynamic_secret_get) | **POST** /dynamic-secret-get |  |
+| [**dynamic_secret_get_value**](V2Api.md#dynamic_secret_get_value) | **POST** /dynamic-secret-get-value |  |
+| [**dynamic_secret_list**](V2Api.md#dynamic_secret_list) | **POST** /dynamic-secret-list |  |
+| [**dynamic_secret_tmp_creds_delete**](V2Api.md#dynamic_secret_tmp_creds_delete) | **POST** /dynamic-secret-tmp-creds-delete |  |
+| [**dynamic_secret_tmp_creds_get**](V2Api.md#dynamic_secret_tmp_creds_get) | **POST** /dynamic-secret-tmp-creds-Get |  |
+| [**dynamic_secret_tmp_creds_update**](V2Api.md#dynamic_secret_tmp_creds_update) | **POST** /dynamic-secret-tmp-creds-update |  |
+| [**dynamic_secret_update_artifactory**](V2Api.md#dynamic_secret_update_artifactory) | **POST** /dynamic-secret-update-artifactory |  |
+| [**dynamic_secret_update_aws**](V2Api.md#dynamic_secret_update_aws) | **POST** /dynamic-secret-update-aws |  |
+| [**dynamic_secret_update_azure**](V2Api.md#dynamic_secret_update_azure) | **POST** /dynamic-secret-update-azure |  |
+| [**dynamic_secret_update_cassandra**](V2Api.md#dynamic_secret_update_cassandra) | **POST** /dynamic-secret-update-cassandra |  |
+| [**dynamic_secret_update_custom**](V2Api.md#dynamic_secret_update_custom) | **POST** /dynamic-secret-update-custom |  |
+| [**dynamic_secret_update_dockerhub**](V2Api.md#dynamic_secret_update_dockerhub) | **POST** /dynamic-secret-update-dockerhub |  |
+| [**dynamic_secret_update_eks**](V2Api.md#dynamic_secret_update_eks) | **POST** /dynamic-secret-update-eks |  |
+| [**dynamic_secret_update_gcp**](V2Api.md#dynamic_secret_update_gcp) | **POST** /dynamic-secret-update-gcp |  |
+| [**dynamic_secret_update_github**](V2Api.md#dynamic_secret_update_github) | **POST** /dynamic-secret-update-github |  |
+| [**dynamic_secret_update_gke**](V2Api.md#dynamic_secret_update_gke) | **POST** /dynamic-secret-update-gke |  |
+| [**dynamic_secret_update_hana_db**](V2Api.md#dynamic_secret_update_hana_db) | **POST** /dynamic-secret-update-hana |  |
+| [**dynamic_secret_update_k8s**](V2Api.md#dynamic_secret_update_k8s) | **POST** /dynamic-secret-update-k8s |  |
+| [**dynamic_secret_update_ldap**](V2Api.md#dynamic_secret_update_ldap) | **POST** /dynamic-secret-update-ldap |  |
+| [**dynamic_secret_update_mongo_db**](V2Api.md#dynamic_secret_update_mongo_db) | **POST** /dynamic-secret-update-mongo |  |
+| [**dynamic_secret_update_ms_sql**](V2Api.md#dynamic_secret_update_ms_sql) | **POST** /dynamic-secret-update-mssql |  |
+| [**dynamic_secret_update_my_sql**](V2Api.md#dynamic_secret_update_my_sql) | **POST** /dynamic-secret-update-mysql |  |
+| [**dynamic_secret_update_oracle_db**](V2Api.md#dynamic_secret_update_oracle_db) | **POST** /dynamic-secret-update-oracle |  |
+| [**dynamic_secret_update_ping**](V2Api.md#dynamic_secret_update_ping) | **POST** /dynamic-secret-update-ping |  |
+| [**dynamic_secret_update_postgre_sql**](V2Api.md#dynamic_secret_update_postgre_sql) | **POST** /dynamic-secret-update-postgresql |  |
+| [**dynamic_secret_update_rabbit_mq**](V2Api.md#dynamic_secret_update_rabbit_mq) | **POST** /dynamic-secret-update-rabbitmq |  |
+| [**dynamic_secret_update_rdp**](V2Api.md#dynamic_secret_update_rdp) | **POST** /dynamic-secret-update-rdp |  |
+| [**dynamic_secret_update_redis**](V2Api.md#dynamic_secret_update_redis) | **POST** /dynamic-secret-update-redis |  |
+| [**dynamic_secret_update_redshift**](V2Api.md#dynamic_secret_update_redshift) | **POST** /dynamic-secret-update-redshift |  |
+| [**dynamic_secret_update_snowflake**](V2Api.md#dynamic_secret_update_snowflake) | **POST** /dynamic-secret-update-snowflake |  |
+| [**dynamic_secret_update_venafi**](V2Api.md#dynamic_secret_update_venafi) | **POST** /dynamic-secret-update-venafi |  |
 | [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt |  |
 | [**encrypt_gpg**](V2Api.md#encrypt_gpg) | **POST** /encrypt-gpg |  |
 | [**encrypt_with_classic_key**](V2Api.md#encrypt_with_classic_key) | **POST** /encrypt-with-classic-key |  |
@@ -95,6 +153,12 @@ All URIs are relative to *https://api.akeyless.io*
 | [**esm_list**](V2Api.md#esm_list) | **POST** /esm-list |  |
 | [**esm_update**](V2Api.md#esm_update) | **POST** /esm-update |  |
 | [**event_action**](V2Api.md#event_action) | **POST** /event-action |  |
+| [**event_forwarder_create_email**](V2Api.md#event_forwarder_create_email) | **POST** /event-forwarder-create-email |  |
+| [**event_forwarder_create_webhook**](V2Api.md#event_forwarder_create_webhook) | **POST** /event-forwarder-create-webhook |  |
+| [**event_forwarder_delete**](V2Api.md#event_forwarder_delete) | **POST** /event-forwarder-delete |  |
+| [**event_forwarder_get**](V2Api.md#event_forwarder_get) | **POST** /event-forwarder-get |  |
+| [**event_forwarder_update_email**](V2Api.md#event_forwarder_update_email) | **POST** /event-forwarder-update-email |  |
+| [**event_forwarder_update_webhook**](V2Api.md#event_forwarder_update_webhook) | **POST** /event-forwarder-update-webhook |  |
 | [**export_classic_key**](V2Api.md#export_classic_key) | **POST** /export-classic-key |  |
 | [**gateway_create_allowed_access**](V2Api.md#gateway_create_allowed_access) | **POST** /gateway-create-allowed-access |  |
 | [**gateway_create_k8_s_auth_config**](V2Api.md#gateway_create_k8_s_auth_config) | **POST** /gateway-create-k8s-auth-config |  |
@@ -103,7 +167,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_create_producer_aws**](V2Api.md#gateway_create_producer_aws) | **POST** /gateway-create-producer-aws |  |
 | [**gateway_create_producer_azure**](V2Api.md#gateway_create_producer_azure) | **POST** /gateway-create-producer-azure |  |
 | [**gateway_create_producer_cassandra**](V2Api.md#gateway_create_producer_cassandra) | **POST** /gateway-create-producer-cassandra |  |
-| [**gateway_create_producer_certificate_automation**](V2Api.md#gateway_create_producer_certificate_automation) | **POST** /gateway-create-producer-certificate-automation |  |
+| [**gateway_create_producer_chef**](V2Api.md#gateway_create_producer_chef) | **POST** /gateway-create-producer-chef |  |
 | [**gateway_create_producer_custom**](V2Api.md#gateway_create_producer_custom) | **POST** /gateway-create-producer-custom |  |
 | [**gateway_create_producer_dockerhub**](V2Api.md#gateway_create_producer_dockerhub) | **POST** /gateway-create-producer-dockerhub |  |
 | [**gateway_create_producer_eks**](V2Api.md#gateway_create_producer_eks) | **POST** /gateway-create-producer-eks |  |
@@ -124,6 +188,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_create_producer_redis**](V2Api.md#gateway_create_producer_redis) | **POST** /gateway-create-producer-Redis |  |
 | [**gateway_create_producer_redshift**](V2Api.md#gateway_create_producer_redshift) | **POST** /gateway-create-producer-redshift |  |
 | [**gateway_create_producer_snowflake**](V2Api.md#gateway_create_producer_snowflake) | **POST** /gateway-create-producer-snowflake |  |
+| [**gateway_create_producer_venafi**](V2Api.md#gateway_create_producer_venafi) | **POST** /gateway-create-producer-certificate-automation |  |
 | [**gateway_delete_allowed_access**](V2Api.md#gateway_delete_allowed_access) | **POST** /gateway-delete-allowed-access |  |
 | [**gateway_delete_k8_s_auth_config**](V2Api.md#gateway_delete_k8_s_auth_config) | **POST** /gateway-delete-k8s-auth-config |  |
 | [**gateway_delete_migration**](V2Api.md#gateway_delete_migration) | **POST** /gateway-delete-migration |  |
@@ -154,7 +219,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_update_producer_aws**](V2Api.md#gateway_update_producer_aws) | **POST** /gateway-update-producer-aws |  |
 | [**gateway_update_producer_azure**](V2Api.md#gateway_update_producer_azure) | **POST** /gateway-update-producer-azure |  |
 | [**gateway_update_producer_cassandra**](V2Api.md#gateway_update_producer_cassandra) | **POST** /gateway-update-producer-cassandra |  |
-| [**gateway_update_producer_certificate_automation**](V2Api.md#gateway_update_producer_certificate_automation) | **POST** /gateway-update-producer-certificate-automation |  |
+| [**gateway_update_producer_chef**](V2Api.md#gateway_update_producer_chef) | **POST** /gateway-update-producer-chef |  |
 | [**gateway_update_producer_custom**](V2Api.md#gateway_update_producer_custom) | **POST** /gateway-update-producer-custom |  |
 | [**gateway_update_producer_dockerhub**](V2Api.md#gateway_update_producer_dockerhub) | **POST** /gateway-update-producer-dockerhub |  |
 | [**gateway_update_producer_eks**](V2Api.md#gateway_update_producer_eks) | **POST** /gateway-update-producer-eks |  |
@@ -175,6 +240,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_update_producer_redis**](V2Api.md#gateway_update_producer_redis) | **POST** /gateway-update-producer-redis |  |
 | [**gateway_update_producer_redshift**](V2Api.md#gateway_update_producer_redshift) | **POST** /gateway-update-producer-redshift |  |
 | [**gateway_update_producer_snowflake**](V2Api.md#gateway_update_producer_snowflake) | **POST** /gateway-update-producer-snowflake |  |
+| [**gateway_update_producer_venafi**](V2Api.md#gateway_update_producer_venafi) | **POST** /gateway-update-producer-certificate-automation |  |
 | [**gateway_update_tls_cert**](V2Api.md#gateway_update_tls_cert) | **POST** /gateway-update-tls-cert |  |
 | [**gateway_update_tmp_users**](V2Api.md#gateway_update_tmp_users) | **POST** /gateway-update-producer-tmp-creds |  |
 | [**generate_csr**](V2Api.md#generate_csr) | **POST** /generate-csr |  |
@@ -231,6 +297,44 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotate_key**](V2Api.md#rotate_key) | **POST** /rotate-key |  |
 | [**rotate_oidc_client_secret**](V2Api.md#rotate_oidc_client_secret) | **POST** /rotate-oidc-client-secret |  |
 | [**rotate_secret**](V2Api.md#rotate_secret) | **POST** /gateway-rotate-secret |  |
+| [**rotated_secret_create_aws**](V2Api.md#rotated_secret_create_aws) | **POST** /rotated-secret-create-aws |  |
+| [**rotated_secret_create_azure**](V2Api.md#rotated_secret_create_azure) | **POST** /rotated-secret-create-azure |  |
+| [**rotated_secret_create_cassandra**](V2Api.md#rotated_secret_create_cassandra) | **POST** /rotated-secret-create-cassandra |  |
+| [**rotated_secret_create_custom**](V2Api.md#rotated_secret_create_custom) | **POST** /rotated-secret-create-custom |  |
+| [**rotated_secret_create_dockerhub**](V2Api.md#rotated_secret_create_dockerhub) | **POST** /rotated-secret-create-dockerhub |  |
+| [**rotated_secret_create_gcp**](V2Api.md#rotated_secret_create_gcp) | **POST** /rotated-secret-create-gcp |  |
+| [**rotated_secret_create_hanadb**](V2Api.md#rotated_secret_create_hanadb) | **POST** /rotated-secret-create-hanadb |  |
+| [**rotated_secret_create_ldap**](V2Api.md#rotated_secret_create_ldap) | **POST** /rotated-secret-create-ldap |  |
+| [**rotated_secret_create_mongodb**](V2Api.md#rotated_secret_create_mongodb) | **POST** /rotated-secret-create-mongodb |  |
+| [**rotated_secret_create_mssql**](V2Api.md#rotated_secret_create_mssql) | **POST** /rotated-secret-create-mssql |  |
+| [**rotated_secret_create_mysql**](V2Api.md#rotated_secret_create_mysql) | **POST** /rotated-secret-create-mysql |  |
+| [**rotated_secret_create_oracledb**](V2Api.md#rotated_secret_create_oracledb) | **POST** /rotated-secret-create-oracledb |  |
+| [**rotated_secret_create_postgresql**](V2Api.md#rotated_secret_create_postgresql) | **POST** /rotated-secret-create-postgresql |  |
+| [**rotated_secret_create_redis**](V2Api.md#rotated_secret_create_redis) | **POST** /rotated-secret-create-redis |  |
+| [**rotated_secret_create_redshift**](V2Api.md#rotated_secret_create_redshift) | **POST** /rotated-secret-create-redshift |  |
+| [**rotated_secret_create_snowflake**](V2Api.md#rotated_secret_create_snowflake) | **POST** /rotated-secret-create-snowflake |  |
+| [**rotated_secret_create_ssh**](V2Api.md#rotated_secret_create_ssh) | **POST** /rotated-secret-create-ssh |  |
+| [**rotated_secret_create_windows**](V2Api.md#rotated_secret_create_windows) | **POST** /rotated-secret-create-windows |  |
+| [**rotated_secret_get_value**](V2Api.md#rotated_secret_get_value) | **POST** /rotated-secret-get-value |  |
+| [**rotated_secret_list**](V2Api.md#rotated_secret_list) | **POST** /rotated-secret-list |  |
+| [**rotated_secret_update_aws**](V2Api.md#rotated_secret_update_aws) | **POST** /rotated-secret-update-aws |  |
+| [**rotated_secret_update_azure**](V2Api.md#rotated_secret_update_azure) | **POST** /rotated-secret-update-azure |  |
+| [**rotated_secret_update_cassandra**](V2Api.md#rotated_secret_update_cassandra) | **POST** /rotated-secret-update-cassandra |  |
+| [**rotated_secret_update_custom**](V2Api.md#rotated_secret_update_custom) | **POST** /rotated-secret-update-custom |  |
+| [**rotated_secret_update_dockerhub**](V2Api.md#rotated_secret_update_dockerhub) | **POST** /rotated-secret-update-dockerhub |  |
+| [**rotated_secret_update_gcp**](V2Api.md#rotated_secret_update_gcp) | **POST** /rotated-secret-update-gcp |  |
+| [**rotated_secret_update_hanadb**](V2Api.md#rotated_secret_update_hanadb) | **POST** /rotated-secret-update-hanadb |  |
+| [**rotated_secret_update_ldap**](V2Api.md#rotated_secret_update_ldap) | **POST** /rotated-secret-update-ldap |  |
+| [**rotated_secret_update_mongodb**](V2Api.md#rotated_secret_update_mongodb) | **POST** /rotated-secret-update-mongodb |  |
+| [**rotated_secret_update_mssql**](V2Api.md#rotated_secret_update_mssql) | **POST** /rotated-secret-update-mssql |  |
+| [**rotated_secret_update_mysql**](V2Api.md#rotated_secret_update_mysql) | **POST** /rotated-secret-update-mysql |  |
+| [**rotated_secret_update_oracledb**](V2Api.md#rotated_secret_update_oracledb) | **POST** /rotated-secret-update-oracledb |  |
+| [**rotated_secret_update_postgresql**](V2Api.md#rotated_secret_update_postgresql) | **POST** /rotated-secret-update-postgresql |  |
+| [**rotated_secret_update_redis**](V2Api.md#rotated_secret_update_redis) | **POST** /rotated-secret-update-redis |  |
+| [**rotated_secret_update_redshift**](V2Api.md#rotated_secret_update_redshift) | **POST** /rotated-secret-update-redshift |  |
+| [**rotated_secret_update_snowflake**](V2Api.md#rotated_secret_update_snowflake) | **POST** /rotated-secret-update-snowflake |  |
+| [**rotated_secret_update_ssh**](V2Api.md#rotated_secret_update_ssh) | **POST** /rotated-secret-update-ssh |  |
+| [**rotated_secret_update_windows**](V2Api.md#rotated_secret_update_windows) | **POST** /rotated-secret-update-windows |  |
 | [**set_item_state**](V2Api.md#set_item_state) | **POST** /set-item-state |  |
 | [**set_role_rule**](V2Api.md#set_role_rule) | **POST** /set-role-rule |  |
 | [**share_item**](V2Api.md#share_item) | **POST** /share-item |  |
@@ -278,6 +382,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**update_gke_target**](V2Api.md#update_gke_target) | **POST** /update-gke-target |  |
 | [**update_global_sign_atlas_target**](V2Api.md#update_global_sign_atlas_target) | **POST** /update-globalsign-atlas-target |  |
 | [**update_global_sign_target**](V2Api.md#update_global_sign_target) | **POST** /update-globalsign-target |  |
+| [**update_godaddy_target**](V2Api.md#update_godaddy_target) | **POST** /update-godaddy-target |  |
 | [**update_group**](V2Api.md#update_group) | **POST** /update-group |  |
 | [**update_item**](V2Api.md#update_item) | **POST** /update-item |  |
 | [**update_ldap_target**](V2Api.md#update_ldap_target) | **POST** /update-ldap-target |  |
@@ -2541,6 +2646,68 @@ end
 ### Return type
 
 [**CreateGlobalSignTargetOutput**](CreateGlobalSignTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_godaddy_target
+
+> <CreateGodaddyTargetOutput> create_godaddy_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::CreateGodaddyTarget.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example', secret: 'secret_example'}) # CreateGodaddyTarget | 
+
+begin
+  
+  result = api_instance.create_godaddy_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_godaddy_target: #{e}"
+end
+```
+
+#### Using the create_godaddy_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateGodaddyTargetOutput>, Integer, Hash)> create_godaddy_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_godaddy_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateGodaddyTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_godaddy_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**CreateGodaddyTarget**](CreateGodaddyTarget.md) |  |  |
+
+### Return type
+
+[**CreateGodaddyTargetOutput**](CreateGodaddyTargetOutput.md)
 
 ### Authorization
 
@@ -5404,6 +5571,3539 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_artifactory
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_artifactory(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateArtifactory.new({artifactory_token_audience: 'artifactory_token_audience_example', artifactory_token_scope: 'artifactory_token_scope_example', name: 'name_example'}) # DynamicSecretCreateArtifactory | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_artifactory(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_artifactory: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_artifactory_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_artifactory_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_artifactory_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_artifactory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateArtifactory**](DynamicSecretCreateArtifactory.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_aws
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateAws.new({name: 'name_example'}) # DynamicSecretCreateAws | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_aws: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateAws**](DynamicSecretCreateAws.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_azure
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateAzure.new({name: 'name_example'}) # DynamicSecretCreateAzure | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_azure: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateAzure**](DynamicSecretCreateAzure.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_cassandra
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_cassandra(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateCassandra.new({name: 'name_example'}) # DynamicSecretCreateCassandra | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_cassandra(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_cassandra: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_cassandra_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_cassandra_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_cassandra_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_cassandra_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateCassandra**](DynamicSecretCreateCassandra.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_custom
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_custom(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  body: Akeyless::DynamicSecretCreateCustom.new({create_sync_url: 'create_sync_url_example', name: 'name_example', revoke_sync_url: 'revoke_sync_url_example'}) # DynamicSecretCreateCustom | 
+}
+
+begin
+  
+  result = api_instance.dynamic_secret_create_custom(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_custom: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_custom_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_custom_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_custom_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_custom_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateCustom**](DynamicSecretCreateCustom.md) |  | [optional] |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_dockerhub
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateDockerhub.new({name: 'name_example'}) # DynamicSecretCreateDockerhub | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_dockerhub: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateDockerhub**](DynamicSecretCreateDockerhub.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_eks
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_eks(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateEks.new({name: 'name_example'}) # DynamicSecretCreateEks | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_eks(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_eks: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_eks_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_eks_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_eks_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_eks_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateEks**](DynamicSecretCreateEks.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_gcp
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # DynamicSecretCreateGcp | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gcp: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateGcp**](DynamicSecretCreateGcp.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_github
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_github(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateGithub.new({name: 'name_example'}) # DynamicSecretCreateGithub | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_github(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_github: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_github_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_github_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_github_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_github_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateGithub**](DynamicSecretCreateGithub.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_gke
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_gke(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateGke.new({name: 'name_example'}) # DynamicSecretCreateGke | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_gke(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gke: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_gke_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_gke_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_gke_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gke_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateGke**](DynamicSecretCreateGke.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_hana_db
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_hana_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateHanaDb.new({name: 'name_example'}) # DynamicSecretCreateHanaDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_hana_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_hana_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_hana_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_hana_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_hana_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_hana_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateHanaDb**](DynamicSecretCreateHanaDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_k8s
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateK8s.new({name: 'name_example'}) # DynamicSecretCreateK8s | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_k8s: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateK8s**](DynamicSecretCreateK8s.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_ldap
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateLdap.new({name: 'name_example'}) # DynamicSecretCreateLdap | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ldap: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateLdap**](DynamicSecretCreateLdap.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_mongo_db
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_mongo_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateMongoDb.new({name: 'name_example'}) # DynamicSecretCreateMongoDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_mongo_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_mongo_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_mongo_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_mongo_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_mongo_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_mongo_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateMongoDb**](DynamicSecretCreateMongoDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_ms_sql
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_ms_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateMsSql.new({name: 'name_example'}) # DynamicSecretCreateMsSql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_ms_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ms_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_ms_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_ms_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_ms_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ms_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateMsSql**](DynamicSecretCreateMsSql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_my_sql
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_my_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateMySql.new({name: 'name_example'}) # DynamicSecretCreateMySql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_my_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_my_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_my_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_my_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_my_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_my_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateMySql**](DynamicSecretCreateMySql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_oracle_db
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_oracle_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateOracleDb.new({name: 'name_example'}) # DynamicSecretCreateOracleDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_oracle_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_oracle_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_oracle_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_oracle_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_oracle_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_oracle_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateOracleDb**](DynamicSecretCreateOracleDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_ping
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_ping(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreatePing.new({name: 'name_example'}) # DynamicSecretCreatePing | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_ping(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ping: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_ping_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_ping_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_ping_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ping_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreatePing**](DynamicSecretCreatePing.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_postgre_sql
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_postgre_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreatePostgreSql.new({name: 'name_example'}) # DynamicSecretCreatePostgreSql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_postgre_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_postgre_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_postgre_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_postgre_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_postgre_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_postgre_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreatePostgreSql**](DynamicSecretCreatePostgreSql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_rabbit_mq
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_rabbit_mq(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateRabbitMq.new({name: 'name_example'}) # DynamicSecretCreateRabbitMq | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_rabbit_mq(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_rabbit_mq: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_rabbit_mq_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_rabbit_mq_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_rabbit_mq_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_rabbit_mq_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateRabbitMq**](DynamicSecretCreateRabbitMq.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_rdp
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_rdp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateRdp.new({name: 'name_example'}) # DynamicSecretCreateRdp | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_rdp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_rdp: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_rdp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_rdp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_rdp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_rdp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateRdp**](DynamicSecretCreateRdp.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_redis
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_redis(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateRedis.new({name: 'name_example'}) # DynamicSecretCreateRedis | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_redis(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_redis: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_redis_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_redis_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_redis_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_redis_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateRedis**](DynamicSecretCreateRedis.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_redshift
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_redshift(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateRedshift.new({name: 'name_example'}) # DynamicSecretCreateRedshift | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_redshift(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_redshift: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_redshift_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_redshift_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_redshift_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_redshift_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateRedshift**](DynamicSecretCreateRedshift.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_snowflake
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_snowflake(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateSnowflake.new({name: 'name_example'}) # DynamicSecretCreateSnowflake | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_snowflake(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_snowflake: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_snowflake_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_snowflake_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_snowflake_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_snowflake_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateSnowflake**](DynamicSecretCreateSnowflake.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_create_venafi
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_venafi(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateVenafi.new({name: 'name_example'}) # DynamicSecretCreateVenafi | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_venafi(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_venafi: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_venafi_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_venafi_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_venafi_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_venafi_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateVenafi**](DynamicSecretCreateVenafi.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_delete
+
+> <DynamicSecretDeleteOutput> dynamic_secret_delete(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretDelete.new({name: 'name_example'}) # DynamicSecretDelete | 
+
+begin
+  
+  result = api_instance.dynamic_secret_delete(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_delete: #{e}"
+end
+```
+
+#### Using the dynamic_secret_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretDeleteOutput>, Integer, Hash)> dynamic_secret_delete_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_delete_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretDeleteOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretDelete**](DynamicSecretDelete.md) |  |  |
+
+### Return type
+
+[**DynamicSecretDeleteOutput**](DynamicSecretDeleteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_get
+
+> <DSProducerDetails> dynamic_secret_get
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+
+begin
+  
+  result = api_instance.dynamic_secret_get
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_get: #{e}"
+end
+```
+
+#### Using the dynamic_secret_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DSProducerDetails>, Integer, Hash)> dynamic_secret_get_with_http_info
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DSProducerDetails>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DSProducerDetails**](DSProducerDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## dynamic_secret_get_value
+
+> Hash&lt;String, String&gt; dynamic_secret_get_value(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretGetValue.new({name: 'name_example'}) # DynamicSecretGetValue | 
+
+begin
+  
+  result = api_instance.dynamic_secret_get_value(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_get_value: #{e}"
+end
+```
+
+#### Using the dynamic_secret_get_value_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Hash&lt;String, String&gt;, Integer, Hash)> dynamic_secret_get_value_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_get_value_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Hash&lt;String, String&gt;
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_get_value_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretGetValue**](DynamicSecretGetValue.md) |  |  |
+
+### Return type
+
+**Hash&lt;String, String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_list
+
+> <GetProducersListReplyObj> dynamic_secret_list(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretList.new # DynamicSecretList | 
+
+begin
+  
+  result = api_instance.dynamic_secret_list(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_list: #{e}"
+end
+```
+
+#### Using the dynamic_secret_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetProducersListReplyObj>, Integer, Hash)> dynamic_secret_list_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_list_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetProducersListReplyObj>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretList**](DynamicSecretList.md) |  |  |
+
+### Return type
+
+[**GetProducersListReplyObj**](GetProducersListReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_tmp_creds_delete
+
+> dynamic_secret_tmp_creds_delete(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretTmpCredsDelete.new({name: 'name_example', tmp_creds_id: 'tmp_creds_id_example'}) # DynamicSecretTmpCredsDelete | 
+
+begin
+  
+  api_instance.dynamic_secret_tmp_creds_delete(body)
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_delete: #{e}"
+end
+```
+
+#### Using the dynamic_secret_tmp_creds_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> dynamic_secret_tmp_creds_delete_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_tmp_creds_delete_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretTmpCredsDelete**](DynamicSecretTmpCredsDelete.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_tmp_creds_get
+
+> <Array<TmpUserData>> dynamic_secret_tmp_creds_get(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretTmpCredsGet.new({name: 'name_example'}) # DynamicSecretTmpCredsGet | 
+
+begin
+  
+  result = api_instance.dynamic_secret_tmp_creds_get(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_get: #{e}"
+end
+```
+
+#### Using the dynamic_secret_tmp_creds_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<TmpUserData>>, Integer, Hash)> dynamic_secret_tmp_creds_get_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_tmp_creds_get_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<TmpUserData>>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretTmpCredsGet**](DynamicSecretTmpCredsGet.md) |  |  |
+
+### Return type
+
+[**Array&lt;TmpUserData&gt;**](TmpUserData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_tmp_creds_update
+
+> dynamic_secret_tmp_creds_update(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretTmpCredsUpdate.new({host: 'host_example', name: 'name_example', new_ttl_min: 3.56, tmp_creds_id: 'tmp_creds_id_example'}) # DynamicSecretTmpCredsUpdate | 
+
+begin
+  
+  api_instance.dynamic_secret_tmp_creds_update(body)
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_update: #{e}"
+end
+```
+
+#### Using the dynamic_secret_tmp_creds_update_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> dynamic_secret_tmp_creds_update_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_tmp_creds_update_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_tmp_creds_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretTmpCredsUpdate**](DynamicSecretTmpCredsUpdate.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_artifactory
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_artifactory(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateArtifactory.new({artifactory_token_audience: 'artifactory_token_audience_example', artifactory_token_scope: 'artifactory_token_scope_example', name: 'name_example'}) # DynamicSecretUpdateArtifactory | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_artifactory(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_artifactory: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_artifactory_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_artifactory_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_artifactory_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_artifactory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateArtifactory**](DynamicSecretUpdateArtifactory.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_aws
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateAws.new({name: 'name_example'}) # DynamicSecretUpdateAws | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_aws: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateAws**](DynamicSecretUpdateAws.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_azure
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateAzure.new({name: 'name_example'}) # DynamicSecretUpdateAzure | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_azure: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateAzure**](DynamicSecretUpdateAzure.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_cassandra
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_cassandra(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateCassandra.new({name: 'name_example'}) # DynamicSecretUpdateCassandra | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_cassandra(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_cassandra: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_cassandra_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_cassandra_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_cassandra_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_cassandra_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateCassandra**](DynamicSecretUpdateCassandra.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_custom
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_custom(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  body: Akeyless::DynamicSecretUpdateCustom.new({create_sync_url: 'create_sync_url_example', name: 'name_example', revoke_sync_url: 'revoke_sync_url_example'}) # DynamicSecretUpdateCustom | 
+}
+
+begin
+  
+  result = api_instance.dynamic_secret_update_custom(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_custom: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_custom_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_custom_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_custom_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_custom_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateCustom**](DynamicSecretUpdateCustom.md) |  | [optional] |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_dockerhub
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateDockerhub.new({name: 'name_example'}) # DynamicSecretUpdateDockerhub | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_dockerhub: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateDockerhub**](DynamicSecretUpdateDockerhub.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_eks
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_eks(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateEks.new({name: 'name_example'}) # DynamicSecretUpdateEks | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_eks(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_eks: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_eks_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_eks_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_eks_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_eks_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateEks**](DynamicSecretUpdateEks.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_gcp
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # DynamicSecretUpdateGcp | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gcp: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateGcp**](DynamicSecretUpdateGcp.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_github
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_github(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateGithub.new({name: 'name_example'}) # DynamicSecretUpdateGithub | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_github(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_github: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_github_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_github_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_github_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_github_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateGithub**](DynamicSecretUpdateGithub.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_gke
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_gke(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateGke.new({name: 'name_example'}) # DynamicSecretUpdateGke | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_gke(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gke: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_gke_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_gke_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_gke_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gke_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateGke**](DynamicSecretUpdateGke.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_hana_db
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_hana_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateHanaDb.new({name: 'name_example'}) # DynamicSecretUpdateHanaDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_hana_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_hana_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_hana_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_hana_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_hana_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_hana_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateHanaDb**](DynamicSecretUpdateHanaDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_k8s
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateK8s.new({name: 'name_example'}) # DynamicSecretUpdateK8s | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_k8s: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateK8s**](DynamicSecretUpdateK8s.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_ldap
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateLdap.new({name: 'name_example'}) # DynamicSecretUpdateLdap | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ldap: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateLdap**](DynamicSecretUpdateLdap.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_mongo_db
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_mongo_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateMongoDb.new({name: 'name_example'}) # DynamicSecretUpdateMongoDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_mongo_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_mongo_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_mongo_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_mongo_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_mongo_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_mongo_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateMongoDb**](DynamicSecretUpdateMongoDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_ms_sql
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_ms_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateMsSql.new({name: 'name_example'}) # DynamicSecretUpdateMsSql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_ms_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ms_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_ms_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_ms_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_ms_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ms_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateMsSql**](DynamicSecretUpdateMsSql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_my_sql
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_my_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateMySql.new({name: 'name_example'}) # DynamicSecretUpdateMySql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_my_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_my_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_my_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_my_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_my_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_my_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateMySql**](DynamicSecretUpdateMySql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_oracle_db
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_oracle_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateOracleDb.new({name: 'name_example'}) # DynamicSecretUpdateOracleDb | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_oracle_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_oracle_db: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_oracle_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_oracle_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_oracle_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_oracle_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateOracleDb**](DynamicSecretUpdateOracleDb.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_ping
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_ping(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdatePing.new({name: 'name_example'}) # DynamicSecretUpdatePing | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_ping(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ping: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_ping_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_ping_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_ping_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ping_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdatePing**](DynamicSecretUpdatePing.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_postgre_sql
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_postgre_sql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdatePostgreSql.new({name: 'name_example'}) # DynamicSecretUpdatePostgreSql | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_postgre_sql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_postgre_sql: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_postgre_sql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_postgre_sql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_postgre_sql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_postgre_sql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdatePostgreSql**](DynamicSecretUpdatePostgreSql.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_rabbit_mq
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_rabbit_mq(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateRabbitMq.new({name: 'name_example'}) # DynamicSecretUpdateRabbitMq | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_rabbit_mq(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_rabbit_mq: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_rabbit_mq_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_rabbit_mq_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_rabbit_mq_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_rabbit_mq_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateRabbitMq**](DynamicSecretUpdateRabbitMq.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_rdp
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_rdp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateRdp.new({name: 'name_example'}) # DynamicSecretUpdateRdp | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_rdp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_rdp: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_rdp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_rdp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_rdp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_rdp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateRdp**](DynamicSecretUpdateRdp.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_redis
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_redis(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateRedis.new({name: 'name_example'}) # DynamicSecretUpdateRedis | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_redis(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_redis: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_redis_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_redis_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_redis_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_redis_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateRedis**](DynamicSecretUpdateRedis.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_redshift
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_redshift(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateRedshift.new({name: 'name_example'}) # DynamicSecretUpdateRedshift | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_redshift(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_redshift: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_redshift_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_redshift_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_redshift_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_redshift_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateRedshift**](DynamicSecretUpdateRedshift.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_snowflake
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_snowflake(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateSnowflake.new({name: 'name_example'}) # DynamicSecretUpdateSnowflake | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_snowflake(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_snowflake: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_snowflake_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_snowflake_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_snowflake_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_snowflake_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateSnowflake**](DynamicSecretUpdateSnowflake.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_venafi
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_venafi(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateVenafi.new({name: 'name_example'}) # DynamicSecretUpdateVenafi | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_venafi(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_venafi: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_venafi_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_venafi_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_venafi_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_venafi_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateVenafi**](DynamicSecretUpdateVenafi.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## encrypt
 
 > <EncryptOutput> encrypt(body)
@@ -5962,6 +9662,378 @@ No authorization required
 - **Accept**: application/json
 
 
+## event_forwarder_create_email
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_create_email(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderCreateEmail.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', runner_type: 'runner_type_example'}) # EventForwarderCreateEmail | 
+
+begin
+  
+  result = api_instance.event_forwarder_create_email(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_email: #{e}"
+end
+```
+
+#### Using the event_forwarder_create_email_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_create_email_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_create_email_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderCreateEmail**](EventForwarderCreateEmail.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_create_webhook
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_create_webhook(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderCreateWebhook.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', runner_type: 'runner_type_example'}) # EventForwarderCreateWebhook | 
+
+begin
+  
+  result = api_instance.event_forwarder_create_webhook(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_webhook: #{e}"
+end
+```
+
+#### Using the event_forwarder_create_webhook_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_create_webhook_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_create_webhook_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_webhook_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderCreateWebhook**](EventForwarderCreateWebhook.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_delete
+
+> <EventForwarderDeleteOutput> event_forwarder_delete(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderDelete.new({name: 'name_example'}) # EventForwarderDelete | 
+
+begin
+  
+  result = api_instance.event_forwarder_delete(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_delete: #{e}"
+end
+```
+
+#### Using the event_forwarder_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderDeleteOutput>, Integer, Hash)> event_forwarder_delete_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_delete_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderDeleteOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderDelete**](EventForwarderDelete.md) |  |  |
+
+### Return type
+
+[**EventForwarderDeleteOutput**](EventForwarderDeleteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_get
+
+> <EventForwarderGetOutput> event_forwarder_get(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderGet.new({name: 'name_example'}) # EventForwarderGet | 
+
+begin
+  
+  result = api_instance.event_forwarder_get(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_get: #{e}"
+end
+```
+
+#### Using the event_forwarder_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderGetOutput>, Integer, Hash)> event_forwarder_get_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_get_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderGetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderGet**](EventForwarderGet.md) |  |  |
+
+### Return type
+
+[**EventForwarderGetOutput**](EventForwarderGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_update_email
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_update_email(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderUpdateEmail.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example'}) # EventForwarderUpdateEmail | 
+
+begin
+  
+  result = api_instance.event_forwarder_update_email(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_email: #{e}"
+end
+```
+
+#### Using the event_forwarder_update_email_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_update_email_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_update_email_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderUpdateEmail**](EventForwarderUpdateEmail.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_update_webhook
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_update_webhook(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderUpdateWebhook.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example'}) # EventForwarderUpdateWebhook | 
+
+begin
+  
+  result = api_instance.event_forwarder_update_webhook(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_webhook: #{e}"
+end
+```
+
+#### Using the event_forwarder_update_webhook_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_update_webhook_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_update_webhook_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_webhook_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderUpdateWebhook**](EventForwarderUpdateWebhook.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## export_classic_key
 
 > <ExportClassicKeyOutput> export_classic_key(body)
@@ -6458,9 +10530,9 @@ No authorization required
 - **Accept**: application/json
 
 
-## gateway_create_producer_certificate_automation
+## gateway_create_producer_chef
 
-> <GatewayCreateProducerCertificateAutomationOutput> gateway_create_producer_certificate_automation(body)
+> <GatewayCreateProducerChefOutput> gateway_create_producer_chef(body)
 
 
 
@@ -6471,32 +10543,32 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::GatewayCreateProducerCertificateAutomation.new({name: 'name_example'}) # GatewayCreateProducerCertificateAutomation | 
+body = Akeyless::GatewayCreateProducerChef.new({name: 'name_example'}) # GatewayCreateProducerChef | 
 
 begin
   
-  result = api_instance.gateway_create_producer_certificate_automation(body)
+  result = api_instance.gateway_create_producer_chef(body)
   p result
 rescue Akeyless::ApiError => e
-  puts "Error when calling V2Api->gateway_create_producer_certificate_automation: #{e}"
+  puts "Error when calling V2Api->gateway_create_producer_chef: #{e}"
 end
 ```
 
-#### Using the gateway_create_producer_certificate_automation_with_http_info variant
+#### Using the gateway_create_producer_chef_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GatewayCreateProducerCertificateAutomationOutput>, Integer, Hash)> gateway_create_producer_certificate_automation_with_http_info(body)
+> <Array(<GatewayCreateProducerChefOutput>, Integer, Hash)> gateway_create_producer_chef_with_http_info(body)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.gateway_create_producer_certificate_automation_with_http_info(body)
+  data, status_code, headers = api_instance.gateway_create_producer_chef_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GatewayCreateProducerCertificateAutomationOutput>
+  p data # => <GatewayCreateProducerChefOutput>
 rescue Akeyless::ApiError => e
-  puts "Error when calling V2Api->gateway_create_producer_certificate_automation_with_http_info: #{e}"
+  puts "Error when calling V2Api->gateway_create_producer_chef_with_http_info: #{e}"
 end
 ```
 
@@ -6504,11 +10576,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**GatewayCreateProducerCertificateAutomation**](GatewayCreateProducerCertificateAutomation.md) |  |  |
+| **body** | [**GatewayCreateProducerChef**](GatewayCreateProducerChef.md) |  |  |
 
 ### Return type
 
-[**GatewayCreateProducerCertificateAutomationOutput**](GatewayCreateProducerCertificateAutomationOutput.md)
+[**GatewayCreateProducerChefOutput**](GatewayCreateProducerChefOutput.md)
 
 ### Authorization
 
@@ -7751,6 +11823,68 @@ end
 ### Return type
 
 [**GatewayCreateProducerSnowflakeOutput**](GatewayCreateProducerSnowflakeOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_create_producer_venafi
+
+> <GatewayCreateProducerVenafiOutput> gateway_create_producer_venafi(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayCreateProducerVenafi.new({name: 'name_example'}) # GatewayCreateProducerVenafi | 
+
+begin
+  
+  result = api_instance.gateway_create_producer_venafi(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_create_producer_venafi: #{e}"
+end
+```
+
+#### Using the gateway_create_producer_venafi_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayCreateProducerVenafiOutput>, Integer, Hash)> gateway_create_producer_venafi_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_create_producer_venafi_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayCreateProducerVenafiOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_create_producer_venafi_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayCreateProducerVenafi**](GatewayCreateProducerVenafi.md) |  |  |
+
+### Return type
+
+[**GatewayCreateProducerVenafiOutput**](GatewayCreateProducerVenafiOutput.md)
 
 ### Authorization
 
@@ -9623,9 +13757,9 @@ No authorization required
 - **Accept**: application/json
 
 
-## gateway_update_producer_certificate_automation
+## gateway_update_producer_chef
 
-> <GatewayUpdateProducerCertificateAutomationOutput> gateway_update_producer_certificate_automation(body)
+> <GatewayUpdateProducerChefOutput> gateway_update_producer_chef(body)
 
 
 
@@ -9636,32 +13770,32 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::GatewayUpdateProducerCertificateAutomation.new({name: 'name_example'}) # GatewayUpdateProducerCertificateAutomation | 
+body = Akeyless::GatewayUpdateProducerChef.new({name: 'name_example'}) # GatewayUpdateProducerChef | 
 
 begin
   
-  result = api_instance.gateway_update_producer_certificate_automation(body)
+  result = api_instance.gateway_update_producer_chef(body)
   p result
 rescue Akeyless::ApiError => e
-  puts "Error when calling V2Api->gateway_update_producer_certificate_automation: #{e}"
+  puts "Error when calling V2Api->gateway_update_producer_chef: #{e}"
 end
 ```
 
-#### Using the gateway_update_producer_certificate_automation_with_http_info variant
+#### Using the gateway_update_producer_chef_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GatewayUpdateProducerCertificateAutomationOutput>, Integer, Hash)> gateway_update_producer_certificate_automation_with_http_info(body)
+> <Array(<GatewayUpdateProducerChefOutput>, Integer, Hash)> gateway_update_producer_chef_with_http_info(body)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.gateway_update_producer_certificate_automation_with_http_info(body)
+  data, status_code, headers = api_instance.gateway_update_producer_chef_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GatewayUpdateProducerCertificateAutomationOutput>
+  p data # => <GatewayUpdateProducerChefOutput>
 rescue Akeyless::ApiError => e
-  puts "Error when calling V2Api->gateway_update_producer_certificate_automation_with_http_info: #{e}"
+  puts "Error when calling V2Api->gateway_update_producer_chef_with_http_info: #{e}"
 end
 ```
 
@@ -9669,11 +13803,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**GatewayUpdateProducerCertificateAutomation**](GatewayUpdateProducerCertificateAutomation.md) |  |  |
+| **body** | [**GatewayUpdateProducerChef**](GatewayUpdateProducerChef.md) |  |  |
 
 ### Return type
 
-[**GatewayUpdateProducerCertificateAutomationOutput**](GatewayUpdateProducerCertificateAutomationOutput.md)
+[**GatewayUpdateProducerChefOutput**](GatewayUpdateProducerChefOutput.md)
 
 ### Authorization
 
@@ -10927,6 +15061,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## gateway_update_producer_venafi
+
+> <GatewayUpdateProducerVenafiOutput> gateway_update_producer_venafi(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateProducerVenafi.new({name: 'name_example'}) # GatewayUpdateProducerVenafi | 
+
+begin
+  
+  result = api_instance.gateway_update_producer_venafi(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_producer_venafi: #{e}"
+end
+```
+
+#### Using the gateway_update_producer_venafi_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateProducerVenafiOutput>, Integer, Hash)> gateway_update_producer_venafi_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_producer_venafi_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateProducerVenafiOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_producer_venafi_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateProducerVenafi**](GatewayUpdateProducerVenafi.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateProducerVenafiOutput**](GatewayUpdateProducerVenafiOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## gateway_update_tls_cert
 
 > <GatewayUpdateTlsCertOutput> gateway_update_tls_cert(body)
@@ -11002,7 +15198,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::GatewayUpdateTmpUsers.new({name: 'name_example', new_ttl_min: 3.56, tmp_creds_id: 'tmp_creds_id_example'}) # GatewayUpdateTmpUsers | 
+body = Akeyless::GatewayUpdateTmpUsers.new({host: 'host_example', name: 'name_example', new_ttl_min: 3.56, tmp_creds_id: 'tmp_creds_id_example'}) # GatewayUpdateTmpUsers | 
 
 begin
   
@@ -14001,7 +18197,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::RequestAccess.new({capability: ['capability_example'], name: 'name_example'}) # RequestAccess | 
+body = Akeyless::RequestAccess.new({capability: ['capability_example'], name: 'name_example', type: 'type_example'}) # RequestAccess | 
 
 begin
   
@@ -14408,6 +18604,2362 @@ end
 ### Return type
 
 [**RotatedSecretOutput**](RotatedSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_aws
+
+> <RotatedSecretCreateOutput> rotated_secret_create_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateAws.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateAws | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_aws: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateAws**](RotatedSecretCreateAws.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_azure
+
+> <RotatedSecretCreateOutput> rotated_secret_create_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateAzure.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateAzure | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_azure: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateAzure**](RotatedSecretCreateAzure.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_cassandra
+
+> <RotatedSecretCreateOutput> rotated_secret_create_cassandra(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateCassandra.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateCassandra | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_cassandra(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_cassandra: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_cassandra_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_cassandra_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_cassandra_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_cassandra_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateCassandra**](RotatedSecretCreateCassandra.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_custom
+
+> <RotatedSecretCreateOutput> rotated_secret_create_custom(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateCustom.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretCreateCustom | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_custom(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_custom: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_custom_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_custom_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_custom_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_custom_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateCustom**](RotatedSecretCreateCustom.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_dockerhub
+
+> <RotatedSecretCreateOutput> rotated_secret_create_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateDockerhub.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretCreateDockerhub | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_dockerhub: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateDockerhub**](RotatedSecretCreateDockerhub.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_gcp
+
+> <RotatedSecretCreateOutput> rotated_secret_create_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateGcp.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateGcp | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_gcp: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateGcp**](RotatedSecretCreateGcp.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_hanadb
+
+> <RotatedSecretCreateOutput> rotated_secret_create_hanadb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateHanadb.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateHanadb | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_hanadb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_hanadb: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_hanadb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_hanadb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_hanadb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_hanadb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateHanadb**](RotatedSecretCreateHanadb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_ldap
+
+> <RotatedSecretCreateOutput> rotated_secret_create_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateLdap.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateLdap | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ldap: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateLdap**](RotatedSecretCreateLdap.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_mongodb
+
+> <RotatedSecretCreateOutput> rotated_secret_create_mongodb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateMongodb.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateMongodb | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_mongodb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mongodb: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_mongodb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_mongodb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_mongodb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mongodb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateMongodb**](RotatedSecretCreateMongodb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_mssql
+
+> <RotatedSecretCreateOutput> rotated_secret_create_mssql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateMssql.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateMssql | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_mssql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mssql: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_mssql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_mssql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_mssql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mssql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateMssql**](RotatedSecretCreateMssql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_mysql
+
+> <RotatedSecretCreateOutput> rotated_secret_create_mysql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateMysql.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateMysql | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_mysql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mysql: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_mysql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_mysql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_mysql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_mysql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateMysql**](RotatedSecretCreateMysql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_oracledb
+
+> <RotatedSecretCreateOutput> rotated_secret_create_oracledb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateOracledb.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateOracledb | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_oracledb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_oracledb: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_oracledb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_oracledb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_oracledb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_oracledb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateOracledb**](RotatedSecretCreateOracledb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_postgresql
+
+> <RotatedSecretCreateOutput> rotated_secret_create_postgresql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreatePostgresql.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreatePostgresql | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_postgresql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_postgresql: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_postgresql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_postgresql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_postgresql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_postgresql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreatePostgresql**](RotatedSecretCreatePostgresql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_redis
+
+> <RotatedSecretCreateOutput> rotated_secret_create_redis(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateRedis.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateRedis | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_redis(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_redis: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_redis_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_redis_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_redis_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_redis_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateRedis**](RotatedSecretCreateRedis.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_redshift
+
+> <RotatedSecretCreateOutput> rotated_secret_create_redshift(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateRedshift.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateRedshift | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_redshift(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_redshift: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_redshift_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_redshift_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_redshift_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_redshift_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateRedshift**](RotatedSecretCreateRedshift.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_snowflake
+
+> <RotatedSecretCreateOutput> rotated_secret_create_snowflake(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateSnowflake.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateSnowflake | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_snowflake(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_snowflake: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_snowflake_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_snowflake_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_snowflake_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_snowflake_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateSnowflake**](RotatedSecretCreateSnowflake.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_ssh
+
+> <RotatedSecretCreateOutput> rotated_secret_create_ssh(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateSsh.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateSsh | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_ssh(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ssh: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_ssh_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_ssh_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_ssh_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ssh_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateSsh**](RotatedSecretCreateSsh.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_windows
+
+> <RotatedSecretCreateOutput> rotated_secret_create_windows(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretCreateWindows.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateWindows | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_windows(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_windows: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_windows_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_windows_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_windows_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_windows_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretCreateWindows**](RotatedSecretCreateWindows.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_get_value
+
+> Hash&lt;String, String&gt; rotated_secret_get_value(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretGetValue.new({name: 'name_example'}) # RotatedSecretGetValue | 
+
+begin
+  
+  result = api_instance.rotated_secret_get_value(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_get_value: #{e}"
+end
+```
+
+#### Using the rotated_secret_get_value_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Hash&lt;String, String&gt;, Integer, Hash)> rotated_secret_get_value_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_get_value_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Hash&lt;String, String&gt;
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_get_value_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretGetValue**](RotatedSecretGetValue.md) |  |  |
+
+### Return type
+
+**Hash&lt;String, String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_list
+
+> <GetProducersListReplyObj> rotated_secret_list(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretList.new # RotatedSecretList | 
+
+begin
+  
+  result = api_instance.rotated_secret_list(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_list: #{e}"
+end
+```
+
+#### Using the rotated_secret_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetProducersListReplyObj>, Integer, Hash)> rotated_secret_list_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_list_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetProducersListReplyObj>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretList**](RotatedSecretList.md) |  |  |
+
+### Return type
+
+[**GetProducersListReplyObj**](GetProducersListReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_aws
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateAws.new({name: 'name_example'}) # RotatedSecretUpdateAws | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_aws: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateAws**](RotatedSecretUpdateAws.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_azure
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateAzure.new({name: 'name_example'}) # RotatedSecretUpdateAzure | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_azure: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateAzure**](RotatedSecretUpdateAzure.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_cassandra
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_cassandra(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateCassandra.new({name: 'name_example'}) # RotatedSecretUpdateCassandra | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_cassandra(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_cassandra: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_cassandra_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_cassandra_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_cassandra_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_cassandra_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateCassandra**](RotatedSecretUpdateCassandra.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_custom
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_custom(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateCustom.new({name: 'name_example'}) # RotatedSecretUpdateCustom | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_custom(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_custom: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_custom_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_custom_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_custom_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_custom_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateCustom**](RotatedSecretUpdateCustom.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_dockerhub
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateDockerhub.new({name: 'name_example'}) # RotatedSecretUpdateDockerhub | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_dockerhub: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateDockerhub**](RotatedSecretUpdateDockerhub.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_gcp
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateGcp.new({name: 'name_example', rotator_type: 'rotator_type_example'}) # RotatedSecretUpdateGcp | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_gcp: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateGcp**](RotatedSecretUpdateGcp.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_hanadb
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_hanadb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateHanadb.new({name: 'name_example'}) # RotatedSecretUpdateHanadb | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_hanadb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_hanadb: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_hanadb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_hanadb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_hanadb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_hanadb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateHanadb**](RotatedSecretUpdateHanadb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_ldap
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateLdap.new({name: 'name_example'}) # RotatedSecretUpdateLdap | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ldap: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateLdap**](RotatedSecretUpdateLdap.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_mongodb
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_mongodb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateMongodb.new({name: 'name_example'}) # RotatedSecretUpdateMongodb | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_mongodb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mongodb: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_mongodb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_mongodb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_mongodb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mongodb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateMongodb**](RotatedSecretUpdateMongodb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_mssql
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_mssql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateMssql.new({name: 'name_example'}) # RotatedSecretUpdateMssql | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_mssql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mssql: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_mssql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_mssql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_mssql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mssql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateMssql**](RotatedSecretUpdateMssql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_mysql
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_mysql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateMysql.new({name: 'name_example'}) # RotatedSecretUpdateMysql | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_mysql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mysql: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_mysql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_mysql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_mysql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_mysql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateMysql**](RotatedSecretUpdateMysql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_oracledb
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_oracledb(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateOracledb.new({name: 'name_example'}) # RotatedSecretUpdateOracledb | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_oracledb(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_oracledb: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_oracledb_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_oracledb_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_oracledb_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_oracledb_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateOracledb**](RotatedSecretUpdateOracledb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_postgresql
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_postgresql(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdatePostgresql.new({name: 'name_example'}) # RotatedSecretUpdatePostgresql | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_postgresql(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_postgresql: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_postgresql_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_postgresql_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_postgresql_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_postgresql_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdatePostgresql**](RotatedSecretUpdatePostgresql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_redis
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_redis(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateRedis.new({name: 'name_example'}) # RotatedSecretUpdateRedis | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_redis(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_redis: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_redis_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_redis_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_redis_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_redis_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateRedis**](RotatedSecretUpdateRedis.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_redshift
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_redshift(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateRedshift.new({name: 'name_example'}) # RotatedSecretUpdateRedshift | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_redshift(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_redshift: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_redshift_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_redshift_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_redshift_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_redshift_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateRedshift**](RotatedSecretUpdateRedshift.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_snowflake
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_snowflake(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateSnowflake.new({name: 'name_example'}) # RotatedSecretUpdateSnowflake | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_snowflake(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_snowflake: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_snowflake_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_snowflake_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_snowflake_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_snowflake_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateSnowflake**](RotatedSecretUpdateSnowflake.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_ssh
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_ssh(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateSsh.new({name: 'name_example', rotator_type: 'rotator_type_example'}) # RotatedSecretUpdateSsh | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_ssh(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ssh: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_ssh_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_ssh_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_ssh_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ssh_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateSsh**](RotatedSecretUpdateSsh.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_windows
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_windows(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RotatedSecretUpdateWindows.new({name: 'name_example', rotator_type: 'rotator_type_example'}) # RotatedSecretUpdateWindows | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_windows(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_windows: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_windows_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_windows_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_windows_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_windows_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RotatedSecretUpdateWindows**](RotatedSecretUpdateWindows.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
 
 ### Authorization
 
@@ -17321,6 +23873,68 @@ end
 ### Return type
 
 [**UpdateGlobalSignTargetOutput**](UpdateGlobalSignTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_godaddy_target
+
+> <UpdateGodaddyTargetOutput> update_godaddy_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::UpdateGodaddyTarget.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example', secret: 'secret_example'}) # UpdateGodaddyTarget | 
+
+begin
+  
+  result = api_instance.update_godaddy_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_godaddy_target: #{e}"
+end
+```
+
+#### Using the update_godaddy_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateGodaddyTargetOutput>, Integer, Hash)> update_godaddy_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_godaddy_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateGodaddyTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_godaddy_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**UpdateGodaddyTarget**](UpdateGodaddyTarget.md) |  |  |
+
+### Return type
+
+[**UpdateGodaddyTargetOutput**](UpdateGodaddyTargetOutput.md)
 
 ### Authorization
 

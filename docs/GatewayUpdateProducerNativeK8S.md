@@ -16,8 +16,8 @@
 | **k8s_rolebinding_yaml_def** | **String** | Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
 | **k8s_service_account** | **String** | K8S ServiceAccount to extract token from. | [optional] |
 | **k8s_service_account_type** | **String** | K8S ServiceAccount type [fixed, dynamic]. | [optional] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |

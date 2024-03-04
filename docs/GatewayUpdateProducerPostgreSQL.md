@@ -7,8 +7,9 @@
 | **creation_statements** | **String** | PostgreSQL Creation statements | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **postgresql_db_name** | **String** | PostgreSQL DB Name | [optional] |
 | **postgresql_host** | **String** | PostgreSQL Host | [optional][default to &#39;127.0.0.1&#39;] |
 | **postgresql_password** | **String** | PostgreSQL Password | [optional] |
@@ -39,6 +40,7 @@ instance = Akeyless::GatewayUpdateProducerPostgreSQL.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   postgresql_db_name: null,
   postgresql_host: null,
   postgresql_password: null,

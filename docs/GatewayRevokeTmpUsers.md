@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **host** | **String** | Deprecated: has no effect | [optional] |
+| **host** | **String** | Host | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer Name |  |
+| **name** | **String** | Dynamic secret name |  |
 | **revoke_all** | **Boolean** | Revoke All Temp Creds | [optional] |
 | **soft_delete** | **Boolean** | Soft Delete | [optional] |
 | **tmp_creds_id** | **String** | Tmp Creds ID | [default to &#39;demo_default_tmp_creds_id_for_sdk_bc&#39;] |

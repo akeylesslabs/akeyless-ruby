@@ -12,7 +12,8 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **ldap_ca_cert** | **String** | CA Certificate File Content | [optional] |
 | **ldap_url** | **String** | LDAP Server URL | [optional] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::GatewayCreateProducerLdap.new(
   ldap_ca_cert: null,
   ldap_url: null,
   name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   tags: null,
   target_name: null,

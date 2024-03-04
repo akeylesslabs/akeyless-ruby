@@ -4,14 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **provider_type** | **String** |  | [optional] |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **api_id** | **String** | API ID to rotate | [optional] |
 | **api_key** | **String** | API key to rotate | [optional] |
 | **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
-| **aws_region** | **String** | Region (used in aws) | [optional][default to &#39;us-east-2&#39;] |
+| **aws_region** | **String** | Aws Region (relevant only for aws) | [optional][default to &#39;us-east-2&#39;] |
 | **custom_payload** | **String** | Secret payload to be sent with rotation request (relevant only for rotator-type&#x3D;custom) | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
+| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] | [optional] |
+| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -38,6 +41,7 @@
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username (relevant only for rdp) | [optional] |
+| **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion (relevant only for aws or azure) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion (relevant only for aws or azure) | [optional][default to false] |
@@ -46,6 +50,8 @@
 | **storage_account_key_name** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **user_attribute** | **String** | LDAP User Attribute, Default value \&quot;cn\&quot; | [optional][default to &#39;cn&#39;] |
+| **user_dn** | **String** | LDAP User Base DN | [optional] |
 
 ## Example
 
@@ -53,6 +59,7 @@
 require 'akeyless'
 
 instance = Akeyless::UpdateRotatedSecret.new(
+  provider_type: null,
   add_tag: null,
   api_id: null,
   api_key: null,
@@ -61,6 +68,8 @@ instance = Akeyless::UpdateRotatedSecret.new(
   custom_payload: null,
   description: null,
   gcp_key: null,
+  grace_rotation: null,
+  host_provider: null,
   json: null,
   keep_prev_version: null,
   key: null,
@@ -87,6 +96,7 @@ instance = Akeyless::UpdateRotatedSecret.new(
   secure_access_host: null,
   secure_access_rdp_domain: null,
   secure_access_rdp_user: null,
+  secure_access_url: null,
   secure_access_web: null,
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
@@ -94,7 +104,9 @@ instance = Akeyless::UpdateRotatedSecret.new(
   ssh_username: null,
   storage_account_key_name: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  user_attribute: null,
+  user_dn: null
 )
 ```
 

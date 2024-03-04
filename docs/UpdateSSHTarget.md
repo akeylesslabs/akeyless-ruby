@@ -4,7 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **comment** | **String** | Deprecated - use description | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **host** | **String** | SSH host name | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -27,7 +26,6 @@
 require 'akeyless'
 
 instance = Akeyless::UpdateSSHTarget.new(
-  comment: null,
   description: null,
   host: null,
   json: null,

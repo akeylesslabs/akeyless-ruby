@@ -6,8 +6,10 @@
 | ---- | ---- | ----------- | ----- |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **allow_any_name** | **Boolean** | If set, clients can request certificates for any CN | [optional] |
+| **allow_copy_ext_from_csr** | **Boolean** | If set, will allow copying the extra extensions from the csr file (if given) | [optional] |
 | **allow_subdomains** | **Boolean** | If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains | [optional] |
 | **allowed_domains** | **String** | A list of the allowed domains that clients can request to be included in the certificate (in a comma-delimited list) | [optional] |
+| **allowed_extra_extensions** | **String** | A json string containing the allowed extra extensions for the pki cert issuer | [optional] |
 | **allowed_uri_sans** | **String** | A list of the allowed URIs that clients can request to be included in the certificate as part of the URI Subject Alternative Names (in a comma-delimited list) | [optional] |
 | **client_flag** | **Boolean** | If set, certificates will be flagged for client auth use | [optional] |
 | **code_signing_flag** | **Boolean** | If set, certificates will be flagged for code signing use | [optional] |
@@ -47,8 +49,10 @@ require 'akeyless'
 instance = Akeyless::UpdatePKICertIssuer.new(
   add_tag: null,
   allow_any_name: null,
+  allow_copy_ext_from_csr: null,
   allow_subdomains: null,
   allowed_domains: null,
+  allowed_extra_extensions: null,
   allowed_uri_sans: null,
   client_flag: null,
   code_signing_flag: null,

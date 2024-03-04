@@ -9,10 +9,12 @@
 | **github_app_private_key** | **String** | App private key | [optional] |
 | **github_base_url** | **String** | Base URL | [optional][default to &#39;https://api.github.com/&#39;] |
 | **installation_id** | **Integer** | Github app installation id | [optional] |
-| **installation_repository** | **String** | Repository that the app installation has access to | [optional] |
+| **installation_organization** | **String** | Optional, instead of installation id, set a GitHub organization name | [optional] |
+| **installation_repository** | **String** | Optional, instead of installation id, set a GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt; | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **token_permissions** | **Array&lt;String&gt;** | Optional - installation token&#39;s allowed permissions | [optional] |
@@ -30,10 +32,12 @@ instance = Akeyless::GatewayUpdateProducerGithub.new(
   github_app_private_key: null,
   github_base_url: null,
   installation_id: null,
+  installation_organization: null,
   installation_repository: null,
   json: null,
   name: null,
   new_name: null,
+  tags: null,
   target_name: null,
   token: null,
   token_permissions: null,

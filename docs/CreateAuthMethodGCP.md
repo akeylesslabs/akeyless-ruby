@@ -18,6 +18,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
+| **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] | [optional] |
 | **service_account_creds_data** | **String** | ServiceAccount credentials data instead of giving a file path, base64 encoded | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **type** | **String** | Type of the GCP Access Rules |  |
@@ -43,6 +44,7 @@ instance = Akeyless::CreateAuthMethodGCP.new(
   json: null,
   jwt_ttl: null,
   name: null,
+  product_type: null,
   service_account_creds_data: null,
   token: null,
   type: null,

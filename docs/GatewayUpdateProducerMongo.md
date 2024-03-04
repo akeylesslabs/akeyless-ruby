@@ -18,8 +18,9 @@
 | **mongodb_server_uri** | **String** | MongoDB server URI | [optional] |
 | **mongodb_uri_options** | **String** | MongoDB server URI options | [optional] |
 | **mongodb_username** | **String** | MongoDB server username | [optional] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Encrypt producer with following key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
@@ -53,6 +54,7 @@ instance = Akeyless::GatewayUpdateProducerMongo.new(
   mongodb_username: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
   secure_access_enable: null,

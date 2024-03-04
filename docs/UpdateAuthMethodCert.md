@@ -21,6 +21,7 @@
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
 | **new_name** | **String** | Auth Method new name | [optional] |
+| **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] | [optional] |
 | **revoked_cert_ids** | **Array&lt;String&gt;** | A list of revoked cert ids | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -49,6 +50,7 @@ instance = Akeyless::UpdateAuthMethodCert.new(
   jwt_ttl: null,
   name: null,
   new_name: null,
+  product_type: null,
   revoked_cert_ids: null,
   token: null,
   uid_token: null,

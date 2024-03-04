@@ -22,6 +22,7 @@
 | **oauth2_access_rules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  | [optional] |
 | **oci_access_rules** | [**OCIAccessRules**](OCIAccessRules.md) |  | [optional] |
 | **oidc_access_rules** | [**OIDCAccessRules**](OIDCAccessRules.md) |  | [optional] |
+| **product_types** | **Array&lt;String&gt;** | List of product types this auth method will be in use of | [optional] |
 | **rules_type** | **String** |  | [optional] |
 | **saml_access_rules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  | [optional] |
 | **sub_claims_delimiters** | **Array&lt;String&gt;** |  | [optional] |
@@ -51,6 +52,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   oauth2_access_rules: null,
   oci_access_rules: null,
   oidc_access_rules: null,
+  product_types: null,
   rules_type: null,
   saml_access_rules: null,
   sub_claims_delimiters: null,

@@ -12,6 +12,7 @@
 | **producer_metadata** | **String** |  | [optional] |
 | **producer_status** | **String** | RotationStatus defines types of rotation Status | [optional] |
 | **producer_type** | **String** |  | [optional] |
+| **user_ttl** | **String** |  | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = Akeyless::DynamicSecretProducerInfo.new(
   producer_last_keep_alive: null,
   producer_metadata: null,
   producer_status: null,
-  producer_type: null
+  producer_type: null,
+  user_ttl: null
 )
 ```
 

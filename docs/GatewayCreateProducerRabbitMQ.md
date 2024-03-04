@@ -6,7 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **rabbitmq_admin_pwd** | **String** | RabbitMQ Admin password | [optional] |
 | **rabbitmq_admin_user** | **String** | RabbitMQ Admin User | [optional] |
@@ -36,6 +37,7 @@ instance = Akeyless::GatewayCreateProducerRabbitMQ.new(
   delete_protection: null,
   json: null,
   name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   rabbitmq_admin_pwd: null,
   rabbitmq_admin_user: null,

@@ -16,7 +16,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
+| **name** | **String** | Dynamic secret name |  |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **region** | **String** | Region | [optional][default to &#39;us-east-2&#39;] |
 | **secure_access_aws_account_id** | **String** | The AWS account id | [optional] |

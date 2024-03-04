@@ -8,8 +8,9 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **fixed_user_only** | **String** | Allow access using externally (IdP) provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | Producer name |  |
-| **new_name** | **String** | Producer name | [optional] |
+| **name** | **String** | Dynamic secret name |  |
+| **new_name** | **String** | Dynamic secret name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **rdp_admin_name** | **String** | RDP Admin Name | [optional] |
 | **rdp_admin_pwd** | **String** | RDP Admin password | [optional] |
@@ -41,6 +42,7 @@ instance = Akeyless::GatewayUpdateProducerRdp.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   rdp_admin_name: null,
   rdp_admin_pwd: null,

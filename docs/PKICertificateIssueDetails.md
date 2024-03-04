@@ -5,8 +5,10 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **allow_any_name** | **Boolean** |  | [optional] |
+| **allow_copy_ext_from_csr** | **Boolean** |  | [optional] |
 | **allow_subdomains** | **Boolean** |  | [optional] |
 | **allowed_domains_list** | **Array&lt;String&gt;** |  | [optional] |
+| **allowed_extra_extensions** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **allowed_uri_sans** | **Array&lt;String&gt;** |  | [optional] |
 | **basic_constraints_valid_for_non_ca** | **Boolean** |  | [optional] |
 | **certificate_authority_mode** | **String** |  | [optional] |
@@ -39,8 +41,10 @@ require 'akeyless'
 
 instance = Akeyless::PKICertificateIssueDetails.new(
   allow_any_name: null,
+  allow_copy_ext_from_csr: null,
   allow_subdomains: null,
   allowed_domains_list: null,
+  allowed_extra_extensions: null,
   allowed_uri_sans: null,
   basic_constraints_valid_for_non_ca: null,
   certificate_authority_mode: null,
