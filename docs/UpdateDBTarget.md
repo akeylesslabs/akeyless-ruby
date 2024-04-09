@@ -20,6 +20,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **mongodb_atlas** | **Boolean** |  | [optional] |
 | **mongodb_atlas_api_private_key** | **String** | MongoDB Atlas private key | [optional] |
 | **mongodb_atlas_api_public_key** | **String** | MongoDB Atlas public key | [optional] |
@@ -63,6 +64,7 @@ instance = Akeyless::UpdateDBTarget.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  max_versions: null,
   mongodb_atlas: null,
   mongodb_atlas_api_private_key: null,
   mongodb_atlas_api_public_key: null,

@@ -10,6 +10,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **mtls_cert_data_base64** | **String** | Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either mtls-cert-file-path or mtls-cert-data-base64 must be supplied | [optional] |
 | **mtls_key_data_base64** | **String** | Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either mtls-key-file-path or mtls-data-base64 must be supplied | [optional] |
 | **name** | **String** | Target name |  |
@@ -29,6 +30,7 @@ instance = Akeyless::CreateGlobalSignAtlasTarget.new(
   description: null,
   json: null,
   key: null,
+  max_versions: null,
   mtls_cert_data_base64: null,
   mtls_key_data_base64: null,
   name: null,

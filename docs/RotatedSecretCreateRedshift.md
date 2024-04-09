@@ -10,6 +10,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
@@ -38,6 +39,7 @@ instance = Akeyless::RotatedSecretCreateRedshift.new(
   description: null,
   json: null,
   key: null,
+  max_versions: null,
   name: null,
   password_length: null,
   rotate_after_disconnect: null,

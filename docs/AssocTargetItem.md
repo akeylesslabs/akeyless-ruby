@@ -14,6 +14,7 @@
 | **location_id** | **String** | Location id of the GCP KMS (required for gcp targets) | [optional] |
 | **multi_region** | **String** | Set to &#39;true&#39; to create a multi-region managed key. (Relevant only for Classic Key AWS targets) | [optional][default to &#39;false&#39;] |
 | **name** | **String** | The item to associate |  |
+| **post_provision_command** | **String** | A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning) | [optional] |
 | **private_key_path** | **String** | A path on the target to store the private key (relevant only for certificate provisioning) | [optional] |
 | **project_id** | **String** | Project id of the GCP KMS (required for gcp targets) | [optional] |
 | **purpose** | **String** | Purpose of the key in GCP KMS (required for gcp targets) | [optional] |
@@ -41,6 +42,7 @@ instance = Akeyless::AssocTargetItem.new(
   location_id: null,
   multi_region: null,
   name: null,
+  post_provision_command: null,
   private_key_path: null,
   project_id: null,
   purpose: null,

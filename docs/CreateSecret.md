@@ -12,6 +12,7 @@
 | **format** | **String** | Secret format [text/json] (relevant only for type &#39;generic&#39;) | [optional][default to &#39;text&#39;] |
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **multiline_value** | **Boolean** | The provided value is a multiline value (separated by &#39;\\n&#39;) | [optional] |
 | **name** | **String** | Secret name |  |
@@ -47,6 +48,7 @@ instance = Akeyless::CreateSecret.new(
   format: null,
   inject_url: null,
   json: null,
+  max_versions: null,
   metadata: null,
   multiline_value: null,
   name: null,

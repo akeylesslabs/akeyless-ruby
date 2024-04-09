@@ -16,6 +16,7 @@
 | **key** | **String** | The name of a key that used to encrypt the EventForwarder secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **name** | **String** | EventForwarder name |  |
 | **new_name** | **String** | New EventForwarder name | [optional] |
+| **override_url** | **String** | Override Akeyless default URL with your Gateway url (port 18888) | [optional] |
 | **targets_event_source_locations** | **Array&lt;String&gt;** | Targets Event sources | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::EventForwarderUpdateEmail.new(
   key: null,
   name: null,
   new_name: null,
+  override_url: null,
   targets_event_source_locations: null,
   token: null,
   uid_token: null

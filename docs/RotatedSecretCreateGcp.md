@@ -13,6 +13,7 @@
 | **gcp_service_account_key_id** | **String** | The key id of the gcp service account to rotate | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::RotatedSecretCreateGcp.new(
   gcp_service_account_key_id: null,
   json: null,
   key: null,
+  max_versions: null,
   name: null,
   password_length: null,
   rotation_hour: null,

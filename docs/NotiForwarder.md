@@ -19,9 +19,11 @@
 | **noti_forwarder_name** | **String** |  | [optional] |
 | **noti_forwarder_type** | **String** |  | [optional] |
 | **noti_forwarder_versions** | [**Array&lt;ItemVersion&gt;**](ItemVersion.md) |  | [optional] |
+| **override_url** | **String** |  | [optional] |
 | **paths** | **Array&lt;String&gt;** |  | [optional] |
 | **protection_key** | **String** |  | [optional] |
 | **runner_type** | **String** |  | [optional] |
+| **slack_noti_forwarder_public_details** | **Object** |  | [optional] |
 | **timespan_in_seconds** | **Integer** |  | [optional] |
 | **to_emails** | [**Array&lt;EmailEntry&gt;**](EmailEntry.md) |  | [optional] |
 | **user_email** | **String** |  | [optional] |
@@ -50,9 +52,11 @@ instance = Akeyless::NotiForwarder.new(
   noti_forwarder_name: null,
   noti_forwarder_type: null,
   noti_forwarder_versions: null,
+  override_url: null,
   paths: null,
   protection_key: null,
   runner_type: null,
+  slack_noti_forwarder_public_details: null,
   timespan_in_seconds: null,
   to_emails: null,
   user_email: null,

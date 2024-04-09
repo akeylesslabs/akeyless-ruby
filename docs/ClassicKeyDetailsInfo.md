@@ -7,6 +7,7 @@
 | **classic_key_attributes** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **classic_key_id** | **String** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
+| **has_certificate** | **Boolean** |  | [optional] |
 | **is_provided_by_user** | **Boolean** |  | [optional] |
 | **is_unexportable** | **Boolean** |  | [optional] |
 | **key_state** | **String** | ItemState defines the different states an Item can be in | [optional] |
@@ -26,6 +27,7 @@ instance = Akeyless::ClassicKeyDetailsInfo.new(
   classic_key_attributes: null,
   classic_key_id: null,
   gw_cluster_id: null,
+  has_certificate: null,
   is_provided_by_user: null,
   is_unexportable: null,
   key_state: null,

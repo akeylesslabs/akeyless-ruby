@@ -19,6 +19,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret new name | [optional] |
+| **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **region** | **String** | Region | [optional][default to &#39;us-east-2&#39;] |
 | **secure_access_aws_account_id** | **String** | The AWS account id | [optional] |
@@ -55,6 +56,7 @@ instance = Akeyless::DynamicSecretUpdateAws.new(
   json: null,
   name: null,
   new_name: null,
+  password_length: null,
   producer_encryption_key_name: null,
   region: null,
   secure_access_aws_account_id: null,

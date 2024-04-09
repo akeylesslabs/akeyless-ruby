@@ -14,11 +14,13 @@
 | **client_flag** | **Boolean** | If set, certificates will be flagged for client auth use | [optional] |
 | **code_signing_flag** | **Boolean** | If set, certificates will be flagged for code signing use | [optional] |
 | **country** | **String** | A comma-separated list of countries that will be set in the issued certificate | [optional] |
+| **create_private_crl** | **Boolean** | Set this to allow the issuer will expose a CRL endpoint in the Gateway | [optional] |
+| **create_public_crl** | **Boolean** | Set this to allow the cert issuer will expose a public CRL endpoint | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **destination_path** | **String** | A path in which to save generated certificates | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
-| **gw_cluster_url** | **String** | The GW cluster URL to issue the certificate from, required in Public CA mode | [optional] |
+| **gw_cluster_url** | **String** | The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA | [optional] |
 | **is_ca** | **Boolean** | If set, the basic constraints extension will be added to certificate | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_usage** | **String** | key-usage | [optional][default to &#39;DigitalSignature,KeyAgreement,KeyEncipherment&#39;] |
@@ -56,6 +58,8 @@ instance = Akeyless::CreatePKICertIssuer.new(
   client_flag: null,
   code_signing_flag: null,
   country: null,
+  create_private_crl: null,
+  create_public_crl: null,
   delete_protection: null,
   description: null,
   destination_path: null,

@@ -14,6 +14,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the EventForwarder secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **name** | **String** | EventForwarder name |  |
+| **override_url** | **String** | Override Akeyless default URL with your Gateway url (port 18888) | [optional] |
 | **runner_type** | **String** |  |  |
 | **targets_event_source_locations** | **Array&lt;String&gt;** | Targets Event sources | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -35,6 +36,7 @@ instance = Akeyless::EventForwarderCreateEmail.new(
   json: null,
   key: null,
   name: null,
+  override_url: null,
   runner_type: null,
   targets_event_source_locations: null,
   token: null,

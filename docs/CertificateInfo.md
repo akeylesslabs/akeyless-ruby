@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **ext_key_usage** | **Array&lt;Integer&gt;** |  | [optional] |
 | **key_usage** | **Integer** | KeyUsage represents the set of actions that are valid for a given key. It&#39;s a bitmap of the KeyUsage* constants. | [optional] |
+| **crl_distribution_points** | **Array&lt;String&gt;** |  | [optional] |
 | **dns_names** | **Array&lt;String&gt;** |  | [optional] |
 | **email_addresses** | **Array&lt;String&gt;** |  | [optional] |
 | **extensions** | [**Array&lt;Extension&gt;**](Extension.md) |  | [optional] |
@@ -36,6 +37,7 @@ require 'akeyless'
 instance = Akeyless::CertificateInfo.new(
   ext_key_usage: null,
   key_usage: null,
+  crl_distribution_points: null,
   dns_names: null,
   email_addresses: null,
   extensions: null,

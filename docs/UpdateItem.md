@@ -13,6 +13,7 @@
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Current item name |  |
 | **new_metadata** | **String** | Deprecated - use description | [optional][default to &#39;default_metadata&#39;] |
 | **new_name** | **String** | New item name | [optional] |
@@ -61,6 +62,7 @@ instance = Akeyless::UpdateItem.new(
   description: null,
   host_provider: null,
   json: null,
+  max_versions: null,
   name: null,
   new_metadata: null,
   new_name: null,

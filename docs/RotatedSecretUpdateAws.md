@@ -16,6 +16,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
@@ -48,6 +49,7 @@ instance = Akeyless::RotatedSecretUpdateAws.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  max_versions: null,
   name: null,
   new_name: null,
   password_length: null,

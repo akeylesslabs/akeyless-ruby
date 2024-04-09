@@ -13,6 +13,7 @@
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **ldap_ca_cert** | **String** |  | [optional] |
 | **ldap_url** | **String** |  | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **new_name** | **String** | New target name | [optional] |
 | **server_type** | **String** | Set Ldap server type, Options:[OpenLDAP, ActiveDirectory] | [optional] |
@@ -36,6 +37,7 @@ instance = Akeyless::UpdateLdapTarget.new(
   key: null,
   ldap_ca_cert: null,
   ldap_url: null,
+  max_versions: null,
   name: null,
   new_name: null,
   server_type: null,

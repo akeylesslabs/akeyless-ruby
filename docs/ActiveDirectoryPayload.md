@@ -20,6 +20,7 @@
 | **local_users_rotated_secrets_path_template** | **String** |  | [optional] |
 | **os_filter** | **String** |  | [optional] |
 | **ssh_port** | **String** |  | [optional] |
+| **target_format** | **String** |  | [optional] |
 | **targets_type** | **String** |  | [optional] |
 | **user_base_dn** | **String** |  | [optional] |
 | **user_groups** | **Array&lt;String&gt;** |  | [optional] |
@@ -48,6 +49,7 @@ instance = Akeyless::ActiveDirectoryPayload.new(
   local_users_rotated_secrets_path_template: null,
   os_filter: null,
   ssh_port: null,
+  target_format: null,
   targets_type: null,
   user_base_dn: null,
   user_groups: null,

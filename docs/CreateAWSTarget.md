@@ -10,6 +10,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **region** | **String** | AWS region | [optional][default to &#39;us-east-2&#39;] |
 | **session_token** | **String** | Required only for temporary security credentials retrieved using STS | [optional] |
@@ -29,6 +30,7 @@ instance = Akeyless::CreateAWSTarget.new(
   description: null,
   json: null,
   key: null,
+  max_versions: null,
   name: null,
   region: null,
   session_token: null,

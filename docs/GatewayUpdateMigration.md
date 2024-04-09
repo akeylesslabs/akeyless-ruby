@@ -13,6 +13,7 @@
 | **ad_discovery_types** | **Array&lt;String&gt;** | Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration) | [optional] |
 | **ad_os_filter** | **String** | Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration) | [optional] |
 | **ad_ssh_port** | **String** | Set the SSH Port for further connection to the domain servers. Default is port 22 (Relevant only for Active Directory migration) | [optional][default to &#39;22&#39;] |
+| **ad_target_format** | **String** | Relevant only for ad-discovery-types&#x3D;computers. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer. | [optional][default to &#39;linked&#39;] |
 | **ad_targets_type** | **String** | Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration) | [optional][default to &#39;windows&#39;] |
 | **ad_winrm_over_http** | **String** | Use WinRM over HTTP, by default runs over HTTPS | [optional][default to &#39;false&#39;] |
 | **ad_winrm_port** | **String** | Set the WinRM Port for further connection to the domain servers. Default is 5986 (Relevant only for Active Directory migration) | [optional][default to &#39;5986&#39;] |
@@ -83,6 +84,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   ad_discovery_types: null,
   ad_os_filter: null,
   ad_ssh_port: null,
+  ad_target_format: null,
   ad_targets_type: null,
   ad_winrm_over_http: null,
   ad_winrm_port: null,

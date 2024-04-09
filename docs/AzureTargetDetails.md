@@ -10,6 +10,7 @@
 | **azure_resource_name** | **String** |  | [optional] |
 | **azure_subscription_id** | **String** |  | [optional] |
 | **azure_tenant_id** | **String** |  | [optional] |
+| **azure_username** | **String** |  | [optional] |
 | **use_gw_cloud_identity** | **Boolean** |  | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = Akeyless::AzureTargetDetails.new(
   azure_resource_name: null,
   azure_subscription_id: null,
   azure_tenant_id: null,
+  azure_username: null,
   use_gw_cloud_identity: null
 )
 ```

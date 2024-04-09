@@ -15,9 +15,12 @@
 | **client_flag** | **Boolean** |  | [optional] |
 | **code_signing_flag** | **Boolean** |  | [optional] |
 | **country** | **Array&lt;String&gt;** |  | [optional] |
+| **create_private_crl** | **Boolean** |  | [optional] |
+| **create_public_crl** | **Boolean** |  | [optional] |
 | **destination_path** | **String** | DestinationPath is the destination to save generated certificates | [optional] |
 | **enforce_hostnames** | **Boolean** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) | ExpirationNotification holds a list of expiration notices that should be sent in case a certificate is about to expire, this value is being propagated to the Certificate resources that are created | [optional] |
+| **gw_cluster_id** | **Integer** |  | [optional] |
 | **gw_cluster_url** | **String** | GWClusterURL is required when CAMode is \&quot;public\&quot; and it defines the cluster URL the PKI should be issued from. The GW cluster must have permissions to read associated target&#39;s details | [optional] |
 | **is_ca** | **Boolean** |  | [optional] |
 | **key_bits** | **Integer** |  | [optional] |
@@ -51,9 +54,12 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   client_flag: null,
   code_signing_flag: null,
   country: null,
+  create_private_crl: null,
+  create_public_crl: null,
   destination_path: null,
   enforce_hostnames: null,
   expiration_events: null,
+  gw_cluster_id: null,
   gw_cluster_url: null,
   is_ca: null,
   key_bits: null,

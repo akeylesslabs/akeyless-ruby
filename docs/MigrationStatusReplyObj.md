@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **computers** | **Integer** |  | [optional] |
 | **duration_time** | **String** |  | [optional] |
 | **error** | **String** |  | [optional] |
 | **last_status_message** | **String** |  | [optional] |
@@ -25,6 +26,7 @@
 require 'akeyless'
 
 instance = Akeyless::MigrationStatusReplyObj.new(
+  computers: null,
   duration_time: null,
   error: null,
   last_status_message: null,

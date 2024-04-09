@@ -154,10 +154,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**esm_update**](V2Api.md#esm_update) | **POST** /esm-update |  |
 | [**event_action**](V2Api.md#event_action) | **POST** /event-action |  |
 | [**event_forwarder_create_email**](V2Api.md#event_forwarder_create_email) | **POST** /event-forwarder-create-email |  |
+| [**event_forwarder_create_service_now**](V2Api.md#event_forwarder_create_service_now) | **POST** /event-forwarder-create-servicenow |  |
+| [**event_forwarder_create_slack**](V2Api.md#event_forwarder_create_slack) | **POST** /event-forwarder-create-slack |  |
 | [**event_forwarder_create_webhook**](V2Api.md#event_forwarder_create_webhook) | **POST** /event-forwarder-create-webhook |  |
 | [**event_forwarder_delete**](V2Api.md#event_forwarder_delete) | **POST** /event-forwarder-delete |  |
 | [**event_forwarder_get**](V2Api.md#event_forwarder_get) | **POST** /event-forwarder-get |  |
 | [**event_forwarder_update_email**](V2Api.md#event_forwarder_update_email) | **POST** /event-forwarder-update-email |  |
+| [**event_forwarder_update_service_now**](V2Api.md#event_forwarder_update_service_now) | **POST** /event-forwarder-update-servicenow |  |
+| [**event_forwarder_update_slack**](V2Api.md#event_forwarder_update_slack) | **POST** /event-forwarder-update-slack |  |
 | [**event_forwarder_update_webhook**](V2Api.md#event_forwarder_update_webhook) | **POST** /event-forwarder-update-webhook |  |
 | [**export_classic_key**](V2Api.md#export_classic_key) | **POST** /export-classic-key |  |
 | [**gateway_create_allowed_access**](V2Api.md#gateway_create_allowed_access) | **POST** /gateway-create-allowed-access |  |
@@ -246,6 +250,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**generate_csr**](V2Api.md#generate_csr) | **POST** /generate-csr |  |
 | [**get_account_logo**](V2Api.md#get_account_logo) | **POST** /get-account-logo |  |
 | [**get_account_settings**](V2Api.md#get_account_settings) | **POST** /get-account-settings |  |
+| [**get_analytics_data**](V2Api.md#get_analytics_data) | **POST** /get-analytics-data |  |
 | [**get_auth_method**](V2Api.md#get_auth_method) | **POST** /get-auth-method |  |
 | [**get_certificate_value**](V2Api.md#get_certificate_value) | **POST** /get-certificate-value |  |
 | [**get_dynamic_secret_value**](V2Api.md#get_dynamic_secret_value) | **POST** /get-dynamic-secret-value |  |
@@ -292,6 +297,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**renew_certificate**](V2Api.md#renew_certificate) | **POST** /renew-certificate |  |
 | [**request_access**](V2Api.md#request_access) | **POST** /request-access |  |
 | [**reverse_rbac**](V2Api.md#reverse_rbac) | **POST** /reverse-rbac |  |
+| [**revoke_certificate**](V2Api.md#revoke_certificate) | **POST** /revoke-certificate |  |
 | [**revoke_creds**](V2Api.md#revoke_creds) | **POST** /revoke-creds |  |
 | [**rollback_secret**](V2Api.md#rollback_secret) | **POST** /rollback-secret |  |
 | [**rotate_key**](V2Api.md#rotate_key) | **POST** /rotate-key |  |
@@ -9724,6 +9730,130 @@ No authorization required
 - **Accept**: application/json
 
 
+## event_forwarder_create_service_now
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_create_service_now(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderCreateServiceNow.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', runner_type: 'runner_type_example'}) # EventForwarderCreateServiceNow | 
+
+begin
+  
+  result = api_instance.event_forwarder_create_service_now(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_service_now: #{e}"
+end
+```
+
+#### Using the event_forwarder_create_service_now_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_create_service_now_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_create_service_now_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_service_now_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderCreateServiceNow**](EventForwarderCreateServiceNow.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_create_slack
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_create_slack(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderCreateSlack.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', runner_type: 'runner_type_example', url: 'url_example'}) # EventForwarderCreateSlack | 
+
+begin
+  
+  result = api_instance.event_forwarder_create_slack(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_slack: #{e}"
+end
+```
+
+#### Using the event_forwarder_create_slack_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_create_slack_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_create_slack_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_slack_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderCreateSlack**](EventForwarderCreateSlack.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## event_forwarder_create_webhook
 
 > <EventForwarderCreateUpdateOutput> event_forwarder_create_webhook(body)
@@ -9957,6 +10087,130 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**EventForwarderUpdateEmail**](EventForwarderUpdateEmail.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_update_service_now
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_update_service_now(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderUpdateServiceNow.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example'}) # EventForwarderUpdateServiceNow | 
+
+begin
+  
+  result = api_instance.event_forwarder_update_service_now(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_service_now: #{e}"
+end
+```
+
+#### Using the event_forwarder_update_service_now_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_update_service_now_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_update_service_now_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_service_now_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderUpdateServiceNow**](EventForwarderUpdateServiceNow.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_update_slack
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_update_slack(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::EventForwarderUpdateSlack.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', url: 'url_example'}) # EventForwarderUpdateSlack | 
+
+begin
+  
+  result = api_instance.event_forwarder_update_slack(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_slack: #{e}"
+end
+```
+
+#### Using the event_forwarder_update_slack_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_update_slack_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_update_slack_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_slack_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventForwarderUpdateSlack**](EventForwarderUpdateSlack.md) |  |  |
 
 ### Return type
 
@@ -15429,6 +15683,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## get_analytics_data
+
+> <AllAnalyticsData> get_analytics_data(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GetAnalyticsData.new # GetAnalyticsData | 
+
+begin
+  
+  result = api_instance.get_analytics_data(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_analytics_data: #{e}"
+end
+```
+
+#### Using the get_analytics_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AllAnalyticsData>, Integer, Hash)> get_analytics_data_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_analytics_data_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AllAnalyticsData>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_analytics_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GetAnalyticsData**](GetAnalyticsData.md) |  |  |
+
+### Return type
+
+[**AllAnalyticsData**](AllAnalyticsData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## get_auth_method
 
 > <AuthMethod> get_auth_method(body)
@@ -18297,6 +18613,68 @@ end
 ### Return type
 
 [**ReverseRBACOutput**](ReverseRBACOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## revoke_certificate
+
+> Object revoke_certificate(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::RevokeCertificate.new # RevokeCertificate | 
+
+begin
+  
+  result = api_instance.revoke_certificate(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->revoke_certificate: #{e}"
+end
+```
+
+#### Using the revoke_certificate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> revoke_certificate_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.revoke_certificate_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->revoke_certificate_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RevokeCertificate**](RevokeCertificate.md) |  |  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

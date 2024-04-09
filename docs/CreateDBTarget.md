@@ -19,6 +19,7 @@
 | **host** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **mongodb_atlas** | **Boolean** |  | [optional] |
 | **mongodb_atlas_api_private_key** | **String** | MongoDB Atlas private key | [optional] |
 | **mongodb_atlas_api_public_key** | **String** | MongoDB Atlas public key | [optional] |
@@ -59,6 +60,7 @@ instance = Akeyless::CreateDBTarget.new(
   host: null,
   json: null,
   key: null,
+  max_versions: null,
   mongodb_atlas: null,
   mongodb_atlas_api_private_key: null,
   mongodb_atlas_api_public_key: null,

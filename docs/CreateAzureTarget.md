@@ -10,6 +10,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **resource_group_name** | **String** | The Resource Group name in your Azure subscription | [optional] |
 | **resource_name** | **String** | The name of the relevant Resource | [optional] |
@@ -31,6 +32,7 @@ instance = Akeyless::CreateAzureTarget.new(
   description: null,
   json: null,
   key: null,
+  max_versions: null,
   name: null,
   resource_group_name: null,
   resource_name: null,

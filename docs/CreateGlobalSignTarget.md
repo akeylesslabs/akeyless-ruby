@@ -12,6 +12,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **password** | **String** | Password of the GlobalSign GCC account |  |
 | **profile_id** | **String** | Profile ID of the GlobalSign GCC account |  |
@@ -34,6 +35,7 @@ instance = Akeyless::CreateGlobalSignTarget.new(
   description: null,
   json: null,
   key: null,
+  max_versions: null,
   name: null,
   password: null,
   profile_id: null,
