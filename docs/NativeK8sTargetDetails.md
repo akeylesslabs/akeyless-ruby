@@ -10,6 +10,7 @@
 | **k8s_client_key_data** | **String** |  | [optional] |
 | **k8s_cluster_ca_certificate** | **String** |  | [optional] |
 | **k8s_cluster_endpoint** | **String** |  | [optional] |
+| **k8s_cluster_name** | **String** |  | [optional] |
 | **use_gw_service_account** | **Boolean** |  | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = Akeyless::NativeK8sTargetDetails.new(
   k8s_client_key_data: null,
   k8s_cluster_ca_certificate: null,
   k8s_cluster_endpoint: null,
+  k8s_cluster_name: null,
   use_gw_service_account: null
 )
 ```

@@ -97,6 +97,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_create_gcp**](V2Api.md#dynamic_secret_create_gcp) | **POST** /dynamic-secret-create-gcp |  |
 | [**dynamic_secret_create_github**](V2Api.md#dynamic_secret_create_github) | **POST** /dynamic-secret-create-github |  |
 | [**dynamic_secret_create_gke**](V2Api.md#dynamic_secret_create_gke) | **POST** /dynamic-secret-create-gke |  |
+| [**dynamic_secret_create_google_workspace**](V2Api.md#dynamic_secret_create_google_workspace) | **POST** /dynamic-secret-create-google-workspace |  |
 | [**dynamic_secret_create_hana_db**](V2Api.md#dynamic_secret_create_hana_db) | **POST** /dynamic-secret-create-hanadb |  |
 | [**dynamic_secret_create_k8s**](V2Api.md#dynamic_secret_create_k8s) | **POST** /dynamic-secret-create-k8s |  |
 | [**dynamic_secret_create_ldap**](V2Api.md#dynamic_secret_create_ldap) | **POST** /dynamic-secret-create-ldap |  |
@@ -129,6 +130,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_update_gcp**](V2Api.md#dynamic_secret_update_gcp) | **POST** /dynamic-secret-update-gcp |  |
 | [**dynamic_secret_update_github**](V2Api.md#dynamic_secret_update_github) | **POST** /dynamic-secret-update-github |  |
 | [**dynamic_secret_update_gke**](V2Api.md#dynamic_secret_update_gke) | **POST** /dynamic-secret-update-gke |  |
+| [**dynamic_secret_update_google_workspace**](V2Api.md#dynamic_secret_update_google_workspace) | **POST** /dynamic-secret-update-google-workspace |  |
 | [**dynamic_secret_update_hana_db**](V2Api.md#dynamic_secret_update_hana_db) | **POST** /dynamic-secret-update-hana |  |
 | [**dynamic_secret_update_k8s**](V2Api.md#dynamic_secret_update_k8s) | **POST** /dynamic-secret-update-k8s |  |
 | [**dynamic_secret_update_ldap**](V2Api.md#dynamic_secret_update_ldap) | **POST** /dynamic-secret-update-ldap |  |
@@ -3110,7 +3112,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::CreatePKICertIssuer.new({name: 'name_example', signer_key_name: 'signer_key_name_example', ttl: 3.56}) # CreatePKICertIssuer | 
+body = Akeyless::CreatePKICertIssuer.new({name: 'name_example', signer_key_name: 'signer_key_name_example', ttl: 'ttl_example'}) # CreatePKICertIssuer | 
 
 begin
   
@@ -6199,6 +6201,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_google_workspace
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_google_workspace(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_name: 'admin_name_example', name: 'name_example'}) # DynamicSecretCreateGoogleWorkspace | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_google_workspace(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_google_workspace: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_google_workspace_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_google_workspace_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_google_workspace_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_google_workspace_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateGoogleWorkspace**](DynamicSecretCreateGoogleWorkspace.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_create_hana_db
 
 > <DynamicSecretCreateOutput> dynamic_secret_create_hana_db(body)
@@ -7193,7 +7257,7 @@ No authorization required
 
 ## dynamic_secret_get
 
-> <DSProducerDetails> dynamic_secret_get
+> <DSProducerDetails> dynamic_secret_get(body)
 
 
 
@@ -7204,10 +7268,11 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretGet.new({name: 'name_example'}) # DynamicSecretGet | 
 
 begin
   
-  result = api_instance.dynamic_secret_get
+  result = api_instance.dynamic_secret_get(body)
   p result
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->dynamic_secret_get: #{e}"
@@ -7218,12 +7283,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DSProducerDetails>, Integer, Hash)> dynamic_secret_get_with_http_info
+> <Array(<DSProducerDetails>, Integer, Hash)> dynamic_secret_get_with_http_info(body)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.dynamic_secret_get_with_http_info
+  data, status_code, headers = api_instance.dynamic_secret_get_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DSProducerDetails>
@@ -7234,7 +7299,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretGet**](DynamicSecretGet.md) |  |  |
 
 ### Return type
 
@@ -7246,7 +7313,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -8165,6 +8232,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DynamicSecretUpdateGke**](DynamicSecretUpdateGke.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_google_workspace
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_google_workspace(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_name: 'admin_name_example', name: 'name_example'}) # DynamicSecretUpdateGoogleWorkspace | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_google_workspace(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_google_workspace: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_google_workspace_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_google_workspace_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_google_workspace_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_google_workspace_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateGoogleWorkspace**](DynamicSecretUpdateGoogleWorkspace.md) |  |  |
 
 ### Return type
 
@@ -15871,7 +16000,7 @@ No authorization required
 
 ## get_dynamic_secret_value
 
-> Hash&lt;String, String&gt; get_dynamic_secret_value(body)
+> Hash&lt;String, Object&gt; get_dynamic_secret_value(body)
 
 
 
@@ -15897,7 +16026,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, String&gt;, Integer, Hash)> get_dynamic_secret_value_with_http_info(body)
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_dynamic_secret_value_with_http_info(body)
 
 ```ruby
 begin
@@ -15905,7 +16034,7 @@ begin
   data, status_code, headers = api_instance.get_dynamic_secret_value_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, String&gt;
+  p data # => Hash&lt;String, Object&gt;
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->get_dynamic_secret_value_with_http_info: #{e}"
 end
@@ -15919,7 +16048,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, String&gt;**
+**Hash&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -16429,7 +16558,7 @@ No authorization required
 
 ## get_secret_value
 
-> Hash&lt;String, String&gt; get_secret_value(body)
+> Hash&lt;String, Object&gt; get_secret_value(body)
 
 
 
@@ -16455,7 +16584,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, String&gt;, Integer, Hash)> get_secret_value_with_http_info(body)
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_secret_value_with_http_info(body)
 
 ```ruby
 begin
@@ -16463,7 +16592,7 @@ begin
   data, status_code, headers = api_instance.get_secret_value_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, String&gt;
+  p data # => Hash&lt;String, Object&gt;
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->get_secret_value_with_http_info: #{e}"
 end
@@ -16477,7 +16606,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, String&gt;**
+**Hash&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -20111,7 +20240,7 @@ No authorization required
 
 ## rotated_secret_get_value
 
-> Hash&lt;String, String&gt; rotated_secret_get_value(body)
+> Hash&lt;String, Object&gt; rotated_secret_get_value(body)
 
 
 
@@ -20137,7 +20266,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, String&gt;, Integer, Hash)> rotated_secret_get_value_with_http_info(body)
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> rotated_secret_get_value_with_http_info(body)
 
 ```ruby
 begin
@@ -20145,7 +20274,7 @@ begin
   data, status_code, headers = api_instance.rotated_secret_get_value_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, String&gt;
+  p data # => Hash&lt;String, Object&gt;
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->rotated_secret_get_value_with_http_info: #{e}"
 end
@@ -20159,7 +20288,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, String&gt;**
+**Hash&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -24833,7 +24962,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::UpdatePKICertIssuer.new({name: 'name_example', signer_key_name: 'signer_key_name_example', ttl: 3.56}) # UpdatePKICertIssuer | 
+body = Akeyless::UpdatePKICertIssuer.new({name: 'name_example', signer_key_name: 'signer_key_name_example', ttl: 'ttl_example'}) # UpdatePKICertIssuer | 
 
 begin
   

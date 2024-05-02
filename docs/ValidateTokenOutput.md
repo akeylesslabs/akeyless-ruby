@@ -6,7 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **expiration** | **String** |  | [optional] |
 | **is_valid** | **Boolean** |  | [optional] |
+| **last_rotate** | **String** |  | [optional] |
 | **reason** | **String** |  | [optional] |
+| **ttl** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -16,7 +18,9 @@ require 'akeyless'
 instance = Akeyless::ValidateTokenOutput.new(
   expiration: null,
   is_valid: null,
-  reason: null
+  last_rotate: null,
+  reason: null,
+  ttl: null
 )
 ```
 

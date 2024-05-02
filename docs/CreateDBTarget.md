@@ -9,6 +9,7 @@
 | **azure_client_secret** | **String** | (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **azure_tenant_id** | **String** | (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **cloud_service_provider** | **String** | (Optional) Cloud service provider (currently only supports Azure) | [optional] |
+| **cluster_mode** | **Boolean** | Cluster Mode | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
 | **connection_type** | **String** | (Optional) Type of connection to mssql database [credentials/cloud-identity] | [default to &#39;credentials&#39;] |
 | **db_name** | **String** |  | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::CreateDBTarget.new(
   azure_client_secret: null,
   azure_tenant_id: null,
   cloud_service_provider: null,
+  cluster_mode: null,
   comment: null,
   connection_type: null,
   db_name: null,

@@ -52,6 +52,7 @@
 | **chef_skip_ssl** | **Boolean** |  | [optional] |
 | **client_authentication_type** | **String** |  | [optional] |
 | **cloud_service_provider** | **String** |  | [optional] |
+| **cluster_mode** | **Boolean** |  | [optional] |
 | **connection_type** | **String** |  | [optional] |
 | **create_sync_url** | **String** |  | [optional] |
 | **db_client_id** | **String** |  | [optional] |
@@ -111,6 +112,12 @@
 | **gke_cluster_name** | **String** |  | [optional] |
 | **gke_service_account_key** | **String** |  | [optional] |
 | **gke_service_account_name** | **String** |  | [optional] |
+| **google_workspace_access_mode** | **String** |  | [optional] |
+| **google_workspace_admin_name** | **String** |  | [optional] |
+| **google_workspace_group_name** | **String** |  | [optional] |
+| **google_workspace_group_role** | **String** |  | [optional] |
+| **google_workspace_role_name** | **String** |  | [optional] |
+| **google_workspace_role_scope** | **String** |  | [optional] |
 | **grant_types** | **Array&lt;String&gt;** |  | [optional] |
 | **groups** | **String** |  | [optional] |
 | **hanadb_creation_statements** | **String** |  | [optional] |
@@ -130,6 +137,7 @@
 | **k8s_client_key_data** | **String** |  | [optional] |
 | **k8s_cluster_ca_certificate** | **String** |  | [optional] |
 | **k8s_cluster_endpoint** | **String** |  | [optional] |
+| **k8s_cluster_name** | **String** |  | [optional] |
 | **k8s_dynamic_mode** | **Boolean** | when native k8s is in dynamic mode, user can define allowed namespaces, K8sServiceAccount doesn&#39;t exist from the start and will only be created at time of getting dynamic secret value By default dynamic mode is false and producer behaves like it did before | [optional] |
 | **k8s_multiple_doc_yaml_temp_definition** | **Array&lt;Integer&gt;** | Yaml definition for creation of temporary objects. Field that can hold multiple docs from which following will be extracted: ServiceAccount, Role/ClusterRole and RoleBinding/ClusterRoleBinding. If ServiceAccount not specified - it will be generated automatically | [optional] |
 | **k8s_namespace** | **String** |  | [optional] |
@@ -280,6 +288,7 @@ instance = Akeyless::DSProducerDetails.new(
   chef_skip_ssl: null,
   client_authentication_type: null,
   cloud_service_provider: null,
+  cluster_mode: null,
   connection_type: null,
   create_sync_url: null,
   db_client_id: null,
@@ -339,6 +348,12 @@ instance = Akeyless::DSProducerDetails.new(
   gke_cluster_name: null,
   gke_service_account_key: null,
   gke_service_account_name: null,
+  google_workspace_access_mode: null,
+  google_workspace_admin_name: null,
+  google_workspace_group_name: null,
+  google_workspace_group_role: null,
+  google_workspace_role_name: null,
+  google_workspace_role_scope: null,
   grant_types: null,
   groups: null,
   hanadb_creation_statements: null,
@@ -358,6 +373,7 @@ instance = Akeyless::DSProducerDetails.new(
   k8s_client_key_data: null,
   k8s_cluster_ca_certificate: null,
   k8s_cluster_endpoint: null,
+  k8s_cluster_name: null,
   k8s_dynamic_mode: null,
   k8s_multiple_doc_yaml_temp_definition: null,
   k8s_namespace: null,

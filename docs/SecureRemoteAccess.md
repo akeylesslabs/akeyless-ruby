@@ -31,7 +31,7 @@
 | **ssh_password** | **Boolean** |  | [optional] |
 | **ssh_private_key** | **Boolean** |  | [optional] |
 | **ssh_user** | **String** |  | [optional] |
-| **status** | [**ItemSraStatus**](ItemSraStatus.md) |  | [optional] |
+| **status_info** | [**ItemSraStatus**](ItemSraStatus.md) |  | [optional] |
 | **target_hosts** | [**Array&lt;TargetNameWithHosts&gt;**](TargetNameWithHosts.md) |  | [optional] |
 | **targets** | **Array&lt;String&gt;** |  | [optional] |
 | **url** | **String** |  | [optional] |
@@ -71,7 +71,7 @@ instance = Akeyless::SecureRemoteAccess.new(
   ssh_password: null,
   ssh_private_key: null,
   ssh_user: null,
-  status: null,
+  status_info: null,
   target_hosts: null,
   targets: null,
   url: null,

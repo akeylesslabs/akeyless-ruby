@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cloud_service_provider** | **String** |  | [optional] |
+| **cluster_mode** | **Boolean** |  | [optional] |
 | **connection_type** | **String** |  | [optional] |
 | **db_client_id** | **String** |  | [optional] |
 | **db_client_secret** | **String** |  | [optional] |
@@ -29,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::DbTargetDetails.new(
   cloud_service_provider: null,
+  cluster_mode: null,
   connection_type: null,
   db_client_id: null,
   db_client_secret: null,

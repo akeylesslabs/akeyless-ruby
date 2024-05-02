@@ -39,7 +39,7 @@
 | **street_address** | **String** | A comma-separated list of street addresses that will be set in the issued certificate | [optional] |
 | **tag** | **Array&lt;String&gt;** | List of the tags attached to this key | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
-| **ttl** | **Integer** | The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs |  |
+| **ttl** | **String** | The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs |  |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
 ## Example

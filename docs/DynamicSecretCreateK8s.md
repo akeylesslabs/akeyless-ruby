@@ -10,6 +10,7 @@
 | **k8s_allowed_namespaces** | **String** | Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
 | **k8s_cluster_ca_cert** | **String** | K8S cluster CA certificate | [optional] |
 | **k8s_cluster_endpoint** | **String** | K8S cluster URL endpoint | [optional] |
+| **k8s_cluster_name** | **String** | K8S cluster name | [optional] |
 | **k8s_cluster_token** | **String** | K8S cluster Bearer token | [optional] |
 | **k8s_namespace** | **String** | K8S Namespace where the ServiceAccount exists. | [optional] |
 | **k8s_predefined_role_name** | **String** | The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
@@ -46,6 +47,7 @@ instance = Akeyless::DynamicSecretCreateK8s.new(
   k8s_allowed_namespaces: null,
   k8s_cluster_ca_cert: null,
   k8s_cluster_endpoint: null,
+  k8s_cluster_name: null,
   k8s_cluster_token: null,
   k8s_namespace: null,
   k8s_predefined_role_name: null,

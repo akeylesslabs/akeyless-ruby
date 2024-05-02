@@ -12,6 +12,7 @@
 | **k8s_client_key** | **String** | Content of the k8 client private key (PEM format) in a Base64 format | [optional] |
 | **k8s_cluster_ca_cert** | **String** | K8S cluster CA certificate | [default to &#39;dummy_val&#39;] |
 | **k8s_cluster_endpoint** | **String** | K8S cluster URL endpoint | [default to &#39;dummy_val&#39;] |
+| **k8s_cluster_name** | **String** | K8S cluster name | [optional] |
 | **k8s_cluster_token** | **String** | K8S cluster Bearer token | [default to &#39;dummy_val&#39;] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -37,6 +38,7 @@ instance = Akeyless::UpdateNativeK8STarget.new(
   k8s_client_key: null,
   k8s_cluster_ca_cert: null,
   k8s_cluster_endpoint: null,
+  k8s_cluster_name: null,
   k8s_cluster_token: null,
   keep_prev_version: null,
   key: null,
