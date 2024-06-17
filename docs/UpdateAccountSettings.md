@@ -14,6 +14,7 @@
 | **dp_enable_classic_key_protection** | **String** | Set to update protection with classic keys state [true/false] | [optional] |
 | **dynamic_secret_max_ttl** | **Integer** | Set the maximum ttl for dynamic secrets | [optional] |
 | **dynamic_secret_max_ttl_enable** | **String** | Set a maximum ttl for dynamic secrets [true/false] | [optional] |
+| **enable_item_sharing** | **String** | Enable sharing items [true/false] | [optional] |
 | **force_new_versions** | **String** | If set to true, new version will be created on update | [optional] |
 | **invalid_characters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. | [optional][default to &#39;notReceivedInvalidCharacter&#39;] |
 | **item_type** | **String** | VersionSettingsObjectType defines object types for account version settings | [optional] |
@@ -55,6 +56,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   dp_enable_classic_key_protection: null,
   dynamic_secret_max_ttl: null,
   dynamic_secret_max_ttl_enable: null,
+  enable_item_sharing: null,
   force_new_versions: null,
   invalid_characters: null,
   item_type: null,

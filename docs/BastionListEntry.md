@@ -10,6 +10,7 @@
 | **allowed_urls_per_instance** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **cluster_name** | **String** |  | [optional] |
 | **display_name** | **String** |  | [optional] |
+| **has_gateway_identity** | **Boolean** |  | [optional] |
 | **last_report** | **Time** |  | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = Akeyless::BastionListEntry.new(
   allowed_urls_per_instance: null,
   cluster_name: null,
   display_name: null,
+  has_gateway_identity: null,
   last_report: null
 )
 ```

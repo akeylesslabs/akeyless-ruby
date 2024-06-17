@@ -9,7 +9,7 @@
 | **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -29,7 +29,7 @@
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times | [optional] |
 | **target_name** | **String** | Target name |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |

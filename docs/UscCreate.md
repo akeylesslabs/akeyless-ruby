@@ -7,6 +7,7 @@
 | **binary_value** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary | [optional] |
 | **description** | **String** | Description of the universal secrets | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **secret_name** | **String** | Name for the new universal secrets |  |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -23,6 +24,7 @@ instance = Akeyless::UscCreate.new(
   binary_value: null,
   description: null,
   json: null,
+  namespace: null,
   secret_name: null,
   tags: null,
   token: null,

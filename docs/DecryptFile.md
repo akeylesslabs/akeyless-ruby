@@ -13,6 +13,7 @@
 | **out** | **String** | Path to the output file. If not provided, the output will be sent to stdout | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **version** | **Integer** | key version (relevant only for classic key) | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = Akeyless::DecryptFile.new(
   key_name: null,
   out: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  version: null
 )
 ```
 

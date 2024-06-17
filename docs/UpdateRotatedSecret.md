@@ -14,7 +14,7 @@
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |

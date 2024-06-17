@@ -17,6 +17,7 @@
 | **post_provision_command** | **String** | A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning) | [optional] |
 | **private_key_path** | **String** | A path on the target to store the private key (relevant only for certificate provisioning) | [optional] |
 | **project_id** | **String** | Project id of the GCP KMS (required for gcp targets) | [optional] |
+| **protection_level** | **String** | Protection level of the key [software/hardware] (relevant for gcp targets) | [optional][default to &#39;software&#39;] |
 | **purpose** | **String** | Purpose of the key in GCP KMS (required for gcp targets) | [optional] |
 | **regions** | **Array&lt;String&gt;** | The list of regions to create a copy of the key in (relevant for aws targets) | [optional] |
 | **sra_association** | **Boolean** | Is the target to associate is for sra, relevant only for linked target association for ldap rotated secret | [optional][default to false] |
@@ -45,6 +46,7 @@ instance = Akeyless::AssocTargetItem.new(
   post_provision_command: null,
   private_key_path: null,
   project_id: null,
+  protection_level: null,
   purpose: null,
   regions: null,
   sra_association: null,

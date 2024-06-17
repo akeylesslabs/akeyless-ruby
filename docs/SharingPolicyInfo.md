@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **default_share_link_ttl** | **Integer** |  | [optional] |
+| **enable** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'akeyless'
 
 instance = Akeyless::SharingPolicyInfo.new(
-  default_share_link_ttl: null
+  default_share_link_ttl: null,
+  enable: null
 )
 ```
 

@@ -5,12 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_mode** | **String** |  |  |
-| **admin_name** | **String** | Admin user email |  |
+| **admin_email** | **String** | Admin user email |  |
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
-| **group_name** | **String** | A group email, relevant only for group access-mode | [optional] |
-| **group_role_type** | **String** |  | [optional] |
+| **group_email** | **String** | A group email, relevant only for group access-mode | [optional] |
+| **group_role** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret new name | [optional] |
@@ -18,7 +18,7 @@
 | **role_name** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode | [optional] |
 | **role_scope** | **String** |  | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target_name** | **String** | Name of existing target to use in producer creation | [optional] |
+| **target_name** | **String** | Name of existing target to use in dynamic secret creation | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **user_ttl** | **String** | User TTL | [optional][default to &#39;60m&#39;] |
@@ -30,12 +30,12 @@ require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateGoogleWorkspace.new(
   access_mode: null,
-  admin_name: null,
+  admin_email: null,
   delete_protection: null,
   description: null,
   gcp_key: null,
-  group_name: null,
-  group_role_type: null,
+  group_email: null,
+  group_role: null,
   json: null,
   name: null,
   new_name: null,

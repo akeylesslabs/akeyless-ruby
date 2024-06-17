@@ -14,6 +14,7 @@
 | **status** | **Boolean** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **type** | **String** |  | [optional] |
+| **version** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = Akeyless::SecretInfo.new(
   secret_id: null,
   status: null,
   tags: null,
-  type: null
+  type: null,
+  version: null
 )
 ```
 

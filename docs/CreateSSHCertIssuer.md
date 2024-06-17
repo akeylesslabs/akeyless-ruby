@@ -9,7 +9,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **extensions** | **Hash&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | SSH certificate issuer name |  |
@@ -22,7 +22,7 @@
 | **secure_access_use_internal_bastion** | **Boolean** | Use internal SSH Bastion | [optional] |
 | **signer_key_name** | **String** | A key to sign the certificate with |  |
 | **tag** | **Array&lt;String&gt;** | List of the tags attached to this key | [optional] |
-| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **ttl** | **Integer** | The requested Time To Live for the certificate, in seconds |  |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |

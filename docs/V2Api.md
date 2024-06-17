@@ -42,6 +42,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_global_sign_target**](V2Api.md#create_global_sign_target) | **POST** /create-globalsign-target |  |
 | [**create_godaddy_target**](V2Api.md#create_godaddy_target) | **POST** /create-godaddy-target |  |
 | [**create_group**](V2Api.md#create_group) | **POST** /create-group |  |
+| [**create_hashi_vault_target**](V2Api.md#create_hashi_vault_target) | **POST** /create-hashi-vault-target |  |
 | [**create_key**](V2Api.md#create_key) | **POST** /create-key |  |
 | [**create_linked_target**](V2Api.md#create_linked_target) | **POST** /create-linked-target |  |
 | [**create_native_k8_s_target**](V2Api.md#create_native_k8_s_target) | **POST** /create-k8s-target |  |
@@ -201,12 +202,16 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_delete_producer**](V2Api.md#gateway_delete_producer) | **POST** /gateway-delete-producer |  |
 | [**gateway_download_customer_fragments**](V2Api.md#gateway_download_customer_fragments) | **POST** /gateway-download-customer-fragments |  |
 | [**gateway_get_allowed_access**](V2Api.md#gateway_get_allowed_access) | **POST** /gateway-get-allowed-access |  |
+| [**gateway_get_cache**](V2Api.md#gateway_get_cache) | **POST** /gateway-get-cache |  |
 | [**gateway_get_config**](V2Api.md#gateway_get_config) | **POST** /gateway-get-config |  |
+| [**gateway_get_defaults**](V2Api.md#gateway_get_defaults) | **POST** /gateway-get-defaults |  |
 | [**gateway_get_k8_s_auth_config**](V2Api.md#gateway_get_k8_s_auth_config) | **POST** /gateway-get-k8s-auth-config |  |
 | [**gateway_get_ldap_auth_config**](V2Api.md#gateway_get_ldap_auth_config) | **POST** /gateway-get-ldap-auth-config |  |
+| [**gateway_get_log_forwarding**](V2Api.md#gateway_get_log_forwarding) | **POST** /gateway-get-log-forwarding |  |
 | [**gateway_get_migration**](V2Api.md#gateway_get_migration) | **POST** /gateway-get-migration |  |
 | [**gateway_get_producer**](V2Api.md#gateway_get_producer) | **POST** /gateway-get-producer |  |
 | [**gateway_get_tmp_users**](V2Api.md#gateway_get_tmp_users) | **POST** /gateway-get-producer-tmp-creds |  |
+| [**gateway_list_customer_fragments**](V2Api.md#gateway_list_customer_fragments) | **POST** /gateway-list-customer-fragments |  |
 | [**gateway_list_migration**](V2Api.md#gateway_list_migration) | **POST** /gateway-list-migration |  |
 | [**gateway_list_producers**](V2Api.md#gateway_list_producers) | **POST** /gateway-list-producers |  |
 | [**gateway_list_rotated_secrets**](V2Api.md#gateway_list_rotated_secrets) | **POST** /gateway-list-rotated-secrets |  |
@@ -217,9 +222,22 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_stop_producer**](V2Api.md#gateway_stop_producer) | **POST** /gateway-stop-producer |  |
 | [**gateway_sync_migration**](V2Api.md#gateway_sync_migration) | **POST** /gateway-sync-migration |  |
 | [**gateway_update_allowed_access**](V2Api.md#gateway_update_allowed_access) | **POST** /gateway-update-allowed-access |  |
+| [**gateway_update_cache**](V2Api.md#gateway_update_cache) | **POST** /gateway-update-cache |  |
+| [**gateway_update_defaults**](V2Api.md#gateway_update_defaults) | **POST** /gateway-update-defaults |  |
 | [**gateway_update_item**](V2Api.md#gateway_update_item) | **POST** /gateway-update-item |  |
 | [**gateway_update_k8_s_auth_config**](V2Api.md#gateway_update_k8_s_auth_config) | **POST** /gateway-update-k8s-auth-config |  |
 | [**gateway_update_ldap_auth_config**](V2Api.md#gateway_update_ldap_auth_config) | **POST** /gateway-update-ldap-auth-config |  |
+| [**gateway_update_log_forwarding_aws_s3**](V2Api.md#gateway_update_log_forwarding_aws_s3) | **POST** /gateway-update-log-forwarding-aws-s3 |  |
+| [**gateway_update_log_forwarding_azure_analytics**](V2Api.md#gateway_update_log_forwarding_azure_analytics) | **POST** /gateway-update-log-forwarding-azure-analytics |  |
+| [**gateway_update_log_forwarding_datadog**](V2Api.md#gateway_update_log_forwarding_datadog) | **POST** /gateway-update-log-forwarding-datadog |  |
+| [**gateway_update_log_forwarding_elasticsearch**](V2Api.md#gateway_update_log_forwarding_elasticsearch) | **POST** /gateway-update-log-forwarding-elasticsearch |  |
+| [**gateway_update_log_forwarding_google_chronicle**](V2Api.md#gateway_update_log_forwarding_google_chronicle) | **POST** /gateway-update-log-forwarding-google-chronicle |  |
+| [**gateway_update_log_forwarding_logstash**](V2Api.md#gateway_update_log_forwarding_logstash) | **POST** /gateway-update-log-forwarding-logstash |  |
+| [**gateway_update_log_forwarding_logz_io**](V2Api.md#gateway_update_log_forwarding_logz_io) | **POST** /gateway-update-log-forwarding-logz-io |  |
+| [**gateway_update_log_forwarding_splunk**](V2Api.md#gateway_update_log_forwarding_splunk) | **POST** /gateway-update-log-forwarding-splunk |  |
+| [**gateway_update_log_forwarding_stdout**](V2Api.md#gateway_update_log_forwarding_stdout) | **POST** /gateway-update-log-forwarding-stdout |  |
+| [**gateway_update_log_forwarding_sumologic**](V2Api.md#gateway_update_log_forwarding_sumologic) | **POST** /gateway-update-log-forwarding-sumologic |  |
+| [**gateway_update_log_forwarding_syslog**](V2Api.md#gateway_update_log_forwarding_syslog) | **POST** /gateway-update-log-forwarding-syslog |  |
 | [**gateway_update_migration**](V2Api.md#gateway_update_migration) | **POST** /gateway-update-migration |  |
 | [**gateway_update_producer_artifactory**](V2Api.md#gateway_update_producer_artifactory) | **POST** /gateway-update-producer-artifactory |  |
 | [**gateway_update_producer_aws**](V2Api.md#gateway_update_producer_aws) | **POST** /gateway-update-producer-aws |  |
@@ -392,6 +410,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**update_global_sign_target**](V2Api.md#update_global_sign_target) | **POST** /update-globalsign-target |  |
 | [**update_godaddy_target**](V2Api.md#update_godaddy_target) | **POST** /update-godaddy-target |  |
 | [**update_group**](V2Api.md#update_group) | **POST** /update-group |  |
+| [**update_hashi_vault_target**](V2Api.md#update_hashi_vault_target) | **POST** /update-hashi-vault-target |  |
 | [**update_item**](V2Api.md#update_item) | **POST** /update-item |  |
 | [**update_ldap_target**](V2Api.md#update_ldap_target) | **POST** /update-ldap-target |  |
 | [**update_ldap_target_details**](V2Api.md#update_ldap_target_details) | **POST** /update-ldap-target-details |  |
@@ -2778,6 +2797,68 @@ end
 ### Return type
 
 [**CreateGroupOutput**](CreateGroupOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_hashi_vault_target
+
+> <CreateHashiVaultTargetOutput> create_hashi_vault_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::CreateHashiVaultTarget.new({name: 'name_example'}) # CreateHashiVaultTarget | 
+
+begin
+  
+  result = api_instance.create_hashi_vault_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_hashi_vault_target: #{e}"
+end
+```
+
+#### Using the create_hashi_vault_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateHashiVaultTargetOutput>, Integer, Hash)> create_hashi_vault_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_hashi_vault_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateHashiVaultTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_hashi_vault_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**CreateHashiVaultTarget**](CreateHashiVaultTarget.md) |  |  |
+
+### Return type
+
+[**CreateHashiVaultTargetOutput**](CreateHashiVaultTargetOutput.md)
 
 ### Authorization
 
@@ -6214,7 +6295,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::DynamicSecretCreateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_name: 'admin_name_example', name: 'name_example'}) # DynamicSecretCreateGoogleWorkspace | 
+body = Akeyless::DynamicSecretCreateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_email: 'admin_email_example', name: 'name_example'}) # DynamicSecretCreateGoogleWorkspace | 
 
 begin
   
@@ -8260,7 +8341,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::DynamicSecretUpdateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_name: 'admin_name_example', name: 'name_example'}) # DynamicSecretUpdateGoogleWorkspace | 
+body = Akeyless::DynamicSecretUpdateGoogleWorkspace.new({access_mode: 'access_mode_example', admin_email: 'admin_email_example', name: 'name_example'}) # DynamicSecretUpdateGoogleWorkspace | 
 
 begin
   
@@ -12651,6 +12732,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## gateway_get_cache
+
+> <CacheConfigPart> gateway_get_cache(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayGetCache.new # GatewayGetCache | 
+
+begin
+  
+  result = api_instance.gateway_get_cache(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_cache: #{e}"
+end
+```
+
+#### Using the gateway_get_cache_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CacheConfigPart>, Integer, Hash)> gateway_get_cache_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_get_cache_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CacheConfigPart>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_cache_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayGetCache**](GatewayGetCache.md) |  |  |
+
+### Return type
+
+[**CacheConfigPart**](CacheConfigPart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## gateway_get_config
 
 > <AkeylessGatewayConfig> gateway_get_config(body)
@@ -12702,6 +12845,68 @@ end
 ### Return type
 
 [**AkeylessGatewayConfig**](AkeylessGatewayConfig.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_get_defaults
+
+> <GatewayGetDefaultsOutput> gateway_get_defaults(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayGetDefaults.new # GatewayGetDefaults | 
+
+begin
+  
+  result = api_instance.gateway_get_defaults(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_defaults: #{e}"
+end
+```
+
+#### Using the gateway_get_defaults_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayGetDefaultsOutput>, Integer, Hash)> gateway_get_defaults_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_get_defaults_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayGetDefaultsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_defaults_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayGetDefaults**](GatewayGetDefaults.md) |  |  |
+
+### Return type
+
+[**GatewayGetDefaultsOutput**](GatewayGetDefaultsOutput.md)
 
 ### Authorization
 
@@ -12826,6 +13031,68 @@ end
 ### Return type
 
 [**GatewayGetLdapAuthConfigOutput**](GatewayGetLdapAuthConfigOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_get_log_forwarding
+
+> <LogForwardingConfigPart> gateway_get_log_forwarding(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayGetLogForwarding.new # GatewayGetLogForwarding | 
+
+begin
+  
+  result = api_instance.gateway_get_log_forwarding(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_log_forwarding: #{e}"
+end
+```
+
+#### Using the gateway_get_log_forwarding_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogForwardingConfigPart>, Integer, Hash)> gateway_get_log_forwarding_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_get_log_forwarding_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogForwardingConfigPart>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_log_forwarding_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayGetLogForwarding**](GatewayGetLogForwarding.md) |  |  |
+
+### Return type
+
+[**LogForwardingConfigPart**](LogForwardingConfigPart.md)
 
 ### Authorization
 
@@ -13012,6 +13279,68 @@ end
 ### Return type
 
 [**Array&lt;TmpUserData&gt;**](TmpUserData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_list_customer_fragments
+
+> Hash&lt;String, Object&gt; gateway_list_customer_fragments(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayListCustomerFragments.new # GatewayListCustomerFragments | 
+
+begin
+  
+  result = api_instance.gateway_list_customer_fragments(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_list_customer_fragments: #{e}"
+end
+```
+
+#### Using the gateway_list_customer_fragments_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> gateway_list_customer_fragments_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_list_customer_fragments_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Hash&lt;String, Object&gt;
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_list_customer_fragments_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayListCustomerFragments**](GatewayListCustomerFragments.md) |  |  |
+
+### Return type
+
+**Hash&lt;String, Object&gt;**
 
 ### Authorization
 
@@ -13644,6 +13973,130 @@ No authorization required
 - **Accept**: application/json
 
 
+## gateway_update_cache
+
+> <GatewayUpdateOutput> gateway_update_cache(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateCache.new # GatewayUpdateCache | 
+
+begin
+  
+  result = api_instance.gateway_update_cache(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_cache: #{e}"
+end
+```
+
+#### Using the gateway_update_cache_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateOutput>, Integer, Hash)> gateway_update_cache_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_cache_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_cache_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateCache**](GatewayUpdateCache.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateOutput**](GatewayUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_defaults
+
+> <GatewayUpdateOutput> gateway_update_defaults(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateDefaults.new # GatewayUpdateDefaults | 
+
+begin
+  
+  result = api_instance.gateway_update_defaults(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_defaults: #{e}"
+end
+```
+
+#### Using the gateway_update_defaults_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateOutput>, Integer, Hash)> gateway_update_defaults_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_defaults_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_defaults_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateDefaults**](GatewayUpdateDefaults.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateOutput**](GatewayUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## gateway_update_item
 
 > <GatewayUpdateItemOutput> gateway_update_item(body)
@@ -13819,6 +14272,688 @@ end
 ### Return type
 
 [**GatewayUpdateLdapAuthConfigOutput**](GatewayUpdateLdapAuthConfigOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_aws_s3
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_aws_s3(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingAwsS3.new # GatewayUpdateLogForwardingAwsS3 | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_aws_s3(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_aws_s3: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_aws_s3_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_aws_s3_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_aws_s3_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_aws_s3_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingAwsS3**](GatewayUpdateLogForwardingAwsS3.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_azure_analytics
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_azure_analytics(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingAzureAnalytics.new # GatewayUpdateLogForwardingAzureAnalytics | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_azure_analytics(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_azure_analytics: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_azure_analytics_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_azure_analytics_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_azure_analytics_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_azure_analytics_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingAzureAnalytics**](GatewayUpdateLogForwardingAzureAnalytics.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_datadog
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_datadog(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingDatadog.new # GatewayUpdateLogForwardingDatadog | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_datadog(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_datadog: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_datadog_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_datadog_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_datadog_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_datadog_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingDatadog**](GatewayUpdateLogForwardingDatadog.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_elasticsearch
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_elasticsearch(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingElasticsearch.new # GatewayUpdateLogForwardingElasticsearch | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_elasticsearch(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_elasticsearch: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_elasticsearch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_elasticsearch_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_elasticsearch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_elasticsearch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingElasticsearch**](GatewayUpdateLogForwardingElasticsearch.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_google_chronicle
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_google_chronicle(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingGoogleChronicle.new # GatewayUpdateLogForwardingGoogleChronicle | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_google_chronicle(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_google_chronicle: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_google_chronicle_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_google_chronicle_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_google_chronicle_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_google_chronicle_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingGoogleChronicle**](GatewayUpdateLogForwardingGoogleChronicle.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_logstash
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_logstash(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingLogstash.new # GatewayUpdateLogForwardingLogstash | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_logstash(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_logstash: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_logstash_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_logstash_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_logstash_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_logstash_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingLogstash**](GatewayUpdateLogForwardingLogstash.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_logz_io
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_logz_io(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingLogzIo.new # GatewayUpdateLogForwardingLogzIo | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_logz_io(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_logz_io: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_logz_io_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_logz_io_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_logz_io_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_logz_io_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingLogzIo**](GatewayUpdateLogForwardingLogzIo.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_splunk
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_splunk(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingSplunk.new # GatewayUpdateLogForwardingSplunk | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_splunk(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_splunk: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_splunk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_splunk_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_splunk_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_splunk_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingSplunk**](GatewayUpdateLogForwardingSplunk.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_stdout
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_stdout(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingStdout.new # GatewayUpdateLogForwardingStdout | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_stdout(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_stdout: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_stdout_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_stdout_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_stdout_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_stdout_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingStdout**](GatewayUpdateLogForwardingStdout.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_sumologic
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_sumologic(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingSumologic.new # GatewayUpdateLogForwardingSumologic | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_sumologic(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_sumologic: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_sumologic_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_sumologic_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_sumologic_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_sumologic_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingSumologic**](GatewayUpdateLogForwardingSumologic.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_log_forwarding_syslog
+
+> <GatewayUpdateLogForwardingOutput> gateway_update_log_forwarding_syslog(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateLogForwardingSyslog.new # GatewayUpdateLogForwardingSyslog | 
+
+begin
+  
+  result = api_instance.gateway_update_log_forwarding_syslog(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_syslog: #{e}"
+end
+```
+
+#### Using the gateway_update_log_forwarding_syslog_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gateway_update_log_forwarding_syslog_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_log_forwarding_syslog_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_log_forwarding_syslog_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateLogForwardingSyslog**](GatewayUpdateLogForwardingSyslog.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
 
 ### Authorization
 
@@ -24504,6 +25639,68 @@ end
 ### Return type
 
 [**UpdateGroupOutput**](UpdateGroupOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_hashi_vault_target
+
+> <UpdateHashiVaultTargetOutput> update_hashi_vault_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::UpdateHashiVaultTarget.new({name: 'name_example'}) # UpdateHashiVaultTarget | 
+
+begin
+  
+  result = api_instance.update_hashi_vault_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_hashi_vault_target: #{e}"
+end
+```
+
+#### Using the update_hashi_vault_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateHashiVaultTargetOutput>, Integer, Hash)> update_hashi_vault_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_hashi_vault_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateHashiVaultTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_hashi_vault_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**UpdateHashiVaultTarget**](UpdateHashiVaultTarget.md) |  |  |
+
+### Return type
+
+[**UpdateHashiVaultTargetOutput**](UpdateHashiVaultTargetOutput.md)
 
 ### Authorization
 

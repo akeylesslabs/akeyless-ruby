@@ -10,7 +10,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **extensions** | **Hash&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | SSH certificate issuer name |  |

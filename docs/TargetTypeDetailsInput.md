@@ -18,6 +18,7 @@
 | **globalsign_atlas_target_details** | [**GlobalSignAtlasTargetDetails**](GlobalSignAtlasTargetDetails.md) |  | [optional] |
 | **globalsign_target_details** | [**GlobalSignGCCTargetDetails**](GlobalSignGCCTargetDetails.md) |  | [optional] |
 | **godaddy_target_details** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  | [optional] |
+| **hashi_vault_target_details** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  | [optional] |
 | **ldap_target_details** | [**LdapTargetDetails**](LdapTargetDetails.md) |  | [optional] |
 | **linked_target_details** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  | [optional] |
 | **mongo_db_target_details** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  | [optional] |
@@ -51,6 +52,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   globalsign_atlas_target_details: null,
   globalsign_target_details: null,
   godaddy_target_details: null,
+  hashi_vault_target_details: null,
   ldap_target_details: null,
   linked_target_details: null,
   mongo_db_target_details: null,

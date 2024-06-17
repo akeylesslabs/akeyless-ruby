@@ -18,7 +18,7 @@
 | **gcp_service_account_email** | **String** | The email of the gcp service account to rotate | [optional] |
 | **gcp_service_account_key_id** | **String** | The key id of the gcp service account to rotate | [optional] |
 | **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Relevant only for Secure Remote Access of ssh cert issuer and ldap rotated secret | [optional][default to &#39;explicit&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
@@ -51,7 +51,7 @@
 | **ssh_username** | **String** | Deprecated: use RotatedUser | [optional] |
 | **storage_account_key_name** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer and ldap rotated secret, To specify multiple targets use argument multiple times | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times | [optional] |
 | **target_name** | **String** | Target name |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
