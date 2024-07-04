@@ -6,7 +6,6 @@
 | ---- | ---- | ----------- | ----- |
 | **use_default_identity_bool** | **Boolean** |  | [optional] |
 | **access_id** | **String** | The access ID of the Kubernetes auth method | [optional] |
-| **config_encryption_key_name** | **String** | Config encryption key | [optional] |
 | **disable_issuer_validation** | **String** | Disable issuer validation [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_auth_type** | **String** | K8S auth type [token/certificate]. (relevant for \&quot;native_k8s\&quot; only) | [optional][default to &#39;token&#39;] |
@@ -34,7 +33,6 @@ require 'akeyless'
 instance = Akeyless::GatewayPartialUpdateK8SAuthConfig.new(
   use_default_identity_bool: null,
   access_id: null,
-  config_encryption_key_name: null,
   disable_issuer_validation: null,
   json: null,
   k8s_auth_type: null,

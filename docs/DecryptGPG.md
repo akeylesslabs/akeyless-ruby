@@ -4,8 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ciphertext** | **String** | Ciphertext to be decrypted in base64 encoded format |  |
+| **ciphertext** | **String** | Ciphertext to be decrypted |  |
 | **display_id** | **String** | The display id of the key to use in the decryption process | [optional] |
+| **input_format** | **String** | Select default assumed format for the ciphertext. Currently supported options: [base64,raw] | [optional][default to &#39;base64&#39;] |
 | **item_id** | **Integer** | The item id of the key to use in the decryption process | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_name** | **String** | The name of the key to use in the decryption process |  |
@@ -22,6 +23,7 @@ require 'akeyless'
 instance = Akeyless::DecryptGPG.new(
   ciphertext: null,
   display_id: null,
+  input_format: null,
   item_id: null,
   json: null,
   key_name: null,

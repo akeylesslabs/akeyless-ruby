@@ -7,6 +7,35 @@ All URIs are relative to *https://api.akeyless.io*
 | [**assoc_role_auth_method**](V2Api.md#assoc_role_auth_method) | **POST** /assoc-role-am |  |
 | [**assoc_target_item**](V2Api.md#assoc_target_item) | **POST** /assoc-target-item |  |
 | [**auth**](V2Api.md#auth) | **POST** /auth |  |
+| [**auth_method_create_api_key**](V2Api.md#auth_method_create_api_key) | **POST** /auth-method-create-api-key |  |
+| [**auth_method_create_aws_iam**](V2Api.md#auth_method_create_aws_iam) | **POST** /auth-method-create-aws |  |
+| [**auth_method_create_azure_ad**](V2Api.md#auth_method_create_azure_ad) | **POST** /auth-method-create-azure-ad |  |
+| [**auth_method_create_cert**](V2Api.md#auth_method_create_cert) | **POST** /auth-method-create-cert |  |
+| [**auth_method_create_email**](V2Api.md#auth_method_create_email) | **POST** /auth-method-create-email |  |
+| [**auth_method_create_gcp**](V2Api.md#auth_method_create_gcp) | **POST** /auth-method-create-gcp |  |
+| [**auth_method_create_k8s**](V2Api.md#auth_method_create_k8s) | **POST** /auth-method-create-k8s |  |
+| [**auth_method_create_ldap**](V2Api.md#auth_method_create_ldap) | **POST** /auth-method-create-ldap |  |
+| [**auth_method_create_oauth2**](V2Api.md#auth_method_create_oauth2) | **POST** /auth-method-create-oauth2 |  |
+| [**auth_method_create_oci**](V2Api.md#auth_method_create_oci) | **POST** /auth-method-create-oci |  |
+| [**auth_method_create_oidc**](V2Api.md#auth_method_create_oidc) | **POST** /auth-method-create-oidc |  |
+| [**auth_method_create_saml**](V2Api.md#auth_method_create_saml) | **POST** /auth-method-create-saml |  |
+| [**auth_method_create_universal_identity**](V2Api.md#auth_method_create_universal_identity) | **POST** /auth-method-create-universal-identity |  |
+| [**auth_method_delete**](V2Api.md#auth_method_delete) | **POST** /auth-method-delete |  |
+| [**auth_method_get**](V2Api.md#auth_method_get) | **POST** /auth-method-get |  |
+| [**auth_method_list**](V2Api.md#auth_method_list) | **POST** /auth-method-list |  |
+| [**auth_method_update_api_key**](V2Api.md#auth_method_update_api_key) | **POST** /auth-method-update-api-key |  |
+| [**auth_method_update_aws_iam**](V2Api.md#auth_method_update_aws_iam) | **POST** /auth-method-update-aws-iam |  |
+| [**auth_method_update_azure_ad**](V2Api.md#auth_method_update_azure_ad) | **POST** /auth-method-update-azure-ad |  |
+| [**auth_method_update_cert**](V2Api.md#auth_method_update_cert) | **POST** /auth-method-update-cert |  |
+| [**auth_method_update_email**](V2Api.md#auth_method_update_email) | **POST** /auth-method-update-email |  |
+| [**auth_method_update_gcp**](V2Api.md#auth_method_update_gcp) | **POST** /auth-method-update-gcp |  |
+| [**auth_method_update_k8s**](V2Api.md#auth_method_update_k8s) | **POST** /auth-method-update-k8s |  |
+| [**auth_method_update_ldap**](V2Api.md#auth_method_update_ldap) | **POST** /auth-method-update-ldap |  |
+| [**auth_method_update_oauth2**](V2Api.md#auth_method_update_oauth2) | **POST** /auth-method-update-oauth2 |  |
+| [**auth_method_update_oci**](V2Api.md#auth_method_update_oci) | **POST** /auth-method-update-oci |  |
+| [**auth_method_update_oidc**](V2Api.md#auth_method_update_oidc) | **POST** /auth-method-update-oidc |  |
+| [**auth_method_update_saml**](V2Api.md#auth_method_update_saml) | **POST** /auth-method-update-saml |  |
+| [**auth_method_update_universal_identity**](V2Api.md#auth_method_update_universal_identity) | **POST** /auth-method-update-universal-identity |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
 | [**create_artifactory_target**](V2Api.md#create_artifactory_target) | **POST** /create-artifactory-target |  |
@@ -37,6 +66,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_event_forwarder**](V2Api.md#create_event_forwarder) | **POST** /create-event-forwarder |  |
 | [**create_gcp_target**](V2Api.md#create_gcp_target) | **POST** /create-gcp-target |  |
 | [**create_github_target**](V2Api.md#create_github_target) | **POST** /create-github-target |  |
+| [**create_gitlab_target**](V2Api.md#create_gitlab_target) | **POST** /create-gitlab-target |  |
 | [**create_gke_target**](V2Api.md#create_gke_target) | **POST** /create-gke-target |  |
 | [**create_global_sign_atlas_target**](V2Api.md#create_global_sign_atlas_target) | **POST** /create-globalsign-atlas-target |  |
 | [**create_global_sign_target**](V2Api.md#create_global_sign_target) | **POST** /create-globalsign-target |  |
@@ -97,6 +127,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_create_eks**](V2Api.md#dynamic_secret_create_eks) | **POST** /dynamic-secret-create-eks |  |
 | [**dynamic_secret_create_gcp**](V2Api.md#dynamic_secret_create_gcp) | **POST** /dynamic-secret-create-gcp |  |
 | [**dynamic_secret_create_github**](V2Api.md#dynamic_secret_create_github) | **POST** /dynamic-secret-create-github |  |
+| [**dynamic_secret_create_gitlab**](V2Api.md#dynamic_secret_create_gitlab) | **POST** /dynamic-secret-create-gitlab |  |
 | [**dynamic_secret_create_gke**](V2Api.md#dynamic_secret_create_gke) | **POST** /dynamic-secret-create-gke |  |
 | [**dynamic_secret_create_google_workspace**](V2Api.md#dynamic_secret_create_google_workspace) | **POST** /dynamic-secret-create-google-workspace |  |
 | [**dynamic_secret_create_hana_db**](V2Api.md#dynamic_secret_create_hana_db) | **POST** /dynamic-secret-create-hanadb |  |
@@ -130,6 +161,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_update_eks**](V2Api.md#dynamic_secret_update_eks) | **POST** /dynamic-secret-update-eks |  |
 | [**dynamic_secret_update_gcp**](V2Api.md#dynamic_secret_update_gcp) | **POST** /dynamic-secret-update-gcp |  |
 | [**dynamic_secret_update_github**](V2Api.md#dynamic_secret_update_github) | **POST** /dynamic-secret-update-github |  |
+| [**dynamic_secret_update_gitlab**](V2Api.md#dynamic_secret_update_gitlab) | **POST** /dynamic-secret-update-gitlab |  |
 | [**dynamic_secret_update_gke**](V2Api.md#dynamic_secret_update_gke) | **POST** /dynamic-secret-update-gke |  |
 | [**dynamic_secret_update_google_workspace**](V2Api.md#dynamic_secret_update_google_workspace) | **POST** /dynamic-secret-update-google-workspace |  |
 | [**dynamic_secret_update_hana_db**](V2Api.md#dynamic_secret_update_hana_db) | **POST** /dynamic-secret-update-hana |  |
@@ -372,6 +404,58 @@ All URIs are relative to *https://api.akeyless.io*
 | [**sign_pki_cert_with_classic_key**](V2Api.md#sign_pki_cert_with_classic_key) | **POST** /sign-pki-cert-with-classic-key |  |
 | [**sign_rsa_ssa_pss**](V2Api.md#sign_rsa_ssa_pss) | **POST** /sign-rsassa-pss |  |
 | [**static_creds_auth**](V2Api.md#static_creds_auth) | **POST** /static-creds-auth |  |
+| [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
+| [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
+| [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
+| [**target_create_db**](V2Api.md#target_create_db) | **POST** /target-create-db |  |
+| [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
+| [**target_create_eks**](V2Api.md#target_create_eks) | **POST** /target-create-eks |  |
+| [**target_create_gcp**](V2Api.md#target_create_gcp) | **POST** /target-create-gcp |  |
+| [**target_create_github**](V2Api.md#target_create_github) | **POST** /target-create-github |  |
+| [**target_create_gitlab**](V2Api.md#target_create_gitlab) | **POST** /target-create-gitlab |  |
+| [**target_create_gke**](V2Api.md#target_create_gke) | **POST** /target-create-gke |  |
+| [**target_create_global_sign**](V2Api.md#target_create_global_sign) | **POST** /target-create-globalsign |  |
+| [**target_create_global_sign_atlas**](V2Api.md#target_create_global_sign_atlas) | **POST** /target-create-globalsign-atlas |  |
+| [**target_create_godaddy**](V2Api.md#target_create_godaddy) | **POST** /target-create-godaddy |  |
+| [**target_create_hashi_vault**](V2Api.md#target_create_hashi_vault) | **POST** /target-create-hashi-vault |  |
+| [**target_create_k8s**](V2Api.md#target_create_k8s) | **POST** /target-create-k8s |  |
+| [**target_create_ldap**](V2Api.md#target_create_ldap) | **POST** /target-create-ldap |  |
+| [**target_create_linked**](V2Api.md#target_create_linked) | **POST** /target-create-linked |  |
+| [**target_create_ping**](V2Api.md#target_create_ping) | **POST** /target-create-ping |  |
+| [**target_create_rabbit_mq**](V2Api.md#target_create_rabbit_mq) | **POST** /target-create-rabbitmq |  |
+| [**target_create_salesforce**](V2Api.md#target_create_salesforce) | **POST** /target-create-salesforce |  |
+| [**target_create_ssh**](V2Api.md#target_create_ssh) | **POST** /target-create-ssh |  |
+| [**target_create_web**](V2Api.md#target_create_web) | **POST** /target-create-web |  |
+| [**target_create_windows**](V2Api.md#target_create_windows) | **POST** /target-create-windows |  |
+| [**target_create_zero_ssl**](V2Api.md#target_create_zero_ssl) | **POST** /target-create-zerossl |  |
+| [**target_delete**](V2Api.md#target_delete) | **POST** /target-delete |  |
+| [**target_get**](V2Api.md#target_get) | **POST** /target-get |  |
+| [**target_get_details**](V2Api.md#target_get_details) | **POST** /target-get-details |  |
+| [**target_list**](V2Api.md#target_list) | **POST** /target-list |  |
+| [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
+| [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
+| [**target_update_azure**](V2Api.md#target_update_azure) | **POST** /target-update-azure |  |
+| [**target_update_db**](V2Api.md#target_update_db) | **POST** /target-update-db |  |
+| [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
+| [**target_update_eks**](V2Api.md#target_update_eks) | **POST** /target-update-eks |  |
+| [**target_update_gcp**](V2Api.md#target_update_gcp) | **POST** /target-update-gcp |  |
+| [**target_update_github**](V2Api.md#target_update_github) | **POST** /target-update-github |  |
+| [**target_update_gitlab**](V2Api.md#target_update_gitlab) | **POST** /target-update-gitlab |  |
+| [**target_update_gke**](V2Api.md#target_update_gke) | **POST** /target-update-gke |  |
+| [**target_update_global_sign**](V2Api.md#target_update_global_sign) | **POST** /target-update-globalsign |  |
+| [**target_update_global_sign_atlas**](V2Api.md#target_update_global_sign_atlas) | **POST** /target-update-globalsign-atlas |  |
+| [**target_update_godaddy**](V2Api.md#target_update_godaddy) | **POST** /target-update-godaddy |  |
+| [**target_update_hashi_vault**](V2Api.md#target_update_hashi_vault) | **POST** /target-update-hashi-vault |  |
+| [**target_update_k8s**](V2Api.md#target_update_k8s) | **POST** /target-update-k8s |  |
+| [**target_update_ldap**](V2Api.md#target_update_ldap) | **POST** /target-update-ldap |  |
+| [**target_update_linked**](V2Api.md#target_update_linked) | **POST** /target-update-linked |  |
+| [**target_update_ping**](V2Api.md#target_update_ping) | **POST** /target-update-ping |  |
+| [**target_update_rabbit_mq**](V2Api.md#target_update_rabbit_mq) | **POST** /target-update-rabbitmq |  |
+| [**target_update_salesforce**](V2Api.md#target_update_salesforce) | **POST** /target-update-salesforce |  |
+| [**target_update_ssh**](V2Api.md#target_update_ssh) | **POST** /target-update-ssh |  |
+| [**target_update_web**](V2Api.md#target_update_web) | **POST** /target-update-web |  |
+| [**target_update_windows**](V2Api.md#target_update_windows) | **POST** /target-update-windows |  |
+| [**target_update_zero_ssl**](V2Api.md#target_update_zero_ssl) | **POST** /target-update-zerossl |  |
 | [**tokenize**](V2Api.md#tokenize) | **POST** /tokenize |  |
 | [**uid_create_child_token**](V2Api.md#uid_create_child_token) | **POST** /uid-create-child-token |  |
 | [**uid_generate_token**](V2Api.md#uid_generate_token) | **POST** /uid-generate-token |  |
@@ -405,6 +489,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**update_event_forwarder**](V2Api.md#update_event_forwarder) | **POST** /update-event-forwarder |  |
 | [**update_gcp_target**](V2Api.md#update_gcp_target) | **POST** /update-gcp-target |  |
 | [**update_github_target**](V2Api.md#update_github_target) | **POST** /update-github-target |  |
+| [**update_gitlab_target**](V2Api.md#update_gitlab_target) | **POST** /update-gitlab-target |  |
 | [**update_gke_target**](V2Api.md#update_gke_target) | **POST** /update-gke-target |  |
 | [**update_global_sign_atlas_target**](V2Api.md#update_global_sign_atlas_target) | **POST** /update-globalsign-atlas-target |  |
 | [**update_global_sign_target**](V2Api.md#update_global_sign_target) | **POST** /update-globalsign-target |  |
@@ -627,6 +712,1804 @@ end
 ### Return type
 
 [**AuthOutput**](AuthOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_api_key
+
+> <AuthMethodCreateOutput> auth_method_create_api_key(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateApiKey.new({name: 'name_example'}) # AuthMethodCreateApiKey | 
+
+begin
+  
+  result = api_instance.auth_method_create_api_key(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_api_key: #{e}"
+end
+```
+
+#### Using the auth_method_create_api_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_api_key_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_api_key_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_api_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateApiKey**](AuthMethodCreateApiKey.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_aws_iam
+
+> <AuthMethodCreateOutput> auth_method_create_aws_iam(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateAwsIam.new({bound_aws_account_id: ['bound_aws_account_id_example'], name: 'name_example'}) # AuthMethodCreateAwsIam | 
+
+begin
+  
+  result = api_instance.auth_method_create_aws_iam(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_aws_iam: #{e}"
+end
+```
+
+#### Using the auth_method_create_aws_iam_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_aws_iam_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_aws_iam_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_aws_iam_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateAwsIam**](AuthMethodCreateAwsIam.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_azure_ad
+
+> <AuthMethodCreateOutput> auth_method_create_azure_ad(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateAzureAD.new({bound_tenant_id: 'bound_tenant_id_example', name: 'name_example'}) # AuthMethodCreateAzureAD | 
+
+begin
+  
+  result = api_instance.auth_method_create_azure_ad(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_azure_ad: #{e}"
+end
+```
+
+#### Using the auth_method_create_azure_ad_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_azure_ad_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_azure_ad_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_azure_ad_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateAzureAD**](AuthMethodCreateAzureAD.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_cert
+
+> <AuthMethodCreateOutput> auth_method_create_cert(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateCert.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodCreateCert | 
+
+begin
+  
+  result = api_instance.auth_method_create_cert(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_cert: #{e}"
+end
+```
+
+#### Using the auth_method_create_cert_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_cert_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_cert_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_cert_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateCert**](AuthMethodCreateCert.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_email
+
+> <AuthMethodCreateOutput> auth_method_create_email(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateEmail.new({email: 'email_example', name: 'name_example'}) # AuthMethodCreateEmail | 
+
+begin
+  
+  result = api_instance.auth_method_create_email(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_email: #{e}"
+end
+```
+
+#### Using the auth_method_create_email_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_email_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_email_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateEmail**](AuthMethodCreateEmail.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_gcp
+
+> <AuthMethodCreateOutput> auth_method_create_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateGcp.new({audience: 'audience_example', name: 'name_example', type: 'type_example'}) # AuthMethodCreateGcp | 
+
+begin
+  
+  result = api_instance.auth_method_create_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_gcp: #{e}"
+end
+```
+
+#### Using the auth_method_create_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateGcp**](AuthMethodCreateGcp.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_k8s
+
+> <AuthMethodCreateOutput> auth_method_create_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateK8s.new({name: 'name_example'}) # AuthMethodCreateK8s | 
+
+begin
+  
+  result = api_instance.auth_method_create_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_k8s: #{e}"
+end
+```
+
+#### Using the auth_method_create_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateK8s**](AuthMethodCreateK8s.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_ldap
+
+> <AuthMethodCreateOutput> auth_method_create_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateLdap.new({name: 'name_example'}) # AuthMethodCreateLdap | 
+
+begin
+  
+  result = api_instance.auth_method_create_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_ldap: #{e}"
+end
+```
+
+#### Using the auth_method_create_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateLdap**](AuthMethodCreateLdap.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_oauth2
+
+> <AuthMethodCreateOutput> auth_method_create_oauth2(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateOauth2.new({jwks_uri: 'jwks_uri_example', name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodCreateOauth2 | 
+
+begin
+  
+  result = api_instance.auth_method_create_oauth2(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oauth2: #{e}"
+end
+```
+
+#### Using the auth_method_create_oauth2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_oauth2_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_oauth2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oauth2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateOauth2**](AuthMethodCreateOauth2.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_oci
+
+> <AuthMethodCreateOutput> auth_method_create_oci(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateOCI.new({group_ocid: ['group_ocid_example'], name: 'name_example', tenant_ocid: 'tenant_ocid_example'}) # AuthMethodCreateOCI | 
+
+begin
+  
+  result = api_instance.auth_method_create_oci(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oci: #{e}"
+end
+```
+
+#### Using the auth_method_create_oci_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_oci_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_oci_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oci_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateOCI**](AuthMethodCreateOCI.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_oidc
+
+> <AuthMethodCreateOutput> auth_method_create_oidc(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateOIDC.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodCreateOIDC | 
+
+begin
+  
+  result = api_instance.auth_method_create_oidc(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oidc: #{e}"
+end
+```
+
+#### Using the auth_method_create_oidc_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_oidc_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_oidc_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_oidc_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateOIDC**](AuthMethodCreateOIDC.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_saml
+
+> <AuthMethodCreateOutput> auth_method_create_saml(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateSAML.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodCreateSAML | 
+
+begin
+  
+  result = api_instance.auth_method_create_saml(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_saml: #{e}"
+end
+```
+
+#### Using the auth_method_create_saml_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_saml_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_saml_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_saml_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateSAML**](AuthMethodCreateSAML.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_universal_identity
+
+> <AuthMethodCreateOutput> auth_method_create_universal_identity(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateUniversalIdentity.new({name: 'name_example'}) # AuthMethodCreateUniversalIdentity | 
+
+begin
+  
+  result = api_instance.auth_method_create_universal_identity(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_universal_identity: #{e}"
+end
+```
+
+#### Using the auth_method_create_universal_identity_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_universal_identity_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_universal_identity_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_universal_identity_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateUniversalIdentity**](AuthMethodCreateUniversalIdentity.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_delete
+
+> <AuthMethodDeleteOutput> auth_method_delete(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodDelete.new({name: 'name_example'}) # AuthMethodDelete | 
+
+begin
+  
+  result = api_instance.auth_method_delete(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_delete: #{e}"
+end
+```
+
+#### Using the auth_method_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodDeleteOutput>, Integer, Hash)> auth_method_delete_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_delete_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodDeleteOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodDelete**](AuthMethodDelete.md) |  |  |
+
+### Return type
+
+[**AuthMethodDeleteOutput**](AuthMethodDeleteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_get
+
+> <AuthMethod> auth_method_get(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodGet.new({name: 'name_example'}) # AuthMethodGet | 
+
+begin
+  
+  result = api_instance.auth_method_get(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_get: #{e}"
+end
+```
+
+#### Using the auth_method_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethod>, Integer, Hash)> auth_method_get_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_get_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethod>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodGet**](AuthMethodGet.md) |  |  |
+
+### Return type
+
+[**AuthMethod**](AuthMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_list
+
+> <ListAuthMethodsOutput> auth_method_list(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodList.new # AuthMethodList | 
+
+begin
+  
+  result = api_instance.auth_method_list(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_list: #{e}"
+end
+```
+
+#### Using the auth_method_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListAuthMethodsOutput>, Integer, Hash)> auth_method_list_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_list_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListAuthMethodsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodList**](AuthMethodList.md) |  |  |
+
+### Return type
+
+[**ListAuthMethodsOutput**](ListAuthMethodsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_api_key
+
+> <AuthMethodUpdateOutput> auth_method_update_api_key(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateApiKey.new({name: 'name_example'}) # AuthMethodUpdateApiKey | 
+
+begin
+  
+  result = api_instance.auth_method_update_api_key(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_api_key: #{e}"
+end
+```
+
+#### Using the auth_method_update_api_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_api_key_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_api_key_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_api_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateApiKey**](AuthMethodUpdateApiKey.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_aws_iam
+
+> <AuthMethodUpdateOutput> auth_method_update_aws_iam(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateAwsIam.new({bound_aws_account_id: ['bound_aws_account_id_example'], name: 'name_example'}) # AuthMethodUpdateAwsIam | 
+
+begin
+  
+  result = api_instance.auth_method_update_aws_iam(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_aws_iam: #{e}"
+end
+```
+
+#### Using the auth_method_update_aws_iam_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_aws_iam_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_aws_iam_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_aws_iam_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateAwsIam**](AuthMethodUpdateAwsIam.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_azure_ad
+
+> <AuthMethodUpdateOutput> auth_method_update_azure_ad(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateAzureAD.new({bound_tenant_id: 'bound_tenant_id_example', name: 'name_example'}) # AuthMethodUpdateAzureAD | 
+
+begin
+  
+  result = api_instance.auth_method_update_azure_ad(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_azure_ad: #{e}"
+end
+```
+
+#### Using the auth_method_update_azure_ad_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_azure_ad_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_azure_ad_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_azure_ad_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateAzureAD**](AuthMethodUpdateAzureAD.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_cert
+
+> <AuthMethodUpdateOutput> auth_method_update_cert(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateCert.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodUpdateCert | 
+
+begin
+  
+  result = api_instance.auth_method_update_cert(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_cert: #{e}"
+end
+```
+
+#### Using the auth_method_update_cert_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_cert_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_cert_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_cert_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateCert**](AuthMethodUpdateCert.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_email
+
+> <AuthMethodUpdateOutput> auth_method_update_email(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateEmail.new({name: 'name_example'}) # AuthMethodUpdateEmail | 
+
+begin
+  
+  result = api_instance.auth_method_update_email(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_email: #{e}"
+end
+```
+
+#### Using the auth_method_update_email_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_email_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_email_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateEmail**](AuthMethodUpdateEmail.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_gcp
+
+> <AuthMethodUpdateOutput> auth_method_update_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateGcp.new({audience: 'audience_example', name: 'name_example', type: 'type_example'}) # AuthMethodUpdateGcp | 
+
+begin
+  
+  result = api_instance.auth_method_update_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_gcp: #{e}"
+end
+```
+
+#### Using the auth_method_update_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateGcp**](AuthMethodUpdateGcp.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_k8s
+
+> <AuthMethodUpdateOutput> auth_method_update_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateK8s.new({name: 'name_example'}) # AuthMethodUpdateK8s | 
+
+begin
+  
+  result = api_instance.auth_method_update_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_k8s: #{e}"
+end
+```
+
+#### Using the auth_method_update_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateK8s**](AuthMethodUpdateK8s.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_ldap
+
+> <AuthMethodUpdateOutput> auth_method_update_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateLdap.new({name: 'name_example'}) # AuthMethodUpdateLdap | 
+
+begin
+  
+  result = api_instance.auth_method_update_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_ldap: #{e}"
+end
+```
+
+#### Using the auth_method_update_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateLdap**](AuthMethodUpdateLdap.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_oauth2
+
+> <AuthMethodUpdateOutput> auth_method_update_oauth2(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateOauth2.new({jwks_uri: 'jwks_uri_example', name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodUpdateOauth2 | 
+
+begin
+  
+  result = api_instance.auth_method_update_oauth2(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oauth2: #{e}"
+end
+```
+
+#### Using the auth_method_update_oauth2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_oauth2_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_oauth2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oauth2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateOauth2**](AuthMethodUpdateOauth2.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_oci
+
+> <AuthMethodUpdateOutput> auth_method_update_oci(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateOCI.new({group_ocid: ['group_ocid_example'], name: 'name_example', tenant_ocid: 'tenant_ocid_example'}) # AuthMethodUpdateOCI | 
+
+begin
+  
+  result = api_instance.auth_method_update_oci(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oci: #{e}"
+end
+```
+
+#### Using the auth_method_update_oci_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_oci_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_oci_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oci_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateOCI**](AuthMethodUpdateOCI.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_oidc
+
+> <AuthMethodUpdateOutput> auth_method_update_oidc(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateOIDC.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodUpdateOIDC | 
+
+begin
+  
+  result = api_instance.auth_method_update_oidc(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oidc: #{e}"
+end
+```
+
+#### Using the auth_method_update_oidc_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_oidc_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_oidc_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_oidc_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateOIDC**](AuthMethodUpdateOIDC.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_saml
+
+> <AuthMethodUpdateOutput> auth_method_update_saml(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateSAML.new({name: 'name_example', unique_identifier: 'unique_identifier_example'}) # AuthMethodUpdateSAML | 
+
+begin
+  
+  result = api_instance.auth_method_update_saml(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_saml: #{e}"
+end
+```
+
+#### Using the auth_method_update_saml_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_saml_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_saml_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_saml_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateSAML**](AuthMethodUpdateSAML.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_universal_identity
+
+> <AuthMethodUpdateOutput> auth_method_update_universal_identity(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateUniversalIdentity.new({name: 'name_example'}) # AuthMethodUpdateUniversalIdentity | 
+
+begin
+  
+  result = api_instance.auth_method_update_universal_identity(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_universal_identity: #{e}"
+end
+```
+
+#### Using the auth_method_update_universal_identity_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_universal_identity_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_universal_identity_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_universal_identity_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateUniversalIdentity**](AuthMethodUpdateUniversalIdentity.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
 
 ### Authorization
 
@@ -2487,6 +4370,68 @@ end
 ### Return type
 
 [**CreateGithubTargetOutput**](CreateGithubTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_gitlab_target
+
+> <CreateGitlabTargetOutput> create_gitlab_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::CreateGitlabTarget.new({name: 'name_example'}) # CreateGitlabTarget | 
+
+begin
+  
+  result = api_instance.create_gitlab_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_gitlab_target: #{e}"
+end
+```
+
+#### Using the create_gitlab_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateGitlabTargetOutput>, Integer, Hash)> create_gitlab_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_gitlab_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateGitlabTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_gitlab_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**CreateGitlabTarget**](CreateGitlabTarget.md) |  |  |
+
+### Return type
+
+[**CreateGitlabTargetOutput**](CreateGitlabTargetOutput.md)
 
 ### Authorization
 
@@ -6220,6 +8165,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_gitlab
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_gitlab(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretCreateGitlab.new({gitlab_access_type: 'gitlab_access_type_example', gitlab_token_scopes: 'gitlab_token_scopes_example', name: 'name_example'}) # DynamicSecretCreateGitlab | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_gitlab(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gitlab: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_gitlab_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_gitlab_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_gitlab_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_gitlab_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretCreateGitlab**](DynamicSecretCreateGitlab.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_create_gke
 
 > <DynamicSecretCreateOutput> dynamic_secret_create_gke(body)
@@ -8251,6 +10258,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DynamicSecretUpdateGithub**](DynamicSecretUpdateGithub.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_gitlab
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_gitlab(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DynamicSecretUpdateGitlab.new({gitlab_access_type: 'gitlab_access_type_example', gitlab_token_scopes: 'gitlab_token_scopes_example', name: 'name_example'}) # DynamicSecretUpdateGitlab | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_gitlab(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gitlab: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_gitlab_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_gitlab_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_gitlab_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_gitlab_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DynamicSecretUpdateGitlab**](DynamicSecretUpdateGitlab.md) |  |  |
 
 ### Return type
 
@@ -23294,6 +25363,3230 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_artifactory
+
+> <TargetCreateOutput> target_create_artifactory(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateArtifactory.new({artifactory_admin_name: 'artifactory_admin_name_example', artifactory_admin_pwd: 'artifactory_admin_pwd_example', base_url: 'base_url_example', name: 'name_example'}) # TargetCreateArtifactory | 
+
+begin
+  
+  result = api_instance.target_create_artifactory(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_artifactory: #{e}"
+end
+```
+
+#### Using the target_create_artifactory_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_artifactory_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_artifactory_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_artifactory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateArtifactory**](TargetCreateArtifactory.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_aws
+
+> <TargetCreateOutput> target_create_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateAws.new({access_key: 'access_key_example', access_key_id: 'access_key_id_example', name: 'name_example'}) # TargetCreateAws | 
+
+begin
+  
+  result = api_instance.target_create_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_aws: #{e}"
+end
+```
+
+#### Using the target_create_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateAws**](TargetCreateAws.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_azure
+
+> <TargetCreateOutput> target_create_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateAzure.new({name: 'name_example'}) # TargetCreateAzure | 
+
+begin
+  
+  result = api_instance.target_create_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_azure: #{e}"
+end
+```
+
+#### Using the target_create_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateAzure**](TargetCreateAzure.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_db
+
+> <TargetCreateOutput> target_create_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateDB.new({connection_type: 'connection_type_example', db_type: 'db_type_example', name: 'name_example'}) # TargetCreateDB | 
+
+begin
+  
+  result = api_instance.target_create_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_db: #{e}"
+end
+```
+
+#### Using the target_create_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateDB**](TargetCreateDB.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_dockerhub
+
+> <TargetCreateOutput> target_create_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateDockerhub.new({name: 'name_example'}) # TargetCreateDockerhub | 
+
+begin
+  
+  result = api_instance.target_create_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_dockerhub: #{e}"
+end
+```
+
+#### Using the target_create_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateDockerhub**](TargetCreateDockerhub.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_eks
+
+> <TargetCreateOutput> target_create_eks(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateEks.new({eks_access_key_id: 'eks_access_key_id_example', eks_cluster_ca_cert: 'eks_cluster_ca_cert_example', eks_cluster_endpoint: 'eks_cluster_endpoint_example', eks_cluster_name: 'eks_cluster_name_example', eks_secret_access_key: 'eks_secret_access_key_example', name: 'name_example'}) # TargetCreateEks | 
+
+begin
+  
+  result = api_instance.target_create_eks(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_eks: #{e}"
+end
+```
+
+#### Using the target_create_eks_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_eks_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_eks_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_eks_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateEks**](TargetCreateEks.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_gcp
+
+> <TargetCreateOutput> target_create_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGcp.new({name: 'name_example'}) # TargetCreateGcp | 
+
+begin
+  
+  result = api_instance.target_create_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gcp: #{e}"
+end
+```
+
+#### Using the target_create_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGcp**](TargetCreateGcp.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_github
+
+> <TargetCreateOutput> target_create_github(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGithub.new({name: 'name_example'}) # TargetCreateGithub | 
+
+begin
+  
+  result = api_instance.target_create_github(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_github: #{e}"
+end
+```
+
+#### Using the target_create_github_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_github_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_github_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_github_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGithub**](TargetCreateGithub.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_gitlab
+
+> <TargetCreateOutput> target_create_gitlab(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGitlab.new({name: 'name_example'}) # TargetCreateGitlab | 
+
+begin
+  
+  result = api_instance.target_create_gitlab(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gitlab: #{e}"
+end
+```
+
+#### Using the target_create_gitlab_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_gitlab_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_gitlab_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gitlab_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGitlab**](TargetCreateGitlab.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_gke
+
+> <TargetCreateOutput> target_create_gke(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGke.new({name: 'name_example'}) # TargetCreateGke | 
+
+begin
+  
+  result = api_instance.target_create_gke(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gke: #{e}"
+end
+```
+
+#### Using the target_create_gke_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_gke_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_gke_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gke_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGke**](TargetCreateGke.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_global_sign
+
+> <TargetCreateOutput> target_create_global_sign(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGlobalSign.new({contact_email: 'contact_email_example', contact_first_name: 'contact_first_name_example', contact_last_name: 'contact_last_name_example', contact_phone: 'contact_phone_example', name: 'name_example', password: 'password_example', profile_id: 'profile_id_example', username: 'username_example'}) # TargetCreateGlobalSign | 
+
+begin
+  
+  result = api_instance.target_create_global_sign(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_global_sign: #{e}"
+end
+```
+
+#### Using the target_create_global_sign_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_global_sign_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_global_sign_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_global_sign_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGlobalSign**](TargetCreateGlobalSign.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_global_sign_atlas
+
+> <TargetCreateOutput> target_create_global_sign_atlas(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGlobalSignAtlas.new({api_key: 'api_key_example', api_secret: 'api_secret_example', name: 'name_example'}) # TargetCreateGlobalSignAtlas | 
+
+begin
+  
+  result = api_instance.target_create_global_sign_atlas(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_global_sign_atlas: #{e}"
+end
+```
+
+#### Using the target_create_global_sign_atlas_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_global_sign_atlas_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_global_sign_atlas_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_global_sign_atlas_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGlobalSignAtlas**](TargetCreateGlobalSignAtlas.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_godaddy
+
+> <TargetCreateOutput> target_create_godaddy(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateGodaddy.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example', secret: 'secret_example'}) # TargetCreateGodaddy | 
+
+begin
+  
+  result = api_instance.target_create_godaddy(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_godaddy: #{e}"
+end
+```
+
+#### Using the target_create_godaddy_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_godaddy_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_godaddy_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_godaddy_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateGodaddy**](TargetCreateGodaddy.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_hashi_vault
+
+> <TargetCreateOutput> target_create_hashi_vault(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateHashiVault.new({name: 'name_example'}) # TargetCreateHashiVault | 
+
+begin
+  
+  result = api_instance.target_create_hashi_vault(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_hashi_vault: #{e}"
+end
+```
+
+#### Using the target_create_hashi_vault_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_hashi_vault_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_hashi_vault_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_hashi_vault_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateHashiVault**](TargetCreateHashiVault.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_k8s
+
+> <TargetCreateOutput> target_create_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateK8s.new({k8s_cluster_ca_cert: 'k8s_cluster_ca_cert_example', k8s_cluster_endpoint: 'k8s_cluster_endpoint_example', k8s_cluster_token: 'k8s_cluster_token_example', name: 'name_example'}) # TargetCreateK8s | 
+
+begin
+  
+  result = api_instance.target_create_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_k8s: #{e}"
+end
+```
+
+#### Using the target_create_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateK8s**](TargetCreateK8s.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_ldap
+
+> <TargetCreateOutput> target_create_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateLdap.new({bind_dn: 'bind_dn_example', bind_dn_password: 'bind_dn_password_example', ldap_url: 'ldap_url_example', name: 'name_example'}) # TargetCreateLdap | 
+
+begin
+  
+  result = api_instance.target_create_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ldap: #{e}"
+end
+```
+
+#### Using the target_create_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateLdap**](TargetCreateLdap.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_linked
+
+> <TargetCreateOutput> target_create_linked(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateLinked.new({name: 'name_example'}) # TargetCreateLinked | 
+
+begin
+  
+  result = api_instance.target_create_linked(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_linked: #{e}"
+end
+```
+
+#### Using the target_create_linked_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_linked_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_linked_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_linked_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateLinked**](TargetCreateLinked.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_ping
+
+> <TargetCreateOutput> target_create_ping(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreatePing.new({name: 'name_example'}) # TargetCreatePing | 
+
+begin
+  
+  result = api_instance.target_create_ping(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ping: #{e}"
+end
+```
+
+#### Using the target_create_ping_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_ping_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_ping_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ping_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreatePing**](TargetCreatePing.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_rabbit_mq
+
+> <TargetCreateOutput> target_create_rabbit_mq(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateRabbitMq.new({name: 'name_example'}) # TargetCreateRabbitMq | 
+
+begin
+  
+  result = api_instance.target_create_rabbit_mq(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_rabbit_mq: #{e}"
+end
+```
+
+#### Using the target_create_rabbit_mq_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_rabbit_mq_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_rabbit_mq_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_rabbit_mq_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateRabbitMq**](TargetCreateRabbitMq.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_salesforce
+
+> <TargetCreateOutput> target_create_salesforce(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateSalesforce.new({auth_flow: 'auth_flow_example', client_id: 'client_id_example', email: 'email_example', name: 'name_example', tenant_url: 'tenant_url_example'}) # TargetCreateSalesforce | 
+
+begin
+  
+  result = api_instance.target_create_salesforce(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_salesforce: #{e}"
+end
+```
+
+#### Using the target_create_salesforce_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_salesforce_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_salesforce_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_salesforce_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateSalesforce**](TargetCreateSalesforce.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_ssh
+
+> <TargetCreateOutput> target_create_ssh(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateSsh.new({name: 'name_example'}) # TargetCreateSsh | 
+
+begin
+  
+  result = api_instance.target_create_ssh(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ssh: #{e}"
+end
+```
+
+#### Using the target_create_ssh_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_ssh_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_ssh_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ssh_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateSsh**](TargetCreateSsh.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_web
+
+> <TargetCreateOutput> target_create_web(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateWeb.new({name: 'name_example'}) # TargetCreateWeb | 
+
+begin
+  
+  result = api_instance.target_create_web(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_web: #{e}"
+end
+```
+
+#### Using the target_create_web_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_web_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_web_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_web_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateWeb**](TargetCreateWeb.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_windows
+
+> <TargetCreateOutput> target_create_windows(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateWindows.new({hostname: 'hostname_example', name: 'name_example', password: 'password_example', username: 'username_example'}) # TargetCreateWindows | 
+
+begin
+  
+  result = api_instance.target_create_windows(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_windows: #{e}"
+end
+```
+
+#### Using the target_create_windows_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_windows_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_windows_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_windows_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateWindows**](TargetCreateWindows.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_zero_ssl
+
+> <TargetCreateOutput> target_create_zero_ssl(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetCreateZeroSSL.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example'}) # TargetCreateZeroSSL | 
+
+begin
+  
+  result = api_instance.target_create_zero_ssl(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_zero_ssl: #{e}"
+end
+```
+
+#### Using the target_create_zero_ssl_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_zero_ssl_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_zero_ssl_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_zero_ssl_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetCreateZeroSSL**](TargetCreateZeroSSL.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_delete
+
+> Object target_delete(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetDelete.new({name: 'name_example'}) # TargetDelete | 
+
+begin
+  
+  result = api_instance.target_delete(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_delete: #{e}"
+end
+```
+
+#### Using the target_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> target_delete_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_delete_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetDelete**](TargetDelete.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_get
+
+> <Target> target_get(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetGet.new({name: 'name_example'}) # TargetGet | 
+
+begin
+  
+  result = api_instance.target_get(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_get: #{e}"
+end
+```
+
+#### Using the target_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Target>, Integer, Hash)> target_get_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_get_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Target>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetGet**](TargetGet.md) |  |  |
+
+### Return type
+
+[**Target**](Target.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_get_details
+
+> <GetTargetDetailsOutput> target_get_details(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetGetDetails.new({name: 'name_example'}) # TargetGetDetails | 
+
+begin
+  
+  result = api_instance.target_get_details(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_get_details: #{e}"
+end
+```
+
+#### Using the target_get_details_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetTargetDetailsOutput>, Integer, Hash)> target_get_details_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_get_details_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetTargetDetailsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_get_details_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetGetDetails**](TargetGetDetails.md) |  |  |
+
+### Return type
+
+[**GetTargetDetailsOutput**](GetTargetDetailsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_list
+
+> <ListTargetsOutput> target_list(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetList.new # TargetList | 
+
+begin
+  
+  result = api_instance.target_list(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_list: #{e}"
+end
+```
+
+#### Using the target_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListTargetsOutput>, Integer, Hash)> target_list_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_list_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListTargetsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetList**](TargetList.md) |  |  |
+
+### Return type
+
+[**ListTargetsOutput**](ListTargetsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_artifactory
+
+> <TargetUpdateOutput> target_update_artifactory(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateArtifactory.new({artifactory_admin_name: 'artifactory_admin_name_example', artifactory_admin_pwd: 'artifactory_admin_pwd_example', base_url: 'base_url_example', name: 'name_example'}) # TargetUpdateArtifactory | 
+
+begin
+  
+  result = api_instance.target_update_artifactory(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_artifactory: #{e}"
+end
+```
+
+#### Using the target_update_artifactory_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_artifactory_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_artifactory_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_artifactory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateArtifactory**](TargetUpdateArtifactory.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_aws
+
+> <TargetUpdateOutput> target_update_aws(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateAws.new({access_key: 'access_key_example', access_key_id: 'access_key_id_example', name: 'name_example'}) # TargetUpdateAws | 
+
+begin
+  
+  result = api_instance.target_update_aws(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_aws: #{e}"
+end
+```
+
+#### Using the target_update_aws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_aws_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_aws_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_aws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateAws**](TargetUpdateAws.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_azure
+
+> <TargetUpdateOutput> target_update_azure(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateAzure.new({name: 'name_example'}) # TargetUpdateAzure | 
+
+begin
+  
+  result = api_instance.target_update_azure(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_azure: #{e}"
+end
+```
+
+#### Using the target_update_azure_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_azure_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_azure_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_azure_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateAzure**](TargetUpdateAzure.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_db
+
+> <TargetUpdateOutput> target_update_db(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateDB.new({connection_type: 'connection_type_example', db_type: 'db_type_example', name: 'name_example'}) # TargetUpdateDB | 
+
+begin
+  
+  result = api_instance.target_update_db(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_db: #{e}"
+end
+```
+
+#### Using the target_update_db_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_db_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_db_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_db_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateDB**](TargetUpdateDB.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_dockerhub
+
+> <TargetUpdateOutput> target_update_dockerhub(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateDockerhub.new({name: 'name_example'}) # TargetUpdateDockerhub | 
+
+begin
+  
+  result = api_instance.target_update_dockerhub(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_dockerhub: #{e}"
+end
+```
+
+#### Using the target_update_dockerhub_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_dockerhub_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_dockerhub_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_dockerhub_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateDockerhub**](TargetUpdateDockerhub.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_eks
+
+> <TargetUpdateOutput> target_update_eks(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateEks.new({eks_access_key_id: 'eks_access_key_id_example', eks_cluster_ca_cert: 'eks_cluster_ca_cert_example', eks_cluster_endpoint: 'eks_cluster_endpoint_example', eks_cluster_name: 'eks_cluster_name_example', eks_secret_access_key: 'eks_secret_access_key_example', name: 'name_example'}) # TargetUpdateEks | 
+
+begin
+  
+  result = api_instance.target_update_eks(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_eks: #{e}"
+end
+```
+
+#### Using the target_update_eks_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_eks_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_eks_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_eks_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateEks**](TargetUpdateEks.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_gcp
+
+> <TargetUpdateOutput> target_update_gcp(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGcp.new({name: 'name_example'}) # TargetUpdateGcp | 
+
+begin
+  
+  result = api_instance.target_update_gcp(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gcp: #{e}"
+end
+```
+
+#### Using the target_update_gcp_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_gcp_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_gcp_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gcp_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGcp**](TargetUpdateGcp.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_github
+
+> <TargetUpdateOutput> target_update_github(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGithub.new({name: 'name_example'}) # TargetUpdateGithub | 
+
+begin
+  
+  result = api_instance.target_update_github(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_github: #{e}"
+end
+```
+
+#### Using the target_update_github_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_github_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_github_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_github_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGithub**](TargetUpdateGithub.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_gitlab
+
+> <TargetUpdateOutput> target_update_gitlab(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGitlab.new({name: 'name_example'}) # TargetUpdateGitlab | 
+
+begin
+  
+  result = api_instance.target_update_gitlab(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gitlab: #{e}"
+end
+```
+
+#### Using the target_update_gitlab_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_gitlab_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_gitlab_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gitlab_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGitlab**](TargetUpdateGitlab.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_gke
+
+> <TargetUpdateOutput> target_update_gke(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGke.new({name: 'name_example'}) # TargetUpdateGke | 
+
+begin
+  
+  result = api_instance.target_update_gke(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gke: #{e}"
+end
+```
+
+#### Using the target_update_gke_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_gke_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_gke_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gke_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGke**](TargetUpdateGke.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_global_sign
+
+> <TargetUpdateOutput> target_update_global_sign(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGlobalSign.new({contact_email: 'contact_email_example', contact_first_name: 'contact_first_name_example', contact_last_name: 'contact_last_name_example', contact_phone: 'contact_phone_example', name: 'name_example', password: 'password_example', profile_id: 'profile_id_example', username: 'username_example'}) # TargetUpdateGlobalSign | 
+
+begin
+  
+  result = api_instance.target_update_global_sign(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_global_sign: #{e}"
+end
+```
+
+#### Using the target_update_global_sign_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_global_sign_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_global_sign_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_global_sign_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGlobalSign**](TargetUpdateGlobalSign.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_global_sign_atlas
+
+> <TargetUpdateOutput> target_update_global_sign_atlas(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGlobalSignAtlas.new({api_key: 'api_key_example', api_secret: 'api_secret_example', name: 'name_example'}) # TargetUpdateGlobalSignAtlas | 
+
+begin
+  
+  result = api_instance.target_update_global_sign_atlas(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_global_sign_atlas: #{e}"
+end
+```
+
+#### Using the target_update_global_sign_atlas_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_global_sign_atlas_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_global_sign_atlas_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_global_sign_atlas_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGlobalSignAtlas**](TargetUpdateGlobalSignAtlas.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_godaddy
+
+> <TargetUpdateOutput> target_update_godaddy(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateGodaddy.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example', secret: 'secret_example'}) # TargetUpdateGodaddy | 
+
+begin
+  
+  result = api_instance.target_update_godaddy(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_godaddy: #{e}"
+end
+```
+
+#### Using the target_update_godaddy_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_godaddy_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_godaddy_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_godaddy_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateGodaddy**](TargetUpdateGodaddy.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_hashi_vault
+
+> <TargetUpdateOutput> target_update_hashi_vault(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateHashiVault.new({name: 'name_example'}) # TargetUpdateHashiVault | 
+
+begin
+  
+  result = api_instance.target_update_hashi_vault(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_hashi_vault: #{e}"
+end
+```
+
+#### Using the target_update_hashi_vault_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_hashi_vault_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_hashi_vault_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_hashi_vault_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateHashiVault**](TargetUpdateHashiVault.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_k8s
+
+> <TargetUpdateOutput> target_update_k8s(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateK8s.new({k8s_cluster_ca_cert: 'k8s_cluster_ca_cert_example', k8s_cluster_endpoint: 'k8s_cluster_endpoint_example', k8s_cluster_token: 'k8s_cluster_token_example', name: 'name_example'}) # TargetUpdateK8s | 
+
+begin
+  
+  result = api_instance.target_update_k8s(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_k8s: #{e}"
+end
+```
+
+#### Using the target_update_k8s_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_k8s_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_k8s_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_k8s_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateK8s**](TargetUpdateK8s.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_ldap
+
+> <TargetUpdateOutput> target_update_ldap(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateLdap.new({bind_dn: 'bind_dn_example', bind_dn_password: 'bind_dn_password_example', ldap_url: 'ldap_url_example', name: 'name_example'}) # TargetUpdateLdap | 
+
+begin
+  
+  result = api_instance.target_update_ldap(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ldap: #{e}"
+end
+```
+
+#### Using the target_update_ldap_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_ldap_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_ldap_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ldap_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateLdap**](TargetUpdateLdap.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_linked
+
+> <TargetUpdateOutput> target_update_linked(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateLinked.new({name: 'name_example'}) # TargetUpdateLinked | 
+
+begin
+  
+  result = api_instance.target_update_linked(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_linked: #{e}"
+end
+```
+
+#### Using the target_update_linked_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_linked_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_linked_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_linked_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateLinked**](TargetUpdateLinked.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_ping
+
+> <TargetUpdateOutput> target_update_ping(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdatePing.new({name: 'name_example'}) # TargetUpdatePing | 
+
+begin
+  
+  result = api_instance.target_update_ping(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ping: #{e}"
+end
+```
+
+#### Using the target_update_ping_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_ping_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_ping_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ping_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdatePing**](TargetUpdatePing.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_rabbit_mq
+
+> <TargetUpdateOutput> target_update_rabbit_mq(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateRabbitMq.new({name: 'name_example'}) # TargetUpdateRabbitMq | 
+
+begin
+  
+  result = api_instance.target_update_rabbit_mq(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_rabbit_mq: #{e}"
+end
+```
+
+#### Using the target_update_rabbit_mq_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_rabbit_mq_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_rabbit_mq_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_rabbit_mq_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateRabbitMq**](TargetUpdateRabbitMq.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_salesforce
+
+> <TargetUpdateOutput> target_update_salesforce(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateSalesforce.new({auth_flow: 'auth_flow_example', client_id: 'client_id_example', email: 'email_example', name: 'name_example', tenant_url: 'tenant_url_example'}) # TargetUpdateSalesforce | 
+
+begin
+  
+  result = api_instance.target_update_salesforce(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_salesforce: #{e}"
+end
+```
+
+#### Using the target_update_salesforce_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_salesforce_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_salesforce_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_salesforce_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateSalesforce**](TargetUpdateSalesforce.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_ssh
+
+> <TargetUpdateOutput> target_update_ssh(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateSsh.new({name: 'name_example'}) # TargetUpdateSsh | 
+
+begin
+  
+  result = api_instance.target_update_ssh(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ssh: #{e}"
+end
+```
+
+#### Using the target_update_ssh_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_ssh_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_ssh_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ssh_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateSsh**](TargetUpdateSsh.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_web
+
+> <TargetUpdateOutput> target_update_web(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateWeb.new({name: 'name_example'}) # TargetUpdateWeb | 
+
+begin
+  
+  result = api_instance.target_update_web(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_web: #{e}"
+end
+```
+
+#### Using the target_update_web_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_web_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_web_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_web_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateWeb**](TargetUpdateWeb.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_windows
+
+> <TargetUpdateOutput> target_update_windows(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateWindows.new({hostname: 'hostname_example', name: 'name_example', password: 'password_example', username: 'username_example'}) # TargetUpdateWindows | 
+
+begin
+  
+  result = api_instance.target_update_windows(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_windows: #{e}"
+end
+```
+
+#### Using the target_update_windows_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_windows_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_windows_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_windows_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateWindows**](TargetUpdateWindows.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_zero_ssl
+
+> <TargetUpdateOutput> target_update_zero_ssl(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::TargetUpdateZeroSSL.new({api_key: 'api_key_example', imap_fqdn: 'imap_fqdn_example', imap_password: 'imap_password_example', imap_username: 'imap_username_example', name: 'name_example'}) # TargetUpdateZeroSSL | 
+
+begin
+  
+  result = api_instance.target_update_zero_ssl(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_zero_ssl: #{e}"
+end
+```
+
+#### Using the target_update_zero_ssl_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_zero_ssl_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_zero_ssl_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_zero_ssl_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TargetUpdateZeroSSL**](TargetUpdateZeroSSL.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## tokenize
 
 > <TokenizeOutput> tokenize(body)
@@ -25340,6 +30633,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## update_gitlab_target
+
+> <UpdateGitlabTargetOutput> update_gitlab_target(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::UpdateGitlabTarget.new({name: 'name_example'}) # UpdateGitlabTarget | 
+
+begin
+  
+  result = api_instance.update_gitlab_target(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_gitlab_target: #{e}"
+end
+```
+
+#### Using the update_gitlab_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateGitlabTargetOutput>, Integer, Hash)> update_gitlab_target_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_gitlab_target_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateGitlabTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_gitlab_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**UpdateGitlabTarget**](UpdateGitlabTarget.md) |  |  |
+
+### Return type
+
+[**UpdateGitlabTargetOutput**](UpdateGitlabTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_gke_target
 
 > <UpdateGKETargetOutput> update_gke_target(body)
@@ -25787,7 +31142,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-body = Akeyless::UpdateLdapTarget.new({name: 'name_example'}) # UpdateLdapTarget | 
+body = Akeyless::UpdateLdapTarget.new({bind_dn: 'bind_dn_example', bind_dn_password: 'bind_dn_password_example', ldap_url: 'ldap_url_example', name: 'name_example'}) # UpdateLdapTarget | 
 
 begin
   

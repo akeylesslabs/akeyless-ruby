@@ -11,6 +11,8 @@
 | **bastion_issuer** | **String** |  | [optional] |
 | **bastion_issuer_id** | **Integer** |  | [optional] |
 | **bastion_ssh** | **String** |  | [optional] |
+| **block_concurrent_connections** | **Boolean** |  | [optional] |
+| **block_concurrent_connections_level** | **String** |  | [optional] |
 | **category** | **String** |  | [optional] |
 | **dashboard_url** | **String** |  | [optional] |
 | **db_name** | **String** |  | [optional] |
@@ -51,6 +53,8 @@ instance = Akeyless::SecureRemoteAccess.new(
   bastion_issuer: null,
   bastion_issuer_id: null,
   bastion_ssh: null,
+  block_concurrent_connections: null,
+  block_concurrent_connections_level: null,
   category: null,
   dashboard_url: null,
   db_name: null,

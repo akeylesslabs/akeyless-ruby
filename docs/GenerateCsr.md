@@ -13,6 +13,7 @@
 | **critical** | **Boolean** | Add critical to the key usage extension (will be false if not added) | [optional] |
 | **dep** | **String** | The department to be included in the CSR certificate | [optional] |
 | **email_addresses** | **String** | A comma-separated list of email addresses alternative names | [optional] |
+| **export_private_key** | **Boolean** | The flag to indicate if the private key should be exported | [optional][default to false] |
 | **generate_key** | **Boolean** | Generate a new classic key for the csr | [optional] |
 | **ip_addresses** | **String** | A comma-separated list of ip addresses alternative names | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -40,6 +41,7 @@ instance = Akeyless::GenerateCsr.new(
   critical: null,
   dep: null,
   email_addresses: null,
+  export_private_key: null,
   generate_key: null,
   ip_addresses: null,
   json: null,

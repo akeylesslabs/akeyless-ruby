@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **certificate_pem** | **String** |  | [optional] |
 | **key** | **String** |  | [optional] |
+| **ssh** | **String** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'akeyless'
 
 instance = Akeyless::ExportClassicKeyOutput.new(
   certificate_pem: null,
-  key: null
+  key: null,
+  ssh: null
 )
 ```
 

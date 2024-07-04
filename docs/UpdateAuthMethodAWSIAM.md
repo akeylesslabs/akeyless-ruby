@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_arn** | **Array&lt;String&gt;** | A list of full arns that the access is restricted to | [optional] |
 | **bound_aws_account_id** | **Array&lt;String&gt;** | A list of AWS account-IDs that the access is restricted to |  |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
@@ -32,6 +33,7 @@ require 'akeyless'
 
 instance = Akeyless::UpdateAuthMethodAWSIAM.new(
   access_expires: null,
+  audit_logs_claims: null,
   bound_arn: null,
   bound_aws_account_id: null,
   bound_ips: null,

@@ -107,6 +107,14 @@
 | **github_installation_token_repositories_ids** | **Array&lt;Integer&gt;** |  | [optional] |
 | **github_organization_name** | **String** |  | [optional] |
 | **github_repository_path** | **String** |  | [optional] |
+| **gitlab_access_token** | **String** |  | [optional] |
+| **gitlab_access_type** | **String** |  | [optional] |
+| **gitlab_certificate** | **String** |  | [optional] |
+| **gitlab_group_name** | **String** |  | [optional] |
+| **gitlab_project_name** | **String** |  | [optional] |
+| **gitlab_role** | **String** |  | [optional] |
+| **gitlab_token_scope** | **Array&lt;String&gt;** |  | [optional] |
+| **gitlab_url** | **String** |  | [optional] |
 | **gke_cluster_ca_certificate** | **String** |  | [optional] |
 | **gke_cluster_endpoint** | **String** |  | [optional] |
 | **gke_cluster_name** | **String** |  | [optional] |
@@ -343,6 +351,14 @@ instance = Akeyless::DSProducerDetails.new(
   github_installation_token_repositories_ids: null,
   github_organization_name: null,
   github_repository_path: null,
+  gitlab_access_token: null,
+  gitlab_access_type: null,
+  gitlab_certificate: null,
+  gitlab_group_name: null,
+  gitlab_project_name: null,
+  gitlab_role: null,
+  gitlab_token_scope: null,
+  gitlab_url: null,
   gke_cluster_ca_certificate: null,
   gke_cluster_endpoint: null,
   gke_cluster_name: null,

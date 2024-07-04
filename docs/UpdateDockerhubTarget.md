@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **comment** | **String** | Deprecated - use description | [optional] |
 | **description** | **String** | Description of the object | [optional] |
-| **dockerhub_password** | **String** |  | [optional] |
-| **dockerhub_username** | **String** |  | [optional] |
+| **dockerhub_password** | **String** | Password for docker repository | [optional] |
+| **dockerhub_username** | **String** | Username for docker repository | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |

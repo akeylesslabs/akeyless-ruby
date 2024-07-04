@@ -37,6 +37,7 @@
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
 | **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The db schema (relevant only for mssql or postgresql) | [optional] |
+| **secure_access_disable_concurrent_connections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) | [optional] |
@@ -92,6 +93,7 @@ instance = Akeyless::UpdateRotatedSecret.new(
   secure_access_bastion_issuer: null,
   secure_access_db_name: null,
   secure_access_db_schema: null,
+  secure_access_disable_concurrent_connections: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rdp_domain: null,

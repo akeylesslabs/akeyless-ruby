@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
 | **audience** | **String** | The audience in the Kubernetes JWT that the access is restricted to | [optional] |
+| **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
 | **bound_namespaces** | **Array&lt;String&gt;** | A list of namespaces that the access is restricted to | [optional] |
 | **bound_pod_names** | **Array&lt;String&gt;** | A list of pod names that the access is restricted to | [optional] |
@@ -30,6 +31,7 @@ require 'akeyless'
 instance = Akeyless::CreateAuthMethodK8S.new(
   access_expires: null,
   audience: null,
+  audit_logs_claims: null,
   bound_ips: null,
   bound_namespaces: null,
   bound_pod_names: null,

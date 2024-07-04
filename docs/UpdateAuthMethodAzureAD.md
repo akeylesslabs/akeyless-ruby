@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
 | **audience** | **String** | Deprecated (Deprecated) The audience in the JWT | [optional][default to &#39;https://management.azure.com/&#39;] |
+| **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_group_id** | **Array&lt;String&gt;** | A list of group ids that the access is restricted to | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
 | **bound_providers** | **Array&lt;String&gt;** | A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc) | [optional] |
@@ -37,6 +38,7 @@ require 'akeyless'
 instance = Akeyless::UpdateAuthMethodAzureAD.new(
   access_expires: null,
   audience: null,
+  audit_logs_claims: null,
   bound_group_id: null,
   bound_ips: null,
   bound_providers: null,

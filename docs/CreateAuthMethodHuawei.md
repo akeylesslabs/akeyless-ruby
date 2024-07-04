@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **auth_url** | **String** | sts URL | [optional][default to &#39;https://iam.myhwclouds.com:443/v3&#39;] |
 | **bound_domain_id** | **Array&lt;String&gt;** | A list of domain IDs that the access is restricted to | [optional] |
 | **bound_domain_name** | **Array&lt;String&gt;** | A list of domain names that the access is restricted to | [optional] |
@@ -30,6 +31,7 @@ require 'akeyless'
 
 instance = Akeyless::CreateAuthMethodHuawei.new(
   access_expires: null,
+  audit_logs_claims: null,
   auth_url: null,
   bound_domain_id: null,
   bound_domain_name: null,

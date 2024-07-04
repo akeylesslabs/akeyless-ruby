@@ -7,6 +7,7 @@
 | **access_expires** | **Integer** |  | [optional] |
 | **access_id_alias** | **String** | for accounts where AccessId holds encrypted email this field will hold generated AccessId, for accounts based on regular AccessId it will be equal to accessId itself | [optional] |
 | **api_key_access_rules** | [**APIKeyAccessRules**](APIKeyAccessRules.md) |  | [optional] |
+| **audit_logs_claims** | **Array&lt;String&gt;** |  | [optional] |
 | **aws_iam_access_rules** | [**AWSIAMAccessRules**](AWSIAMAccessRules.md) |  | [optional] |
 | **azure_ad_access_rules** | [**AzureADAccessRules**](AzureADAccessRules.md) |  | [optional] |
 | **cert_access_rules** | [**CertAccessRules**](CertAccessRules.md) |  | [optional] |
@@ -37,6 +38,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   access_expires: null,
   access_id_alias: null,
   api_key_access_rules: null,
+  audit_logs_claims: null,
   aws_iam_access_rules: null,
   azure_ad_access_rules: null,
   cert_access_rules: null,
