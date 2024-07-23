@@ -8,7 +8,7 @@
 | **allow_subdomains** | **Boolean** | Allow subdomains | [optional] |
 | **allowed_domains** | **Array&lt;String&gt;** | Allowed domains | [optional] |
 | **auto_generated_folder** | **String** | Auto generated folder | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |

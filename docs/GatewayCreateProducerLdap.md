@@ -7,7 +7,7 @@
 | **provider_type** | **String** |  | [optional] |
 | **bind_dn** | **String** | Bind DN | [optional] |
 | **bind_dn_password** | **String** | Bind DN Password | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **group_dn** | **String** | Group DN which the temporary user should be added | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |

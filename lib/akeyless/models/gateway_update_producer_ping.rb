@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerPing is a command that updates Ping producer [Deprecated: Use dynamic-secret-update-ping command]
   class GatewayUpdateProducerPing
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

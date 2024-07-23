@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretCreateGithub is a command that creates github dynamic secret
   class DynamicSecretCreateGithub
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

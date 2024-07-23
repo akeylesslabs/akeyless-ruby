@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerMongo is a command that updates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-update-mongodb command]
   class GatewayUpdateProducerMongo
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

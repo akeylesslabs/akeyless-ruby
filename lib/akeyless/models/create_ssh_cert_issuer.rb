@@ -20,7 +20,7 @@ module Akeyless
     # Users allowed to fetch the certificate, e.g root,ubuntu
     attr_accessor :allowed_users
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

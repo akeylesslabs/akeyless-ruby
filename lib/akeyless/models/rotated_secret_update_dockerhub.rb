@@ -24,7 +24,7 @@ module Akeyless
     # Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
     attr_accessor :auto_rotate
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

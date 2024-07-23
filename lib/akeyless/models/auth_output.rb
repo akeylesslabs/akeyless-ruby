@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class AuthOutput
+    attr_accessor :complete_auth_link
+
     attr_accessor :creds
 
     attr_accessor :token
@@ -22,6 +24,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'complete_auth_link' => :'complete_auth_link',
         :'creds' => :'creds',
         :'token' => :'token'
       }
@@ -35,6 +38,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'complete_auth_link' => :'String',
         :'creds' => :'SystemAccessCredentialsReplyObj',
         :'token' => :'String'
       }
@@ -60,6 +64,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'complete_auth_link')
+        self.complete_auth_link = attributes[:'complete_auth_link']
+      end
 
       if attributes.key?(:'creds')
         self.creds = attributes[:'creds']
@@ -90,6 +98,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          complete_auth_link == o.complete_auth_link &&
           creds == o.creds &&
           token == o.token
     end
@@ -103,7 +112,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [creds, token].hash
+      [complete_auth_link, creds, token].hash
     end
 
     # Builds the object from hash

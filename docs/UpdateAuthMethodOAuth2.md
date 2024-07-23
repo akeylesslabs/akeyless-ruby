@@ -11,6 +11,7 @@
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
 | **cert** | **String** | CertificateFile Path to a file that contain the certificate in a PEM format. | [optional] |
 | **cert_file_data** | **String** | CertificateFileData PEM Certificate in a Base64 format. | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gateway_url** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway. | [optional] |
@@ -41,6 +42,7 @@ instance = Akeyless::UpdateAuthMethodOAuth2.new(
   bound_ips: null,
   cert: null,
   cert_file_data: null,
+  delete_protection: null,
   description: null,
   force_sub_claims: null,
   gateway_url: null,

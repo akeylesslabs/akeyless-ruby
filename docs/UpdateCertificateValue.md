@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **certificate_data** | **String** | Content of the certificate in a Base64 format. | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **format** | **String** | CertificateFormat of the certificate and private key, possible values: cer,crt,pem,pfx,p12. Required when passing inline certificate content with --certificate-data or --key-data, otherwise format is derived from the file extension. | [optional] |

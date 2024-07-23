@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **mysql_dbname** | **String** | MySQL DB Name | [optional] |
 | **mysql_host** | **String** | MySQL Host | [optional][default to &#39;127.0.0.1&#39;] |

@@ -46,6 +46,9 @@ module Akeyless
     # A list of full user-name that the access is restricted to
     attr_accessor :bound_user_name
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Auth Method description
     attr_accessor :description
 
@@ -89,6 +92,7 @@ module Akeyless
         :'bound_role_name' => :'bound-role-name',
         :'bound_user_id' => :'bound-user-id',
         :'bound_user_name' => :'bound-user-name',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'force_sub_claims' => :'force-sub-claims',
         :'gw_bound_ips' => :'gw-bound-ips',
@@ -120,6 +124,7 @@ module Akeyless
         :'bound_role_name' => :'Array<String>',
         :'bound_user_id' => :'Array<String>',
         :'bound_user_name' => :'Array<String>',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'force_sub_claims' => :'Boolean',
         :'gw_bound_ips' => :'Array<String>',
@@ -216,6 +221,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -309,6 +318,7 @@ module Akeyless
           bound_role_name == o.bound_role_name &&
           bound_user_id == o.bound_user_id &&
           bound_user_name == o.bound_user_name &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           force_sub_claims == o.force_sub_claims &&
           gw_bound_ips == o.gw_bound_ips &&
@@ -330,7 +340,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audit_logs_claims, bound_arn, bound_aws_account_id, bound_ips, bound_resource_id, bound_role_id, bound_role_name, bound_user_id, bound_user_name, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, sts_url, token, uid_token].hash
+      [access_expires, audit_logs_claims, bound_arn, bound_aws_account_id, bound_ips, bound_resource_id, bound_role_id, bound_role_name, bound_user_id, bound_user_name, delete_protection, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, sts_url, token, uid_token].hash
     end
 
     # Builds the object from hash

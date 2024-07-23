@@ -31,6 +31,8 @@ module Akeyless
     # 1Password list of vault to get the items from
     attr_accessor :_1password_vaults
 
+    attr_accessor :service_account_key_decoded
+
     # Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
     attr_accessor :ad_discover_services
 
@@ -213,6 +215,7 @@ module Akeyless
         :'_1password_secret_key' => :'1password-secret-key',
         :'_1password_url' => :'1password-url',
         :'_1password_vaults' => :'1password-vaults',
+        :'service_account_key_decoded' => :'ServiceAccountKeyDecoded',
         :'ad_discover_services' => :'ad-discover-services',
         :'ad_discovery_types' => :'ad-discovery-types',
         :'ad_os_filter' => :'ad-os-filter',
@@ -287,6 +290,7 @@ module Akeyless
         :'_1password_secret_key' => :'String',
         :'_1password_url' => :'String',
         :'_1password_vaults' => :'Array<String>',
+        :'service_account_key_decoded' => :'String',
         :'ad_discover_services' => :'String',
         :'ad_discovery_types' => :'Array<String>',
         :'ad_os_filter' => :'String',
@@ -389,6 +393,10 @@ module Akeyless
         if (value = attributes[:'_1password_vaults']).is_a?(Array)
           self._1password_vaults = value
         end
+      end
+
+      if attributes.key?(:'service_account_key_decoded')
+        self.service_account_key_decoded = attributes[:'service_account_key_decoded']
       end
 
       if attributes.key?(:'ad_discover_services')
@@ -707,6 +715,7 @@ module Akeyless
           _1password_secret_key == o._1password_secret_key &&
           _1password_url == o._1password_url &&
           _1password_vaults == o._1password_vaults &&
+          service_account_key_decoded == o.service_account_key_decoded &&
           ad_discover_services == o.ad_discover_services &&
           ad_discovery_types == o.ad_discovery_types &&
           ad_os_filter == o.ad_os_filter &&
@@ -776,7 +785,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_1password_email, _1password_password, _1password_secret_key, _1password_url, _1password_vaults, ad_discover_services, ad_discovery_types, ad_os_filter, ad_ssh_port, ad_target_format, ad_targets_type, ad_winrm_over_http, ad_winrm_port, ad_auto_rotate, ad_computer_base_dn, ad_discover_local_users, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_target_name, ad_targets_path_template, ad_user_base_dn, ad_user_groups, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, type, uid_token].hash
+      [_1password_email, _1password_password, _1password_secret_key, _1password_url, _1password_vaults, service_account_key_decoded, ad_discover_services, ad_discovery_types, ad_os_filter, ad_ssh_port, ad_target_format, ad_targets_type, ad_winrm_over_http, ad_winrm_port, ad_auto_rotate, ad_computer_base_dn, ad_discover_local_users, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_target_name, ad_targets_path_template, ad_user_base_dn, ad_user_groups, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, type, uid_token].hash
     end
 
     # Builds the object from hash

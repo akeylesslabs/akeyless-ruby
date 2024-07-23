@@ -8,7 +8,7 @@
 | **account_password** | **String** | Database Password | [optional] |
 | **account_username** | **String** | Database Username | [optional] |
 | **db_name** | **String** | Database name | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |

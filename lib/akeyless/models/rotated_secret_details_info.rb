@@ -45,6 +45,8 @@ module Akeyless
 
     attr_accessor :services_details
 
+    attr_accessor :timeout_seconds
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -61,7 +63,8 @@ module Akeyless
         :'rotator_status' => :'rotator_status',
         :'rotator_type' => :'rotator_type',
         :'same_password' => :'same_password',
-        :'services_details' => :'services_details'
+        :'services_details' => :'services_details',
+        :'timeout_seconds' => :'timeout_seconds'
       }
     end
 
@@ -86,7 +89,8 @@ module Akeyless
         :'rotator_status' => :'String',
         :'rotator_type' => :'String',
         :'same_password' => :'Boolean',
-        :'services_details' => :'Array<WindowsService>'
+        :'services_details' => :'Array<WindowsService>',
+        :'timeout_seconds' => :'Integer'
       }
     end
 
@@ -168,6 +172,10 @@ module Akeyless
           self.services_details = value
         end
       end
+
+      if attributes.key?(:'timeout_seconds')
+        self.timeout_seconds = attributes[:'timeout_seconds']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -203,7 +211,8 @@ module Akeyless
           rotator_status == o.rotator_status &&
           rotator_type == o.rotator_type &&
           same_password == o.same_password &&
-          services_details == o.services_details
+          services_details == o.services_details &&
+          timeout_seconds == o.timeout_seconds
     end
 
     # @see the `==` method
@@ -215,7 +224,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_previous_version_in_days, grace_rotation, gw_cluster_id, last_rotation_error, max_versions, number_of_versions_to_save, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details].hash
+      [delete_previous_version_in_days, grace_rotation, gw_cluster_id, last_rotation_error, max_versions, number_of_versions_to_save, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, timeout_seconds].hash
     end
 
     # Builds the object from hash

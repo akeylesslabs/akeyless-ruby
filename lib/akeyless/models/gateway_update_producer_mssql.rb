@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerMSSQL is a command that updates mssql producer [Deprecated: Use dynamic-secret-update-mssql command]
   class GatewayUpdateProducerMSSQL
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

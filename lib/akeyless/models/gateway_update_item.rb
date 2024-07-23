@@ -34,7 +34,7 @@ module Akeyless
     # Secret payload to be sent with rotation request (relevant only for rotator-type=custom)
     attr_accessor :custom_payload
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

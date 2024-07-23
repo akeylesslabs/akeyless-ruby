@@ -28,7 +28,7 @@ module Akeyless
     # Azure Tenant ID
     attr_accessor :azure_tenant_id
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # FixedUserClaimKeyname

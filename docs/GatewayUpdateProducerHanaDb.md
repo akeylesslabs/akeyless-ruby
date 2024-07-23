@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **hana_dbname** | **String** | HanaDb Name | [optional] |
 | **hanadb_create_statements** | **String** | HanaDb Creation statements | [optional] |
 | **hanadb_host** | **String** | HanaDb Host | [optional][default to &#39;127.0.0.1&#39;] |

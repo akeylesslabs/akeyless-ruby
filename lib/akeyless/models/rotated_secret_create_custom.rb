@@ -24,7 +24,7 @@ module Akeyless
     # Secret payload to be sent with rotation request
     attr_accessor :custom_payload
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object
@@ -93,6 +93,9 @@ module Akeyless
     # Target name
     attr_accessor :target_name
 
+    # Maximum allowed time in seconds for the custom rotator to return the results
+    attr_accessor :timeout_sec
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -128,6 +131,7 @@ module Akeyless
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
+        :'timeout_sec' => :'timeout-sec',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -167,6 +171,7 @@ module Akeyless
         :'secure_access_web_proxy' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
+        :'timeout_sec' => :'Integer',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -319,6 +324,12 @@ module Akeyless
         self.target_name = nil
       end
 
+      if attributes.key?(:'timeout_sec')
+        self.timeout_sec = attributes[:'timeout_sec']
+      else
+        self.timeout_sec = 40
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -384,6 +395,7 @@ module Akeyless
           secure_access_web_proxy == o.secure_access_web_proxy &&
           tags == o.tags &&
           target_name == o.target_name &&
+          timeout_sec == o.timeout_sec &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -397,7 +409,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, custom_payload, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, custom_payload, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, timeout_sec, token, uid_token].hash
     end
 
     # Builds the object from hash

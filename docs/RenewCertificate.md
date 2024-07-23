@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **cert_issuer_name** | **String** | The name of the PKI certificate issuer | [optional] |
 | **generate_key** | **Boolean** | Generate a new key as part of the certificate renewal | [optional] |
 | **item_id** | **Integer** | Certificate item id | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -17,6 +18,7 @@
 require 'akeyless'
 
 instance = Akeyless::RenewCertificate.new(
+  cert_issuer_name: null,
   generate_key: null,
   item_id: null,
   json: null,

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |

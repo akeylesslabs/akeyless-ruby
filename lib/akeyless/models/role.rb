@@ -25,6 +25,8 @@ module Akeyless
 
     attr_accessor :creation_date
 
+    attr_accessor :delete_protection
+
     attr_accessor :modification_date
 
     attr_accessor :role_auth_methods_assoc
@@ -41,6 +43,7 @@ module Akeyless
         :'client_permissions' => :'client_permissions',
         :'comment' => :'comment',
         :'creation_date' => :'creation_date',
+        :'delete_protection' => :'delete_protection',
         :'modification_date' => :'modification_date',
         :'role_auth_methods_assoc' => :'role_auth_methods_assoc',
         :'role_name' => :'role_name',
@@ -61,6 +64,7 @@ module Akeyless
         :'client_permissions' => :'Array<String>',
         :'comment' => :'String',
         :'creation_date' => :'Time',
+        :'delete_protection' => :'Boolean',
         :'modification_date' => :'Time',
         :'role_auth_methods_assoc' => :'Array<RoleAuthMethodAssociation>',
         :'role_name' => :'String',
@@ -111,6 +115,10 @@ module Akeyless
         self.creation_date = attributes[:'creation_date']
       end
 
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
+
       if attributes.key?(:'modification_date')
         self.modification_date = attributes[:'modification_date']
       end
@@ -155,6 +163,7 @@ module Akeyless
           client_permissions == o.client_permissions &&
           comment == o.comment &&
           creation_date == o.creation_date &&
+          delete_protection == o.delete_protection &&
           modification_date == o.modification_date &&
           role_auth_methods_assoc == o.role_auth_methods_assoc &&
           role_name == o.role_name &&
@@ -170,7 +179,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, client_permissions, comment, creation_date, modification_date, role_auth_methods_assoc, role_name, rules].hash
+      [access_date, access_date_display, client_permissions, comment, creation_date, delete_protection, modification_date, role_auth_methods_assoc, role_name, rules].hash
     end
 
     # Builds the object from hash

@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerRabbitMQ is a command that updates rabbitmq producer [Deprecated: Use dynamic-secret-update-rabbitmq command]
   class GatewayUpdateProducerRabbitMQ
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

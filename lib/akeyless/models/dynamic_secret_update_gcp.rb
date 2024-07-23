@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateGcp is a command that updates a GCP dynamic secret
   class DynamicSecretUpdateGcp
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

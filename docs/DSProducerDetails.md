@@ -22,7 +22,9 @@
 | **aws_region** | **String** |  | [optional] |
 | **aws_role_arns** | **String** |  | [optional] |
 | **aws_secret_access_key** | **String** |  | [optional] |
+| **aws_session_tags** | **String** |  | [optional] |
 | **aws_session_token** | **String** |  | [optional] |
+| **aws_transitive_tag_keys** | **String** |  | [optional] |
 | **aws_user_console_access** | **Boolean** |  | [optional] |
 | **aws_user_groups** | **String** |  | [optional] |
 | **aws_user_policies** | **String** |  | [optional] |
@@ -266,7 +268,9 @@ instance = Akeyless::DSProducerDetails.new(
   aws_region: null,
   aws_role_arns: null,
   aws_secret_access_key: null,
+  aws_session_tags: null,
   aws_session_token: null,
+  aws_transitive_tag_keys: null,
   aws_user_console_access: null,
   aws_user_groups: null,
   aws_user_policies: null,

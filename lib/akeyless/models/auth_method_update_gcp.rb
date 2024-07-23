@@ -43,6 +43,9 @@ module Akeyless
     # === Machine authentication section === List of zones that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a zonal group and the group must belong to this zone.
     attr_accessor :bound_zones
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Auth Method description
     attr_accessor :description
 
@@ -91,6 +94,7 @@ module Akeyless
         :'bound_regions' => :'bound-regions',
         :'bound_service_accounts' => :'bound-service-accounts',
         :'bound_zones' => :'bound-zones',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'force_sub_claims' => :'force-sub-claims',
         :'gw_bound_ips' => :'gw-bound-ips',
@@ -123,6 +127,7 @@ module Akeyless
         :'bound_regions' => :'Array<String>',
         :'bound_service_accounts' => :'Array<String>',
         :'bound_zones' => :'Array<String>',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'force_sub_claims' => :'Boolean',
         :'gw_bound_ips' => :'Array<String>',
@@ -211,6 +216,10 @@ module Akeyless
         if (value = attributes[:'bound_zones']).is_a?(Array)
           self.bound_zones = value
         end
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -318,6 +327,7 @@ module Akeyless
           bound_regions == o.bound_regions &&
           bound_service_accounts == o.bound_service_accounts &&
           bound_zones == o.bound_zones &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           force_sub_claims == o.force_sub_claims &&
           gw_bound_ips == o.gw_bound_ips &&
@@ -341,7 +351,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audience, audit_logs_claims, bound_ips, bound_labels, bound_projects, bound_regions, bound_service_accounts, bound_zones, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, product_type, service_account_creds_data, token, type, uid_token].hash
+      [access_expires, audience, audit_logs_claims, bound_ips, bound_labels, bound_projects, bound_regions, bound_service_accounts, bound_zones, delete_protection, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, product_type, service_account_creds_data, token, type, uid_token].hash
     end
 
     # Builds the object from hash

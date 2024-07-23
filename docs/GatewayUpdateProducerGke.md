@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **gke_account_key** | **String** | GKE Service Account key file path | [optional] |
 | **gke_cluster_cert** | **String** | GKE cluster CA certificate | [optional] |
 | **gke_cluster_endpoint** | **String** | GKE cluster URL endpoint | [optional] |

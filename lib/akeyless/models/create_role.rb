@@ -24,6 +24,9 @@ module Akeyless
     # Deprecated - use description
     attr_accessor :comment
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -60,6 +63,7 @@ module Akeyless
         :'analytics_access' => :'analytics-access',
         :'audit_access' => :'audit-access',
         :'comment' => :'comment',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'event_center_access' => :'event-center-access',
         :'event_forwarders_access' => :'event-forwarders-access',
@@ -84,6 +88,7 @@ module Akeyless
         :'analytics_access' => :'String',
         :'audit_access' => :'String',
         :'comment' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'event_center_access' => :'String',
         :'event_forwarders_access' => :'String',
@@ -128,6 +133,10 @@ module Akeyless
 
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -203,6 +212,7 @@ module Akeyless
           analytics_access == o.analytics_access &&
           audit_access == o.audit_access &&
           comment == o.comment &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           event_center_access == o.event_center_access &&
           event_forwarders_access == o.event_forwarders_access &&
@@ -224,7 +234,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, audit_access, comment, description, event_center_access, event_forwarders_access, gw_analytics_access, json, name, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, audit_access, comment, delete_protection, description, event_center_access, event_forwarders_access, gw_analytics_access, json, name, sra_reports_access, token, uid_token, usage_reports_access].hash
     end
 
     # Builds the object from hash

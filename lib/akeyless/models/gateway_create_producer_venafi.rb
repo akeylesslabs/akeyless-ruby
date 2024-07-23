@@ -28,7 +28,7 @@ module Akeyless
     # Auto generated folder
     attr_accessor :auto_generated_folder
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Automatic admin credentials rotation

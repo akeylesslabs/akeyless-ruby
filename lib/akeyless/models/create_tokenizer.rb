@@ -22,7 +22,7 @@ module Akeyless
     # The Decoding output template to use in regexp vaultless tokenization
     attr_accessor :decoding_template
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

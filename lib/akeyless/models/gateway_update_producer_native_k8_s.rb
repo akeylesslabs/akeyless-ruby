@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerNativeK8S is a command that updates k8s producer [Deprecated: Use dynamic-secret-update-k8s command]
   class GatewayUpdateProducerNativeK8S
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

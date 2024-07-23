@@ -29,7 +29,7 @@ module Akeyless
     # Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
     attr_accessor :change_event
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

@@ -42,7 +42,7 @@ module Akeyless
     # Enable AWS User programmatic access
     attr_accessor :aws_user_programmatic_access
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object
@@ -87,6 +87,9 @@ module Akeyless
     # Web-Proxy via Akeyless Web Access Bastion
     attr_accessor :secure_access_web_proxy
 
+    # String of Key value session tags comma separated, relevant only for Assumed Role
+    attr_accessor :session_tags
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -95,6 +98,9 @@ module Akeyless
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
+
+    # String of transitive tag keys space separated, relevant only for Assumed Role
+    attr_accessor :transitive_tag_keys
 
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
@@ -129,9 +135,11 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
+        :'session_tags' => :'session-tags',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
+        :'transitive_tag_keys' => :'transitive-tag-keys',
         :'uid_token' => :'uid-token',
         :'user_ttl' => :'user-ttl'
       }
@@ -169,9 +177,11 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
+        :'session_tags' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
+        :'transitive_tag_keys' => :'String',
         :'uid_token' => :'String',
         :'user_ttl' => :'String'
       }
@@ -314,6 +324,10 @@ module Akeyless
         self.secure_access_web_proxy = false
       end
 
+      if attributes.key?(:'session_tags')
+        self.session_tags = attributes[:'session_tags']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -326,6 +340,10 @@ module Akeyless
 
       if attributes.key?(:'token')
         self.token = attributes[:'token']
+      end
+
+      if attributes.key?(:'transitive_tag_keys')
+        self.transitive_tag_keys = attributes[:'transitive_tag_keys']
       end
 
       if attributes.key?(:'uid_token')
@@ -388,9 +406,11 @@ module Akeyless
           secure_access_web == o.secure_access_web &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
+          session_tags == o.session_tags &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
+          transitive_tag_keys == o.transitive_tag_keys &&
           uid_token == o.uid_token &&
           user_ttl == o.user_ttl
     end
@@ -404,7 +424,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_rotation_interval_days, aws_access_key_id, aws_access_secret_key, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, delete_protection, description, enable_admin_rotation, json, name, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
+      [access_mode, admin_rotation_interval_days, aws_access_key_id, aws_access_secret_key, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, delete_protection, description, enable_admin_rotation, json, name, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, tags, target_name, token, transitive_tag_keys, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

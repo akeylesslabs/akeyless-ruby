@@ -12,6 +12,7 @@
 | **endpoint** | **String** |  | [optional] |
 | **event_types** | **Array&lt;String&gt;** |  | [optional] |
 | **gateway_cluster_id** | **Integer** |  | [optional] |
+| **include_error** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  | [optional] |
 | **last_version** | **Integer** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
@@ -45,6 +46,7 @@ instance = Akeyless::NotiForwarder.new(
   endpoint: null,
   event_types: null,
   gateway_cluster_id: null,
+  include_error: null,
   is_enabled: null,
   last_version: null,
   modification_date: null,

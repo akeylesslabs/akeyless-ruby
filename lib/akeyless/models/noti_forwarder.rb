@@ -32,6 +32,8 @@ module Akeyless
 
     attr_accessor :gateway_cluster_id
 
+    attr_accessor :include_error
+
     attr_accessor :is_enabled
 
     attr_accessor :last_version
@@ -80,6 +82,7 @@ module Akeyless
         :'endpoint' => :'endpoint',
         :'event_types' => :'event_types',
         :'gateway_cluster_id' => :'gateway_cluster_id',
+        :'include_error' => :'include_error',
         :'is_enabled' => :'is_enabled',
         :'last_version' => :'last_version',
         :'modification_date' => :'modification_date',
@@ -117,6 +120,7 @@ module Akeyless
         :'endpoint' => :'String',
         :'event_types' => :'Array<String>',
         :'gateway_cluster_id' => :'Integer',
+        :'include_error' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'last_version' => :'Integer',
         :'modification_date' => :'Time',
@@ -193,6 +197,10 @@ module Akeyless
 
       if attributes.key?(:'gateway_cluster_id')
         self.gateway_cluster_id = attributes[:'gateway_cluster_id']
+      end
+
+      if attributes.key?(:'include_error')
+        self.include_error = attributes[:'include_error']
       end
 
       if attributes.key?(:'is_enabled')
@@ -302,6 +310,7 @@ module Akeyless
           endpoint == o.endpoint &&
           event_types == o.event_types &&
           gateway_cluster_id == o.gateway_cluster_id &&
+          include_error == o.include_error &&
           is_enabled == o.is_enabled &&
           last_version == o.last_version &&
           modification_date == o.modification_date &&
@@ -331,7 +340,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auth_type, client_id, client_permissions, comment, creation_date, endpoint, event_types, gateway_cluster_id, is_enabled, last_version, modification_date, noti_forwarder_id, noti_forwarder_name, noti_forwarder_type, noti_forwarder_versions, override_url, paths, protection_key, runner_type, slack_noti_forwarder_public_details, timespan_in_seconds, to_emails, user_email, username, webhook_noti_forwarder_public_details, with_customer_fragment].hash
+      [auth_type, client_id, client_permissions, comment, creation_date, endpoint, event_types, gateway_cluster_id, include_error, is_enabled, last_version, modification_date, noti_forwarder_id, noti_forwarder_name, noti_forwarder_type, noti_forwarder_versions, override_url, paths, protection_key, runner_type, slack_noti_forwarder_public_details, timespan_in_seconds, to_emails, user_email, username, webhook_noti_forwarder_public_details, with_customer_fragment].hash
     end
 
     # Builds the object from hash

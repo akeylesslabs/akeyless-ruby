@@ -49,6 +49,9 @@ module Akeyless
     # The certificate data in base64, if no file was provided
     attr_accessor :certificate_data
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Auth Method description
     attr_accessor :description
 
@@ -96,6 +99,7 @@ module Akeyless
         :'bound_organizational_units' => :'bound-organizational-units',
         :'bound_uri_sans' => :'bound-uri-sans',
         :'certificate_data' => :'certificate-data',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'force_sub_claims' => :'force-sub-claims',
         :'gw_bound_ips' => :'gw-bound-ips',
@@ -129,6 +133,7 @@ module Akeyless
         :'bound_organizational_units' => :'Array<String>',
         :'bound_uri_sans' => :'Array<String>',
         :'certificate_data' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'force_sub_claims' => :'Boolean',
         :'gw_bound_ips' => :'Array<String>',
@@ -224,6 +229,10 @@ module Akeyless
 
       if attributes.key?(:'certificate_data')
         self.certificate_data = attributes[:'certificate_data']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -326,6 +335,7 @@ module Akeyless
           bound_organizational_units == o.bound_organizational_units &&
           bound_uri_sans == o.bound_uri_sans &&
           certificate_data == o.certificate_data &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           force_sub_claims == o.force_sub_claims &&
           gw_bound_ips == o.gw_bound_ips &&
@@ -348,7 +358,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, revoked_cert_ids, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, delete_protection, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, revoked_cert_ids, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

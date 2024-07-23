@@ -51,7 +51,11 @@ module Akeyless
 
     attr_accessor :aws_secret_access_key
 
+    attr_accessor :aws_session_tags
+
     attr_accessor :aws_session_token
+
+    attr_accessor :aws_transitive_tag_keys
 
     attr_accessor :aws_user_console_access
 
@@ -531,7 +535,9 @@ module Akeyless
         :'aws_region' => :'aws_region',
         :'aws_role_arns' => :'aws_role_arns',
         :'aws_secret_access_key' => :'aws_secret_access_key',
+        :'aws_session_tags' => :'aws_session_tags',
         :'aws_session_token' => :'aws_session_token',
+        :'aws_transitive_tag_keys' => :'aws_transitive_tag_keys',
         :'aws_user_console_access' => :'aws_user_console_access',
         :'aws_user_groups' => :'aws_user_groups',
         :'aws_user_policies' => :'aws_user_policies',
@@ -779,7 +785,9 @@ module Akeyless
         :'aws_region' => :'String',
         :'aws_role_arns' => :'String',
         :'aws_secret_access_key' => :'String',
+        :'aws_session_tags' => :'String',
         :'aws_session_token' => :'String',
+        :'aws_transitive_tag_keys' => :'String',
         :'aws_user_console_access' => :'Boolean',
         :'aws_user_groups' => :'String',
         :'aws_user_policies' => :'String',
@@ -1096,8 +1104,16 @@ module Akeyless
         self.aws_secret_access_key = attributes[:'aws_secret_access_key']
       end
 
+      if attributes.key?(:'aws_session_tags')
+        self.aws_session_tags = attributes[:'aws_session_tags']
+      end
+
       if attributes.key?(:'aws_session_token')
         self.aws_session_token = attributes[:'aws_session_token']
+      end
+
+      if attributes.key?(:'aws_transitive_tag_keys')
+        self.aws_transitive_tag_keys = attributes[:'aws_transitive_tag_keys']
       end
 
       if attributes.key?(:'aws_user_console_access')
@@ -2037,7 +2053,9 @@ module Akeyless
           aws_region == o.aws_region &&
           aws_role_arns == o.aws_role_arns &&
           aws_secret_access_key == o.aws_secret_access_key &&
+          aws_session_tags == o.aws_session_tags &&
           aws_session_token == o.aws_session_token &&
+          aws_transitive_tag_keys == o.aws_transitive_tag_keys &&
           aws_user_console_access == o.aws_user_console_access &&
           aws_user_groups == o.aws_user_groups &&
           aws_user_policies == o.aws_user_policies &&
@@ -2267,7 +2285,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_region, aws_role_arns, aws_secret_access_key, aws_session_token, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, externally_provided_user, failure_message, fixed_user_only, gcp_key_algo, gcp_role_bindings, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grant_types, groups, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oracle_creation_statements, oracle_revocation_statements, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
+      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, externally_provided_user, failure_message, fixed_user_only, gcp_key_algo, gcp_role_bindings, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grant_types, groups, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oracle_creation_statements, oracle_revocation_statements, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
     end
 
     # Builds the object from hash

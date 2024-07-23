@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerGcp is a command that updates a GCP producer [Deprecated: Use dynamic-secret-update-gcp command]
   class GatewayUpdateProducerGcp
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     attr_accessor :gcp_cred_type

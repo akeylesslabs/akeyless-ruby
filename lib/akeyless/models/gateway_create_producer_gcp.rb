@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]
   class GatewayCreateProducerGcp
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     attr_accessor :gcp_cred_type

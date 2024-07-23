@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerGke is a command that updates gke producer [Deprecated: Use dynamic-secret-update-gke command]
   class GatewayUpdateProducerGke
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # GKE Service Account key file path

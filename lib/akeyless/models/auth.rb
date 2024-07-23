@@ -41,7 +41,7 @@ module Akeyless
 
     attr_accessor :debug
 
-    # Gateway URL for the K8S/OAUTH2 authenticated (relevant only for access-type=k8s/oauth2)
+    # Gateway URL relevant only for access-type=k8s/oauth2/saml/oidc
     attr_accessor :gateway_url
 
     # GCP JWT audience
@@ -77,6 +77,9 @@ module Akeyless
     # The universal_identity token (relevant only for access-type=universal_identity)
     attr_accessor :uid_token
 
+    # Returns a link to complete the authentication remotely (relevant only for access-type=saml/oidc)
+    attr_accessor :use_remote_browser
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -100,7 +103,8 @@ module Akeyless
         :'ldap_username' => :'ldap_username',
         :'oci_auth_type' => :'oci-auth-type',
         :'oci_group_ocid' => :'oci-group-ocid',
-        :'uid_token' => :'uid_token'
+        :'uid_token' => :'uid_token',
+        :'use_remote_browser' => :'use-remote-browser'
       }
     end
 
@@ -132,7 +136,8 @@ module Akeyless
         :'ldap_username' => :'String',
         :'oci_auth_type' => :'String',
         :'oci_group_ocid' => :'Array<String>',
-        :'uid_token' => :'String'
+        :'uid_token' => :'String',
+        :'use_remote_browser' => :'Boolean'
       }
     end
 
@@ -250,6 +255,10 @@ module Akeyless
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
+
+      if attributes.key?(:'use_remote_browser')
+        self.use_remote_browser = attributes[:'use_remote_browser']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -292,7 +301,8 @@ module Akeyless
           ldap_username == o.ldap_username &&
           oci_auth_type == o.oci_auth_type &&
           oci_group_ocid == o.oci_group_ocid &&
-          uid_token == o.uid_token
+          uid_token == o.uid_token &&
+          use_remote_browser == o.use_remote_browser
     end
 
     # @see the `==` method
@@ -304,7 +314,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, access_type, account_id, admin_email, admin_password, cert_data, cloud_id, debug, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, key_data, ldap_password, ldap_username, oci_auth_type, oci_group_ocid, uid_token].hash
+      [access_id, access_key, access_type, account_id, admin_email, admin_password, cert_data, cloud_id, debug, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, key_data, ldap_password, ldap_username, oci_auth_type, oci_group_ocid, uid_token, use_remote_browser].hash
     end
 
     # Builds the object from hash

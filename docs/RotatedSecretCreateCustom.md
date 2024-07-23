@@ -7,7 +7,7 @@
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
 | **custom_payload** | **String** | Secret payload to be sent with rotation request | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -30,6 +30,7 @@
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name |  |
+| **timeout_sec** | **Integer** | Maximum allowed time in seconds for the custom rotator to return the results | [optional][default to 40] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -65,6 +66,7 @@ instance = Akeyless::RotatedSecretCreateCustom.new(
   secure_access_web_proxy: null,
   tags: null,
   target_name: null,
+  timeout_sec: null,
   token: null,
   uid_token: null
 )

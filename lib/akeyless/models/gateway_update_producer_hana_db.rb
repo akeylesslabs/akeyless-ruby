@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerHanaDb is a command that updates hanadb producer [Deprecated: Use dynamic-secret-update-hanadb command]
   class GatewayUpdateProducerHanaDb
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # HanaDb Name

@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerDockerhub is a command that creates a DOCKERHUB producer [Deprecated: Use dynamic-secret-create-dockerhub command]
   class GatewayCreateProducerDockerhub
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # DockerhubPassword is either the user's password access token to manage the repository

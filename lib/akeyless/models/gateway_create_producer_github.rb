@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerGithub is a command that creates github producer [Deprecated: Use dynamic-secret-create-github command]
   class GatewayCreateProducerGithub
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Github app id

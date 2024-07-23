@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretCreateK8s is a command that creates k8s dynamic secret
   class DynamicSecretCreateK8s
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

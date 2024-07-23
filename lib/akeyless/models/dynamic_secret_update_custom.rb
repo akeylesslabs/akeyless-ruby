@@ -21,7 +21,7 @@ module Akeyless
     # URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create
     attr_accessor :create_sync_url
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

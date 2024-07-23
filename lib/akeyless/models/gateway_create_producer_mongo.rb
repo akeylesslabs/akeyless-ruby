@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerMongo is a command that creates either mongodb  producer or mongodb atlas producer [Deprecated: Use dynamic-secret-create-mongodb command]
   class GatewayCreateProducerMongo
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

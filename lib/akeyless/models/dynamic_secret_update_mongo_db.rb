@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateMongoDb is a command that updates either mongodb  dynamic secret or mongodb atlas dynamic secret
   class DynamicSecretUpdateMongoDb
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

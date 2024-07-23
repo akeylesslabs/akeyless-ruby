@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **accessibility** | **String** | for personal password manager | [optional][default to &#39;regular&#39;] |
 | **audience** | **String** | A comma separated list of allowed audiences | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the OIDC application (if empty, the account default protectionKey key will be used) | [optional] |

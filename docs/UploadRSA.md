@@ -7,7 +7,7 @@
 | **alg** | **String** | Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096] |  |
 | **cert_file_data** | **String** | Certificate in a PEM format. | [optional] |
 | **customer_frg_id** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |

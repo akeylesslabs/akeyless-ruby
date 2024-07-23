@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerEks is a command that creates eks producer [Deprecated: Use dynamic-secret-create-eks command]
   class GatewayCreateProducerEks
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Access Key ID

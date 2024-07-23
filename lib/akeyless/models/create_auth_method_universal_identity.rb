@@ -25,6 +25,9 @@ module Akeyless
     # A CIDR whitelist with the IPs that the access is restricted to
     attr_accessor :bound_ips
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Deny from root to create children
     attr_accessor :deny_inheritance
 
@@ -67,6 +70,7 @@ module Akeyless
         :'access_expires' => :'access-expires',
         :'audit_logs_claims' => :'audit-logs-claims',
         :'bound_ips' => :'bound-ips',
+        :'delete_protection' => :'delete_protection',
         :'deny_inheritance' => :'deny-inheritance',
         :'deny_rotate' => :'deny-rotate',
         :'description' => :'description',
@@ -93,6 +97,7 @@ module Akeyless
         :'access_expires' => :'Integer',
         :'audit_logs_claims' => :'Array<String>',
         :'bound_ips' => :'Array<String>',
+        :'delete_protection' => :'String',
         :'deny_inheritance' => :'Boolean',
         :'deny_rotate' => :'Boolean',
         :'description' => :'String',
@@ -145,6 +150,10 @@ module Akeyless
         if (value = attributes[:'bound_ips']).is_a?(Array)
           self.bound_ips = value
         end
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'deny_inheritance')
@@ -236,6 +245,7 @@ module Akeyless
           access_expires == o.access_expires &&
           audit_logs_claims == o.audit_logs_claims &&
           bound_ips == o.bound_ips &&
+          delete_protection == o.delete_protection &&
           deny_inheritance == o.deny_inheritance &&
           deny_rotate == o.deny_rotate &&
           description == o.description &&
@@ -259,7 +269,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audit_logs_claims, bound_ips, deny_inheritance, deny_rotate, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, ttl, uid_token].hash
+      [access_expires, audit_logs_claims, bound_ips, delete_protection, deny_inheritance, deny_rotate, description, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

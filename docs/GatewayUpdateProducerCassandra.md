@@ -9,7 +9,7 @@
 | **cassandra_password** | **String** | Cassandra superuser password | [optional] |
 | **cassandra_port** | **String** | Cassandra port | [optional][default to &#39;9042&#39;] |
 | **cassandra_username** | **String** | Cassandra superuser username | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |

@@ -30,7 +30,7 @@ module Akeyless
     # Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
     attr_accessor :auto_rotate
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object
@@ -62,6 +62,9 @@ module Akeyless
 
     # The rotator type. options: [target/password/api-key/azure-storage-account]
     attr_accessor :rotator_type
+
+    # Enable this flag to prevent simultaneous use of the same secret
+    attr_accessor :secure_access_disable_concurrent_connections
 
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
@@ -115,6 +118,7 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
+        :'secure_access_disable_concurrent_connections' => :'secure-access-disable-concurrent-connections',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_url' => :'secure-access-url',
         :'secure_access_web' => :'secure-access-web',
@@ -153,6 +157,7 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
+        :'secure_access_disable_concurrent_connections' => :'Boolean',
         :'secure_access_enable' => :'String',
         :'secure_access_url' => :'String',
         :'secure_access_web' => :'Boolean',
@@ -262,6 +267,10 @@ module Akeyless
         self.rotator_type = nil
       end
 
+      if attributes.key?(:'secure_access_disable_concurrent_connections')
+        self.secure_access_disable_concurrent_connections = attributes[:'secure_access_disable_concurrent_connections']
+      end
+
       if attributes.key?(:'secure_access_enable')
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
@@ -368,6 +377,7 @@ module Akeyless
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_type == o.rotator_type &&
+          secure_access_disable_concurrent_connections == o.secure_access_disable_concurrent_connections &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_url == o.secure_access_url &&
           secure_access_web == o.secure_access_web &&
@@ -390,7 +400,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotation_hour, rotation_interval, rotator_type, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
+      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
     end
 
     # Builds the object from hash

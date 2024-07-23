@@ -14,6 +14,7 @@
 | **bound_tenant_name** | **Array&lt;String&gt;** | A list of full tenant names that the access is restricted to | [optional] |
 | **bound_user_id** | **Array&lt;String&gt;** | A list of full user ids that the access is restricted to | [optional] |
 | **bound_user_name** | **Array&lt;String&gt;** | A list of full user-name that the access is restricted to | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
@@ -40,6 +41,7 @@ instance = Akeyless::CreateAuthMethodHuawei.new(
   bound_tenant_name: null,
   bound_user_id: null,
   bound_user_name: null,
+  delete_protection: null,
   description: null,
   force_sub_claims: null,
   gw_bound_ips: null,

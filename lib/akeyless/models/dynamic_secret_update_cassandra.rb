@@ -31,7 +31,7 @@ module Akeyless
     # Cassandra superuser username
     attr_accessor :cassandra_username
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

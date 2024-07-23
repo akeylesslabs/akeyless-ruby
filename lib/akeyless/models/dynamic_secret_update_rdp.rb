@@ -19,7 +19,7 @@ module Akeyless
     # AllowUserExtendSession
     attr_accessor :allow_user_extend_session
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

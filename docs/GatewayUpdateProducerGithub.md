@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **github_app_id** | **Integer** | Github app id | [optional] |
 | **github_app_private_key** | **String** | App private key | [optional] |
 | **github_base_url** | **String** | Base URL | [optional][default to &#39;https://api.github.com/&#39;] |

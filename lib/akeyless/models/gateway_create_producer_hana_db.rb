@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerHanaDb is a command that creates hanadb producer [Deprecated: Use dynamic-secret-create-hanadb command]
   class GatewayCreateProducerHanaDb
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # HanaDb Name

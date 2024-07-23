@@ -7,7 +7,7 @@
 | **provider_type** | **String** |  | [optional] |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **allowed_users** | **String** | Users allowed to fetch the certificate, e.g root,ubuntu |  |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **extensions** | **Hash&lt;String, String&gt;** | Signed certificates with extensions, e.g permit-port-forwarding&#x3D;\\\&quot;\\\&quot; | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |

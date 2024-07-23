@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerRabbitMQ is a command that creates rabbitmq producer [Deprecated: Use dynamic-secret-create-rabbitmq command]
   class GatewayCreateProducerRabbitMQ
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

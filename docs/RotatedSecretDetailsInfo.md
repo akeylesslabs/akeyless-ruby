@@ -18,6 +18,7 @@
 | **rotator_type** | **String** |  | [optional] |
 | **same_password** | **Boolean** |  | [optional] |
 | **services_details** | [**Array&lt;WindowsService&gt;**](WindowsService.md) |  | [optional] |
+| **timeout_seconds** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -38,7 +39,8 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   rotator_status: null,
   rotator_type: null,
   same_password: null,
-  services_details: null
+  services_details: null,
+  timeout_seconds: null
 )
 ```
 

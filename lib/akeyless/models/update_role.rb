@@ -21,6 +21,9 @@ module Akeyless
     # Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
     attr_accessor :audit_access
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -62,6 +65,7 @@ module Akeyless
       {
         :'analytics_access' => :'analytics-access',
         :'audit_access' => :'audit-access',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'event_center_access' => :'event-center-access',
         :'event_forwarder_access' => :'event-forwarder-access',
@@ -87,6 +91,7 @@ module Akeyless
       {
         :'analytics_access' => :'String',
         :'audit_access' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'event_center_access' => :'String',
         :'event_forwarder_access' => :'String',
@@ -129,6 +134,10 @@ module Akeyless
 
       if attributes.key?(:'audit_access')
         self.audit_access = attributes[:'audit_access']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -215,6 +224,7 @@ module Akeyless
       self.class == o.class &&
           analytics_access == o.analytics_access &&
           audit_access == o.audit_access &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           event_center_access == o.event_center_access &&
           event_forwarder_access == o.event_forwarder_access &&
@@ -238,7 +248,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, audit_access, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, audit_access, delete_protection, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, sra_reports_access, token, uid_token, usage_reports_access].hash
     end
 
     # Builds the object from hash

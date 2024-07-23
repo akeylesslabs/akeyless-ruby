@@ -17,6 +17,7 @@
 | **bound_spid** | **Array&lt;String&gt;** | A list of service principal IDs that the access is restricted to | [optional] |
 | **bound_sub_id** | **Array&lt;String&gt;** | A list of subscription ids that the access is restricted to | [optional] |
 | **bound_tenant_id** | **String** | The Azure tenant id that the access is restricted to |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
@@ -49,6 +50,7 @@ instance = Akeyless::UpdateAuthMethodAzureAD.new(
   bound_spid: null,
   bound_sub_id: null,
   bound_tenant_id: null,
+  delete_protection: null,
   description: null,
   force_sub_claims: null,
   gw_bound_ips: null,

@@ -28,7 +28,7 @@ module Akeyless
     # Database name
     attr_accessor :db_name
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

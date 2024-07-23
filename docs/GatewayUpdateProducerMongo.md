@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **mongodb_atlas_api_private_key** | **String** | MongoDB Atlas private key | [optional] |
 | **mongodb_atlas_api_public_key** | **String** | MongoDB Atlas public key | [optional] |

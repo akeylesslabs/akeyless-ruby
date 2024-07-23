@@ -24,7 +24,7 @@ module Akeyless
     # Bind DN Password
     attr_accessor :bind_dn_password
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

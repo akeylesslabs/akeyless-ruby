@@ -13,7 +13,7 @@
 | **aws_user_groups** | **String** | AWS User groups | [optional] |
 | **aws_user_policies** | **String** | AWS User policies | [optional] |
 | **aws_user_programmatic_access** | **Boolean** | Enable AWS User programmatic access | [optional][default to true] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -29,9 +29,11 @@
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
+| **session_tags** | **String** | String of Key value session tags comma separated, relevant only for Assumed Role | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
+| **transitive_tag_keys** | **String** | String of transitive tag keys space separated, relevant only for Assumed Role | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **user_ttl** | **String** | User TTL | [optional][default to &#39;60m&#39;] |
 
@@ -66,9 +68,11 @@ instance = Akeyless::DynamicSecretUpdateAws.new(
   secure_access_web: null,
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
+  session_tags: null,
   tags: null,
   target_name: null,
   token: null,
+  transitive_tag_keys: null,
   uid_token: null,
   user_ttl: null
 )

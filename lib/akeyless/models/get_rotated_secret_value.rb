@@ -14,7 +14,6 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # getRotatedSecretValue is a command that creates a new Akeyless profile. [Deprecated: Use rotated-secret get-value command]
   class GetRotatedSecretValue
     # Get rotated secret value of specific Host (relevant only for Linked Target)
     attr_accessor :host

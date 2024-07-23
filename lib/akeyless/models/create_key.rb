@@ -46,7 +46,7 @@ module Akeyless
     # The customer fragment ID that will be used to create the key (if empty, the key will be created independently of a customer fragment)
     attr_accessor :customer_frg_id
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

@@ -7,6 +7,7 @@
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **deny_inheritance** | **Boolean** | Deny from root to create children | [optional] |
 | **deny_rotate** | **Boolean** | Deny from the token to rotate | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
@@ -30,6 +31,7 @@ instance = Akeyless::UpdateAuthMethodUniversalIdentity.new(
   access_expires: null,
   audit_logs_claims: null,
   bound_ips: null,
+  delete_protection: null,
   deny_inheritance: null,
   deny_rotate: null,
   description: null,

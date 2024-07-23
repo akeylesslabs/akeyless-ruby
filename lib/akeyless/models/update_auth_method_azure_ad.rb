@@ -55,6 +55,9 @@ module Akeyless
     # The Azure tenant id that the access is restricted to
     attr_accessor :bound_tenant_id
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Auth Method description
     attr_accessor :description
 
@@ -107,6 +110,7 @@ module Akeyless
         :'bound_spid' => :'bound-spid',
         :'bound_sub_id' => :'bound-sub-id',
         :'bound_tenant_id' => :'bound-tenant-id',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'force_sub_claims' => :'force-sub-claims',
         :'gw_bound_ips' => :'gw-bound-ips',
@@ -143,6 +147,7 @@ module Akeyless
         :'bound_spid' => :'Array<String>',
         :'bound_sub_id' => :'Array<String>',
         :'bound_tenant_id' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'force_sub_claims' => :'Boolean',
         :'gw_bound_ips' => :'Array<String>',
@@ -257,6 +262,10 @@ module Akeyless
         self.bound_tenant_id = nil
       end
 
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -363,6 +372,7 @@ module Akeyless
           bound_spid == o.bound_spid &&
           bound_sub_id == o.bound_sub_id &&
           bound_tenant_id == o.bound_tenant_id &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           force_sub_claims == o.force_sub_claims &&
           gw_bound_ips == o.gw_bound_ips &&
@@ -386,7 +396,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audience, audit_logs_claims, bound_group_id, bound_ips, bound_providers, bound_resource_id, bound_resource_names, bound_resource_types, bound_rg_id, bound_spid, bound_sub_id, bound_tenant_id, description, force_sub_claims, gw_bound_ips, issuer, json, jwks_uri, jwt_ttl, name, new_name, product_type, token, uid_token].hash
+      [access_expires, audience, audit_logs_claims, bound_group_id, bound_ips, bound_providers, bound_resource_id, bound_resource_names, bound_resource_types, bound_rg_id, bound_spid, bound_sub_id, bound_tenant_id, delete_protection, description, force_sub_claims, gw_bound_ips, issuer, json, jwks_uri, jwt_ttl, name, new_name, product_type, token, uid_token].hash
     end
 
     # Builds the object from hash

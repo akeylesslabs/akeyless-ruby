@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretCreateRabbitMq is a command that creates rabbitmq dynamic secret
   class DynamicSecretCreateRabbitMq
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

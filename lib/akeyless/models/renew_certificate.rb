@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class RenewCertificate
+    # The name of the PKI certificate issuer
+    attr_accessor :cert_issuer_name
+
     # Generate a new key as part of the certificate renewal
     attr_accessor :generate_key
 
@@ -36,6 +39,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cert_issuer_name' => :'cert-issuer-name',
         :'generate_key' => :'generate-key',
         :'item_id' => :'item-id',
         :'json' => :'json',
@@ -53,6 +57,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cert_issuer_name' => :'String',
         :'generate_key' => :'Boolean',
         :'item_id' => :'Integer',
         :'json' => :'Boolean',
@@ -82,6 +87,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cert_issuer_name')
+        self.cert_issuer_name = attributes[:'cert_issuer_name']
+      end
 
       if attributes.key?(:'generate_key')
         self.generate_key = attributes[:'generate_key']
@@ -130,6 +139,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cert_issuer_name == o.cert_issuer_name &&
           generate_key == o.generate_key &&
           item_id == o.item_id &&
           json == o.json &&
@@ -147,7 +157,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [generate_key, item_id, json, name, token, uid_token].hash
+      [cert_issuer_name, generate_key, item_id, json, name, token, uid_token].hash
     end
 
     # Builds the object from hash

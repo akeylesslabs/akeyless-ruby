@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **admin_rotation_interval_days** | **Integer** | Define rotation interval in days | [optional] |
 | **create_sync_url** | **String** | URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create |  |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **enable_admin_rotation** | **Boolean** | Should admin credentials be rotated | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |

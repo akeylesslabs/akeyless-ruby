@@ -19,7 +19,7 @@ module Akeyless
     # Azure Key Vault name (Relevant only for Azure targets)
     attr_accessor :azure_kv_name
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the External Secrets Manager

@@ -14,7 +14,7 @@
 | **certificate_ttl** | **Integer** | TTL in days for the generated certificate. Required only for generate-self-signed-certificate. | [optional] |
 | **conf_file_data** | **String** | The csr config data in base64 encoding | [optional] |
 | **customer_frg_id** | **String** | The customer fragment ID that will be used to create the key (if empty, the key will be created independently of a customer fragment) | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **generate_self_signed_certificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |

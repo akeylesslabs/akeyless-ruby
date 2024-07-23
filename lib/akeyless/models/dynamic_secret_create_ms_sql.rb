@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretCreateMsSql is a command that creates mssql dynamic secret
   class DynamicSecretCreateMsSql
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

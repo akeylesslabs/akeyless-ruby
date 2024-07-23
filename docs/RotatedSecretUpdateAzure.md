@@ -10,7 +10,7 @@
 | **application_id** | **String** | Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key &amp; authentication-credentials&#x3D;use-target-creds) | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -23,6 +23,7 @@
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
+| **secure_access_disable_concurrent_connections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
@@ -58,6 +59,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   rotate_after_disconnect: null,
   rotation_hour: null,
   rotation_interval: null,
+  secure_access_disable_concurrent_connections: null,
   secure_access_enable: null,
   secure_access_url: null,
   secure_access_web: null,

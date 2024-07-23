@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **eks_access_key_id** | **String** | Access Key ID | [optional] |
 | **eks_assume_role** | **String** | IAM assume role | [optional] |
 | **eks_cluster_ca_cert** | **String** | EKS cluster CA certificate | [optional] |

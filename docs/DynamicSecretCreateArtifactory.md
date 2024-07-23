@@ -9,7 +9,7 @@
 | **artifactory_token_audience** | **String** | Token Audience |  |
 | **artifactory_token_scope** | **String** | Token Scope |  |
 | **base_url** | **String** | Base URL | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |

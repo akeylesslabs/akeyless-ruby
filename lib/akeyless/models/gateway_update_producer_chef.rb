@@ -28,7 +28,7 @@ module Akeyless
     # Server username
     attr_accessor :chef_server_username
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

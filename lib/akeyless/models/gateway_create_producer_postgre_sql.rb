@@ -19,7 +19,7 @@ module Akeyless
     # PostgreSQL Creation statements
     attr_accessor :creation_statements
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Set output format to JSON

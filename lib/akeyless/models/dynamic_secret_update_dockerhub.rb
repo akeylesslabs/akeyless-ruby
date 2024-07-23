@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateDockerhub is a command that updates a DOCKERHUB dynamic secret
   class DynamicSecretUpdateDockerhub
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

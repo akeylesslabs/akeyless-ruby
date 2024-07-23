@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateGke is a command that updates gke dynamic secret
   class DynamicSecretUpdateGke
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

@@ -16,7 +16,7 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerEks is a command that updates eks producer [Deprecated: Use dynamic-secret-update-eks command]
   class GatewayUpdateProducerEks
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Access Key ID

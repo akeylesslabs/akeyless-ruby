@@ -8,7 +8,7 @@
 | **azure_client_id** | **String** | Azure Client ID | [optional] |
 | **azure_client_secret** | **String** | Azure Client Secret | [optional] |
 | **azure_tenant_id** | **String** | Azure Tenant ID | [optional] |
-| **delete_protection** | **String** | Protection from accidental deletion of this item [true/false] | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **fixed_user_claim_keyname** | **String** | FixedUserClaimKeyname | [optional][default to &#39;false&#39;] |
 | **fixed_user_only** | **Boolean** | Fixed user | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |

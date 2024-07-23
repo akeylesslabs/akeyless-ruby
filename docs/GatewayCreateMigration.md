@@ -9,6 +9,7 @@
 | **_1password_secret_key** | **String** | 1Password user secret key to connect to the API | [optional] |
 | **_1password_url** | **String** | 1Password api container url | [optional] |
 | **_1password_vaults** | **Array&lt;String&gt;** | 1Password list of vault to get the items from | [optional] |
+| **service_account_key_decoded** | **String** |  | [optional] |
 | **ad_discover_services** | **String** | Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration) | [optional][default to &#39;false&#39;] |
 | **ad_discovery_types** | **Array&lt;String&gt;** | Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration) | [optional] |
 | **ad_os_filter** | **String** | Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration) | [optional] |
@@ -79,6 +80,7 @@ instance = Akeyless::GatewayCreateMigration.new(
   _1password_secret_key: null,
   _1password_url: null,
   _1password_vaults: null,
+  service_account_key_decoded: null,
   ad_discover_services: null,
   ad_discovery_types: null,
   ad_os_filter: null,

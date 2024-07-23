@@ -37,6 +37,9 @@ module Akeyless
     # CertificateFileData PEM Certificate in a Base64 format.
     attr_accessor :cert_file_data
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Auth Method description
     attr_accessor :description
 
@@ -92,6 +95,7 @@ module Akeyless
         :'bound_ips' => :'bound-ips',
         :'cert' => :'cert',
         :'cert_file_data' => :'cert-file-data',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'force_sub_claims' => :'force-sub-claims',
         :'gateway_url' => :'gateway-url',
@@ -125,6 +129,7 @@ module Akeyless
         :'bound_ips' => :'Array<String>',
         :'cert' => :'String',
         :'cert_file_data' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'force_sub_claims' => :'Boolean',
         :'gateway_url' => :'String',
@@ -198,6 +203,10 @@ module Akeyless
 
       if attributes.key?(:'cert_file_data')
         self.cert_file_data = attributes[:'cert_file_data']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -319,6 +328,7 @@ module Akeyless
           bound_ips == o.bound_ips &&
           cert == o.cert &&
           cert_file_data == o.cert_file_data &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           force_sub_claims == o.force_sub_claims &&
           gateway_url == o.gateway_url &&
@@ -345,7 +355,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audience, audit_logs_claims, bound_client_ids, bound_ips, cert, cert_file_data, description, force_sub_claims, gateway_url, gw_bound_ips, issuer, json, jwks_json_data, jwks_uri, jwt_ttl, name, product_type, subclaims_delimiters, token, uid_token, unique_identifier].hash
+      [access_expires, audience, audit_logs_claims, bound_client_ids, bound_ips, cert, cert_file_data, delete_protection, description, force_sub_claims, gateway_url, gw_bound_ips, issuer, json, jwks_json_data, jwks_uri, jwt_ttl, name, product_type, subclaims_delimiters, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

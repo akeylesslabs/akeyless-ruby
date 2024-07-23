@@ -46,7 +46,7 @@ module Akeyless
     # The csr config data in base64 encoding
     attr_accessor :conf_file_data
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object

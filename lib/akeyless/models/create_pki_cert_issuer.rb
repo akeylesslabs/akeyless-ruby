@@ -51,7 +51,7 @@ module Akeyless
     # Set this to allow the cert issuer will expose a public CRL endpoint
     attr_accessor :create_public_crl
 
-    # Protection from accidental deletion of this item [true/false]
+    # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
     # Description of the object
