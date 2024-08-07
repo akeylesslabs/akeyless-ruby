@@ -94,6 +94,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_zero_ssl_target**](V2Api.md#create_zero_ssl_target) | **POST** /create-zerossl-target |  |
 | [**createldap_target**](V2Api.md#createldap_target) | **POST** /create-ldap-target |  |
 | [**decrypt**](V2Api.md#decrypt) | **POST** /decrypt |  |
+| [**decrypt_batch**](V2Api.md#decrypt_batch) | **POST** /decrypt-batch |  |
 | [**decrypt_gpg**](V2Api.md#decrypt_gpg) | **POST** /decrypt-gpg |  |
 | [**decrypt_pkcs1**](V2Api.md#decrypt_pkcs1) | **POST** /decrypt-pkcs1 |  |
 | [**decrypt_with_classic_key**](V2Api.md#decrypt_with_classic_key) | **POST** /decrypt-with-classic-key |  |
@@ -180,6 +181,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_update_snowflake**](V2Api.md#dynamic_secret_update_snowflake) | **POST** /dynamic-secret-update-snowflake |  |
 | [**dynamic_secret_update_venafi**](V2Api.md#dynamic_secret_update_venafi) | **POST** /dynamic-secret-update-venafi |  |
 | [**encrypt**](V2Api.md#encrypt) | **POST** /encrypt |  |
+| [**encrypt_batch**](V2Api.md#encrypt_batch) | **POST** /encrypt-batch |  |
 | [**encrypt_gpg**](V2Api.md#encrypt_gpg) | **POST** /encrypt-gpg |  |
 | [**encrypt_with_classic_key**](V2Api.md#encrypt_with_classic_key) | **POST** /encrypt-with-classic-key |  |
 | [**esm_create**](V2Api.md#esm_create) | **POST** /esm-create |  |
@@ -6117,6 +6119,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## decrypt_batch
+
+> <DecryptOutput> decrypt_batch(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = [Akeyless::BatchEncryptionRequestLine.new] # Array<BatchEncryptionRequestLine> | 
+
+begin
+  
+  result = api_instance.decrypt_batch(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->decrypt_batch: #{e}"
+end
+```
+
+#### Using the decrypt_batch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DecryptOutput>, Integer, Hash)> decrypt_batch_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.decrypt_batch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DecryptOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->decrypt_batch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;BatchEncryptionRequestLine&gt;**](BatchEncryptionRequestLine.md) |  |  |
+
+### Return type
+
+[**DecryptOutput**](DecryptOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## decrypt_gpg
 
 > <DecryptGPGOutput> decrypt_gpg(body)
@@ -11436,6 +11500,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**Encrypt**](Encrypt.md) |  |  |
+
+### Return type
+
+[**EncryptOutput**](EncryptOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## encrypt_batch
+
+> <EncryptOutput> encrypt_batch(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = [Akeyless::BatchEncryptionRequestLine.new] # Array<BatchEncryptionRequestLine> | 
+
+begin
+  
+  result = api_instance.encrypt_batch(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->encrypt_batch: #{e}"
+end
+```
+
+#### Using the encrypt_batch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EncryptOutput>, Integer, Hash)> encrypt_batch_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.encrypt_batch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EncryptOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->encrypt_batch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;BatchEncryptionRequestLine&gt;**](BatchEncryptionRequestLine.md) |  |  |
 
 ### Return type
 

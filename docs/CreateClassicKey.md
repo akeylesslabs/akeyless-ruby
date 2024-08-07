@@ -9,6 +9,7 @@
 | **certificate_common_name** | **String** | Common name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_country** | **String** | Country name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_digest_algo** | **String** | Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI. | [optional] |
+| **certificate_format** | **String** |  | [optional] |
 | **certificate_locality** | **String** | Locality for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_organization** | **String** | Organization name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_province** | **String** | Province name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::CreateClassicKey.new(
   certificate_common_name: null,
   certificate_country: null,
   certificate_digest_algo: null,
+  certificate_format: null,
   certificate_locality: null,
   certificate_organization: null,
   certificate_province: null,

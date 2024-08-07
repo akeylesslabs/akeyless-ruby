@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **alg** | **String** | Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096] |  |
 | **cert_file_data** | **String** | Certificate in a PEM format. | [optional] |
+| **certificate_format** | **String** |  | [optional] |
 | **customer_frg_id** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
@@ -27,6 +28,7 @@ require 'akeyless'
 instance = Akeyless::UploadRSA.new(
   alg: null,
   cert_file_data: null,
+  certificate_format: null,
   customer_frg_id: null,
   delete_protection: null,
   description: null,

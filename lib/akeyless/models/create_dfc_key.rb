@@ -27,6 +27,8 @@ module Akeyless
     # Digest algorithm to be used for the certificate key signing. Currently, we support only \"sha256\" so we hide this option for CLI.
     attr_accessor :certificate_digest_algo
 
+    attr_accessor :certificate_format
+
     # Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
     attr_accessor :certificate_locality
 
@@ -82,6 +84,7 @@ module Akeyless
         :'certificate_common_name' => :'certificate-common-name',
         :'certificate_country' => :'certificate-country',
         :'certificate_digest_algo' => :'certificate-digest-algo',
+        :'certificate_format' => :'certificate-format',
         :'certificate_locality' => :'certificate-locality',
         :'certificate_organization' => :'certificate-organization',
         :'certificate_province' => :'certificate-province',
@@ -113,6 +116,7 @@ module Akeyless
         :'certificate_common_name' => :'String',
         :'certificate_country' => :'String',
         :'certificate_digest_algo' => :'String',
+        :'certificate_format' => :'String',
         :'certificate_locality' => :'String',
         :'certificate_organization' => :'String',
         :'certificate_province' => :'String',
@@ -169,6 +173,10 @@ module Akeyless
 
       if attributes.key?(:'certificate_digest_algo')
         self.certificate_digest_algo = attributes[:'certificate_digest_algo']
+      end
+
+      if attributes.key?(:'certificate_format')
+        self.certificate_format = attributes[:'certificate_format']
       end
 
       if attributes.key?(:'certificate_locality')
@@ -278,6 +286,7 @@ module Akeyless
           certificate_common_name == o.certificate_common_name &&
           certificate_country == o.certificate_country &&
           certificate_digest_algo == o.certificate_digest_algo &&
+          certificate_format == o.certificate_format &&
           certificate_locality == o.certificate_locality &&
           certificate_organization == o.certificate_organization &&
           certificate_province == o.certificate_province &&
@@ -305,7 +314,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, certificate_common_name, certificate_country, certificate_digest_algo, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, generate_self_signed_certificate, json, metadata, name, split_level, tag, token, uid_token].hash
+      [alg, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, generate_self_signed_certificate, json, metadata, name, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash

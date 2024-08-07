@@ -74,6 +74,8 @@ docs/AzurePayload.md
 docs/AzureTargetDetails.md
 docs/BastionListEntry.md
 docs/BastionsList.md
+docs/BatchEncryptionRequestLine.md
+docs/BatchEncryptionResponseLine.md
 docs/CFConfigPart.md
 docs/CacheConfigPart.md
 docs/CertAccessRules.md
@@ -1084,6 +1086,8 @@ lib/akeyless/models/azure_payload.rb
 lib/akeyless/models/azure_target_details.rb
 lib/akeyless/models/bastion_list_entry.rb
 lib/akeyless/models/bastions_list.rb
+lib/akeyless/models/batch_encryption_request_line.rb
+lib/akeyless/models/batch_encryption_response_line.rb
 lib/akeyless/models/cache_config_part.rb
 lib/akeyless/models/cert_access_rules.rb
 lib/akeyless/models/certificate_analytic_aggregation.rb
@@ -2021,4 +2025,6 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/batch_encryption_request_line_spec.rb
+spec/models/batch_encryption_response_line_spec.rb
 spec/spec_helper.rb

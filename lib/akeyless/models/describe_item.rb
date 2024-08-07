@@ -21,6 +21,9 @@ module Akeyless
     # Indicate if the item should return with ztb cluster details (url, etc)
     attr_accessor :bastion_details
 
+    # The certificate will be displayed in DER format
+    attr_accessor :der_certificate_format
+
     # The display id of the item
     attr_accessor :display_id
 
@@ -53,6 +56,7 @@ module Akeyless
       {
         :'accessibility' => :'accessibility',
         :'bastion_details' => :'bastion-details',
+        :'der_certificate_format' => :'der-certificate-format',
         :'display_id' => :'display-id',
         :'gateway_details' => :'gateway-details',
         :'item_id' => :'item-id',
@@ -75,6 +79,7 @@ module Akeyless
       {
         :'accessibility' => :'String',
         :'bastion_details' => :'Boolean',
+        :'der_certificate_format' => :'Boolean',
         :'display_id' => :'String',
         :'gateway_details' => :'Boolean',
         :'item_id' => :'Integer',
@@ -118,6 +123,12 @@ module Akeyless
         self.bastion_details = attributes[:'bastion_details']
       else
         self.bastion_details = false
+      end
+
+      if attributes.key?(:'der_certificate_format')
+        self.der_certificate_format = attributes[:'der_certificate_format']
+      else
+        self.der_certificate_format = false
       end
 
       if attributes.key?(:'display_id')
@@ -194,6 +205,7 @@ module Akeyless
       self.class == o.class &&
           accessibility == o.accessibility &&
           bastion_details == o.bastion_details &&
+          der_certificate_format == o.der_certificate_format &&
           display_id == o.display_id &&
           gateway_details == o.gateway_details &&
           item_id == o.item_id &&
@@ -214,7 +226,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, bastion_details, display_id, gateway_details, item_id, json, name, services_details, show_versions, token, uid_token].hash
+      [accessibility, bastion_details, der_certificate_format, display_id, gateway_details, item_id, json, name, services_details, show_versions, token, uid_token].hash
     end
 
     # Builds the object from hash

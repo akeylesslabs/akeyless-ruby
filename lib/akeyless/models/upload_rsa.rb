@@ -21,6 +21,8 @@ module Akeyless
     # Certificate in a PEM format.
     attr_accessor :cert_file_data
 
+    attr_accessor :certificate_format
+
     # The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)
     attr_accessor :customer_frg_id
 
@@ -62,6 +64,7 @@ module Akeyless
       {
         :'alg' => :'alg',
         :'cert_file_data' => :'cert-file-data',
+        :'certificate_format' => :'certificate-format',
         :'customer_frg_id' => :'customer-frg-id',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -87,6 +90,7 @@ module Akeyless
       {
         :'alg' => :'String',
         :'cert_file_data' => :'String',
+        :'certificate_format' => :'String',
         :'customer_frg_id' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -131,6 +135,10 @@ module Akeyless
 
       if attributes.key?(:'cert_file_data')
         self.cert_file_data = attributes[:'cert_file_data']
+      end
+
+      if attributes.key?(:'certificate_format')
+        self.certificate_format = attributes[:'certificate_format']
       end
 
       if attributes.key?(:'customer_frg_id')
@@ -224,6 +232,7 @@ module Akeyless
       self.class == o.class &&
           alg == o.alg &&
           cert_file_data == o.cert_file_data &&
+          certificate_format == o.certificate_format &&
           customer_frg_id == o.customer_frg_id &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -247,7 +256,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, cert_file_data, customer_frg_id, delete_protection, description, json, metadata, name, overwrite, rsa_file_data, split_level, tag, token, uid_token].hash
+      [alg, cert_file_data, certificate_format, customer_frg_id, delete_protection, description, json, metadata, name, overwrite, rsa_file_data, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash
