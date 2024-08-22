@@ -16,6 +16,7 @@
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic secret encryption key | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
@@ -48,6 +49,7 @@ instance = Akeyless::GatewayCreateProducerAzure.new(
   password_length: null,
   producer_encryption_key_name: null,
   secure_access_enable: null,
+  secure_access_url: null,
   secure_access_web: null,
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,

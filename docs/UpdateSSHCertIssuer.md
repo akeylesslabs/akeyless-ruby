@@ -20,6 +20,7 @@
 | **secure_access_bastion_api** | **String** | Bastion&#39;s SSH control API endpoint. E.g. https://my.bastion:9900 | [optional] |
 | **secure_access_bastion_ssh** | **String** | Bastion&#39;s SSH server. E.g. my.bastion:22 | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_enforce_hosts_restriction** | **Boolean** | Enable this flag to enforce connections only to the hosts listed in --secure-access-host | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_ssh_creds_user** | **String** | SSH username to connect to target server, must be in &#39;Allowed Users&#39; list | [optional] |
 | **secure_access_use_internal_bastion** | **Boolean** | Use internal SSH Bastion | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::UpdateSSHCertIssuer.new(
   secure_access_bastion_api: null,
   secure_access_bastion_ssh: null,
   secure_access_enable: null,
+  secure_access_enforce_hosts_restriction: null,
   secure_access_host: null,
   secure_access_ssh_creds_user: null,
   secure_access_use_internal_bastion: null,

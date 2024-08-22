@@ -17,6 +17,11 @@
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **role_name** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode | [optional] |
 | **role_scope** | **String** |  | [optional] |
+| **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
+| **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Name of existing target to use in dynamic secret creation | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -42,6 +47,11 @@ instance = Akeyless::DynamicSecretUpdateGoogleWorkspace.new(
   producer_encryption_key_name: null,
   role_name: null,
   role_scope: null,
+  secure_access_enable: null,
+  secure_access_url: null,
+  secure_access_web: null,
+  secure_access_web_browsing: null,
+  secure_access_web_proxy: null,
   tags: null,
   target_name: null,
   token: null,

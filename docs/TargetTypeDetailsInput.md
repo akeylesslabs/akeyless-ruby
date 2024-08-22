@@ -27,6 +27,7 @@
 | **ping_target_details** | [**PingTargetDetails**](PingTargetDetails.md) |  | [optional] |
 | **rabbit_mq_target_details** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  | [optional] |
 | **salesforce_target_details** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  | [optional] |
+| **sectigo_target_details** | [**SectigoTargetDetails**](SectigoTargetDetails.md) |  | [optional] |
 | **ssh_target_details** | [**SSHTargetDetails**](SSHTargetDetails.md) |  | [optional] |
 | **venafi_target_details** | [**VenafiTargetDetails**](VenafiTargetDetails.md) |  | [optional] |
 | **web_target_details** | [**WebTargetDetails**](WebTargetDetails.md) |  | [optional] |
@@ -62,6 +63,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   ping_target_details: null,
   rabbit_mq_target_details: null,
   salesforce_target_details: null,
+  sectigo_target_details: null,
   ssh_target_details: null,
   venafi_target_details: null,
   web_target_details: null,

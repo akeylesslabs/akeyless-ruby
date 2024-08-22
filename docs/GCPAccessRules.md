@@ -12,6 +12,7 @@
 | **bound_zones** | **Array&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Machine authentication section &#x3D;&#x3D;&#x3D; List of zones that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a zonal group and the group must belong to this zone. | [optional] |
 | **service_account** | **String** | ServiceAccount holds the credentials file contents to be used by Akeyless to validate IAM (Human) and GCE (Machine) logins against GCP base64 encoded string | [optional] |
 | **type** | **String** |  | [optional] |
+| **unique_identifier** | **String** | A unique identifier to distinguish different users | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = Akeyless::GCPAccessRules.new(
   bound_service_accounts: null,
   bound_zones: null,
   service_account: null,
-  type: null
+  type: null,
+  unique_identifier: null
 )
 ```
 

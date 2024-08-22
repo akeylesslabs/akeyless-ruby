@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **assigners** | [**Array&lt;RuleAssigner&gt;**](RuleAssigner.md) |  | [optional] |
 | **capabilities** | **Array&lt;String&gt;** | The approved/denied capabilities in the path | [optional] |
+| **cb** | **Integer** |  | [optional] |
 | **is_limit_access** | **Boolean** | flag that indicate that this rule is allowed to be access RemainingAccess of times. | [optional] |
 | **number_of_access_used** | **Integer** |  | [optional] |
 | **number_of_allowed_access** | **Integer** |  | [optional] |
@@ -22,6 +23,7 @@ require 'akeyless'
 instance = Akeyless::PathRule.new(
   assigners: null,
   capabilities: null,
+  cb: null,
   is_limit_access: null,
   number_of_access_used: null,
   number_of_allowed_access: null,

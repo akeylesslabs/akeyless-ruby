@@ -26,6 +26,7 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **type** | **String** | Type of the GCP Access Rules |  |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **unique_identifier** | **String** | A unique identifier (ID) value which is a \&quot;sub claim\&quot; name that contains details uniquely identifying that resource. This \&quot;sub claim\&quot; is used to distinguish between different identities. | [optional] |
 
 ## Example
 
@@ -54,7 +55,8 @@ instance = Akeyless::AuthMethodUpdateGcp.new(
   service_account_creds_data: null,
   token: null,
   type: null,
-  uid_token: null
+  uid_token: null,
+  unique_identifier: null
 )
 ```
 

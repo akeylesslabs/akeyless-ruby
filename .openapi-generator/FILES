@@ -21,6 +21,8 @@ docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
 docs/AkeylessGatewayConfig.md
+docs/AliasDetails.md
+docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
 docs/AllowedAccess.md
 docs/AllowedAccessOld.md
@@ -76,6 +78,8 @@ docs/BastionListEntry.md
 docs/BastionsList.md
 docs/BatchEncryptionRequestLine.md
 docs/BatchEncryptionResponseLine.md
+docs/BatchTokenizationRequestLine.md
+docs/BatchTokenizationResponseLine.md
 docs/CFConfigPart.md
 docs/CacheConfigPart.md
 docs/CertAccessRules.md
@@ -776,6 +780,7 @@ docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SecretInfo.md
+docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
 docs/ServerInventoryPayload.md
@@ -829,6 +834,7 @@ docs/TargetCreateOutput.md
 docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
 docs/TargetCreateSalesforce.md
+docs/TargetCreateSectigo.md
 docs/TargetCreateSsh.md
 docs/TargetCreateWeb.md
 docs/TargetCreateWindows.md
@@ -862,6 +868,7 @@ docs/TargetUpdateOutput.md
 docs/TargetUpdatePing.md
 docs/TargetUpdateRabbitMq.md
 docs/TargetUpdateSalesforce.md
+docs/TargetUpdateSectigo.md
 docs/TargetUpdateSsh.md
 docs/TargetUpdateWeb.md
 docs/TargetUpdateWindows.md
@@ -1028,6 +1035,8 @@ lib/akeyless/models/active_directory_payload.rb
 lib/akeyless/models/add_gateway_allowed_access_id.rb
 lib/akeyless/models/admins_config_part.rb
 lib/akeyless/models/akeyless_gateway_config.rb
+lib/akeyless/models/alias_details.rb
+lib/akeyless/models/alias_details_output.rb
 lib/akeyless/models/all_analytics_data.rb
 lib/akeyless/models/allowed_access.rb
 lib/akeyless/models/allowed_access_old.rb
@@ -1088,6 +1097,8 @@ lib/akeyless/models/bastion_list_entry.rb
 lib/akeyless/models/bastions_list.rb
 lib/akeyless/models/batch_encryption_request_line.rb
 lib/akeyless/models/batch_encryption_response_line.rb
+lib/akeyless/models/batch_tokenization_request_line.rb
+lib/akeyless/models/batch_tokenization_response_line.rb
 lib/akeyless/models/cache_config_part.rb
 lib/akeyless/models/cert_access_rules.rb
 lib/akeyless/models/certificate_analytic_aggregation.rb
@@ -1786,6 +1797,7 @@ lib/akeyless/models/salesforce_target_details.rb
 lib/akeyless/models/saml_access_rules.rb
 lib/akeyless/models/saml_attribute.rb
 lib/akeyless/models/secret_info.rb
+lib/akeyless/models/sectigo_target_details.rb
 lib/akeyless/models/secure_remote_access.rb
 lib/akeyless/models/server_inventory_migration.rb
 lib/akeyless/models/server_inventory_payload.rb
@@ -1841,6 +1853,7 @@ lib/akeyless/models/target_create_output.rb
 lib/akeyless/models/target_create_ping.rb
 lib/akeyless/models/target_create_rabbit_mq.rb
 lib/akeyless/models/target_create_salesforce.rb
+lib/akeyless/models/target_create_sectigo.rb
 lib/akeyless/models/target_create_ssh.rb
 lib/akeyless/models/target_create_web.rb
 lib/akeyless/models/target_create_windows.rb
@@ -1874,6 +1887,7 @@ lib/akeyless/models/target_update_output.rb
 lib/akeyless/models/target_update_ping.rb
 lib/akeyless/models/target_update_rabbit_mq.rb
 lib/akeyless/models/target_update_salesforce.rb
+lib/akeyless/models/target_update_sectigo.rb
 lib/akeyless/models/target_update_ssh.rb
 lib/akeyless/models/target_update_web.rb
 lib/akeyless/models/target_update_windows.rb
@@ -2025,6 +2039,11 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/batch_encryption_request_line_spec.rb
-spec/models/batch_encryption_response_line_spec.rb
+spec/models/alias_details_output_spec.rb
+spec/models/alias_details_spec.rb
+spec/models/batch_tokenization_request_line_spec.rb
+spec/models/batch_tokenization_response_line_spec.rb
+spec/models/sectigo_target_details_spec.rb
+spec/models/target_create_sectigo_spec.rb
+spec/models/target_update_sectigo_spec.rb
 spec/spec_helper.rb

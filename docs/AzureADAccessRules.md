@@ -16,6 +16,7 @@
 | **bound_tenant_id** | **String** | The tenants id for the Azure Active Directory organization. | [optional] |
 | **issuer** | **String** | Issuer URL | [optional] |
 | **jwks_uri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. | [optional] |
+| **unique_identifier** | **String** | A unique identifier to distinguish different users | [optional] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = Akeyless::AzureADAccessRules.new(
   bound_subscription_ids: null,
   bound_tenant_id: null,
   issuer: null,
-  jwks_uri: null
+  jwks_uri: null,
+  unique_identifier: null
 )
 ```
 
