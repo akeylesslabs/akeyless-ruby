@@ -25,6 +25,9 @@ module Akeyless
     # Key name
     attr_accessor :name
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The number of days to wait between every automatic key rotation (7-365)
     attr_accessor :rotation_interval
 
@@ -40,6 +43,7 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'json' => :'json',
         :'name' => :'name',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_interval' => :'rotation-interval',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -57,6 +61,7 @@ module Akeyless
         :'auto_rotate' => :'Boolean',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_interval' => :'Integer',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -100,6 +105,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
       end
 
       if attributes.key?(:'rotation_interval')
@@ -148,6 +159,7 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           json == o.json &&
           name == o.name &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_interval == o.rotation_interval &&
           token == o.token &&
           uid_token == o.uid_token
@@ -162,7 +174,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_rotate, json, name, rotation_interval, token, uid_token].hash
+      [auto_rotate, json, name, rotation_event_in, rotation_interval, token, uid_token].hash
     end
 
     # Builds the object from hash

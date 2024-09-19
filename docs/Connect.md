@@ -4,7 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bastion_gateway_url** | **String** | todo - enable when gw-sra unification is done The Gateway URL (configuration management) address, e.g. http://localhost:8000 | [optional] |
 | **helper** | **Object** |  | [optional] |
 | **rc_file_override** | **String** | used to override .akeyless-connect.rc in tests | [optional] |
 | **bastion_ctrl_path** | **String** | The Bastion API path | [optional] |
@@ -12,6 +11,7 @@
 | **bastion_ctrl_proto** | **String** | The Bastion API protocol | [optional][default to &#39;http&#39;] |
 | **bastion_ctrl_subdomain** | **String** | The Bastion API prefix | [optional] |
 | **cert_issuer_name** | **String** | The Akeyless certificate issuer name | [optional] |
+| **gateway_url** | **String** | The Gateway URL (configuration management) address, e.g. http://localhost:8000 | [optional] |
 | **identity_file** | **String** | The file from which the identity (private key) for public key authentication is read | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **justification** | **String** |  | [optional] |
@@ -31,7 +31,6 @@
 require 'akeyless'
 
 instance = Akeyless::Connect.new(
-  bastion_gateway_url: null,
   helper: null,
   rc_file_override: null,
   bastion_ctrl_path: null,
@@ -39,6 +38,7 @@ instance = Akeyless::Connect.new(
   bastion_ctrl_proto: null,
   bastion_ctrl_subdomain: null,
   cert_issuer_name: null,
+  gateway_url: null,
   identity_file: null,
   json: null,
   justification: null,

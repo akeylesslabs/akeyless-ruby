@@ -18,6 +18,9 @@ module Akeyless
     # DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
     attr_accessor :alg
 
+    # Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]
+    attr_accessor :auto_rotate
+
     # Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
     attr_accessor :certificate_common_name
 
@@ -53,6 +56,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided.
     attr_accessor :generate_self_signed_certificate
 
@@ -64,6 +70,12 @@ module Akeyless
 
     # DFCKey name
     attr_accessor :name
+
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
+    # The number of days to wait between every automatic rotation (7-365)
+    attr_accessor :rotation_interval
 
     # The number of fragments that the item will be split into (not includes customer fragment)
     attr_accessor :split_level
@@ -81,6 +93,7 @@ module Akeyless
     def self.attribute_map
       {
         :'alg' => :'alg',
+        :'auto_rotate' => :'auto-rotate',
         :'certificate_common_name' => :'certificate-common-name',
         :'certificate_country' => :'certificate-country',
         :'certificate_digest_algo' => :'certificate-digest-algo',
@@ -93,10 +106,13 @@ module Akeyless
         :'customer_frg_id' => :'customer-frg-id',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'expiration_event_in' => :'expiration-event-in',
         :'generate_self_signed_certificate' => :'generate-self-signed-certificate',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
+        :'rotation_event_in' => :'rotation-event-in',
+        :'rotation_interval' => :'rotation-interval',
         :'split_level' => :'split-level',
         :'tag' => :'tag',
         :'token' => :'token',
@@ -113,6 +129,7 @@ module Akeyless
     def self.openapi_types
       {
         :'alg' => :'String',
+        :'auto_rotate' => :'String',
         :'certificate_common_name' => :'String',
         :'certificate_country' => :'String',
         :'certificate_digest_algo' => :'String',
@@ -125,10 +142,13 @@ module Akeyless
         :'customer_frg_id' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'expiration_event_in' => :'Array<String>',
         :'generate_self_signed_certificate' => :'Boolean',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
+        :'rotation_event_in' => :'Array<String>',
+        :'rotation_interval' => :'String',
         :'split_level' => :'Integer',
         :'tag' => :'Array<String>',
         :'token' => :'String',
@@ -161,6 +181,10 @@ module Akeyless
         self.alg = attributes[:'alg']
       else
         self.alg = nil
+      end
+
+      if attributes.key?(:'auto_rotate')
+        self.auto_rotate = attributes[:'auto_rotate']
       end
 
       if attributes.key?(:'certificate_common_name')
@@ -211,6 +235,12 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
+      end
+
       if attributes.key?(:'generate_self_signed_certificate')
         self.generate_self_signed_certificate = attributes[:'generate_self_signed_certificate']
       end
@@ -229,6 +259,16 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
+      if attributes.key?(:'rotation_interval')
+        self.rotation_interval = attributes[:'rotation_interval']
       end
 
       if attributes.key?(:'split_level')
@@ -283,6 +323,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           alg == o.alg &&
+          auto_rotate == o.auto_rotate &&
           certificate_common_name == o.certificate_common_name &&
           certificate_country == o.certificate_country &&
           certificate_digest_algo == o.certificate_digest_algo &&
@@ -295,10 +336,13 @@ module Akeyless
           customer_frg_id == o.customer_frg_id &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          expiration_event_in == o.expiration_event_in &&
           generate_self_signed_certificate == o.generate_self_signed_certificate &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
+          rotation_event_in == o.rotation_event_in &&
+          rotation_interval == o.rotation_interval &&
           split_level == o.split_level &&
           tag == o.tag &&
           token == o.token &&
@@ -314,7 +358,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, generate_self_signed_certificate, json, metadata, name, split_level, tag, token, uid_token].hash
+      [alg, auto_rotate, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, expiration_event_in, generate_self_signed_certificate, json, metadata, name, rotation_event_in, rotation_interval, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash

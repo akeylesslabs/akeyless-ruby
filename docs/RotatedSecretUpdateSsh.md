@@ -20,6 +20,7 @@
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) | [optional] |
+| **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **rotator_custom_cmd** | **String** | Custom rotation command | [optional] |
@@ -57,6 +58,7 @@ instance = Akeyless::RotatedSecretUpdateSsh.new(
   rotate_after_disconnect: null,
   rotated_password: null,
   rotated_username: null,
+  rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
   rotator_custom_cmd: null,

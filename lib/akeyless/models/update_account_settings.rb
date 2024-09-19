@@ -51,6 +51,9 @@ module Akeyless
     # Enable sharing items [true/false]
     attr_accessor :enable_item_sharing
 
+    # Enable password expiration policy [true/false]
+    attr_accessor :enable_password_expiration
+
     # If set to true, new version will be created on update
     attr_accessor :force_new_versions
 
@@ -95,6 +98,12 @@ module Akeyless
 
     # Max versions
     attr_accessor :max_versions
+
+    # Specifies the number of days that a password is valid before it must be changed. A default value of 90 days is used.
+    attr_accessor :password_expiration_days
+
+    # Specifies the number of days before a user receives notification that their password will expire. A default value of 14 days is used.
+    attr_accessor :password_expiration_notification_days
 
     # Password length between 5 - to 50 characters
     attr_accessor :password_length
@@ -147,6 +156,7 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'dynamic-secret-max-ttl',
         :'dynamic_secret_max_ttl_enable' => :'dynamic-secret-max-ttl-enable',
         :'enable_item_sharing' => :'enable-item-sharing',
+        :'enable_password_expiration' => :'enable-password-expiration',
         :'force_new_versions' => :'force-new-versions',
         :'gw_bound_ips' => :'gw-bound-ips',
         :'invalid_characters' => :'invalid-characters',
@@ -162,6 +172,8 @@ module Akeyless
         :'max_rotation_interval' => :'max-rotation-interval',
         :'max_rotation_interval_enable' => :'max-rotation-interval-enable',
         :'max_versions' => :'max-versions',
+        :'password_expiration_days' => :'password-expiration-days',
+        :'password_expiration_notification_days' => :'password-expiration-notification-days',
         :'password_length' => :'password-length',
         :'phone' => :'phone',
         :'postal_code' => :'postal-code',
@@ -197,6 +209,7 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'Integer',
         :'dynamic_secret_max_ttl_enable' => :'String',
         :'enable_item_sharing' => :'String',
+        :'enable_password_expiration' => :'String',
         :'force_new_versions' => :'String',
         :'gw_bound_ips' => :'Array<String>',
         :'invalid_characters' => :'String',
@@ -212,6 +225,8 @@ module Akeyless
         :'max_rotation_interval' => :'Integer',
         :'max_rotation_interval_enable' => :'String',
         :'max_versions' => :'String',
+        :'password_expiration_days' => :'String',
+        :'password_expiration_notification_days' => :'String',
         :'password_length' => :'Integer',
         :'phone' => :'String',
         :'postal_code' => :'String',
@@ -298,6 +313,10 @@ module Akeyless
         self.enable_item_sharing = attributes[:'enable_item_sharing']
       end
 
+      if attributes.key?(:'enable_password_expiration')
+        self.enable_password_expiration = attributes[:'enable_password_expiration']
+      end
+
       if attributes.key?(:'force_new_versions')
         self.force_new_versions = attributes[:'force_new_versions']
       end
@@ -362,6 +381,14 @@ module Akeyless
 
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
+      end
+
+      if attributes.key?(:'password_expiration_days')
+        self.password_expiration_days = attributes[:'password_expiration_days']
+      end
+
+      if attributes.key?(:'password_expiration_notification_days')
+        self.password_expiration_notification_days = attributes[:'password_expiration_notification_days']
       end
 
       if attributes.key?(:'password_length')
@@ -445,6 +472,7 @@ module Akeyless
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           dynamic_secret_max_ttl_enable == o.dynamic_secret_max_ttl_enable &&
           enable_item_sharing == o.enable_item_sharing &&
+          enable_password_expiration == o.enable_password_expiration &&
           force_new_versions == o.force_new_versions &&
           gw_bound_ips == o.gw_bound_ips &&
           invalid_characters == o.invalid_characters &&
@@ -460,6 +488,8 @@ module Akeyless
           max_rotation_interval == o.max_rotation_interval &&
           max_rotation_interval_enable == o.max_rotation_interval_enable &&
           max_versions == o.max_versions &&
+          password_expiration_days == o.password_expiration_days &&
+          password_expiration_notification_days == o.password_expiration_notification_days &&
           password_length == o.password_length &&
           phone == o.phone &&
           postal_code == o.postal_code &&
@@ -483,7 +513,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, bound_ips, city, company_name, country, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_item_sharing, force_new_versions, gw_bound_ips, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_lower_letters, use_numbers, use_special_characters, use_capital_letters].hash
+      [address, bound_ips, city, company_name, country, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_lower_letters, use_numbers, use_special_characters, use_capital_letters].hash
     end
 
     # Builds the object from hash

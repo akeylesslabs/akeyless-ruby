@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **accessibility** | **String** | for personal password manager | [optional][default to &#39;regular&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Secret name |  |
 | **old_version** | **Integer** | Old secret version to rollback to |  |
@@ -16,6 +17,7 @@
 require 'akeyless'
 
 instance = Akeyless::RollbackSecret.new(
+  accessibility: null,
   json: null,
   name: null,
   old_version: null,

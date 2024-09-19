@@ -39,6 +39,15 @@ module Akeyless
     # Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
     attr_accessor :cert_data
 
+    # Certificate Issuer Name
+    attr_accessor :cert_issuer_name
+
+    # The username to sign in the SSH certificate (use a comma-separated list for more than one username)
+    attr_accessor :cert_username
+
+    # Default path prefix for name of items, targets and auth methods
+    attr_accessor :default_location_prefix
+
     # GCP JWT audience
     attr_accessor :gcp_audience
 
@@ -50,6 +59,9 @@ module Akeyless
 
     # Private key data encoded in base64. Used if file was not provided.(relevant only for access-type=cert in Curl Context)
     attr_accessor :key_data
+
+    # Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the certificate.
+    attr_accessor :legacy_signing_alg_name
 
     # The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type=oci)
     attr_accessor :oci_auth_type
@@ -68,10 +80,14 @@ module Akeyless
         :'admin_password' => :'admin-password',
         :'azure_ad_object_id' => :'azure_ad_object_id',
         :'cert_data' => :'cert-data',
+        :'cert_issuer_name' => :'cert-issuer-name',
+        :'cert_username' => :'cert-username',
+        :'default_location_prefix' => :'default-location-prefix',
         :'gcp_audience' => :'gcp-audience',
         :'json' => :'json',
         :'k8s_auth_config_name' => :'k8s-auth-config-name',
         :'key_data' => :'key-data',
+        :'legacy_signing_alg_name' => :'legacy-signing-alg-name',
         :'oci_auth_type' => :'oci-auth-type',
         :'oci_group_ocid' => :'oci-group-ocid'
       }
@@ -93,10 +109,14 @@ module Akeyless
         :'admin_password' => :'String',
         :'azure_ad_object_id' => :'String',
         :'cert_data' => :'String',
+        :'cert_issuer_name' => :'String',
+        :'cert_username' => :'String',
+        :'default_location_prefix' => :'String',
         :'gcp_audience' => :'String',
         :'json' => :'Boolean',
         :'k8s_auth_config_name' => :'String',
         :'key_data' => :'String',
+        :'legacy_signing_alg_name' => :'Boolean',
         :'oci_auth_type' => :'String',
         :'oci_group_ocid' => :'Array<String>'
       }
@@ -157,6 +177,18 @@ module Akeyless
         self.cert_data = attributes[:'cert_data']
       end
 
+      if attributes.key?(:'cert_issuer_name')
+        self.cert_issuer_name = attributes[:'cert_issuer_name']
+      end
+
+      if attributes.key?(:'cert_username')
+        self.cert_username = attributes[:'cert_username']
+      end
+
+      if attributes.key?(:'default_location_prefix')
+        self.default_location_prefix = attributes[:'default_location_prefix']
+      end
+
       if attributes.key?(:'gcp_audience')
         self.gcp_audience = attributes[:'gcp_audience']
       else
@@ -175,6 +207,10 @@ module Akeyless
 
       if attributes.key?(:'key_data')
         self.key_data = attributes[:'key_data']
+      end
+
+      if attributes.key?(:'legacy_signing_alg_name')
+        self.legacy_signing_alg_name = attributes[:'legacy_signing_alg_name']
       end
 
       if attributes.key?(:'oci_auth_type')
@@ -218,10 +254,14 @@ module Akeyless
           admin_password == o.admin_password &&
           azure_ad_object_id == o.azure_ad_object_id &&
           cert_data == o.cert_data &&
+          cert_issuer_name == o.cert_issuer_name &&
+          cert_username == o.cert_username &&
+          default_location_prefix == o.default_location_prefix &&
           gcp_audience == o.gcp_audience &&
           json == o.json &&
           k8s_auth_config_name == o.k8s_auth_config_name &&
           key_data == o.key_data &&
+          legacy_signing_alg_name == o.legacy_signing_alg_name &&
           oci_auth_type == o.oci_auth_type &&
           oci_group_ocid == o.oci_group_ocid
     end
@@ -235,7 +275,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, access_type, account_id, admin_email, admin_password, azure_ad_object_id, cert_data, gcp_audience, json, k8s_auth_config_name, key_data, oci_auth_type, oci_group_ocid].hash
+      [access_id, access_key, access_type, account_id, admin_email, admin_password, azure_ad_object_id, cert_data, cert_issuer_name, cert_username, default_location_prefix, gcp_audience, json, k8s_auth_config_name, key_data, legacy_signing_alg_name, oci_auth_type, oci_group_ocid].hash
     end
 
     # Builds the object from hash

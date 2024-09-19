@@ -36,7 +36,7 @@ module Akeyless
     # Dynamic secret name
     attr_accessor :name
 
-    # Dynamic secret new name
+    # Dynamic secret name
     attr_accessor :new_name
 
     # Secret payload to be sent with each create/revoke webhook request

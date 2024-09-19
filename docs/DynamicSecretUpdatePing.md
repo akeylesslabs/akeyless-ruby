@@ -8,7 +8,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **ping_administrative_port** | **String** | Ping Federate administrative port | [optional][default to &#39;9999&#39;] |
 | **ping_atm_id** | **String** | Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM Id. If no explicit value is given, the default pingfederate server ATM will be set. | [optional] |
 | **ping_authorization_port** | **String** | Ping Federate authorization port | [optional][default to &#39;9031&#39;] |

@@ -16,7 +16,7 @@
 | **ldap_ca_cert** | **String** | CA Certificate File Content | [optional] |
 | **ldap_url** | **String** | LDAP Server URL | [optional] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |

@@ -32,6 +32,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -68,6 +71,7 @@ module Akeyless
         :'customer_frg_id' => :'customer-frg-id',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'expiration_event_in' => :'expiration-event-in',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -94,6 +98,7 @@ module Akeyless
         :'customer_frg_id' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'expiration_event_in' => :'Array<String>',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
@@ -151,6 +156,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -236,6 +247,7 @@ module Akeyless
           customer_frg_id == o.customer_frg_id &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          expiration_event_in == o.expiration_event_in &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
@@ -256,7 +268,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, cert_file_data, certificate_format, customer_frg_id, delete_protection, description, json, metadata, name, overwrite, rsa_file_data, split_level, tag, token, uid_token].hash
+      [alg, cert_file_data, certificate_format, customer_frg_id, delete_protection, description, expiration_event_in, json, metadata, name, overwrite, rsa_file_data, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash

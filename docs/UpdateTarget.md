@@ -9,7 +9,7 @@
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **new_comment** | **String** | Deprecated - use description | [optional][default to &#39;default_comment&#39;] |
-| **new_name** | **String** | New Target name | [optional] |
+| **new_name** | **String** | New target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 

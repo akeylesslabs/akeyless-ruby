@@ -19,6 +19,7 @@
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
+| **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users | [optional][default to false] |
@@ -57,6 +58,7 @@ instance = Akeyless::RotatedSecretUpdateCustom.new(
   password_length: null,
   rm_tag: null,
   rotate_after_disconnect: null,
+  rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
   secure_access_allow_external_user: null,

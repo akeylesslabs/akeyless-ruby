@@ -16,9 +16,6 @@ require 'time'
 module Akeyless
   # Connect is a command that performs secure remote access
   class Connect
-    # todo - enable when gw-sra unification is done The Gateway URL (configuration management) address, e.g. http://localhost:8000
-    attr_accessor :bastion_gateway_url
-
     attr_accessor :helper
 
     # used to override .akeyless-connect.rc in tests
@@ -38,6 +35,9 @@ module Akeyless
 
     # The Akeyless certificate issuer name
     attr_accessor :cert_issuer_name
+
+    # The Gateway URL (configuration management) address, e.g. http://localhost:8000
+    attr_accessor :gateway_url
 
     # The file from which the identity (private key) for public key authentication is read
     attr_accessor :identity_file
@@ -77,7 +77,6 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'bastion_gateway_url' => :'BastionGatewayUrl',
         :'helper' => :'Helper',
         :'rc_file_override' => :'RcFileOverride',
         :'bastion_ctrl_path' => :'bastion-ctrl-path',
@@ -85,6 +84,7 @@ module Akeyless
         :'bastion_ctrl_proto' => :'bastion-ctrl-proto',
         :'bastion_ctrl_subdomain' => :'bastion-ctrl-subdomain',
         :'cert_issuer_name' => :'cert-issuer-name',
+        :'gateway_url' => :'gateway-url',
         :'identity_file' => :'identity-file',
         :'json' => :'json',
         :'justification' => :'justification',
@@ -108,7 +108,6 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'bastion_gateway_url' => :'String',
         :'helper' => :'Object',
         :'rc_file_override' => :'String',
         :'bastion_ctrl_path' => :'String',
@@ -116,6 +115,7 @@ module Akeyless
         :'bastion_ctrl_proto' => :'String',
         :'bastion_ctrl_subdomain' => :'String',
         :'cert_issuer_name' => :'String',
+        :'gateway_url' => :'String',
         :'identity_file' => :'String',
         :'json' => :'Boolean',
         :'justification' => :'String',
@@ -152,10 +152,6 @@ module Akeyless
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'bastion_gateway_url')
-        self.bastion_gateway_url = attributes[:'bastion_gateway_url']
-      end
-
       if attributes.key?(:'helper')
         self.helper = attributes[:'helper']
       end
@@ -186,6 +182,10 @@ module Akeyless
 
       if attributes.key?(:'cert_issuer_name')
         self.cert_issuer_name = attributes[:'cert_issuer_name']
+      end
+
+      if attributes.key?(:'gateway_url')
+        self.gateway_url = attributes[:'gateway_url']
       end
 
       if attributes.key?(:'identity_file')
@@ -261,7 +261,6 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          bastion_gateway_url == o.bastion_gateway_url &&
           helper == o.helper &&
           rc_file_override == o.rc_file_override &&
           bastion_ctrl_path == o.bastion_ctrl_path &&
@@ -269,6 +268,7 @@ module Akeyless
           bastion_ctrl_proto == o.bastion_ctrl_proto &&
           bastion_ctrl_subdomain == o.bastion_ctrl_subdomain &&
           cert_issuer_name == o.cert_issuer_name &&
+          gateway_url == o.gateway_url &&
           identity_file == o.identity_file &&
           json == o.json &&
           justification == o.justification &&
@@ -292,7 +292,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bastion_gateway_url, helper, rc_file_override, bastion_ctrl_path, bastion_ctrl_port, bastion_ctrl_proto, bastion_ctrl_subdomain, cert_issuer_name, identity_file, json, justification, name, ssh_command, ssh_extra_args, ssh_legacy_signing_alg, target, token, uid_token, use_ssh_agent, via_bastion].hash
+      [helper, rc_file_override, bastion_ctrl_path, bastion_ctrl_port, bastion_ctrl_proto, bastion_ctrl_subdomain, cert_issuer_name, gateway_url, identity_file, json, justification, name, ssh_command, ssh_extra_args, ssh_legacy_signing_alg, target, token, uid_token, use_ssh_agent, via_bastion].hash
     end
 
     # Builds the object from hash

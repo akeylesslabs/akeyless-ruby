@@ -12,7 +12,9 @@
 | **cluster_gw_url** | **String** |  | [optional] |
 | **display_metadata** | **String** |  | [optional] |
 | **dynamic_secret_producer_details** | [**DynamicSecretProducerInfo**](DynamicSecretProducerInfo.md) |  | [optional] |
+| **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **importer_info** | [**ImporterInfo**](ImporterInfo.md) |  | [optional] |
+| **next_rotation_events** | [**Array&lt;NextAutoRotationEvent&gt;**](NextAutoRotationEvent.md) |  | [optional] |
 | **oidc_client_info** | [**OidcClientInfo**](OidcClientInfo.md) |  | [optional] |
 | **password_policy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
 | **rotated_secret_details** | [**RotatedSecretDetailsInfo**](RotatedSecretDetailsInfo.md) |  | [optional] |
@@ -34,7 +36,9 @@ instance = Akeyless::ItemGeneralInfo.new(
   cluster_gw_url: null,
   display_metadata: null,
   dynamic_secret_producer_details: null,
+  expiration_events: null,
   importer_info: null,
+  next_rotation_events: null,
   oidc_client_info: null,
   password_policy: null,
   rotated_secret_details: null,

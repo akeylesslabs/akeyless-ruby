@@ -15,6 +15,7 @@
 | **invalid_characters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention | [optional] |
 | **item_usage_event** | [**UsageEventSetting**](UsageEventSetting.md) |  | [optional] |
 | **lock_default_key** | **Boolean** | LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty | [optional] |
+| **password_expiration_info** | [**PasswordExpirationInfo**](PasswordExpirationInfo.md) |  | [optional] |
 | **password_policy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
 | **protect_items_by_default** | **Boolean** |  | [optional] |
 | **rotation_secret_max_interval** | [**RotationSecretMaxInterval**](RotationSecretMaxInterval.md) |  | [optional] |
@@ -37,6 +38,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   invalid_characters: null,
   item_usage_event: null,
   lock_default_key: null,
+  password_expiration_info: null,
   password_policy: null,
   protect_items_by_default: null,
   rotation_secret_max_interval: null,

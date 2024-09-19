@@ -20,6 +20,7 @@
 | **new_name** | **String** | New item name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
+| **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/service-account-rotator] |  |
@@ -48,6 +49,7 @@ instance = Akeyless::RotatedSecretUpdateGcp.new(
   new_name: null,
   password_length: null,
   rm_tag: null,
+  rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
   rotator_type: null,

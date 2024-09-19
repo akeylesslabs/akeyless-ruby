@@ -85,6 +85,9 @@ module Akeyless
     # username to be rotated, if selected \\\"use-self-creds\\\" at rotator-creds-type, this username will try to rotate it's own password, if \\\"use-target-creds\\\" is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)
     attr_accessor :rotated_username
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The Rotation Hour
     attr_accessor :rotation_hour
 
@@ -129,6 +132,7 @@ module Akeyless
         :'rm_tag' => :'rm-tag',
         :'rotated_password' => :'rotated-password',
         :'rotated_username' => :'rotated-username',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_creds_type' => :'rotator-creds-type',
@@ -169,6 +173,7 @@ module Akeyless
         :'rm_tag' => :'Array<String>',
         :'rotated_password' => :'String',
         :'rotated_username' => :'String',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_creds_type' => :'String',
@@ -303,6 +308,12 @@ module Akeyless
         self.rotated_username = attributes[:'rotated_username']
       end
 
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
       if attributes.key?(:'rotation_hour')
         self.rotation_hour = attributes[:'rotation_hour']
       else
@@ -387,6 +398,7 @@ module Akeyless
           rm_tag == o.rm_tag &&
           rotated_password == o.rotated_password &&
           rotated_username == o.rotated_username &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_creds_type == o.rotator_creds_type &&
@@ -404,7 +416,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, api_id, api_key, app_id, auto_rotate, custom_payload, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, json, keep_prev_version, key, name, new_metadata, new_name, new_version, password_length, rm_tag, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, token, type, uid_token].hash
+      [add_tag, api_id, api_key, app_id, auto_rotate, custom_payload, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, json, keep_prev_version, key, name, new_metadata, new_name, new_version, password_length, rm_tag, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_creds_type, token, type, uid_token].hash
     end
 
     # Builds the object from hash

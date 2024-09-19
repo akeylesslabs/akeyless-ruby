@@ -16,6 +16,7 @@
 | **dynamic_secret_max_ttl** | **Integer** | Set the maximum ttl for dynamic secrets | [optional] |
 | **dynamic_secret_max_ttl_enable** | **String** | Set a maximum ttl for dynamic secrets [true/false] | [optional] |
 | **enable_item_sharing** | **String** | Enable sharing items [true/false] | [optional] |
+| **enable_password_expiration** | **String** | Enable password expiration policy [true/false] | [optional] |
 | **force_new_versions** | **String** | If set to true, new version will be created on update | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A default list of comma-separated CIDR block that acts as a trusted Gateway entity. | [optional] |
 | **invalid_characters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. | [optional][default to &#39;notReceivedInvalidCharacter&#39;] |
@@ -31,6 +32,8 @@
 | **max_rotation_interval** | **Integer** | Set the maximum rotation interval for rotated secrets auto rotation settings | [optional] |
 | **max_rotation_interval_enable** | **String** | Set a maximum rotation interval for rotated secrets auto rotation settings [true/false] | [optional] |
 | **max_versions** | **String** | Max versions | [optional] |
+| **password_expiration_days** | **String** | Specifies the number of days that a password is valid before it must be changed. A default value of 90 days is used. | [optional] |
+| **password_expiration_notification_days** | **String** | Specifies the number of days before a user receives notification that their password will expire. A default value of 14 days is used. | [optional] |
 | **password_length** | **Integer** | Password length between 5 - to 50 characters | [optional] |
 | **phone** | **String** | Phone number | [optional] |
 | **postal_code** | **String** | Postal code | [optional] |
@@ -62,6 +65,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   dynamic_secret_max_ttl: null,
   dynamic_secret_max_ttl_enable: null,
   enable_item_sharing: null,
+  enable_password_expiration: null,
   force_new_versions: null,
   gw_bound_ips: null,
   invalid_characters: null,
@@ -77,6 +81,8 @@ instance = Akeyless::UpdateAccountSettings.new(
   max_rotation_interval: null,
   max_rotation_interval_enable: null,
   max_versions: null,
+  password_expiration_days: null,
+  password_expiration_notification_days: null,
   password_length: null,
   phone: null,
   postal_code: null,

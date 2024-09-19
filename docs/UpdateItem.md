@@ -11,6 +11,7 @@
 | **change_event** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -60,6 +61,7 @@ instance = Akeyless::UpdateItem.new(
   change_event: null,
   delete_protection: null,
   description: null,
+  expiration_event_in: null,
   host_provider: null,
   json: null,
   max_versions: null,

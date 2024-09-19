@@ -20,7 +20,7 @@
 | **mongodb_uri_options** | **String** | MongoDB server URI options | [optional] |
 | **mongodb_username** | **String** | MongoDB server username | [optional] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Encrypt producer with following key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |

@@ -51,6 +51,9 @@ module Akeyless
     # The length of the password to be generated
     attr_accessor :password_length
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
@@ -87,6 +90,7 @@ module Akeyless
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password_length' => :'password-length',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
@@ -117,6 +121,7 @@ module Akeyless
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password_length' => :'String',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
@@ -202,6 +207,12 @@ module Akeyless
         self.password_length = attributes[:'password_length']
       end
 
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
       if attributes.key?(:'rotation_hour')
         self.rotation_hour = attributes[:'rotation_hour']
       end
@@ -284,6 +295,7 @@ module Akeyless
           max_versions == o.max_versions &&
           name == o.name &&
           password_length == o.password_length &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_type == o.rotator_type &&
@@ -302,7 +314,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, json, key, max_versions, name, password_length, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

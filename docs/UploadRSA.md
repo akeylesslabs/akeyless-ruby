@@ -10,6 +10,7 @@
 | **customer_frg_id** | **String** | The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | Name of key to be created |  |
@@ -32,6 +33,7 @@ instance = Akeyless::UploadRSA.new(
   customer_frg_id: null,
   delete_protection: null,
   description: null,
+  expiration_event_in: null,
   json: null,
   metadata: null,
   name: null,

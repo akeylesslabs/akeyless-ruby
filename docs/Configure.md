@@ -12,10 +12,14 @@
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
 | **azure_ad_object_id** | **String** | Azure Active Directory ObjectId (relevant only for access-type&#x3D;azure_ad) | [optional] |
 | **cert_data** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert in Curl Context) | [optional] |
+| **cert_issuer_name** | **String** | Certificate Issuer Name | [optional] |
+| **cert_username** | **String** | The username to sign in the SSH certificate (use a comma-separated list for more than one username) | [optional] |
+| **default_location_prefix** | **String** | Default path prefix for name of items, targets and auth methods | [optional] |
 | **gcp_audience** | **String** | GCP JWT audience | [optional][default to &#39;akeyless.io&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_auth_config_name** | **String** | The K8S Auth config name (relevant only for access-type&#x3D;k8s) | [optional] |
 | **key_data** | **String** | Private key data encoded in base64. Used if file was not provided.(relevant only for access-type&#x3D;cert in Curl Context) | [optional] |
+| **legacy_signing_alg_name** | **Boolean** | Set this option to output legacy (&#39;ssh-rsa-cert-v01@openssh.com&#39;) signing algorithm name in the certificate. | [optional] |
 | **oci_auth_type** | **String** | The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci) | [optional][default to &#39;apikey&#39;] |
 | **oci_group_ocid** | **Array&lt;String&gt;** | A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci) | [optional] |
 
@@ -33,10 +37,14 @@ instance = Akeyless::Configure.new(
   admin_password: null,
   azure_ad_object_id: null,
   cert_data: null,
+  cert_issuer_name: null,
+  cert_username: null,
+  default_location_prefix: null,
   gcp_audience: null,
   json: null,
   k8s_auth_config_name: null,
   key_data: null,
+  legacy_signing_alg_name: null,
   oci_auth_type: null,
   oci_group_ocid: null
 )

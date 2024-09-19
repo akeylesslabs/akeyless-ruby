@@ -13,6 +13,7 @@
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
+| **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
@@ -35,6 +36,7 @@ instance = Akeyless::RotatedSecretCreateDockerhub.new(
   max_versions: null,
   name: null,
   password_length: null,
+  rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
   tags: null,

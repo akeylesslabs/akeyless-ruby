@@ -26,13 +26,17 @@ module Akeyless
     # The password value
     attr_accessor :hash_pass
 
+    # The last password change date
+    attr_accessor :last_reset_password
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'alg' => :'alg',
         :'email' => :'email',
         :'enc_email_with_shared_key' => :'enc_email_with_shared_key',
-        :'hash_pass' => :'hash_pass'
+        :'hash_pass' => :'hash_pass',
+        :'last_reset_password' => :'last_reset_password'
       }
     end
 
@@ -47,7 +51,8 @@ module Akeyless
         :'alg' => :'String',
         :'email' => :'String',
         :'enc_email_with_shared_key' => :'String',
-        :'hash_pass' => :'String'
+        :'hash_pass' => :'String',
+        :'last_reset_password' => :'Time'
       }
     end
 
@@ -87,6 +92,10 @@ module Akeyless
       if attributes.key?(:'hash_pass')
         self.hash_pass = attributes[:'hash_pass']
       end
+
+      if attributes.key?(:'last_reset_password')
+        self.last_reset_password = attributes[:'last_reset_password']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -112,7 +121,8 @@ module Akeyless
           alg == o.alg &&
           email == o.email &&
           enc_email_with_shared_key == o.enc_email_with_shared_key &&
-          hash_pass == o.hash_pass
+          hash_pass == o.hash_pass &&
+          last_reset_password == o.last_reset_password
     end
 
     # @see the `==` method
@@ -124,7 +134,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, email, enc_email_with_shared_key, hash_pass].hash
+      [alg, email, enc_email_with_shared_key, hash_pass, last_reset_password].hash
     end
 
     # Builds the object from hash

@@ -52,7 +52,7 @@ module Akeyless
     # Dynamic secret name
     attr_accessor :name
 
-    # Dynamic secret new name
+    # Dynamic secret name
     attr_accessor :new_name
 
     # Add tags attached to this object

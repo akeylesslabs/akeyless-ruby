@@ -51,6 +51,9 @@ module Akeyless
     # username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it's own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)
     attr_accessor :rotated_username
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
@@ -114,6 +117,7 @@ module Akeyless
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
         :'rotated_password' => :'rotated-password',
         :'rotated_username' => :'rotated-username',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_custom_cmd' => :'rotator-custom-cmd',
@@ -153,6 +157,7 @@ module Akeyless
         :'rotate_after_disconnect' => :'String',
         :'rotated_password' => :'String',
         :'rotated_username' => :'String',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_custom_cmd' => :'String',
@@ -247,6 +252,12 @@ module Akeyless
 
       if attributes.key?(:'rotated_username')
         self.rotated_username = attributes[:'rotated_username']
+      end
+
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
       end
 
       if attributes.key?(:'rotation_hour')
@@ -371,6 +382,7 @@ module Akeyless
           rotate_after_disconnect == o.rotate_after_disconnect &&
           rotated_password == o.rotated_password &&
           rotated_username == o.rotated_username &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_custom_cmd == o.rotator_custom_cmd &&
@@ -398,7 +410,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

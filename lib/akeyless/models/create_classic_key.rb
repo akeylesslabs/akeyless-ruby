@@ -19,6 +19,9 @@ module Akeyless
     # Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]
     attr_accessor :alg
 
+    # Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false]
+    attr_accessor :auto_rotate
+
     # Certificate in a PEM format.
     attr_accessor :cert_file_data
 
@@ -54,6 +57,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided.
     attr_accessor :generate_self_signed_certificate
 
@@ -75,6 +81,12 @@ module Akeyless
     # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :protection_key_name
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
+    # The number of days to wait between every automatic rotation (1-365)
+    attr_accessor :rotation_interval
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -88,6 +100,7 @@ module Akeyless
     def self.attribute_map
       {
         :'alg' => :'alg',
+        :'auto_rotate' => :'auto-rotate',
         :'cert_file_data' => :'cert-file-data',
         :'certificate_common_name' => :'certificate-common-name',
         :'certificate_country' => :'certificate-country',
@@ -100,6 +113,7 @@ module Akeyless
         :'conf_file_data' => :'conf-file-data',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'expiration_event_in' => :'expiration-event-in',
         :'generate_self_signed_certificate' => :'generate-self-signed-certificate',
         :'gpg_alg' => :'gpg-alg',
         :'json' => :'json',
@@ -107,6 +121,8 @@ module Akeyless
         :'metadata' => :'metadata',
         :'name' => :'name',
         :'protection_key_name' => :'protection-key-name',
+        :'rotation_event_in' => :'rotation-event-in',
+        :'rotation_interval' => :'rotation-interval',
         :'tags' => :'tags',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -122,6 +138,7 @@ module Akeyless
     def self.openapi_types
       {
         :'alg' => :'String',
+        :'auto_rotate' => :'String',
         :'cert_file_data' => :'String',
         :'certificate_common_name' => :'String',
         :'certificate_country' => :'String',
@@ -134,6 +151,7 @@ module Akeyless
         :'conf_file_data' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'expiration_event_in' => :'Array<String>',
         :'generate_self_signed_certificate' => :'Boolean',
         :'gpg_alg' => :'String',
         :'json' => :'Boolean',
@@ -141,6 +159,8 @@ module Akeyless
         :'metadata' => :'String',
         :'name' => :'String',
         :'protection_key_name' => :'String',
+        :'rotation_event_in' => :'Array<String>',
+        :'rotation_interval' => :'String',
         :'tags' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -172,6 +192,10 @@ module Akeyless
         self.alg = attributes[:'alg']
       else
         self.alg = nil
+      end
+
+      if attributes.key?(:'auto_rotate')
+        self.auto_rotate = attributes[:'auto_rotate']
       end
 
       if attributes.key?(:'cert_file_data')
@@ -222,6 +246,12 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
+      end
+
       if attributes.key?(:'generate_self_signed_certificate')
         self.generate_self_signed_certificate = attributes[:'generate_self_signed_certificate']
       end
@@ -252,6 +282,16 @@ module Akeyless
 
       if attributes.key?(:'protection_key_name')
         self.protection_key_name = attributes[:'protection_key_name']
+      end
+
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
+      if attributes.key?(:'rotation_interval')
+        self.rotation_interval = attributes[:'rotation_interval']
       end
 
       if attributes.key?(:'tags')
@@ -300,6 +340,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           alg == o.alg &&
+          auto_rotate == o.auto_rotate &&
           cert_file_data == o.cert_file_data &&
           certificate_common_name == o.certificate_common_name &&
           certificate_country == o.certificate_country &&
@@ -312,6 +353,7 @@ module Akeyless
           conf_file_data == o.conf_file_data &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          expiration_event_in == o.expiration_event_in &&
           generate_self_signed_certificate == o.generate_self_signed_certificate &&
           gpg_alg == o.gpg_alg &&
           json == o.json &&
@@ -319,6 +361,8 @@ module Akeyless
           metadata == o.metadata &&
           name == o.name &&
           protection_key_name == o.protection_key_name &&
+          rotation_event_in == o.rotation_event_in &&
+          rotation_interval == o.rotation_interval &&
           tags == o.tags &&
           token == o.token &&
           uid_token == o.uid_token
@@ -333,7 +377,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, generate_self_signed_certificate, gpg_alg, json, key_data, metadata, name, protection_key_name, tags, token, uid_token].hash
+      [alg, auto_rotate, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, expiration_event_in, generate_self_signed_certificate, gpg_alg, json, key_data, metadata, name, protection_key_name, rotation_event_in, rotation_interval, tags, token, uid_token].hash
     end
 
     # Builds the object from hash

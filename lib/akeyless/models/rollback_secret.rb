@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class RollbackSecret
+    # for personal password manager
+    attr_accessor :accessibility
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -33,6 +36,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'accessibility' => :'accessibility',
         :'json' => :'json',
         :'name' => :'name',
         :'old_version' => :'old-version',
@@ -49,6 +53,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'accessibility' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'old_version' => :'Integer',
@@ -77,6 +82,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'accessibility')
+        self.accessibility = attributes[:'accessibility']
+      else
+        self.accessibility = 'regular'
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -135,6 +146,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          accessibility == o.accessibility &&
           json == o.json &&
           name == o.name &&
           old_version == o.old_version &&
@@ -151,7 +163,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, old_version, token, uid_token].hash
+      [accessibility, json, name, old_version, token, uid_token].hash
     end
 
     # Builds the object from hash

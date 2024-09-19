@@ -13,7 +13,7 @@
 | **group_role** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **role_name** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode | [optional] |
 | **role_scope** | **String** |  | [optional] |

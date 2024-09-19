@@ -13,7 +13,7 @@
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **root_first_in_chain** | **Boolean** | Root first in chain | [optional] |
 | **sign_using_akeyless_pki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer | [optional] |

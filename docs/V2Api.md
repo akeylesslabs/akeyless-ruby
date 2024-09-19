@@ -4,7 +4,7 @@ All URIs are relative to *https://api.akeyless.io*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**alias_details**](V2Api.md#alias_details) | **GET** /alias-details |  |
+| [**alias_details**](V2Api.md#alias_details) | **POST** /alias-details |  |
 | [**assoc_role_auth_method**](V2Api.md#assoc_role_auth_method) | **POST** /assoc-role-am |  |
 | [**assoc_target_item**](V2Api.md#assoc_target_item) | **POST** /assoc-target-item |  |
 | [**auth**](V2Api.md#auth) | **POST** /auth |  |
@@ -246,6 +246,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_get_log_forwarding**](V2Api.md#gateway_get_log_forwarding) | **POST** /gateway-get-log-forwarding |  |
 | [**gateway_get_migration**](V2Api.md#gateway_get_migration) | **POST** /gateway-get-migration |  |
 | [**gateway_get_producer**](V2Api.md#gateway_get_producer) | **POST** /gateway-get-producer |  |
+| [**gateway_get_remote_access**](V2Api.md#gateway_get_remote_access) | **POST** /gateway-get-remote-access |  |
 | [**gateway_get_tmp_users**](V2Api.md#gateway_get_tmp_users) | **POST** /gateway-get-producer-tmp-creds |  |
 | [**gateway_list_customer_fragments**](V2Api.md#gateway_list_customer_fragments) | **POST** /gateway-list-customer-fragments |  |
 | [**gateway_list_migration**](V2Api.md#gateway_list_migration) | **POST** /gateway-list-migration |  |
@@ -301,6 +302,8 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_update_producer_redshift**](V2Api.md#gateway_update_producer_redshift) | **POST** /gateway-update-producer-redshift |  |
 | [**gateway_update_producer_snowflake**](V2Api.md#gateway_update_producer_snowflake) | **POST** /gateway-update-producer-snowflake |  |
 | [**gateway_update_producer_venafi**](V2Api.md#gateway_update_producer_venafi) | **POST** /gateway-update-producer-certificate-automation |  |
+| [**gateway_update_remote_access**](V2Api.md#gateway_update_remote_access) | **POST** /gateway-update-remote-access |  |
+| [**gateway_update_remote_access_rdp_recordings**](V2Api.md#gateway_update_remote_access_rdp_recordings) | **POST** /gateway-update-remote-access-rdp-recording |  |
 | [**gateway_update_tls_cert**](V2Api.md#gateway_update_tls_cert) | **POST** /gateway-update-tls-cert |  |
 | [**gateway_update_tmp_users**](V2Api.md#gateway_update_tmp_users) | **POST** /gateway-update-producer-tmp-creds |  |
 | [**generate_csr**](V2Api.md#generate_csr) | **POST** /generate-csr |  |
@@ -323,6 +326,17 @@ All URIs are relative to *https://api.akeyless.io*
 | [**get_tags**](V2Api.md#get_tags) | **POST** /get-tags |  |
 | [**get_target**](V2Api.md#get_target) | **POST** /get-target |  |
 | [**get_target_details**](V2Api.md#get_target_details) | **POST** /get-target-details |  |
+| [**gw_update_remote_access_session_logs_aws_s3**](V2Api.md#gw_update_remote_access_session_logs_aws_s3) | **POST** /gateway-update-remote-access-session-forwarding-aws-s3 |  |
+| [**gw_update_remote_access_session_logs_azure_analytics**](V2Api.md#gw_update_remote_access_session_logs_azure_analytics) | **POST** /gateway-update-remote-access-session-forwarding-azure-analytics |  |
+| [**gw_update_remote_access_session_logs_datadog**](V2Api.md#gw_update_remote_access_session_logs_datadog) | **POST** /gateway-update-remote-access-session-forwarding-datadog |  |
+| [**gw_update_remote_access_session_logs_elasticsearch**](V2Api.md#gw_update_remote_access_session_logs_elasticsearch) | **POST** /gateway-update-remote-access-session-forwarding-elasticsearch |  |
+| [**gw_update_remote_access_session_logs_google_chronicle**](V2Api.md#gw_update_remote_access_session_logs_google_chronicle) | **POST** /gateway-update-remote-access-session-forwarding-google-chronicle |  |
+| [**gw_update_remote_access_session_logs_logstash**](V2Api.md#gw_update_remote_access_session_logs_logstash) | **POST** /gateway-update-remote-access-session-forwarding-logstash |  |
+| [**gw_update_remote_access_session_logs_logz_io**](V2Api.md#gw_update_remote_access_session_logs_logz_io) | **POST** /gateway-update-remote-access-session-forwarding-logz-io |  |
+| [**gw_update_remote_access_session_logs_splunk**](V2Api.md#gw_update_remote_access_session_logs_splunk) | **POST** /gateway-update-remote-access-session-forwarding-splunk |  |
+| [**gw_update_remote_access_session_logs_stdout**](V2Api.md#gw_update_remote_access_session_logs_stdout) | **POST** /gateway-update-remote-access-session-forwarding-stdout |  |
+| [**gw_update_remote_access_session_logs_sumologic**](V2Api.md#gw_update_remote_access_session_logs_sumologic) | **POST** /gateway-update-remote-access-session-forwarding-sumologic |  |
+| [**gw_update_remote_access_session_logs_syslog**](V2Api.md#gw_update_remote_access_session_logs_syslog) | **POST** /gateway-update-remote-access-session-forwarding-syslog |  |
 | [**hmac**](V2Api.md#hmac) | **POST** /hmac |  |
 | [**import_passwords**](V2Api.md#import_passwords) | **POST** /import-passwords |  |
 | [**kmip_client_delete_rule**](V2Api.md#kmip_client_delete_rule) | **POST** /kmip-client-delete-rule |  |
@@ -15552,6 +15566,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## gateway_get_remote_access
+
+> <BastionConfigReplyObj> gateway_get_remote_access(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayGetRemoteAccess.new # GatewayGetRemoteAccess | 
+
+begin
+  
+  result = api_instance.gateway_get_remote_access(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_remote_access: #{e}"
+end
+```
+
+#### Using the gateway_get_remote_access_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BastionConfigReplyObj>, Integer, Hash)> gateway_get_remote_access_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_get_remote_access_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BastionConfigReplyObj>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_get_remote_access_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayGetRemoteAccess**](GatewayGetRemoteAccess.md) |  |  |
+
+### Return type
+
+[**BastionConfigReplyObj**](BastionConfigReplyObj.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## gateway_get_tmp_users
 
 > <Array<TmpUserData>> gateway_get_tmp_users(body)
@@ -18965,6 +19041,127 @@ No authorization required
 - **Accept**: application/json
 
 
+## gateway_update_remote_access
+
+> Object gateway_update_remote_access
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+
+begin
+  
+  result = api_instance.gateway_update_remote_access
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access: #{e}"
+end
+```
+
+#### Using the gateway_update_remote_access_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> gateway_update_remote_access_with_http_info
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_remote_access_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## gateway_update_remote_access_rdp_recordings
+
+> Object gateway_update_remote_access_rdp_recordings(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateRemoteAccessRdpRecordings.new # GatewayUpdateRemoteAccessRdpRecordings | 
+
+begin
+  
+  result = api_instance.gateway_update_remote_access_rdp_recordings(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access_rdp_recordings: #{e}"
+end
+```
+
+#### Using the gateway_update_remote_access_rdp_recordings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> gateway_update_remote_access_rdp_recordings_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_remote_access_rdp_recordings_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access_rdp_recordings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateRemoteAccessRdpRecordings**](GatewayUpdateRemoteAccessRdpRecordings.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## gateway_update_tls_cert
 
 > <GatewayUpdateTlsCertOutput> gateway_update_tls_cert(body)
@@ -20314,6 +20511,688 @@ end
 ### Return type
 
 [**GetTargetDetailsOutput**](GetTargetDetailsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_aws_s3
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_aws_s3(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsAwsS3.new # GwUpdateRemoteAccessSessionLogsAwsS3 | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_aws_s3(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_aws_s3: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_aws_s3_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_aws_s3_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_aws_s3_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_aws_s3_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsAwsS3**](GwUpdateRemoteAccessSessionLogsAwsS3.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_azure_analytics
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_azure_analytics(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsAzureAnalytics.new # GwUpdateRemoteAccessSessionLogsAzureAnalytics | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_azure_analytics(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_azure_analytics: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_azure_analytics_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_azure_analytics_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_azure_analytics_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_azure_analytics_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsAzureAnalytics**](GwUpdateRemoteAccessSessionLogsAzureAnalytics.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_datadog
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_datadog(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsDatadog.new # GwUpdateRemoteAccessSessionLogsDatadog | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_datadog(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_datadog: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_datadog_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_datadog_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_datadog_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_datadog_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsDatadog**](GwUpdateRemoteAccessSessionLogsDatadog.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_elasticsearch
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_elasticsearch(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsElasticsearch.new # GwUpdateRemoteAccessSessionLogsElasticsearch | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_elasticsearch(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_elasticsearch: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_elasticsearch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_elasticsearch_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_elasticsearch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_elasticsearch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsElasticsearch**](GwUpdateRemoteAccessSessionLogsElasticsearch.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_google_chronicle
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_google_chronicle(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsGoogleChronicle.new # GwUpdateRemoteAccessSessionLogsGoogleChronicle | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_google_chronicle(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_google_chronicle: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_google_chronicle_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_google_chronicle_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_google_chronicle_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_google_chronicle_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsGoogleChronicle**](GwUpdateRemoteAccessSessionLogsGoogleChronicle.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_logstash
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_logstash(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsLogstash.new # GwUpdateRemoteAccessSessionLogsLogstash | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_logstash(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_logstash: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_logstash_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_logstash_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_logstash_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_logstash_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsLogstash**](GwUpdateRemoteAccessSessionLogsLogstash.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_logz_io
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_logz_io(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsLogzIo.new # GwUpdateRemoteAccessSessionLogsLogzIo | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_logz_io(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_logz_io: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_logz_io_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_logz_io_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_logz_io_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_logz_io_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsLogzIo**](GwUpdateRemoteAccessSessionLogsLogzIo.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_splunk
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_splunk(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsSplunk.new # GwUpdateRemoteAccessSessionLogsSplunk | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_splunk(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_splunk: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_splunk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_splunk_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_splunk_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_splunk_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsSplunk**](GwUpdateRemoteAccessSessionLogsSplunk.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_stdout
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_stdout(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsStdout.new # GwUpdateRemoteAccessSessionLogsStdout | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_stdout(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_stdout: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_stdout_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_stdout_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_stdout_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_stdout_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsStdout**](GwUpdateRemoteAccessSessionLogsStdout.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_sumologic
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_sumologic(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsSumologic.new # GwUpdateRemoteAccessSessionLogsSumologic | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_sumologic(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_sumologic: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_sumologic_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_sumologic_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_sumologic_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_sumologic_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsSumologic**](GwUpdateRemoteAccessSessionLogsSumologic.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gw_update_remote_access_session_logs_syslog
+
+> <GatewayUpdateLogForwardingOutput> gw_update_remote_access_session_logs_syslog(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GwUpdateRemoteAccessSessionLogsSyslog.new # GwUpdateRemoteAccessSessionLogsSyslog | 
+
+begin
+  
+  result = api_instance.gw_update_remote_access_session_logs_syslog(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_syslog: #{e}"
+end
+```
+
+#### Using the gw_update_remote_access_session_logs_syslog_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GatewayUpdateLogForwardingOutput>, Integer, Hash)> gw_update_remote_access_session_logs_syslog_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gw_update_remote_access_session_logs_syslog_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GatewayUpdateLogForwardingOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gw_update_remote_access_session_logs_syslog_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GwUpdateRemoteAccessSessionLogsSyslog**](GwUpdateRemoteAccessSessionLogsSyslog.md) |  |  |
+
+### Return type
+
+[**GatewayUpdateLogForwardingOutput**](GatewayUpdateLogForwardingOutput.md)
 
 ### Authorization
 

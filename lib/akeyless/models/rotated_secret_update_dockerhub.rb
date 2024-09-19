@@ -54,6 +54,9 @@ module Akeyless
     # List of the existent tags that will be removed from this item
     attr_accessor :rm_tag
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
@@ -82,6 +85,7 @@ module Akeyless
         :'new_name' => :'new-name',
         :'password_length' => :'password-length',
         :'rm_tag' => :'rm-tag',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'token' => :'token',
@@ -110,6 +114,7 @@ module Akeyless
         :'new_name' => :'String',
         :'password_length' => :'String',
         :'rm_tag' => :'Array<String>',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'token' => :'String',
@@ -202,6 +207,12 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
       if attributes.key?(:'rotation_hour')
         self.rotation_hour = attributes[:'rotation_hour']
       end
@@ -257,6 +268,7 @@ module Akeyless
           new_name == o.new_name &&
           password_length == o.password_length &&
           rm_tag == o.rm_tag &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           token == o.token &&
@@ -272,7 +284,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_hour, rotation_interval, token, uid_token].hash
+      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, token, uid_token].hash
     end
 
     # Builds the object from hash

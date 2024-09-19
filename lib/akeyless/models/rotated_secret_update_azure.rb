@@ -66,6 +66,9 @@ module Akeyless
     # Rotate the value of the secret after SRA session ends [true/false]
     attr_accessor :rotate_after_disconnect
 
+    # How many days before the rotation of the item would you like to be notified
+    attr_accessor :rotation_event_in
+
     # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
@@ -122,6 +125,7 @@ module Akeyless
         :'password_length' => :'password-length',
         :'rm_tag' => :'rm-tag',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
+        :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'secure_access_disable_concurrent_connections' => :'secure-access-disable-concurrent-connections',
@@ -162,6 +166,7 @@ module Akeyless
         :'password_length' => :'String',
         :'rm_tag' => :'Array<String>',
         :'rotate_after_disconnect' => :'String',
+        :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'secure_access_disable_concurrent_connections' => :'Boolean',
@@ -280,6 +285,12 @@ module Akeyless
         self.rotate_after_disconnect = 'false'
       end
 
+      if attributes.key?(:'rotation_event_in')
+        if (value = attributes[:'rotation_event_in']).is_a?(Array)
+          self.rotation_event_in = value
+        end
+      end
+
       if attributes.key?(:'rotation_hour')
         self.rotation_hour = attributes[:'rotation_hour']
       end
@@ -377,6 +388,7 @@ module Akeyless
           password_length == o.password_length &&
           rm_tag == o.rm_tag &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           secure_access_disable_concurrent_connections == o.secure_access_disable_concurrent_connections &&
@@ -400,7 +412,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotation_hour, rotation_interval, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, token, uid_token, username].hash
+      [add_tag, api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, token, uid_token, username].hash
     end
 
     # Builds the object from hash

@@ -42,6 +42,8 @@ module Akeyless
     # LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty
     attr_accessor :lock_default_key
 
+    attr_accessor :password_expiration_info
+
     attr_accessor :password_policy
 
     attr_accessor :protect_items_by_default
@@ -64,6 +66,7 @@ module Akeyless
         :'invalid_characters' => :'invalid_characters',
         :'item_usage_event' => :'item_usage_event',
         :'lock_default_key' => :'lock_default_key',
+        :'password_expiration_info' => :'password_expiration_info',
         :'password_policy' => :'password_policy',
         :'protect_items_by_default' => :'protect_items_by_default',
         :'rotation_secret_max_interval' => :'rotation_secret_max_interval',
@@ -90,6 +93,7 @@ module Akeyless
         :'invalid_characters' => :'String',
         :'item_usage_event' => :'UsageEventSetting',
         :'lock_default_key' => :'Boolean',
+        :'password_expiration_info' => :'PasswordExpirationInfo',
         :'password_policy' => :'PasswordPolicyInfo',
         :'protect_items_by_default' => :'Boolean',
         :'rotation_secret_max_interval' => :'RotationSecretMaxInterval',
@@ -162,6 +166,10 @@ module Akeyless
         self.lock_default_key = attributes[:'lock_default_key']
       end
 
+      if attributes.key?(:'password_expiration_info')
+        self.password_expiration_info = attributes[:'password_expiration_info']
+      end
+
       if attributes.key?(:'password_policy')
         self.password_policy = attributes[:'password_policy']
       end
@@ -210,6 +218,7 @@ module Akeyless
           invalid_characters == o.invalid_characters &&
           item_usage_event == o.item_usage_event &&
           lock_default_key == o.lock_default_key &&
+          password_expiration_info == o.password_expiration_info &&
           password_policy == o.password_policy &&
           protect_items_by_default == o.protect_items_by_default &&
           rotation_secret_max_interval == o.rotation_secret_max_interval &&
@@ -225,7 +234,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, data_protection_section, dynamic_secret_max_ttl, enable_request_for_access, invalid_characters, item_usage_event, lock_default_key, password_policy, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, data_protection_section, dynamic_secret_max_ttl, enable_request_for_access, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

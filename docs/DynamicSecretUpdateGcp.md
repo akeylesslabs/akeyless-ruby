@@ -13,7 +13,7 @@
 | **gcp_token_scopes** | **String** | Access token scopes list, e.g. scope1,scope2 | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
-| **new_name** | **String** | Dynamic secret new name | [optional] |
+| **new_name** | **String** | Dynamic secret name | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **role_binding** | **String** | Role binding definitions in json format | [optional] |
 | **service_account_type** | **String** | The type of the gcp dynamic secret. Options[fixed, dynamic] | [default to &#39;fixed&#39;] |

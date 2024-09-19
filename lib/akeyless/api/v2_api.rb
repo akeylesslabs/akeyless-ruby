@@ -76,7 +76,7 @@ module Akeyless
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#alias_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -15495,6 +15495,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param body [GatewayGetRemoteAccess] 
+    # @param [Hash] opts the optional parameters
+    # @return [BastionConfigReplyObj]
+    def gateway_get_remote_access(body, opts = {})
+      data, _status_code, _headers = gateway_get_remote_access_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GatewayGetRemoteAccess] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BastionConfigReplyObj, Integer, Hash)>] BastionConfigReplyObj data, response status code and response headers
+    def gateway_get_remote_access_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gateway_get_remote_access ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gateway_get_remote_access"
+      end
+      # resource path
+      local_var_path = '/gateway-get-remote-access'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BastionConfigReplyObj'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gateway_get_remote_access",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gateway_get_remote_access\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param body [GatewayGetTmpUsers] 
     # @param [Hash] opts the optional parameters
     # @return [Array<TmpUserData>]
@@ -19007,6 +19071,123 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def gateway_update_remote_access(opts = {})
+      data, _status_code, _headers = gateway_update_remote_access_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def gateway_update_remote_access_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gateway_update_remote_access ...'
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gateway_update_remote_access",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gateway_update_remote_access\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GatewayUpdateRemoteAccessRdpRecordings] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def gateway_update_remote_access_rdp_recordings(body, opts = {})
+      data, _status_code, _headers = gateway_update_remote_access_rdp_recordings_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GatewayUpdateRemoteAccessRdpRecordings] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def gateway_update_remote_access_rdp_recordings_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gateway_update_remote_access_rdp_recordings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gateway_update_remote_access_rdp_recordings"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-rdp-recording'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gateway_update_remote_access_rdp_recordings",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gateway_update_remote_access_rdp_recordings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param body [GatewayUpdateTlsCert] 
     # @param [Hash] opts the optional parameters
     # @return [GatewayUpdateTlsCertOutput]
@@ -20400,6 +20581,710 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#get_target_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsAwsS3] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_aws_s3(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_aws_s3_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsAwsS3] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_aws_s3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_aws_s3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_aws_s3"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-aws-s3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_aws_s3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_aws_s3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsAzureAnalytics] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_azure_analytics(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_azure_analytics_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsAzureAnalytics] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_azure_analytics_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_azure_analytics ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_azure_analytics"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-azure-analytics'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_azure_analytics",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_azure_analytics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsDatadog] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_datadog(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_datadog_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsDatadog] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_datadog_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_datadog ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_datadog"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-datadog'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_datadog",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_datadog\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsElasticsearch] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_elasticsearch(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_elasticsearch_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsElasticsearch] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_elasticsearch_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_elasticsearch ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_elasticsearch"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-elasticsearch'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_elasticsearch",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_elasticsearch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsGoogleChronicle] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_google_chronicle(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_google_chronicle_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsGoogleChronicle] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_google_chronicle_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_google_chronicle ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_google_chronicle"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-google-chronicle'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_google_chronicle",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_google_chronicle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsLogstash] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_logstash(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_logstash_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsLogstash] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_logstash_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_logstash ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_logstash"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-logstash'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_logstash",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_logstash\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsLogzIo] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_logz_io(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_logz_io_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsLogzIo] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_logz_io_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_logz_io ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_logz_io"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-logz-io'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_logz_io",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_logz_io\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_splunk(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_splunk_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_splunk_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_splunk ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_splunk"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-splunk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_splunk",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_splunk\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsStdout] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_stdout(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_stdout_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsStdout] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_stdout_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_stdout ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_stdout"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-stdout'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_stdout",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_stdout\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSumologic] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_sumologic(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_sumologic_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSumologic] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_sumologic_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_sumologic ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_sumologic"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-sumologic'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_sumologic",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_sumologic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSyslog] 
+    # @param [Hash] opts the optional parameters
+    # @return [GatewayUpdateLogForwardingOutput]
+    def gw_update_remote_access_session_logs_syslog(body, opts = {})
+      data, _status_code, _headers = gw_update_remote_access_session_logs_syslog_with_http_info(body, opts)
+      data
+    end
+
+    # @param body [GwUpdateRemoteAccessSessionLogsSyslog] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GatewayUpdateLogForwardingOutput, Integer, Hash)>] GatewayUpdateLogForwardingOutput data, response status code and response headers
+    def gw_update_remote_access_session_logs_syslog_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gw_update_remote_access_session_logs_syslog ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling V2Api.gw_update_remote_access_session_logs_syslog"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-session-forwarding-syslog'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GatewayUpdateLogForwardingOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gw_update_remote_access_session_logs_syslog",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gw_update_remote_access_session_logs_syslog\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

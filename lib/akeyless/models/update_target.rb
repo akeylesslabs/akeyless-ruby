@@ -30,7 +30,7 @@ module Akeyless
     # Deprecated - use description
     attr_accessor :new_comment
 
-    # New Target name
+    # New target name
     attr_accessor :new_name
 
     # Authentication token (see `/auth` and `/configure`)
