@@ -11,5 +11,5 @@ Generator version: 7.9.0-SNAPSHOT
 =end
 
 module Akeyless
-  VERSION = '4.2.4'
+  VERSION = '4.2.5'
 end

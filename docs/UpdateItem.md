@@ -8,6 +8,7 @@
 | **accessibility** | **String** | for personal password manager | [optional][default to &#39;regular&#39;] |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **cert_file_data** | **String** | PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates. | [optional] |
+| **certificate_format** | **String** |  | [optional] |
 | **change_event** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
@@ -58,6 +59,7 @@ instance = Akeyless::UpdateItem.new(
   accessibility: null,
   add_tag: null,
   cert_file_data: null,
+  certificate_format: null,
   change_event: null,
   delete_protection: null,
   description: null,

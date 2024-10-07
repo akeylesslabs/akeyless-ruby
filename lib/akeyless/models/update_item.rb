@@ -26,6 +26,8 @@ module Akeyless
     # PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
     attr_accessor :cert_file_data
 
+    attr_accessor :certificate_format
+
     # Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
     attr_accessor :change_event
 
@@ -150,6 +152,7 @@ module Akeyless
         :'accessibility' => :'accessibility',
         :'add_tag' => :'add-tag',
         :'cert_file_data' => :'cert-file-data',
+        :'certificate_format' => :'certificate-format',
         :'change_event' => :'change-event',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -204,6 +207,7 @@ module Akeyless
         :'accessibility' => :'String',
         :'add_tag' => :'Array<String>',
         :'cert_file_data' => :'String',
+        :'certificate_format' => :'String',
         :'change_event' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -285,6 +289,10 @@ module Akeyless
 
       if attributes.key?(:'cert_file_data')
         self.cert_file_data = attributes[:'cert_file_data']
+      end
+
+      if attributes.key?(:'certificate_format')
+        self.certificate_format = attributes[:'certificate_format']
       end
 
       if attributes.key?(:'change_event')
@@ -497,6 +505,7 @@ module Akeyless
           accessibility == o.accessibility &&
           add_tag == o.add_tag &&
           cert_file_data == o.cert_file_data &&
+          certificate_format == o.certificate_format &&
           change_event == o.change_event &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -547,7 +556,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, change_event, delete_protection, description, expiration_event_in, host_provider, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, host_provider, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
     end
 
     # Builds the object from hash

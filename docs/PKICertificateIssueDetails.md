@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **acme_enabled** | **Boolean** |  | [optional] |
 | **allow_any_name** | **Boolean** |  | [optional] |
 | **allow_copy_ext_from_csr** | **Boolean** |  | [optional] |
 | **allow_subdomains** | **Boolean** |  | [optional] |
@@ -27,6 +28,7 @@
 | **key_type** | **String** |  | [optional] |
 | **key_usage_list** | **Array&lt;String&gt;** |  | [optional] |
 | **locality** | **Array&lt;String&gt;** |  | [optional] |
+| **non_critical_key_usage** | **Boolean** |  | [optional] |
 | **not_before_duration** | **Integer** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. | [optional] |
 | **organization_list** | **Array&lt;String&gt;** |  | [optional] |
 | **organization_unit_list** | **Array&lt;String&gt;** |  | [optional] |
@@ -43,6 +45,7 @@
 require 'akeyless'
 
 instance = Akeyless::PKICertificateIssueDetails.new(
+  acme_enabled: null,
   allow_any_name: null,
   allow_copy_ext_from_csr: null,
   allow_subdomains: null,
@@ -66,6 +69,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   key_type: null,
   key_usage_list: null,
   locality: null,
+  non_critical_key_usage: null,
   not_before_duration: null,
   organization_list: null,
   organization_unit_list: null,

@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class PKICertificateIssueDetails
+    attr_accessor :acme_enabled
+
     attr_accessor :allow_any_name
 
     attr_accessor :allow_copy_ext_from_csr
@@ -64,6 +66,8 @@ module Akeyless
 
     attr_accessor :locality
 
+    attr_accessor :non_critical_key_usage
+
     # A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
     attr_accessor :not_before_duration
 
@@ -87,6 +91,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'acme_enabled' => :'acme_enabled',
         :'allow_any_name' => :'allow_any_name',
         :'allow_copy_ext_from_csr' => :'allow_copy_ext_from_csr',
         :'allow_subdomains' => :'allow_subdomains',
@@ -110,6 +115,7 @@ module Akeyless
         :'key_type' => :'key_type',
         :'key_usage_list' => :'key_usage_list',
         :'locality' => :'locality',
+        :'non_critical_key_usage' => :'non_critical_key_usage',
         :'not_before_duration' => :'not_before_duration',
         :'organization_list' => :'organization_list',
         :'organization_unit_list' => :'organization_unit_list',
@@ -130,6 +136,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'acme_enabled' => :'Boolean',
         :'allow_any_name' => :'Boolean',
         :'allow_copy_ext_from_csr' => :'Boolean',
         :'allow_subdomains' => :'Boolean',
@@ -153,6 +160,7 @@ module Akeyless
         :'key_type' => :'String',
         :'key_usage_list' => :'Array<String>',
         :'locality' => :'Array<String>',
+        :'non_critical_key_usage' => :'Boolean',
         :'not_before_duration' => :'Integer',
         :'organization_list' => :'Array<String>',
         :'organization_unit_list' => :'Array<String>',
@@ -185,6 +193,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'acme_enabled')
+        self.acme_enabled = attributes[:'acme_enabled']
+      end
 
       if attributes.key?(:'allow_any_name')
         self.allow_any_name = attributes[:'allow_any_name']
@@ -292,6 +304,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'non_critical_key_usage')
+        self.non_critical_key_usage = attributes[:'non_critical_key_usage']
+      end
+
       if attributes.key?(:'not_before_duration')
         self.not_before_duration = attributes[:'not_before_duration']
       end
@@ -359,6 +375,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          acme_enabled == o.acme_enabled &&
           allow_any_name == o.allow_any_name &&
           allow_copy_ext_from_csr == o.allow_copy_ext_from_csr &&
           allow_subdomains == o.allow_subdomains &&
@@ -382,6 +399,7 @@ module Akeyless
           key_type == o.key_type &&
           key_usage_list == o.key_usage_list &&
           locality == o.locality &&
+          non_critical_key_usage == o.non_critical_key_usage &&
           not_before_duration == o.not_before_duration &&
           organization_list == o.organization_list &&
           organization_unit_list == o.organization_unit_list &&
@@ -402,7 +420,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_uri_sans, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, destination_path, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, not_before_duration, organization_list, organization_unit_list, postal_code, protect_generated_certificates, province, require_cn, server_flag, street_address].hash
+      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_uri_sans, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, destination_path, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, non_critical_key_usage, not_before_duration, organization_list, organization_unit_list, postal_code, protect_generated_certificates, province, require_cn, server_flag, street_address].hash
     end
 
     # Builds the object from hash

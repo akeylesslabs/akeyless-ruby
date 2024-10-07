@@ -19,6 +19,8 @@ module Akeyless
     # PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
     attr_accessor :cert_file_data
 
+    attr_accessor :certificate_format
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -35,6 +37,7 @@ module Akeyless
     def self.attribute_map
       {
         :'cert_file_data' => :'cert-file-data',
+        :'certificate_format' => :'certificate-format',
         :'json' => :'json',
         :'name' => :'name',
         :'token' => :'token',
@@ -51,6 +54,7 @@ module Akeyless
     def self.openapi_types
       {
         :'cert_file_data' => :'String',
+        :'certificate_format' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'token' => :'String',
@@ -81,6 +85,10 @@ module Akeyless
 
       if attributes.key?(:'cert_file_data')
         self.cert_file_data = attributes[:'cert_file_data']
+      end
+
+      if attributes.key?(:'certificate_format')
+        self.certificate_format = attributes[:'certificate_format']
       end
 
       if attributes.key?(:'json')
@@ -130,6 +138,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           cert_file_data == o.cert_file_data &&
+          certificate_format == o.certificate_format &&
           json == o.json &&
           name == o.name &&
           token == o.token &&
@@ -145,7 +154,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_file_data, json, name, token, uid_token].hash
+      [cert_file_data, certificate_format, json, name, token, uid_token].hash
     end
 
     # Builds the object from hash

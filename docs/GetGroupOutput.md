@@ -10,6 +10,7 @@
 | **group_alias** | **String** |  | [optional] |
 | **group_id** | **String** |  | [optional] |
 | **group_name** | **String** |  | [optional] |
+| **is_subclaims_with_operator** | **Boolean** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **user_assignments** | [**Array&lt;AccessPermissionAssignment&gt;**](AccessPermissionAssignment.md) |  | [optional] |
 
@@ -25,6 +26,7 @@ instance = Akeyless::GetGroupOutput.new(
   group_alias: null,
   group_id: null,
   group_name: null,
+  is_subclaims_with_operator: null,
   modification_date: null,
   user_assignments: null
 )

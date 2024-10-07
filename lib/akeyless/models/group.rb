@@ -27,6 +27,8 @@ module Akeyless
 
     attr_accessor :group_name
 
+    attr_accessor :is_subclaims_with_operator
+
     attr_accessor :modification_date
 
     attr_accessor :user_assignments
@@ -40,6 +42,7 @@ module Akeyless
         :'group_alias' => :'group_alias',
         :'group_id' => :'group_id',
         :'group_name' => :'group_name',
+        :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
         :'modification_date' => :'modification_date',
         :'user_assignments' => :'user_assignments'
       }
@@ -59,6 +62,7 @@ module Akeyless
         :'group_alias' => :'String',
         :'group_id' => :'String',
         :'group_name' => :'String',
+        :'is_subclaims_with_operator' => :'Boolean',
         :'modification_date' => :'Time',
         :'user_assignments' => :'Array<AccessPermissionAssignment>'
       }
@@ -109,6 +113,10 @@ module Akeyless
         self.group_name = attributes[:'group_name']
       end
 
+      if attributes.key?(:'is_subclaims_with_operator')
+        self.is_subclaims_with_operator = attributes[:'is_subclaims_with_operator']
+      end
+
       if attributes.key?(:'modification_date')
         self.modification_date = attributes[:'modification_date']
       end
@@ -146,6 +154,7 @@ module Akeyless
           group_alias == o.group_alias &&
           group_id == o.group_id &&
           group_name == o.group_name &&
+          is_subclaims_with_operator == o.is_subclaims_with_operator &&
           modification_date == o.modification_date &&
           user_assignments == o.user_assignments
     end
@@ -159,7 +168,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, creation_date, description, group_alias, group_id, group_name, modification_date, user_assignments].hash
+      [account_id, creation_date, description, group_alias, group_id, group_name, is_subclaims_with_operator, modification_date, user_assignments].hash
     end
 
     # Builds the object from hash

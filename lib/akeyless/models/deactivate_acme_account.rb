@@ -14,29 +14,35 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # RoleAuthMethodAssociation includes details of an association between a role and an auth method.
-  class RoleAuthMethodAssociation
-    attr_accessor :assoc_id
+  # deactivateAcmeAccount is a command that Deactivates \\ Deletes an acme external account
+  class DeactivateAcmeAccount
+    # The acme account id to deactivate
+    attr_accessor :acme_account_id
 
-    attr_accessor :auth_method_access_id
+    # The name of the PKI certificate issuer
+    attr_accessor :cert_issuer_name
 
-    attr_accessor :auth_method_name
+    # Delete the account
+    attr_accessor :delete_account
 
-    attr_accessor :auth_method_sub_claims
+    # Set output format to JSON
+    attr_accessor :json
 
-    attr_accessor :is_subclaims_with_operator
+    # Authentication token (see `/auth` and `/configure`)
+    attr_accessor :token
 
-    attr_accessor :sub_claims_case_sensitive
+    # The universal identity token, Required only for universal_identity authentication
+    attr_accessor :uid_token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assoc_id' => :'assoc_id',
-        :'auth_method_access_id' => :'auth_method_access_id',
-        :'auth_method_name' => :'auth_method_name',
-        :'auth_method_sub_claims' => :'auth_method_sub_claims',
-        :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
-        :'sub_claims_case_sensitive' => :'sub_claims_case_sensitive'
+        :'acme_account_id' => :'acme-account-id',
+        :'cert_issuer_name' => :'cert-issuer-name',
+        :'delete_account' => :'delete-account',
+        :'json' => :'json',
+        :'token' => :'token',
+        :'uid_token' => :'uid-token'
       }
     end
 
@@ -48,12 +54,12 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assoc_id' => :'String',
-        :'auth_method_access_id' => :'String',
-        :'auth_method_name' => :'String',
-        :'auth_method_sub_claims' => :'Hash<String, Array<String>>',
-        :'is_subclaims_with_operator' => :'Boolean',
-        :'sub_claims_case_sensitive' => :'Boolean'
+        :'acme_account_id' => :'String',
+        :'cert_issuer_name' => :'String',
+        :'delete_account' => :'Boolean',
+        :'json' => :'Boolean',
+        :'token' => :'String',
+        :'uid_token' => :'String'
       }
     end
 
@@ -67,41 +73,45 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::RoleAuthMethodAssociation` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::DeactivateAcmeAccount` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::RoleAuthMethodAssociation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::DeactivateAcmeAccount`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assoc_id')
-        self.assoc_id = attributes[:'assoc_id']
+      if attributes.key?(:'acme_account_id')
+        self.acme_account_id = attributes[:'acme_account_id']
+      else
+        self.acme_account_id = nil
       end
 
-      if attributes.key?(:'auth_method_access_id')
-        self.auth_method_access_id = attributes[:'auth_method_access_id']
+      if attributes.key?(:'cert_issuer_name')
+        self.cert_issuer_name = attributes[:'cert_issuer_name']
+      else
+        self.cert_issuer_name = nil
       end
 
-      if attributes.key?(:'auth_method_name')
-        self.auth_method_name = attributes[:'auth_method_name']
+      if attributes.key?(:'delete_account')
+        self.delete_account = attributes[:'delete_account']
       end
 
-      if attributes.key?(:'auth_method_sub_claims')
-        if (value = attributes[:'auth_method_sub_claims']).is_a?(Hash)
-          self.auth_method_sub_claims = value
-        end
+      if attributes.key?(:'json')
+        self.json = attributes[:'json']
+      else
+        self.json = false
       end
 
-      if attributes.key?(:'is_subclaims_with_operator')
-        self.is_subclaims_with_operator = attributes[:'is_subclaims_with_operator']
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'sub_claims_case_sensitive')
-        self.sub_claims_case_sensitive = attributes[:'sub_claims_case_sensitive']
+      if attributes.key?(:'uid_token')
+        self.uid_token = attributes[:'uid_token']
       end
     end
 
@@ -110,6 +120,14 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @acme_account_id.nil?
+        invalid_properties.push('invalid value for "acme_account_id", acme_account_id cannot be nil.')
+      end
+
+      if @cert_issuer_name.nil?
+        invalid_properties.push('invalid value for "cert_issuer_name", cert_issuer_name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -117,6 +135,8 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @acme_account_id.nil?
+      return false if @cert_issuer_name.nil?
       true
     end
 
@@ -125,12 +145,12 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assoc_id == o.assoc_id &&
-          auth_method_access_id == o.auth_method_access_id &&
-          auth_method_name == o.auth_method_name &&
-          auth_method_sub_claims == o.auth_method_sub_claims &&
-          is_subclaims_with_operator == o.is_subclaims_with_operator &&
-          sub_claims_case_sensitive == o.sub_claims_case_sensitive
+          acme_account_id == o.acme_account_id &&
+          cert_issuer_name == o.cert_issuer_name &&
+          delete_account == o.delete_account &&
+          json == o.json &&
+          token == o.token &&
+          uid_token == o.uid_token
     end
 
     # @see the `==` method
@@ -142,7 +162,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, auth_method_access_id, auth_method_name, auth_method_sub_claims, is_subclaims_with_operator, sub_claims_case_sensitive].hash
+      [acme_account_id, cert_issuer_name, delete_account, json, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -51,6 +51,9 @@ module Akeyless
     # Set this to allow the cert issuer will expose a public CRL endpoint
     attr_accessor :create_public_crl
 
+    # Mark key usage as critical [true/false]
+    attr_accessor :critical_key_usage
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -60,10 +63,13 @@ module Akeyless
     # A path in which to save generated certificates
     attr_accessor :destination_path
 
+    # If set, the cert issuer will support the acme protocol
+    attr_accessor :enable_acme
+
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
 
-    # The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA
+    # The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME
     attr_accessor :gw_cluster_url
 
     # If set, the basic constraints extension will be added to certificate
@@ -144,9 +150,11 @@ module Akeyless
         :'country' => :'country',
         :'create_private_crl' => :'create-private-crl',
         :'create_public_crl' => :'create-public-crl',
+        :'critical_key_usage' => :'critical-key-usage',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'destination_path' => :'destination-path',
+        :'enable_acme' => :'enable-acme',
         :'expiration_event_in' => :'expiration-event-in',
         :'gw_cluster_url' => :'gw-cluster-url',
         :'is_ca' => :'is-ca',
@@ -193,9 +201,11 @@ module Akeyless
         :'country' => :'String',
         :'create_private_crl' => :'Boolean',
         :'create_public_crl' => :'Boolean',
+        :'critical_key_usage' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'destination_path' => :'String',
+        :'enable_acme' => :'Boolean',
         :'expiration_event_in' => :'Array<String>',
         :'gw_cluster_url' => :'String',
         :'is_ca' => :'Boolean',
@@ -293,6 +303,12 @@ module Akeyless
         self.create_public_crl = attributes[:'create_public_crl']
       end
 
+      if attributes.key?(:'critical_key_usage')
+        self.critical_key_usage = attributes[:'critical_key_usage']
+      else
+        self.critical_key_usage = 'true'
+      end
+
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
       end
@@ -303,6 +319,10 @@ module Akeyless
 
       if attributes.key?(:'destination_path')
         self.destination_path = attributes[:'destination_path']
+      end
+
+      if attributes.key?(:'enable_acme')
+        self.enable_acme = attributes[:'enable_acme']
       end
 
       if attributes.key?(:'expiration_event_in')
@@ -459,9 +479,11 @@ module Akeyless
           country == o.country &&
           create_private_crl == o.create_private_crl &&
           create_public_crl == o.create_public_crl &&
+          critical_key_usage == o.critical_key_usage &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           destination_path == o.destination_path &&
+          enable_acme == o.enable_acme &&
           expiration_event_in == o.expiration_event_in &&
           gw_cluster_url == o.gw_cluster_url &&
           is_ca == o.is_ca &&
@@ -496,7 +518,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_uri_sans, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, delete_protection, description, destination_path, expiration_event_in, gw_cluster_url, is_ca, json, key_usage, locality, metadata, name, new_name, not_enforce_hostnames, not_require_cn, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
+      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_uri_sans, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, critical_key_usage, delete_protection, description, destination_path, enable_acme, expiration_event_in, gw_cluster_url, is_ca, json, key_usage, locality, metadata, name, new_name, not_enforce_hostnames, not_require_cn, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

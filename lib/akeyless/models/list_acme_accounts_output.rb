@@ -14,29 +14,13 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # RoleAuthMethodAssociation includes details of an association between a role and an auth method.
-  class RoleAuthMethodAssociation
-    attr_accessor :assoc_id
-
-    attr_accessor :auth_method_access_id
-
-    attr_accessor :auth_method_name
-
-    attr_accessor :auth_method_sub_claims
-
-    attr_accessor :is_subclaims_with_operator
-
-    attr_accessor :sub_claims_case_sensitive
+  class ListAcmeAccountsOutput
+    attr_accessor :accounts
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assoc_id' => :'assoc_id',
-        :'auth_method_access_id' => :'auth_method_access_id',
-        :'auth_method_name' => :'auth_method_name',
-        :'auth_method_sub_claims' => :'auth_method_sub_claims',
-        :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
-        :'sub_claims_case_sensitive' => :'sub_claims_case_sensitive'
+        :'accounts' => :'accounts'
       }
     end
 
@@ -48,12 +32,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assoc_id' => :'String',
-        :'auth_method_access_id' => :'String',
-        :'auth_method_name' => :'String',
-        :'auth_method_sub_claims' => :'Hash<String, Array<String>>',
-        :'is_subclaims_with_operator' => :'Boolean',
-        :'sub_claims_case_sensitive' => :'Boolean'
+        :'accounts' => :'Array<AcmeAccount>'
       }
     end
 
@@ -67,41 +46,21 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::RoleAuthMethodAssociation` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::ListAcmeAccountsOutput` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::RoleAuthMethodAssociation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::ListAcmeAccountsOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assoc_id')
-        self.assoc_id = attributes[:'assoc_id']
-      end
-
-      if attributes.key?(:'auth_method_access_id')
-        self.auth_method_access_id = attributes[:'auth_method_access_id']
-      end
-
-      if attributes.key?(:'auth_method_name')
-        self.auth_method_name = attributes[:'auth_method_name']
-      end
-
-      if attributes.key?(:'auth_method_sub_claims')
-        if (value = attributes[:'auth_method_sub_claims']).is_a?(Hash)
-          self.auth_method_sub_claims = value
+      if attributes.key?(:'accounts')
+        if (value = attributes[:'accounts']).is_a?(Array)
+          self.accounts = value
         end
-      end
-
-      if attributes.key?(:'is_subclaims_with_operator')
-        self.is_subclaims_with_operator = attributes[:'is_subclaims_with_operator']
-      end
-
-      if attributes.key?(:'sub_claims_case_sensitive')
-        self.sub_claims_case_sensitive = attributes[:'sub_claims_case_sensitive']
       end
     end
 
@@ -125,12 +84,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assoc_id == o.assoc_id &&
-          auth_method_access_id == o.auth_method_access_id &&
-          auth_method_name == o.auth_method_name &&
-          auth_method_sub_claims == o.auth_method_sub_claims &&
-          is_subclaims_with_operator == o.is_subclaims_with_operator &&
-          sub_claims_case_sensitive == o.sub_claims_case_sensitive
+          accounts == o.accounts
     end
 
     # @see the `==` method
@@ -142,7 +96,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, auth_method_access_id, auth_method_name, auth_method_sub_claims, is_subclaims_with_operator, sub_claims_case_sensitive].hash
+      [accounts].hash
     end
 
     # Builds the object from hash

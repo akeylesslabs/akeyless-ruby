@@ -37,6 +37,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**auth_method_update_oidc**](V2Api.md#auth_method_update_oidc) | **POST** /auth-method-update-oidc |  |
 | [**auth_method_update_saml**](V2Api.md#auth_method_update_saml) | **POST** /auth-method-update-saml |  |
 | [**auth_method_update_universal_identity**](V2Api.md#auth_method_update_universal_identity) | **POST** /auth-method-update-universal-identity |  |
+| [**change_admin_account_password**](V2Api.md#change_admin_account_password) | **POST** /change-admin-account-password |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
 | [**create_artifactory_target**](V2Api.md#create_artifactory_target) | **POST** /create-artifactory-target |  |
@@ -94,6 +95,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_windows_target**](V2Api.md#create_windows_target) | **POST** /create-windows-target |  |
 | [**create_zero_ssl_target**](V2Api.md#create_zero_ssl_target) | **POST** /create-zerossl-target |  |
 | [**createldap_target**](V2Api.md#createldap_target) | **POST** /create-ldap-target |  |
+| [**deactivate_acme_account**](V2Api.md#deactivate_acme_account) | **POST** /deactivate-acme-account |  |
 | [**decrypt**](V2Api.md#decrypt) | **POST** /decrypt |  |
 | [**decrypt_batch**](V2Api.md#decrypt_batch) | **POST** /decrypt-batch |  |
 | [**decrypt_gpg**](V2Api.md#decrypt_gpg) | **POST** /decrypt-gpg |  |
@@ -306,6 +308,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_update_remote_access_rdp_recordings**](V2Api.md#gateway_update_remote_access_rdp_recordings) | **POST** /gateway-update-remote-access-rdp-recording |  |
 | [**gateway_update_tls_cert**](V2Api.md#gateway_update_tls_cert) | **POST** /gateway-update-tls-cert |  |
 | [**gateway_update_tmp_users**](V2Api.md#gateway_update_tmp_users) | **POST** /gateway-update-producer-tmp-creds |  |
+| [**generate_acme_eab**](V2Api.md#generate_acme_eab) | **POST** /generate-acme-eab |  |
 | [**generate_csr**](V2Api.md#generate_csr) | **POST** /generate-csr |  |
 | [**get_account_logo**](V2Api.md#get_account_logo) | **POST** /get-account-logo |  |
 | [**get_account_settings**](V2Api.md#get_account_settings) | **POST** /get-account-settings |  |
@@ -352,6 +355,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmip_renew_server_certificate**](V2Api.md#kmip_renew_server_certificate) | **POST** /kmip-renew-environment |  |
 | [**kmip_server_setup**](V2Api.md#kmip_server_setup) | **POST** /kmip-create-environment |  |
 | [**kmip_set_server_state**](V2Api.md#kmip_set_server_state) | **POST** /kmip-set-environment-state |  |
+| [**list_acme_accounts**](V2Api.md#list_acme_accounts) | **POST** /list-acme-accounts |  |
 | [**list_auth_methods**](V2Api.md#list_auth_methods) | **POST** /list-auth-methods |  |
 | [**list_gateways**](V2Api.md#list_gateways) | **POST** /list-gateways |  |
 | [**list_groups**](V2Api.md#list_groups) | **POST** /list-group |  |
@@ -2593,6 +2597,68 @@ end
 ### Return type
 
 [**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## change_admin_account_password
+
+> Object change_admin_account_password(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::ChangeAdminAccountPassword.new({current_password: 'current_password_example', new_password: 'new_password_example'}) # ChangeAdminAccountPassword | 
+
+begin
+  
+  result = api_instance.change_admin_account_password(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->change_admin_account_password: #{e}"
+end
+```
+
+#### Using the change_admin_account_password_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> change_admin_account_password_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.change_admin_account_password_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->change_admin_account_password_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ChangeAdminAccountPassword**](ChangeAdminAccountPassword.md) |  |  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -6127,6 +6193,68 @@ end
 ### Return type
 
 [**CreateLdapTargetOutput**](CreateLdapTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## deactivate_acme_account
+
+> Object deactivate_acme_account(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::DeactivateAcmeAccount.new({acme_account_id: 'acme_account_id_example', cert_issuer_name: 'cert_issuer_name_example'}) # DeactivateAcmeAccount | 
+
+begin
+  
+  result = api_instance.deactivate_acme_account(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->deactivate_acme_account: #{e}"
+end
+```
+
+#### Using the deactivate_acme_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> deactivate_acme_account_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.deactivate_acme_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->deactivate_acme_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DeactivateAcmeAccount**](DeactivateAcmeAccount.md) |  |  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -19285,6 +19413,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## generate_acme_eab
+
+> <GenerateAcmeEabOutput> generate_acme_eab(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::GenerateAcmeEab.new({cert_issuer_name: 'cert_issuer_name_example'}) # GenerateAcmeEab | 
+
+begin
+  
+  result = api_instance.generate_acme_eab(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->generate_acme_eab: #{e}"
+end
+```
+
+#### Using the generate_acme_eab_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenerateAcmeEabOutput>, Integer, Hash)> generate_acme_eab_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.generate_acme_eab_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenerateAcmeEabOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->generate_acme_eab_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GenerateAcmeEab**](GenerateAcmeEab.md) |  |  |
+
+### Return type
+
+[**GenerateAcmeEabOutput**](GenerateAcmeEabOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## generate_csr
 
 > <GenerateCsrOutput> generate_csr(body)
@@ -22149,6 +22339,68 @@ end
 ### Return type
 
 [**KmipSetServerStateOutput**](KmipSetServerStateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## list_acme_accounts
+
+> <ListAcmeAccountsOutput> list_acme_accounts(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::ListAcmeAccounts.new({cert_issuer_name: 'cert_issuer_name_example'}) # ListAcmeAccounts | 
+
+begin
+  
+  result = api_instance.list_acme_accounts(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->list_acme_accounts: #{e}"
+end
+```
+
+#### Using the list_acme_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListAcmeAccountsOutput>, Integer, Hash)> list_acme_accounts_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.list_acme_accounts_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListAcmeAccountsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->list_acme_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ListAcmeAccounts**](ListAcmeAccounts.md) |  |  |
+
+### Return type
+
+[**ListAcmeAccountsOutput**](ListAcmeAccountsOutput.md)
 
 ### Authorization
 

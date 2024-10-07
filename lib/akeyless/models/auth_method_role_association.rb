@@ -24,6 +24,8 @@ module Akeyless
 
     attr_accessor :is_sub_claims_case_sensitive
 
+    attr_accessor :is_subclaims_with_operator
+
     attr_accessor :role_name
 
     attr_accessor :rules
@@ -35,6 +37,7 @@ module Akeyless
         :'assoc_id' => :'assoc_id',
         :'auth_method_sub_claims' => :'auth_method_sub_claims',
         :'is_sub_claims_case_sensitive' => :'is_sub_claims_case_sensitive',
+        :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
         :'role_name' => :'role_name',
         :'rules' => :'rules'
       }
@@ -52,6 +55,7 @@ module Akeyless
         :'assoc_id' => :'String',
         :'auth_method_sub_claims' => :'Hash<String, Array<String>>',
         :'is_sub_claims_case_sensitive' => :'Boolean',
+        :'is_subclaims_with_operator' => :'Boolean',
         :'role_name' => :'String',
         :'rules' => :'Rules'
       }
@@ -98,6 +102,10 @@ module Akeyless
         self.is_sub_claims_case_sensitive = attributes[:'is_sub_claims_case_sensitive']
       end
 
+      if attributes.key?(:'is_subclaims_with_operator')
+        self.is_subclaims_with_operator = attributes[:'is_subclaims_with_operator']
+      end
+
       if attributes.key?(:'role_name')
         self.role_name = attributes[:'role_name']
       end
@@ -131,6 +139,7 @@ module Akeyless
           assoc_id == o.assoc_id &&
           auth_method_sub_claims == o.auth_method_sub_claims &&
           is_sub_claims_case_sensitive == o.is_sub_claims_case_sensitive &&
+          is_subclaims_with_operator == o.is_subclaims_with_operator &&
           role_name == o.role_name &&
           rules == o.rules
     end
@@ -144,7 +153,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_ops, assoc_id, auth_method_sub_claims, is_sub_claims_case_sensitive, role_name, rules].hash
+      [allowed_ops, assoc_id, auth_method_sub_claims, is_sub_claims_case_sensitive, is_subclaims_with_operator, role_name, rules].hash
     end
 
     # Builds the object from hash

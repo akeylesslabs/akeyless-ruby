@@ -14,29 +14,30 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # RoleAuthMethodAssociation includes details of an association between a role and an auth method.
-  class RoleAuthMethodAssociation
-    attr_accessor :assoc_id
+  class ChangeAdminAccountPassword
+    # Current password
+    attr_accessor :current_password
 
-    attr_accessor :auth_method_access_id
+    # Set output format to JSON
+    attr_accessor :json
 
-    attr_accessor :auth_method_name
+    # New password
+    attr_accessor :new_password
 
-    attr_accessor :auth_method_sub_claims
+    # Authentication token (see `/auth` and `/configure`)
+    attr_accessor :token
 
-    attr_accessor :is_subclaims_with_operator
-
-    attr_accessor :sub_claims_case_sensitive
+    # The universal identity token, Required only for universal_identity authentication
+    attr_accessor :uid_token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assoc_id' => :'assoc_id',
-        :'auth_method_access_id' => :'auth_method_access_id',
-        :'auth_method_name' => :'auth_method_name',
-        :'auth_method_sub_claims' => :'auth_method_sub_claims',
-        :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
-        :'sub_claims_case_sensitive' => :'sub_claims_case_sensitive'
+        :'current_password' => :'current-password',
+        :'json' => :'json',
+        :'new_password' => :'new-password',
+        :'token' => :'token',
+        :'uid_token' => :'uid-token'
       }
     end
 
@@ -48,12 +49,11 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assoc_id' => :'String',
-        :'auth_method_access_id' => :'String',
-        :'auth_method_name' => :'String',
-        :'auth_method_sub_claims' => :'Hash<String, Array<String>>',
-        :'is_subclaims_with_operator' => :'Boolean',
-        :'sub_claims_case_sensitive' => :'Boolean'
+        :'current_password' => :'String',
+        :'json' => :'Boolean',
+        :'new_password' => :'String',
+        :'token' => :'String',
+        :'uid_token' => :'String'
       }
     end
 
@@ -67,41 +67,41 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::RoleAuthMethodAssociation` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::ChangeAdminAccountPassword` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::RoleAuthMethodAssociation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::ChangeAdminAccountPassword`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assoc_id')
-        self.assoc_id = attributes[:'assoc_id']
+      if attributes.key?(:'current_password')
+        self.current_password = attributes[:'current_password']
+      else
+        self.current_password = nil
       end
 
-      if attributes.key?(:'auth_method_access_id')
-        self.auth_method_access_id = attributes[:'auth_method_access_id']
+      if attributes.key?(:'json')
+        self.json = attributes[:'json']
+      else
+        self.json = false
       end
 
-      if attributes.key?(:'auth_method_name')
-        self.auth_method_name = attributes[:'auth_method_name']
+      if attributes.key?(:'new_password')
+        self.new_password = attributes[:'new_password']
+      else
+        self.new_password = nil
       end
 
-      if attributes.key?(:'auth_method_sub_claims')
-        if (value = attributes[:'auth_method_sub_claims']).is_a?(Hash)
-          self.auth_method_sub_claims = value
-        end
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'is_subclaims_with_operator')
-        self.is_subclaims_with_operator = attributes[:'is_subclaims_with_operator']
-      end
-
-      if attributes.key?(:'sub_claims_case_sensitive')
-        self.sub_claims_case_sensitive = attributes[:'sub_claims_case_sensitive']
+      if attributes.key?(:'uid_token')
+        self.uid_token = attributes[:'uid_token']
       end
     end
 
@@ -110,6 +110,14 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @current_password.nil?
+        invalid_properties.push('invalid value for "current_password", current_password cannot be nil.')
+      end
+
+      if @new_password.nil?
+        invalid_properties.push('invalid value for "new_password", new_password cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -117,6 +125,8 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @current_password.nil?
+      return false if @new_password.nil?
       true
     end
 
@@ -125,12 +135,11 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assoc_id == o.assoc_id &&
-          auth_method_access_id == o.auth_method_access_id &&
-          auth_method_name == o.auth_method_name &&
-          auth_method_sub_claims == o.auth_method_sub_claims &&
-          is_subclaims_with_operator == o.is_subclaims_with_operator &&
-          sub_claims_case_sensitive == o.sub_claims_case_sensitive
+          current_password == o.current_password &&
+          json == o.json &&
+          new_password == o.new_password &&
+          token == o.token &&
+          uid_token == o.uid_token
     end
 
     # @see the `==` method
@@ -142,7 +151,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, auth_method_access_id, auth_method_name, auth_method_sub_claims, is_subclaims_with_operator, sub_claims_case_sensitive].hash
+      [current_password, json, new_password, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -1,13 +1,12 @@
-# Akeyless::UpdateClassicKeyCertificate
+# Akeyless::ChangeAdminAccountPassword
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cert_file_data** | **String** | PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates. | [optional] |
-| **certificate_format** | **String** |  | [optional] |
+| **current_password** | **String** | Current password |  |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
-| **name** | **String** | ClassicKey name |  |
+| **new_password** | **String** | New password |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -16,11 +15,10 @@
 ```ruby
 require 'akeyless'
 
-instance = Akeyless::UpdateClassicKeyCertificate.new(
-  cert_file_data: null,
-  certificate_format: null,
+instance = Akeyless::ChangeAdminAccountPassword.new(
+  current_password: null,
   json: null,
-  name: null,
+  new_password: null,
   token: null,
   uid_token: null
 )
