@@ -15,6 +15,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**auth_method_create_email**](V2Api.md#auth_method_create_email) | **POST** /auth-method-create-email |  |
 | [**auth_method_create_gcp**](V2Api.md#auth_method_create_gcp) | **POST** /auth-method-create-gcp |  |
 | [**auth_method_create_k8s**](V2Api.md#auth_method_create_k8s) | **POST** /auth-method-create-k8s |  |
+| [**auth_method_create_kerberos**](V2Api.md#auth_method_create_kerberos) | **POST** /auth-method-create-kerberos |  |
 | [**auth_method_create_ldap**](V2Api.md#auth_method_create_ldap) | **POST** /auth-method-create-ldap |  |
 | [**auth_method_create_oauth2**](V2Api.md#auth_method_create_oauth2) | **POST** /auth-method-create-oauth2 |  |
 | [**auth_method_create_oci**](V2Api.md#auth_method_create_oci) | **POST** /auth-method-create-oci |  |
@@ -31,6 +32,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**auth_method_update_email**](V2Api.md#auth_method_update_email) | **POST** /auth-method-update-email |  |
 | [**auth_method_update_gcp**](V2Api.md#auth_method_update_gcp) | **POST** /auth-method-update-gcp |  |
 | [**auth_method_update_k8s**](V2Api.md#auth_method_update_k8s) | **POST** /auth-method-update-k8s |  |
+| [**auth_method_update_kerberos**](V2Api.md#auth_method_update_kerberos) | **POST** /auth-method-update-kerberos |  |
 | [**auth_method_update_ldap**](V2Api.md#auth_method_update_ldap) | **POST** /auth-method-update-ldap |  |
 | [**auth_method_update_oauth2**](V2Api.md#auth_method_update_oauth2) | **POST** /auth-method-update-oauth2 |  |
 | [**auth_method_update_oci**](V2Api.md#auth_method_update_oci) | **POST** /auth-method-update-oci |  |
@@ -79,6 +81,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_linked_target**](V2Api.md#create_linked_target) | **POST** /create-linked-target |  |
 | [**create_native_k8_s_target**](V2Api.md#create_native_k8_s_target) | **POST** /create-k8s-target |  |
 | [**create_oidc_app**](V2Api.md#create_oidc_app) | **POST** /create-oidc-app |  |
+| [**create_passkey**](V2Api.md#create_passkey) | **POST** /create-passkey |  |
 | [**create_ping_target**](V2Api.md#create_ping_target) | **POST** /create-ping-target |  |
 | [**create_pki_cert_issuer**](V2Api.md#create_pki_cert_issuer) | **POST** /create-pki-cert-issuer |  |
 | [**create_rabbit_mq_target**](V2Api.md#create_rabbit_mq_target) | **POST** /create-rabbitmq-target |  |
@@ -355,6 +358,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmip_renew_server_certificate**](V2Api.md#kmip_renew_server_certificate) | **POST** /kmip-renew-environment |  |
 | [**kmip_server_setup**](V2Api.md#kmip_server_setup) | **POST** /kmip-create-environment |  |
 | [**kmip_set_server_state**](V2Api.md#kmip_set_server_state) | **POST** /kmip-set-environment-state |  |
+| [**kubeconfig_generate**](V2Api.md#kubeconfig_generate) | **POST** /kubeconfig-generate |  |
 | [**list_acme_accounts**](V2Api.md#list_acme_accounts) | **POST** /list-acme-accounts |  |
 | [**list_auth_methods**](V2Api.md#list_auth_methods) | **POST** /list-auth-methods |  |
 | [**list_gateways**](V2Api.md#list_gateways) | **POST** /list-gateways |  |
@@ -363,6 +367,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**list_roles**](V2Api.md#list_roles) | **POST** /list-roles |  |
 | [**list_shared_items**](V2Api.md#list_shared_items) | **POST** /list-shared-items |  |
 | [**list_sra_bastions**](V2Api.md#list_sra_bastions) | **POST** /list-sra-bastions |  |
+| [**list_sra_sessions**](V2Api.md#list_sra_sessions) | **POST** /list-sra-sessions |  |
 | [**list_targets**](V2Api.md#list_targets) | **POST** /list-targets |  |
 | [**move_objects**](V2Api.md#move_objects) | **POST** /move-objects |  |
 | [**provision_certificate**](V2Api.md#provision_certificate) | **POST** /provision-certificate |  |
@@ -370,6 +375,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**refresh_key**](V2Api.md#refresh_key) | **POST** /refresh-key |  |
 | [**renew_certificate**](V2Api.md#renew_certificate) | **POST** /renew-certificate |  |
 | [**request_access**](V2Api.md#request_access) | **POST** /request-access |  |
+| [**reset_access_key**](V2Api.md#reset_access_key) | **POST** /reset-access-key |  |
 | [**reverse_rbac**](V2Api.md#reverse_rbac) | **POST** /reverse-rbac |  |
 | [**revoke_certificate**](V2Api.md#revoke_certificate) | **POST** /revoke-certificate |  |
 | [**revoke_creds**](V2Api.md#revoke_creds) | **POST** /revoke-creds |  |
@@ -1229,6 +1235,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**AuthMethodCreateK8s**](AuthMethodCreateK8s.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_create_kerberos
+
+> <AuthMethodCreateOutput> auth_method_create_kerberos(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodCreateKerberos.new({name: 'name_example'}) # AuthMethodCreateKerberos | 
+
+begin
+  
+  result = api_instance.auth_method_create_kerberos(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_kerberos: #{e}"
+end
+```
+
+#### Using the auth_method_create_kerberos_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_kerberos_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_kerberos_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_kerberos_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodCreateKerberos**](AuthMethodCreateKerberos.md) |  |  |
 
 ### Return type
 
@@ -2225,6 +2293,68 @@ end
 ### Return type
 
 [**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_kerberos
+
+> <AuthMethodCreateOutput> auth_method_update_kerberos(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::AuthMethodUpdateKerberos.new({name: 'name_example'}) # AuthMethodUpdateKerberos | 
+
+begin
+  
+  result = api_instance.auth_method_update_kerberos(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_kerberos: #{e}"
+end
+```
+
+#### Using the auth_method_update_kerberos_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_update_kerberos_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_kerberos_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_kerberos_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AuthMethodUpdateKerberos**](AuthMethodUpdateKerberos.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
 
 ### Authorization
 
@@ -5201,6 +5331,68 @@ end
 ### Return type
 
 [**CreateOidcAppOutput**](CreateOidcAppOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_passkey
+
+> <CreatePasskeyOutput> create_passkey(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::CreatePasskey.new({alg: 'alg_example', name: 'name_example'}) # CreatePasskey | 
+
+begin
+  
+  result = api_instance.create_passkey(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_passkey: #{e}"
+end
+```
+
+#### Using the create_passkey_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreatePasskeyOutput>, Integer, Hash)> create_passkey_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_passkey_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreatePasskeyOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_passkey_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**CreatePasskey**](CreatePasskey.md) |  |  |
+
+### Return type
+
+[**CreatePasskeyOutput**](CreatePasskeyOutput.md)
 
 ### Authorization
 
@@ -19171,7 +19363,7 @@ No authorization required
 
 ## gateway_update_remote_access
 
-> Object gateway_update_remote_access
+> Object gateway_update_remote_access(body)
 
 
 
@@ -19182,10 +19374,11 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
+body = Akeyless::GatewayUpdateRemoteAccess.new # GatewayUpdateRemoteAccess | 
 
 begin
   
-  result = api_instance.gateway_update_remote_access
+  result = api_instance.gateway_update_remote_access(body)
   p result
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->gateway_update_remote_access: #{e}"
@@ -19196,12 +19389,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> gateway_update_remote_access_with_http_info
+> <Array(Object, Integer, Hash)> gateway_update_remote_access_with_http_info(body)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.gateway_update_remote_access_with_http_info
+  data, status_code, headers = api_instance.gateway_update_remote_access_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -19212,7 +19405,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GatewayUpdateRemoteAccess**](GatewayUpdateRemoteAccess.md) |  |  |
 
 ### Return type
 
@@ -19224,7 +19419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -22350,6 +22545,65 @@ No authorization required
 - **Accept**: application/json
 
 
+## kubeconfig_generate
+
+> <KubeconfigGenerateOutput> kubeconfig_generate
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+
+begin
+  
+  result = api_instance.kubeconfig_generate
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kubeconfig_generate: #{e}"
+end
+```
+
+#### Using the kubeconfig_generate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KubeconfigGenerateOutput>, Integer, Hash)> kubeconfig_generate_with_http_info
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kubeconfig_generate_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KubeconfigGenerateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kubeconfig_generate_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**KubeconfigGenerateOutput**](KubeconfigGenerateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## list_acme_accounts
 
 > <ListAcmeAccountsOutput> list_acme_accounts(body)
@@ -22845,6 +23099,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## list_sra_sessions
+
+> <ListSraSessionsOutput> list_sra_sessions(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::ListSRASessions.new # ListSRASessions | 
+
+begin
+  
+  result = api_instance.list_sra_sessions(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->list_sra_sessions: #{e}"
+end
+```
+
+#### Using the list_sra_sessions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ListSraSessionsOutput>, Integer, Hash)> list_sra_sessions_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.list_sra_sessions_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ListSraSessionsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->list_sra_sessions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ListSRASessions**](ListSRASessions.md) |  |  |
+
+### Return type
+
+[**ListSraSessionsOutput**](ListSraSessionsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## list_targets
 
 > <ListTargetsOutput> list_targets(body)
@@ -23270,6 +23586,68 @@ end
 ### Return type
 
 [**RequestAccessOutput**](RequestAccessOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## reset_access_key
+
+> <ResetAuthMethodAccessKeyOutput> reset_access_key(body)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+body = Akeyless::ResetAccessKey.new({name: 'name_example'}) # ResetAccessKey | 
+
+begin
+  
+  result = api_instance.reset_access_key(body)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->reset_access_key: #{e}"
+end
+```
+
+#### Using the reset_access_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ResetAuthMethodAccessKeyOutput>, Integer, Hash)> reset_access_key_with_http_info(body)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.reset_access_key_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ResetAuthMethodAccessKeyOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->reset_access_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ResetAccessKey**](ResetAccessKey.md) |  |  |
+
+### Return type
+
+[**ResetAuthMethodAccessKeyOutput**](ResetAuthMethodAccessKeyOutput.md)
 
 ### Authorization
 

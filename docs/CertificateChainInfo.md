@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **auto_renew_certificate** | **Boolean** |  | [optional] |
 | **certificate_chain** | [**Array&lt;CertificateInfo&gt;**](CertificateInfo.md) |  | [optional] |
 | **certificate_format** | **String** |  | [optional] |
 | **certificate_has_private_key** | **Boolean** |  | [optional] |
@@ -12,7 +13,9 @@
 | **certificate_issuer_name** | **String** |  | [optional] |
 | **certificate_pem** | **String** |  | [optional] |
 | **certificate_status** | **String** |  | [optional] |
+| **error_message** | **String** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
+| **renew_before_expiration_in_days** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -20,6 +23,7 @@
 require 'akeyless'
 
 instance = Akeyless::CertificateChainInfo.new(
+  auto_renew_certificate: null,
   certificate_chain: null,
   certificate_format: null,
   certificate_has_private_key: null,
@@ -28,7 +32,9 @@ instance = Akeyless::CertificateChainInfo.new(
   certificate_issuer_name: null,
   certificate_pem: null,
   certificate_status: null,
-  expiration_events: null
+  error_message: null,
+  expiration_events: null,
+  renew_before_expiration_in_days: null
 )
 ```
 

@@ -10,6 +10,7 @@
 | **config_protection_key_name** | **String** |  | [optional] |
 | **general** | [**GeneralConfigPart**](GeneralConfigPart.md) |  | [optional] |
 | **k8s_auths** | [**K8SAuthsConfigPart**](K8SAuthsConfigPart.md) |  | [optional] |
+| **kerberos** | [**KerberosConfigPart**](KerberosConfigPart.md) |  | [optional] |
 | **kmip_clients** | [**KMIPConfigPart**](KMIPConfigPart.md) |  | [optional] |
 | **ldap** | [**LdapConfigPart**](LdapConfigPart.md) |  | [optional] |
 | **leadership** | [**LeadershipConfigPart**](LeadershipConfigPart.md) |  | [optional] |
@@ -33,6 +34,7 @@ instance = Akeyless::AkeylessGatewayConfig.new(
   config_protection_key_name: null,
   general: null,
   k8s_auths: null,
+  kerberos: null,
   kmip_clients: null,
   ldap: null,
   leadership: null,

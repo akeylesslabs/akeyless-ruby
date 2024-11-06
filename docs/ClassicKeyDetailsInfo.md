@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **classic_key_attributes** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **classic_key_id** | **String** |  | [optional] |
+| **credential_id** | **String** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **has_certificate** | **Boolean** |  | [optional] |
 | **is_provided_by_user** | **Boolean** |  | [optional] |
@@ -17,6 +18,8 @@
 | **target_alias_helper** | **String** |  | [optional] |
 | **target_types** | **Array&lt;String&gt;** |  | [optional] |
 | **targets** | [**Array&lt;ClassicKeyTargetInfo&gt;**](ClassicKeyTargetInfo.md) |  | [optional] |
+| **username** | **String** |  | [optional] |
+| **websites** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -26,6 +29,7 @@ require 'akeyless'
 instance = Akeyless::ClassicKeyDetailsInfo.new(
   classic_key_attributes: null,
   classic_key_id: null,
+  credential_id: null,
   gw_cluster_id: null,
   has_certificate: null,
   is_provided_by_user: null,
@@ -36,7 +40,9 @@ instance = Akeyless::ClassicKeyDetailsInfo.new(
   public_key: null,
   target_alias_helper: null,
   target_types: null,
-  targets: null
+  targets: null,
+  username: null,
+  websites: null
 )
 ```
 

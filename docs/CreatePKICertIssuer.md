@@ -10,6 +10,7 @@
 | **allowed_domains** | **String** | A list of the allowed domains that clients can request to be included in the certificate (in a comma-delimited list) | [optional] |
 | **allowed_extra_extensions** | **String** | A json string containing the allowed extra extensions for the pki cert issuer | [optional] |
 | **allowed_uri_sans** | **String** | A list of the allowed URIs that clients can request to be included in the certificate as part of the URI Subject Alternative Names (in a comma-delimited list) | [optional] |
+| **auto_renew** | **Boolean** | Automatically renew certificates before expiration | [optional] |
 | **ca_target** | **String** | The name of an existing CA target to attach this PKI Certificate Issuer to, required in Public CA mode | [optional] |
 | **client_flag** | **Boolean** | If set, certificates will be flagged for client auth use | [optional] |
 | **code_signing_flag** | **Boolean** | If set, certificates will be flagged for code signing use | [optional] |
@@ -36,6 +37,7 @@
 | **postal_code** | **String** | A comma-separated list of postal codes that will be set in the issued certificate | [optional] |
 | **protect_certificates** | **Boolean** | Whether to protect generated certificates from deletion | [optional] |
 | **province** | **String** | A comma-separated list of provinces that will be set in the issued certificate | [optional] |
+| **scheduled_renew** | **Integer** | Number of days before expiration to renew certificates | [optional] |
 | **server_flag** | **Boolean** | If set, certificates will be flagged for server auth use | [optional] |
 | **signer_key_name** | **String** | A key to sign the certificate with, required in Private CA mode | [default to &#39;dummy_signer_key&#39;] |
 | **street_address** | **String** | A comma-separated list of street addresses that will be set in the issued certificate | [optional] |
@@ -56,6 +58,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   allowed_domains: null,
   allowed_extra_extensions: null,
   allowed_uri_sans: null,
+  auto_renew: null,
   ca_target: null,
   client_flag: null,
   code_signing_flag: null,
@@ -82,6 +85,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   postal_code: null,
   protect_certificates: null,
   province: null,
+  scheduled_renew: null,
   server_flag: null,
   signer_key_name: null,
   street_address: null,

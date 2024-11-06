@@ -19,6 +19,7 @@
 | **huawei_access_rules** | [**HuaweiAccessRules**](HuaweiAccessRules.md) |  | [optional] |
 | **jwt_ttl** | **Integer** |  | [optional] |
 | **k8s_access_rules** | [**KubernetesAccessRules**](KubernetesAccessRules.md) |  | [optional] |
+| **kerberos_access_rules** | [**KerberosAccessRules**](KerberosAccessRules.md) |  | [optional] |
 | **ldap_access_rules** | [**LDAPAccessRules**](LDAPAccessRules.md) |  | [optional] |
 | **oauth2_access_rules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  | [optional] |
 | **oci_access_rules** | [**OCIAccessRules**](OCIAccessRules.md) |  | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   huawei_access_rules: null,
   jwt_ttl: null,
   k8s_access_rules: null,
+  kerberos_access_rules: null,
   ldap_access_rules: null,
   oauth2_access_rules: null,
   oci_access_rules: null,

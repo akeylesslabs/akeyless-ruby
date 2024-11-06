@@ -11,6 +11,7 @@
 | **allowed_domains_list** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_extra_extensions** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **allowed_uri_sans** | **Array&lt;String&gt;** |  | [optional] |
+| **auto_renew_certificate** | **Boolean** |  | [optional] |
 | **basic_constraints_valid_for_non_ca** | **Boolean** |  | [optional] |
 | **certificate_authority_mode** | **String** |  | [optional] |
 | **client_flag** | **Boolean** |  | [optional] |
@@ -35,6 +36,7 @@
 | **postal_code** | **Array&lt;String&gt;** |  | [optional] |
 | **protect_generated_certificates** | **Boolean** | ProtectGeneratedCertificates dictates whether the created certificates should be protected from deletion | [optional] |
 | **province** | **Array&lt;String&gt;** |  | [optional] |
+| **renew_before_expiration_in_days** | **Integer** |  | [optional] |
 | **require_cn** | **Boolean** |  | [optional] |
 | **server_flag** | **Boolean** |  | [optional] |
 | **street_address** | **Array&lt;String&gt;** |  | [optional] |
@@ -52,6 +54,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   allowed_domains_list: null,
   allowed_extra_extensions: null,
   allowed_uri_sans: null,
+  auto_renew_certificate: null,
   basic_constraints_valid_for_non_ca: null,
   certificate_authority_mode: null,
   client_flag: null,
@@ -76,6 +79,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   postal_code: null,
   protect_generated_certificates: null,
   province: null,
+  renew_before_expiration_in_days: null,
   require_cn: null,
   server_flag: null,
   street_address: null

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **accessibility** | **String** | for personal password manager | [optional][default to &#39;regular&#39;] |
 | **display_id** | **String** | The display id of the EC key to use for the signing process | [optional] |
 | **item_id** | **Integer** | The item id of the EC key to use for the signing process | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -20,6 +21,7 @@
 require 'akeyless'
 
 instance = Akeyless::SignEcDsa.new(
+  accessibility: null,
   display_id: null,
   item_id: null,
   json: null,
