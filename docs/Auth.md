@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_id** | **String** | Access ID | [optional] |
 | **access_key** | **String** | Access key (relevant only for access-type&#x3D;access_key) | [optional] |
-| **access_type** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert) | [optional][default to &#39;access_key&#39;] |
+| **access_type** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos) | [optional][default to &#39;access_key&#39;] |
 | **account_id** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) | [optional] |
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
@@ -21,16 +21,18 @@
 | **jwt** | **String** | The Json Web Token (relevant only for access-type&#x3D;jwt/oidc) | [optional] |
 | **k8s_auth_config_name** | **String** | The K8S Auth config name (relevant only for access-type&#x3D;k8s) | [optional] |
 | **k8s_service_account_token** | **String** | The K8S service account token. (relevant only for access-type&#x3D;k8s) | [optional] |
+| **kerberos_token** | **String** | KerberosToken represents a Kerberos token generated for the gateway SPN (Service Principal Name). | [optional] |
 | **kerberos_username** | **String** | TThe username for the entry within the keytab to authenticate via Kerberos | [optional] |
 | **key_data** | **String** | Private key data encoded in base64. Used if file was not provided.(relevant only for access-type&#x3D;cert) | [optional] |
 | **keytab_data** | **String** | Base64-encoded content of a valid keytab file, containing the service account&#39;s entry. | [optional] |
 | **krb5_conf_data** | **String** | Base64-encoded content of a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication. | [optional] |
 | **ldap_password** | **String** | LDAP password (relevant only for access-type&#x3D;ldap) | [optional] |
-| **ldap_username** | **String** | LDAP username (relevant only for access-type&#x3D;ldap) | [optional] |
 | **oci_auth_type** | **String** | The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci) | [optional][default to &#39;apikey&#39;] |
 | **oci_group_ocid** | **Array&lt;String&gt;** | A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci) | [optional] |
+| **otp** | **String** |  | [optional] |
 | **uid_token** | **String** | The universal_identity token (relevant only for access-type&#x3D;universal_identity) | [optional] |
 | **use_remote_browser** | **Boolean** | Returns a link to complete the authentication remotely (relevant only for access-type&#x3D;saml/oidc) | [optional] |
+| **username** | **String** | LDAP username (relevant only for access-type&#x3D;ldap) | [optional] |
 
 ## Example
 
@@ -55,16 +57,18 @@ instance = Akeyless::Auth.new(
   jwt: null,
   k8s_auth_config_name: null,
   k8s_service_account_token: null,
+  kerberos_token: null,
   kerberos_username: null,
   key_data: null,
   keytab_data: null,
   krb5_conf_data: null,
   ldap_password: null,
-  ldap_username: null,
   oci_auth_type: null,
   oci_group_ocid: null,
+  otp: null,
   uid_token: null,
-  use_remote_browser: null
+  use_remote_browser: null,
+  username: null
 )
 ```
 

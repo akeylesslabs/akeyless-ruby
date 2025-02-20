@@ -12,6 +12,7 @@
 | **extra_extensions** | **String** | A json string that defines the requested extra extensions for the certificate | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_data_base64** | **String** | PKI key file contents. If this option is used, the certificate will be printed to stdout | [optional] |
+| **max_path_len** | **Integer** | The maximum path length for the generated certificate. -1, means unlimited unless the signing certificate has a maximum path length set | [optional][default to -1] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **ttl** | **String** | Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -31,6 +32,7 @@ instance = Akeyless::GetPKICertificate.new(
   extra_extensions: null,
   json: null,
   key_data_base64: null,
+  max_path_len: null,
   token: null,
   ttl: null,
   uid_token: null,

@@ -8,6 +8,7 @@
 | **grace_rotation** | **Boolean** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
+| **managed_by_akeyless** | **Boolean** |  | [optional] |
 | **max_versions** | **Integer** |  | [optional] |
 | **number_of_versions_to_save** | **Integer** |  | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
@@ -30,6 +31,7 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   grace_rotation: null,
   gw_cluster_id: null,
   last_rotation_error: null,
+  managed_by_akeyless: null,
   max_versions: null,
   number_of_versions_to_save: null,
   rotation_hour: null,

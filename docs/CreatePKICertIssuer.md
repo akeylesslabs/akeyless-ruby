@@ -28,6 +28,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_usage** | **String** | key-usage | [optional][default to &#39;DigitalSignature,KeyAgreement,KeyEncipherment&#39;] |
 | **locality** | **String** | A comma-separated list of localities that will be set in the issued certificate | [optional] |
+| **max_path_len** | **Integer** | The maximum path length for the generated certificate. -1, means unlimited | [optional][default to -1] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | PKI certificate issuer name |  |
 | **not_enforce_hostnames** | **Boolean** | If set, any names are allowed for CN and SANs in the certificate and not only a valid host name | [optional] |
@@ -39,7 +40,7 @@
 | **province** | **String** | A comma-separated list of provinces that will be set in the issued certificate | [optional] |
 | **scheduled_renew** | **Integer** | Number of days before expiration to renew certificates | [optional] |
 | **server_flag** | **Boolean** | If set, certificates will be flagged for server auth use | [optional] |
-| **signer_key_name** | **String** | A key to sign the certificate with, required in Private CA mode | [default to &#39;dummy_signer_key&#39;] |
+| **signer_key_name** | **String** | A key to sign the certificate with, required in Private CA mode | [optional] |
 | **street_address** | **String** | A comma-separated list of street addresses that will be set in the issued certificate | [optional] |
 | **tag** | **Array&lt;String&gt;** | List of the tags attached to this key | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -76,6 +77,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   json: null,
   key_usage: null,
   locality: null,
+  max_path_len: null,
   metadata: null,
   name: null,
   not_enforce_hostnames: null,

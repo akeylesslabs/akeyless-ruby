@@ -13,13 +13,14 @@
 | **cert_file_data** | **String** | CertificateFileData PEM Certificate in a Base64 format. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gateway_url** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when the jwks-uri is accessible only from the gateway. | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
 | **issuer** | **String** | Issuer URL | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **jwks_json_data** | **String** | The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. base64 encoded string | [optional] |
-| **jwks_uri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. | [default to &#39;default_jwks_url&#39;] |
+| **jwks_uri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. | [optional] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
 | **new_name** | **String** | Auth Method new name | [optional] |
@@ -44,6 +45,7 @@ instance = Akeyless::AuthMethodUpdateOauth2.new(
   cert_file_data: null,
   delete_protection: null,
   description: null,
+  expiration_event_in: null,
   force_sub_claims: null,
   gateway_url: null,
   gw_bound_ips: null,

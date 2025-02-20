@@ -12,6 +12,7 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **version** | **Integer** | Classic key version | [optional] |
+| **wrapping_key_name** | **String** | Classic key name to wrap the key material with | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = Akeyless::ExportClassicKey.new(
   name: null,
   token: null,
   uid_token: null,
-  version: null
+  version: null,
+  wrapping_key_name: null
 )
 ```
 

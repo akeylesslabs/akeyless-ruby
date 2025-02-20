@@ -42,10 +42,10 @@
 | **usage_event_enable** | **String** | Enable event for objects that have not been used or changed [true/false] | [optional] |
 | **usage_event_interval** | **Integer** | Interval by days for unused objects. Default and minimum interval is 90 days | [optional] |
 | **usage_event_object_type** | **String** | Usage event is supported for auth method or secrets-and-keys [auth/item] | [optional] |
+| **use_capital_letters** | **String** | Password must contain capital letters [true/false] | [optional] |
 | **use_lower_letters** | **String** | Password must contain lower case letters [true/false] | [optional] |
 | **use_numbers** | **String** | Password must contain numbers [true/false] | [optional] |
 | **use_special_characters** | **String** | Password must contain special characters [true/false] | [optional] |
-| **use_capital_letters** | **String** | Password must contain capital letters [true/false] | [optional] |
 
 ## Example
 
@@ -91,10 +91,10 @@ instance = Akeyless::UpdateAccountSettings.new(
   usage_event_enable: null,
   usage_event_interval: null,
   usage_event_object_type: null,
+  use_capital_letters: null,
   use_lower_letters: null,
   use_numbers: null,
-  use_special_characters: null,
-  use_capital_letters: null
+  use_special_characters: null
 )
 ```
 

@@ -36,7 +36,8 @@
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users (relevant only for rdp) | [optional][default to false] |
 | **secure_access_aws_account_id** | **String** | The AWS account id (relevant only for aws) | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The db schema (relevant only for mssql or postgresql) | [optional] |
 | **secure_access_disable_concurrent_connections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret | [optional] |
@@ -46,8 +47,8 @@
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username (relevant only for rdp) | [optional] |
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
-| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion (relevant only for aws or azure) | [optional][default to false] |
-| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion (relevant only for aws or azure) | [optional][default to false] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser viaAkeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure) | [optional][default to false] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure) | [optional][default to false] |
 | **ssh_password** | **String** | Deprecated: use RotatedPassword | [optional] |
 | **ssh_username** | **String** | Deprecated: use RotatedUser | [optional] |
 | **storage_account_key_name** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) | [optional] |
@@ -98,6 +99,7 @@ instance = Akeyless::CreateRotatedSecret.new(
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_db_name: null,
   secure_access_db_schema: null,
   secure_access_disable_concurrent_connections: null,

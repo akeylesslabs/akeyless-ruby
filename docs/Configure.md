@@ -20,6 +20,7 @@
 | **gcp_audience** | **String** | GCP JWT audience | [optional][default to &#39;akeyless.io&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_auth_config_name** | **String** | The K8S Auth config name (relevant only for access-type&#x3D;k8s) | [optional] |
+| **kerberos_token** | **String** | KerberosToken represents a Kerberos token generated for the gateway SPN (Service Principal Name). | [optional] |
 | **kerberos_username** | **String** | TThe username for the entry within the keytab to authenticate via Kerberos | [optional] |
 | **key_data** | **String** | Private key data encoded in base64. Used if file was not provided.(relevant only for access-type&#x3D;cert in Curl Context) | [optional] |
 | **keytab_data** | **String** | Base64-encoded content of a valid keytab file, containing the service account&#39;s entry. | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::Configure.new(
   gcp_audience: null,
   json: null,
   k8s_auth_config_name: null,
+  kerberos_token: null,
   kerberos_username: null,
   key_data: null,
   keytab_data: null,

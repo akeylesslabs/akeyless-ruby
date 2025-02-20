@@ -23,7 +23,8 @@
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
@@ -58,6 +59,7 @@ instance = Akeyless::RotatedSecretUpdatePostgresql.new(
   rotation_hour: null,
   rotation_interval: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_db_name: null,
   secure_access_db_schema: null,
   secure_access_enable: null,

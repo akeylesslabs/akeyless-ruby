@@ -15,6 +15,7 @@
 | **bound_zones** | **Array&lt;String&gt;** | &#x3D;&#x3D;&#x3D; Machine authentication section &#x3D;&#x3D;&#x3D; List of zones that a GCE instance must belong to in order to be authenticated. TODO: If bound_instance_groups is provided, it is assumed to be a zonal group and the group must belong to this zone. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -44,6 +45,7 @@ instance = Akeyless::AuthMethodCreateGcp.new(
   bound_zones: null,
   delete_protection: null,
   description: null,
+  expiration_event_in: null,
   force_sub_claims: null,
   gw_bound_ips: null,
   json: null,

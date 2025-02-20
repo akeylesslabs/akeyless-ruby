@@ -9,7 +9,7 @@
 | **name** | **String** | Dynamic secret name |  |
 | **revoke_all** | **Boolean** | Revoke All Temp Creds | [optional] |
 | **soft_delete** | **Boolean** | Soft Delete | [optional] |
-| **tmp_creds_id** | **String** | Tmp Creds ID | [default to &#39;demo_default_tmp_creds_id_for_sdk_bc&#39;] |
+| **tmp_creds_id** | **String** | Tmp Creds ID | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 

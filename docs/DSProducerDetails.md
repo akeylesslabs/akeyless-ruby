@@ -86,6 +86,7 @@
 | **eks_secret_access_key** | **String** |  | [optional] |
 | **enable_admin_rotation** | **Boolean** |  | [optional] |
 | **enforce_replay_prevention** | **Boolean** | relevant for PRIVATE_KEY_JWT client authentication type | [optional] |
+| **expiration_date** | **Time** |  | [optional] |
 | **externally_provided_user** | **String** |  | [optional] |
 | **failure_message** | **String** |  | [optional] |
 | **fixed_user_only** | **String** |  | [optional] |
@@ -124,6 +125,7 @@
 | **gke_service_account_name** | **String** |  | [optional] |
 | **google_workspace_access_mode** | **String** |  | [optional] |
 | **google_workspace_admin_name** | **String** |  | [optional] |
+| **google_workspace_fixed_user_name_sub_claim_key** | **String** |  | [optional] |
 | **google_workspace_group_name** | **String** |  | [optional] |
 | **google_workspace_group_role** | **String** |  | [optional] |
 | **google_workspace_role_name** | **String** |  | [optional] |
@@ -159,6 +161,8 @@
 | **ldap_bind_dn** | **String** |  | [optional] |
 | **ldap_bind_password** | **String** |  | [optional] |
 | **ldap_certificate** | **String** |  | [optional] |
+| **ldap_fixed_user_name_sub_claim_key** | **String** |  | [optional] |
+| **ldap_fixed_user_type** | **String** |  | [optional] |
 | **ldap_group_dn** | **String** |  | [optional] |
 | **ldap_token_expiration** | **String** |  | [optional] |
 | **ldap_url** | **String** |  | [optional] |
@@ -184,6 +188,7 @@
 | **mysql_revocation_statements** | **String** |  | [optional] |
 | **oracle_creation_statements** | **String** |  | [optional] |
 | **oracle_revocation_statements** | **String** |  | [optional] |
+| **oracle_wallet_details** | [**WalletDetails**](WalletDetails.md) |  | [optional] |
 | **password** | **String** |  | [optional] |
 | **password_length** | **Integer** |  | [optional] |
 | **password_policy** | **String** |  | [optional] |
@@ -200,6 +205,7 @@
 | **rabbitmq_user_tags** | **String** |  | [optional] |
 | **rabbitmq_user_vhost** | **String** |  | [optional] |
 | **rabbitmq_user_write_permission** | **String** |  | [optional] |
+| **rdp_fixed_user_name_sub_claim_key** | **String** |  | [optional] |
 | **redirect_uris** | **Array&lt;String&gt;** |  | [optional] |
 | **redshift_creation_statements** | **String** |  | [optional] |
 | **restricted_scopes** | **Array&lt;String&gt;** |  | [optional] |
@@ -332,6 +338,7 @@ instance = Akeyless::DSProducerDetails.new(
   eks_secret_access_key: null,
   enable_admin_rotation: null,
   enforce_replay_prevention: null,
+  expiration_date: null,
   externally_provided_user: null,
   failure_message: null,
   fixed_user_only: null,
@@ -370,6 +377,7 @@ instance = Akeyless::DSProducerDetails.new(
   gke_service_account_name: null,
   google_workspace_access_mode: null,
   google_workspace_admin_name: null,
+  google_workspace_fixed_user_name_sub_claim_key: null,
   google_workspace_group_name: null,
   google_workspace_group_role: null,
   google_workspace_role_name: null,
@@ -405,6 +413,8 @@ instance = Akeyless::DSProducerDetails.new(
   ldap_bind_dn: null,
   ldap_bind_password: null,
   ldap_certificate: null,
+  ldap_fixed_user_name_sub_claim_key: null,
+  ldap_fixed_user_type: null,
   ldap_group_dn: null,
   ldap_token_expiration: null,
   ldap_url: null,
@@ -430,6 +440,7 @@ instance = Akeyless::DSProducerDetails.new(
   mysql_revocation_statements: null,
   oracle_creation_statements: null,
   oracle_revocation_statements: null,
+  oracle_wallet_details: null,
   password: null,
   password_length: null,
   password_policy: null,
@@ -446,6 +457,7 @@ instance = Akeyless::DSProducerDetails.new(
   rabbitmq_user_tags: null,
   rabbitmq_user_vhost: null,
   rabbitmq_user_write_permission: null,
+  rdp_fixed_user_name_sub_claim_key: null,
   redirect_uris: null,
   redshift_creation_statements: null,
   restricted_scopes: null,

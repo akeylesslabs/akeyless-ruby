@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **allowed_gateways** | **Array&lt;String&gt;** |  | [optional] |
+| **allowed_gateways** | [**Array&lt;GatewayNameInfo&gt;**](GatewayNameInfo.md) |  | [optional] |
 | **next_page** | **String** |  | [optional] |
 | **sessions** | [**Array&lt;SraSessionEntryOut&gt;**](SraSessionEntryOut.md) |  | [optional] |
 

@@ -19,6 +19,7 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **token_permissions** | **Array&lt;String&gt;** | Optional - installation token&#39;s allowed permissions | [optional] |
 | **token_repositories** | **Array&lt;String&gt;** | Optional - installation token&#39;s allowed repositories | [optional] |
+| **token_ttl** | **String** | Token TTL | [optional][default to &#39;60m&#39;] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
 ## Example
@@ -42,6 +43,7 @@ instance = Akeyless::DynamicSecretCreateGithub.new(
   token: null,
   token_permissions: null,
   token_repositories: null,
+  token_ttl: null,
   uid_token: null
 )
 ```

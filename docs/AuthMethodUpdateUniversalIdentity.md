@@ -11,6 +11,7 @@
 | **deny_inheritance** | **Boolean** | Deny from root to create children | [optional] |
 | **deny_rotate** | **Boolean** | Deny from the token to rotate | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -35,6 +36,7 @@ instance = Akeyless::AuthMethodUpdateUniversalIdentity.new(
   deny_inheritance: null,
   deny_rotate: null,
   description: null,
+  expiration_event_in: null,
   force_sub_claims: null,
   gw_bound_ips: null,
   json: null,

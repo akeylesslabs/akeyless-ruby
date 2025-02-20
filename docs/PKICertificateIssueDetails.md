@@ -29,10 +29,12 @@
 | **key_type** | **String** |  | [optional] |
 | **key_usage_list** | **Array&lt;String&gt;** |  | [optional] |
 | **locality** | **Array&lt;String&gt;** |  | [optional] |
+| **max_path_len** | **Integer** |  | [optional] |
 | **non_critical_key_usage** | **Boolean** |  | [optional] |
 | **not_before_duration** | **Integer** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. | [optional] |
 | **organization_list** | **Array&lt;String&gt;** |  | [optional] |
 | **organization_unit_list** | **Array&lt;String&gt;** |  | [optional] |
+| **pki_issuer_type** | **String** |  | [optional] |
 | **postal_code** | **Array&lt;String&gt;** |  | [optional] |
 | **protect_generated_certificates** | **Boolean** | ProtectGeneratedCertificates dictates whether the created certificates should be protected from deletion | [optional] |
 | **province** | **Array&lt;String&gt;** |  | [optional] |
@@ -72,10 +74,12 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   key_type: null,
   key_usage_list: null,
   locality: null,
+  max_path_len: null,
   non_critical_key_usage: null,
   not_before_duration: null,
   organization_list: null,
   organization_unit_list: null,
+  pki_issuer_type: null,
   postal_code: null,
   protect_generated_certificates: null,
   province: null,

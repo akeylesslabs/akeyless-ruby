@@ -17,6 +17,7 @@
 | **creation_date** | **Time** |  | [optional] |
 | **delete_protection** | **Boolean** |  | [optional] |
 | **description** | **String** |  | [optional] |
+| **expiration_events** | [**Array&lt;AuthExpirationEvent&gt;**](AuthExpirationEvent.md) |  | [optional] |
 | **is_approved** | **Boolean** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 
@@ -39,6 +40,7 @@ instance = Akeyless::AuthMethod.new(
   creation_date: null,
   delete_protection: null,
   description: null,
+  expiration_events: null,
   is_approved: null,
   modification_date: null
 )

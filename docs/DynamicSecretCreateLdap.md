@@ -10,6 +10,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
+| **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **group_dn** | **String** | Group DN which the temporary user should be added | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -18,6 +19,7 @@
 | **name** | **String** | Dynamic secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server | [optional] |
@@ -44,6 +46,7 @@ instance = Akeyless::DynamicSecretCreateLdap.new(
   delete_protection: null,
   description: null,
   external_username: null,
+  fixed_user_claim_keyname: null,
   group_dn: null,
   host_provider: null,
   json: null,
@@ -52,6 +55,7 @@ instance = Akeyless::DynamicSecretCreateLdap.new(
   name: null,
   password_length: null,
   producer_encryption_key_name: null,
+  secure_access_delay: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rd_gateway_server: null,

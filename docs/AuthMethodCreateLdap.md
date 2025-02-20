@@ -9,6 +9,7 @@
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Auth Method description | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
 | **gen_key** | **String** | Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided [true/false] | [optional][default to &#39;true&#39;] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
@@ -32,6 +33,7 @@ instance = Akeyless::AuthMethodCreateLdap.new(
   bound_ips: null,
   delete_protection: null,
   description: null,
+  expiration_event_in: null,
   force_sub_claims: null,
   gen_key: null,
   gw_bound_ips: null,

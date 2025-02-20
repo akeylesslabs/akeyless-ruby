@@ -44,6 +44,7 @@
 | **rotation_interval** | **Integer** |  | [optional] |
 | **shared_by** | [**RuleAssigner**](RuleAssigner.md) |  | [optional] |
 | **target_versions** | [**Array&lt;TargetItemVersion&gt;**](TargetItemVersion.md) |  | [optional] |
+| **usc_sync_associated_items** | [**Array&lt;ItemUSCSyncAssociation&gt;**](ItemUSCSyncAssociation.md) | for USC item, hold rotated-secrets that are associated to him for rotated-secret, holds the associated USCs | [optional] |
 | **with_customer_fragment** | **Boolean** |  | [optional] |
 
 ## Example
@@ -92,6 +93,7 @@ instance = Akeyless::Item.new(
   rotation_interval: null,
   shared_by: null,
   target_versions: null,
+  usc_sync_associated_items: null,
   with_customer_fragment: null
 )
 ```

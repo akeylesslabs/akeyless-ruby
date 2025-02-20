@@ -27,7 +27,8 @@
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **secure_access_aws_account_id** | **String** | The AWS account id | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -62,6 +63,7 @@ instance = Akeyless::RotatedSecretUpdateAws.new(
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_enable: null,
   token: null,
   uid_token: null

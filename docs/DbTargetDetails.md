@@ -19,6 +19,7 @@
 | **db_server_name** | **String** | (Optional) ServerName is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client&#39;s handshake to support virtual hosting unless it is an IP address. | [optional] |
 | **db_tenant_id** | **String** |  | [optional] |
 | **db_user_name** | **String** |  | [optional] |
+| **oracle_wallet_details** | [**WalletDetails**](WalletDetails.md) |  | [optional] |
 | **sf_account** | **String** |  | [optional] |
 | **ssl_connection_certificate** | **String** | (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field | [optional] |
 | **ssl_connection_mode** | **Boolean** | (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB | [optional] |
@@ -44,6 +45,7 @@ instance = Akeyless::DbTargetDetails.new(
   db_server_name: null,
   db_tenant_id: null,
   db_user_name: null,
+  oracle_wallet_details: null,
   sf_account: null,
   ssl_connection_certificate: null,
   ssl_connection_mode: null

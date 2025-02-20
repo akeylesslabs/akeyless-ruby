@@ -21,7 +21,9 @@
 | **name** | **String** | Dynamic secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Encrypt producer with following key | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
+| **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
@@ -55,6 +57,8 @@ instance = Akeyless::GatewayCreateProducerMongo.new(
   password_length: null,
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
+  secure_access_delay: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_web: null,

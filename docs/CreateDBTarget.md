@@ -11,7 +11,7 @@
 | **cloud_service_provider** | **String** | (Optional) Cloud service provider (currently only supports Azure) | [optional] |
 | **cluster_mode** | **Boolean** | Cluster Mode | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
-| **connection_type** | **String** | (Optional) Type of connection to mssql database [credentials/cloud-identity] | [default to &#39;credentials&#39;] |
+| **connection_type** | **String** | Type of connection to mssql/oracle database [credentials/cloud-identity/wallet] | [default to &#39;credentials&#39;] |
 | **db_name** | **String** |  | [optional] |
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
@@ -28,7 +28,10 @@
 | **mongodb_default_auth_db** | **String** | MongoDB server default authentication database | [optional] |
 | **mongodb_uri_options** | **String** | MongoDB server URI options | [optional] |
 | **name** | **String** | Target name |  |
-| **oracle_service_name** | **String** |  | [optional] |
+| **oracle_service_name** | **String** | Oracle db service name | [optional] |
+| **oracle_wallet_login_type** | **String** | Oracle Wallet login type (password/mtls) | [optional] |
+| **oracle_wallet_p12_file_data** | **String** | Oracle wallet p12 file data in base64 | [optional] |
+| **oracle_wallet_sso_file_data** | **String** | Oracle wallet sso file data in base64 | [optional] |
 | **port** | **String** |  | [optional] |
 | **pwd** | **String** |  | [optional] |
 | **snowflake_account** | **String** |  | [optional] |
@@ -71,6 +74,9 @@ instance = Akeyless::CreateDBTarget.new(
   mongodb_uri_options: null,
   name: null,
   oracle_service_name: null,
+  oracle_wallet_login_type: null,
+  oracle_wallet_p12_file_data: null,
+  oracle_wallet_sso_file_data: null,
   port: null,
   pwd: null,
   snowflake_account: null,

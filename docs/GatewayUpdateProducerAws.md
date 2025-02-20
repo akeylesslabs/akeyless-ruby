@@ -23,11 +23,13 @@
 | **region** | **String** | Region | [optional][default to &#39;us-east-2&#39;] |
 | **secure_access_aws_account_id** | **String** | The AWS account id | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
+| **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
-| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
-| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **session_tags** | **String** | String of Key value session tags comma separated, relevant only for Assumed Role | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
@@ -62,6 +64,8 @@ instance = Akeyless::GatewayUpdateProducerAws.new(
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
+  secure_access_delay: null,
   secure_access_enable: null,
   secure_access_web: null,
   secure_access_web_browsing: null,

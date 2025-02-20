@@ -11,6 +11,7 @@
 | **azure_subscription_id** | **String** |  | [optional] |
 | **azure_tenant_id** | **String** |  | [optional] |
 | **azure_username** | **String** |  | [optional] |
+| **expiration_date** | **Time** |  | [optional] |
 | **use_gw_cloud_identity** | **Boolean** |  | [optional] |
 
 ## Example
@@ -26,6 +27,7 @@ instance = Akeyless::AzureTargetDetails.new(
   azure_subscription_id: null,
   azure_tenant_id: null,
   azure_username: null,
+  expiration_date: null,
   use_gw_cloud_identity: null
 )
 ```

@@ -18,15 +18,16 @@
 | **name** | **String** | Secret name |  |
 | **password** | **String** | For Password Management use, additional fields | [optional] |
 | **protection_key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_user** | **String** | Remote Desktop Username | [optional] |
 | **secure_access_ssh_creds** | **String** | Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key] | [optional] |
 | **secure_access_ssh_user** | **String** | Override the SSH username as indicated in SSH Certificate Issuer | [optional] |
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
-| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless Web Access Bastion | [optional][default to false] |
-| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless Web Access Bastion | [optional][default to false] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **type** | **String** | The secret sub type [generic/password] | [optional][default to &#39;generic&#39;] |
@@ -55,6 +56,7 @@ instance = Akeyless::CreateSecret.new(
   password: null,
   protection_key: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rdp_user: null,

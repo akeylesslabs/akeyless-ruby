@@ -14,6 +14,7 @@
 | **block_concurrent_connections** | **Boolean** |  | [optional] |
 | **block_concurrent_connections_level** | **String** |  | [optional] |
 | **category** | **String** |  | [optional] |
+| **connection_delay_seconds** | **Integer** |  | [optional] |
 | **dashboard_url** | **String** |  | [optional] |
 | **db_name** | **String** |  | [optional] |
 | **domain** | **String** |  | [optional] |
@@ -57,6 +58,7 @@ instance = Akeyless::SecureRemoteAccess.new(
   block_concurrent_connections: null,
   block_concurrent_connections_level: null,
   category: null,
+  connection_delay_seconds: null,
   dashboard_url: null,
   db_name: null,
   domain: null,

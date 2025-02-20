@@ -24,7 +24,8 @@
 | **rotator_type** | **String** | The rotator type. options: [target/api-key] |  |
 | **secure_access_aws_account_id** | **String** | The AWS account id | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli | [optional] |
-| **secure_access_bastion_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Bastion | [optional] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name |  |
@@ -58,6 +59,7 @@ instance = Akeyless::RotatedSecretCreateAws.new(
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,
   secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_enable: null,
   tags: null,
   target_name: null,

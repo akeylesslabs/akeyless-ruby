@@ -7,6 +7,7 @@
 | **allow_user_extend_session** | **Integer** | AllowUserExtendSession | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **fixed_user_only** | **String** | Allow access using externally (IdP) provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
@@ -19,6 +20,7 @@
 | **rdp_host_port** | **String** | Port | [optional][default to &#39;22&#39;] |
 | **rdp_user_groups** | **String** | Groups | [optional] |
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users | [optional][default to false] |
+| **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server | [optional] |
@@ -40,6 +42,7 @@ instance = Akeyless::DynamicSecretUpdateRdp.new(
   allow_user_extend_session: null,
   delete_protection: null,
   description: null,
+  fixed_user_claim_keyname: null,
   fixed_user_only: null,
   json: null,
   name: null,
@@ -52,6 +55,7 @@ instance = Akeyless::DynamicSecretUpdateRdp.new(
   rdp_host_port: null,
   rdp_user_groups: null,
   secure_access_allow_external_user: null,
+  secure_access_delay: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rd_gateway_server: null,

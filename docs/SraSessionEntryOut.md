@@ -10,7 +10,7 @@
 | **connection_type** | **String** |  | [optional] |
 | **end_time** | **Time** |  | [optional] |
 | **error_msg** | **String** |  | [optional] |
-| **gateway_name** | **String** |  | [optional] |
+| **gateway_info** | [**GatewayNameInfo**](GatewayNameInfo.md) |  | [optional] |
 | **instance_id** | **String** |  | [optional] |
 | **secret_name** | **String** |  | [optional] |
 | **session_id** | **String** |  | [optional] |
@@ -32,7 +32,7 @@ instance = Akeyless::SraSessionEntryOut.new(
   connection_type: null,
   end_time: null,
   error_msg: null,
-  gateway_name: null,
+  gateway_info: null,
   instance_id: null,
   secret_name: null,
   session_id: null,
