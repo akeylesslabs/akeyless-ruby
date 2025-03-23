@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **client_id** | **String** | Azure client/application id | [optional] |
 | **client_secret** | **String** | Azure client secret | [optional] |
+| **connection_type** | **String** | Type of connection [credentials/cloud-identity] | [optional][default to &#39;credentials&#39;] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -27,6 +28,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateAzure.new(
   client_id: null,
   client_secret: null,
+  connection_type: null,
   description: null,
   json: null,
   key: null,

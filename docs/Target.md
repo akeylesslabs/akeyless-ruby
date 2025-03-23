@@ -11,10 +11,10 @@
 | **client_permissions** | **Array&lt;String&gt;** |  | [optional] |
 | **comment** | **String** |  | [optional] |
 | **creation_date** | **Time** |  | [optional] |
-| **credentials_less** | **Boolean** |  | [optional] |
 | **is_access_request_enabled** | **Boolean** |  | [optional] |
 | **last_version** | **Integer** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
+| **parent_target_name** | **String** |  | [optional] |
 | **protection_key_name** | **String** |  | [optional] |
 | **target_details** | **String** |  | [optional] |
 | **target_id** | **Integer** |  | [optional] |
@@ -38,10 +38,10 @@ instance = Akeyless::Target.new(
   client_permissions: null,
   comment: null,
   creation_date: null,
-  credentials_less: null,
   is_access_request_enabled: null,
   last_version: null,
   modification_date: null,
+  parent_target_name: null,
   protection_key_name: null,
   target_details: null,
   target_id: null,

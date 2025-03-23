@@ -10,6 +10,7 @@
 | **allow_subdomains** | **Boolean** |  | [optional] |
 | **allowed_domains_list** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_extra_extensions** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
+| **allowed_ip_sans** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_uri_sans** | **Array&lt;String&gt;** |  | [optional] |
 | **auto_renew_certificate** | **Boolean** |  | [optional] |
 | **basic_constraints_valid_for_non_ca** | **Boolean** |  | [optional] |
@@ -55,6 +56,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   allow_subdomains: null,
   allowed_domains_list: null,
   allowed_extra_extensions: null,
+  allowed_ip_sans: null,
   allowed_uri_sans: null,
   auto_renew_certificate: null,
   basic_constraints_valid_for_non_ca: null,

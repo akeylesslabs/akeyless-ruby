@@ -21,6 +21,7 @@
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_gateway** | **String** |  | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_user** | **String** | Remote Desktop Username | [optional] |
 | **secure_access_ssh_creds** | **String** | Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key] | [optional] |
@@ -58,6 +59,7 @@ instance = Akeyless::CreateSecret.new(
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
   secure_access_enable: null,
+  secure_access_gateway: null,
   secure_access_host: null,
   secure_access_rdp_user: null,
   secure_access_ssh_creds: null,

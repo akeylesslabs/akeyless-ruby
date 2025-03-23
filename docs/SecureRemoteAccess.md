@@ -21,6 +21,7 @@
 | **enable** | **Boolean** |  | [optional] |
 | **endpoint** | **String** |  | [optional] |
 | **enforce_hosts_restriction** | **Boolean** |  | [optional] |
+| **gw_cluster_id** | **Integer** |  | [optional] |
 | **host** | **Array&lt;String&gt;** |  | [optional] |
 | **host_provider_type** | **String** |  | [optional] |
 | **is_cli** | **Boolean** |  | [optional] |
@@ -65,6 +66,7 @@ instance = Akeyless::SecureRemoteAccess.new(
   enable: null,
   endpoint: null,
   enforce_hosts_restriction: null,
+  gw_cluster_id: null,
   host: null,
   host_provider_type: null,
   is_cli: null,

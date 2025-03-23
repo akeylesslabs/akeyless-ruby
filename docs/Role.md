@@ -12,6 +12,7 @@
 | **delete_protection** | **Boolean** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **role_auth_methods_assoc** | [**Array&lt;RoleAuthMethodAssociation&gt;**](RoleAuthMethodAssociation.md) |  | [optional] |
+| **role_id** | **Integer** |  | [optional] |
 | **role_name** | **String** |  | [optional] |
 | **rules** | [**Rules**](Rules.md) |  | [optional] |
 
@@ -29,6 +30,7 @@ instance = Akeyless::Role.new(
   delete_protection: null,
   modification_date: null,
   role_auth_methods_assoc: null,
+  role_id: null,
   role_name: null,
   rules: null
 )

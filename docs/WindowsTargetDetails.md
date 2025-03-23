@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **certificate** | **String** |  | [optional] |
+| **connection_type** | **String** |  | [optional] |
 | **domain_name** | **String** |  | [optional] |
 | **hostname** | **String** |  | [optional] |
 | **password** | **String** |  | [optional] |
@@ -19,6 +20,7 @@ require 'akeyless'
 
 instance = Akeyless::WindowsTargetDetails.new(
   certificate: null,
+  connection_type: null,
   domain_name: null,
   hostname: null,
   password: null,

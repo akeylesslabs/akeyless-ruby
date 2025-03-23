@@ -8,6 +8,8 @@
 | **allowed_access_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_urls** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_urls_per_instance** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
+| **bastion_ssh_port** | **Integer** |  | [optional] |
+| **bastion_urls_per_type** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **cluster_name** | **String** |  | [optional] |
 | **display_name** | **String** |  | [optional] |
 | **has_gateway_identity** | **Boolean** |  | [optional] |
@@ -23,6 +25,8 @@ instance = Akeyless::BastionListEntry.new(
   allowed_access_ids: null,
   allowed_urls: null,
   allowed_urls_per_instance: null,
+  bastion_ssh_port: null,
+  bastion_urls_per_type: null,
   cluster_name: null,
   display_name: null,
   has_gateway_identity: null,

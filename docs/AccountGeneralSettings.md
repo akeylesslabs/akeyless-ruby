@@ -10,6 +10,7 @@
 | **allowed_gateways_ips** | [**AllowedIpSettings**](AllowedIpSettings.md) |  | [optional] |
 | **auth_usage_event** | [**UsageEventSetting**](UsageEventSetting.md) |  | [optional] |
 | **data_protection_section** | [**DataProtectionSection**](DataProtectionSection.md) |  | [optional] |
+| **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
 | **enable_request_for_access** | **Boolean** |  | [optional] |
 | **invalid_characters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention | [optional] |
@@ -34,6 +35,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   allowed_gateways_ips: null,
   auth_usage_event: null,
   data_protection_section: null,
+  default_home_page: null,
   dynamic_secret_max_ttl: null,
   enable_request_for_access: null,
   invalid_characters: null,

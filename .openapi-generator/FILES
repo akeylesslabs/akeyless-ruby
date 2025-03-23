@@ -90,6 +90,7 @@ docs/BatchEncryptionResponseLine.md
 docs/BatchTokenizationRequestLine.md
 docs/BatchTokenizationResponseLine.md
 docs/CFConfigPart.md
+docs/CaCertificatesConfigPart.md
 docs/CacheConfigPart.md
 docs/CalcPasswordSecurityInfo.md
 docs/CertAccessRules.md
@@ -98,6 +99,7 @@ docs/CertificateChainInfo.md
 docs/CertificateExpirationEvent.md
 docs/CertificateInfo.md
 docs/CertificateIssueInfo.md
+docs/CertificateStore.md
 docs/CertificateTemplateInfo.md
 docs/CertificateVersionInfo.md
 docs/CfInfo.md
@@ -246,6 +248,7 @@ docs/DecryptPKCS1Output.md
 docs/DecryptWithClassicKey.md
 docs/DecryptWithClassicKeyOutput.md
 docs/DefaultConfigPart.md
+docs/DefaultHomePage.md
 docs/DeleteAuthMethod.md
 docs/DeleteAuthMethodOutput.md
 docs/DeleteAuthMethods.md
@@ -1183,6 +1186,7 @@ lib/akeyless/models/batch_encryption_request_line.rb
 lib/akeyless/models/batch_encryption_response_line.rb
 lib/akeyless/models/batch_tokenization_request_line.rb
 lib/akeyless/models/batch_tokenization_response_line.rb
+lib/akeyless/models/ca_certificates_config_part.rb
 lib/akeyless/models/cache_config_part.rb
 lib/akeyless/models/calc_password_security_info.rb
 lib/akeyless/models/cert_access_rules.rb
@@ -1191,6 +1195,7 @@ lib/akeyless/models/certificate_chain_info.rb
 lib/akeyless/models/certificate_expiration_event.rb
 lib/akeyless/models/certificate_info.rb
 lib/akeyless/models/certificate_issue_info.rb
+lib/akeyless/models/certificate_store.rb
 lib/akeyless/models/certificate_template_info.rb
 lib/akeyless/models/certificate_version_info.rb
 lib/akeyless/models/cf_config_part.rb
@@ -1339,6 +1344,7 @@ lib/akeyless/models/decrypt_pkcs1_output.rb
 lib/akeyless/models/decrypt_with_classic_key.rb
 lib/akeyless/models/decrypt_with_classic_key_output.rb
 lib/akeyless/models/default_config_part.rb
+lib/akeyless/models/default_home_page.rb
 lib/akeyless/models/delete_auth_method.rb
 lib/akeyless/models/delete_auth_method_output.rb
 lib/akeyless/models/delete_auth_methods.rb
@@ -2189,25 +2195,7 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/auth_expiration_event_spec.rb
-spec/models/calc_password_security_info_spec.rb
-spec/models/email_error_spec.rb
-spec/models/gateway_name_info_spec.rb
-spec/models/generate_ca_output_spec.rb
-spec/models/generate_ca_spec.rb
-spec/models/item_usc_sync_association_spec.rb
-spec/models/password_breach_info_spec.rb
-spec/models/password_score_info_spec.rb
-spec/models/password_score_setting_spec.rb
-spec/models/password_security_info_spec.rb
-spec/models/remote_secret_info_spec.rb
-spec/models/response_stop_share_item_spec.rb
-spec/models/rotated_secret_delete_spec.rb
-spec/models/rotated_secret_delete_sync_spec.rb
-spec/models/rotated_secret_sync_spec.rb
-spec/models/share_item_output_spec.rb
-spec/models/sharing_item_full_info_spec.rb
-spec/models/unwrap_token_output_spec.rb
-spec/models/unwrap_token_spec.rb
-spec/models/wallet_details_spec.rb
+spec/models/ca_certificates_config_part_spec.rb
+spec/models/certificate_store_spec.rb
+spec/models/default_home_page_spec.rb
 spec/spec_helper.rb

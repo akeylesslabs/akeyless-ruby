@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **client_id** | **String** | Azure client/application id | [optional] |
 | **client_secret** | **String** | Azure client secret | [optional] |
+| **connection_type** | **String** | Type of connection [credentials/cloud-identity] | [optional][default to &#39;credentials&#39;] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -29,6 +30,7 @@ require 'akeyless'
 instance = Akeyless::TargetUpdateAzure.new(
   client_id: null,
   client_secret: null,
+  connection_type: null,
   description: null,
   json: null,
   keep_prev_version: null,

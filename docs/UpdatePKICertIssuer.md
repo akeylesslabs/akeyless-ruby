@@ -10,6 +10,7 @@
 | **allow_subdomains** | **Boolean** | If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains | [optional] |
 | **allowed_domains** | **String** | A list of the allowed domains that clients can request to be included in the certificate (in a comma-delimited list) | [optional] |
 | **allowed_extra_extensions** | **String** | A json string containing the allowed extra extensions for the pki cert issuer | [optional] |
+| **allowed_ip_sans** | **String** | A list of the allowed CIDRs for ips that clients can request to be included in the certificate as part of the IP Subject Alternative Names (in a comma-delimited list) | [optional] |
 | **allowed_uri_sans** | **String** | A list of the allowed URIs that clients can request to be included in the certificate as part of the URI Subject Alternative Names (in a comma-delimited list) | [optional] |
 | **auto_renew** | **Boolean** | Automatically renew certificates before expiration | [optional] |
 | **client_flag** | **Boolean** | If set, certificates will be flagged for client auth use | [optional] |
@@ -60,6 +61,7 @@ instance = Akeyless::UpdatePKICertIssuer.new(
   allow_subdomains: null,
   allowed_domains: null,
   allowed_extra_extensions: null,
+  allowed_ip_sans: null,
   allowed_uri_sans: null,
   auto_renew: null,
   client_flag: null,

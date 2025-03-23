@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **certificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) | [optional] |
+| **connection_type** | **String** | Type of connection to Windows Server [credentials/parent-target] | [optional][default to &#39;credentials&#39;] |
 | **description** | **String** | Description of the object | [optional] |
 | **domain** | **String** | User domain name | [optional] |
 | **hostname** | **String** | Server hostname |  |
@@ -14,12 +15,13 @@
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **new_name** | **String** | New target name | [optional] |
-| **password** | **String** | Privileged user password |  |
+| **parent_target_name** | **String** | Name of the parent target, relevant only when connection-type is parent-target | [optional] |
+| **password** | **String** | Privileged user password | [default to &#39;dummy_value&#39;] |
 | **port** | **String** | Server WinRM port | [optional][default to &#39;5986&#39;] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **use_tls** | **String** | Enable/Disable TLS for WinRM over HTTPS [true/false] | [optional][default to &#39;true&#39;] |
-| **username** | **String** | Privileged username |  |
+| **username** | **String** | Privileged username | [default to &#39;dummy_value&#39;] |
 
 ## Example
 
@@ -28,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetUpdateWindows.new(
   certificate: null,
+  connection_type: null,
   description: null,
   domain: null,
   hostname: null,
@@ -37,6 +40,7 @@ instance = Akeyless::TargetUpdateWindows.new(
   max_versions: null,
   name: null,
   new_name: null,
+  parent_target_name: null,
   password: null,
   port: null,
   token: null,

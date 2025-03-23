@@ -35010,7 +35010,7 @@ No authorization required
 
 ## usc_create
 
-> <UscCreateSecretOutput> usc_create(usc_update)
+> <UscCreateSecretOutput> usc_create(usc_create)
 
 
 
@@ -35021,11 +35021,11 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-usc_update = Akeyless::UscUpdate.new({secret_id: 'secret_id_example', usc_name: 'usc_name_example', value: 'value_example'}) # UscUpdate | 
+usc_create = Akeyless::UscCreate.new({secret_name: 'secret_name_example', usc_name: 'usc_name_example', value: 'value_example'}) # UscCreate | 
 
 begin
   
-  result = api_instance.usc_create(usc_update)
+  result = api_instance.usc_create(usc_create)
   p result
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->usc_create: #{e}"
@@ -35036,12 +35036,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UscCreateSecretOutput>, Integer, Hash)> usc_create_with_http_info(usc_update)
+> <Array(<UscCreateSecretOutput>, Integer, Hash)> usc_create_with_http_info(usc_create)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.usc_create_with_http_info(usc_update)
+  data, status_code, headers = api_instance.usc_create_with_http_info(usc_create)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UscCreateSecretOutput>
@@ -35054,7 +35054,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **usc_update** | [**UscUpdate**](UscUpdate.md) |  |  |
+| **usc_create** | [**UscCreate**](UscCreate.md) |  |  |
 
 ### Return type
 
@@ -35258,7 +35258,7 @@ No authorization required
 
 ## usc_update
 
-> <UscUpdateSecretOutput> usc_update
+> <UscUpdateSecretOutput> usc_update(usc_update)
 
 
 
@@ -35269,10 +35269,11 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
+usc_update = Akeyless::UscUpdate.new({secret_id: 'secret_id_example', usc_name: 'usc_name_example', value: 'value_example'}) # UscUpdate | 
 
 begin
   
-  result = api_instance.usc_update
+  result = api_instance.usc_update(usc_update)
   p result
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->usc_update: #{e}"
@@ -35283,12 +35284,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UscUpdateSecretOutput>, Integer, Hash)> usc_update_with_http_info
+> <Array(<UscUpdateSecretOutput>, Integer, Hash)> usc_update_with_http_info(usc_update)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.usc_update_with_http_info
+  data, status_code, headers = api_instance.usc_update_with_http_info(usc_update)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UscUpdateSecretOutput>
@@ -35299,7 +35300,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usc_update** | [**UscUpdate**](UscUpdate.md) |  |  |
 
 ### Return type
 
@@ -35311,7 +35314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

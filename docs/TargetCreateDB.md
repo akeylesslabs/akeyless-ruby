@@ -4,14 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **db_defined_connection_type** | **String** |  | [optional] |
 | **azure_client_id** | **String** | (Optional) Client id (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **azure_client_secret** | **String** | (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **azure_tenant_id** | **String** | (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **cloud_service_provider** | **String** | (Optional) Cloud service provider (currently only supports Azure) | [optional] |
 | **cluster_mode** | **Boolean** | Cluster Mode | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
-| **connection_type** | **String** | Type of connection to mssql/oracle database [credentials/cloud-identity/wallet] | [default to &#39;credentials&#39;] |
+| **connection_type** | **String** | Type of connection to mssql database [credentials/cloud-identity/wallet/parent-target] | [default to &#39;credentials&#39;] |
 | **db_name** | **String** |  | [optional] |
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
@@ -32,6 +31,7 @@
 | **oracle_wallet_login_type** | **String** | Oracle Wallet login type (password/mtls) | [optional] |
 | **oracle_wallet_p12_file_data** | **String** | Oracle wallet p12 file data in base64 | [optional] |
 | **oracle_wallet_sso_file_data** | **String** | Oracle wallet sso file data in base64 | [optional] |
+| **parent_target_name** | **String** | Name of the parent target, relevant only when connection-type is parent-target | [optional] |
 | **port** | **String** |  | [optional] |
 | **pwd** | **String** |  | [optional] |
 | **snowflake_account** | **String** |  | [optional] |
@@ -49,7 +49,6 @@
 require 'akeyless'
 
 instance = Akeyless::TargetCreateDB.new(
-  db_defined_connection_type: null,
   azure_client_id: null,
   azure_client_secret: null,
   azure_tenant_id: null,
@@ -77,6 +76,7 @@ instance = Akeyless::TargetCreateDB.new(
   oracle_wallet_login_type: null,
   oracle_wallet_p12_file_data: null,
   oracle_wallet_sso_file_data: null,
+  parent_target_name: null,
   port: null,
   pwd: null,
   snowflake_account: null,

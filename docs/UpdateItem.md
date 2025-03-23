@@ -37,6 +37,7 @@
 | **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_gateway** | **String** |  | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server (relevant only for rdp) | [optional] |
 | **secure_access_rdp_domain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) | [optional] |
@@ -92,6 +93,7 @@ instance = Akeyless::UpdateItem.new(
   secure_access_db_name: null,
   secure_access_db_schema: null,
   secure_access_enable: null,
+  secure_access_gateway: null,
   secure_access_host: null,
   secure_access_rd_gateway_server: null,
   secure_access_rdp_domain: null,
