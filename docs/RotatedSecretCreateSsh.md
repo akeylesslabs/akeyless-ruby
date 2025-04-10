@@ -30,6 +30,7 @@
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username | [optional] |
 | **secure_access_ssh_user** | **String** | Override the SSH username as indicated in SSH Certificate Issuer | [optional] |
+| **secure_access_target_type** | **String** | Specify target type. Options are ssh or rdp | [optional][default to &#39;false&#39;] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -67,6 +68,7 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   secure_access_rdp_domain: null,
   secure_access_rdp_user: null,
   secure_access_ssh_user: null,
+  secure_access_target_type: null,
   tags: null,
   target_name: null,
   token: null,

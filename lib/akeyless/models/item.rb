@@ -171,7 +171,7 @@ module Akeyless
         :'delete_protection' => :'Boolean',
         :'deletion_date' => :'Time',
         :'display_id' => :'String',
-        :'gateway_details' => :'Array<GatewayBasicInfo>',
+        :'gateway_details' => :'Array<GatewayDetailsForItemReplyObj>',
         :'is_access_request_enabled' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'item_accessibility' => :'Integer',

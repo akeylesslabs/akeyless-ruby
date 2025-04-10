@@ -18,7 +18,7 @@
 | **delete_protection** | **Boolean** |  | [optional] |
 | **deletion_date** | **Time** |  | [optional] |
 | **display_id** | **String** |  | [optional] |
-| **gateway_details** | [**Array&lt;GatewayBasicInfo&gt;**](GatewayBasicInfo.md) |  | [optional] |
+| **gateway_details** | [**Array&lt;GatewayDetailsForItemReplyObj&gt;**](GatewayDetailsForItemReplyObj.md) |  | [optional] |
 | **is_access_request_enabled** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  | [optional] |
 | **item_accessibility** | **Integer** |  | [optional] |

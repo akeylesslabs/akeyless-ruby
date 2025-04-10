@@ -60,6 +60,12 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
+    # Deprecated. use secure-access-certificate-issuer
+    attr_accessor :secure_access_bastion_issuer
+
+    # Path to the SSH Certificate Issuer for your Akeyless Secure Access
+    attr_accessor :secure_access_certificate_issuer
+
     # The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
     attr_accessor :secure_access_delay
 
@@ -120,6 +126,8 @@ module Akeyless
         :'new_name' => :'new-name',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
+        :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_delay' => :'secure-access-delay',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
@@ -160,6 +168,8 @@ module Akeyless
         :'new_name' => :'String',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
+        :'secure_access_bastion_issuer' => :'String',
+        :'secure_access_certificate_issuer' => :'String',
         :'secure_access_delay' => :'Integer',
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
@@ -264,6 +274,14 @@ module Akeyless
 
       if attributes.key?(:'producer_encryption_key_name')
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
+      end
+
+      if attributes.key?(:'secure_access_bastion_issuer')
+        self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
+      end
+
+      if attributes.key?(:'secure_access_certificate_issuer')
+        self.secure_access_certificate_issuer = attributes[:'secure_access_certificate_issuer']
       end
 
       if attributes.key?(:'secure_access_delay')
@@ -371,6 +389,8 @@ module Akeyless
           new_name == o.new_name &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
+          secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
+          secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_delay == o.secure_access_delay &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_host == o.secure_access_host &&
@@ -396,7 +416,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, bind_dn, bind_dn_password, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, json, ldap_ca_cert, ldap_url, name, new_name, password_length, producer_encryption_key_name, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
+      [provider_type, bind_dn, bind_dn_password, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, json, ldap_ca_cert, ldap_url, name, new_name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
     end
 
     # Builds the object from hash

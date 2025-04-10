@@ -13,6 +13,7 @@
 | **secret_id** | **String** |  | [optional] |
 | **status** | **Boolean** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **thumbprint** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **version** | **Integer** |  | [optional] |
 
@@ -31,6 +32,7 @@ instance = Akeyless::SecretInfo.new(
   secret_id: null,
   status: null,
   tags: null,
+  thumbprint: null,
   type: null,
   version: null
 )

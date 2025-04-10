@@ -22,6 +22,8 @@
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/ldap] |  |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
@@ -61,6 +63,8 @@ instance = Akeyless::RotatedSecretCreateLdap.new(
   rotation_hour: null,
   rotation_interval: null,
   rotator_type: null,
+  secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rdp_domain: null,

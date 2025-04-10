@@ -80,7 +80,7 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
-    # Enable ssh-agent
+    # Deprecated
     attr_accessor :use_ssh_agent
 
     # Deprecated. Use via-sra

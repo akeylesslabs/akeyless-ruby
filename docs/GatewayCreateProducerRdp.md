@@ -18,6 +18,8 @@
 | **rdp_host_port** | **String** | Port | [optional][default to &#39;22&#39;] |
 | **rdp_user_groups** | **String** | Groups | [optional] |
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users | [optional][default to false] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
@@ -51,6 +53,8 @@ instance = Akeyless::GatewayCreateProducerRdp.new(
   rdp_host_port: null,
   rdp_user_groups: null,
   secure_access_allow_external_user: null,
+  secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_delay: null,
   secure_access_enable: null,
   secure_access_host: null,

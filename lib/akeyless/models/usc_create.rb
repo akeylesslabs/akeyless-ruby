@@ -28,6 +28,8 @@ module Akeyless
     # The namespace (relevant for Hashi vault target)
     attr_accessor :namespace
 
+    attr_accessor :object_type
+
     # Name for the new universal secrets
     attr_accessor :secret_name
 
@@ -53,6 +55,7 @@ module Akeyless
         :'description' => :'description',
         :'json' => :'json',
         :'namespace' => :'namespace',
+        :'object_type' => :'object-type',
         :'secret_name' => :'secret-name',
         :'tags' => :'tags',
         :'token' => :'token',
@@ -74,6 +77,7 @@ module Akeyless
         :'description' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
+        :'object_type' => :'String',
         :'secret_name' => :'String',
         :'tags' => :'Hash<String, String>',
         :'token' => :'String',
@@ -120,6 +124,10 @@ module Akeyless
 
       if attributes.key?(:'namespace')
         self.namespace = attributes[:'namespace']
+      end
+
+      if attributes.key?(:'object_type')
+        self.object_type = attributes[:'object_type']
       end
 
       if attributes.key?(:'secret_name')
@@ -194,6 +202,7 @@ module Akeyless
           description == o.description &&
           json == o.json &&
           namespace == o.namespace &&
+          object_type == o.object_type &&
           secret_name == o.secret_name &&
           tags == o.tags &&
           token == o.token &&
@@ -211,7 +220,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, secret_name, tags, token, uid_token, usc_name, value].hash
+      [binary_value, description, json, namespace, object_type, secret_name, tags, token, uid_token, usc_name, value].hash
     end
 
     # Builds the object from hash

@@ -22,6 +22,8 @@
 | **rotator_type** | **String** | The rotator type. options: [target/password] |  |
 | **same_password** | **String** | Rotate same password for each host from the Linked Target (relevant only for Linked Target) | [optional] |
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users | [optional][default to false] |
+| **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
+| **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
@@ -55,6 +57,8 @@ instance = Akeyless::RotatedSecretCreateWindows.new(
   rotator_type: null,
   same_password: null,
   secure_access_allow_external_user: null,
+  secure_access_bastion_issuer: null,
+  secure_access_certificate_issuer: null,
   secure_access_enable: null,
   secure_access_host: null,
   secure_access_rdp_domain: null,

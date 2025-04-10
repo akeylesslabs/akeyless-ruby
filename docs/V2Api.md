@@ -309,6 +309,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gateway_update_producer_snowflake**](V2Api.md#gateway_update_producer_snowflake) | **POST** /gateway-update-producer-snowflake |  |
 | [**gateway_update_producer_venafi**](V2Api.md#gateway_update_producer_venafi) | **POST** /gateway-update-producer-certificate-automation |  |
 | [**gateway_update_remote_access**](V2Api.md#gateway_update_remote_access) | **POST** /gateway-update-remote-access |  |
+| [**gateway_update_remote_access_desktop_app**](V2Api.md#gateway_update_remote_access_desktop_app) | **POST** /gateway-update-remote-access-desktop-app |  |
 | [**gateway_update_remote_access_rdp_recordings**](V2Api.md#gateway_update_remote_access_rdp_recordings) | **POST** /gateway-update-remote-access-rdp-recording |  |
 | [**gateway_update_tls_cert**](V2Api.md#gateway_update_tls_cert) | **POST** /gateway-update-tls-cert |  |
 | [**gateway_update_tmp_users**](V2Api.md#gateway_update_tmp_users) | **POST** /gateway-update-producer-tmp-creds |  |
@@ -19476,6 +19477,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **gateway_update_remote_access** | [**GatewayUpdateRemoteAccess**](GatewayUpdateRemoteAccess.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## gateway_update_remote_access_desktop_app
+
+> Object gateway_update_remote_access_desktop_app(gateway_update_remote_access_desktop_app)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+gateway_update_remote_access_desktop_app = Akeyless::GatewayUpdateRemoteAccessDesktopApp.new # GatewayUpdateRemoteAccessDesktopApp | 
+
+begin
+  
+  result = api_instance.gateway_update_remote_access_desktop_app(gateway_update_remote_access_desktop_app)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access_desktop_app: #{e}"
+end
+```
+
+#### Using the gateway_update_remote_access_desktop_app_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> gateway_update_remote_access_desktop_app_with_http_info(gateway_update_remote_access_desktop_app)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.gateway_update_remote_access_desktop_app_with_http_info(gateway_update_remote_access_desktop_app)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->gateway_update_remote_access_desktop_app_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **gateway_update_remote_access_desktop_app** | [**GatewayUpdateRemoteAccessDesktopApp**](GatewayUpdateRemoteAccessDesktopApp.md) |  |  |
 
 ### Return type
 

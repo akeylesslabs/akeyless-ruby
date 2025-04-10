@@ -19519,6 +19519,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param gateway_update_remote_access_desktop_app [GatewayUpdateRemoteAccessDesktopApp] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def gateway_update_remote_access_desktop_app(gateway_update_remote_access_desktop_app, opts = {})
+      data, _status_code, _headers = gateway_update_remote_access_desktop_app_with_http_info(gateway_update_remote_access_desktop_app, opts)
+      data
+    end
+
+    # @param gateway_update_remote_access_desktop_app [GatewayUpdateRemoteAccessDesktopApp] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def gateway_update_remote_access_desktop_app_with_http_info(gateway_update_remote_access_desktop_app, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.gateway_update_remote_access_desktop_app ...'
+      end
+      # verify the required parameter 'gateway_update_remote_access_desktop_app' is set
+      if @api_client.config.client_side_validation && gateway_update_remote_access_desktop_app.nil?
+        fail ArgumentError, "Missing the required parameter 'gateway_update_remote_access_desktop_app' when calling V2Api.gateway_update_remote_access_desktop_app"
+      end
+      # resource path
+      local_var_path = '/gateway-update-remote-access-desktop-app'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(gateway_update_remote_access_desktop_app)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.gateway_update_remote_access_desktop_app",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#gateway_update_remote_access_desktop_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param gateway_update_remote_access_rdp_recordings [GatewayUpdateRemoteAccessRdpRecordings] 
     # @param [Hash] opts the optional parameters
     # @return [Object]

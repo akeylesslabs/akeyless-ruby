@@ -278,6 +278,7 @@ docs/DescribePermissions.md
 docs/DescribePermissionsOutput.md
 docs/DescribeSubClaims.md
 docs/DescribeSubClaimsOutput.md
+docs/DesktopAppConf.md
 docs/Detokenize.md
 docs/DetokenizeOutput.md
 docs/DockerhubTargetDetails.md
@@ -395,7 +396,6 @@ docs/GCPAccessRules.md
 docs/GCPPayload.md
 docs/GCPSecretsMigration.md
 docs/GKETargetDetails.md
-docs/GatewayBasicInfo.md
 docs/GatewayCreateAllowedAccess.md
 docs/GatewayCreateK8SAuthConfig.md
 docs/GatewayCreateK8SAuthConfigOutput.md
@@ -460,6 +460,7 @@ docs/GatewayDeleteK8SAuthConfigOutput.md
 docs/GatewayDeleteMigration.md
 docs/GatewayDeleteProducer.md
 docs/GatewayDeleteProducerOutput.md
+docs/GatewayDetailsForItemReplyObj.md
 docs/GatewayDownloadCustomerFragments.md
 docs/GatewayDownloadCustomerFragmentsOutput.md
 docs/GatewayGetAllowedAccess.md
@@ -575,6 +576,7 @@ docs/GatewayUpdateProducerSnowflakeOutput.md
 docs/GatewayUpdateProducerVenafi.md
 docs/GatewayUpdateProducerVenafiOutput.md
 docs/GatewayUpdateRemoteAccess.md
+docs/GatewayUpdateRemoteAccessDesktopApp.md
 docs/GatewayUpdateRemoteAccessRdpRecordings.md
 docs/GatewayUpdateTlsCert.md
 docs/GatewayUpdateTlsCertOutput.md
@@ -873,6 +875,7 @@ docs/SignRsaSsaPss.md
 docs/SignRsaSsaPssOutput.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
+docs/SraDesktopAppConf.md
 docs/SraInfo.md
 docs/SraSessionEntryOut.md
 docs/SshBastionConf.md
@@ -1374,6 +1377,7 @@ lib/akeyless/models/describe_permissions.rb
 lib/akeyless/models/describe_permissions_output.rb
 lib/akeyless/models/describe_sub_claims.rb
 lib/akeyless/models/describe_sub_claims_output.rb
+lib/akeyless/models/desktop_app_conf.rb
 lib/akeyless/models/detokenize.rb
 lib/akeyless/models/detokenize_output.rb
 lib/akeyless/models/dockerhub_target_details.rb
@@ -1488,7 +1492,6 @@ lib/akeyless/models/export_classic_key.rb
 lib/akeyless/models/export_classic_key_output.rb
 lib/akeyless/models/extension.rb
 lib/akeyless/models/external_kms_key_id.rb
-lib/akeyless/models/gateway_basic_info.rb
 lib/akeyless/models/gateway_create_allowed_access.rb
 lib/akeyless/models/gateway_create_k8_s_auth_config.rb
 lib/akeyless/models/gateway_create_k8_s_auth_config_output.rb
@@ -1553,6 +1556,7 @@ lib/akeyless/models/gateway_delete_k8_s_auth_config_output.rb
 lib/akeyless/models/gateway_delete_migration.rb
 lib/akeyless/models/gateway_delete_producer.rb
 lib/akeyless/models/gateway_delete_producer_output.rb
+lib/akeyless/models/gateway_details_for_item_reply_obj.rb
 lib/akeyless/models/gateway_download_customer_fragments.rb
 lib/akeyless/models/gateway_download_customer_fragments_output.rb
 lib/akeyless/models/gateway_get_allowed_access.rb
@@ -1668,6 +1672,7 @@ lib/akeyless/models/gateway_update_producer_snowflake_output.rb
 lib/akeyless/models/gateway_update_producer_venafi.rb
 lib/akeyless/models/gateway_update_producer_venafi_output.rb
 lib/akeyless/models/gateway_update_remote_access.rb
+lib/akeyless/models/gateway_update_remote_access_desktop_app.rb
 lib/akeyless/models/gateway_update_remote_access_rdp_recordings.rb
 lib/akeyless/models/gateway_update_tls_cert.rb
 lib/akeyless/models/gateway_update_tls_cert_output.rb
@@ -1968,6 +1973,7 @@ lib/akeyless/models/sign_rsa_ssa_pss.rb
 lib/akeyless/models/sign_rsa_ssa_pss_output.rb
 lib/akeyless/models/sm_info.rb
 lib/akeyless/models/splunk_log_forwarding_config.rb
+lib/akeyless/models/sra_desktop_app_conf.rb
 lib/akeyless/models/sra_info.rb
 lib/akeyless/models/sra_session_entry_out.rb
 lib/akeyless/models/ssh_bastion_conf.rb
@@ -2195,7 +2201,8 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/ca_certificates_config_part_spec.rb
-spec/models/certificate_store_spec.rb
-spec/models/default_home_page_spec.rb
+spec/models/desktop_app_conf_spec.rb
+spec/models/gateway_details_for_item_reply_obj_spec.rb
+spec/models/gateway_update_remote_access_desktop_app_spec.rb
+spec/models/sra_desktop_app_conf_spec.rb
 spec/spec_helper.rb

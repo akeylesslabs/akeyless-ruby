@@ -33,6 +33,8 @@ module Akeyless
 
     attr_accessor :tags
 
+    attr_accessor :thumbprint
+
     attr_accessor :type
 
     attr_accessor :version
@@ -49,6 +51,7 @@ module Akeyless
         :'secret_id' => :'secret_id',
         :'status' => :'status',
         :'tags' => :'tags',
+        :'thumbprint' => :'thumbprint',
         :'type' => :'type',
         :'version' => :'version'
       }
@@ -71,6 +74,7 @@ module Akeyless
         :'secret_id' => :'String',
         :'status' => :'Boolean',
         :'tags' => :'Hash<String, String>',
+        :'thumbprint' => :'String',
         :'type' => :'String',
         :'version' => :'Integer'
       }
@@ -136,6 +140,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'thumbprint')
+        self.thumbprint = attributes[:'thumbprint']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -174,6 +182,7 @@ module Akeyless
           secret_id == o.secret_id &&
           status == o.status &&
           tags == o.tags &&
+          thumbprint == o.thumbprint &&
           type == o.type &&
           version == o.version
     end
@@ -187,7 +196,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, description, expiration, last_retrieved, location, name, secret_id, status, tags, type, version].hash
+      [created, description, expiration, last_retrieved, location, name, secret_id, status, tags, thumbprint, type, version].hash
     end
 
     # Builds the object from hash

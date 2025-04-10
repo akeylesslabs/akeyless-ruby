@@ -15,9 +15,9 @@ require 'time'
 
 module Akeyless
   class BastionConfigReplyObj
-    attr_accessor :api_gateway_url
-
     attr_accessor :cluster_id
+
+    attr_accessor :desktop_app
 
     attr_accessor :gator_cluster_id
 
@@ -30,8 +30,8 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'api_gateway_url' => :'api_gateway_url',
         :'cluster_id' => :'cluster_id',
+        :'desktop_app' => :'desktop_app',
         :'gator_cluster_id' => :'gator_cluster_id',
         :'global' => :'global',
         :'ssh_bastion' => :'ssh_bastion',
@@ -47,8 +47,8 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'api_gateway_url' => :'String',
         :'cluster_id' => :'String',
+        :'desktop_app' => :'SraDesktopAppConf',
         :'gator_cluster_id' => :'Integer',
         :'global' => :'BastionGlobalConf',
         :'ssh_bastion' => :'SshBastionConf',
@@ -77,12 +77,12 @@ module Akeyless
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'api_gateway_url')
-        self.api_gateway_url = attributes[:'api_gateway_url']
-      end
-
       if attributes.key?(:'cluster_id')
         self.cluster_id = attributes[:'cluster_id']
+      end
+
+      if attributes.key?(:'desktop_app')
+        self.desktop_app = attributes[:'desktop_app']
       end
 
       if attributes.key?(:'gator_cluster_id')
@@ -122,8 +122,8 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          api_gateway_url == o.api_gateway_url &&
           cluster_id == o.cluster_id &&
+          desktop_app == o.desktop_app &&
           gator_cluster_id == o.gator_cluster_id &&
           global == o.global &&
           ssh_bastion == o.ssh_bastion &&
@@ -139,7 +139,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_gateway_url, cluster_id, gator_cluster_id, global, ssh_bastion, web_bastion].hash
+      [cluster_id, desktop_app, gator_cluster_id, global, ssh_bastion, web_bastion].hash
     end
 
     # Builds the object from hash

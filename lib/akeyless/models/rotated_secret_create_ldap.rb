@@ -68,6 +68,12 @@ module Akeyless
     # The rotator type. options: [target/ldap]
     attr_accessor :rotator_type
 
+    # Deprecated. use secure-access-certificate-issuer
+    attr_accessor :secure_access_bastion_issuer
+
+    # Path to the SSH Certificate Issuer for your Akeyless Secure Access
+    attr_accessor :secure_access_certificate_issuer
+
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
@@ -131,6 +137,8 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
+        :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
+        :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
@@ -174,6 +182,8 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
+        :'secure_access_bastion_issuer' => :'String',
+        :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
@@ -294,6 +304,14 @@ module Akeyless
         self.rotator_type = attributes[:'rotator_type']
       else
         self.rotator_type = nil
+      end
+
+      if attributes.key?(:'secure_access_bastion_issuer')
+        self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
+      end
+
+      if attributes.key?(:'secure_access_certificate_issuer')
+        self.secure_access_certificate_issuer = attributes[:'secure_access_certificate_issuer']
       end
 
       if attributes.key?(:'secure_access_enable')
@@ -422,6 +440,8 @@ module Akeyless
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_type == o.rotator_type &&
+          secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
+          secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
@@ -447,7 +467,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, authentication_credentials, auto_rotate, delete_protection, description, host_provider, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, authentication_credentials, auto_rotate, delete_protection, description, host_provider, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

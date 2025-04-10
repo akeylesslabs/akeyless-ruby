@@ -69,6 +69,12 @@ module Akeyless
     # Allow providing external user for a domain users
     attr_accessor :secure_access_allow_external_user
 
+    # Deprecated. use secure-access-certificate-issuer
+    attr_accessor :secure_access_bastion_issuer
+
+    # Path to the SSH Certificate Issuer for your Akeyless Secure Access
+    attr_accessor :secure_access_certificate_issuer
+
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
@@ -114,6 +120,8 @@ module Akeyless
         :'rotator_type' => :'rotator-type',
         :'same_password' => :'same-password',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
+        :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
+        :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
@@ -151,6 +159,8 @@ module Akeyless
         :'rotator_type' => :'String',
         :'same_password' => :'String',
         :'secure_access_allow_external_user' => :'Boolean',
+        :'secure_access_bastion_issuer' => :'String',
+        :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
@@ -269,6 +279,14 @@ module Akeyless
         self.secure_access_allow_external_user = false
       end
 
+      if attributes.key?(:'secure_access_bastion_issuer')
+        self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
+      end
+
+      if attributes.key?(:'secure_access_certificate_issuer')
+        self.secure_access_certificate_issuer = attributes[:'secure_access_certificate_issuer']
+      end
+
       if attributes.key?(:'secure_access_enable')
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
@@ -361,6 +379,8 @@ module Akeyless
           rotator_type == o.rotator_type &&
           same_password == o.same_password &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
+          secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
+          secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
@@ -380,7 +400,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, same_password, secure_access_allow_external_user, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

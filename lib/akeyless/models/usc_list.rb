@@ -19,6 +19,8 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    attr_accessor :object_type
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -32,6 +34,7 @@ module Akeyless
     def self.attribute_map
       {
         :'json' => :'json',
+        :'object_type' => :'object-type',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name'
@@ -47,6 +50,7 @@ module Akeyless
     def self.openapi_types
       {
         :'json' => :'Boolean',
+        :'object_type' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String'
@@ -78,6 +82,10 @@ module Akeyless
         self.json = attributes[:'json']
       else
         self.json = false
+      end
+
+      if attributes.key?(:'object_type')
+        self.object_type = attributes[:'object_type']
       end
 
       if attributes.key?(:'token')
@@ -121,6 +129,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           json == o.json &&
+          object_type == o.object_type &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name
@@ -135,7 +144,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, token, uid_token, usc_name].hash
+      [json, object_type, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

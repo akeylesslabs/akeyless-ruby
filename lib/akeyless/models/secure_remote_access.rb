@@ -57,6 +57,8 @@ module Akeyless
 
     attr_accessor :is_cli
 
+    attr_accessor :is_desktop_app
+
     attr_accessor :is_web
 
     attr_accessor :isolated
@@ -115,6 +117,7 @@ module Akeyless
         :'host' => :'host',
         :'host_provider_type' => :'host_provider_type',
         :'is_cli' => :'is_cli',
+        :'is_desktop_app' => :'is_desktop_app',
         :'is_web' => :'is_web',
         :'isolated' => :'isolated',
         :'native' => :'native',
@@ -164,6 +167,7 @@ module Akeyless
         :'host' => :'Array<String>',
         :'host_provider_type' => :'String',
         :'is_cli' => :'Boolean',
+        :'is_desktop_app' => :'Boolean',
         :'is_web' => :'Boolean',
         :'isolated' => :'Boolean',
         :'native' => :'Boolean',
@@ -291,6 +295,10 @@ module Akeyless
         self.is_cli = attributes[:'is_cli']
       end
 
+      if attributes.key?(:'is_desktop_app')
+        self.is_desktop_app = attributes[:'is_desktop_app']
+      end
+
       if attributes.key?(:'is_web')
         self.is_web = attributes[:'is_web']
       end
@@ -405,6 +413,7 @@ module Akeyless
           host == o.host &&
           host_provider_type == o.host_provider_type &&
           is_cli == o.is_cli &&
+          is_desktop_app == o.is_desktop_app &&
           is_web == o.is_web &&
           isolated == o.isolated &&
           native == o.native &&
@@ -433,7 +442,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, allow_port_forwarding, allow_providing_external_username, bastion_api, bastion_issuer, bastion_issuer_id, bastion_ssh, block_concurrent_connections, block_concurrent_connections_level, category, connection_delay_seconds, dashboard_url, db_name, domain, enable, endpoint, enforce_hosts_restriction, gw_cluster_id, host, host_provider_type, is_cli, is_web, isolated, native, rd_gateway_server, rdp_user, region, rotate_after_disconnect, schema, ssh_password, ssh_private_key, ssh_user, status_info, target_hosts, targets, url, use_internal_bastion, web_proxy].hash
+      [account_id, allow_port_forwarding, allow_providing_external_username, bastion_api, bastion_issuer, bastion_issuer_id, bastion_ssh, block_concurrent_connections, block_concurrent_connections_level, category, connection_delay_seconds, dashboard_url, db_name, domain, enable, endpoint, enforce_hosts_restriction, gw_cluster_id, host, host_provider_type, is_cli, is_desktop_app, is_web, isolated, native, rd_gateway_server, rdp_user, region, rotate_after_disconnect, schema, ssh_password, ssh_private_key, ssh_user, status_info, target_hosts, targets, url, use_internal_bastion, web_proxy].hash
     end
 
     # Builds the object from hash

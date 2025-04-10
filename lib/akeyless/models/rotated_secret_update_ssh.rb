@@ -105,6 +105,9 @@ module Akeyless
     # Override the SSH username as indicated in SSH Certificate Issuer
     attr_accessor :secure_access_ssh_user
 
+    # Specify target type. Options are ssh or rdp
+    attr_accessor :secure_access_target_type
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -144,6 +147,7 @@ module Akeyless
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
         :'secure_access_ssh_user' => :'secure-access-ssh-user',
+        :'secure_access_target_type' => :'secure-access-target-type',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -187,6 +191,7 @@ module Akeyless
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
         :'secure_access_ssh_user' => :'String',
+        :'secure_access_target_type' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -355,6 +360,12 @@ module Akeyless
         self.secure_access_ssh_user = attributes[:'secure_access_ssh_user']
       end
 
+      if attributes.key?(:'secure_access_target_type')
+        self.secure_access_target_type = attributes[:'secure_access_target_type']
+      else
+        self.secure_access_target_type = 'false'
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -424,6 +435,7 @@ module Akeyless
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
           secure_access_ssh_user == o.secure_access_ssh_user &&
+          secure_access_target_type == o.secure_access_target_type &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -437,7 +449,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, token, uid_token].hash
+      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -34,6 +34,7 @@
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username | [optional] |
 | **secure_access_ssh_user** | **String** | Override the SSH username as indicated in SSH Certificate Issuer | [optional] |
+| **secure_access_target_type** | **String** | Specify target type. Options are ssh or rdp | [optional][default to &#39;false&#39;] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -73,6 +74,7 @@ instance = Akeyless::RotatedSecretUpdateSsh.new(
   secure_access_rdp_domain: null,
   secure_access_rdp_user: null,
   secure_access_ssh_user: null,
+  secure_access_target_type: null,
   token: null,
   uid_token: null
 )

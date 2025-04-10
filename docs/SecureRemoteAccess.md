@@ -25,6 +25,7 @@
 | **host** | **Array&lt;String&gt;** |  | [optional] |
 | **host_provider_type** | **String** |  | [optional] |
 | **is_cli** | **Boolean** |  | [optional] |
+| **is_desktop_app** | **Boolean** |  | [optional] |
 | **is_web** | **Boolean** |  | [optional] |
 | **isolated** | **Boolean** |  | [optional] |
 | **native** | **Boolean** |  | [optional] |
@@ -70,6 +71,7 @@ instance = Akeyless::SecureRemoteAccess.new(
   host: null,
   host_provider_type: null,
   is_cli: null,
+  is_desktop_app: null,
   is_web: null,
   isolated: null,
   native: null,

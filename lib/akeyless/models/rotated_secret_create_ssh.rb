@@ -93,6 +93,9 @@ module Akeyless
     # Override the SSH username as indicated in SSH Certificate Issuer
     attr_accessor :secure_access_ssh_user
 
+    # Specify target type. Options are ssh or rdp
+    attr_accessor :secure_access_target_type
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -134,6 +137,7 @@ module Akeyless
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
         :'secure_access_ssh_user' => :'secure-access-ssh-user',
+        :'secure_access_target_type' => :'secure-access-target-type',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -175,6 +179,7 @@ module Akeyless
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
         :'secure_access_ssh_user' => :'String',
+        :'secure_access_target_type' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -323,6 +328,12 @@ module Akeyless
         self.secure_access_ssh_user = attributes[:'secure_access_ssh_user']
       end
 
+      if attributes.key?(:'secure_access_target_type')
+        self.secure_access_target_type = attributes[:'secure_access_target_type']
+      else
+        self.secure_access_target_type = 'false'
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -405,6 +416,7 @@ module Akeyless
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
           secure_access_ssh_user == o.secure_access_ssh_user &&
+          secure_access_target_type == o.secure_access_target_type &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -420,7 +432,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

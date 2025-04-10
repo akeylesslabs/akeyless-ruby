@@ -61,6 +61,12 @@ module Akeyless
     # Allow providing external user for a domain users
     attr_accessor :secure_access_allow_external_user
 
+    # Deprecated. use secure-access-certificate-issuer
+    attr_accessor :secure_access_bastion_issuer
+
+    # Path to the SSH Certificate Issuer for your Akeyless Secure Access
+    attr_accessor :secure_access_certificate_issuer
+
     # The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
     attr_accessor :secure_access_delay
 
@@ -115,6 +121,8 @@ module Akeyless
         :'rdp_host_port' => :'rdp-host-port',
         :'rdp_user_groups' => :'rdp-user-groups',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
+        :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
+        :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_delay' => :'secure-access-delay',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
@@ -153,6 +161,8 @@ module Akeyless
         :'rdp_host_port' => :'String',
         :'rdp_user_groups' => :'String',
         :'secure_access_allow_external_user' => :'Boolean',
+        :'secure_access_bastion_issuer' => :'String',
+        :'secure_access_certificate_issuer' => :'String',
         :'secure_access_delay' => :'Integer',
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
@@ -261,6 +271,14 @@ module Akeyless
         self.secure_access_allow_external_user = false
       end
 
+      if attributes.key?(:'secure_access_bastion_issuer')
+        self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
+      end
+
+      if attributes.key?(:'secure_access_certificate_issuer')
+        self.secure_access_certificate_issuer = attributes[:'secure_access_certificate_issuer']
+      end
+
       if attributes.key?(:'secure_access_delay')
         self.secure_access_delay = attributes[:'secure_access_delay']
       end
@@ -356,6 +374,8 @@ module Akeyless
           rdp_host_port == o.rdp_host_port &&
           rdp_user_groups == o.rdp_user_groups &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
+          secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
+          secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_delay == o.secure_access_delay &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_host == o.secure_access_host &&
@@ -379,7 +399,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_user_extend_session, delete_protection, description, fixed_user_claim_keyname, fixed_user_only, json, name, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token, user_ttl, warn_user_before_expiration].hash
+      [allow_user_extend_session, delete_protection, description, fixed_user_claim_keyname, fixed_user_only, json, name, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token, user_ttl, warn_user_before_expiration].hash
     end
 
     # Builds the object from hash

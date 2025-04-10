@@ -14,59 +14,22 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # CreateUSC is a command that creates a Universal Secrets Connector
-  class CreateUSC
-    # Azure Key Vault name (Relevant only for Azure targets)
-    attr_accessor :azure_kv_name
+  class GatewayDetailsForItemReplyObj
+    attr_accessor :cluster_name
 
-    # Protection from accidental deletion of this object [true/false]
-    attr_accessor :delete_protection
+    attr_accessor :cluster_url
 
-    # Description of the Universal Secrets Connector
-    attr_accessor :description
+    attr_accessor :desktop_app
 
-    # Set output format to JSON
-    attr_accessor :json
-
-    # K8s namespace (Relevant to Kubernetes targets)
-    attr_accessor :k8s_namespace
-
-    # Universal Secrets Connector name
-    attr_accessor :name
-
-    # List of the tags attached to this Universal Secrets Connector
-    attr_accessor :tags
-
-    # Target Universal Secrets Connector to connect
-    attr_accessor :target_to_associate
-
-    # Authentication token (see `/auth` and `/configure`)
-    attr_accessor :token
-
-    # The universal identity token, Required only for universal_identity authentication
-    attr_accessor :uid_token
-
-    # Prefix for all secrets created in AWS Secrets Manager
-    attr_accessor :usc_prefix
-
-    # Whether to filter the USC secret list using the specified usc-prefix [true/false]
-    attr_accessor :use_prefix_as_filter
+    attr_accessor :is_cluster_available
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'azure_kv_name' => :'azure-kv-name',
-        :'delete_protection' => :'delete_protection',
-        :'description' => :'description',
-        :'json' => :'json',
-        :'k8s_namespace' => :'k8s-namespace',
-        :'name' => :'name',
-        :'tags' => :'tags',
-        :'target_to_associate' => :'target-to-associate',
-        :'token' => :'token',
-        :'uid_token' => :'uid-token',
-        :'usc_prefix' => :'usc-prefix',
-        :'use_prefix_as_filter' => :'use-prefix-as-filter'
+        :'cluster_name' => :'cluster_name',
+        :'cluster_url' => :'cluster_url',
+        :'desktop_app' => :'desktop_app',
+        :'is_cluster_available' => :'is_cluster_available'
       }
     end
 
@@ -78,18 +41,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'azure_kv_name' => :'String',
-        :'delete_protection' => :'String',
-        :'description' => :'String',
-        :'json' => :'Boolean',
-        :'k8s_namespace' => :'String',
-        :'name' => :'String',
-        :'tags' => :'Array<String>',
-        :'target_to_associate' => :'String',
-        :'token' => :'String',
-        :'uid_token' => :'String',
-        :'usc_prefix' => :'String',
-        :'use_prefix_as_filter' => :'String'
+        :'cluster_name' => :'String',
+        :'cluster_url' => :'String',
+        :'desktop_app' => :'DesktopAppConf',
+        :'is_cluster_available' => :'Boolean'
       }
     end
 
@@ -103,73 +58,31 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::CreateUSC` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::GatewayDetailsForItemReplyObj` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::CreateUSC`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::GatewayDetailsForItemReplyObj`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'azure_kv_name')
-        self.azure_kv_name = attributes[:'azure_kv_name']
+      if attributes.key?(:'cluster_name')
+        self.cluster_name = attributes[:'cluster_name']
       end
 
-      if attributes.key?(:'delete_protection')
-        self.delete_protection = attributes[:'delete_protection']
+      if attributes.key?(:'cluster_url')
+        self.cluster_url = attributes[:'cluster_url']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'desktop_app')
+        self.desktop_app = attributes[:'desktop_app']
       end
 
-      if attributes.key?(:'json')
-        self.json = attributes[:'json']
-      else
-        self.json = false
-      end
-
-      if attributes.key?(:'k8s_namespace')
-        self.k8s_namespace = attributes[:'k8s_namespace']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      else
-        self.name = nil
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'target_to_associate')
-        self.target_to_associate = attributes[:'target_to_associate']
-      else
-        self.target_to_associate = nil
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
-      end
-
-      if attributes.key?(:'uid_token')
-        self.uid_token = attributes[:'uid_token']
-      end
-
-      if attributes.key?(:'usc_prefix')
-        self.usc_prefix = attributes[:'usc_prefix']
-      end
-
-      if attributes.key?(:'use_prefix_as_filter')
-        self.use_prefix_as_filter = attributes[:'use_prefix_as_filter']
-      else
-        self.use_prefix_as_filter = 'false'
+      if attributes.key?(:'is_cluster_available')
+        self.is_cluster_available = attributes[:'is_cluster_available']
       end
     end
 
@@ -178,14 +91,6 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @target_to_associate.nil?
-        invalid_properties.push('invalid value for "target_to_associate", target_to_associate cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -193,8 +98,6 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      return false if @target_to_associate.nil?
       true
     end
 
@@ -203,18 +106,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          azure_kv_name == o.azure_kv_name &&
-          delete_protection == o.delete_protection &&
-          description == o.description &&
-          json == o.json &&
-          k8s_namespace == o.k8s_namespace &&
-          name == o.name &&
-          tags == o.tags &&
-          target_to_associate == o.target_to_associate &&
-          token == o.token &&
-          uid_token == o.uid_token &&
-          usc_prefix == o.usc_prefix &&
-          use_prefix_as_filter == o.use_prefix_as_filter
+          cluster_name == o.cluster_name &&
+          cluster_url == o.cluster_url &&
+          desktop_app == o.desktop_app &&
+          is_cluster_available == o.is_cluster_available
     end
 
     # @see the `==` method
@@ -226,7 +121,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
+      [cluster_name, cluster_url, desktop_app, is_cluster_available].hash
     end
 
     # Builds the object from hash

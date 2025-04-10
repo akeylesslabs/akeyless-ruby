@@ -14,6 +14,8 @@
 | **target_to_associate** | **String** | Target Universal Secrets Connector to connect |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **usc_prefix** | **String** | Prefix for all secrets created in AWS Secrets Manager | [optional] |
+| **use_prefix_as_filter** | **String** | Whether to filter the USC secret list using the specified usc-prefix [true/false] | [optional][default to &#39;false&#39;] |
 
 ## Example
 
@@ -30,7 +32,9 @@ instance = Akeyless::CreateUSC.new(
   tags: null,
   target_to_associate: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  usc_prefix: null,
+  use_prefix_as_filter: null
 )
 ```
 
