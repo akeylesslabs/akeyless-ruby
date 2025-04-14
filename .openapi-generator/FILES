@@ -742,6 +742,7 @@ docs/Name.md
 docs/NativeK8sTargetDetails.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
+docs/NullString.md
 docs/OAuth2AccessRules.md
 docs/OAuth2CustomClaim.md
 docs/OCIAccessRules.md
@@ -1842,6 +1843,7 @@ lib/akeyless/models/name.rb
 lib/akeyless/models/native_k8s_target_details.rb
 lib/akeyless/models/next_auto_rotation_event.rb
 lib/akeyless/models/noti_forwarder.rb
+lib/akeyless/models/null_string.rb
 lib/akeyless/models/o_auth2_access_rules.rb
 lib/akeyless/models/o_auth2_custom_claim.rb
 lib/akeyless/models/object_version_settings_output.rb
@@ -2201,8 +2203,5 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/desktop_app_conf_spec.rb
-spec/models/gateway_details_for_item_reply_obj_spec.rb
-spec/models/gateway_update_remote_access_desktop_app_spec.rb
-spec/models/sra_desktop_app_conf_spec.rb
+spec/models/null_string_spec.rb
 spec/spec_helper.rb
