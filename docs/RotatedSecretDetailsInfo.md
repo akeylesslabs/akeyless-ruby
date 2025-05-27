@@ -5,11 +5,15 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **delete_previous_version_in_days** | **Integer** |  | [optional] |
+| **enable_custom_password_policy** | **Boolean** |  | [optional] |
 | **grace_rotation** | **Boolean** |  | [optional] |
+| **grace_rotation_hour** | **Integer** |  | [optional] |
+| **grace_rotation_interval** | **Integer** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
 | **managed_by_akeyless** | **Boolean** |  | [optional] |
 | **max_versions** | **Integer** |  | [optional] |
+| **next_auto_rotate_type** | **String** |  | [optional] |
 | **number_of_versions_to_save** | **Integer** |  | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval_min** | **Boolean** |  | [optional] |
@@ -28,11 +32,15 @@ require 'akeyless'
 
 instance = Akeyless::RotatedSecretDetailsInfo.new(
   delete_previous_version_in_days: null,
+  enable_custom_password_policy: null,
   grace_rotation: null,
+  grace_rotation_hour: null,
+  grace_rotation_interval: null,
   gw_cluster_id: null,
   last_rotation_error: null,
   managed_by_akeyless: null,
   max_versions: null,
+  next_auto_rotate_type: null,
   number_of_versions_to_save: null,
   rotation_hour: null,
   rotation_interval_min: null,

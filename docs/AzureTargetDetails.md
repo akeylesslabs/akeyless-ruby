@@ -13,6 +13,7 @@
 | **azure_username** | **String** |  | [optional] |
 | **connection_type** | **String** |  | [optional] |
 | **expiration_date** | **Time** |  | [optional] |
+| **grace_rotated_secret_key** | **String** |  | [optional] |
 | **use_gw_cloud_identity** | **Boolean** |  | [optional] |
 
 ## Example
@@ -30,6 +31,7 @@ instance = Akeyless::AzureTargetDetails.new(
   azure_username: null,
   connection_type: null,
   expiration_date: null,
+  grace_rotated_secret_key: null,
   use_gw_cloud_identity: null
 )
 ```

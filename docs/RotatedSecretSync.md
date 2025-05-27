@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **filter_secret_value** | **String** | JQ expression to filter or transform the secret value | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Rotated secret name |  |
 | **namespace** | **String** | Vault namespace, releavnt only for Hashicorp Vault Target | [optional] |
@@ -18,6 +19,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretSync.new(
+  filter_secret_value: null,
   json: null,
   name: null,
   namespace: null,

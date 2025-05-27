@@ -12,7 +12,9 @@
 | **aws_region** | **String** | Aws Region | [optional][default to &#39;us-east-2&#39;] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
-| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] | [optional] |
+| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] | [optional] |
+| **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
+| **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -48,6 +50,8 @@ instance = Akeyless::RotatedSecretUpdateAws.new(
   delete_protection: null,
   description: null,
   grace_rotation: null,
+  grace_rotation_hour: null,
+  grace_rotation_interval: null,
   json: null,
   keep_prev_version: null,
   key: null,

@@ -13,6 +13,8 @@
 | **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
 | **enable_request_for_access** | **Boolean** |  | [optional] |
+| **hide_personal_folder** | **Boolean** |  | [optional] |
+| **hide_static_password** | **Boolean** |  | [optional] |
 | **invalid_characters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention | [optional] |
 | **item_usage_event** | [**UsageEventSetting**](UsageEventSetting.md) |  | [optional] |
 | **lock_default_key** | **Boolean** | LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty | [optional] |
@@ -38,6 +40,8 @@ instance = Akeyless::AccountGeneralSettings.new(
   default_home_page: null,
   dynamic_secret_max_ttl: null,
   enable_request_for_access: null,
+  hide_personal_folder: null,
+  hide_static_password: null,
   invalid_characters: null,
   item_usage_event: null,
   lock_default_key: null,

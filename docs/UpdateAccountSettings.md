@@ -19,6 +19,8 @@
 | **enable_password_expiration** | **String** | Enable password expiration policy [true/false] | [optional] |
 | **force_new_versions** | **String** | If set to true, new version will be created on update | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A default list of comma-separated CIDR block that acts as a trusted Gateway entity. | [optional] |
+| **hide_personal_folder** | **String** | Hide personal folder, if set - users will not be able to use personal folder [true/false] | [optional] |
+| **hide_static_password** | **String** | Hide static secret&#39;s password type [true/false] | [optional] |
 | **invalid_characters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. | [optional][default to &#39;notReceivedInvalidCharacter&#39;] |
 | **item_type** | **String** | VersionSettingsObjectType defines object types for account version settings | [optional] |
 | **items_deletion_protection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] | [optional] |
@@ -68,6 +70,8 @@ instance = Akeyless::UpdateAccountSettings.new(
   enable_password_expiration: null,
   force_new_versions: null,
   gw_bound_ips: null,
+  hide_personal_folder: null,
+  hide_static_password: null,
   invalid_characters: null,
   item_type: null,
   items_deletion_protection: null,

@@ -130,6 +130,7 @@
 | **google_workspace_group_role** | **String** |  | [optional] |
 | **google_workspace_role_name** | **String** |  | [optional] |
 | **google_workspace_role_scope** | **String** |  | [optional] |
+| **grace_rotated_secret_key** | **String** |  | [optional] |
 | **grant_types** | **Array&lt;String&gt;** |  | [optional] |
 | **groups** | **String** |  | [optional] |
 | **hanadb_creation_statements** | **String** |  | [optional] |
@@ -382,6 +383,7 @@ instance = Akeyless::DSProducerDetails.new(
   google_workspace_group_role: null,
   google_workspace_role_name: null,
   google_workspace_role_scope: null,
+  grace_rotated_secret_key: null,
   grant_types: null,
   groups: null,
   hanadb_creation_statements: null,

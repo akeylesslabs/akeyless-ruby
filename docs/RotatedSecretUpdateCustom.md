@@ -10,6 +10,7 @@
 | **custom_payload** | **String** | Secret payload to be sent with rotation request | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
+| **enable_password_policy** | **String** | Enable password policy | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -37,6 +38,10 @@
 | **timeout_sec** | **Integer** | Maximum allowed time in seconds for the custom rotator to return the results | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **use_capital_letters** | **String** | Password must contain capital letters [true/false] | [optional] |
+| **use_lower_letters** | **String** | Password must contain lower case letters [true/false] | [optional] |
+| **use_numbers** | **String** | Password must contain numbers [true/false] | [optional] |
+| **use_special_characters** | **String** | Password must contain special characters [true/false] | [optional] |
 
 ## Example
 
@@ -50,6 +55,7 @@ instance = Akeyless::RotatedSecretUpdateCustom.new(
   custom_payload: null,
   delete_protection: null,
   description: null,
+  enable_password_policy: null,
   json: null,
   keep_prev_version: null,
   key: null,
@@ -76,7 +82,11 @@ instance = Akeyless::RotatedSecretUpdateCustom.new(
   secure_access_web_proxy: null,
   timeout_sec: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  use_capital_letters: null,
+  use_lower_letters: null,
+  use_numbers: null,
+  use_special_characters: null
 )
 ```
 

@@ -25,6 +25,7 @@
 | **producer_encryption_key_name** | **String** | Encrypt producer with following key | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
+| **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) | [optional] |
@@ -62,6 +63,7 @@ instance = Akeyless::DynamicSecretUpdateMongoDb.new(
   producer_encryption_key_name: null,
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
+  secure_access_db_name: null,
   secure_access_delay: null,
   secure_access_enable: null,
   secure_access_host: null,

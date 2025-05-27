@@ -19,6 +19,7 @@
 | **revocation_statement** | **String** | PostgreSQL Revocation statements | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
+| **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema | [optional] |
 | **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
@@ -52,6 +53,7 @@ instance = Akeyless::DynamicSecretCreatePostgreSql.new(
   revocation_statement: null,
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
+  secure_access_db_name: null,
   secure_access_db_schema: null,
   secure_access_delay: null,
   secure_access_enable: null,

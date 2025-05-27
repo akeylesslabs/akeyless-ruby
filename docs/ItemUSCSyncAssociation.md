@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **assoc_id** | **String** |  | [optional] |
-| **attributes** | [**RemoteSecretInfo**](RemoteSecretInfo.md) |  | [optional] |
+| **attributes** | [**UscSyncInfo**](UscSyncInfo.md) |  | [optional] |
 | **item_id** | **Integer** |  | [optional] |
 | **item_name** | **String** |  | [optional] |
 | **item_type** | **String** |  | [optional] |

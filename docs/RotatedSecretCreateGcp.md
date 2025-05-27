@@ -11,6 +11,9 @@
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **gcp_service_account_email** | **String** | The email of the gcp service account to rotate | [optional] |
 | **gcp_service_account_key_id** | **String** | The key id of the gcp service account to rotate | [optional] |
+| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] | [optional] |
+| **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
+| **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -38,6 +41,9 @@ instance = Akeyless::RotatedSecretCreateGcp.new(
   gcp_key: null,
   gcp_service_account_email: null,
   gcp_service_account_key_id: null,
+  grace_rotation: null,
+  grace_rotation_hour: null,
+  grace_rotation_interval: null,
   json: null,
   key: null,
   max_versions: null,
