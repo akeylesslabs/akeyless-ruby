@@ -51,13 +51,14 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.6)
     ruby-progressbar (1.11.0)
-    stringio (3.0.1)
+    stringio (3.1.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     unicode-display_width (1.5.0)
 
 PLATFORMS
   aarch64-linux
+  x86_64-linux
 
 DEPENDENCIES
   akeyless!
