@@ -5,9 +5,11 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **app_obj_id** | **String** | Azure App Object Id | [optional] |
+| **azure_administrative_unit** | **String** | Azure AD administrative unit (relevant only when azure-user-portal-access&#x3D;true) | [optional] |
 | **azure_client_id** | **String** | Azure Client ID | [optional] |
 | **azure_client_secret** | **String** | Azure Client Secret | [optional] |
 | **azure_tenant_id** | **String** | Azure Tenant ID | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **fixed_user_claim_keyname** | **String** | FixedUserClaimKeyname | [optional][default to &#39;false&#39;] |
 | **fixed_user_only** | **Boolean** | Fixed user | [optional][default to false] |
@@ -38,9 +40,11 @@ require 'akeyless'
 
 instance = Akeyless::GatewayCreateProducerAzure.new(
   app_obj_id: null,
+  azure_administrative_unit: null,
   azure_client_id: null,
   azure_client_secret: null,
   azure_tenant_id: null,
+  custom_username_template: null,
   delete_protection: null,
   fixed_user_claim_keyname: null,
   fixed_user_only: null,

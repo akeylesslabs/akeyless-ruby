@@ -7,6 +7,7 @@
 | **provider_type** | **String** |  | [optional] |
 | **bind_dn** | **String** | Bind DN | [optional] |
 | **bind_dn_password** | **String** | Bind DN Password | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
@@ -44,6 +45,7 @@ instance = Akeyless::GatewayCreateProducerLdap.new(
   provider_type: null,
   bind_dn: null,
   bind_dn_password: null,
+  custom_username_template: null,
   delete_protection: null,
   external_username: null,
   fixed_user_claim_keyname: null,

@@ -9,12 +9,14 @@
 | **city** | **String** | City | [optional] |
 | **company_name** | **String** | Company name | [optional] |
 | **country** | **String** | Country | [optional] |
+| **default_certificate_expiration_notification_days** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: --default-certificate-expiration-notification-days 1 --default-certificate-expiration-notification-days 5 | [optional] |
 | **default_key_name** | **String** | Set the account default key based on the DFC key name. Use \&quot;set-original-akeyless-default-key\&quot; to revert to using the original default key of the account. | [optional] |
 | **default_share_link_ttl_minutes** | **String** | Set the default ttl in minutes for sharing item number between 60 and 43200 | [optional] |
 | **default_versioning** | **String** | If set to true, new versions is enabled by default | [optional] |
 | **dp_enable_classic_key_protection** | **String** | Set to update protection with classic keys state [true/false] | [optional] |
 | **dynamic_secret_max_ttl** | **Integer** | Set the maximum ttl for dynamic secrets | [optional] |
 | **dynamic_secret_max_ttl_enable** | **String** | Set a maximum ttl for dynamic secrets [true/false] | [optional] |
+| **enable_default_certificate_expiration_event** | **String** | How many days before the expiration of the certificate would you like to be notified. [true/false] | [optional] |
 | **enable_item_sharing** | **String** | Enable sharing items [true/false] | [optional] |
 | **enable_password_expiration** | **String** | Enable password expiration policy [true/false] | [optional] |
 | **force_new_versions** | **String** | If set to true, new version will be created on update | [optional] |
@@ -60,12 +62,14 @@ instance = Akeyless::UpdateAccountSettings.new(
   city: null,
   company_name: null,
   country: null,
+  default_certificate_expiration_notification_days: null,
   default_key_name: null,
   default_share_link_ttl_minutes: null,
   default_versioning: null,
   dp_enable_classic_key_protection: null,
   dynamic_secret_max_ttl: null,
   dynamic_secret_max_ttl_enable: null,
+  enable_default_certificate_expiration_event: null,
   enable_item_sharing: null,
   enable_password_expiration: null,
   force_new_versions: null,

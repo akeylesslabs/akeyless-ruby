@@ -21,6 +21,7 @@
 | **create_private_crl** | **Boolean** |  | [optional] |
 | **create_public_crl** | **Boolean** |  | [optional] |
 | **destination_path** | **String** | DestinationPath is the destination to save generated certificates | [optional] |
+| **disable_wildcards** | **Boolean** |  | [optional] |
 | **enforce_hostnames** | **Boolean** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) | ExpirationNotification holds a list of expiration notices that should be sent in case a certificate is about to expire, this value is being propagated to the Certificate resources that are created | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
@@ -67,6 +68,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   create_private_crl: null,
   create_public_crl: null,
   destination_path: null,
+  disable_wildcards: null,
   enforce_hostnames: null,
   expiration_events: null,
   gw_cluster_id: null,

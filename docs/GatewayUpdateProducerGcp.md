@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **gcp_cred_type** | **String** |  | [optional] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
@@ -28,6 +29,7 @@
 require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerGcp.new(
+  custom_username_template: null,
   delete_protection: null,
   gcp_cred_type: null,
   gcp_key: null,

@@ -438,6 +438,8 @@ All URIs are relative to *https://api.akeyless.io*
 | [**sign_pki_cert_with_classic_key**](V2Api.md#sign_pki_cert_with_classic_key) | **POST** /sign-pki-cert-with-classic-key |  |
 | [**sign_rsa_ssa_pss**](V2Api.md#sign_rsa_ssa_pss) | **POST** /sign-rsassa-pss |  |
 | [**static_creds_auth**](V2Api.md#static_creds_auth) | **POST** /static-creds-auth |  |
+| [**static_secret_delete_sync**](V2Api.md#static_secret_delete_sync) | **POST** /static-secret-delete-sync |  |
+| [**static_secret_sync**](V2Api.md#static_secret_sync) | **POST** /static-secret-sync |  |
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
 | [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
@@ -25463,7 +25465,7 @@ No authorization required
 
 ## rotated_secret_delete_sync
 
-> Object rotated_secret_delete_sync(rotated_secret_delete_sync)
+> <RotatedSecretDeleteSyncOutput> rotated_secret_delete_sync(rotated_secret_delete_sync)
 
 
 
@@ -25489,7 +25491,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> rotated_secret_delete_sync_with_http_info(rotated_secret_delete_sync)
+> <Array(<RotatedSecretDeleteSyncOutput>, Integer, Hash)> rotated_secret_delete_sync_with_http_info(rotated_secret_delete_sync)
 
 ```ruby
 begin
@@ -25497,7 +25499,7 @@ begin
   data, status_code, headers = api_instance.rotated_secret_delete_sync_with_http_info(rotated_secret_delete_sync)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <RotatedSecretDeleteSyncOutput>
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->rotated_secret_delete_sync_with_http_info: #{e}"
 end
@@ -25511,7 +25513,7 @@ end
 
 ### Return type
 
-**Object**
+[**RotatedSecretDeleteSyncOutput**](RotatedSecretDeleteSyncOutput.md)
 
 ### Authorization
 
@@ -27496,6 +27498,130 @@ end
 ### Return type
 
 [**StaticCredsAuthOutput**](StaticCredsAuthOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## static_secret_delete_sync
+
+> <StaticSecretDeleteSyncOutput> static_secret_delete_sync(static_secret_delete_sync)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+static_secret_delete_sync = Akeyless::StaticSecretDeleteSync.new({name: 'name_example', usc_name: 'usc_name_example'}) # StaticSecretDeleteSync | 
+
+begin
+  
+  result = api_instance.static_secret_delete_sync(static_secret_delete_sync)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->static_secret_delete_sync: #{e}"
+end
+```
+
+#### Using the static_secret_delete_sync_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<StaticSecretDeleteSyncOutput>, Integer, Hash)> static_secret_delete_sync_with_http_info(static_secret_delete_sync)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.static_secret_delete_sync_with_http_info(static_secret_delete_sync)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <StaticSecretDeleteSyncOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->static_secret_delete_sync_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **static_secret_delete_sync** | [**StaticSecretDeleteSync**](StaticSecretDeleteSync.md) |  |  |
+
+### Return type
+
+[**StaticSecretDeleteSyncOutput**](StaticSecretDeleteSyncOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## static_secret_sync
+
+> <SecretSyncOutput> static_secret_sync(static_secret_sync)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+static_secret_sync = Akeyless::StaticSecretSync.new({name: 'name_example'}) # StaticSecretSync | 
+
+begin
+  
+  result = api_instance.static_secret_sync(static_secret_sync)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->static_secret_sync: #{e}"
+end
+```
+
+#### Using the static_secret_sync_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecretSyncOutput>, Integer, Hash)> static_secret_sync_with_http_info(static_secret_sync)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.static_secret_sync_with_http_info(static_secret_sync)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecretSyncOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->static_secret_sync_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **static_secret_sync** | [**StaticSecretSync**](StaticSecretSync.md) |  |  |
+
+### Return type
+
+[**SecretSyncOutput**](SecretSyncOutput.md)
 
 ### Authorization
 

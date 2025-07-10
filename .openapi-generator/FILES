@@ -8,6 +8,7 @@ README.md
 Rakefile
 akeyless.gemspec
 docs/APIKeyAccessRules.md
+docs/AWSGatewayCloudIdentityExternalIdOpt.md
 docs/AWSIAMAccessRules.md
 docs/AWSPayload.md
 docs/AWSSecretsMigration.md
@@ -97,6 +98,7 @@ docs/CertAccessRules.md
 docs/CertificateAnalyticAggregation.md
 docs/CertificateChainInfo.md
 docs/CertificateExpirationEvent.md
+docs/CertificateExpirationEventsSettings.md
 docs/CertificateInfo.md
 docs/CertificateIssueInfo.md
 docs/CertificateStore.md
@@ -814,6 +816,7 @@ docs/RotatedSecretCreateSsh.md
 docs/RotatedSecretCreateWindows.md
 docs/RotatedSecretDelete.md
 docs/RotatedSecretDeleteSync.md
+docs/RotatedSecretDeleteSyncOutput.md
 docs/RotatedSecretDetailsInfo.md
 docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
@@ -849,6 +852,7 @@ docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SecretInfo.md
+docs/SecretSyncOutput.md
 docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
@@ -882,7 +886,10 @@ docs/SshBastionConf.md
 docs/SshBastionSessionTermination.md
 docs/StaticCredsAuth.md
 docs/StaticCredsAuthOutput.md
+docs/StaticSecretDeleteSync.md
+docs/StaticSecretDeleteSyncOutput.md
 docs/StaticSecretDetailsInfo.md
+docs/StaticSecretSync.md
 docs/SumologicLogForwardingConfig.md
 docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
@@ -1170,6 +1177,7 @@ lib/akeyless/models/auth_method_update_output.rb
 lib/akeyless/models/auth_method_update_saml.rb
 lib/akeyless/models/auth_method_update_universal_identity.rb
 lib/akeyless/models/auth_output.rb
+lib/akeyless/models/aws_gateway_cloud_identity_external_id_opt.rb
 lib/akeyless/models/aws_payload.rb
 lib/akeyless/models/aws_s3_log_forwarding_config.rb
 lib/akeyless/models/aws_secrets_migration.rb
@@ -1197,6 +1205,7 @@ lib/akeyless/models/cert_access_rules.rb
 lib/akeyless/models/certificate_analytic_aggregation.rb
 lib/akeyless/models/certificate_chain_info.rb
 lib/akeyless/models/certificate_expiration_event.rb
+lib/akeyless/models/certificate_expiration_events_settings.rb
 lib/akeyless/models/certificate_info.rb
 lib/akeyless/models/certificate_issue_info.rb
 lib/akeyless/models/certificate_store.rb
@@ -1915,6 +1924,7 @@ lib/akeyless/models/rotated_secret_create_ssh.rb
 lib/akeyless/models/rotated_secret_create_windows.rb
 lib/akeyless/models/rotated_secret_delete.rb
 lib/akeyless/models/rotated_secret_delete_sync.rb
+lib/akeyless/models/rotated_secret_delete_sync_output.rb
 lib/akeyless/models/rotated_secret_details_info.rb
 lib/akeyless/models/rotated_secret_get_value.rb
 lib/akeyless/models/rotated_secret_list.rb
@@ -1948,6 +1958,7 @@ lib/akeyless/models/salesforce_target_details.rb
 lib/akeyless/models/saml_access_rules.rb
 lib/akeyless/models/saml_attribute.rb
 lib/akeyless/models/secret_info.rb
+lib/akeyless/models/secret_sync_output.rb
 lib/akeyless/models/sectigo_target_details.rb
 lib/akeyless/models/secure_remote_access.rb
 lib/akeyless/models/server_inventory_migration.rb
@@ -1983,7 +1994,10 @@ lib/akeyless/models/ssh_certificate_issue_details.rb
 lib/akeyless/models/ssh_target_details.rb
 lib/akeyless/models/static_creds_auth.rb
 lib/akeyless/models/static_creds_auth_output.rb
+lib/akeyless/models/static_secret_delete_sync.rb
+lib/akeyless/models/static_secret_delete_sync_output.rb
 lib/akeyless/models/static_secret_details_info.rb
+lib/akeyless/models/static_secret_sync.rb
 lib/akeyless/models/sumologic_log_forwarding_config.rb
 lib/akeyless/models/syslog_log_forwarding_config.rb
 lib/akeyless/models/system_access_credentials_reply_obj.rb
@@ -2203,5 +2217,11 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/usc_sync_info_spec.rb
+spec/models/aws_gateway_cloud_identity_external_id_opt_spec.rb
+spec/models/certificate_expiration_events_settings_spec.rb
+spec/models/rotated_secret_delete_sync_output_spec.rb
+spec/models/secret_sync_output_spec.rb
+spec/models/static_secret_delete_sync_output_spec.rb
+spec/models/static_secret_delete_sync_spec.rb
+spec/models/static_secret_sync_spec.rb
 spec/spec_helper.rb

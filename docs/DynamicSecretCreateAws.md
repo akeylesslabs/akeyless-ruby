@@ -8,11 +8,13 @@
 | **admin_rotation_interval_days** | **Integer** | Admin credentials rotation interval (days) | [optional][default to 0] |
 | **aws_access_key_id** | **String** | Access Key ID | [optional] |
 | **aws_access_secret_key** | **String** | Secret Access Key | [optional] |
+| **aws_external_id** | **String** | The AWS External ID associated with the AWS role (relevant only for assume_role mode) | [optional] |
 | **aws_role_arns** | **String** | AWS Role ARNs to be used in the Assume Role operation (relevant only for assume_role mode) | [optional] |
 | **aws_user_console_access** | **Boolean** | AWS User console access | [optional][default to false] |
 | **aws_user_groups** | **String** | AWS User groups | [optional] |
 | **aws_user_policies** | **String** | AWS User policies | [optional] |
 | **aws_user_programmatic_access** | **Boolean** | Enable AWS User programmatic access | [optional][default to true] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
@@ -48,11 +50,13 @@ instance = Akeyless::DynamicSecretCreateAws.new(
   admin_rotation_interval_days: null,
   aws_access_key_id: null,
   aws_access_secret_key: null,
+  aws_external_id: null,
   aws_role_arns: null,
   aws_user_console_access: null,
   aws_user_groups: null,
   aws_user_policies: null,
   aws_user_programmatic_access: null,
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   enable_admin_rotation: null,

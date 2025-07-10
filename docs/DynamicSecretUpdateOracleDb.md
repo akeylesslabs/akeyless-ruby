@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
@@ -37,6 +38,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateOracleDb.new(
+  custom_username_template: null,
   db_server_certificates: null,
   db_server_name: null,
   delete_protection: null,

@@ -19,6 +19,7 @@
 | **authorization_port** | **String** |  | [optional] |
 | **aws_access_key_id** | **String** |  | [optional] |
 | **aws_access_mode** | **String** |  | [optional] |
+| **aws_external_id** | **String** |  | [optional] |
 | **aws_region** | **String** |  | [optional] |
 | **aws_role_arns** | **String** |  | [optional] |
 | **aws_secret_access_key** | **String** |  | [optional] |
@@ -29,6 +30,7 @@
 | **aws_user_groups** | **String** |  | [optional] |
 | **aws_user_policies** | **String** |  | [optional] |
 | **aws_user_programmatic_access** | **Boolean** |  | [optional] |
+| **azure_administrative_unit** | **String** |  | [optional] |
 | **azure_app_object_id** | **String** |  | [optional] |
 | **azure_client_id** | **String** |  | [optional] |
 | **azure_client_secret** | **String** |  | [optional] |
@@ -133,6 +135,7 @@
 | **grace_rotated_secret_key** | **String** |  | [optional] |
 | **grant_types** | **Array&lt;String&gt;** |  | [optional] |
 | **groups** | **String** |  | [optional] |
+| **gw_cloud_identity_external_id_opt** | [**AWSGatewayCloudIdentityExternalIdOpt**](AWSGatewayCloudIdentityExternalIdOpt.md) |  | [optional] |
 | **hanadb_creation_statements** | **String** |  | [optional] |
 | **hanadb_revocation_statements** | **String** |  | [optional] |
 | **host_name** | **String** |  | [optional] |
@@ -216,6 +219,8 @@
 | **secure_remote_access_details** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  | [optional] |
 | **session_extension_warn_interval_min** | **Integer** |  | [optional] |
 | **sf_account** | **String** |  | [optional] |
+| **sf_auth_mode** | **String** |  | [optional] |
+| **sf_key_algo** | **String** |  | [optional] |
 | **sf_user_role** | **String** | generated  users info | [optional] |
 | **sf_warehouse_name** | **String** |  | [optional] |
 | **should_stop** | **String** | TODO delete this after migration | [optional] |
@@ -233,6 +238,7 @@
 | **user_ttl** | **String** |  | [optional] |
 | **username_length** | **Integer** |  | [optional] |
 | **username_policy** | **String** |  | [optional] |
+| **username_template** | **String** |  | [optional] |
 | **venafi_allow_subdomains** | **Boolean** |  | [optional] |
 | **venafi_allowed_domains** | **Array&lt;String&gt;** |  | [optional] |
 | **venafi_api_key** | **String** |  | [optional] |
@@ -272,6 +278,7 @@ instance = Akeyless::DSProducerDetails.new(
   authorization_port: null,
   aws_access_key_id: null,
   aws_access_mode: null,
+  aws_external_id: null,
   aws_region: null,
   aws_role_arns: null,
   aws_secret_access_key: null,
@@ -282,6 +289,7 @@ instance = Akeyless::DSProducerDetails.new(
   aws_user_groups: null,
   aws_user_policies: null,
   aws_user_programmatic_access: null,
+  azure_administrative_unit: null,
   azure_app_object_id: null,
   azure_client_id: null,
   azure_client_secret: null,
@@ -386,6 +394,7 @@ instance = Akeyless::DSProducerDetails.new(
   grace_rotated_secret_key: null,
   grant_types: null,
   groups: null,
+  gw_cloud_identity_external_id_opt: null,
   hanadb_creation_statements: null,
   hanadb_revocation_statements: null,
   host_name: null,
@@ -469,6 +478,8 @@ instance = Akeyless::DSProducerDetails.new(
   secure_remote_access_details: null,
   session_extension_warn_interval_min: null,
   sf_account: null,
+  sf_auth_mode: null,
+  sf_key_algo: null,
   sf_user_role: null,
   sf_warehouse_name: null,
   should_stop: null,
@@ -486,6 +497,7 @@ instance = Akeyless::DSProducerDetails.new(
   user_ttl: null,
   username_length: null,
   username_policy: null,
+  username_template: null,
   venafi_allow_subdomains: null,
   venafi_allowed_domains: null,
   venafi_api_key: null,

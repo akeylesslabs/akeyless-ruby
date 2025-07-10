@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **allow_any_name** | **Boolean** | If set, clients can request certificates for any CN | [optional] |
 | **allow_copy_ext_from_csr** | **Boolean** | If set, will allow copying the extra extensions from the csr file (if given) | [optional] |
-| **allow_subdomains** | **Boolean** | If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains | [optional] |
+| **allow_subdomains** | **Boolean** | If set, clients can request certificates for subdomains of the allowed domains | [optional] |
 | **allowed_domains** | **String** | A list of the allowed domains that clients can request to be included in the certificate (in a comma-delimited list) | [optional] |
 | **allowed_extra_extensions** | **String** | A json string containing the allowed extra extensions for the pki cert issuer | [optional] |
 | **allowed_ip_sans** | **String** | A list of the allowed CIDRs for ips that clients can request to be included in the certificate as part of the IP Subject Alternative Names (in a comma-delimited list) | [optional] |
@@ -22,6 +22,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **destination_path** | **String** | A path in which to save generated certificates | [optional] |
+| **disable_wildcards** | **Boolean** | If set, generation of wildcard certificates will be disabled. | [optional] |
 | **enable_acme** | **Boolean** | If set, the cert issuer will support the acme protocol | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gw_cluster_url** | **String** | The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME | [optional] |
@@ -72,6 +73,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   delete_protection: null,
   description: null,
   destination_path: null,
+  disable_wildcards: null,
   enable_acme: null,
   expiration_event_in: null,
   gw_cluster_url: null,

@@ -8,6 +8,7 @@
 | **chef_server_key** | **String** | Server key | [optional] |
 | **chef_server_url** | **String** | Server URL | [optional] |
 | **chef_server_username** | **String** | Server username | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -31,6 +32,7 @@ instance = Akeyless::DynamicSecretCreateChef.new(
   chef_server_key: null,
   chef_server_url: null,
   chef_server_username: null,
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   json: null,

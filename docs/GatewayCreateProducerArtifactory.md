@@ -9,6 +9,7 @@
 | **artifactory_token_audience** | **String** | Token Audience |  |
 | **artifactory_token_scope** | **String** | Token Scope |  |
 | **base_url** | **String** | Base URL | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
@@ -30,6 +31,7 @@ instance = Akeyless::GatewayCreateProducerArtifactory.new(
   artifactory_token_audience: null,
   artifactory_token_scope: null,
   base_url: null,
+  custom_username_template: null,
   delete_protection: null,
   json: null,
   name: null,

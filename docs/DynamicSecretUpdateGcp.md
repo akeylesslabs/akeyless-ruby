@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **gcp_cred_type** | **String** |  | [optional] |
@@ -29,6 +30,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateGcp.new(
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   gcp_cred_type: null,

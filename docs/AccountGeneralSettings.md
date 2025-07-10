@@ -9,6 +9,7 @@
 | **allowed_clients_ips** | [**AllowedIpSettings**](AllowedIpSettings.md) |  | [optional] |
 | **allowed_gateways_ips** | [**AllowedIpSettings**](AllowedIpSettings.md) |  | [optional] |
 | **auth_usage_event** | [**UsageEventSetting**](UsageEventSetting.md) |  | [optional] |
+| **certificate_expiration_events** | [**CertificateExpirationEventsSettings**](CertificateExpirationEventsSettings.md) |  | [optional] |
 | **data_protection_section** | [**DataProtectionSection**](DataProtectionSection.md) |  | [optional] |
 | **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
@@ -36,6 +37,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   allowed_clients_ips: null,
   allowed_gateways_ips: null,
   auth_usage_event: null,
+  certificate_expiration_events: null,
   data_protection_section: null,
   default_home_page: null,
   dynamic_secret_max_ttl: null,

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **creation_statements** | **String** | PostgreSQL Creation statements | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
@@ -39,6 +40,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerPostgreSQL.new(
   creation_statements: null,
+  custom_username_template: null,
   delete_protection: null,
   json: null,
   name: null,

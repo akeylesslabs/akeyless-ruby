@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_allowed_namespaces** | **String** | Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
@@ -43,6 +44,7 @@
 require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerNativeK8S.new(
+  custom_username_template: null,
   delete_protection: null,
   json: null,
   k8s_allowed_namespaces: null,

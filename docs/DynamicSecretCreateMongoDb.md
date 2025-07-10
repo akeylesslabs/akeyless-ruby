@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -41,6 +42,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretCreateMongoDb.new(
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   json: null,

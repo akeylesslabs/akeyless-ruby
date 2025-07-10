@@ -7,6 +7,7 @@
 | **provider_type** | **String** |  | [optional] |
 | **bind_dn** | **String** | Bind DN | [optional] |
 | **bind_dn_password** | **String** | Bind DN Password | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
@@ -45,6 +46,7 @@ instance = Akeyless::DynamicSecretCreateLdap.new(
   provider_type: null,
   bind_dn: null,
   bind_dn_password: null,
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   external_username: null,

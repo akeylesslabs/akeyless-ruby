@@ -9,6 +9,7 @@
 | **cassandra_password** | **String** | Cassandra superuser password | [optional] |
 | **cassandra_port** | **String** | Cassandra port | [optional][default to &#39;9042&#39;] |
 | **cassandra_username** | **String** | Cassandra superuser username | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -35,6 +36,7 @@ instance = Akeyless::DynamicSecretUpdateCassandra.new(
   cassandra_password: null,
   cassandra_port: null,
   cassandra_username: null,
+  custom_username_template: null,
   delete_protection: null,
   description: null,
   json: null,

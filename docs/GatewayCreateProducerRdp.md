@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **allow_user_extend_session** | **Integer** | AllowUserExtendSession | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **fixed_user_only** | **String** | Allow access using externally (IdP) provided username [true/false] | [optional][default to &#39;false&#39;] |
@@ -40,6 +41,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayCreateProducerRdp.new(
   allow_user_extend_session: null,
+  custom_username_template: null,
   delete_protection: null,
   fixed_user_claim_keyname: null,
   fixed_user_only: null,

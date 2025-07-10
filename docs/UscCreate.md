@@ -9,6 +9,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
+| **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
 | **secret_name** | **String** | Name for the new universal secrets |  |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -27,6 +28,7 @@ instance = Akeyless::UscCreate.new(
   json: null,
   namespace: null,
   object_type: null,
+  pfx_password: null,
   secret_name: null,
   tags: null,
   token: null,

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acl_rules** | **String** | A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat By default the user will have permissions to read all keys &#39;[\&quot;~*\&quot;, \&quot;+@read\&quot;]&#39; | [optional] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **host** | **String** | Redis Host | [optional][default to &#39;127.0.0.1&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -29,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayCreateProducerRedis.new(
   acl_rules: null,
+  custom_username_template: null,
   delete_protection: null,
   host: null,
   json: null,

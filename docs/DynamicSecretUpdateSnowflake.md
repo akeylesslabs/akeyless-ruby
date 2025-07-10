@@ -7,10 +7,13 @@
 | **account** | **String** | Account name | [optional] |
 | **account_password** | **String** | Database Password | [optional] |
 | **account_username** | **String** | Database Username | [optional] |
+| **auth_mode** | **String** | The authentication mode for the temporary user [password/key] | [optional][default to &#39;password&#39;] |
+| **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **db_name** | **String** | Database name | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **key_algo** | **String** |  | [optional] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
@@ -33,10 +36,13 @@ instance = Akeyless::DynamicSecretUpdateSnowflake.new(
   account: null,
   account_password: null,
   account_username: null,
+  auth_mode: null,
+  custom_username_template: null,
   db_name: null,
   delete_protection: null,
   description: null,
   json: null,
+  key_algo: null,
   name: null,
   new_name: null,
   password_length: null,
