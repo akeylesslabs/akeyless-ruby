@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | Key of the api credentials to the Godaddy account |  |
 | **comment** | **String** | Deprecated - use description | [optional] |
+| **customer_id** | **String** | Customer ID (ShopperId) required for renewal of imported certificates | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **imap_fqdn** | **String** | ImapFQDN of the IMAP service, FQDN or IPv4 address. Must be FQDN if the IMAP is using TLS |  |
 | **imap_password** | **String** | ImapPassword to access the IMAP service |  |
@@ -31,6 +32,7 @@ require 'akeyless'
 instance = Akeyless::UpdateGodaddyTarget.new(
   api_key: null,
   comment: null,
+  customer_id: null,
   description: null,
   imap_fqdn: null,
   imap_password: null,

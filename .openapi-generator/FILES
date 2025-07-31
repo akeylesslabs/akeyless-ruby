@@ -2217,11 +2217,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/aws_gateway_cloud_identity_external_id_opt_spec.rb
-spec/models/certificate_expiration_events_settings_spec.rb
-spec/models/rotated_secret_delete_sync_output_spec.rb
-spec/models/secret_sync_output_spec.rb
-spec/models/static_secret_delete_sync_output_spec.rb
-spec/models/static_secret_delete_sync_spec.rb
-spec/models/static_secret_sync_spec.rb
 spec/spec_helper.rb

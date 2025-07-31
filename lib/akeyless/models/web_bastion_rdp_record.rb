@@ -19,6 +19,12 @@ module Akeyless
 
     attr_accessor :azure
 
+    attr_accessor :compress
+
+    attr_accessor :encryption_key
+
+    attr_accessor :recording_quality
+
     attr_accessor :storage_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -26,6 +32,9 @@ module Akeyless
       {
         :'aws' => :'aws',
         :'azure' => :'azure',
+        :'compress' => :'compress',
+        :'encryption_key' => :'encryption_key',
+        :'recording_quality' => :'recording_quality',
         :'storage_type' => :'storage_type'
       }
     end
@@ -40,6 +49,9 @@ module Akeyless
       {
         :'aws' => :'AwsStorage',
         :'azure' => :'AzureStorage',
+        :'compress' => :'Boolean',
+        :'encryption_key' => :'String',
+        :'recording_quality' => :'String',
         :'storage_type' => :'String'
       }
     end
@@ -73,6 +85,18 @@ module Akeyless
         self.azure = attributes[:'azure']
       end
 
+      if attributes.key?(:'compress')
+        self.compress = attributes[:'compress']
+      end
+
+      if attributes.key?(:'encryption_key')
+        self.encryption_key = attributes[:'encryption_key']
+      end
+
+      if attributes.key?(:'recording_quality')
+        self.recording_quality = attributes[:'recording_quality']
+      end
+
       if attributes.key?(:'storage_type')
         self.storage_type = attributes[:'storage_type']
       end
@@ -100,6 +124,9 @@ module Akeyless
       self.class == o.class &&
           aws == o.aws &&
           azure == o.azure &&
+          compress == o.compress &&
+          encryption_key == o.encryption_key &&
+          recording_quality == o.recording_quality &&
           storage_type == o.storage_type
     end
 
@@ -112,7 +139,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws, azure, storage_type].hash
+      [aws, azure, compress, encryption_key, recording_quality, storage_type].hash
     end
 
     # Builds the object from hash

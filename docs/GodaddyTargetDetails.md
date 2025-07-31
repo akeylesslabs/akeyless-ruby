@@ -10,6 +10,7 @@
 | **imap_user** | **String** |  | [optional] |
 | **key** | **String** |  | [optional] |
 | **secret** | **String** |  | [optional] |
+| **shopper_id** | **String** | Optional, used to find the certificate ID in GoDaddy&#39;s API | [optional] |
 | **timeout** | **Integer** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. | [optional] |
 | **validation_email** | **String** |  | [optional] |
 
@@ -25,6 +26,7 @@ instance = Akeyless::GodaddyTargetDetails.new(
   imap_user: null,
   key: null,
   secret: null,
+  shopper_id: null,
   timeout: null,
   validation_email: null
 )

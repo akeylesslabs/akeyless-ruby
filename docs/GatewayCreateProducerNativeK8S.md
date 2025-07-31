@@ -15,6 +15,7 @@
 | **k8s_namespace** | **String** | K8S Namespace where the ServiceAccount exists. | [optional] |
 | **k8s_predefined_role_name** | **String** | The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
 | **k8s_predefined_role_type** | **String** | Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
+| **k8s_rolebinding_yaml_data** | **String** | Content of the yaml in a Base64 format. | [optional] |
 | **k8s_rolebinding_yaml_def** | **String** | Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type&#x3D;dynamic) | [optional] |
 | **k8s_service_account** | **String** | K8S ServiceAccount to extract token from. | [optional] |
 | **k8s_service_account_type** | **String** | K8S ServiceAccount type [fixed, dynamic]. | [optional] |
@@ -54,6 +55,7 @@ instance = Akeyless::GatewayCreateProducerNativeK8S.new(
   k8s_namespace: null,
   k8s_predefined_role_name: null,
   k8s_predefined_role_type: null,
+  k8s_rolebinding_yaml_data: null,
   k8s_rolebinding_yaml_def: null,
   k8s_service_account: null,
   k8s_service_account_type: null,

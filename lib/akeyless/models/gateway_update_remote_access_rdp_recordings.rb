@@ -52,6 +52,15 @@ module Akeyless
     # Enable recording of rdp session [true/false]
     attr_accessor :rdp_session_recording
 
+    # Whether to compress recording files before upload
+    attr_accessor :rdp_session_recording_compress
+
+    # If provided, this key will be used to encrypt uploaded recordings.
+    attr_accessor :rdp_session_recording_encryption_key
+
+    # RDP session recording quality [low/medium/high]
+    attr_accessor :rdp_session_recording_quality
+
     # Rdp session recording storage destination [local/aws/azure]
     attr_accessor :rdp_session_storage
 
@@ -76,6 +85,9 @@ module Akeyless
         :'azure_storage_tenant_id' => :'azure-storage-tenant-id',
         :'json' => :'json',
         :'rdp_session_recording' => :'rdp-session-recording',
+        :'rdp_session_recording_compress' => :'rdp-session-recording-compress',
+        :'rdp_session_recording_encryption_key' => :'rdp-session-recording-encryption-key',
+        :'rdp_session_recording_quality' => :'rdp-session-recording-quality',
         :'rdp_session_storage' => :'rdp-session-storage',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -102,6 +114,9 @@ module Akeyless
         :'azure_storage_tenant_id' => :'String',
         :'json' => :'Boolean',
         :'rdp_session_recording' => :'String',
+        :'rdp_session_recording_compress' => :'Boolean',
+        :'rdp_session_recording_encryption_key' => :'String',
+        :'rdp_session_recording_quality' => :'String',
         :'rdp_session_storage' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -179,6 +194,18 @@ module Akeyless
         self.rdp_session_recording = attributes[:'rdp_session_recording']
       end
 
+      if attributes.key?(:'rdp_session_recording_compress')
+        self.rdp_session_recording_compress = attributes[:'rdp_session_recording_compress']
+      end
+
+      if attributes.key?(:'rdp_session_recording_encryption_key')
+        self.rdp_session_recording_encryption_key = attributes[:'rdp_session_recording_encryption_key']
+      end
+
+      if attributes.key?(:'rdp_session_recording_quality')
+        self.rdp_session_recording_quality = attributes[:'rdp_session_recording_quality']
+      end
+
       if attributes.key?(:'rdp_session_storage')
         self.rdp_session_storage = attributes[:'rdp_session_storage']
       end
@@ -224,6 +251,9 @@ module Akeyless
           azure_storage_tenant_id == o.azure_storage_tenant_id &&
           json == o.json &&
           rdp_session_recording == o.rdp_session_recording &&
+          rdp_session_recording_compress == o.rdp_session_recording_compress &&
+          rdp_session_recording_encryption_key == o.rdp_session_recording_encryption_key &&
+          rdp_session_recording_quality == o.rdp_session_recording_quality &&
           rdp_session_storage == o.rdp_session_storage &&
           token == o.token &&
           uid_token == o.uid_token
@@ -238,7 +268,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_storage_access_key_id, aws_storage_bucket_name, aws_storage_bucket_prefix, aws_storage_region, aws_storage_secret_access_key, azure_storage_account_name, azure_storage_client_id, azure_storage_client_secret, azure_storage_container_name, azure_storage_tenant_id, json, rdp_session_recording, rdp_session_storage, token, uid_token].hash
+      [aws_storage_access_key_id, aws_storage_bucket_name, aws_storage_bucket_prefix, aws_storage_region, aws_storage_secret_access_key, azure_storage_account_name, azure_storage_client_id, azure_storage_client_secret, azure_storage_container_name, azure_storage_tenant_id, json, rdp_session_recording, rdp_session_recording_compress, rdp_session_recording_encryption_key, rdp_session_recording_quality, rdp_session_storage, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -16,6 +16,9 @@
 | **azure_storage_tenant_id** | **String** | Azure tenant id. For more information refer to https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **rdp_session_recording** | **String** | Enable recording of rdp session [true/false] | [optional] |
+| **rdp_session_recording_compress** | **Boolean** | Whether to compress recording files before upload | [optional] |
+| **rdp_session_recording_encryption_key** | **String** | If provided, this key will be used to encrypt uploaded recordings. | [optional] |
+| **rdp_session_recording_quality** | **String** | RDP session recording quality [low/medium/high] | [optional] |
 | **rdp_session_storage** | **String** | Rdp session recording storage destination [local/aws/azure] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -38,6 +41,9 @@ instance = Akeyless::GatewayUpdateRemoteAccessRdpRecordings.new(
   azure_storage_tenant_id: null,
   json: null,
   rdp_session_recording: null,
+  rdp_session_recording_compress: null,
+  rdp_session_recording_encryption_key: null,
+  rdp_session_recording_quality: null,
   rdp_session_storage: null,
   token: null,
   uid_token: null

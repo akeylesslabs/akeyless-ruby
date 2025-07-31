@@ -28,6 +28,9 @@ module Akeyless
 
     attr_accessor :secret
 
+    # Optional, used to find the certificate ID in GoDaddy's API
+    attr_accessor :shopper_id
+
     # A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
     attr_accessor :timeout
 
@@ -42,6 +45,7 @@ module Akeyless
         :'imap_user' => :'imap_user',
         :'key' => :'key',
         :'secret' => :'secret',
+        :'shopper_id' => :'shopper_id',
         :'timeout' => :'timeout',
         :'validation_email' => :'validation_email'
       }
@@ -61,6 +65,7 @@ module Akeyless
         :'imap_user' => :'String',
         :'key' => :'String',
         :'secret' => :'String',
+        :'shopper_id' => :'String',
         :'timeout' => :'Integer',
         :'validation_email' => :'String'
       }
@@ -111,6 +116,10 @@ module Akeyless
         self.secret = attributes[:'secret']
       end
 
+      if attributes.key?(:'shopper_id')
+        self.shopper_id = attributes[:'shopper_id']
+      end
+
       if attributes.key?(:'timeout')
         self.timeout = attributes[:'timeout']
       end
@@ -146,6 +155,7 @@ module Akeyless
           imap_user == o.imap_user &&
           key == o.key &&
           secret == o.secret &&
+          shopper_id == o.shopper_id &&
           timeout == o.timeout &&
           validation_email == o.validation_email
     end
@@ -159,7 +169,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [imap_fqdn, imap_password, imap_port, imap_user, key, secret, timeout, validation_email].hash
+      [imap_fqdn, imap_password, imap_port, imap_user, key, secret, shopper_id, timeout, validation_email].hash
     end
 
     # Builds the object from hash

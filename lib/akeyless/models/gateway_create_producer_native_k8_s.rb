@@ -49,6 +49,9 @@ module Akeyless
     # Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)
     attr_accessor :k8s_predefined_role_type
 
+    # Content of the yaml in a Base64 format.
+    attr_accessor :k8s_rolebinding_yaml_data
+
     # Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
     attr_accessor :k8s_rolebinding_yaml_def
 
@@ -126,6 +129,7 @@ module Akeyless
         :'k8s_namespace' => :'k8s-namespace',
         :'k8s_predefined_role_name' => :'k8s-predefined-role-name',
         :'k8s_predefined_role_type' => :'k8s-predefined-role-type',
+        :'k8s_rolebinding_yaml_data' => :'k8s-rolebinding-yaml-data',
         :'k8s_rolebinding_yaml_def' => :'k8s-rolebinding-yaml-def',
         :'k8s_service_account' => :'k8s-service-account',
         :'k8s_service_account_type' => :'k8s-service-account-type',
@@ -169,6 +173,7 @@ module Akeyless
         :'k8s_namespace' => :'String',
         :'k8s_predefined_role_name' => :'String',
         :'k8s_predefined_role_type' => :'String',
+        :'k8s_rolebinding_yaml_data' => :'String',
         :'k8s_rolebinding_yaml_def' => :'String',
         :'k8s_service_account' => :'String',
         :'k8s_service_account_type' => :'String',
@@ -258,6 +263,10 @@ module Akeyless
 
       if attributes.key?(:'k8s_predefined_role_type')
         self.k8s_predefined_role_type = attributes[:'k8s_predefined_role_type']
+      end
+
+      if attributes.key?(:'k8s_rolebinding_yaml_data')
+        self.k8s_rolebinding_yaml_data = attributes[:'k8s_rolebinding_yaml_data']
       end
 
       if attributes.key?(:'k8s_rolebinding_yaml_def')
@@ -393,6 +402,7 @@ module Akeyless
           k8s_namespace == o.k8s_namespace &&
           k8s_predefined_role_name == o.k8s_predefined_role_name &&
           k8s_predefined_role_type == o.k8s_predefined_role_type &&
+          k8s_rolebinding_yaml_data == o.k8s_rolebinding_yaml_data &&
           k8s_rolebinding_yaml_def == o.k8s_rolebinding_yaml_def &&
           k8s_service_account == o.k8s_service_account &&
           k8s_service_account_type == o.k8s_service_account_type &&
@@ -425,7 +435,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
+      [custom_username_template, delete_protection, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
     end
 
     # Builds the object from hash

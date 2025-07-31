@@ -18,6 +18,9 @@ module Akeyless
     # Key of the api credentials to the Godaddy account
     attr_accessor :api_key
 
+    # Customer ID (ShopperId) required for renewal of imported certificates
+    attr_accessor :customer_id
+
     # Description of the object
     attr_accessor :description
 
@@ -67,6 +70,7 @@ module Akeyless
     def self.attribute_map
       {
         :'api_key' => :'api-key',
+        :'customer_id' => :'customer_id',
         :'description' => :'description',
         :'imap_fqdn' => :'imap-fqdn',
         :'imap_password' => :'imap-password',
@@ -94,6 +98,7 @@ module Akeyless
     def self.openapi_types
       {
         :'api_key' => :'String',
+        :'customer_id' => :'String',
         :'description' => :'String',
         :'imap_fqdn' => :'String',
         :'imap_password' => :'String',
@@ -137,6 +142,10 @@ module Akeyless
         self.api_key = attributes[:'api_key']
       else
         self.api_key = nil
+      end
+
+      if attributes.key?(:'customer_id')
+        self.customer_id = attributes[:'customer_id']
       end
 
       if attributes.key?(:'description')
@@ -267,6 +276,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           api_key == o.api_key &&
+          customer_id == o.customer_id &&
           description == o.description &&
           imap_fqdn == o.imap_fqdn &&
           imap_password == o.imap_password &&
@@ -293,7 +303,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, description, imap_fqdn, imap_password, imap_port, imap_username, json, keep_prev_version, key, max_versions, name, new_name, secret, timeout, token, uid_token].hash
+      [api_key, customer_id, description, imap_fqdn, imap_password, imap_port, imap_username, json, keep_prev_version, key, max_versions, name, new_name, secret, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash
