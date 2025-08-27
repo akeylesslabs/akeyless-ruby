@@ -9,7 +9,7 @@
 | **cert_file_data** | **String** | Certificate in a PEM format. | [optional] |
 | **certificate_common_name** | **String** | Common name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_country** | **String** | Country name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
-| **certificate_digest_algo** | **String** | Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI. | [optional] |
+| **certificate_digest_algo** | **String** | Digest algorithm to be used for the certificate key signing. | [optional] |
 | **certificate_format** | **String** |  | [optional] |
 | **certificate_locality** | **String** | Locality for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_organization** | **String** | Organization name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
@@ -21,6 +21,7 @@
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **generate_self_signed_certificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. | [optional] |
 | **gpg_alg** | **String** | gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519] | [optional] |
+| **hash_algorithm** | **String** | Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512] | [optional][default to &#39;SHA256&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_data** | **String** | Base64-encoded classic key value | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
@@ -55,6 +56,7 @@ instance = Akeyless::CreateClassicKey.new(
   expiration_event_in: null,
   generate_self_signed_certificate: null,
   gpg_alg: null,
+  hash_algorithm: null,
   json: null,
   key_data: null,
   metadata: null,

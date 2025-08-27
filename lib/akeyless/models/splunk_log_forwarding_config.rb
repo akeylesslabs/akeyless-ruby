@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class SplunkLogForwardingConfig
+    attr_accessor :splunk_enable_batch
+
     attr_accessor :splunk_enable_tls
 
     attr_accessor :splunk_index
@@ -32,6 +34,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'splunk_enable_batch' => :'splunk_enable_batch',
         :'splunk_enable_tls' => :'splunk_enable_tls',
         :'splunk_index' => :'splunk_index',
         :'splunk_source' => :'splunk_source',
@@ -50,6 +53,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'splunk_enable_batch' => :'String',
         :'splunk_enable_tls' => :'Boolean',
         :'splunk_index' => :'String',
         :'splunk_source' => :'String',
@@ -80,6 +84,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'splunk_enable_batch')
+        self.splunk_enable_batch = attributes[:'splunk_enable_batch']
+      end
 
       if attributes.key?(:'splunk_enable_tls')
         self.splunk_enable_tls = attributes[:'splunk_enable_tls']
@@ -130,6 +138,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          splunk_enable_batch == o.splunk_enable_batch &&
           splunk_enable_tls == o.splunk_enable_tls &&
           splunk_index == o.splunk_index &&
           splunk_source == o.splunk_source &&
@@ -148,7 +157,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [splunk_enable_tls, splunk_index, splunk_source, splunk_sourcetype, splunk_tls_certificate, splunk_token, splunk_url].hash
+      [splunk_enable_batch, splunk_enable_tls, splunk_index, splunk_source, splunk_sourcetype, splunk_tls_certificate, splunk_token, splunk_url].hash
     end
 
     # Builds the object from hash

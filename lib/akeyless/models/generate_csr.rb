@@ -47,6 +47,9 @@ module Akeyless
     # Generate a new classic key for the csr
     attr_accessor :generate_key
 
+    # Specifies the hash algorithm used for the encryption key's operations, available options: SHA256, SHA384, SHA512
+    attr_accessor :hash_algorithm
+
     # A comma-separated list of ip addresses alternative names
     attr_accessor :ip_addresses
 
@@ -91,6 +94,7 @@ module Akeyless
         :'email_addresses' => :'email-addresses',
         :'export_private_key' => :'export-private-key',
         :'generate_key' => :'generate-key',
+        :'hash_algorithm' => :'hash-algorithm',
         :'ip_addresses' => :'ip-addresses',
         :'json' => :'json',
         :'key_type' => :'key-type',
@@ -123,6 +127,7 @@ module Akeyless
         :'email_addresses' => :'String',
         :'export_private_key' => :'Boolean',
         :'generate_key' => :'Boolean',
+        :'hash_algorithm' => :'String',
         :'ip_addresses' => :'String',
         :'json' => :'Boolean',
         :'key_type' => :'String',
@@ -203,6 +208,12 @@ module Akeyless
 
       if attributes.key?(:'generate_key')
         self.generate_key = attributes[:'generate_key']
+      end
+
+      if attributes.key?(:'hash_algorithm')
+        self.hash_algorithm = attributes[:'hash_algorithm']
+      else
+        self.hash_algorithm = 'SHA256'
       end
 
       if attributes.key?(:'ip_addresses')
@@ -300,6 +311,7 @@ module Akeyless
           email_addresses == o.email_addresses &&
           export_private_key == o.export_private_key &&
           generate_key == o.generate_key &&
+          hash_algorithm == o.hash_algorithm &&
           ip_addresses == o.ip_addresses &&
           json == o.json &&
           key_type == o.key_type &&
@@ -321,7 +333,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, alt_names, certificate_type, city, common_name, country, critical, dep, email_addresses, export_private_key, generate_key, ip_addresses, json, key_type, name, org, split_level, state, token, uid_token, uri_sans].hash
+      [alg, alt_names, certificate_type, city, common_name, country, critical, dep, email_addresses, export_private_key, generate_key, hash_algorithm, ip_addresses, json, key_type, name, org, split_level, state, token, uid_token, uri_sans].hash
     end
 
     # Builds the object from hash

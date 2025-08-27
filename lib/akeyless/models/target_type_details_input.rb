@@ -33,6 +33,8 @@ module Akeyless
 
     attr_accessor :gcp_target_details
 
+    attr_accessor :gemini_target_details
+
     attr_accessor :github_target_details
 
     attr_accessor :gitlab_target_details
@@ -54,6 +56,8 @@ module Akeyless
     attr_accessor :mongo_db_target_details
 
     attr_accessor :native_k8s_target_details
+
+    attr_accessor :openai_target_details
 
     attr_accessor :ping_target_details
 
@@ -85,6 +89,7 @@ module Akeyless
         :'dockerhub_target_details' => :'dockerhub_target_details',
         :'eks_target_details' => :'eks_target_details',
         :'gcp_target_details' => :'gcp_target_details',
+        :'gemini_target_details' => :'gemini_target_details',
         :'github_target_details' => :'github_target_details',
         :'gitlab_target_details' => :'gitlab_target_details',
         :'gke_target_details' => :'gke_target_details',
@@ -96,6 +101,7 @@ module Akeyless
         :'linked_target_details' => :'linked_target_details',
         :'mongo_db_target_details' => :'mongo_db_target_details',
         :'native_k8s_target_details' => :'native_k8s_target_details',
+        :'openai_target_details' => :'openai_target_details',
         :'ping_target_details' => :'ping_target_details',
         :'rabbit_mq_target_details' => :'rabbit_mq_target_details',
         :'salesforce_target_details' => :'salesforce_target_details',
@@ -125,6 +131,7 @@ module Akeyless
         :'dockerhub_target_details' => :'DockerhubTargetDetails',
         :'eks_target_details' => :'EKSTargetDetails',
         :'gcp_target_details' => :'GcpTargetDetails',
+        :'gemini_target_details' => :'GeminiTargetDetails',
         :'github_target_details' => :'GithubTargetDetails',
         :'gitlab_target_details' => :'GitlabTargetDetails',
         :'gke_target_details' => :'GKETargetDetails',
@@ -136,6 +143,7 @@ module Akeyless
         :'linked_target_details' => :'LinkedTargetDetails',
         :'mongo_db_target_details' => :'MongoDBTargetDetails',
         :'native_k8s_target_details' => :'NativeK8sTargetDetails',
+        :'openai_target_details' => :'OpenAITargetDetails',
         :'ping_target_details' => :'PingTargetDetails',
         :'rabbit_mq_target_details' => :'RabbitMQTargetDetails',
         :'salesforce_target_details' => :'SalesforceTargetDetails',
@@ -205,6 +213,10 @@ module Akeyless
         self.gcp_target_details = attributes[:'gcp_target_details']
       end
 
+      if attributes.key?(:'gemini_target_details')
+        self.gemini_target_details = attributes[:'gemini_target_details']
+      end
+
       if attributes.key?(:'github_target_details')
         self.github_target_details = attributes[:'github_target_details']
       end
@@ -247,6 +259,10 @@ module Akeyless
 
       if attributes.key?(:'native_k8s_target_details')
         self.native_k8s_target_details = attributes[:'native_k8s_target_details']
+      end
+
+      if attributes.key?(:'openai_target_details')
+        self.openai_target_details = attributes[:'openai_target_details']
       end
 
       if attributes.key?(:'ping_target_details')
@@ -315,6 +331,7 @@ module Akeyless
           dockerhub_target_details == o.dockerhub_target_details &&
           eks_target_details == o.eks_target_details &&
           gcp_target_details == o.gcp_target_details &&
+          gemini_target_details == o.gemini_target_details &&
           github_target_details == o.github_target_details &&
           gitlab_target_details == o.gitlab_target_details &&
           gke_target_details == o.gke_target_details &&
@@ -326,6 +343,7 @@ module Akeyless
           linked_target_details == o.linked_target_details &&
           mongo_db_target_details == o.mongo_db_target_details &&
           native_k8s_target_details == o.native_k8s_target_details &&
+          openai_target_details == o.openai_target_details &&
           ping_target_details == o.ping_target_details &&
           rabbit_mq_target_details == o.rabbit_mq_target_details &&
           salesforce_target_details == o.salesforce_target_details &&
@@ -346,7 +364,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, hashi_vault_target_details, ldap_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, hashi_vault_target_details, ldap_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

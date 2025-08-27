@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class AzureLogAnalyticsForwardingConfig
+    attr_accessor :azure_enable_batch
+
     attr_accessor :azure_workspace_id
 
     attr_accessor :azure_workspace_key
@@ -22,6 +24,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'azure_enable_batch' => :'azure_enable_batch',
         :'azure_workspace_id' => :'azure_workspace_id',
         :'azure_workspace_key' => :'azure_workspace_key'
       }
@@ -35,6 +38,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'azure_enable_batch' => :'String',
         :'azure_workspace_id' => :'String',
         :'azure_workspace_key' => :'String'
       }
@@ -60,6 +64,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'azure_enable_batch')
+        self.azure_enable_batch = attributes[:'azure_enable_batch']
+      end
 
       if attributes.key?(:'azure_workspace_id')
         self.azure_workspace_id = attributes[:'azure_workspace_id']
@@ -90,6 +98,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          azure_enable_batch == o.azure_enable_batch &&
           azure_workspace_id == o.azure_workspace_id &&
           azure_workspace_key == o.azure_workspace_key
     end
@@ -103,7 +112,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_workspace_id, azure_workspace_key].hash
+      [azure_enable_batch, azure_workspace_id, azure_workspace_key].hash
     end
 
     # Builds the object from hash

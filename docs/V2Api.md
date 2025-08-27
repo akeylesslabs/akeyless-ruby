@@ -447,6 +447,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
 | [**target_create_eks**](V2Api.md#target_create_eks) | **POST** /target-create-eks |  |
 | [**target_create_gcp**](V2Api.md#target_create_gcp) | **POST** /target-create-gcp |  |
+| [**target_create_gemini**](V2Api.md#target_create_gemini) | **POST** /target-create-gemini |  |
 | [**target_create_github**](V2Api.md#target_create_github) | **POST** /target-create-github |  |
 | [**target_create_gitlab**](V2Api.md#target_create_gitlab) | **POST** /target-create-gitlab |  |
 | [**target_create_gke**](V2Api.md#target_create_gke) | **POST** /target-create-gke |  |
@@ -457,6 +458,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_k8s**](V2Api.md#target_create_k8s) | **POST** /target-create-k8s |  |
 | [**target_create_ldap**](V2Api.md#target_create_ldap) | **POST** /target-create-ldap |  |
 | [**target_create_linked**](V2Api.md#target_create_linked) | **POST** /target-create-linked |  |
+| [**target_create_open_ai**](V2Api.md#target_create_open_ai) | **POST** /target-create-openai |  |
 | [**target_create_ping**](V2Api.md#target_create_ping) | **POST** /target-create-ping |  |
 | [**target_create_rabbit_mq**](V2Api.md#target_create_rabbit_mq) | **POST** /target-create-rabbitmq |  |
 | [**target_create_salesforce**](V2Api.md#target_create_salesforce) | **POST** /target-create-salesforce |  |
@@ -476,6 +478,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
 | [**target_update_eks**](V2Api.md#target_update_eks) | **POST** /target-update-eks |  |
 | [**target_update_gcp**](V2Api.md#target_update_gcp) | **POST** /target-update-gcp |  |
+| [**target_update_gemini**](V2Api.md#target_update_gemini) | **POST** /target-update-gemini |  |
 | [**target_update_github**](V2Api.md#target_update_github) | **POST** /target-update-github |  |
 | [**target_update_gitlab**](V2Api.md#target_update_gitlab) | **POST** /target-update-gitlab |  |
 | [**target_update_gke**](V2Api.md#target_update_gke) | **POST** /target-update-gke |  |
@@ -486,6 +489,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_k8s**](V2Api.md#target_update_k8s) | **POST** /target-update-k8s |  |
 | [**target_update_ldap**](V2Api.md#target_update_ldap) | **POST** /target-update-ldap |  |
 | [**target_update_linked**](V2Api.md#target_update_linked) | **POST** /target-update-linked |  |
+| [**target_update_open_ai**](V2Api.md#target_update_open_ai) | **POST** /target-update-openai |  |
 | [**target_update_ping**](V2Api.md#target_update_ping) | **POST** /target-update-ping |  |
 | [**target_update_rabbit_mq**](V2Api.md#target_update_rabbit_mq) | **POST** /target-update-rabbitmq |  |
 | [**target_update_salesforce**](V2Api.md#target_update_salesforce) | **POST** /target-update-salesforce |  |
@@ -28067,6 +28071,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_gemini
+
+> <TargetCreateOutput> target_create_gemini(target_create_gemini)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_gemini = Akeyless::TargetCreateGemini.new({name: 'name_example'}) # TargetCreateGemini | 
+
+begin
+  
+  result = api_instance.target_create_gemini(target_create_gemini)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gemini: #{e}"
+end
+```
+
+#### Using the target_create_gemini_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_gemini_with_http_info(target_create_gemini)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_gemini_with_http_info(target_create_gemini)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_gemini_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_gemini** | [**TargetCreateGemini**](TargetCreateGemini.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_github
 
 > <TargetCreateOutput> target_create_github(target_create_github)
@@ -28672,6 +28738,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_linked** | [**TargetCreateLinked**](TargetCreateLinked.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_open_ai
+
+> <TargetCreateOutput> target_create_open_ai(target_create_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_open_ai = Akeyless::TargetCreateOpenAI.new({name: 'name_example'}) # TargetCreateOpenAI | 
+
+begin
+  
+  result = api_instance.target_create_open_ai(target_create_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_open_ai: #{e}"
+end
+```
+
+#### Using the target_create_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_open_ai_with_http_info(target_create_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_open_ai_with_http_info(target_create_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_open_ai** | [**TargetCreateOpenAI**](TargetCreateOpenAI.md) |  |  |
 
 ### Return type
 
@@ -29865,6 +29993,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_gemini
+
+> <TargetUpdateOutput> target_update_gemini(target_update_gemini)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_gemini = Akeyless::TargetUpdateGemini.new({name: 'name_example'}) # TargetUpdateGemini | 
+
+begin
+  
+  result = api_instance.target_update_gemini(target_update_gemini)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gemini: #{e}"
+end
+```
+
+#### Using the target_update_gemini_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_gemini_with_http_info(target_update_gemini)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_gemini_with_http_info(target_update_gemini)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_gemini_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_gemini** | [**TargetUpdateGemini**](TargetUpdateGemini.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_github
 
 > <TargetUpdateOutput> target_update_github(target_update_github)
@@ -30470,6 +30660,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_linked** | [**TargetUpdateLinked**](TargetUpdateLinked.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_open_ai
+
+> <TargetUpdateOutput> target_update_open_ai(target_update_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_open_ai = Akeyless::TargetUpdateOpenAI.new({name: 'name_example'}) # TargetUpdateOpenAI | 
+
+begin
+  
+  result = api_instance.target_update_open_ai(target_update_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_open_ai: #{e}"
+end
+```
+
+#### Using the target_update_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_open_ai_with_http_info(target_update_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_open_ai_with_http_info(target_update_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_open_ai** | [**TargetUpdateOpenAI**](TargetUpdateOpenAI.md) |  |  |
 
 ### Return type
 

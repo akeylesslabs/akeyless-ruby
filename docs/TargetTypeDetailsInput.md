@@ -13,6 +13,7 @@
 | **dockerhub_target_details** | [**DockerhubTargetDetails**](DockerhubTargetDetails.md) |  | [optional] |
 | **eks_target_details** | [**EKSTargetDetails**](EKSTargetDetails.md) |  | [optional] |
 | **gcp_target_details** | [**GcpTargetDetails**](GcpTargetDetails.md) |  | [optional] |
+| **gemini_target_details** | [**GeminiTargetDetails**](GeminiTargetDetails.md) |  | [optional] |
 | **github_target_details** | [**GithubTargetDetails**](GithubTargetDetails.md) |  | [optional] |
 | **gitlab_target_details** | [**GitlabTargetDetails**](GitlabTargetDetails.md) |  | [optional] |
 | **gke_target_details** | [**GKETargetDetails**](GKETargetDetails.md) |  | [optional] |
@@ -24,6 +25,7 @@
 | **linked_target_details** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  | [optional] |
 | **mongo_db_target_details** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  | [optional] |
 | **native_k8s_target_details** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  | [optional] |
+| **openai_target_details** | [**OpenAITargetDetails**](OpenAITargetDetails.md) |  | [optional] |
 | **ping_target_details** | [**PingTargetDetails**](PingTargetDetails.md) |  | [optional] |
 | **rabbit_mq_target_details** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  | [optional] |
 | **salesforce_target_details** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  | [optional] |
@@ -49,6 +51,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   dockerhub_target_details: null,
   eks_target_details: null,
   gcp_target_details: null,
+  gemini_target_details: null,
   github_target_details: null,
   gitlab_target_details: null,
   gke_target_details: null,
@@ -60,6 +63,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   linked_target_details: null,
   mongo_db_target_details: null,
   native_k8s_target_details: null,
+  openai_target_details: null,
   ping_target_details: null,
   rabbit_mq_target_details: null,
   salesforce_target_details: null,

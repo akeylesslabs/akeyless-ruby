@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **enable** | **String** | Enable Log Forwarding [true/false] | [optional][default to &#39;true&#39;] |
+| **enable_batch** | **String** | Enable batch forwarding [true/false] | [optional][default to &#39;true&#39;] |
 | **enable_tls** | **Boolean** | Enable tls | [optional] |
 | **index** | **String** | Splunk index | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -25,6 +26,7 @@ require 'akeyless'
 
 instance = Akeyless::GwUpdateRemoteAccessSessionLogsSplunk.new(
   enable: null,
+  enable_batch: null,
   enable_tls: null,
   index: null,
   json: null,

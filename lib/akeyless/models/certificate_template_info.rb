@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :digest_algo
 
+    attr_accessor :hash_algorithm
+
     attr_accessor :locality
 
     attr_accessor :organization
@@ -40,6 +42,7 @@ module Akeyless
         :'country' => :'country',
         :'csr_cnf_base_64' => :'csr_cnf_base_64',
         :'digest_algo' => :'digest_algo',
+        :'hash_algorithm' => :'hash_algorithm',
         :'locality' => :'locality',
         :'organization' => :'organization',
         :'province' => :'province',
@@ -60,6 +63,7 @@ module Akeyless
         :'country' => :'String',
         :'csr_cnf_base_64' => :'String',
         :'digest_algo' => :'String',
+        :'hash_algorithm' => :'String',
         :'locality' => :'String',
         :'organization' => :'String',
         :'province' => :'String',
@@ -103,6 +107,10 @@ module Akeyless
 
       if attributes.key?(:'digest_algo')
         self.digest_algo = attributes[:'digest_algo']
+      end
+
+      if attributes.key?(:'hash_algorithm')
+        self.hash_algorithm = attributes[:'hash_algorithm']
       end
 
       if attributes.key?(:'locality')
@@ -150,6 +158,7 @@ module Akeyless
           country == o.country &&
           csr_cnf_base_64 == o.csr_cnf_base_64 &&
           digest_algo == o.digest_algo &&
+          hash_algorithm == o.hash_algorithm &&
           locality == o.locality &&
           organization == o.organization &&
           province == o.province &&
@@ -166,7 +175,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [common_name, country, csr_cnf_base_64, digest_algo, locality, organization, province, self_signed_enabled, ttl].hash
+      [common_name, country, csr_cnf_base_64, digest_algo, hash_algorithm, locality, organization, province, self_signed_enabled, ttl].hash
     end
 
     # Builds the object from hash

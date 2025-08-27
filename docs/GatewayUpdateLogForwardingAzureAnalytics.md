@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **enable** | **String** | Enable Log Forwarding [true/false] | [optional][default to &#39;true&#39;] |
+| **enable_batch** | **String** | Enable batch forwarding [true/false] | [optional][default to &#39;true&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **output_format** | **String** | Logs format [text/json] | [optional][default to &#39;text&#39;] |
 | **pull_interval** | **String** | Pull interval in seconds | [optional][default to &#39;10&#39;] |
@@ -20,6 +21,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayUpdateLogForwardingAzureAnalytics.new(
   enable: null,
+  enable_batch: null,
   json: null,
   output_format: null,
   pull_interval: null,

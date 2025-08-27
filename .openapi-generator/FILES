@@ -585,6 +585,7 @@ docs/GatewayUpdateTlsCertOutput.md
 docs/GatewayUpdateTmpUsers.md
 docs/GatewaysListResponse.md
 docs/GcpTargetDetails.md
+docs/GeminiTargetDetails.md
 docs/GenCustomerFragment.md
 docs/GeneralConfigPart.md
 docs/GenerateAcmeEab.md
@@ -754,6 +755,7 @@ docs/ObjectVersionSettingsOutput.md
 docs/OidcClientInfo.md
 docs/OnePasswordMigration.md
 docs/OnePasswordPayload.md
+docs/OpenAITargetDetails.md
 docs/PKICertificateIssueDetails.md
 docs/PasswordBreachInfo.md
 docs/PasswordExpirationInfo.md
@@ -902,6 +904,7 @@ docs/TargetCreateDB.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
 docs/TargetCreateGcp.md
+docs/TargetCreateGemini.md
 docs/TargetCreateGithub.md
 docs/TargetCreateGitlab.md
 docs/TargetCreateGke.md
@@ -912,6 +915,7 @@ docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
 docs/TargetCreateLinked.md
+docs/TargetCreateOpenAI.md
 docs/TargetCreateOutput.md
 docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
@@ -936,6 +940,7 @@ docs/TargetUpdateDB.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
 docs/TargetUpdateGcp.md
+docs/TargetUpdateGemini.md
 docs/TargetUpdateGithub.md
 docs/TargetUpdateGitlab.md
 docs/TargetUpdateGke.md
@@ -946,6 +951,7 @@ docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
 docs/TargetUpdateLinked.md
+docs/TargetUpdateOpenAI.md
 docs/TargetUpdateOutput.md
 docs/TargetUpdatePing.md
 docs/TargetUpdateRabbitMq.md
@@ -1692,6 +1698,7 @@ lib/akeyless/models/gcp_access_rules.rb
 lib/akeyless/models/gcp_payload.rb
 lib/akeyless/models/gcp_secrets_migration.rb
 lib/akeyless/models/gcp_target_details.rb
+lib/akeyless/models/gemini_target_details.rb
 lib/akeyless/models/gen_customer_fragment.rb
 lib/akeyless/models/general_config_part.rb
 lib/akeyless/models/generate_acme_eab.rb
@@ -1862,6 +1869,7 @@ lib/akeyless/models/oidc_client_info.rb
 lib/akeyless/models/oidc_custom_claim.rb
 lib/akeyless/models/one_password_migration.rb
 lib/akeyless/models/one_password_payload.rb
+lib/akeyless/models/open_ai_target_details.rb
 lib/akeyless/models/password_breach_info.rb
 lib/akeyless/models/password_expiration_info.rb
 lib/akeyless/models/password_policy_info.rb
@@ -2010,6 +2018,7 @@ lib/akeyless/models/target_create_db.rb
 lib/akeyless/models/target_create_dockerhub.rb
 lib/akeyless/models/target_create_eks.rb
 lib/akeyless/models/target_create_gcp.rb
+lib/akeyless/models/target_create_gemini.rb
 lib/akeyless/models/target_create_github.rb
 lib/akeyless/models/target_create_gitlab.rb
 lib/akeyless/models/target_create_gke.rb
@@ -2020,6 +2029,7 @@ lib/akeyless/models/target_create_hashi_vault.rb
 lib/akeyless/models/target_create_k8s.rb
 lib/akeyless/models/target_create_ldap.rb
 lib/akeyless/models/target_create_linked.rb
+lib/akeyless/models/target_create_open_ai.rb
 lib/akeyless/models/target_create_output.rb
 lib/akeyless/models/target_create_ping.rb
 lib/akeyless/models/target_create_rabbit_mq.rb
@@ -2044,6 +2054,7 @@ lib/akeyless/models/target_update_db.rb
 lib/akeyless/models/target_update_dockerhub.rb
 lib/akeyless/models/target_update_eks.rb
 lib/akeyless/models/target_update_gcp.rb
+lib/akeyless/models/target_update_gemini.rb
 lib/akeyless/models/target_update_github.rb
 lib/akeyless/models/target_update_gitlab.rb
 lib/akeyless/models/target_update_gke.rb
@@ -2054,6 +2065,7 @@ lib/akeyless/models/target_update_hashi_vault.rb
 lib/akeyless/models/target_update_k8s.rb
 lib/akeyless/models/target_update_ldap.rb
 lib/akeyless/models/target_update_linked.rb
+lib/akeyless/models/target_update_open_ai.rb
 lib/akeyless/models/target_update_output.rb
 lib/akeyless/models/target_update_ping.rb
 lib/akeyless/models/target_update_rabbit_mq.rb
@@ -2217,4 +2229,10 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/gemini_target_details_spec.rb
+spec/models/open_ai_target_details_spec.rb
+spec/models/target_create_gemini_spec.rb
+spec/models/target_create_open_ai_spec.rb
+spec/models/target_update_gemini_spec.rb
+spec/models/target_update_open_ai_spec.rb
 spec/spec_helper.rb

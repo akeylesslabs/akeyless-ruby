@@ -31,7 +31,7 @@ module Akeyless
     # Country name for the generated certificate. Relevant only for generate-self-signed-certificate.
     attr_accessor :certificate_country
 
-    # Digest algorithm to be used for the certificate key signing. Currently, we support only \"sha256\" so we hide this option for CLI.
+    # Digest algorithm to be used for the certificate key signing.
     attr_accessor :certificate_digest_algo
 
     attr_accessor :certificate_format
@@ -65,6 +65,9 @@ module Akeyless
 
     # gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]
     attr_accessor :gpg_alg
+
+    # Specifies the hash algorithm used for the encryption key's operations, available options: [SHA256, SHA384, SHA512]
+    attr_accessor :hash_algorithm
 
     # Set output format to JSON
     attr_accessor :json
@@ -116,6 +119,7 @@ module Akeyless
         :'expiration_event_in' => :'expiration-event-in',
         :'generate_self_signed_certificate' => :'generate-self-signed-certificate',
         :'gpg_alg' => :'gpg-alg',
+        :'hash_algorithm' => :'hash-algorithm',
         :'json' => :'json',
         :'key_data' => :'key-data',
         :'metadata' => :'metadata',
@@ -154,6 +158,7 @@ module Akeyless
         :'expiration_event_in' => :'Array<String>',
         :'generate_self_signed_certificate' => :'Boolean',
         :'gpg_alg' => :'String',
+        :'hash_algorithm' => :'String',
         :'json' => :'Boolean',
         :'key_data' => :'String',
         :'metadata' => :'String',
@@ -260,6 +265,12 @@ module Akeyless
         self.gpg_alg = attributes[:'gpg_alg']
       end
 
+      if attributes.key?(:'hash_algorithm')
+        self.hash_algorithm = attributes[:'hash_algorithm']
+      else
+        self.hash_algorithm = 'SHA256'
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -356,6 +367,7 @@ module Akeyless
           expiration_event_in == o.expiration_event_in &&
           generate_self_signed_certificate == o.generate_self_signed_certificate &&
           gpg_alg == o.gpg_alg &&
+          hash_algorithm == o.hash_algorithm &&
           json == o.json &&
           key_data == o.key_data &&
           metadata == o.metadata &&
@@ -377,7 +389,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, auto_rotate, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, expiration_event_in, generate_self_signed_certificate, gpg_alg, json, key_data, metadata, name, protection_key_name, rotation_event_in, rotation_interval, tags, token, uid_token].hash
+      [alg, auto_rotate, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, expiration_event_in, generate_self_signed_certificate, gpg_alg, hash_algorithm, json, key_data, metadata, name, protection_key_name, rotation_event_in, rotation_interval, tags, token, uid_token].hash
     end
 
     # Builds the object from hash

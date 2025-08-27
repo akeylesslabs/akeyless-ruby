@@ -28262,6 +28262,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_gemini [TargetCreateGemini] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_gemini(target_create_gemini, opts = {})
+      data, _status_code, _headers = target_create_gemini_with_http_info(target_create_gemini, opts)
+      data
+    end
+
+    # @param target_create_gemini [TargetCreateGemini] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_gemini_with_http_info(target_create_gemini, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_gemini ...'
+      end
+      # verify the required parameter 'target_create_gemini' is set
+      if @api_client.config.client_side_validation && target_create_gemini.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_gemini' when calling V2Api.target_create_gemini"
+      end
+      # resource path
+      local_var_path = '/target-create-gemini'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_gemini)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_gemini",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_gemini\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_github [TargetCreateGithub] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -28898,6 +28962,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_linked\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_open_ai [TargetCreateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_open_ai(target_create_open_ai, opts = {})
+      data, _status_code, _headers = target_create_open_ai_with_http_info(target_create_open_ai, opts)
+      data
+    end
+
+    # @param target_create_open_ai [TargetCreateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_open_ai_with_http_info(target_create_open_ai, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_open_ai ...'
+      end
+      # verify the required parameter 'target_create_open_ai' is set
+      if @api_client.config.client_side_validation && target_create_open_ai.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_open_ai' when calling V2Api.target_create_open_ai"
+      end
+      # resource path
+      local_var_path = '/target-create-openai'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_open_ai)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_open_ai",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_open_ai\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -30118,6 +30246,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_update_gemini [TargetUpdateGemini] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_gemini(target_update_gemini, opts = {})
+      data, _status_code, _headers = target_update_gemini_with_http_info(target_update_gemini, opts)
+      data
+    end
+
+    # @param target_update_gemini [TargetUpdateGemini] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_gemini_with_http_info(target_update_gemini, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_gemini ...'
+      end
+      # verify the required parameter 'target_update_gemini' is set
+      if @api_client.config.client_side_validation && target_update_gemini.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_gemini' when calling V2Api.target_update_gemini"
+      end
+      # resource path
+      local_var_path = '/target-update-gemini'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_gemini)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_gemini",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_gemini\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_update_github [TargetUpdateGithub] 
     # @param [Hash] opts the optional parameters
     # @return [TargetUpdateOutput]
@@ -30754,6 +30946,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_linked\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_open_ai [TargetUpdateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_open_ai(target_update_open_ai, opts = {})
+      data, _status_code, _headers = target_update_open_ai_with_http_info(target_update_open_ai, opts)
+      data
+    end
+
+    # @param target_update_open_ai [TargetUpdateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_open_ai_with_http_info(target_update_open_ai, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_open_ai ...'
+      end
+      # verify the required parameter 'target_update_open_ai' is set
+      if @api_client.config.client_side_validation && target_update_open_ai.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_open_ai' when calling V2Api.target_update_open_ai"
+      end
+      # resource path
+      local_var_path = '/target-update-openai'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_open_ai)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_open_ai",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_open_ai\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **splunk_enable_batch** | **String** |  | [optional] |
 | **splunk_enable_tls** | **Boolean** |  | [optional] |
 | **splunk_index** | **String** |  | [optional] |
 | **splunk_source** | **String** |  | [optional] |
@@ -18,6 +19,7 @@
 require 'akeyless'
 
 instance = Akeyless::SplunkLogForwardingConfig.new(
+  splunk_enable_batch: null,
   splunk_enable_tls: null,
   splunk_index: null,
   splunk_source: null,

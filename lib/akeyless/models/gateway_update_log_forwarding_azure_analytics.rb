@@ -19,6 +19,9 @@ module Akeyless
     # Enable Log Forwarding [true/false]
     attr_accessor :enable
 
+    # Enable batch forwarding [true/false]
+    attr_accessor :enable_batch
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -44,6 +47,7 @@ module Akeyless
     def self.attribute_map
       {
         :'enable' => :'enable',
+        :'enable_batch' => :'enable-batch',
         :'json' => :'json',
         :'output_format' => :'output-format',
         :'pull_interval' => :'pull-interval',
@@ -63,6 +67,7 @@ module Akeyless
     def self.openapi_types
       {
         :'enable' => :'String',
+        :'enable_batch' => :'String',
         :'json' => :'Boolean',
         :'output_format' => :'String',
         :'pull_interval' => :'String',
@@ -98,6 +103,12 @@ module Akeyless
         self.enable = attributes[:'enable']
       else
         self.enable = 'true'
+      end
+
+      if attributes.key?(:'enable_batch')
+        self.enable_batch = attributes[:'enable_batch']
+      else
+        self.enable_batch = 'true'
       end
 
       if attributes.key?(:'json')
@@ -156,6 +167,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           enable == o.enable &&
+          enable_batch == o.enable_batch &&
           json == o.json &&
           output_format == o.output_format &&
           pull_interval == o.pull_interval &&
@@ -174,7 +186,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enable, json, output_format, pull_interval, token, uid_token, workspace_id, workspace_key].hash
+      [enable, enable_batch, json, output_format, pull_interval, token, uid_token, workspace_id, workspace_key].hash
     end
 
     # Builds the object from hash

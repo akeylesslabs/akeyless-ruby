@@ -8,7 +8,7 @@
 | **auto_rotate** | **String** | Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false] | [optional] |
 | **certificate_common_name** | **String** | Common name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_country** | **String** | Country name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
-| **certificate_digest_algo** | **String** | Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI. | [optional] |
+| **certificate_digest_algo** | **String** | Digest algorithm to be used for the certificate key signing. | [optional] |
 | **certificate_format** | **String** |  | [optional] |
 | **certificate_locality** | **String** | Locality for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
 | **certificate_organization** | **String** | Organization name for the generated certificate. Relevant only for generate-self-signed-certificate. | [optional] |
@@ -20,6 +20,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **generate_self_signed_certificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. | [optional] |
+| **hash_algorithm** | **String** | Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512] | [optional][default to &#39;SHA256&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | DFCKey name |  |
@@ -52,6 +53,7 @@ instance = Akeyless::CreateDFCKey.new(
   description: null,
   expiration_event_in: null,
   generate_self_signed_certificate: null,
+  hash_algorithm: null,
   json: null,
   metadata: null,
   name: null,

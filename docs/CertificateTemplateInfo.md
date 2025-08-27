@@ -8,6 +8,7 @@
 | **country** | **String** |  | [optional] |
 | **csr_cnf_base_64** | **String** |  | [optional] |
 | **digest_algo** | **String** |  | [optional] |
+| **hash_algorithm** | **String** |  | [optional] |
 | **locality** | **String** |  | [optional] |
 | **organization** | **String** |  | [optional] |
 | **province** | **String** |  | [optional] |
@@ -24,6 +25,7 @@ instance = Akeyless::CertificateTemplateInfo.new(
   country: null,
   csr_cnf_base_64: null,
   digest_algo: null,
+  hash_algorithm: null,
   locality: null,
   organization: null,
   province: null,

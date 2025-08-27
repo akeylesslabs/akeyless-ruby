@@ -15,6 +15,7 @@
 | **email_addresses** | **String** | A comma-separated list of email addresses alternative names | [optional] |
 | **export_private_key** | **Boolean** | The flag to indicate if the private key should be exported | [optional][default to false] |
 | **generate_key** | **Boolean** | Generate a new classic key for the csr | [optional] |
+| **hash_algorithm** | **String** | Specifies the hash algorithm used for the encryption key&#39;s operations, available options: SHA256, SHA384, SHA512 | [optional][default to &#39;SHA256&#39;] |
 | **ip_addresses** | **String** | A comma-separated list of ip addresses alternative names | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_type** | **String** | The type of the key to generate (classic-key/dfc) | [default to &#39;classic-key&#39;] |
@@ -43,6 +44,7 @@ instance = Akeyless::GenerateCsr.new(
   email_addresses: null,
   export_private_key: null,
   generate_key: null,
+  hash_algorithm: null,
   ip_addresses: null,
   json: null,
   key_type: null,

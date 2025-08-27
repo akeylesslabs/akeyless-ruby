@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class StaticSecretSync
+    # JQ expression to filter or transform the secret value
+    attr_accessor :filter_secret_value
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -39,6 +42,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'filter_secret_value' => :'filter-secret-value',
         :'json' => :'json',
         :'name' => :'name',
         :'namespace' => :'namespace',
@@ -57,6 +61,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'filter_secret_value' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'namespace' => :'String',
@@ -87,6 +92,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'filter_secret_value')
+        self.filter_secret_value = attributes[:'filter_secret_value']
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -146,6 +155,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          filter_secret_value == o.filter_secret_value &&
           json == o.json &&
           name == o.name &&
           namespace == o.namespace &&
@@ -164,7 +174,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, namespace, remote_secret_name, token, uid_token, usc_name].hash
+      [filter_secret_value, json, name, namespace, remote_secret_name, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

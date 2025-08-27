@@ -14,43 +14,37 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # gatewayUpdateLogForwardingSplunk is a command that updates log forwarding config (splunk target)
-  class GatewayUpdateLogForwardingSplunk
-    # Enable Log Forwarding [true/false]
-    attr_accessor :enable
+  # targetCreateOpenAI is a command that creates a new openai target
+  class TargetCreateOpenAI
+    # API key for OpenAI
+    attr_accessor :api_key
 
-    # Enable batch forwarding [true/false]
-    attr_accessor :enable_batch
+    # API key ID
+    attr_accessor :api_key_id
 
-    # Enable tls
-    attr_accessor :enable_tls
-
-    # Splunk index
-    attr_accessor :index
+    # Description of the object
+    attr_accessor :description
 
     # Set output format to JSON
     attr_accessor :json
 
-    # Logs format [text/json]
-    attr_accessor :output_format
+    # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+    attr_accessor :key
 
-    # Pull interval in seconds
-    attr_accessor :pull_interval
+    # Set the maximum number of versions, limited by the account settings defaults.
+    attr_accessor :max_versions
 
-    # Splunk source
-    attr_accessor :source
+    # Default model to use with OpenAI
+    attr_accessor :model
 
-    # Splunk source type
-    attr_accessor :source_type
+    # Target name
+    attr_accessor :name
 
-    # Splunk token
-    attr_accessor :splunk_token
+    # Base URL of the OpenAI API
+    attr_accessor :openai_url
 
-    # Splunk server URL
-    attr_accessor :splunk_url
-
-    # Splunk tls certificate
-    attr_accessor :tls_certificate
+    # Organization ID
+    attr_accessor :organization_id
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -61,18 +55,16 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'enable' => :'enable',
-        :'enable_batch' => :'enable-batch',
-        :'enable_tls' => :'enable-tls',
-        :'index' => :'index',
+        :'api_key' => :'api-key',
+        :'api_key_id' => :'api-key-id',
+        :'description' => :'description',
         :'json' => :'json',
-        :'output_format' => :'output-format',
-        :'pull_interval' => :'pull-interval',
-        :'source' => :'source',
-        :'source_type' => :'source-type',
-        :'splunk_token' => :'splunk-token',
-        :'splunk_url' => :'splunk-url',
-        :'tls_certificate' => :'tls-certificate',
+        :'key' => :'key',
+        :'max_versions' => :'max-versions',
+        :'model' => :'model',
+        :'name' => :'name',
+        :'openai_url' => :'openai-url',
+        :'organization_id' => :'organization-id',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -86,18 +78,16 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'enable' => :'String',
-        :'enable_batch' => :'String',
-        :'enable_tls' => :'Boolean',
-        :'index' => :'String',
+        :'api_key' => :'String',
+        :'api_key_id' => :'String',
+        :'description' => :'String',
         :'json' => :'Boolean',
-        :'output_format' => :'String',
-        :'pull_interval' => :'String',
-        :'source' => :'String',
-        :'source_type' => :'String',
-        :'splunk_token' => :'String',
-        :'splunk_url' => :'String',
-        :'tls_certificate' => :'String',
+        :'key' => :'String',
+        :'max_versions' => :'String',
+        :'model' => :'String',
+        :'name' => :'String',
+        :'openai_url' => :'String',
+        :'organization_id' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -113,35 +103,27 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::GatewayUpdateLogForwardingSplunk` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::TargetCreateOpenAI` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::GatewayUpdateLogForwardingSplunk`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::TargetCreateOpenAI`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'enable')
-        self.enable = attributes[:'enable']
-      else
-        self.enable = 'true'
+      if attributes.key?(:'api_key')
+        self.api_key = attributes[:'api_key']
       end
 
-      if attributes.key?(:'enable_batch')
-        self.enable_batch = attributes[:'enable_batch']
-      else
-        self.enable_batch = 'true'
+      if attributes.key?(:'api_key_id')
+        self.api_key_id = attributes[:'api_key_id']
       end
 
-      if attributes.key?(:'enable_tls')
-        self.enable_tls = attributes[:'enable_tls']
-      end
-
-      if attributes.key?(:'index')
-        self.index = attributes[:'index']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'json')
@@ -150,42 +132,32 @@ module Akeyless
         self.json = false
       end
 
-      if attributes.key?(:'output_format')
-        self.output_format = attributes[:'output_format']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
+      end
+
+      if attributes.key?(:'max_versions')
+        self.max_versions = attributes[:'max_versions']
+      end
+
+      if attributes.key?(:'model')
+        self.model = attributes[:'model']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.output_format = 'text'
+        self.name = nil
       end
 
-      if attributes.key?(:'pull_interval')
-        self.pull_interval = attributes[:'pull_interval']
+      if attributes.key?(:'openai_url')
+        self.openai_url = attributes[:'openai_url']
       else
-        self.pull_interval = '10'
+        self.openai_url = 'https://api.openai.com/v1'
       end
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
-      else
-        self.source = 'use-existing'
-      end
-
-      if attributes.key?(:'source_type')
-        self.source_type = attributes[:'source_type']
-      else
-        self.source_type = 'use-existing'
-      end
-
-      if attributes.key?(:'splunk_token')
-        self.splunk_token = attributes[:'splunk_token']
-      end
-
-      if attributes.key?(:'splunk_url')
-        self.splunk_url = attributes[:'splunk_url']
-      end
-
-      if attributes.key?(:'tls_certificate')
-        self.tls_certificate = attributes[:'tls_certificate']
-      else
-        self.tls_certificate = 'use-existing'
+      if attributes.key?(:'organization_id')
+        self.organization_id = attributes[:'organization_id']
       end
 
       if attributes.key?(:'token')
@@ -202,6 +174,10 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -209,6 +185,7 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @name.nil?
       true
     end
 
@@ -217,18 +194,16 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enable == o.enable &&
-          enable_batch == o.enable_batch &&
-          enable_tls == o.enable_tls &&
-          index == o.index &&
+          api_key == o.api_key &&
+          api_key_id == o.api_key_id &&
+          description == o.description &&
           json == o.json &&
-          output_format == o.output_format &&
-          pull_interval == o.pull_interval &&
-          source == o.source &&
-          source_type == o.source_type &&
-          splunk_token == o.splunk_token &&
-          splunk_url == o.splunk_url &&
-          tls_certificate == o.tls_certificate &&
+          key == o.key &&
+          max_versions == o.max_versions &&
+          model == o.model &&
+          name == o.name &&
+          openai_url == o.openai_url &&
+          organization_id == o.organization_id &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -242,7 +217,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enable, enable_batch, enable_tls, index, json, output_format, pull_interval, source, source_type, splunk_token, splunk_url, tls_certificate, token, uid_token].hash
+      [api_key, api_key_id, description, json, key, max_versions, model, name, openai_url, organization_id, token, uid_token].hash
     end
 
     # Builds the object from hash

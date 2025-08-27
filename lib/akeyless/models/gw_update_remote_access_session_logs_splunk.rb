@@ -19,6 +19,9 @@ module Akeyless
     # Enable Log Forwarding [true/false]
     attr_accessor :enable
 
+    # Enable batch forwarding [true/false]
+    attr_accessor :enable_batch
+
     # Enable tls
     attr_accessor :enable_tls
 
@@ -59,6 +62,7 @@ module Akeyless
     def self.attribute_map
       {
         :'enable' => :'enable',
+        :'enable_batch' => :'enable-batch',
         :'enable_tls' => :'enable-tls',
         :'index' => :'index',
         :'json' => :'json',
@@ -83,6 +87,7 @@ module Akeyless
     def self.openapi_types
       {
         :'enable' => :'String',
+        :'enable_batch' => :'String',
         :'enable_tls' => :'Boolean',
         :'index' => :'String',
         :'json' => :'Boolean',
@@ -123,6 +128,12 @@ module Akeyless
         self.enable = attributes[:'enable']
       else
         self.enable = 'true'
+      end
+
+      if attributes.key?(:'enable_batch')
+        self.enable_batch = attributes[:'enable_batch']
+      else
+        self.enable_batch = 'true'
       end
 
       if attributes.key?(:'enable_tls')
@@ -207,6 +218,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           enable == o.enable &&
+          enable_batch == o.enable_batch &&
           enable_tls == o.enable_tls &&
           index == o.index &&
           json == o.json &&
@@ -230,7 +242,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enable, enable_tls, index, json, output_format, pull_interval, source, source_type, splunk_token, splunk_url, tls_certificate, token, uid_token].hash
+      [enable, enable_batch, enable_tls, index, json, output_format, pull_interval, source, source_type, splunk_token, splunk_url, tls_certificate, token, uid_token].hash
     end
 
     # Builds the object from hash
