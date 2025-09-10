@@ -14,22 +14,23 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class AuthOutput
-    attr_accessor :complete_auth_link
+  # GetCertChallenge is a command that gets a challenge for certificate authentication
+  class GetCertChallenge
+    # Access ID
+    attr_accessor :access_id
 
-    attr_accessor :creds
+    # Certificate data encoded in base64. Used if file was not provided.
+    attr_accessor :cert_data
 
-    attr_accessor :expiration
-
-    attr_accessor :token
+    # Set output format to JSON
+    attr_accessor :json
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'complete_auth_link' => :'complete_auth_link',
-        :'creds' => :'creds',
-        :'expiration' => :'expiration',
-        :'token' => :'token'
+        :'access_id' => :'access-id',
+        :'cert_data' => :'cert-data',
+        :'json' => :'json'
       }
     end
 
@@ -41,10 +42,9 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'complete_auth_link' => :'String',
-        :'creds' => :'SystemAccessCredentialsReplyObj',
-        :'expiration' => :'String',
-        :'token' => :'String'
+        :'access_id' => :'String',
+        :'cert_data' => :'String',
+        :'json' => :'Boolean'
       }
     end
 
@@ -58,31 +58,29 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::AuthOutput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::GetCertChallenge` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::AuthOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::GetCertChallenge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'complete_auth_link')
-        self.complete_auth_link = attributes[:'complete_auth_link']
+      if attributes.key?(:'access_id')
+        self.access_id = attributes[:'access_id']
       end
 
-      if attributes.key?(:'creds')
-        self.creds = attributes[:'creds']
+      if attributes.key?(:'cert_data')
+        self.cert_data = attributes[:'cert_data']
       end
 
-      if attributes.key?(:'expiration')
-        self.expiration = attributes[:'expiration']
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'json')
+        self.json = attributes[:'json']
+      else
+        self.json = false
       end
     end
 
@@ -106,10 +104,9 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          complete_auth_link == o.complete_auth_link &&
-          creds == o.creds &&
-          expiration == o.expiration &&
-          token == o.token
+          access_id == o.access_id &&
+          cert_data == o.cert_data &&
+          json == o.json
     end
 
     # @see the `==` method
@@ -121,7 +118,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [complete_auth_link, creds, expiration, token].hash
+      [access_id, cert_data, json].hash
     end
 
     # Builds the object from hash

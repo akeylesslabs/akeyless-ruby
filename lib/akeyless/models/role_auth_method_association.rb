@@ -20,6 +20,8 @@ module Akeyless
 
     attr_accessor :auth_method_access_id
 
+    attr_accessor :auth_method_id
+
     attr_accessor :auth_method_name
 
     attr_accessor :auth_method_sub_claims
@@ -33,6 +35,7 @@ module Akeyless
       {
         :'assoc_id' => :'assoc_id',
         :'auth_method_access_id' => :'auth_method_access_id',
+        :'auth_method_id' => :'auth_method_id',
         :'auth_method_name' => :'auth_method_name',
         :'auth_method_sub_claims' => :'auth_method_sub_claims',
         :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
@@ -50,6 +53,7 @@ module Akeyless
       {
         :'assoc_id' => :'String',
         :'auth_method_access_id' => :'String',
+        :'auth_method_id' => :'Integer',
         :'auth_method_name' => :'String',
         :'auth_method_sub_claims' => :'Hash<String, Array<String>>',
         :'is_subclaims_with_operator' => :'Boolean',
@@ -84,6 +88,10 @@ module Akeyless
 
       if attributes.key?(:'auth_method_access_id')
         self.auth_method_access_id = attributes[:'auth_method_access_id']
+      end
+
+      if attributes.key?(:'auth_method_id')
+        self.auth_method_id = attributes[:'auth_method_id']
       end
 
       if attributes.key?(:'auth_method_name')
@@ -127,6 +135,7 @@ module Akeyless
       self.class == o.class &&
           assoc_id == o.assoc_id &&
           auth_method_access_id == o.auth_method_access_id &&
+          auth_method_id == o.auth_method_id &&
           auth_method_name == o.auth_method_name &&
           auth_method_sub_claims == o.auth_method_sub_claims &&
           is_subclaims_with_operator == o.is_subclaims_with_operator &&
@@ -142,7 +151,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, auth_method_access_id, auth_method_name, auth_method_sub_claims, is_subclaims_with_operator, sub_claims_case_sensitive].hash
+      [assoc_id, auth_method_access_id, auth_method_id, auth_method_name, auth_method_sub_claims, is_subclaims_with_operator, sub_claims_case_sensitive].hash
     end
 
     # Builds the object from hash

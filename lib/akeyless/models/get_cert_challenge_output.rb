@@ -14,22 +14,13 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class AuthOutput
-    attr_accessor :complete_auth_link
-
-    attr_accessor :creds
-
-    attr_accessor :expiration
-
-    attr_accessor :token
+  class GetCertChallengeOutput
+    attr_accessor :challenge
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'complete_auth_link' => :'complete_auth_link',
-        :'creds' => :'creds',
-        :'expiration' => :'expiration',
-        :'token' => :'token'
+        :'challenge' => :'challenge'
       }
     end
 
@@ -41,10 +32,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'complete_auth_link' => :'String',
-        :'creds' => :'SystemAccessCredentialsReplyObj',
-        :'expiration' => :'String',
-        :'token' => :'String'
+        :'challenge' => :'String'
       }
     end
 
@@ -58,31 +46,19 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::AuthOutput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::GetCertChallengeOutput` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::AuthOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::GetCertChallengeOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'complete_auth_link')
-        self.complete_auth_link = attributes[:'complete_auth_link']
-      end
-
-      if attributes.key?(:'creds')
-        self.creds = attributes[:'creds']
-      end
-
-      if attributes.key?(:'expiration')
-        self.expiration = attributes[:'expiration']
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'challenge')
+        self.challenge = attributes[:'challenge']
       end
     end
 
@@ -106,10 +82,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          complete_auth_link == o.complete_auth_link &&
-          creds == o.creds &&
-          expiration == o.expiration &&
-          token == o.token
+          challenge == o.challenge
     end
 
     # @see the `==` method
@@ -121,7 +94,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [complete_auth_link, creds, expiration, token].hash
+      [challenge].hash
     end
 
     # Builds the object from hash

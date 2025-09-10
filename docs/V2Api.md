@@ -320,6 +320,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**get_account_settings**](V2Api.md#get_account_settings) | **POST** /get-account-settings |  |
 | [**get_analytics_data**](V2Api.md#get_analytics_data) | **POST** /get-analytics-data |  |
 | [**get_auth_method**](V2Api.md#get_auth_method) | **POST** /get-auth-method |  |
+| [**get_cert_challenge**](V2Api.md#get_cert_challenge) | **POST** /get-cert-challenge |  |
 | [**get_certificate_value**](V2Api.md#get_certificate_value) | **POST** /get-certificate-value |  |
 | [**get_dynamic_secret_value**](V2Api.md#get_dynamic_secret_value) | **POST** /get-dynamic-secret-value |  |
 | [**get_event_forwarder**](V2Api.md#get_event_forwarder) | **POST** /get-event-forwarder |  |
@@ -20165,6 +20166,68 @@ end
 ### Return type
 
 [**AuthMethod**](AuthMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_cert_challenge
+
+> <GetCertChallengeOutput> get_cert_challenge(get_cert_challenge)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+get_cert_challenge = Akeyless::GetCertChallenge.new # GetCertChallenge | 
+
+begin
+  
+  result = api_instance.get_cert_challenge(get_cert_challenge)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_cert_challenge: #{e}"
+end
+```
+
+#### Using the get_cert_challenge_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetCertChallengeOutput>, Integer, Hash)> get_cert_challenge_with_http_info(get_cert_challenge)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_cert_challenge_with_http_info(get_cert_challenge)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetCertChallengeOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_cert_challenge_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **get_cert_challenge** | [**GetCertChallenge**](GetCertChallenge.md) |  |  |
+
+### Return type
+
+[**GetCertChallengeOutput**](GetCertChallengeOutput.md)
 
 ### Authorization
 

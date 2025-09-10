@@ -15,6 +15,7 @@
 | **name** | **String** | Role name |  |
 | **new_comment** | **String** | Deprecated - use description | [optional][default to &#39;default_comment&#39;] |
 | **new_name** | **String** | New Role name | [optional] |
+| **reverse_rbac_access** | **String** | Allow this role to view Reverse RBAC. Supported values: &#39;own&#39;, &#39;all&#39;. | [optional] |
 | **sra_reports_access** | **String** | Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported. | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -37,6 +38,7 @@ instance = Akeyless::UpdateRole.new(
   name: null,
   new_comment: null,
   new_name: null,
+  reverse_rbac_access: null,
   sra_reports_access: null,
   token: null,
   uid_token: null,

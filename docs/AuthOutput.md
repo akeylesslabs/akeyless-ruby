@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **complete_auth_link** | **String** |  | [optional] |
 | **creds** | [**SystemAccessCredentialsReplyObj**](SystemAccessCredentialsReplyObj.md) |  | [optional] |
+| **expiration** | **String** |  | [optional] |
 | **token** | **String** |  | [optional] |
 
 ## Example
@@ -16,6 +17,7 @@ require 'akeyless'
 instance = Akeyless::AuthOutput.new(
   complete_auth_link: null,
   creds: null,
+  expiration: null,
   token: null
 )
 ```

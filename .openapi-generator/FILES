@@ -598,6 +598,8 @@ docs/GetAccountSettings.md
 docs/GetAccountSettingsCommandOutput.md
 docs/GetAnalyticsData.md
 docs/GetAuthMethod.md
+docs/GetCertChallenge.md
+docs/GetCertChallengeOutput.md
 docs/GetCertificateValue.md
 docs/GetCertificateValueOutput.md
 docs/GetDynamicSecretValue.md
@@ -1711,6 +1713,8 @@ lib/akeyless/models/get_account_settings.rb
 lib/akeyless/models/get_account_settings_command_output.rb
 lib/akeyless/models/get_analytics_data.rb
 lib/akeyless/models/get_auth_method.rb
+lib/akeyless/models/get_cert_challenge.rb
+lib/akeyless/models/get_cert_challenge_output.rb
 lib/akeyless/models/get_certificate_value.rb
 lib/akeyless/models/get_certificate_value_output.rb
 lib/akeyless/models/get_dynamic_secret_value.rb
@@ -2229,10 +2233,6 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/gemini_target_details_spec.rb
-spec/models/open_ai_target_details_spec.rb
-spec/models/target_create_gemini_spec.rb
-spec/models/target_create_open_ai_spec.rb
-spec/models/target_update_gemini_spec.rb
-spec/models/target_update_open_ai_spec.rb
+spec/models/get_cert_challenge_output_spec.rb
+spec/models/get_cert_challenge_spec.rb
 spec/spec_helper.rb

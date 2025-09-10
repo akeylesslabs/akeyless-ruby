@@ -22,6 +22,8 @@ module Akeyless
 
     attr_accessor :cluster_id
 
+    attr_accessor :item_id
+
     attr_accessor :item_name
 
     attr_accessor :item_type
@@ -34,6 +36,7 @@ module Akeyless
         :'assoc_id' => :'assoc_id',
         :'attributes' => :'attributes',
         :'cluster_id' => :'cluster_id',
+        :'item_id' => :'item_id',
         :'item_name' => :'item_name',
         :'item_type' => :'item_type',
         :'relationship' => :'relationship'
@@ -51,6 +54,7 @@ module Akeyless
         :'assoc_id' => :'String',
         :'attributes' => :'Hash<String, String>',
         :'cluster_id' => :'Integer',
+        :'item_id' => :'Integer',
         :'item_name' => :'String',
         :'item_type' => :'String',
         :'relationship' => :'String'
@@ -92,6 +96,10 @@ module Akeyless
         self.cluster_id = attributes[:'cluster_id']
       end
 
+      if attributes.key?(:'item_id')
+        self.item_id = attributes[:'item_id']
+      end
+
       if attributes.key?(:'item_name')
         self.item_name = attributes[:'item_name']
       end
@@ -128,6 +136,7 @@ module Akeyless
           assoc_id == o.assoc_id &&
           attributes == o.attributes &&
           cluster_id == o.cluster_id &&
+          item_id == o.item_id &&
           item_name == o.item_name &&
           item_type == o.item_type &&
           relationship == o.relationship
@@ -142,7 +151,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, attributes, cluster_id, item_name, item_type, relationship].hash
+      [assoc_id, attributes, cluster_id, item_id, item_name, item_type, relationship].hash
     end
 
     # Builds the object from hash

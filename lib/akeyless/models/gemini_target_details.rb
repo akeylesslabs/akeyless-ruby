@@ -18,7 +18,7 @@ module Akeyless
   class GeminiTargetDetails
     attr_accessor :api_key
 
-    attr_accessor :base_url
+    attr_accessor :gemini_url
 
     attr_accessor :model
 
@@ -26,7 +26,7 @@ module Akeyless
     def self.attribute_map
       {
         :'api_key' => :'api_key',
-        :'base_url' => :'base_url',
+        :'gemini_url' => :'gemini_url',
         :'model' => :'model'
       }
     end
@@ -40,7 +40,7 @@ module Akeyless
     def self.openapi_types
       {
         :'api_key' => :'String',
-        :'base_url' => :'String',
+        :'gemini_url' => :'String',
         :'model' => :'String'
       }
     end
@@ -70,8 +70,8 @@ module Akeyless
         self.api_key = attributes[:'api_key']
       end
 
-      if attributes.key?(:'base_url')
-        self.base_url = attributes[:'base_url']
+      if attributes.key?(:'gemini_url')
+        self.gemini_url = attributes[:'gemini_url']
       end
 
       if attributes.key?(:'model')
@@ -100,7 +100,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           api_key == o.api_key &&
-          base_url == o.base_url &&
+          gemini_url == o.gemini_url &&
           model == o.model
     end
 
@@ -113,7 +113,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, base_url, model].hash
+      [api_key, gemini_url, model].hash
     end
 
     # Builds the object from hash

@@ -48,6 +48,9 @@ module Akeyless
     # New Role name
     attr_accessor :new_name
 
+    # Allow this role to view Reverse RBAC. Supported values: 'own', 'all'.
+    attr_accessor :reverse_rbac_access
+
     # Allow this role to view SRA Clusters. Currently only 'none', 'own', 'all' values are supported.
     attr_accessor :sra_reports_access
 
@@ -74,6 +77,7 @@ module Akeyless
         :'name' => :'name',
         :'new_comment' => :'new-comment',
         :'new_name' => :'new-name',
+        :'reverse_rbac_access' => :'reverse-rbac-access',
         :'sra_reports_access' => :'sra-reports-access',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -100,6 +104,7 @@ module Akeyless
         :'name' => :'String',
         :'new_comment' => :'String',
         :'new_name' => :'String',
+        :'reverse_rbac_access' => :'String',
         :'sra_reports_access' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -180,6 +185,10 @@ module Akeyless
         self.new_name = attributes[:'new_name']
       end
 
+      if attributes.key?(:'reverse_rbac_access')
+        self.reverse_rbac_access = attributes[:'reverse_rbac_access']
+      end
+
       if attributes.key?(:'sra_reports_access')
         self.sra_reports_access = attributes[:'sra_reports_access']
       end
@@ -233,6 +242,7 @@ module Akeyless
           name == o.name &&
           new_comment == o.new_comment &&
           new_name == o.new_name &&
+          reverse_rbac_access == o.reverse_rbac_access &&
           sra_reports_access == o.sra_reports_access &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -248,7 +258,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, audit_access, delete_protection, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, audit_access, delete_protection, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
     end
 
     # Builds the object from hash

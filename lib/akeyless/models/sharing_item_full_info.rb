@@ -25,6 +25,9 @@ module Akeyless
     # flag that indicate that this rule is allowed to be access RemainingAccess of times.
     attr_accessor :is_limit_access
 
+    # The item id this rule directly refers to (when applicable)
+    attr_accessor :item_id
+
     attr_accessor :name
 
     attr_accessor :number_of_access_used
@@ -47,6 +50,7 @@ module Akeyless
         :'capabilities' => :'capabilities',
         :'cb' => :'cb',
         :'is_limit_access' => :'is_limit_access',
+        :'item_id' => :'item_id',
         :'name' => :'name',
         :'number_of_access_used' => :'number_of_access_used',
         :'number_of_allowed_access' => :'number_of_allowed_access',
@@ -69,6 +73,7 @@ module Akeyless
         :'capabilities' => :'Array<String>',
         :'cb' => :'Integer',
         :'is_limit_access' => :'Boolean',
+        :'item_id' => :'Integer',
         :'name' => :'String',
         :'number_of_access_used' => :'Integer',
         :'number_of_allowed_access' => :'Integer',
@@ -118,6 +123,10 @@ module Akeyless
 
       if attributes.key?(:'is_limit_access')
         self.is_limit_access = attributes[:'is_limit_access']
+      end
+
+      if attributes.key?(:'item_id')
+        self.item_id = attributes[:'item_id']
       end
 
       if attributes.key?(:'name')
@@ -173,6 +182,7 @@ module Akeyless
           capabilities == o.capabilities &&
           cb == o.cb &&
           is_limit_access == o.is_limit_access &&
+          item_id == o.item_id &&
           name == o.name &&
           number_of_access_used == o.number_of_access_used &&
           number_of_allowed_access == o.number_of_allowed_access &&
@@ -191,7 +201,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigners, capabilities, cb, is_limit_access, name, number_of_access_used, number_of_allowed_access, path, start_time, ttl, type].hash
+      [assigners, capabilities, cb, is_limit_access, item_id, name, number_of_access_used, number_of_allowed_access, path, start_time, ttl, type].hash
     end
 
     # Builds the object from hash

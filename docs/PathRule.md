@@ -8,6 +8,7 @@
 | **capabilities** | **Array&lt;String&gt;** | The approved/denied capabilities in the path | [optional] |
 | **cb** | **Integer** |  | [optional] |
 | **is_limit_access** | **Boolean** | flag that indicate that this rule is allowed to be access RemainingAccess of times. | [optional] |
+| **item_id** | **Integer** | The item id this rule directly refers to (when applicable) | [optional] |
 | **number_of_access_used** | **Integer** |  | [optional] |
 | **number_of_allowed_access** | **Integer** |  | [optional] |
 | **path** | **String** | The path the rule refers to | [optional] |
@@ -25,6 +26,7 @@ instance = Akeyless::PathRule.new(
   capabilities: null,
   cb: null,
   is_limit_access: null,
+  item_id: null,
   number_of_access_used: null,
   number_of_allowed_access: null,
   path: null,

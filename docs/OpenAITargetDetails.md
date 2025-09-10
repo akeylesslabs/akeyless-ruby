@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** |  | [optional] |
 | **api_key_id** | **String** |  | [optional] |
-| **base_url** | **String** |  | [optional] |
 | **model** | **String** |  | [optional] |
+| **openai_url** | **String** |  | [optional] |
 | **organization_id** | **String** |  | [optional] |
 
 ## Example
@@ -18,8 +18,8 @@ require 'akeyless'
 instance = Akeyless::OpenAITargetDetails.new(
   api_key: null,
   api_key_id: null,
-  base_url: null,
   model: null,
+  openai_url: null,
   organization_id: null
 )
 ```

@@ -33,6 +33,9 @@ module Akeyless
     # Password (relevant only for access-type=password)
     attr_accessor :admin_password
 
+    # Certificate challenge encoded in base64. (relevant only for access-type=cert)
+    attr_accessor :cert_challenge
+
     # Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert)
     attr_accessor :cert_data
 
@@ -91,6 +94,9 @@ module Akeyless
 
     attr_accessor :otp
 
+    # Signed certificate challenge encoded in base64. (relevant only for access-type=cert)
+    attr_accessor :signed_cert_challenge
+
     # The universal_identity token (relevant only for access-type=universal_identity)
     attr_accessor :uid_token
 
@@ -109,6 +115,7 @@ module Akeyless
         :'account_id' => :'account-id',
         :'admin_email' => :'admin-email',
         :'admin_password' => :'admin-password',
+        :'cert_challenge' => :'cert-challenge',
         :'cert_data' => :'cert-data',
         :'cloud_id' => :'cloud-id',
         :'debug' => :'debug',
@@ -129,6 +136,7 @@ module Akeyless
         :'oci_auth_type' => :'oci-auth-type',
         :'oci_group_ocid' => :'oci-group-ocid',
         :'otp' => :'otp',
+        :'signed_cert_challenge' => :'signed-cert-challenge',
         :'uid_token' => :'uid-token',
         :'use_remote_browser' => :'use-remote-browser',
         :'username' => :'username'
@@ -149,6 +157,7 @@ module Akeyless
         :'account_id' => :'String',
         :'admin_email' => :'String',
         :'admin_password' => :'String',
+        :'cert_challenge' => :'String',
         :'cert_data' => :'String',
         :'cloud_id' => :'String',
         :'debug' => :'Boolean',
@@ -169,6 +178,7 @@ module Akeyless
         :'oci_auth_type' => :'String',
         :'oci_group_ocid' => :'Array<String>',
         :'otp' => :'String',
+        :'signed_cert_challenge' => :'String',
         :'uid_token' => :'String',
         :'use_remote_browser' => :'Boolean',
         :'username' => :'String'
@@ -220,6 +230,10 @@ module Akeyless
 
       if attributes.key?(:'admin_password')
         self.admin_password = attributes[:'admin_password']
+      end
+
+      if attributes.key?(:'cert_challenge')
+        self.cert_challenge = attributes[:'cert_challenge']
       end
 
       if attributes.key?(:'cert_data')
@@ -310,6 +324,10 @@ module Akeyless
         self.otp = attributes[:'otp']
       end
 
+      if attributes.key?(:'signed_cert_challenge')
+        self.signed_cert_challenge = attributes[:'signed_cert_challenge']
+      end
+
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
@@ -349,6 +367,7 @@ module Akeyless
           account_id == o.account_id &&
           admin_email == o.admin_email &&
           admin_password == o.admin_password &&
+          cert_challenge == o.cert_challenge &&
           cert_data == o.cert_data &&
           cloud_id == o.cloud_id &&
           debug == o.debug &&
@@ -369,6 +388,7 @@ module Akeyless
           oci_auth_type == o.oci_auth_type &&
           oci_group_ocid == o.oci_group_ocid &&
           otp == o.otp &&
+          signed_cert_challenge == o.signed_cert_challenge &&
           uid_token == o.uid_token &&
           use_remote_browser == o.use_remote_browser &&
           username == o.username
@@ -383,7 +403,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, access_type, account_id, admin_email, admin_password, cert_data, cloud_id, debug, disable_pafxfast, gateway_spn, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, ldap_password, oci_auth_type, oci_group_ocid, otp, uid_token, use_remote_browser, username].hash
+      [access_id, access_key, access_type, account_id, admin_email, admin_password, cert_challenge, cert_data, cloud_id, debug, disable_pafxfast, gateway_spn, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, ldap_password, oci_auth_type, oci_group_ocid, otp, signed_cert_challenge, uid_token, use_remote_browser, username].hash
     end
 
     # Builds the object from hash

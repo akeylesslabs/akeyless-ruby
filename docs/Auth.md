@@ -10,6 +10,7 @@
 | **account_id** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) | [optional] |
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
+| **cert_challenge** | **String** | Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) | [optional] |
 | **cert_data** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) | [optional] |
 | **cloud_id** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) | [optional] |
 | **debug** | **Boolean** |  | [optional] |
@@ -30,6 +31,7 @@
 | **oci_auth_type** | **String** | The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci) | [optional][default to &#39;apikey&#39;] |
 | **oci_group_ocid** | **Array&lt;String&gt;** | A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci) | [optional] |
 | **otp** | **String** |  | [optional] |
+| **signed_cert_challenge** | **String** | Signed certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) | [optional] |
 | **uid_token** | **String** | The universal_identity token (relevant only for access-type&#x3D;universal_identity) | [optional] |
 | **use_remote_browser** | **Boolean** | Returns a link to complete the authentication remotely (relevant only for access-type&#x3D;saml/oidc) | [optional] |
 | **username** | **String** | LDAP username (relevant only for access-type&#x3D;ldap) | [optional] |
@@ -46,6 +48,7 @@ instance = Akeyless::Auth.new(
   account_id: null,
   admin_email: null,
   admin_password: null,
+  cert_challenge: null,
   cert_data: null,
   cloud_id: null,
   debug: null,
@@ -66,6 +69,7 @@ instance = Akeyless::Auth.new(
   oci_auth_type: null,
   oci_group_ocid: null,
   otp: null,
+  signed_cert_challenge: null,
   uid_token: null,
   use_remote_browser: null,
   username: null
