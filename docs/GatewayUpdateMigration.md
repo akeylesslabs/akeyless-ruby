@@ -4,11 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **_1password_email** | **String** | 1Password user email to connect to the API | [optional] |
-| **_1password_password** | **String** | 1Password user password to connect to the API | [optional] |
-| **_1password_secret_key** | **String** | 1Password user secret key to connect to the API | [optional] |
-| **_1password_url** | **String** | 1Password api container url | [optional] |
-| **_1password_vaults** | **Array&lt;String&gt;** | 1Password list of vault to get the items from | [optional] |
 | **service_account_key_decoded** | **String** |  | [optional] |
 | **ad_auto_rotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration) | [optional] |
 | **ad_computer_base_dn** | **String** | Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN&#x3D;Computers,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration) | [optional] |
@@ -76,11 +71,6 @@
 require 'akeyless'
 
 instance = Akeyless::GatewayUpdateMigration.new(
-  _1password_email: null,
-  _1password_password: null,
-  _1password_secret_key: null,
-  _1password_url: null,
-  _1password_vaults: null,
   service_account_key_decoded: null,
   ad_auto_rotate: null,
   ad_computer_base_dn: null,

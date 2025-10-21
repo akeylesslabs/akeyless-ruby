@@ -16,21 +16,6 @@ require 'time'
 module Akeyless
   # gatewayUpdateMigration is a command that update migration
   class GatewayUpdateMigration
-    # 1Password user email to connect to the API
-    attr_accessor :_1password_email
-
-    # 1Password user password to connect to the API
-    attr_accessor :_1password_password
-
-    # 1Password user secret key to connect to the API
-    attr_accessor :_1password_secret_key
-
-    # 1Password api container url
-    attr_accessor :_1password_url
-
-    # 1Password list of vault to get the items from
-    attr_accessor :_1password_vaults
-
     attr_accessor :service_account_key_decoded
 
     # Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration)
@@ -213,11 +198,6 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_1password_email' => :'1password-email',
-        :'_1password_password' => :'1password-password',
-        :'_1password_secret_key' => :'1password-secret-key',
-        :'_1password_url' => :'1password-url',
-        :'_1password_vaults' => :'1password-vaults',
         :'service_account_key_decoded' => :'ServiceAccountKeyDecoded',
         :'ad_auto_rotate' => :'ad-auto-rotate',
         :'ad_computer_base_dn' => :'ad-computer-base-dn',
@@ -289,11 +269,6 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'_1password_email' => :'String',
-        :'_1password_password' => :'String',
-        :'_1password_secret_key' => :'String',
-        :'_1password_url' => :'String',
-        :'_1password_vaults' => :'Array<String>',
         :'service_account_key_decoded' => :'String',
         :'ad_auto_rotate' => :'String',
         :'ad_computer_base_dn' => :'String',
@@ -377,28 +352,6 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'_1password_email')
-        self._1password_email = attributes[:'_1password_email']
-      end
-
-      if attributes.key?(:'_1password_password')
-        self._1password_password = attributes[:'_1password_password']
-      end
-
-      if attributes.key?(:'_1password_secret_key')
-        self._1password_secret_key = attributes[:'_1password_secret_key']
-      end
-
-      if attributes.key?(:'_1password_url')
-        self._1password_url = attributes[:'_1password_url']
-      end
-
-      if attributes.key?(:'_1password_vaults')
-        if (value = attributes[:'_1password_vaults']).is_a?(Array)
-          self._1password_vaults = value
-        end
-      end
 
       if attributes.key?(:'service_account_key_decoded')
         self.service_account_key_decoded = attributes[:'service_account_key_decoded']
@@ -712,11 +665,6 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _1password_email == o._1password_email &&
-          _1password_password == o._1password_password &&
-          _1password_secret_key == o._1password_secret_key &&
-          _1password_url == o._1password_url &&
-          _1password_vaults == o._1password_vaults &&
           service_account_key_decoded == o.service_account_key_decoded &&
           ad_auto_rotate == o.ad_auto_rotate &&
           ad_computer_base_dn == o.ad_computer_base_dn &&
@@ -788,7 +736,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_1password_email, _1password_password, _1password_secret_key, _1password_url, _1password_vaults, service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
     end
 
     # Builds the object from hash
