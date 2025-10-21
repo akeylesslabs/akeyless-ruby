@@ -2241,8 +2241,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/dynamic_secret_create_open_ai_spec.rb
-spec/models/dynamic_secret_update_open_ai_spec.rb
-spec/models/event_forwarder_create_teams_spec.rb
-spec/models/event_forwarder_update_teams_spec.rb
 spec/spec_helper.rb
