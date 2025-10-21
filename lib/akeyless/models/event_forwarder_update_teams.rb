@@ -14,30 +14,43 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # uscCreate is a command that creates a new secret in a Universal Secrets Connector
-  class UscCreate
-    # Use this option if the universal secrets value is a base64 encoded binary
-    attr_accessor :binary_value
+  # eventForwarderUpdateTeams is a command that updates teams event forwarder
+  class EventForwarderUpdateTeams
+    # Auth Method Event sources
+    attr_accessor :auth_methods_event_source_locations
 
-    # Description of the universal secrets
+    # Description of the object
     attr_accessor :description
+
+    # Enable/Disable Event Forwarder [true/false]
+    attr_accessor :enable
+
+    # List of event types to notify about [request-access, certificate-pending-expiration, certificate-expired, certificate-provisioning-success, certificate-provisioning-failure, auth-method-pending-expiration, auth-method-expired, next-automatic-rotation, rotated-secret-success, rotated-secret-failure, dynamic-secret-failure, multi-auth-failure, uid-rotation-failure, apply-justification, email-auth-method-approved, usage, rotation-usage, gateway-inactive, static-secret-updated, rate-limiting, usage-report, secret-sync]
+    attr_accessor :event_types
+
+    # Event sources
+    attr_accessor :gateways_event_source_locations
+
+    # Items Event sources
+    attr_accessor :items_event_source_locations
 
     # Set output format to JSON
     attr_accessor :json
 
-    # The namespace (relevant for Hashi vault target)
-    attr_accessor :namespace
+    # Whether to keep previous version [true/false]. If not set, use default according to account settings
+    attr_accessor :keep_prev_version
 
-    attr_accessor :object_type
+    # The name of a key that used to encrypt the EventForwarder secret value (if empty, the account default protectionKey key will be used)
+    attr_accessor :key
 
-    # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
-    attr_accessor :pfx_password
+    # EventForwarder name
+    attr_accessor :name
 
-    # Name for the new universal secrets
-    attr_accessor :secret_name
+    # New EventForwarder name
+    attr_accessor :new_name
 
-    # Tags for the universal secrets
-    attr_accessor :tags
+    # Targets Event sources
+    attr_accessor :targets_event_source_locations
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -45,31 +58,27 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
-    # Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used)
-    attr_accessor :usc_encryption_key
-
-    # Name of the Universal Secrets Connector item
-    attr_accessor :usc_name
-
-    # Value of the universal secrets item, either text or base64 encoded binary
-    attr_accessor :value
+    # Teams Webhook URL
+    attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'binary_value' => :'binary-value',
+        :'auth_methods_event_source_locations' => :'auth-methods-event-source-locations',
         :'description' => :'description',
+        :'enable' => :'enable',
+        :'event_types' => :'event-types',
+        :'gateways_event_source_locations' => :'gateways-event-source-locations',
+        :'items_event_source_locations' => :'items-event-source-locations',
         :'json' => :'json',
-        :'namespace' => :'namespace',
-        :'object_type' => :'object-type',
-        :'pfx_password' => :'pfx-password',
-        :'secret_name' => :'secret-name',
-        :'tags' => :'tags',
+        :'keep_prev_version' => :'keep-prev-version',
+        :'key' => :'key',
+        :'name' => :'name',
+        :'new_name' => :'new-name',
+        :'targets_event_source_locations' => :'targets-event-source-locations',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
-        :'usc_encryption_key' => :'usc-encryption-key',
-        :'usc_name' => :'usc-name',
-        :'value' => :'value'
+        :'url' => :'url'
       }
     end
 
@@ -81,19 +90,21 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'binary_value' => :'Boolean',
+        :'auth_methods_event_source_locations' => :'Array<String>',
         :'description' => :'String',
+        :'enable' => :'String',
+        :'event_types' => :'Array<String>',
+        :'gateways_event_source_locations' => :'Array<String>',
+        :'items_event_source_locations' => :'Array<String>',
         :'json' => :'Boolean',
-        :'namespace' => :'String',
-        :'object_type' => :'String',
-        :'pfx_password' => :'String',
-        :'secret_name' => :'String',
-        :'tags' => :'Hash<String, String>',
+        :'keep_prev_version' => :'String',
+        :'key' => :'String',
+        :'name' => :'String',
+        :'new_name' => :'String',
+        :'targets_event_source_locations' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
-        :'usc_encryption_key' => :'String',
-        :'usc_name' => :'String',
-        :'value' => :'String'
+        :'url' => :'String'
       }
     end
 
@@ -107,23 +118,51 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::UscCreate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::EventForwarderUpdateTeams` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::UscCreate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::EventForwarderUpdateTeams`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'binary_value')
-        self.binary_value = attributes[:'binary_value']
+      if attributes.key?(:'auth_methods_event_source_locations')
+        if (value = attributes[:'auth_methods_event_source_locations']).is_a?(Array)
+          self.auth_methods_event_source_locations = value
+        end
       end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable')
+        self.enable = attributes[:'enable']
+      else
+        self.enable = 'true'
+      end
+
+      if attributes.key?(:'event_types')
+        if (value = attributes[:'event_types']).is_a?(Array)
+          self.event_types = value
+        end
+      end
+
+      if attributes.key?(:'gateways_event_source_locations')
+        if (value = attributes[:'gateways_event_source_locations']).is_a?(Array)
+          self.gateways_event_source_locations = value
+        end
+      else
+        self.gateways_event_source_locations = nil
+      end
+
+      if attributes.key?(:'items_event_source_locations')
+        if (value = attributes[:'items_event_source_locations']).is_a?(Array)
+          self.items_event_source_locations = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -132,27 +171,27 @@ module Akeyless
         self.json = false
       end
 
-      if attributes.key?(:'namespace')
-        self.namespace = attributes[:'namespace']
+      if attributes.key?(:'keep_prev_version')
+        self.keep_prev_version = attributes[:'keep_prev_version']
       end
 
-      if attributes.key?(:'object_type')
-        self.object_type = attributes[:'object_type']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
-      if attributes.key?(:'pfx_password')
-        self.pfx_password = attributes[:'pfx_password']
-      end
-
-      if attributes.key?(:'secret_name')
-        self.secret_name = attributes[:'secret_name']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.secret_name = nil
+        self.name = nil
       end
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Hash)
-          self.tags = value
+      if attributes.key?(:'new_name')
+        self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'targets_event_source_locations')
+        if (value = attributes[:'targets_event_source_locations']).is_a?(Array)
+          self.targets_event_source_locations = value
         end
       end
 
@@ -164,20 +203,10 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
-      if attributes.key?(:'usc_encryption_key')
-        self.usc_encryption_key = attributes[:'usc_encryption_key']
-      end
-
-      if attributes.key?(:'usc_name')
-        self.usc_name = attributes[:'usc_name']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       else
-        self.usc_name = nil
-      end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      else
-        self.value = nil
+        self.url = nil
       end
     end
 
@@ -186,16 +215,16 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @secret_name.nil?
-        invalid_properties.push('invalid value for "secret_name", secret_name cannot be nil.')
+      if @gateways_event_source_locations.nil?
+        invalid_properties.push('invalid value for "gateways_event_source_locations", gateways_event_source_locations cannot be nil.')
       end
 
-      if @usc_name.nil?
-        invalid_properties.push('invalid value for "usc_name", usc_name cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @value.nil?
-        invalid_properties.push('invalid value for "value", value cannot be nil.')
+      if @url.nil?
+        invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
 
       invalid_properties
@@ -205,9 +234,9 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @secret_name.nil?
-      return false if @usc_name.nil?
-      return false if @value.nil?
+      return false if @gateways_event_source_locations.nil?
+      return false if @name.nil?
+      return false if @url.nil?
       true
     end
 
@@ -216,19 +245,21 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          binary_value == o.binary_value &&
+          auth_methods_event_source_locations == o.auth_methods_event_source_locations &&
           description == o.description &&
+          enable == o.enable &&
+          event_types == o.event_types &&
+          gateways_event_source_locations == o.gateways_event_source_locations &&
+          items_event_source_locations == o.items_event_source_locations &&
           json == o.json &&
-          namespace == o.namespace &&
-          object_type == o.object_type &&
-          pfx_password == o.pfx_password &&
-          secret_name == o.secret_name &&
-          tags == o.tags &&
+          keep_prev_version == o.keep_prev_version &&
+          key == o.key &&
+          name == o.name &&
+          new_name == o.new_name &&
+          targets_event_source_locations == o.targets_event_source_locations &&
           token == o.token &&
           uid_token == o.uid_token &&
-          usc_encryption_key == o.usc_encryption_key &&
-          usc_name == o.usc_name &&
-          value == o.value
+          url == o.url
     end
 
     # @see the `==` method
@@ -240,7 +271,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, secret_name, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [auth_methods_event_source_locations, description, enable, event_types, gateways_event_source_locations, items_event_source_locations, json, keep_prev_version, key, name, new_name, targets_event_source_locations, token, uid_token, url].hash
     end
 
     # Builds the object from hash

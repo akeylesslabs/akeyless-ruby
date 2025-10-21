@@ -58,6 +58,8 @@ module Akeyless
 
     attr_accessor :slack_noti_forwarder_public_details
 
+    attr_accessor :teams_noti_forwarder_public_details
+
     attr_accessor :timespan_in_seconds
 
     attr_accessor :to_emails
@@ -95,6 +97,7 @@ module Akeyless
         :'protection_key' => :'protection_key',
         :'runner_type' => :'runner_type',
         :'slack_noti_forwarder_public_details' => :'slack_noti_forwarder_public_details',
+        :'teams_noti_forwarder_public_details' => :'teams_noti_forwarder_public_details',
         :'timespan_in_seconds' => :'timespan_in_seconds',
         :'to_emails' => :'to_emails',
         :'user_email' => :'user_email',
@@ -133,6 +136,7 @@ module Akeyless
         :'protection_key' => :'String',
         :'runner_type' => :'String',
         :'slack_noti_forwarder_public_details' => :'Object',
+        :'teams_noti_forwarder_public_details' => :'Object',
         :'timespan_in_seconds' => :'Integer',
         :'to_emails' => :'Array<EmailEntry>',
         :'user_email' => :'String',
@@ -255,6 +259,10 @@ module Akeyless
         self.slack_noti_forwarder_public_details = attributes[:'slack_noti_forwarder_public_details']
       end
 
+      if attributes.key?(:'teams_noti_forwarder_public_details')
+        self.teams_noti_forwarder_public_details = attributes[:'teams_noti_forwarder_public_details']
+      end
+
       if attributes.key?(:'timespan_in_seconds')
         self.timespan_in_seconds = attributes[:'timespan_in_seconds']
       end
@@ -323,6 +331,7 @@ module Akeyless
           protection_key == o.protection_key &&
           runner_type == o.runner_type &&
           slack_noti_forwarder_public_details == o.slack_noti_forwarder_public_details &&
+          teams_noti_forwarder_public_details == o.teams_noti_forwarder_public_details &&
           timespan_in_seconds == o.timespan_in_seconds &&
           to_emails == o.to_emails &&
           user_email == o.user_email &&
@@ -340,7 +349,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auth_type, client_id, client_permissions, comment, creation_date, endpoint, event_types, gateway_cluster_id, include_error, is_enabled, last_version, modification_date, noti_forwarder_id, noti_forwarder_name, noti_forwarder_type, noti_forwarder_versions, override_url, paths, protection_key, runner_type, slack_noti_forwarder_public_details, timespan_in_seconds, to_emails, user_email, username, webhook_noti_forwarder_public_details, with_customer_fragment].hash
+      [auth_type, client_id, client_permissions, comment, creation_date, endpoint, event_types, gateway_cluster_id, include_error, is_enabled, last_version, modification_date, noti_forwarder_id, noti_forwarder_name, noti_forwarder_type, noti_forwarder_versions, override_url, paths, protection_key, runner_type, slack_noti_forwarder_public_details, teams_noti_forwarder_public_details, timespan_in_seconds, to_emails, user_email, username, webhook_noti_forwarder_public_details, with_customer_fragment].hash
     end
 
     # Builds the object from hash

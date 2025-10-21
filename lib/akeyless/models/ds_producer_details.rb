@@ -29,6 +29,10 @@ module Akeyless
 
     attr_accessor :administrative_port
 
+    attr_accessor :api_key
+
+    attr_accessor :api_key_id
+
     attr_accessor :artifactory_admin_apikey
 
     attr_accessor :artifactory_admin_username
@@ -402,11 +406,15 @@ module Akeyless
 
     attr_accessor :mysql_revocation_statements
 
+    attr_accessor :openai_url
+
     attr_accessor :oracle_creation_statements
 
     attr_accessor :oracle_revocation_statements
 
     attr_accessor :oracle_wallet_details
+
+    attr_accessor :organization_id
 
     attr_accessor :password
 
@@ -423,6 +431,8 @@ module Akeyless
     attr_accessor :postgres_revocation_statements
 
     attr_accessor :privileged_user
+
+    attr_accessor :project_id
 
     attr_accessor :rabbitmq_server_password
 
@@ -550,6 +560,8 @@ module Akeyless
         :'admin_pwd' => :'admin_pwd',
         :'admin_rotation_interval_days' => :'admin_rotation_interval_days',
         :'administrative_port' => :'administrative_port',
+        :'api_key' => :'api_key',
+        :'api_key_id' => :'api_key_id',
         :'artifactory_admin_apikey' => :'artifactory_admin_apikey',
         :'artifactory_admin_username' => :'artifactory_admin_username',
         :'artifactory_base_url' => :'artifactory_base_url',
@@ -729,9 +741,11 @@ module Akeyless
         :'mssql_revocation_statements' => :'mssql_revocation_statements',
         :'mysql_creation_statements' => :'mysql_creation_statements',
         :'mysql_revocation_statements' => :'mysql_revocation_statements',
+        :'openai_url' => :'openai_url',
         :'oracle_creation_statements' => :'oracle_creation_statements',
         :'oracle_revocation_statements' => :'oracle_revocation_statements',
         :'oracle_wallet_details' => :'oracle_wallet_details',
+        :'organization_id' => :'organization_id',
         :'password' => :'password',
         :'password_length' => :'password_length',
         :'password_policy' => :'password_policy',
@@ -740,6 +754,7 @@ module Akeyless
         :'postgres_creation_statements' => :'postgres_creation_statements',
         :'postgres_revocation_statements' => :'postgres_revocation_statements',
         :'privileged_user' => :'privileged_user',
+        :'project_id' => :'project_id',
         :'rabbitmq_server_password' => :'rabbitmq_server_password',
         :'rabbitmq_server_uri' => :'rabbitmq_server_uri',
         :'rabbitmq_server_user' => :'rabbitmq_server_user',
@@ -813,6 +828,8 @@ module Akeyless
         :'admin_pwd' => :'String',
         :'admin_rotation_interval_days' => :'Integer',
         :'administrative_port' => :'String',
+        :'api_key' => :'String',
+        :'api_key_id' => :'String',
         :'artifactory_admin_apikey' => :'String',
         :'artifactory_admin_username' => :'String',
         :'artifactory_base_url' => :'String',
@@ -992,9 +1009,11 @@ module Akeyless
         :'mssql_revocation_statements' => :'String',
         :'mysql_creation_statements' => :'String',
         :'mysql_revocation_statements' => :'String',
+        :'openai_url' => :'String',
         :'oracle_creation_statements' => :'String',
         :'oracle_revocation_statements' => :'String',
         :'oracle_wallet_details' => :'WalletDetails',
+        :'organization_id' => :'String',
         :'password' => :'String',
         :'password_length' => :'Integer',
         :'password_policy' => :'String',
@@ -1003,6 +1022,7 @@ module Akeyless
         :'postgres_creation_statements' => :'String',
         :'postgres_revocation_statements' => :'String',
         :'privileged_user' => :'String',
+        :'project_id' => :'String',
         :'rabbitmq_server_password' => :'String',
         :'rabbitmq_server_uri' => :'String',
         :'rabbitmq_server_user' => :'String',
@@ -1110,6 +1130,14 @@ module Akeyless
 
       if attributes.key?(:'administrative_port')
         self.administrative_port = attributes[:'administrative_port']
+      end
+
+      if attributes.key?(:'api_key')
+        self.api_key = attributes[:'api_key']
+      end
+
+      if attributes.key?(:'api_key_id')
+        self.api_key_id = attributes[:'api_key_id']
       end
 
       if attributes.key?(:'artifactory_admin_apikey')
@@ -1844,6 +1872,10 @@ module Akeyless
         self.mysql_revocation_statements = attributes[:'mysql_revocation_statements']
       end
 
+      if attributes.key?(:'openai_url')
+        self.openai_url = attributes[:'openai_url']
+      end
+
       if attributes.key?(:'oracle_creation_statements')
         self.oracle_creation_statements = attributes[:'oracle_creation_statements']
       end
@@ -1854,6 +1886,10 @@ module Akeyless
 
       if attributes.key?(:'oracle_wallet_details')
         self.oracle_wallet_details = attributes[:'oracle_wallet_details']
+      end
+
+      if attributes.key?(:'organization_id')
+        self.organization_id = attributes[:'organization_id']
       end
 
       if attributes.key?(:'password')
@@ -1886,6 +1922,10 @@ module Akeyless
 
       if attributes.key?(:'privileged_user')
         self.privileged_user = attributes[:'privileged_user']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
       if attributes.key?(:'rabbitmq_server_password')
@@ -2146,6 +2186,8 @@ module Akeyless
           admin_pwd == o.admin_pwd &&
           admin_rotation_interval_days == o.admin_rotation_interval_days &&
           administrative_port == o.administrative_port &&
+          api_key == o.api_key &&
+          api_key_id == o.api_key_id &&
           artifactory_admin_apikey == o.artifactory_admin_apikey &&
           artifactory_admin_username == o.artifactory_admin_username &&
           artifactory_base_url == o.artifactory_base_url &&
@@ -2325,9 +2367,11 @@ module Akeyless
           mssql_revocation_statements == o.mssql_revocation_statements &&
           mysql_creation_statements == o.mysql_creation_statements &&
           mysql_revocation_statements == o.mysql_revocation_statements &&
+          openai_url == o.openai_url &&
           oracle_creation_statements == o.oracle_creation_statements &&
           oracle_revocation_statements == o.oracle_revocation_statements &&
           oracle_wallet_details == o.oracle_wallet_details &&
+          organization_id == o.organization_id &&
           password == o.password &&
           password_length == o.password_length &&
           password_policy == o.password_policy &&
@@ -2336,6 +2380,7 @@ module Akeyless
           postgres_creation_statements == o.postgres_creation_statements &&
           postgres_revocation_statements == o.postgres_revocation_statements &&
           privileged_user == o.privileged_user &&
+          project_id == o.project_id &&
           rabbitmq_server_password == o.rabbitmq_server_password &&
           rabbitmq_server_uri == o.rabbitmq_server_uri &&
           rabbitmq_server_user == o.rabbitmq_server_user &&
@@ -2402,7 +2447,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_key_algo, gcp_role_bindings, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
+      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_key_algo, gcp_role_bindings, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
     end
 
     # Builds the object from hash

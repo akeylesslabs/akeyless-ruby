@@ -145,6 +145,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_create_mongo_db**](V2Api.md#dynamic_secret_create_mongo_db) | **POST** /dynamic-secret-create-mongodb |  |
 | [**dynamic_secret_create_ms_sql**](V2Api.md#dynamic_secret_create_ms_sql) | **POST** /dynamic-secret-create-mssql |  |
 | [**dynamic_secret_create_my_sql**](V2Api.md#dynamic_secret_create_my_sql) | **POST** /dynamic-secret-create-mysql |  |
+| [**dynamic_secret_create_open_ai**](V2Api.md#dynamic_secret_create_open_ai) | **POST** /dynamic-secret-create-openai |  |
 | [**dynamic_secret_create_oracle_db**](V2Api.md#dynamic_secret_create_oracle_db) | **POST** /dynamic-secret-create-oracle |  |
 | [**dynamic_secret_create_ping**](V2Api.md#dynamic_secret_create_ping) | **POST** /dynamic-secret-create-ping |  |
 | [**dynamic_secret_create_postgre_sql**](V2Api.md#dynamic_secret_create_postgre_sql) | **POST** /dynamic-secret-create-postgresql |  |
@@ -179,6 +180,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_update_mongo_db**](V2Api.md#dynamic_secret_update_mongo_db) | **POST** /dynamic-secret-update-mongo |  |
 | [**dynamic_secret_update_ms_sql**](V2Api.md#dynamic_secret_update_ms_sql) | **POST** /dynamic-secret-update-mssql |  |
 | [**dynamic_secret_update_my_sql**](V2Api.md#dynamic_secret_update_my_sql) | **POST** /dynamic-secret-update-mysql |  |
+| [**dynamic_secret_update_open_ai**](V2Api.md#dynamic_secret_update_open_ai) | **POST** /dynamic-secret-update-openai |  |
 | [**dynamic_secret_update_oracle_db**](V2Api.md#dynamic_secret_update_oracle_db) | **POST** /dynamic-secret-update-oracle |  |
 | [**dynamic_secret_update_ping**](V2Api.md#dynamic_secret_update_ping) | **POST** /dynamic-secret-update-ping |  |
 | [**dynamic_secret_update_postgre_sql**](V2Api.md#dynamic_secret_update_postgre_sql) | **POST** /dynamic-secret-update-postgresql |  |
@@ -201,12 +203,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**event_forwarder_create_email**](V2Api.md#event_forwarder_create_email) | **POST** /event-forwarder-create-email |  |
 | [**event_forwarder_create_service_now**](V2Api.md#event_forwarder_create_service_now) | **POST** /event-forwarder-create-servicenow |  |
 | [**event_forwarder_create_slack**](V2Api.md#event_forwarder_create_slack) | **POST** /event-forwarder-create-slack |  |
+| [**event_forwarder_create_teams**](V2Api.md#event_forwarder_create_teams) | **POST** /event-forwarder-create-teams |  |
 | [**event_forwarder_create_webhook**](V2Api.md#event_forwarder_create_webhook) | **POST** /event-forwarder-create-webhook |  |
 | [**event_forwarder_delete**](V2Api.md#event_forwarder_delete) | **POST** /event-forwarder-delete |  |
 | [**event_forwarder_get**](V2Api.md#event_forwarder_get) | **POST** /event-forwarder-get |  |
 | [**event_forwarder_update_email**](V2Api.md#event_forwarder_update_email) | **POST** /event-forwarder-update-email |  |
 | [**event_forwarder_update_service_now**](V2Api.md#event_forwarder_update_service_now) | **POST** /event-forwarder-update-servicenow |  |
 | [**event_forwarder_update_slack**](V2Api.md#event_forwarder_update_slack) | **POST** /event-forwarder-update-slack |  |
+| [**event_forwarder_update_teams**](V2Api.md#event_forwarder_update_teams) | **POST** /event-forwarder-update-teams |  |
 | [**event_forwarder_update_webhook**](V2Api.md#event_forwarder_update_webhook) | **POST** /event-forwarder-update-webhook |  |
 | [**export_classic_key**](V2Api.md#export_classic_key) | **POST** /export-classic-key |  |
 | [**gateway_create_allowed_access**](V2Api.md#gateway_create_allowed_access) | **POST** /gateway-create-allowed-access |  |
@@ -9326,6 +9330,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_open_ai
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_open_ai(dynamic_secret_create_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_create_open_ai = Akeyless::DynamicSecretCreateOpenAI.new({name: 'name_example'}) # DynamicSecretCreateOpenAI | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_open_ai(dynamic_secret_create_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_open_ai: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_open_ai_with_http_info(dynamic_secret_create_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_open_ai_with_http_info(dynamic_secret_create_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_create_open_ai** | [**DynamicSecretCreateOpenAI**](DynamicSecretCreateOpenAI.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_create_oracle_db
 
 > <DynamicSecretCreateOutput> dynamic_secret_create_oracle_db(dynamic_secret_create_oracle_db)
@@ -11434,6 +11500,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_update_open_ai
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_open_ai(dynamic_secret_update_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_update_open_ai = Akeyless::DynamicSecretUpdateOpenAI.new({name: 'name_example'}) # DynamicSecretUpdateOpenAI | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_open_ai(dynamic_secret_update_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_open_ai: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_open_ai_with_http_info(dynamic_secret_update_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_open_ai_with_http_info(dynamic_secret_update_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_update_open_ai** | [**DynamicSecretUpdateOpenAI**](DynamicSecretUpdateOpenAI.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_update_oracle_db
 
 > <DynamicSecretUpdateOutput> dynamic_secret_update_oracle_db(dynamic_secret_update_oracle_db)
@@ -12798,6 +12926,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## event_forwarder_create_teams
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_create_teams(event_forwarder_create_teams)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+event_forwarder_create_teams = Akeyless::EventForwarderCreateTeams.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', runner_type: 'runner_type_example', url: 'url_example'}) # EventForwarderCreateTeams | 
+
+begin
+  
+  result = api_instance.event_forwarder_create_teams(event_forwarder_create_teams)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_teams: #{e}"
+end
+```
+
+#### Using the event_forwarder_create_teams_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_create_teams_with_http_info(event_forwarder_create_teams)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_create_teams_with_http_info(event_forwarder_create_teams)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_create_teams_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **event_forwarder_create_teams** | [**EventForwarderCreateTeams**](EventForwarderCreateTeams.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## event_forwarder_create_webhook
 
 > <EventForwarderCreateUpdateOutput> event_forwarder_create_webhook(event_forwarder_create_webhook)
@@ -13155,6 +13345,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **event_forwarder_update_slack** | [**EventForwarderUpdateSlack**](EventForwarderUpdateSlack.md) |  |  |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## event_forwarder_update_teams
+
+> <EventForwarderCreateUpdateOutput> event_forwarder_update_teams(event_forwarder_update_teams)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+event_forwarder_update_teams = Akeyless::EventForwarderUpdateTeams.new({gateways_event_source_locations: ['gateways_event_source_locations_example'], name: 'name_example', url: 'url_example'}) # EventForwarderUpdateTeams | 
+
+begin
+  
+  result = api_instance.event_forwarder_update_teams(event_forwarder_update_teams)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_teams: #{e}"
+end
+```
+
+#### Using the event_forwarder_update_teams_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventForwarderCreateUpdateOutput>, Integer, Hash)> event_forwarder_update_teams_with_http_info(event_forwarder_update_teams)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.event_forwarder_update_teams_with_http_info(event_forwarder_update_teams)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventForwarderCreateUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->event_forwarder_update_teams_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **event_forwarder_update_teams** | [**EventForwarderUpdateTeams**](EventForwarderUpdateTeams.md) |  |  |
 
 ### Return type
 

@@ -21,6 +21,8 @@ module Akeyless
 
     attr_accessor :expiration
 
+    attr_accessor :key_id
+
     attr_accessor :last_retrieved
 
     attr_accessor :location
@@ -45,6 +47,7 @@ module Akeyless
         :'created' => :'created',
         :'description' => :'description',
         :'expiration' => :'expiration',
+        :'key_id' => :'key_id',
         :'last_retrieved' => :'last_retrieved',
         :'location' => :'location',
         :'name' => :'name',
@@ -68,6 +71,7 @@ module Akeyless
         :'created' => :'Time',
         :'description' => :'String',
         :'expiration' => :'Time',
+        :'key_id' => :'String',
         :'last_retrieved' => :'Time',
         :'location' => :'Object',
         :'name' => :'String',
@@ -112,6 +116,10 @@ module Akeyless
 
       if attributes.key?(:'expiration')
         self.expiration = attributes[:'expiration']
+      end
+
+      if attributes.key?(:'key_id')
+        self.key_id = attributes[:'key_id']
       end
 
       if attributes.key?(:'last_retrieved')
@@ -176,6 +184,7 @@ module Akeyless
           created == o.created &&
           description == o.description &&
           expiration == o.expiration &&
+          key_id == o.key_id &&
           last_retrieved == o.last_retrieved &&
           location == o.location &&
           name == o.name &&
@@ -196,7 +205,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, description, expiration, last_retrieved, location, name, secret_id, status, tags, thumbprint, type, version].hash
+      [created, description, expiration, key_id, last_retrieved, location, name, secret_id, status, tags, thumbprint, type, version].hash
     end
 
     # Builds the object from hash

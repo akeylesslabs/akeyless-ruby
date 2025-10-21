@@ -25,6 +25,7 @@
 | **protection_key** | **String** |  | [optional] |
 | **runner_type** | **String** |  | [optional] |
 | **slack_noti_forwarder_public_details** | **Object** |  | [optional] |
+| **teams_noti_forwarder_public_details** | **Object** |  | [optional] |
 | **timespan_in_seconds** | **Integer** |  | [optional] |
 | **to_emails** | [**Array&lt;EmailEntry&gt;**](EmailEntry.md) |  | [optional] |
 | **user_email** | **String** |  | [optional] |
@@ -59,6 +60,7 @@ instance = Akeyless::NotiForwarder.new(
   protection_key: null,
   runner_type: null,
   slack_noti_forwarder_public_details: null,
+  teams_noti_forwarder_public_details: null,
   timespan_in_seconds: null,
   to_emails: null,
   user_email: null,

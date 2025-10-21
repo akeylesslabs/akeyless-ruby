@@ -9039,6 +9039,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param dynamic_secret_create_open_ai [DynamicSecretCreateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretCreateOutput]
+    def dynamic_secret_create_open_ai(dynamic_secret_create_open_ai, opts = {})
+      data, _status_code, _headers = dynamic_secret_create_open_ai_with_http_info(dynamic_secret_create_open_ai, opts)
+      data
+    end
+
+    # @param dynamic_secret_create_open_ai [DynamicSecretCreateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretCreateOutput, Integer, Hash)>] DynamicSecretCreateOutput data, response status code and response headers
+    def dynamic_secret_create_open_ai_with_http_info(dynamic_secret_create_open_ai, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_create_open_ai ...'
+      end
+      # verify the required parameter 'dynamic_secret_create_open_ai' is set
+      if @api_client.config.client_side_validation && dynamic_secret_create_open_ai.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_create_open_ai' when calling V2Api.dynamic_secret_create_open_ai"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-create-openai'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_create_open_ai)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_create_open_ai",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_create_open_ai\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param dynamic_secret_create_oracle_db [DynamicSecretCreateOracleDb] 
     # @param [Hash] opts the optional parameters
     # @return [DynamicSecretCreateOutput]
@@ -11211,6 +11275,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param dynamic_secret_update_open_ai [DynamicSecretUpdateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretUpdateOutput]
+    def dynamic_secret_update_open_ai(dynamic_secret_update_open_ai, opts = {})
+      data, _status_code, _headers = dynamic_secret_update_open_ai_with_http_info(dynamic_secret_update_open_ai, opts)
+      data
+    end
+
+    # @param dynamic_secret_update_open_ai [DynamicSecretUpdateOpenAI] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretUpdateOutput, Integer, Hash)>] DynamicSecretUpdateOutput data, response status code and response headers
+    def dynamic_secret_update_open_ai_with_http_info(dynamic_secret_update_open_ai, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_update_open_ai ...'
+      end
+      # verify the required parameter 'dynamic_secret_update_open_ai' is set
+      if @api_client.config.client_side_validation && dynamic_secret_update_open_ai.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_open_ai' when calling V2Api.dynamic_secret_update_open_ai"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-update-openai'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_update_open_ai)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_update_open_ai",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_update_open_ai\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param dynamic_secret_update_oracle_db [DynamicSecretUpdateOracleDb] 
     # @param [Hash] opts the optional parameters
     # @return [DynamicSecretUpdateOutput]
@@ -12619,6 +12747,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param event_forwarder_create_teams [EventForwarderCreateTeams] 
+    # @param [Hash] opts the optional parameters
+    # @return [EventForwarderCreateUpdateOutput]
+    def event_forwarder_create_teams(event_forwarder_create_teams, opts = {})
+      data, _status_code, _headers = event_forwarder_create_teams_with_http_info(event_forwarder_create_teams, opts)
+      data
+    end
+
+    # @param event_forwarder_create_teams [EventForwarderCreateTeams] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EventForwarderCreateUpdateOutput, Integer, Hash)>] EventForwarderCreateUpdateOutput data, response status code and response headers
+    def event_forwarder_create_teams_with_http_info(event_forwarder_create_teams, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.event_forwarder_create_teams ...'
+      end
+      # verify the required parameter 'event_forwarder_create_teams' is set
+      if @api_client.config.client_side_validation && event_forwarder_create_teams.nil?
+        fail ArgumentError, "Missing the required parameter 'event_forwarder_create_teams' when calling V2Api.event_forwarder_create_teams"
+      end
+      # resource path
+      local_var_path = '/event-forwarder-create-teams'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(event_forwarder_create_teams)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventForwarderCreateUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.event_forwarder_create_teams",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#event_forwarder_create_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param event_forwarder_create_webhook [EventForwarderCreateWebhook] 
     # @param [Hash] opts the optional parameters
     # @return [EventForwarderCreateUpdateOutput]
@@ -12999,6 +13191,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#event_forwarder_update_slack\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param event_forwarder_update_teams [EventForwarderUpdateTeams] 
+    # @param [Hash] opts the optional parameters
+    # @return [EventForwarderCreateUpdateOutput]
+    def event_forwarder_update_teams(event_forwarder_update_teams, opts = {})
+      data, _status_code, _headers = event_forwarder_update_teams_with_http_info(event_forwarder_update_teams, opts)
+      data
+    end
+
+    # @param event_forwarder_update_teams [EventForwarderUpdateTeams] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EventForwarderCreateUpdateOutput, Integer, Hash)>] EventForwarderCreateUpdateOutput data, response status code and response headers
+    def event_forwarder_update_teams_with_http_info(event_forwarder_update_teams, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.event_forwarder_update_teams ...'
+      end
+      # verify the required parameter 'event_forwarder_update_teams' is set
+      if @api_client.config.client_side_validation && event_forwarder_update_teams.nil?
+        fail ArgumentError, "Missing the required parameter 'event_forwarder_update_teams' when calling V2Api.event_forwarder_update_teams"
+      end
+      # resource path
+      local_var_path = '/event-forwarder-update-teams'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(event_forwarder_update_teams)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventForwarderCreateUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.event_forwarder_update_teams",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#event_forwarder_update_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

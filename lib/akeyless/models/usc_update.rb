@@ -43,6 +43,9 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used)
+    attr_accessor :usc_encryption_key
+
     # Name of the Universal Secrets Connector item
     attr_accessor :usc_name
 
@@ -61,6 +64,7 @@ module Akeyless
         :'tags' => :'tags',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
+        :'usc_encryption_key' => :'usc-encryption-key',
         :'usc_name' => :'usc-name',
         :'value' => :'value'
       }
@@ -83,6 +87,7 @@ module Akeyless
         :'tags' => :'Hash<String, String>',
         :'token' => :'String',
         :'uid_token' => :'String',
+        :'usc_encryption_key' => :'String',
         :'usc_name' => :'String',
         :'value' => :'String'
       }
@@ -151,6 +156,10 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
+      if attributes.key?(:'usc_encryption_key')
+        self.usc_encryption_key = attributes[:'usc_encryption_key']
+      end
+
       if attributes.key?(:'usc_name')
         self.usc_name = attributes[:'usc_name']
       else
@@ -208,6 +217,7 @@ module Akeyless
           tags == o.tags &&
           token == o.token &&
           uid_token == o.uid_token &&
+          usc_encryption_key == o.usc_encryption_key &&
           usc_name == o.usc_name &&
           value == o.value
     end
@@ -221,7 +231,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, pfx_password, secret_id, tags, token, uid_token, usc_name, value].hash
+      [binary_value, description, json, namespace, pfx_password, secret_id, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

@@ -14,6 +14,7 @@
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **usc_encryption_key** | **String** | Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used) | [optional] |
 | **usc_name** | **String** | Name of the Universal Secrets Connector item |  |
 | **value** | **String** | Value of the universal secrets item, either text or base64 encoded binary |  |
 
@@ -33,6 +34,7 @@ instance = Akeyless::UscCreate.new(
   tags: null,
   token: null,
   uid_token: null,
+  usc_encryption_key: null,
   usc_name: null,
   value: null
 )

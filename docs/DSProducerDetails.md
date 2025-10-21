@@ -11,6 +11,8 @@
 | **admin_pwd** | **String** |  | [optional] |
 | **admin_rotation_interval_days** | **Integer** |  | [optional] |
 | **administrative_port** | **String** |  | [optional] |
+| **api_key** | **String** |  | [optional] |
+| **api_key_id** | **String** |  | [optional] |
 | **artifactory_admin_apikey** | **String** |  | [optional] |
 | **artifactory_admin_username** | **String** |  | [optional] |
 | **artifactory_base_url** | **String** |  | [optional] |
@@ -190,9 +192,11 @@
 | **mssql_revocation_statements** | **String** |  | [optional] |
 | **mysql_creation_statements** | **String** |  | [optional] |
 | **mysql_revocation_statements** | **String** |  | [optional] |
+| **openai_url** | **String** |  | [optional] |
 | **oracle_creation_statements** | **String** |  | [optional] |
 | **oracle_revocation_statements** | **String** |  | [optional] |
 | **oracle_wallet_details** | [**WalletDetails**](WalletDetails.md) |  | [optional] |
+| **organization_id** | **String** |  | [optional] |
 | **password** | **String** |  | [optional] |
 | **password_length** | **Integer** |  | [optional] |
 | **password_policy** | **String** |  | [optional] |
@@ -201,6 +205,7 @@
 | **postgres_creation_statements** | **String** |  | [optional] |
 | **postgres_revocation_statements** | **String** |  | [optional] |
 | **privileged_user** | **String** |  | [optional] |
+| **project_id** | **String** |  | [optional] |
 | **rabbitmq_server_password** | **String** |  | [optional] |
 | **rabbitmq_server_uri** | **String** |  | [optional] |
 | **rabbitmq_server_user** | **String** |  | [optional] |
@@ -270,6 +275,8 @@ instance = Akeyless::DSProducerDetails.new(
   admin_pwd: null,
   admin_rotation_interval_days: null,
   administrative_port: null,
+  api_key: null,
+  api_key_id: null,
   artifactory_admin_apikey: null,
   artifactory_admin_username: null,
   artifactory_base_url: null,
@@ -449,9 +456,11 @@ instance = Akeyless::DSProducerDetails.new(
   mssql_revocation_statements: null,
   mysql_creation_statements: null,
   mysql_revocation_statements: null,
+  openai_url: null,
   oracle_creation_statements: null,
   oracle_revocation_statements: null,
   oracle_wallet_details: null,
+  organization_id: null,
   password: null,
   password_length: null,
   password_policy: null,
@@ -460,6 +469,7 @@ instance = Akeyless::DSProducerDetails.new(
   postgres_creation_statements: null,
   postgres_revocation_statements: null,
   privileged_user: null,
+  project_id: null,
   rabbitmq_server_password: null,
   rabbitmq_server_uri: null,
   rabbitmq_server_user: null,

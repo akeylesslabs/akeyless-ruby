@@ -303,6 +303,7 @@ docs/DynamicSecretCreateLdap.md
 docs/DynamicSecretCreateMongoDb.md
 docs/DynamicSecretCreateMsSql.md
 docs/DynamicSecretCreateMySql.md
+docs/DynamicSecretCreateOpenAI.md
 docs/DynamicSecretCreateOracleDb.md
 docs/DynamicSecretCreateOutput.md
 docs/DynamicSecretCreatePing.md
@@ -342,6 +343,7 @@ docs/DynamicSecretUpdateLdap.md
 docs/DynamicSecretUpdateMongoDb.md
 docs/DynamicSecretUpdateMsSql.md
 docs/DynamicSecretUpdateMySql.md
+docs/DynamicSecretUpdateOpenAI.md
 docs/DynamicSecretUpdateOracleDb.md
 docs/DynamicSecretUpdateOutput.md
 docs/DynamicSecretUpdatePing.md
@@ -380,6 +382,7 @@ docs/EventAction.md
 docs/EventForwarderCreateEmail.md
 docs/EventForwarderCreateServiceNow.md
 docs/EventForwarderCreateSlack.md
+docs/EventForwarderCreateTeams.md
 docs/EventForwarderCreateUpdateOutput.md
 docs/EventForwarderCreateWebhook.md
 docs/EventForwarderDelete.md
@@ -389,6 +392,7 @@ docs/EventForwarderGetOutput.md
 docs/EventForwarderUpdateEmail.md
 docs/EventForwarderUpdateServiceNow.md
 docs/EventForwarderUpdateSlack.md
+docs/EventForwarderUpdateTeams.md
 docs/EventForwarderUpdateWebhook.md
 docs/ExportClassicKey.md
 docs/ExportClassicKeyOutput.md
@@ -1419,6 +1423,7 @@ lib/akeyless/models/dynamic_secret_create_ldap.rb
 lib/akeyless/models/dynamic_secret_create_mongo_db.rb
 lib/akeyless/models/dynamic_secret_create_ms_sql.rb
 lib/akeyless/models/dynamic_secret_create_my_sql.rb
+lib/akeyless/models/dynamic_secret_create_open_ai.rb
 lib/akeyless/models/dynamic_secret_create_oracle_db.rb
 lib/akeyless/models/dynamic_secret_create_output.rb
 lib/akeyless/models/dynamic_secret_create_ping.rb
@@ -1458,6 +1463,7 @@ lib/akeyless/models/dynamic_secret_update_ldap.rb
 lib/akeyless/models/dynamic_secret_update_mongo_db.rb
 lib/akeyless/models/dynamic_secret_update_ms_sql.rb
 lib/akeyless/models/dynamic_secret_update_my_sql.rb
+lib/akeyless/models/dynamic_secret_update_open_ai.rb
 lib/akeyless/models/dynamic_secret_update_oracle_db.rb
 lib/akeyless/models/dynamic_secret_update_output.rb
 lib/akeyless/models/dynamic_secret_update_ping.rb
@@ -1496,6 +1502,7 @@ lib/akeyless/models/event_action.rb
 lib/akeyless/models/event_forwarder_create_email.rb
 lib/akeyless/models/event_forwarder_create_service_now.rb
 lib/akeyless/models/event_forwarder_create_slack.rb
+lib/akeyless/models/event_forwarder_create_teams.rb
 lib/akeyless/models/event_forwarder_create_update_output.rb
 lib/akeyless/models/event_forwarder_create_webhook.rb
 lib/akeyless/models/event_forwarder_delete.rb
@@ -1505,6 +1512,7 @@ lib/akeyless/models/event_forwarder_get_output.rb
 lib/akeyless/models/event_forwarder_update_email.rb
 lib/akeyless/models/event_forwarder_update_service_now.rb
 lib/akeyless/models/event_forwarder_update_slack.rb
+lib/akeyless/models/event_forwarder_update_teams.rb
 lib/akeyless/models/event_forwarder_update_webhook.rb
 lib/akeyless/models/export_classic_key.rb
 lib/akeyless/models/export_classic_key_output.rb
@@ -2233,6 +2241,8 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/get_cert_challenge_output_spec.rb
-spec/models/get_cert_challenge_spec.rb
+spec/models/dynamic_secret_create_open_ai_spec.rb
+spec/models/dynamic_secret_update_open_ai_spec.rb
+spec/models/event_forwarder_create_teams_spec.rb
+spec/models/event_forwarder_update_teams_spec.rb
 spec/spec_helper.rb

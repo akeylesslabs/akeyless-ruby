@@ -20,20 +20,20 @@ module Akeyless
 
     attr_accessor :api_key_id
 
-    attr_accessor :model
-
     attr_accessor :openai_url
 
     attr_accessor :organization_id
+
+    attr_accessor :project_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'api_key' => :'api_key',
         :'api_key_id' => :'api_key_id',
-        :'model' => :'model',
         :'openai_url' => :'openai_url',
-        :'organization_id' => :'organization_id'
+        :'organization_id' => :'organization_id',
+        :'project_id' => :'project_id'
       }
     end
 
@@ -47,9 +47,9 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_key_id' => :'String',
-        :'model' => :'String',
         :'openai_url' => :'String',
-        :'organization_id' => :'String'
+        :'organization_id' => :'String',
+        :'project_id' => :'String'
       }
     end
 
@@ -82,16 +82,16 @@ module Akeyless
         self.api_key_id = attributes[:'api_key_id']
       end
 
-      if attributes.key?(:'model')
-        self.model = attributes[:'model']
-      end
-
       if attributes.key?(:'openai_url')
         self.openai_url = attributes[:'openai_url']
       end
 
       if attributes.key?(:'organization_id')
         self.organization_id = attributes[:'organization_id']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
     end
 
@@ -117,9 +117,9 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
-          model == o.model &&
           openai_url == o.openai_url &&
-          organization_id == o.organization_id
+          organization_id == o.organization_id &&
+          project_id == o.project_id
     end
 
     # @see the `==` method
@@ -131,7 +131,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_key_id, model, openai_url, organization_id].hash
+      [api_key, api_key_id, openai_url, organization_id, project_id].hash
     end
 
     # Builds the object from hash

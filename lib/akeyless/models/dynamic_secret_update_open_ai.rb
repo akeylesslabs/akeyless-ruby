@@ -14,30 +14,37 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # uscCreate is a command that creates a new secret in a Universal Secrets Connector
-  class UscCreate
-    # Use this option if the universal secrets value is a base64 encoded binary
-    attr_accessor :binary_value
+  # dynamicSecretUpdateOpenAI is a command that updates OpenAI dynamic secret
+  class DynamicSecretUpdateOpenAI
+    # Customize how temporary usernames are generated using go template
+    attr_accessor :custom_username_template
 
-    # Description of the universal secrets
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
+    # Description of the object
     attr_accessor :description
 
     # Set output format to JSON
     attr_accessor :json
 
-    # The namespace (relevant for Hashi vault target)
-    attr_accessor :namespace
+    # Dynamic secret name
+    attr_accessor :name
 
-    attr_accessor :object_type
+    # Dynamic secret name
+    attr_accessor :new_name
 
-    # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
-    attr_accessor :pfx_password
+    # Dynamic producer encryption key
+    attr_accessor :producer_encryption_key_name
 
-    # Name for the new universal secrets
-    attr_accessor :secret_name
+    # Project ID
+    attr_accessor :project_id
 
-    # Tags for the universal secrets
+    # Add tags attached to this object
     attr_accessor :tags
+
+    # Name of existing target to use in producer creation
+    attr_accessor :target_name
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -45,31 +52,25 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
-    # Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used)
-    attr_accessor :usc_encryption_key
-
-    # Name of the Universal Secrets Connector item
-    attr_accessor :usc_name
-
-    # Value of the universal secrets item, either text or base64 encoded binary
-    attr_accessor :value
+    # User TTL
+    attr_accessor :user_ttl
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'binary_value' => :'binary-value',
+        :'custom_username_template' => :'custom-username-template',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
-        :'namespace' => :'namespace',
-        :'object_type' => :'object-type',
-        :'pfx_password' => :'pfx-password',
-        :'secret_name' => :'secret-name',
+        :'name' => :'name',
+        :'new_name' => :'new-name',
+        :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'project_id' => :'project-id',
         :'tags' => :'tags',
+        :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
-        :'usc_encryption_key' => :'usc-encryption-key',
-        :'usc_name' => :'usc-name',
-        :'value' => :'value'
+        :'user_ttl' => :'user-ttl'
       }
     end
 
@@ -81,19 +82,19 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'binary_value' => :'Boolean',
+        :'custom_username_template' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
-        :'namespace' => :'String',
-        :'object_type' => :'String',
-        :'pfx_password' => :'String',
-        :'secret_name' => :'String',
-        :'tags' => :'Hash<String, String>',
+        :'name' => :'String',
+        :'new_name' => :'String',
+        :'producer_encryption_key_name' => :'String',
+        :'project_id' => :'String',
+        :'tags' => :'Array<String>',
+        :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
-        :'usc_encryption_key' => :'String',
-        :'usc_name' => :'String',
-        :'value' => :'String'
+        :'user_ttl' => :'String'
       }
     end
 
@@ -107,19 +108,23 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::UscCreate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::DynamicSecretUpdateOpenAI` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::UscCreate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::DynamicSecretUpdateOpenAI`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'binary_value')
-        self.binary_value = attributes[:'binary_value']
+      if attributes.key?(:'custom_username_template')
+        self.custom_username_template = attributes[:'custom_username_template']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -132,28 +137,32 @@ module Akeyless
         self.json = false
       end
 
-      if attributes.key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.key?(:'object_type')
-        self.object_type = attributes[:'object_type']
-      end
-
-      if attributes.key?(:'pfx_password')
-        self.pfx_password = attributes[:'pfx_password']
-      end
-
-      if attributes.key?(:'secret_name')
-        self.secret_name = attributes[:'secret_name']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.secret_name = nil
+        self.name = nil
+      end
+
+      if attributes.key?(:'new_name')
+        self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'producer_encryption_key_name')
+        self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
       if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Hash)
+        if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
+      end
+
+      if attributes.key?(:'target_name')
+        self.target_name = attributes[:'target_name']
       end
 
       if attributes.key?(:'token')
@@ -164,20 +173,10 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
-      if attributes.key?(:'usc_encryption_key')
-        self.usc_encryption_key = attributes[:'usc_encryption_key']
-      end
-
-      if attributes.key?(:'usc_name')
-        self.usc_name = attributes[:'usc_name']
+      if attributes.key?(:'user_ttl')
+        self.user_ttl = attributes[:'user_ttl']
       else
-        self.usc_name = nil
-      end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      else
-        self.value = nil
+        self.user_ttl = '60m'
       end
     end
 
@@ -186,16 +185,8 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @secret_name.nil?
-        invalid_properties.push('invalid value for "secret_name", secret_name cannot be nil.')
-      end
-
-      if @usc_name.nil?
-        invalid_properties.push('invalid value for "usc_name", usc_name cannot be nil.')
-      end
-
-      if @value.nil?
-        invalid_properties.push('invalid value for "value", value cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       invalid_properties
@@ -205,9 +196,7 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @secret_name.nil?
-      return false if @usc_name.nil?
-      return false if @value.nil?
+      return false if @name.nil?
       true
     end
 
@@ -216,19 +205,19 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          binary_value == o.binary_value &&
+          custom_username_template == o.custom_username_template &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
-          namespace == o.namespace &&
-          object_type == o.object_type &&
-          pfx_password == o.pfx_password &&
-          secret_name == o.secret_name &&
+          name == o.name &&
+          new_name == o.new_name &&
+          producer_encryption_key_name == o.producer_encryption_key_name &&
+          project_id == o.project_id &&
           tags == o.tags &&
+          target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token &&
-          usc_encryption_key == o.usc_encryption_key &&
-          usc_name == o.usc_name &&
-          value == o.value
+          user_ttl == o.user_ttl
     end
 
     # @see the `==` method
@@ -240,7 +229,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, secret_name, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [custom_username_template, delete_protection, description, json, name, new_name, producer_encryption_key_name, project_id, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

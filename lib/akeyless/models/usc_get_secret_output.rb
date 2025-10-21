@@ -17,6 +17,8 @@ module Akeyless
   class UscGetSecretOutput
     attr_accessor :binary_value
 
+    attr_accessor :encryption_key
+
     attr_accessor :id
 
     attr_accessor :metadata
@@ -29,6 +31,7 @@ module Akeyless
     def self.attribute_map
       {
         :'binary_value' => :'binary_value',
+        :'encryption_key' => :'encryption_key',
         :'id' => :'id',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -45,6 +48,7 @@ module Akeyless
     def self.openapi_types
       {
         :'binary_value' => :'Boolean',
+        :'encryption_key' => :'String',
         :'id' => :'String',
         :'metadata' => :'Object',
         :'name' => :'String',
@@ -76,6 +80,10 @@ module Akeyless
 
       if attributes.key?(:'binary_value')
         self.binary_value = attributes[:'binary_value']
+      end
+
+      if attributes.key?(:'encryption_key')
+        self.encryption_key = attributes[:'encryption_key']
       end
 
       if attributes.key?(:'id')
@@ -116,6 +124,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           binary_value == o.binary_value &&
+          encryption_key == o.encryption_key &&
           id == o.id &&
           metadata == o.metadata &&
           name == o.name &&
@@ -131,7 +140,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, id, metadata, name, value].hash
+      [binary_value, encryption_key, id, metadata, name, value].hash
     end
 
     # Builds the object from hash
