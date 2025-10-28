@@ -17,6 +17,8 @@ module Akeyless
   class ConfigHash
     attr_accessor :admins
 
+    attr_accessor :ai_insights
+
     attr_accessor :cache
 
     attr_accessor :customer_fragements
@@ -53,6 +55,7 @@ module Akeyless
     def self.attribute_map
       {
         :'admins' => :'admins',
+        :'ai_insights' => :'ai_insights',
         :'cache' => :'cache',
         :'customer_fragements' => :'customer_fragements',
         :'general' => :'general',
@@ -81,6 +84,7 @@ module Akeyless
     def self.openapi_types
       {
         :'admins' => :'String',
+        :'ai_insights' => :'String',
         :'cache' => :'String',
         :'customer_fragements' => :'String',
         :'general' => :'String',
@@ -125,6 +129,10 @@ module Akeyless
 
       if attributes.key?(:'admins')
         self.admins = attributes[:'admins']
+      end
+
+      if attributes.key?(:'ai_insights')
+        self.ai_insights = attributes[:'ai_insights']
       end
 
       if attributes.key?(:'cache')
@@ -213,6 +221,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           admins == o.admins &&
+          ai_insights == o.ai_insights &&
           cache == o.cache &&
           customer_fragements == o.customer_fragements &&
           general == o.general &&
@@ -240,7 +249,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admins, cache, customer_fragements, general, k8s_auths, kmip, ldap, leadership, log_forwarding, m_queue, migration_status, migrations, producers, producers_status, rotators, saml, universal_identity].hash
+      [admins, ai_insights, cache, customer_fragements, general, k8s_auths, kmip, ldap, leadership, log_forwarding, m_queue, migration_status, migrations, producers, producers_status, rotators, saml, universal_identity].hash
     end
 
     # Builds the object from hash

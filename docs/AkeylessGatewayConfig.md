@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **admins** | [**AdminsConfigPart**](AdminsConfigPart.md) |  | [optional] |
+| **ai_insights** | [**AiInsightsConfigPart**](AiInsightsConfigPart.md) |  | [optional] |
 | **ca_certificates** | [**CaCertificatesConfigPart**](CaCertificatesConfigPart.md) |  | [optional] |
 | **cache** | [**CacheConfigPart**](CacheConfigPart.md) |  | [optional] |
 | **cf** | [**CFConfigPart**](CFConfigPart.md) |  | [optional] |
@@ -30,6 +31,7 @@ require 'akeyless'
 
 instance = Akeyless::AkeylessGatewayConfig.new(
   admins: null,
+  ai_insights: null,
   ca_certificates: null,
   cache: null,
   cf: null,

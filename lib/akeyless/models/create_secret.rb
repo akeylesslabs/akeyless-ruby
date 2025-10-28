@@ -36,6 +36,9 @@ module Akeyless
     # For Password Management use, reflect the website context
     attr_accessor :inject_url
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -117,6 +120,7 @@ module Akeyless
         :'description' => :'description',
         :'format' => :'format',
         :'inject_url' => :'inject-url',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'max_versions' => :'max-versions',
         :'metadata' => :'metadata',
@@ -159,6 +163,7 @@ module Akeyless
         :'description' => :'String',
         :'format' => :'String',
         :'inject_url' => :'Array<String>',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'max_versions' => :'String',
         :'metadata' => :'String',
@@ -240,6 +245,12 @@ module Akeyless
       if attributes.key?(:'inject_url')
         if (value = attributes[:'inject_url']).is_a?(Array)
           self.inject_url = value
+        end
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
         end
       end
 
@@ -393,6 +404,7 @@ module Akeyless
           description == o.description &&
           format == o.format &&
           inject_url == o.inject_url &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           max_versions == o.max_versions &&
           metadata == o.metadata &&
@@ -428,7 +440,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, change_event, custom_field, delete_protection, description, format, inject_url, json, max_versions, metadata, multiline_value, name, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, token, type, uid_token, username, value].hash
+      [accessibility, change_event, custom_field, delete_protection, description, format, inject_url, item_custom_fields, json, max_versions, metadata, multiline_value, name, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, token, type, uid_token, username, value].hash
     end
 
     # Builds the object from hash

@@ -7,6 +7,7 @@
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **mssql_create_statements** | **String** | MSSQL Creation statements | [optional] |
 | **mssql_dbname** | **String** | MSSQL Name | [optional] |
@@ -42,6 +43,7 @@ instance = Akeyless::DynamicSecretUpdateMsSql.new(
   custom_username_template: null,
   delete_protection: null,
   description: null,
+  item_custom_fields: null,
   json: null,
   mssql_create_statements: null,
   mssql_dbname: null,

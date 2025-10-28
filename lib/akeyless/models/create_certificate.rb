@@ -30,6 +30,9 @@ module Akeyless
     # CertificateFormat of the certificate and private key, possible values: cer,crt,pem,pfx,p12. Required when passing inline certificate content with --certificate-data or --key-data, otherwise format is derived from the file extension.
     attr_accessor :format
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -62,6 +65,7 @@ module Akeyless
         :'description' => :'description',
         :'expiration_event_in' => :'expiration-event-in',
         :'format' => :'format',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
         :'key_data' => :'key-data',
@@ -86,6 +90,7 @@ module Akeyless
         :'description' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'format' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
         :'key_data' => :'String',
@@ -138,6 +143,12 @@ module Akeyless
 
       if attributes.key?(:'format')
         self.format = attributes[:'format']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -209,6 +220,7 @@ module Akeyless
           description == o.description &&
           expiration_event_in == o.expiration_event_in &&
           format == o.format &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
           key_data == o.key_data &&
@@ -228,7 +240,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_data, delete_protection, description, expiration_event_in, format, json, key, key_data, metadata, name, tags, token, uid_token].hash
+      [certificate_data, delete_protection, description, expiration_event_in, format, item_custom_fields, json, key, key_data, metadata, name, tags, token, uid_token].hash
     end
 
     # Builds the object from hash

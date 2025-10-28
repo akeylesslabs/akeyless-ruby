@@ -51,6 +51,8 @@ module Akeyless
 
     attr_accessor :item_accessibility
 
+    attr_accessor :item_custom_fields_details
+
     attr_accessor :item_general_info
 
     attr_accessor :item_id
@@ -122,6 +124,7 @@ module Akeyless
         :'is_access_request_enabled' => :'is_access_request_enabled',
         :'is_enabled' => :'is_enabled',
         :'item_accessibility' => :'item_accessibility',
+        :'item_custom_fields_details' => :'item_custom_fields_details',
         :'item_general_info' => :'item_general_info',
         :'item_id' => :'item_id',
         :'item_metadata' => :'item_metadata',
@@ -175,6 +178,7 @@ module Akeyless
         :'is_access_request_enabled' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'item_accessibility' => :'Integer',
+        :'item_custom_fields_details' => :'Array<ItemCustomFieldsDetails>',
         :'item_general_info' => :'ItemGeneralInfo',
         :'item_id' => :'Integer',
         :'item_metadata' => :'String',
@@ -297,6 +301,12 @@ module Akeyless
 
       if attributes.key?(:'item_accessibility')
         self.item_accessibility = attributes[:'item_accessibility']
+      end
+
+      if attributes.key?(:'item_custom_fields_details')
+        if (value = attributes[:'item_custom_fields_details']).is_a?(Array)
+          self.item_custom_fields_details = value
+        end
       end
 
       if attributes.key?(:'item_general_info')
@@ -444,6 +454,7 @@ module Akeyless
           is_access_request_enabled == o.is_access_request_enabled &&
           is_enabled == o.is_enabled &&
           item_accessibility == o.item_accessibility &&
+          item_custom_fields_details == o.item_custom_fields_details &&
           item_general_info == o.item_general_info &&
           item_id == o.item_id &&
           item_metadata == o.item_metadata &&
@@ -479,7 +490,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, access_request_status, auto_rotate, bastion_details, cert_issuer_signer_key_name, certificate_issue_details, certificates, client_permissions, creation_date, customer_fragment_id, delete_protection, deletion_date, display_id, gateway_details, is_access_request_enabled, is_enabled, item_accessibility, item_general_info, item_id, item_metadata, item_name, item_size, item_state, item_sub_type, item_tags, item_targets_assoc, item_type, item_versions, last_rotation_date, last_version, linked_details, modification_date, next_rotation_date, protection_key_name, protection_key_type, public_value, rotation_interval, shared_by, target_versions, usc_sync_associated_items, with_customer_fragment].hash
+      [access_date, access_date_display, access_request_status, auto_rotate, bastion_details, cert_issuer_signer_key_name, certificate_issue_details, certificates, client_permissions, creation_date, customer_fragment_id, delete_protection, deletion_date, display_id, gateway_details, is_access_request_enabled, is_enabled, item_accessibility, item_custom_fields_details, item_general_info, item_id, item_metadata, item_name, item_size, item_state, item_sub_type, item_tags, item_targets_assoc, item_type, item_versions, last_rotation_date, last_version, linked_details, modification_date, next_rotation_date, protection_key_name, protection_key_type, public_value, rotation_interval, shared_by, target_versions, usc_sync_associated_items, with_customer_fragment].hash
     end
 
     # Builds the object from hash

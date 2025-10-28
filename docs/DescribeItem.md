@@ -9,6 +9,7 @@
 | **der_certificate_format** | **Boolean** | The certificate will be displayed in DER format | [optional][default to false] |
 | **display_id** | **String** | The display id of the item | [optional] |
 | **gateway_details** | **Boolean** | Indicate if the item should return with clusters details (url, etc) | [optional][default to false] |
+| **item_custom_fields_details** | **Boolean** | Include all item custom fields details | [optional][default to false] |
 | **item_id** | **Integer** | Item id of the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Item name |  |
@@ -28,6 +29,7 @@ instance = Akeyless::DescribeItem.new(
   der_certificate_format: null,
   display_id: null,
   gateway_details: null,
+  item_custom_fields_details: null,
   item_id: null,
   json: null,
   name: null,

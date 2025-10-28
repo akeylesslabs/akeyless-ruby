@@ -36,6 +36,9 @@ module Akeyless
     # Enable password policy
     attr_accessor :enable_password_policy
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -139,6 +142,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'enable_password_policy' => :'enable-password-policy',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
@@ -188,6 +192,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'enable_password_policy' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
@@ -275,6 +280,12 @@ module Akeyless
 
       if attributes.key?(:'enable_password_policy')
         self.enable_password_policy = attributes[:'enable_password_policy']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -454,6 +465,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           enable_password_policy == o.enable_password_policy &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
@@ -496,7 +508,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, custom_payload, delete_protection, description, enable_password_policy, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, timeout_sec, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [add_tag, authentication_credentials, auto_rotate, custom_payload, delete_protection, description, enable_password_policy, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, timeout_sec, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

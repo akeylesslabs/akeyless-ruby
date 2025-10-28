@@ -43,6 +43,9 @@ module Akeyless
     # Fixed user
     attr_accessor :fixed_user_only
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -115,6 +118,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'fixed_user_only' => :'fixed-user-only',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
@@ -155,6 +159,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'fixed_user_claim_keyname' => :'String',
         :'fixed_user_only' => :'Boolean',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
@@ -237,6 +242,12 @@ module Akeyless
         self.fixed_user_only = attributes[:'fixed_user_only']
       else
         self.fixed_user_only = false
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -372,6 +383,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           fixed_user_only == o.fixed_user_only &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
@@ -403,7 +415,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_obj_id, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, json, name, new_name, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
+      [app_obj_id, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, item_custom_fields, json, name, new_name, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
     end
 
     # Builds the object from hash

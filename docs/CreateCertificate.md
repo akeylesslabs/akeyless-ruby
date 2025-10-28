@@ -9,6 +9,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **format** | **String** | CertificateFormat of the certificate and private key, possible values: cer,crt,pem,pfx,p12. Required when passing inline certificate content with --certificate-data or --key-data, otherwise format is derived from the file extension. | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key to use to encrypt the certificate&#39;s key (if empty, the account default protectionKey key will be used) | [optional] |
 | **key_data** | **String** | Content of the certificate&#39;s private key in a Base64 format. | [optional] |
@@ -29,6 +30,7 @@ instance = Akeyless::CreateCertificate.new(
   description: null,
   expiration_event_in: null,
   format: null,
+  item_custom_fields: null,
   json: null,
   key: null,
   key_data: null,

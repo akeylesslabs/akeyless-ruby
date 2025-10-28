@@ -30,6 +30,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -77,6 +80,7 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
@@ -106,6 +110,7 @@ module Akeyless
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
@@ -167,6 +172,12 @@ module Akeyless
         self.description = attributes[:'description']
       else
         self.description = 'default_metadata'
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -260,6 +271,7 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
@@ -284,7 +296,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, token, uid_token].hash
+      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, token, uid_token].hash
     end
 
     # Builds the object from hash

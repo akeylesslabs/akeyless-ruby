@@ -11,6 +11,7 @@
 | **installation_id** | **Integer** | GitHub application installation id | [optional] |
 | **installation_organization** | **String** | Optional, mutually exclusive with installation id, GitHub organization name | [optional] |
 | **installation_repository** | **String** | Optional, mutually exclusive with installation id, GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;&#39; | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
@@ -34,6 +35,7 @@ instance = Akeyless::GatewayCreateProducerGithub.new(
   installation_id: null,
   installation_organization: null,
   installation_repository: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   tags: null,

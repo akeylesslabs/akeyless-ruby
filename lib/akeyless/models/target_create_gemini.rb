@@ -34,9 +34,6 @@ module Akeyless
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
-    # Default model to use with Gemini
-    attr_accessor :model
-
     # Target name
     attr_accessor :name
 
@@ -55,7 +52,6 @@ module Akeyless
         :'json' => :'json',
         :'key' => :'key',
         :'max_versions' => :'max-versions',
-        :'model' => :'model',
         :'name' => :'name',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -76,7 +72,6 @@ module Akeyless
         :'json' => :'Boolean',
         :'key' => :'String',
         :'max_versions' => :'String',
-        :'model' => :'String',
         :'name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -132,10 +127,6 @@ module Akeyless
         self.max_versions = attributes[:'max_versions']
       end
 
-      if attributes.key?(:'model')
-        self.model = attributes[:'model']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -182,7 +173,6 @@ module Akeyless
           json == o.json &&
           key == o.key &&
           max_versions == o.max_versions &&
-          model == o.model &&
           name == o.name &&
           token == o.token &&
           uid_token == o.uid_token
@@ -197,7 +187,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, description, gemini_url, json, key, max_versions, model, name, token, uid_token].hash
+      [api_key, description, gemini_url, json, key, max_versions, name, token, uid_token].hash
     end
 
     # Builds the object from hash

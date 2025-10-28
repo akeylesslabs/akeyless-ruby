@@ -10,6 +10,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **encoding_template** | **String** | The Encoding output template to use in regexp vaultless tokenization | [optional] |
 | **encryption_key_name** | **String** | AES key name to use in vaultless tokenization | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | Tokenizer name |  |
@@ -33,6 +34,7 @@ instance = Akeyless::CreateTokenizer.new(
   description: null,
   encoding_template: null,
   encryption_key_name: null,
+  item_custom_fields: null,
   json: null,
   metadata: null,
   name: null,

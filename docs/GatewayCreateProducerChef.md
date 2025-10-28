@@ -10,6 +10,7 @@
 | **chef_server_username** | **String** | Server username | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
@@ -33,6 +34,7 @@ instance = Akeyless::GatewayCreateProducerChef.new(
   chef_server_username: null,
   custom_username_template: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   password_length: null,

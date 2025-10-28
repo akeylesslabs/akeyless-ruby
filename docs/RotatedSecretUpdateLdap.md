@@ -11,6 +11,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -53,6 +54,7 @@ instance = Akeyless::RotatedSecretUpdateLdap.new(
   delete_protection: null,
   description: null,
   host_provider: null,
+  item_custom_fields: null,
   json: null,
   keep_prev_version: null,
   key: null,

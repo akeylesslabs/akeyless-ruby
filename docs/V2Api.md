@@ -4,6 +4,11 @@ All URIs are relative to *https://api.akeyless.io*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**account_custom_field_create**](V2Api.md#account_custom_field_create) | **POST** /account-custom-field-create | Create a new custom field. |
+| [**account_custom_field_delete**](V2Api.md#account_custom_field_delete) | **POST** /account-custom-field-delete | Delete a custom field. |
+| [**account_custom_field_get**](V2Api.md#account_custom_field_get) | **POST** /account-custom-field-get | Get an account custom field by ID. |
+| [**account_custom_field_list**](V2Api.md#account_custom_field_list) | **POST** /account-custom-field-list | List all account custom fields. |
+| [**account_custom_field_update**](V2Api.md#account_custom_field_update) | **POST** /account-custom-field-update | Update a custom field. |
 | [**alias_details**](V2Api.md#alias_details) | **POST** /alias-details |  |
 | [**assoc_role_auth_method**](V2Api.md#assoc_role_auth_method) | **POST** /assoc-role-am |  |
 | [**assoc_target_item**](V2Api.md#assoc_target_item) | **POST** /assoc-target-item |  |
@@ -584,6 +589,318 @@ All URIs are relative to *https://api.akeyless.io*
 | [**verify_pkcs1**](V2Api.md#verify_pkcs1) | **POST** /verify-pkcs1 |  |
 | [**verify_pki_cert_with_classic_key**](V2Api.md#verify_pki_cert_with_classic_key) | **POST** /verify-pki-cert-with-classic-key |  |
 | [**verify_rsa_ssa_pss**](V2Api.md#verify_rsa_ssa_pss) | **POST** /verify-rsassa-pss |  |
+
+
+## account_custom_field_create
+
+> <AccountCustomFieldCreateOutput> account_custom_field_create(account_custom_field_create)
+
+Create a new custom field.
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+account_custom_field_create = Akeyless::AccountCustomFieldCreate.new({name: 'name_example', object: 'object_example', object_type: 'object_type_example'}) # AccountCustomFieldCreate | 
+
+begin
+  # Create a new custom field.
+  result = api_instance.account_custom_field_create(account_custom_field_create)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_create: #{e}"
+end
+```
+
+#### Using the account_custom_field_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountCustomFieldCreateOutput>, Integer, Hash)> account_custom_field_create_with_http_info(account_custom_field_create)
+
+```ruby
+begin
+  # Create a new custom field.
+  data, status_code, headers = api_instance.account_custom_field_create_with_http_info(account_custom_field_create)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountCustomFieldCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_custom_field_create** | [**AccountCustomFieldCreate**](AccountCustomFieldCreate.md) |  |  |
+
+### Return type
+
+[**AccountCustomFieldCreateOutput**](AccountCustomFieldCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## account_custom_field_delete
+
+> Object account_custom_field_delete(account_custom_field_delete)
+
+Delete a custom field.
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+account_custom_field_delete = Akeyless::AccountCustomFieldDelete.new({id: 3.56}) # AccountCustomFieldDelete | 
+
+begin
+  # Delete a custom field.
+  result = api_instance.account_custom_field_delete(account_custom_field_delete)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_delete: #{e}"
+end
+```
+
+#### Using the account_custom_field_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> account_custom_field_delete_with_http_info(account_custom_field_delete)
+
+```ruby
+begin
+  # Delete a custom field.
+  data, status_code, headers = api_instance.account_custom_field_delete_with_http_info(account_custom_field_delete)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_custom_field_delete** | [**AccountCustomFieldDelete**](AccountCustomFieldDelete.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## account_custom_field_get
+
+> <AccountCustomFieldGetOutput> account_custom_field_get(account_custom_field_get)
+
+Get an account custom field by ID.
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+account_custom_field_get = Akeyless::AccountCustomFieldGet.new({id: 3.56}) # AccountCustomFieldGet | 
+
+begin
+  # Get an account custom field by ID.
+  result = api_instance.account_custom_field_get(account_custom_field_get)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_get: #{e}"
+end
+```
+
+#### Using the account_custom_field_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountCustomFieldGetOutput>, Integer, Hash)> account_custom_field_get_with_http_info(account_custom_field_get)
+
+```ruby
+begin
+  # Get an account custom field by ID.
+  data, status_code, headers = api_instance.account_custom_field_get_with_http_info(account_custom_field_get)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountCustomFieldGetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_custom_field_get** | [**AccountCustomFieldGet**](AccountCustomFieldGet.md) |  |  |
+
+### Return type
+
+[**AccountCustomFieldGetOutput**](AccountCustomFieldGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## account_custom_field_list
+
+> Object account_custom_field_list(account_custom_field_list)
+
+List all account custom fields.
+
+Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+account_custom_field_list = Akeyless::AccountCustomFieldList.new # AccountCustomFieldList | 
+
+begin
+  # List all account custom fields.
+  result = api_instance.account_custom_field_list(account_custom_field_list)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_list: #{e}"
+end
+```
+
+#### Using the account_custom_field_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> account_custom_field_list_with_http_info(account_custom_field_list)
+
+```ruby
+begin
+  # List all account custom fields.
+  data, status_code, headers = api_instance.account_custom_field_list_with_http_info(account_custom_field_list)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_custom_field_list** | [**AccountCustomFieldList**](AccountCustomFieldList.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## account_custom_field_update
+
+> Object account_custom_field_update(account_custom_field_update)
+
+Update a custom field.
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+account_custom_field_update = Akeyless::AccountCustomFieldUpdate.new({id: 3.56}) # AccountCustomFieldUpdate | 
+
+begin
+  # Update a custom field.
+  result = api_instance.account_custom_field_update(account_custom_field_update)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_update: #{e}"
+end
+```
+
+#### Using the account_custom_field_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> account_custom_field_update_with_http_info(account_custom_field_update)
+
+```ruby
+begin
+  # Update a custom field.
+  data, status_code, headers = api_instance.account_custom_field_update_with_http_info(account_custom_field_update)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->account_custom_field_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_custom_field_update** | [**AccountCustomFieldUpdate**](AccountCustomFieldUpdate.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## alias_details

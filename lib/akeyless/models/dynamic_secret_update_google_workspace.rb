@@ -38,6 +38,9 @@ module Akeyless
 
     attr_accessor :group_role
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -96,6 +99,7 @@ module Akeyless
         :'gcp_key' => :'gcp-key',
         :'group_email' => :'group-email',
         :'group_role' => :'group-role',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
@@ -131,6 +135,7 @@ module Akeyless
         :'gcp_key' => :'String',
         :'group_email' => :'String',
         :'group_role' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
@@ -207,6 +212,12 @@ module Akeyless
 
       if attributes.key?(:'group_role')
         self.group_role = attributes[:'group_role']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -331,6 +342,7 @@ module Akeyless
           gcp_key == o.gcp_key &&
           group_email == o.group_email &&
           group_role == o.group_role &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
@@ -358,7 +370,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_email, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, json, name, new_name, producer_encryption_key_name, role_name, role_scope, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
+      [access_mode, admin_email, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, item_custom_fields, json, name, new_name, producer_encryption_key_name, role_name, role_scope, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

@@ -84,6 +84,9 @@ module Akeyless
     # If set, the basic constraints extension will be added to certificate
     attr_accessor :is_ca
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -176,6 +179,7 @@ module Akeyless
         :'expiration_event_in' => :'expiration-event-in',
         :'gw_cluster_url' => :'gw-cluster-url',
         :'is_ca' => :'is-ca',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key_usage' => :'key-usage',
         :'locality' => :'locality',
@@ -232,6 +236,7 @@ module Akeyless
         :'expiration_event_in' => :'Array<String>',
         :'gw_cluster_url' => :'String',
         :'is_ca' => :'Boolean',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key_usage' => :'String',
         :'locality' => :'String',
@@ -374,6 +379,12 @@ module Akeyless
 
       if attributes.key?(:'is_ca')
         self.is_ca = attributes[:'is_ca']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -530,6 +541,7 @@ module Akeyless
           expiration_event_in == o.expiration_event_in &&
           gw_cluster_url == o.gw_cluster_url &&
           is_ca == o.is_ca &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key_usage == o.key_usage &&
           locality == o.locality &&
@@ -563,7 +575,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
+      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

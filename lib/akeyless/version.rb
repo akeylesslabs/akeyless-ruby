@@ -11,5 +11,5 @@ Generator version: 7.10.0
 =end
 
 module Akeyless
-  VERSION = '5.0.12'
+  VERSION = '5.0.13'
 end

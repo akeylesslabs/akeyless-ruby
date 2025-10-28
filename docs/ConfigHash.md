@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **admins** | **String** |  | [optional] |
+| **ai_insights** | **String** |  | [optional] |
 | **cache** | **String** |  | [optional] |
 | **customer_fragements** | **String** |  | [optional] |
 | **general** | **String** |  | [optional] |
@@ -29,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::ConfigHash.new(
   admins: null,
+  ai_insights: null,
   cache: null,
   customer_fragements: null,
   general: null,

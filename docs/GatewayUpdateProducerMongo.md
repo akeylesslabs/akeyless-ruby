@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **mongodb_atlas_api_private_key** | **String** | MongoDB Atlas private key | [optional] |
 | **mongodb_atlas_api_public_key** | **String** | MongoDB Atlas public key | [optional] |
@@ -44,6 +45,7 @@ require 'akeyless'
 instance = Akeyless::GatewayUpdateProducerMongo.new(
   custom_username_template: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   mongodb_atlas_api_private_key: null,
   mongodb_atlas_api_public_key: null,

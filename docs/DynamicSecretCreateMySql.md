@@ -9,6 +9,7 @@
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **mysql_dbname** | **String** | MySQL DB Name | [optional] |
 | **mysql_host** | **String** | MySQL Host | [optional][default to &#39;127.0.0.1&#39;] |
@@ -46,6 +47,7 @@ instance = Akeyless::DynamicSecretCreateMySql.new(
   db_server_name: null,
   delete_protection: null,
   description: null,
+  item_custom_fields: null,
   json: null,
   mysql_dbname: null,
   mysql_host: null,

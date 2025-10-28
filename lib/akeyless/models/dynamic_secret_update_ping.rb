@@ -22,6 +22,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -102,6 +105,7 @@ module Akeyless
       {
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
@@ -140,6 +144,7 @@ module Akeyless
       {
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
@@ -195,6 +200,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -347,6 +358,7 @@ module Akeyless
       self.class == o.class &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
@@ -383,7 +395,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, json, name, new_name, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
+      [delete_protection, description, item_custom_fields, json, name, new_name, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

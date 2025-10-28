@@ -13,6 +13,7 @@
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | SSH certificate issuer name |  |
@@ -50,6 +51,7 @@ instance = Akeyless::UpdateSSHCertIssuer.new(
   external_username: null,
   fixed_user_claim_keyname: null,
   host_provider: null,
+  item_custom_fields: null,
   json: null,
   metadata: null,
   name: null,

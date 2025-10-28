@@ -7,6 +7,7 @@
 | **creation_statements** | **String** | Redshift Creation statements | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
@@ -35,6 +36,7 @@ instance = Akeyless::GatewayUpdateProducerRedshift.new(
   creation_statements: null,
   custom_username_template: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,

@@ -20,14 +20,11 @@ module Akeyless
 
     attr_accessor :gemini_url
 
-    attr_accessor :model
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'api_key' => :'api_key',
-        :'gemini_url' => :'gemini_url',
-        :'model' => :'model'
+        :'gemini_url' => :'gemini_url'
       }
     end
 
@@ -40,8 +37,7 @@ module Akeyless
     def self.openapi_types
       {
         :'api_key' => :'String',
-        :'gemini_url' => :'String',
-        :'model' => :'String'
+        :'gemini_url' => :'String'
       }
     end
 
@@ -73,10 +69,6 @@ module Akeyless
       if attributes.key?(:'gemini_url')
         self.gemini_url = attributes[:'gemini_url']
       end
-
-      if attributes.key?(:'model')
-        self.model = attributes[:'model']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -100,8 +92,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           api_key == o.api_key &&
-          gemini_url == o.gemini_url &&
-          model == o.model
+          gemini_url == o.gemini_url
     end
 
     # @see the `==` method
@@ -113,7 +104,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, gemini_url, model].hash
+      [api_key, gemini_url].hash
     end
 
     # Builds the object from hash

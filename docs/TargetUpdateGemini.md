@@ -11,7 +11,6 @@
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
-| **model** | **String** | Default model to use with Gemini | [optional] |
 | **name** | **String** | Target name |  |
 | **new_comment** | **String** | Deprecated - use description | [optional][default to &#39;default_comment&#39;] |
 | **new_name** | **String** | New target name | [optional] |
@@ -31,7 +30,6 @@ instance = Akeyless::TargetUpdateGemini.new(
   keep_prev_version: null,
   key: null,
   max_versions: null,
-  model: null,
   name: null,
   new_comment: null,
   new_name: null,

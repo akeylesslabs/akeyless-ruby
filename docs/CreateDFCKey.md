@@ -21,6 +21,7 @@
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **generate_self_signed_certificate** | **Boolean** | Whether to generate a self signed certificate with the key. If set, --certificate-ttl must be provided. | [optional] |
 | **hash_algorithm** | **String** | Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512] | [optional][default to &#39;SHA256&#39;] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | DFCKey name |  |
@@ -54,6 +55,7 @@ instance = Akeyless::CreateDFCKey.new(
   expiration_event_in: null,
   generate_self_signed_certificate: null,
   hash_algorithm: null,
+  item_custom_fields: null,
   json: null,
   metadata: null,
   name: null,

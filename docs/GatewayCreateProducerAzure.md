@@ -13,6 +13,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **fixed_user_claim_keyname** | **String** | FixedUserClaimKeyname | [optional][default to &#39;false&#39;] |
 | **fixed_user_only** | **Boolean** | Fixed user | [optional][default to false] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
@@ -48,6 +49,7 @@ instance = Akeyless::GatewayCreateProducerAzure.new(
   delete_protection: null,
   fixed_user_claim_keyname: null,
   fixed_user_only: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   password_length: null,

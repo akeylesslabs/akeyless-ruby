@@ -18,6 +18,9 @@ module Akeyless
     # Address
     attr_accessor :address
 
+    # Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
+    attr_accessor :allowed_email_domains
+
     # A default list of comma-separated CIDR block that are allowed to authenticate.
     attr_accessor :bound_ips
 
@@ -50,6 +53,9 @@ module Akeyless
 
     # Set a maximum ttl for dynamic secrets [true/false]
     attr_accessor :dynamic_secret_max_ttl_enable
+
+    # Enable AI insights [true/false]
+    attr_accessor :enable_ai_insights
 
     # How many days before the expiration of the certificate would you like to be notified. [true/false]
     attr_accessor :enable_default_certificate_expiration_event
@@ -157,6 +163,7 @@ module Akeyless
     def self.attribute_map
       {
         :'address' => :'address',
+        :'allowed_email_domains' => :'allowed-email-domains',
         :'bound_ips' => :'bound-ips',
         :'city' => :'city',
         :'company_name' => :'company-name',
@@ -168,6 +175,7 @@ module Akeyless
         :'dp_enable_classic_key_protection' => :'dp-enable-classic-key-protection',
         :'dynamic_secret_max_ttl' => :'dynamic-secret-max-ttl',
         :'dynamic_secret_max_ttl_enable' => :'dynamic-secret-max-ttl-enable',
+        :'enable_ai_insights' => :'enable-ai-insights',
         :'enable_default_certificate_expiration_event' => :'enable-default-certificate-expiration-event',
         :'enable_item_sharing' => :'enable-item-sharing',
         :'enable_password_expiration' => :'enable-password-expiration',
@@ -214,6 +222,7 @@ module Akeyless
     def self.openapi_types
       {
         :'address' => :'String',
+        :'allowed_email_domains' => :'Array<String>',
         :'bound_ips' => :'Array<String>',
         :'city' => :'String',
         :'company_name' => :'String',
@@ -225,6 +234,7 @@ module Akeyless
         :'dp_enable_classic_key_protection' => :'String',
         :'dynamic_secret_max_ttl' => :'Integer',
         :'dynamic_secret_max_ttl_enable' => :'String',
+        :'enable_ai_insights' => :'String',
         :'enable_default_certificate_expiration_event' => :'String',
         :'enable_item_sharing' => :'String',
         :'enable_password_expiration' => :'String',
@@ -287,6 +297,12 @@ module Akeyless
         self.address = attributes[:'address']
       end
 
+      if attributes.key?(:'allowed_email_domains')
+        if (value = attributes[:'allowed_email_domains']).is_a?(Array)
+          self.allowed_email_domains = value
+        end
+      end
+
       if attributes.key?(:'bound_ips')
         if (value = attributes[:'bound_ips']).is_a?(Array)
           self.bound_ips = value
@@ -333,6 +349,10 @@ module Akeyless
 
       if attributes.key?(:'dynamic_secret_max_ttl_enable')
         self.dynamic_secret_max_ttl_enable = attributes[:'dynamic_secret_max_ttl_enable']
+      end
+
+      if attributes.key?(:'enable_ai_insights')
+        self.enable_ai_insights = attributes[:'enable_ai_insights']
       end
 
       if attributes.key?(:'enable_default_certificate_expiration_event')
@@ -499,6 +519,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           address == o.address &&
+          allowed_email_domains == o.allowed_email_domains &&
           bound_ips == o.bound_ips &&
           city == o.city &&
           company_name == o.company_name &&
@@ -510,6 +531,7 @@ module Akeyless
           dp_enable_classic_key_protection == o.dp_enable_classic_key_protection &&
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           dynamic_secret_max_ttl_enable == o.dynamic_secret_max_ttl_enable &&
+          enable_ai_insights == o.enable_ai_insights &&
           enable_default_certificate_expiration_event == o.enable_default_certificate_expiration_event &&
           enable_item_sharing == o.enable_item_sharing &&
           enable_password_expiration == o.enable_password_expiration &&
@@ -555,7 +577,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [address, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

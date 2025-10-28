@@ -6,7 +6,6 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** |  | [optional] |
 | **gemini_url** | **String** |  | [optional] |
-| **model** | **String** |  | [optional] |
 
 ## Example
 
@@ -15,8 +14,7 @@ require 'akeyless'
 
 instance = Akeyless::GeminiTargetDetails.new(
   api_key: null,
-  gemini_url: null,
-  model: null
+  gemini_url: null
 )
 ```
 

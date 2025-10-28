@@ -14,6 +14,7 @@
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **group_dn** | **String** | Group DN which the temporary user should be added | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **ldap_ca_cert** | **String** | CA Certificate File Content | [optional] |
 | **ldap_url** | **String** | LDAP Server URL | [optional] |
@@ -54,6 +55,7 @@ instance = Akeyless::DynamicSecretUpdateLdap.new(
   fixed_user_claim_keyname: null,
   group_dn: null,
   host_provider: null,
+  item_custom_fields: null,
   json: null,
   ldap_ca_cert: null,
   ldap_url: null,

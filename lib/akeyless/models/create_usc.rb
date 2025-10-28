@@ -25,8 +25,8 @@ module Akeyless
     # Description of the Universal Secrets Connector
     attr_accessor :description
 
-    # GCP Project ID (Relevant only for GCP targets)
-    attr_accessor :gcp_project_id
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
 
     # Set output format to JSON
     attr_accessor :json
@@ -61,7 +61,7 @@ module Akeyless
         :'azure_kv_name' => :'azure-kv-name',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
-        :'gcp_project_id' => :'gcp-project-id',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'k8s_namespace' => :'k8s-namespace',
         :'name' => :'name',
@@ -85,7 +85,7 @@ module Akeyless
         :'azure_kv_name' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
-        :'gcp_project_id' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'k8s_namespace' => :'String',
         :'name' => :'String',
@@ -131,8 +131,10 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'gcp_project_id')
-        self.gcp_project_id = attributes[:'gcp_project_id']
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -215,7 +217,7 @@ module Akeyless
           azure_kv_name == o.azure_kv_name &&
           delete_protection == o.delete_protection &&
           description == o.description &&
-          gcp_project_id == o.gcp_project_id &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           k8s_namespace == o.k8s_namespace &&
           name == o.name &&
@@ -236,7 +238,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, gcp_project_id, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
+      [azure_kv_name, delete_protection, description, item_custom_fields, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
     end
 
     # Builds the object from hash

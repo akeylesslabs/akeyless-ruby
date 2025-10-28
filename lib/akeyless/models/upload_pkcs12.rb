@@ -27,6 +27,9 @@ module Akeyless
     # PKCS#12 input file (private key and certificate only)
     attr_accessor :_in
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -58,6 +61,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'_in' => :'in',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -81,6 +85,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'_in' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
@@ -129,6 +134,12 @@ module Akeyless
         self._in = attributes[:'_in']
       else
         self._in = nil
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -213,6 +224,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           _in == o._in &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
@@ -232,7 +244,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [customer_frg_id, delete_protection, description, _in, json, metadata, name, passphrase, split_level, tag, token, uid_token].hash
+      [customer_frg_id, delete_protection, description, _in, item_custom_fields, json, metadata, name, passphrase, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash

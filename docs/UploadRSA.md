@@ -11,6 +11,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | Name of key to be created |  |
@@ -34,6 +35,7 @@ instance = Akeyless::UploadRSA.new(
   delete_protection: null,
   description: null,
   expiration_event_in: null,
+  item_custom_fields: null,
   json: null,
   metadata: null,
   name: null,

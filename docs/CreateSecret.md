@@ -11,6 +11,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) | [optional][default to &#39;text&#39;] |
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
@@ -49,6 +50,7 @@ instance = Akeyless::CreateSecret.new(
   description: null,
   format: null,
   inject_url: null,
+  item_custom_fields: null,
   json: null,
   max_versions: null,
   metadata: null,

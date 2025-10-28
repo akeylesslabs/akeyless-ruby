@@ -46,6 +46,9 @@ module Akeyless
     # Gitlab project name, required for access-type=project
     attr_accessor :installation_organization
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -80,6 +83,7 @@ module Akeyless
         :'gitlab_url' => :'gitlab-url',
         :'group_name' => :'group-name',
         :'installation_organization' => :'installation-organization',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'tags' => :'tags',
@@ -108,6 +112,7 @@ module Akeyless
         :'gitlab_url' => :'String',
         :'group_name' => :'String',
         :'installation_organization' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'tags' => :'Array<String>',
@@ -183,6 +188,12 @@ module Akeyless
 
       if attributes.key?(:'installation_organization')
         self.installation_organization = attributes[:'installation_organization']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -265,6 +276,7 @@ module Akeyless
           gitlab_url == o.gitlab_url &&
           group_name == o.group_name &&
           installation_organization == o.installation_organization &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           tags == o.tags &&
@@ -283,7 +295,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, installation_organization, json, name, tags, target_name, token, ttl, uid_token].hash
+      [delete_protection, description, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, installation_organization, item_custom_fields, json, name, tags, target_name, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

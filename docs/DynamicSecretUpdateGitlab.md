@@ -14,6 +14,7 @@
 | **gitlab_url** | **String** | Gitlab base url | [optional][default to &#39;https://gitlab.com/&#39;] |
 | **group_name** | **String** | Gitlab group name, required for access-type&#x3D;group | [optional] |
 | **installation_organization** | **String** | Gitlab project name, required for access-type&#x3D;project | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
@@ -39,6 +40,7 @@ instance = Akeyless::DynamicSecretUpdateGitlab.new(
   gitlab_url: null,
   group_name: null,
   installation_organization: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,

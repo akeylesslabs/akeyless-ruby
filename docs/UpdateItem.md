@@ -14,6 +14,7 @@
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Current item name |  |
@@ -70,6 +71,7 @@ instance = Akeyless::UpdateItem.new(
   description: null,
   expiration_event_in: null,
   host_provider: null,
+  item_custom_fields: null,
   json: null,
   max_versions: null,
   name: null,

@@ -27,6 +27,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -67,6 +70,7 @@ module Akeyless
         :'audience' => :'audience',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
         :'metadata' => :'metadata',
@@ -93,6 +97,7 @@ module Akeyless
         :'audience' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
         :'metadata' => :'String',
@@ -144,6 +149,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -228,6 +239,7 @@ module Akeyless
           audience == o.audience &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
           metadata == o.metadata &&
@@ -250,7 +262,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, audience, delete_protection, description, json, key, metadata, name, permission_assignment, public, redirect_uris, scopes, tags, token, uid_token].hash
+      [accessibility, audience, delete_protection, description, item_custom_fields, json, key, metadata, name, permission_assignment, public, redirect_uris, scopes, tags, token, uid_token].hash
     end
 
     # Builds the object from hash

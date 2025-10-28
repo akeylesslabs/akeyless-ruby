@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class SharingPolicyInfo
+    # AllowedEmailDomains limits email sharing to these domains. By default all domains are allowed.
+    attr_accessor :allowed_email_domains
+
     attr_accessor :default_share_link_ttl
 
     attr_accessor :enable
@@ -22,6 +25,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'allowed_email_domains' => :'allowed_email_domains',
         :'default_share_link_ttl' => :'default_share_link_ttl',
         :'enable' => :'enable'
       }
@@ -35,6 +39,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'allowed_email_domains' => :'Array<String>',
         :'default_share_link_ttl' => :'Integer',
         :'enable' => :'Boolean'
       }
@@ -60,6 +65,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'allowed_email_domains')
+        if (value = attributes[:'allowed_email_domains']).is_a?(Array)
+          self.allowed_email_domains = value
+        end
+      end
 
       if attributes.key?(:'default_share_link_ttl')
         self.default_share_link_ttl = attributes[:'default_share_link_ttl']
@@ -90,6 +101,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allowed_email_domains == o.allowed_email_domains &&
           default_share_link_ttl == o.default_share_link_ttl &&
           enable == o.enable
     end
@@ -103,7 +115,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [default_share_link_ttl, enable].hash
+      [allowed_email_domains, default_share_link_ttl, enable].hash
     end
 
     # Builds the object from hash

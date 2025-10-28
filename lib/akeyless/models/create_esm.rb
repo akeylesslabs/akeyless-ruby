@@ -25,9 +25,6 @@ module Akeyless
     # Description of the External Secrets Manager
     attr_accessor :description
 
-    # GCP Project ID (Relevant only for GCP targets)
-    attr_accessor :gcp_project_id
-
     # Set output format to JSON
     attr_accessor :json
 
@@ -55,7 +52,6 @@ module Akeyless
         :'azure_kv_name' => :'azure-kv-name',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
-        :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'k8s_namespace' => :'k8s-namespace',
         :'name' => :'name',
@@ -77,7 +73,6 @@ module Akeyless
         :'azure_kv_name' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
-        :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'k8s_namespace' => :'String',
         :'name' => :'String',
@@ -119,10 +114,6 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'gcp_project_id')
-        self.gcp_project_id = attributes[:'gcp_project_id']
       end
 
       if attributes.key?(:'json')
@@ -195,7 +186,6 @@ module Akeyless
           azure_kv_name == o.azure_kv_name &&
           delete_protection == o.delete_protection &&
           description == o.description &&
-          gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           k8s_namespace == o.k8s_namespace &&
           name == o.name &&
@@ -214,7 +204,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, gcp_project_id, json, k8s_namespace, name, tags, target_to_associate, token, uid_token].hash
+      [azure_kv_name, delete_protection, description, json, k8s_namespace, name, tags, target_to_associate, token, uid_token].hash
     end
 
     # Builds the object from hash

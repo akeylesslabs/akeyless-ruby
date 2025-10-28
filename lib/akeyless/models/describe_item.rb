@@ -30,6 +30,9 @@ module Akeyless
     # Indicate if the item should return with clusters details (url, etc)
     attr_accessor :gateway_details
 
+    # Include all item custom fields details
+    attr_accessor :item_custom_fields_details
+
     # Item id of the item
     attr_accessor :item_id
 
@@ -59,6 +62,7 @@ module Akeyless
         :'der_certificate_format' => :'der-certificate-format',
         :'display_id' => :'display-id',
         :'gateway_details' => :'gateway-details',
+        :'item_custom_fields_details' => :'item-custom-fields-details',
         :'item_id' => :'item-id',
         :'json' => :'json',
         :'name' => :'name',
@@ -82,6 +86,7 @@ module Akeyless
         :'der_certificate_format' => :'Boolean',
         :'display_id' => :'String',
         :'gateway_details' => :'Boolean',
+        :'item_custom_fields_details' => :'Boolean',
         :'item_id' => :'Integer',
         :'json' => :'Boolean',
         :'name' => :'String',
@@ -139,6 +144,12 @@ module Akeyless
         self.gateway_details = attributes[:'gateway_details']
       else
         self.gateway_details = false
+      end
+
+      if attributes.key?(:'item_custom_fields_details')
+        self.item_custom_fields_details = attributes[:'item_custom_fields_details']
+      else
+        self.item_custom_fields_details = false
       end
 
       if attributes.key?(:'item_id')
@@ -208,6 +219,7 @@ module Akeyless
           der_certificate_format == o.der_certificate_format &&
           display_id == o.display_id &&
           gateway_details == o.gateway_details &&
+          item_custom_fields_details == o.item_custom_fields_details &&
           item_id == o.item_id &&
           json == o.json &&
           name == o.name &&
@@ -226,7 +238,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, bastion_details, der_certificate_format, display_id, gateway_details, item_id, json, name, services_details, show_versions, token, uid_token].hash
+      [accessibility, bastion_details, der_certificate_format, display_id, gateway_details, item_custom_fields_details, item_id, json, name, services_details, show_versions, token, uid_token].hash
     end
 
     # Builds the object from hash

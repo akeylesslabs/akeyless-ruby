@@ -11,6 +11,7 @@
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **db_name** | **String** | Database name | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_algo** | **String** |  | [optional] |
 | **name** | **String** | Dynamic secret name |  |
@@ -39,6 +40,7 @@ instance = Akeyless::GatewayUpdateProducerSnowflake.new(
   custom_username_template: null,
   db_name: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   key_algo: null,
   name: null,

@@ -57,6 +57,9 @@ module Akeyless
     # Automatic admin credentials rotation
     attr_accessor :enable_admin_rotation
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -137,6 +140,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'enable_admin_rotation' => :'enable-admin-rotation',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'password_length' => :'password-length',
@@ -183,6 +187,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'enable_admin_rotation' => :'Boolean',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'password_length' => :'String',
@@ -290,6 +295,12 @@ module Akeyless
         self.enable_admin_rotation = attributes[:'enable_admin_rotation']
       else
         self.enable_admin_rotation = false
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -432,6 +443,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           enable_admin_rotation == o.enable_admin_rotation &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           password_length == o.password_length &&
@@ -464,7 +476,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_rotation_interval_days, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, description, enable_admin_rotation, json, name, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, tags, target_name, token, transitive_tag_keys, uid_token, user_ttl].hash
+      [access_mode, admin_rotation_interval_days, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, description, enable_admin_rotation, item_custom_fields, json, name, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, tags, target_name, token, transitive_tag_keys, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

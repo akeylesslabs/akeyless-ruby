@@ -25,6 +25,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -124,6 +127,7 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'k8s_allowed_namespaces' => :'k8s-allowed-namespaces',
         :'k8s_cluster_ca_cert' => :'k8s-cluster-ca-cert',
@@ -169,6 +173,7 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'k8s_allowed_namespaces' => :'String',
         :'k8s_cluster_ca_cert' => :'String',
@@ -234,6 +239,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -403,6 +414,7 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           k8s_allowed_namespaces == o.k8s_allowed_namespaces &&
           k8s_cluster_ca_cert == o.k8s_cluster_ca_cert &&
@@ -445,7 +457,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
+      [custom_username_template, delete_protection, description, item_custom_fields, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
     end
 
     # Builds the object from hash

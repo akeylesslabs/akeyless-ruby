@@ -37,6 +37,9 @@ module Akeyless
     # Automatic admin credentials rotation
     attr_accessor :enable_admin_rotation
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -104,6 +107,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'enable_admin_rotation' => :'enable-admin-rotation',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
@@ -141,6 +145,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'enable_admin_rotation' => :'Boolean',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'producer_encryption_key_name' => :'String',
@@ -216,6 +221,12 @@ module Akeyless
         self.enable_admin_rotation = attributes[:'enable_admin_rotation']
       else
         self.enable_admin_rotation = false
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -337,6 +348,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           enable_admin_rotation == o.enable_admin_rotation &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
@@ -367,7 +379,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, allow_subdomains, allowed_domains, auto_generated_folder, delete_protection, description, enable_admin_rotation, json, name, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
+      [admin_rotation_interval_days, allow_subdomains, allowed_domains, auto_generated_folder, delete_protection, description, enable_admin_rotation, item_custom_fields, json, name, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
     end
 
     # Builds the object from hash

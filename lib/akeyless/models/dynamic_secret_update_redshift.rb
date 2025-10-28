@@ -28,6 +28,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -89,6 +92,7 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
@@ -122,6 +126,7 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
@@ -178,6 +183,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -298,6 +309,7 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
@@ -327,7 +339,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [creation_statements, custom_username_template, delete_protection, description, json, name, new_name, password_length, producer_encryption_key, redshift_db_name, redshift_host, redshift_password, redshift_port, redshift_username, secure_access_enable, secure_access_host, ssl, tags, target_name, token, uid_token, user_ttl].hash
+      [creation_statements, custom_username_template, delete_protection, description, item_custom_fields, json, name, new_name, password_length, producer_encryption_key, redshift_db_name, redshift_host, redshift_password, redshift_port, redshift_username, secure_access_enable, secure_access_host, ssl, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

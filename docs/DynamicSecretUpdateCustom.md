@@ -9,6 +9,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **enable_admin_rotation** | **Boolean** | Should admin credentials be rotated | [optional][default to false] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
@@ -33,6 +34,7 @@ instance = Akeyless::DynamicSecretUpdateCustom.new(
   delete_protection: null,
   description: null,
   enable_admin_rotation: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,

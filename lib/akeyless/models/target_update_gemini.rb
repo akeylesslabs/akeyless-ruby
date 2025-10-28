@@ -37,9 +37,6 @@ module Akeyless
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
-    # Default model to use with Gemini
-    attr_accessor :model
-
     # Target name
     attr_accessor :name
 
@@ -65,7 +62,6 @@ module Akeyless
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
         :'max_versions' => :'max-versions',
-        :'model' => :'model',
         :'name' => :'name',
         :'new_comment' => :'new-comment',
         :'new_name' => :'new-name',
@@ -89,7 +85,6 @@ module Akeyless
         :'keep_prev_version' => :'String',
         :'key' => :'String',
         :'max_versions' => :'String',
-        :'model' => :'String',
         :'name' => :'String',
         :'new_comment' => :'String',
         :'new_name' => :'String',
@@ -153,10 +148,6 @@ module Akeyless
         self.max_versions = attributes[:'max_versions']
       end
 
-      if attributes.key?(:'model')
-        self.model = attributes[:'model']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -214,7 +205,6 @@ module Akeyless
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
           max_versions == o.max_versions &&
-          model == o.model &&
           name == o.name &&
           new_comment == o.new_comment &&
           new_name == o.new_name &&
@@ -231,7 +221,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, description, gemini_url, json, keep_prev_version, key, max_versions, model, name, new_comment, new_name, token, uid_token].hash
+      [api_key, description, gemini_url, json, keep_prev_version, key, max_versions, name, new_comment, new_name, token, uid_token].hash
     end
 
     # Builds the object from hash

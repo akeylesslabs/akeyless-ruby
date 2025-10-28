@@ -16,6 +16,7 @@
 | **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] | [optional] |
 | **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
 | **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -59,6 +60,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   grace_rotation: null,
   grace_rotation_hour: null,
   grace_rotation_interval: null,
+  item_custom_fields: null,
   json: null,
   keep_prev_version: null,
   key: null,

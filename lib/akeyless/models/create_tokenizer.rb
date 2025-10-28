@@ -34,6 +34,9 @@ module Akeyless
     # AES key name to use in vaultless tokenization
     attr_accessor :encryption_key_name
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -73,6 +76,7 @@ module Akeyless
         :'description' => :'description',
         :'encoding_template' => :'encoding-template',
         :'encryption_key_name' => :'encryption-key-name',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -100,6 +104,7 @@ module Akeyless
         :'description' => :'String',
         :'encoding_template' => :'String',
         :'encryption_key_name' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
@@ -156,6 +161,12 @@ module Akeyless
 
       if attributes.key?(:'encryption_key_name')
         self.encryption_key_name = attributes[:'encryption_key_name']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -250,6 +261,7 @@ module Akeyless
           description == o.description &&
           encoding_template == o.encoding_template &&
           encryption_key_name == o.encryption_key_name &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
@@ -271,7 +283,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alphabet, decoding_template, delete_protection, description, encoding_template, encryption_key_name, json, metadata, name, pattern, tag, template_type, token, tokenizer_type, tweak_type, uid_token].hash
+      [alphabet, decoding_template, delete_protection, description, encoding_template, encryption_key_name, item_custom_fields, json, metadata, name, pattern, tag, template_type, token, tokenizer_type, tweak_type, uid_token].hash
     end
 
     # Builds the object from hash

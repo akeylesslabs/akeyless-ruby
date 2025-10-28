@@ -34,6 +34,9 @@ module Akeyless
     # GKE service account email
     attr_accessor :gke_service_account_email
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -88,6 +91,7 @@ module Akeyless
         :'gke_cluster_endpoint' => :'gke-cluster-endpoint',
         :'gke_cluster_name' => :'gke-cluster-name',
         :'gke_service_account_email' => :'gke-service-account-email',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
@@ -120,6 +124,7 @@ module Akeyless
         :'gke_cluster_endpoint' => :'String',
         :'gke_cluster_name' => :'String',
         :'gke_service_account_email' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'producer_encryption_key_name' => :'String',
@@ -181,6 +186,12 @@ module Akeyless
 
       if attributes.key?(:'gke_service_account_email')
         self.gke_service_account_email = attributes[:'gke_service_account_email']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -285,6 +296,7 @@ module Akeyless
           gke_cluster_endpoint == o.gke_cluster_endpoint &&
           gke_cluster_name == o.gke_cluster_name &&
           gke_service_account_email == o.gke_service_account_email &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
@@ -311,7 +323,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, json, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [delete_protection, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, item_custom_fields, json, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

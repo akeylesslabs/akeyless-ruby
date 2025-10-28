@@ -10,6 +10,7 @@
 | **gke_cluster_endpoint** | **String** | GKE cluster URL endpoint | [optional] |
 | **gke_cluster_name** | **String** | GKE cluster name | [optional] |
 | **gke_service_account_email** | **String** | GKE service account email | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
@@ -39,6 +40,7 @@ instance = Akeyless::GatewayUpdateProducerGke.new(
   gke_cluster_endpoint: null,
   gke_cluster_name: null,
   gke_service_account_email: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,

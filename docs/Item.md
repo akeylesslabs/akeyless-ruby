@@ -22,6 +22,7 @@
 | **is_access_request_enabled** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  | [optional] |
 | **item_accessibility** | **Integer** |  | [optional] |
+| **item_custom_fields_details** | [**Array&lt;ItemCustomFieldsDetails&gt;**](ItemCustomFieldsDetails.md) |  | [optional] |
 | **item_general_info** | [**ItemGeneralInfo**](ItemGeneralInfo.md) |  | [optional] |
 | **item_id** | **Integer** |  | [optional] |
 | **item_metadata** | **String** |  | [optional] |
@@ -71,6 +72,7 @@ instance = Akeyless::Item.new(
   is_access_request_enabled: null,
   is_enabled: null,
   item_accessibility: null,
+  item_custom_fields_details: null,
   item_general_info: null,
   item_id: null,
   item_metadata: null,

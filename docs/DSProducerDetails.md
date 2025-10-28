@@ -146,6 +146,7 @@
 | **implementation_type** | **String** |  | [optional] |
 | **is_fixed_user** | **String** |  | [optional] |
 | **issuer** | **String** | relevant for CLIENT_TLS_CERTIFICATE client authentication type | [optional] |
+| **item_custom_fields_details** | [**Array&lt;ItemCustomFieldsDetails&gt;**](ItemCustomFieldsDetails.md) |  | [optional] |
 | **item_targets_assoc** | [**Array&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  | [optional] |
 | **jwks** | **String** |  | [optional] |
 | **jwks_url** | **String** |  | [optional] |
@@ -411,6 +412,7 @@ instance = Akeyless::DSProducerDetails.new(
   implementation_type: null,
   is_fixed_user: null,
   issuer: null,
+  item_custom_fields_details: null,
   item_targets_assoc: null,
   jwks: null,
   jwks_url: null,

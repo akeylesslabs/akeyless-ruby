@@ -11,6 +11,7 @@
 | **base_url** | **String** | Base URL | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
@@ -33,6 +34,7 @@ instance = Akeyless::GatewayCreateProducerArtifactory.new(
   base_url: null,
   custom_username_template: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   producer_encryption_key_name: null,

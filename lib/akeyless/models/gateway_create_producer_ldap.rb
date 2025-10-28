@@ -42,6 +42,9 @@ module Akeyless
     # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
     attr_accessor :host_provider
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -120,6 +123,7 @@ module Akeyless
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'group_dn' => :'group-dn',
         :'host_provider' => :'host-provider',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'ldap_ca_cert' => :'ldap-ca-cert',
         :'ldap_url' => :'ldap-url',
@@ -162,6 +166,7 @@ module Akeyless
         :'fixed_user_claim_keyname' => :'String',
         :'group_dn' => :'String',
         :'host_provider' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'ldap_ca_cert' => :'String',
         :'ldap_url' => :'String',
@@ -246,6 +251,12 @@ module Akeyless
 
       if attributes.key?(:'host_provider')
         self.host_provider = attributes[:'host_provider']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -383,6 +394,7 @@ module Akeyless
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           group_dn == o.group_dn &&
           host_provider == o.host_provider &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           ldap_ca_cert == o.ldap_ca_cert &&
           ldap_url == o.ldap_url &&
@@ -416,7 +428,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, json, ldap_ca_cert, ldap_url, name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
+      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, item_custom_fields, json, ldap_ca_cert, ldap_url, name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
     end
 
     # Builds the object from hash

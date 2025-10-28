@@ -30,14 +30,14 @@ module Akeyless
     # Service account key algorithm, e.g. KEY_ALG_RSA_1024
     attr_accessor :gcp_key_algo
 
-    # GCP Project ID override for dynamic secret operations (tmp service accounts)
-    attr_accessor :gcp_project_id
-
     # The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
     attr_accessor :gcp_sa_email
 
     # Access token scopes list, e.g. scope1,scope2
     attr_accessor :gcp_token_scopes
+
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
 
     # Set output format to JSON
     attr_accessor :json
@@ -77,9 +77,9 @@ module Akeyless
         :'gcp_cred_type' => :'gcp-cred-type',
         :'gcp_key' => :'gcp-key',
         :'gcp_key_algo' => :'gcp-key-algo',
-        :'gcp_project_id' => :'gcp-project-id',
         :'gcp_sa_email' => :'gcp-sa-email',
         :'gcp_token_scopes' => :'gcp-token-scopes',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
@@ -106,9 +106,9 @@ module Akeyless
         :'gcp_cred_type' => :'String',
         :'gcp_key' => :'String',
         :'gcp_key_algo' => :'String',
-        :'gcp_project_id' => :'String',
         :'gcp_sa_email' => :'String',
         :'gcp_token_scopes' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'producer_encryption_key_name' => :'String',
@@ -163,16 +163,18 @@ module Akeyless
         self.gcp_key_algo = attributes[:'gcp_key_algo']
       end
 
-      if attributes.key?(:'gcp_project_id')
-        self.gcp_project_id = attributes[:'gcp_project_id']
-      end
-
       if attributes.key?(:'gcp_sa_email')
         self.gcp_sa_email = attributes[:'gcp_sa_email']
       end
 
       if attributes.key?(:'gcp_token_scopes')
         self.gcp_token_scopes = attributes[:'gcp_token_scopes']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -261,9 +263,9 @@ module Akeyless
           gcp_cred_type == o.gcp_cred_type &&
           gcp_key == o.gcp_key &&
           gcp_key_algo == o.gcp_key_algo &&
-          gcp_project_id == o.gcp_project_id &&
           gcp_sa_email == o.gcp_sa_email &&
           gcp_token_scopes == o.gcp_token_scopes &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
@@ -285,7 +287,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, json, name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, delete_protection, gcp_cred_type, gcp_key, gcp_key_algo, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

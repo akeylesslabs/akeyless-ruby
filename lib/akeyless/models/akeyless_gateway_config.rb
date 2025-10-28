@@ -17,6 +17,8 @@ module Akeyless
   class AkeylessGatewayConfig
     attr_accessor :admins
 
+    attr_accessor :ai_insights
+
     attr_accessor :ca_certificates
 
     attr_accessor :cache
@@ -55,6 +57,7 @@ module Akeyless
     def self.attribute_map
       {
         :'admins' => :'admins',
+        :'ai_insights' => :'ai_insights',
         :'ca_certificates' => :'ca_certificates',
         :'cache' => :'cache',
         :'cf' => :'cf',
@@ -84,6 +87,7 @@ module Akeyless
     def self.openapi_types
       {
         :'admins' => :'AdminsConfigPart',
+        :'ai_insights' => :'AiInsightsConfigPart',
         :'ca_certificates' => :'CaCertificatesConfigPart',
         :'cache' => :'CacheConfigPart',
         :'cf' => :'CFConfigPart',
@@ -127,6 +131,10 @@ module Akeyless
 
       if attributes.key?(:'admins')
         self.admins = attributes[:'admins']
+      end
+
+      if attributes.key?(:'ai_insights')
+        self.ai_insights = attributes[:'ai_insights']
       end
 
       if attributes.key?(:'ca_certificates')
@@ -219,6 +227,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           admins == o.admins &&
+          ai_insights == o.ai_insights &&
           ca_certificates == o.ca_certificates &&
           cache == o.cache &&
           cf == o.cf &&
@@ -247,7 +256,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admins, ca_certificates, cache, cf, config_protection_key_name, general, k8s_auths, kerberos, kmip_clients, ldap, leadership, log_forwarding, message_queue_info, migrations, producers, rotators, saml, version].hash
+      [admins, ai_insights, ca_certificates, cache, cf, config_protection_key_name, general, k8s_auths, kerberos, kmip_clients, ldap, leadership, log_forwarding, message_queue_info, migrations, producers, rotators, saml, version].hash
     end
 
     # Builds the object from hash

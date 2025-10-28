@@ -43,6 +43,9 @@ module Akeyless
     # Secret Access Key
     attr_accessor :eks_secret_access_key
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -100,6 +103,7 @@ module Akeyless
         :'eks_cluster_name' => :'eks-cluster-name',
         :'eks_region' => :'eks-region',
         :'eks_secret_access_key' => :'eks-secret-access-key',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
@@ -135,6 +139,7 @@ module Akeyless
         :'eks_cluster_name' => :'String',
         :'eks_region' => :'String',
         :'eks_secret_access_key' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'producer_encryption_key_name' => :'String',
@@ -210,6 +215,12 @@ module Akeyless
 
       if attributes.key?(:'eks_secret_access_key')
         self.eks_secret_access_key = attributes[:'eks_secret_access_key']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -317,6 +328,7 @@ module Akeyless
           eks_cluster_name == o.eks_cluster_name &&
           eks_region == o.eks_region &&
           eks_secret_access_key == o.eks_secret_access_key &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
@@ -343,7 +355,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, eks_access_key_id, eks_assume_role, eks_cluster_ca_cert, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, json, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [delete_protection, description, eks_access_key_id, eks_assume_role, eks_cluster_ca_cert, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, item_custom_fields, json, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

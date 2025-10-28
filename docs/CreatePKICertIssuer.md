@@ -27,6 +27,7 @@
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gw_cluster_url** | **String** | The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME | [optional] |
 | **is_ca** | **Boolean** | If set, the basic constraints extension will be added to certificate | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key_usage** | **String** | key-usage | [optional][default to &#39;DigitalSignature,KeyAgreement,KeyEncipherment&#39;] |
 | **locality** | **String** | A comma-separated list of localities that will be set in the issued certificate | [optional] |
@@ -78,6 +79,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   expiration_event_in: null,
   gw_cluster_url: null,
   is_ca: null,
+  item_custom_fields: null,
   json: null,
   key_usage: null,
   locality: null,

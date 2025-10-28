@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **address** | **String** | Address | [optional] |
+| **allowed_email_domains** | **Array&lt;String&gt;** | Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed. | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A default list of comma-separated CIDR block that are allowed to authenticate. | [optional] |
 | **city** | **String** | City | [optional] |
 | **company_name** | **String** | Company name | [optional] |
@@ -16,6 +17,7 @@
 | **dp_enable_classic_key_protection** | **String** | Set to update protection with classic keys state [true/false] | [optional] |
 | **dynamic_secret_max_ttl** | **Integer** | Set the maximum ttl for dynamic secrets | [optional] |
 | **dynamic_secret_max_ttl_enable** | **String** | Set a maximum ttl for dynamic secrets [true/false] | [optional] |
+| **enable_ai_insights** | **String** | Enable AI insights [true/false] | [optional] |
 | **enable_default_certificate_expiration_event** | **String** | How many days before the expiration of the certificate would you like to be notified. [true/false] | [optional] |
 | **enable_item_sharing** | **String** | Enable sharing items [true/false] | [optional] |
 | **enable_password_expiration** | **String** | Enable password expiration policy [true/false] | [optional] |
@@ -58,6 +60,7 @@ require 'akeyless'
 
 instance = Akeyless::UpdateAccountSettings.new(
   address: null,
+  allowed_email_domains: null,
   bound_ips: null,
   city: null,
   company_name: null,
@@ -69,6 +72,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   dp_enable_classic_key_protection: null,
   dynamic_secret_max_ttl: null,
   dynamic_secret_max_ttl_enable: null,
+  enable_ai_insights: null,
   enable_default_certificate_expiration_event: null,
   enable_item_sharing: null,
   enable_password_expiration: null,

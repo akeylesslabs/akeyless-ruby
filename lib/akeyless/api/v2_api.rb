@@ -19,6 +19,338 @@ module Akeyless
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Create a new custom field.
+    # @param account_custom_field_create [AccountCustomFieldCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [AccountCustomFieldCreateOutput]
+    def account_custom_field_create(account_custom_field_create, opts = {})
+      data, _status_code, _headers = account_custom_field_create_with_http_info(account_custom_field_create, opts)
+      data
+    end
+
+    # Create a new custom field.
+    # @param account_custom_field_create [AccountCustomFieldCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountCustomFieldCreateOutput, Integer, Hash)>] AccountCustomFieldCreateOutput data, response status code and response headers
+    def account_custom_field_create_with_http_info(account_custom_field_create, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_create ...'
+      end
+      # verify the required parameter 'account_custom_field_create' is set
+      if @api_client.config.client_side_validation && account_custom_field_create.nil?
+        fail ArgumentError, "Missing the required parameter 'account_custom_field_create' when calling V2Api.account_custom_field_create"
+      end
+      # resource path
+      local_var_path = '/account-custom-field-create'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_create)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountCustomFieldCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.account_custom_field_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#account_custom_field_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a custom field.
+    # @param account_custom_field_delete [AccountCustomFieldDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def account_custom_field_delete(account_custom_field_delete, opts = {})
+      data, _status_code, _headers = account_custom_field_delete_with_http_info(account_custom_field_delete, opts)
+      data
+    end
+
+    # Delete a custom field.
+    # @param account_custom_field_delete [AccountCustomFieldDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def account_custom_field_delete_with_http_info(account_custom_field_delete, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_delete ...'
+      end
+      # verify the required parameter 'account_custom_field_delete' is set
+      if @api_client.config.client_side_validation && account_custom_field_delete.nil?
+        fail ArgumentError, "Missing the required parameter 'account_custom_field_delete' when calling V2Api.account_custom_field_delete"
+      end
+      # resource path
+      local_var_path = '/account-custom-field-delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_delete)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.account_custom_field_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#account_custom_field_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an account custom field by ID.
+    # @param account_custom_field_get [AccountCustomFieldGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [AccountCustomFieldGetOutput]
+    def account_custom_field_get(account_custom_field_get, opts = {})
+      data, _status_code, _headers = account_custom_field_get_with_http_info(account_custom_field_get, opts)
+      data
+    end
+
+    # Get an account custom field by ID.
+    # @param account_custom_field_get [AccountCustomFieldGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountCustomFieldGetOutput, Integer, Hash)>] AccountCustomFieldGetOutput data, response status code and response headers
+    def account_custom_field_get_with_http_info(account_custom_field_get, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_get ...'
+      end
+      # verify the required parameter 'account_custom_field_get' is set
+      if @api_client.config.client_side_validation && account_custom_field_get.nil?
+        fail ArgumentError, "Missing the required parameter 'account_custom_field_get' when calling V2Api.account_custom_field_get"
+      end
+      # resource path
+      local_var_path = '/account-custom-field-get'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_get)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountCustomFieldGetOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.account_custom_field_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#account_custom_field_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List all account custom fields.
+    # Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+    # @param account_custom_field_list [AccountCustomFieldList] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def account_custom_field_list(account_custom_field_list, opts = {})
+      data, _status_code, _headers = account_custom_field_list_with_http_info(account_custom_field_list, opts)
+      data
+    end
+
+    # List all account custom fields.
+    # Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+    # @param account_custom_field_list [AccountCustomFieldList] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def account_custom_field_list_with_http_info(account_custom_field_list, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_list ...'
+      end
+      # verify the required parameter 'account_custom_field_list' is set
+      if @api_client.config.client_side_validation && account_custom_field_list.nil?
+        fail ArgumentError, "Missing the required parameter 'account_custom_field_list' when calling V2Api.account_custom_field_list"
+      end
+      # resource path
+      local_var_path = '/account-custom-field-list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_list)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.account_custom_field_list",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#account_custom_field_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a custom field.
+    # @param account_custom_field_update [AccountCustomFieldUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def account_custom_field_update(account_custom_field_update, opts = {})
+      data, _status_code, _headers = account_custom_field_update_with_http_info(account_custom_field_update, opts)
+      data
+    end
+
+    # Update a custom field.
+    # @param account_custom_field_update [AccountCustomFieldUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def account_custom_field_update_with_http_info(account_custom_field_update, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_update ...'
+      end
+      # verify the required parameter 'account_custom_field_update' is set
+      if @api_client.config.client_side_validation && account_custom_field_update.nil?
+        fail ArgumentError, "Missing the required parameter 'account_custom_field_update' when calling V2Api.account_custom_field_update"
+      end
+      # resource path
+      local_var_path = '/account-custom-field-update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_update)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.account_custom_field_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#account_custom_field_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param alias_details [AliasDetails] 
     # @param [Hash] opts the optional parameters
     # @return [Object]

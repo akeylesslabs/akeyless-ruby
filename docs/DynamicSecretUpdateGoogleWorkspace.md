@@ -12,6 +12,7 @@
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **group_email** | **String** | A group email, relevant only for group access-mode | [optional] |
 | **group_role** | **String** |  | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
@@ -43,6 +44,7 @@ instance = Akeyless::DynamicSecretUpdateGoogleWorkspace.new(
   gcp_key: null,
   group_email: null,
   group_role: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,

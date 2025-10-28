@@ -40,6 +40,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -92,6 +95,7 @@ module Akeyless
         :'db_name' => :'db-name',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key_algo' => :'key-algo',
         :'name' => :'name',
@@ -125,6 +129,7 @@ module Akeyless
         :'db_name' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key_algo' => :'String',
         :'name' => :'String',
@@ -195,6 +200,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -295,6 +306,7 @@ module Akeyless
           db_name == o.db_name &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key_algo == o.key_algo &&
           name == o.name &&
@@ -320,7 +332,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account, account_password, account_username, auth_mode, custom_username_template, db_name, delete_protection, description, json, key_algo, name, new_name, password_length, private_key, private_key_passphrase, role, tags, target_name, token, uid_token, user_ttl, warehouse].hash
+      [account, account_password, account_username, auth_mode, custom_username_template, db_name, delete_protection, description, item_custom_fields, json, key_algo, name, new_name, password_length, private_key, private_key_passphrase, role, tags, target_name, token, uid_token, user_ttl, warehouse].hash
     end
 
     # Builds the object from hash

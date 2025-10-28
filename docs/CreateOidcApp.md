@@ -8,6 +8,7 @@
 | **audience** | **String** | A comma separated list of allowed audiences | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the OIDC application (if empty, the account default protectionKey key will be used) | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
@@ -30,6 +31,7 @@ instance = Akeyless::CreateOidcApp.new(
   audience: null,
   delete_protection: null,
   description: null,
+  item_custom_fields: null,
   json: null,
   key: null,
   metadata: null,

@@ -45,6 +45,9 @@ module Akeyless
     # The number of days to wait before deleting the old key (must be bigger than rotation-interval)
     attr_accessor :grace_rotation_interval
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -97,6 +100,7 @@ module Akeyless
         :'grace_rotation' => :'grace-rotation',
         :'grace_rotation_hour' => :'grace-rotation-hour',
         :'grace_rotation_interval' => :'grace-rotation-interval',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
         :'max_versions' => :'max-versions',
@@ -131,6 +135,7 @@ module Akeyless
         :'grace_rotation' => :'String',
         :'grace_rotation_hour' => :'Integer',
         :'grace_rotation_interval' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
         :'max_versions' => :'String',
@@ -208,6 +213,12 @@ module Akeyless
 
       if attributes.key?(:'grace_rotation_interval')
         self.grace_rotation_interval = attributes[:'grace_rotation_interval']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -320,6 +331,7 @@ module Akeyless
           grace_rotation == o.grace_rotation &&
           grace_rotation_hour == o.grace_rotation_hour &&
           grace_rotation_interval == o.grace_rotation_interval &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
           max_versions == o.max_versions &&
@@ -344,7 +356,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, item_custom_fields, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

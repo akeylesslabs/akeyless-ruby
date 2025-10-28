@@ -8,6 +8,7 @@
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **oracle_host** | **String** | Oracle Host | [optional][default to &#39;127.0.0.1&#39;] |
@@ -40,6 +41,7 @@ instance = Akeyless::GatewayCreateProducerOracleDb.new(
   db_server_certificates: null,
   db_server_name: null,
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   oracle_host: null,

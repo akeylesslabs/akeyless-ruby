@@ -22,6 +22,8 @@ module Akeyless
     # AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will.
     attr_accessor :account_default_key_name
 
+    attr_accessor :ai_insights
+
     attr_accessor :allowed_clients_ips
 
     attr_accessor :allowed_gateways_ips
@@ -67,6 +69,7 @@ module Akeyless
       {
         :'account_default_key_item_id' => :'account_default_key_item_id',
         :'account_default_key_name' => :'account_default_key_name',
+        :'ai_insights' => :'ai_insights',
         :'allowed_clients_ips' => :'allowed_clients_ips',
         :'allowed_gateways_ips' => :'allowed_gateways_ips',
         :'auth_usage_event' => :'auth_usage_event',
@@ -99,6 +102,7 @@ module Akeyless
       {
         :'account_default_key_item_id' => :'Integer',
         :'account_default_key_name' => :'String',
+        :'ai_insights' => :'AiInsightsSetting',
         :'allowed_clients_ips' => :'AllowedIpSettings',
         :'allowed_gateways_ips' => :'AllowedIpSettings',
         :'auth_usage_event' => :'UsageEventSetting',
@@ -148,6 +152,10 @@ module Akeyless
 
       if attributes.key?(:'account_default_key_name')
         self.account_default_key_name = attributes[:'account_default_key_name']
+      end
+
+      if attributes.key?(:'ai_insights')
+        self.ai_insights = attributes[:'ai_insights']
       end
 
       if attributes.key?(:'allowed_clients_ips')
@@ -249,6 +257,7 @@ module Akeyless
       self.class == o.class &&
           account_default_key_item_id == o.account_default_key_item_id &&
           account_default_key_name == o.account_default_key_name &&
+          ai_insights == o.ai_insights &&
           allowed_clients_ips == o.allowed_clients_ips &&
           allowed_gateways_ips == o.allowed_gateways_ips &&
           auth_usage_event == o.auth_usage_event &&
@@ -279,7 +288,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_static_password, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_static_password, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

@@ -65,6 +65,9 @@ module Akeyless
     # Specifies the hash algorithm used for the encryption key's operations, available options: [SHA256, SHA384, SHA512]
     attr_accessor :hash_algorithm
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -112,6 +115,7 @@ module Akeyless
         :'expiration_event_in' => :'expiration-event-in',
         :'generate_self_signed_certificate' => :'generate-self-signed-certificate',
         :'hash_algorithm' => :'hash-algorithm',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -149,6 +153,7 @@ module Akeyless
         :'expiration_event_in' => :'Array<String>',
         :'generate_self_signed_certificate' => :'Boolean',
         :'hash_algorithm' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
@@ -256,6 +261,12 @@ module Akeyless
         self.hash_algorithm = 'SHA256'
       end
 
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -350,6 +361,7 @@ module Akeyless
           expiration_event_in == o.expiration_event_in &&
           generate_self_signed_certificate == o.generate_self_signed_certificate &&
           hash_algorithm == o.hash_algorithm &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
@@ -370,7 +382,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, auto_rotate, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, expiration_event_in, generate_self_signed_certificate, hash_algorithm, json, metadata, name, rotation_event_in, rotation_interval, split_level, tag, token, uid_token].hash
+      [alg, auto_rotate, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, customer_frg_id, delete_protection, description, expiration_event_in, generate_self_signed_certificate, hash_algorithm, item_custom_fields, json, metadata, name, rotation_event_in, rotation_interval, split_level, tag, token, uid_token].hash
     end
 
     # Builds the object from hash

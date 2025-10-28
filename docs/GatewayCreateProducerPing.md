@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **ping_administrative_port** | **String** | Ping Federate administrative port | [optional][default to &#39;9999&#39;] |
@@ -37,6 +38,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayCreateProducerPing.new(
   delete_protection: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   ping_administrative_port: null,

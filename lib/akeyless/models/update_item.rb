@@ -43,6 +43,9 @@ module Akeyless
     # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
     attr_accessor :host_provider
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -172,6 +175,7 @@ module Akeyless
         :'description' => :'description',
         :'expiration_event_in' => :'expiration-event-in',
         :'host_provider' => :'host-provider',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
@@ -232,6 +236,7 @@ module Akeyless
         :'description' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'host_provider' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'max_versions' => :'String',
         :'name' => :'String',
@@ -341,6 +346,12 @@ module Akeyless
 
       if attributes.key?(:'host_provider')
         self.host_provider = attributes[:'host_provider']
+      end
+
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -555,6 +566,7 @@ module Akeyless
           description == o.description &&
           expiration_event_in == o.expiration_event_in &&
           host_provider == o.host_provider &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           max_versions == o.max_versions &&
           name == o.name &&
@@ -605,7 +617,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, host_provider, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, host_provider, item_custom_fields, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
     end
 
     # Builds the object from hash

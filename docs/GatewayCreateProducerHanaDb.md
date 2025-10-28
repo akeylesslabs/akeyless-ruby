@@ -13,6 +13,7 @@
 | **hanadb_port** | **String** | HanaDb Port | [optional][default to &#39;443&#39;] |
 | **hanadb_revocation_statements** | **String** | HanaDb Revocation statements | [optional] |
 | **hanadb_username** | **String** | HanaDb Username | [optional] |
+| **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
@@ -45,6 +46,7 @@ instance = Akeyless::GatewayCreateProducerHanaDb.new(
   hanadb_port: null,
   hanadb_revocation_statements: null,
   hanadb_username: null,
+  item_custom_fields: null,
   json: null,
   name: null,
   password_length: null,

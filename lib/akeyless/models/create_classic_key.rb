@@ -69,6 +69,9 @@ module Akeyless
     # Specifies the hash algorithm used for the encryption key's operations, available options: [SHA256, SHA384, SHA512]
     attr_accessor :hash_algorithm
 
+    # Additional custom fields to associate with the item
+    attr_accessor :item_custom_fields
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -120,6 +123,7 @@ module Akeyless
         :'generate_self_signed_certificate' => :'generate-self-signed-certificate',
         :'gpg_alg' => :'gpg-alg',
         :'hash_algorithm' => :'hash-algorithm',
+        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key_data' => :'key-data',
         :'metadata' => :'metadata',
@@ -159,6 +163,7 @@ module Akeyless
         :'generate_self_signed_certificate' => :'Boolean',
         :'gpg_alg' => :'String',
         :'hash_algorithm' => :'String',
+        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key_data' => :'String',
         :'metadata' => :'String',
@@ -271,6 +276,12 @@ module Akeyless
         self.hash_algorithm = 'SHA256'
       end
 
+      if attributes.key?(:'item_custom_fields')
+        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
+          self.item_custom_fields = value
+        end
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -368,6 +379,7 @@ module Akeyless
           generate_self_signed_certificate == o.generate_self_signed_certificate &&
           gpg_alg == o.gpg_alg &&
           hash_algorithm == o.hash_algorithm &&
+          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key_data == o.key_data &&
           metadata == o.metadata &&
@@ -389,7 +401,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, auto_rotate, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, expiration_event_in, generate_self_signed_certificate, gpg_alg, hash_algorithm, json, key_data, metadata, name, protection_key_name, rotation_event_in, rotation_interval, tags, token, uid_token].hash
+      [alg, auto_rotate, cert_file_data, certificate_common_name, certificate_country, certificate_digest_algo, certificate_format, certificate_locality, certificate_organization, certificate_province, certificate_ttl, conf_file_data, delete_protection, description, expiration_event_in, generate_self_signed_certificate, gpg_alg, hash_algorithm, item_custom_fields, json, key_data, metadata, name, protection_key_name, rotation_event_in, rotation_interval, tags, token, uid_token].hash
     end
 
     # Builds the object from hash
