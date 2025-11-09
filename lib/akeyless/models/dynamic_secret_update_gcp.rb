@@ -33,6 +33,9 @@ module Akeyless
     # Service account key algorithm, e.g. KEY_ALG_RSA_1024
     attr_accessor :gcp_key_algo
 
+    # GCP Project ID override for dynamic secret operations (tmp service accounts)
+    attr_accessor :gcp_project_id
+
     # The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
     attr_accessor :gcp_sa_email
 
@@ -84,6 +87,7 @@ module Akeyless
         :'gcp_cred_type' => :'gcp-cred-type',
         :'gcp_key' => :'gcp-key',
         :'gcp_key_algo' => :'gcp-key-algo',
+        :'gcp_project_id' => :'gcp-project-id',
         :'gcp_sa_email' => :'gcp-sa-email',
         :'gcp_token_scopes' => :'gcp-token-scopes',
         :'item_custom_fields' => :'item-custom-fields',
@@ -115,6 +119,7 @@ module Akeyless
         :'gcp_cred_type' => :'String',
         :'gcp_key' => :'String',
         :'gcp_key_algo' => :'String',
+        :'gcp_project_id' => :'String',
         :'gcp_sa_email' => :'String',
         :'gcp_token_scopes' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
@@ -175,6 +180,10 @@ module Akeyless
 
       if attributes.key?(:'gcp_key_algo')
         self.gcp_key_algo = attributes[:'gcp_key_algo']
+      end
+
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
       end
 
       if attributes.key?(:'gcp_sa_email')
@@ -282,6 +291,7 @@ module Akeyless
           gcp_cred_type == o.gcp_cred_type &&
           gcp_key == o.gcp_key &&
           gcp_key_algo == o.gcp_key_algo &&
+          gcp_project_id == o.gcp_project_id &&
           gcp_sa_email == o.gcp_sa_email &&
           gcp_token_scopes == o.gcp_token_scopes &&
           item_custom_fields == o.item_custom_fields &&
@@ -307,7 +317,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, gcp_cred_type, gcp_key, gcp_key_algo, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, new_name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, delete_protection, description, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, new_name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

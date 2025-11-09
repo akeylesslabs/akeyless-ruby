@@ -218,6 +218,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**event_forwarder_update_teams**](V2Api.md#event_forwarder_update_teams) | **POST** /event-forwarder-update-teams |  |
 | [**event_forwarder_update_webhook**](V2Api.md#event_forwarder_update_webhook) | **POST** /event-forwarder-update-webhook |  |
 | [**export_classic_key**](V2Api.md#export_classic_key) | **POST** /export-classic-key |  |
+| [**folder_create**](V2Api.md#folder_create) | **POST** /folder-create |  |
+| [**folder_delete**](V2Api.md#folder_delete) | **POST** /folder-delete |  |
+| [**folder_get**](V2Api.md#folder_get) | **POST** /folder-get |  |
+| [**folder_update**](V2Api.md#folder_update) | **POST** /folder-update |  |
 | [**gateway_create_allowed_access**](V2Api.md#gateway_create_allowed_access) | **POST** /gateway-create-allowed-access |  |
 | [**gateway_create_k8_s_auth_config**](V2Api.md#gateway_create_k8_s_auth_config) | **POST** /gateway-create-k8s-auth-config |  |
 | [**gateway_create_migration**](V2Api.md#gateway_create_migration) | **POST** /gateway-create-migration |  |
@@ -13852,6 +13856,254 @@ end
 ### Return type
 
 [**ExportClassicKeyOutput**](ExportClassicKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_create
+
+> <FolderCreateOutput> folder_create(folder_create)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_create = Akeyless::FolderCreate.new({name: 'name_example'}) # FolderCreate | 
+
+begin
+  
+  result = api_instance.folder_create(folder_create)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_create: #{e}"
+end
+```
+
+#### Using the folder_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FolderCreateOutput>, Integer, Hash)> folder_create_with_http_info(folder_create)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_create_with_http_info(folder_create)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FolderCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_create** | [**FolderCreate**](FolderCreate.md) |  |  |
+
+### Return type
+
+[**FolderCreateOutput**](FolderCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_delete
+
+> Object folder_delete(folder_delete)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_delete = Akeyless::FolderDelete.new({name: 'name_example'}) # FolderDelete | 
+
+begin
+  
+  result = api_instance.folder_delete(folder_delete)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_delete: #{e}"
+end
+```
+
+#### Using the folder_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> folder_delete_with_http_info(folder_delete)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_delete_with_http_info(folder_delete)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_delete** | [**FolderDelete**](FolderDelete.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_get
+
+> <FolderGetOutput> folder_get(folder_get)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_get = Akeyless::FolderGet.new({name: 'name_example'}) # FolderGet | 
+
+begin
+  
+  result = api_instance.folder_get(folder_get)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_get: #{e}"
+end
+```
+
+#### Using the folder_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FolderGetOutput>, Integer, Hash)> folder_get_with_http_info(folder_get)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_get_with_http_info(folder_get)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FolderGetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_get** | [**FolderGet**](FolderGet.md) |  |  |
+
+### Return type
+
+[**FolderGetOutput**](FolderGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_update
+
+> Object folder_update(folder_update)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_update = Akeyless::FolderUpdate.new({name: 'name_example'}) # FolderUpdate | 
+
+begin
+  
+  result = api_instance.folder_update(folder_update)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_update: #{e}"
+end
+```
+
+#### Using the folder_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> folder_update_with_http_info(folder_update)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_update_with_http_info(folder_update)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_update** | [**FolderUpdate**](FolderUpdate.md) |  |  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

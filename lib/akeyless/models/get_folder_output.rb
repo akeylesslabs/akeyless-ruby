@@ -14,38 +14,41 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class DecryptWithClassicKey
-    # Ciphertext to be decrypted in base64 encoded format
-    attr_accessor :ciphertext
+  # GetFolderOutput is the result of the getFolder operation
+  class GetFolderOutput
+    attr_accessor :access_date
 
-    # The name of the key to use in the encryption process
-    attr_accessor :display_id
+    attr_accessor :access_date_display
 
-    # Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
-    attr_accessor :ignore_cache
+    attr_accessor :accessibility
 
-    # Set output format to JSON
-    attr_accessor :json
+    attr_accessor :creation_date
 
-    # Authentication token (see `/auth` and `/configure`)
-    attr_accessor :token
+    attr_accessor :delete_protection
 
-    # The universal identity token, Required only for universal_identity authentication
-    attr_accessor :uid_token
+    attr_accessor :folder_id
 
-    # classic key version
-    attr_accessor :version
+    attr_accessor :folder_name
+
+    attr_accessor :metadata
+
+    attr_accessor :modification_date
+
+    attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ciphertext' => :'ciphertext',
-        :'display_id' => :'display-id',
-        :'ignore_cache' => :'ignore-cache',
-        :'json' => :'json',
-        :'token' => :'token',
-        :'uid_token' => :'uid-token',
-        :'version' => :'version'
+        :'access_date' => :'access_date',
+        :'access_date_display' => :'access_date_display',
+        :'accessibility' => :'accessibility',
+        :'creation_date' => :'creation_date',
+        :'delete_protection' => :'delete_protection',
+        :'folder_id' => :'folder_id',
+        :'folder_name' => :'folder_name',
+        :'metadata' => :'metadata',
+        :'modification_date' => :'modification_date',
+        :'tags' => :'tags'
       }
     end
 
@@ -57,13 +60,16 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'ciphertext' => :'String',
-        :'display_id' => :'String',
-        :'ignore_cache' => :'String',
-        :'json' => :'Boolean',
-        :'token' => :'String',
-        :'uid_token' => :'String',
-        :'version' => :'Integer'
+        :'access_date' => :'Time',
+        :'access_date_display' => :'String',
+        :'accessibility' => :'Integer',
+        :'creation_date' => :'Time',
+        :'delete_protection' => :'Boolean',
+        :'folder_id' => :'Integer',
+        :'folder_name' => :'String',
+        :'metadata' => :'String',
+        :'modification_date' => :'Time',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -77,53 +83,57 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::DecryptWithClassicKey` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::GetFolderOutput` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::DecryptWithClassicKey`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::GetFolderOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'ciphertext')
-        self.ciphertext = attributes[:'ciphertext']
-      else
-        self.ciphertext = nil
+      if attributes.key?(:'access_date')
+        self.access_date = attributes[:'access_date']
       end
 
-      if attributes.key?(:'display_id')
-        self.display_id = attributes[:'display_id']
-      else
-        self.display_id = nil
+      if attributes.key?(:'access_date_display')
+        self.access_date_display = attributes[:'access_date_display']
       end
 
-      if attributes.key?(:'ignore_cache')
-        self.ignore_cache = attributes[:'ignore_cache']
-      else
-        self.ignore_cache = 'false'
+      if attributes.key?(:'accessibility')
+        self.accessibility = attributes[:'accessibility']
       end
 
-      if attributes.key?(:'json')
-        self.json = attributes[:'json']
-      else
-        self.json = false
+      if attributes.key?(:'creation_date')
+        self.creation_date = attributes[:'creation_date']
       end
 
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
-      if attributes.key?(:'uid_token')
-        self.uid_token = attributes[:'uid_token']
+      if attributes.key?(:'folder_id')
+        self.folder_id = attributes[:'folder_id']
       end
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      else
-        self.version = nil
+      if attributes.key?(:'folder_name')
+        self.folder_name = attributes[:'folder_name']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'modification_date')
+        self.modification_date = attributes[:'modification_date']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
     end
 
@@ -132,18 +142,6 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @ciphertext.nil?
-        invalid_properties.push('invalid value for "ciphertext", ciphertext cannot be nil.')
-      end
-
-      if @display_id.nil?
-        invalid_properties.push('invalid value for "display_id", display_id cannot be nil.')
-      end
-
-      if @version.nil?
-        invalid_properties.push('invalid value for "version", version cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -151,9 +149,6 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @ciphertext.nil?
-      return false if @display_id.nil?
-      return false if @version.nil?
       true
     end
 
@@ -162,13 +157,16 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ciphertext == o.ciphertext &&
-          display_id == o.display_id &&
-          ignore_cache == o.ignore_cache &&
-          json == o.json &&
-          token == o.token &&
-          uid_token == o.uid_token &&
-          version == o.version
+          access_date == o.access_date &&
+          access_date_display == o.access_date_display &&
+          accessibility == o.accessibility &&
+          creation_date == o.creation_date &&
+          delete_protection == o.delete_protection &&
+          folder_id == o.folder_id &&
+          folder_name == o.folder_name &&
+          metadata == o.metadata &&
+          modification_date == o.modification_date &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -180,7 +178,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ciphertext, display_id, ignore_cache, json, token, uid_token, version].hash
+      [access_date, access_date_display, accessibility, creation_date, delete_protection, folder_id, folder_name, metadata, modification_date, tags].hash
     end
 
     # Builds the object from hash

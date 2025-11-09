@@ -7,6 +7,7 @@
 | **azure_kv_name** | **String** | Azure Key Vault name (Relevant only for Azure targets) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the Universal Secrets Connector | [optional] |
+| **gcp_project_id** | **String** | GCP Project ID (Relevant only for GCP targets) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_namespace** | **String** | K8s namespace (Relevant to Kubernetes targets) | [optional] |
@@ -27,6 +28,7 @@ instance = Akeyless::CreateUSC.new(
   azure_kv_name: null,
   delete_protection: null,
   description: null,
+  gcp_project_id: null,
   item_custom_fields: null,
   json: null,
   k8s_namespace: null,

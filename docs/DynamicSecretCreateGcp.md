@@ -10,6 +10,7 @@
 | **gcp_cred_type** | **String** |  | [optional] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **gcp_key_algo** | **String** | Service account key algorithm, e.g. KEY_ALG_RSA_1024 | [optional] |
+| **gcp_project_id** | **String** | GCP Project ID override for dynamic secret operations (tmp service accounts) | [optional] |
 | **gcp_sa_email** | **String** | The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type&#x3D;fixed) | [optional] |
 | **gcp_token_scopes** | **String** | Access token scopes list, e.g. scope1,scope2 | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
@@ -36,6 +37,7 @@ instance = Akeyless::DynamicSecretCreateGcp.new(
   gcp_cred_type: null,
   gcp_key: null,
   gcp_key_algo: null,
+  gcp_project_id: null,
   gcp_sa_email: null,
   gcp_token_scopes: null,
   item_custom_fields: null,

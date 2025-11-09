@@ -14,10 +14,13 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # dynamicSecretCreateGcp is a command that creates a GCP dynamic secret
-  class DynamicSecretCreateGcp
-    # Customize how temporary usernames are generated using go template
-    attr_accessor :custom_username_template
+  # folderUpdate is a command that updates folder
+  class FolderUpdate
+    # for personal password manager
+    attr_accessor :accessibility
+
+    # List of the new tags that will be attached to this folder
+    attr_accessor :add_tag
 
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
@@ -25,79 +28,36 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
-    attr_accessor :gcp_cred_type
-
-    # Base64-encoded service account private key text
-    attr_accessor :gcp_key
-
-    # Service account key algorithm, e.g. KEY_ALG_RSA_1024
-    attr_accessor :gcp_key_algo
-
-    # GCP Project ID override for dynamic secret operations (tmp service accounts)
-    attr_accessor :gcp_project_id
-
-    # The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
-    attr_accessor :gcp_sa_email
-
-    # Access token scopes list, e.g. scope1,scope2
-    attr_accessor :gcp_token_scopes
-
-    # Additional custom fields to associate with the item
-    attr_accessor :item_custom_fields
-
     # Set output format to JSON
     attr_accessor :json
 
-    # Dynamic secret name
+    # Folder name
     attr_accessor :name
 
-    # Dynamic producer encryption key
-    attr_accessor :producer_encryption_key_name
-
-    # Role binding definitions in json format
-    attr_accessor :role_binding
-
-    # The type of the gcp dynamic secret. Options[fixed, dynamic]
-    attr_accessor :service_account_type
-
-    # Add tags attached to this object
-    attr_accessor :tags
-
-    # Target name
-    attr_accessor :target_name
+    # List of the existent tags that will be removed from this folder
+    attr_accessor :rm_tag
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
+    attr_accessor :type
+
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
-
-    # User TTL
-    attr_accessor :user_ttl
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'custom_username_template' => :'custom-username-template',
+        :'accessibility' => :'accessibility',
+        :'add_tag' => :'add-tag',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
-        :'gcp_cred_type' => :'gcp-cred-type',
-        :'gcp_key' => :'gcp-key',
-        :'gcp_key_algo' => :'gcp-key-algo',
-        :'gcp_project_id' => :'gcp-project-id',
-        :'gcp_sa_email' => :'gcp-sa-email',
-        :'gcp_token_scopes' => :'gcp-token-scopes',
-        :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
-        :'producer_encryption_key_name' => :'producer-encryption-key-name',
-        :'role_binding' => :'role-binding',
-        :'service_account_type' => :'service-account-type',
-        :'tags' => :'tags',
-        :'target_name' => :'target-name',
+        :'rm_tag' => :'rm-tag',
         :'token' => :'token',
-        :'uid_token' => :'uid-token',
-        :'user_ttl' => :'user-ttl'
+        :'type' => :'type',
+        :'uid_token' => :'uid-token'
       }
     end
 
@@ -109,26 +69,16 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'custom_username_template' => :'String',
+        :'accessibility' => :'String',
+        :'add_tag' => :'Array<String>',
         :'delete_protection' => :'String',
         :'description' => :'String',
-        :'gcp_cred_type' => :'String',
-        :'gcp_key' => :'String',
-        :'gcp_key_algo' => :'String',
-        :'gcp_project_id' => :'String',
-        :'gcp_sa_email' => :'String',
-        :'gcp_token_scopes' => :'String',
-        :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
-        :'producer_encryption_key_name' => :'String',
-        :'role_binding' => :'String',
-        :'service_account_type' => :'String',
-        :'tags' => :'Array<String>',
-        :'target_name' => :'String',
+        :'rm_tag' => :'Array<String>',
         :'token' => :'String',
-        :'uid_token' => :'String',
-        :'user_ttl' => :'String'
+        :'type' => :'String',
+        :'uid_token' => :'String'
       }
     end
 
@@ -142,19 +92,27 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::DynamicSecretCreateGcp` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::FolderUpdate` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::DynamicSecretCreateGcp`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::FolderUpdate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'custom_username_template')
-        self.custom_username_template = attributes[:'custom_username_template']
+      if attributes.key?(:'accessibility')
+        self.accessibility = attributes[:'accessibility']
+      else
+        self.accessibility = 'regular'
+      end
+
+      if attributes.key?(:'add_tag')
+        if (value = attributes[:'add_tag']).is_a?(Array)
+          self.add_tag = value
+        end
       end
 
       if attributes.key?(:'delete_protection')
@@ -163,36 +121,6 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'gcp_cred_type')
-        self.gcp_cred_type = attributes[:'gcp_cred_type']
-      end
-
-      if attributes.key?(:'gcp_key')
-        self.gcp_key = attributes[:'gcp_key']
-      end
-
-      if attributes.key?(:'gcp_key_algo')
-        self.gcp_key_algo = attributes[:'gcp_key_algo']
-      end
-
-      if attributes.key?(:'gcp_project_id')
-        self.gcp_project_id = attributes[:'gcp_project_id']
-      end
-
-      if attributes.key?(:'gcp_sa_email')
-        self.gcp_sa_email = attributes[:'gcp_sa_email']
-      end
-
-      if attributes.key?(:'gcp_token_scopes')
-        self.gcp_token_scopes = attributes[:'gcp_token_scopes']
-      end
-
-      if attributes.key?(:'item_custom_fields')
-        if (value = attributes[:'item_custom_fields']).is_a?(Hash)
-          self.item_custom_fields = value
-        end
       end
 
       if attributes.key?(:'json')
@@ -207,42 +135,22 @@ module Akeyless
         self.name = nil
       end
 
-      if attributes.key?(:'producer_encryption_key_name')
-        self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
-      end
-
-      if attributes.key?(:'role_binding')
-        self.role_binding = attributes[:'role_binding']
-      end
-
-      if attributes.key?(:'service_account_type')
-        self.service_account_type = attributes[:'service_account_type']
-      else
-        self.service_account_type = 'fixed'
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
+      if attributes.key?(:'rm_tag')
+        if (value = attributes[:'rm_tag']).is_a?(Array)
+          self.rm_tag = value
         end
-      end
-
-      if attributes.key?(:'target_name')
-        self.target_name = attributes[:'target_name']
       end
 
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'uid_token')
-        self.uid_token = attributes[:'uid_token']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'user_ttl')
-        self.user_ttl = attributes[:'user_ttl']
-      else
-        self.user_ttl = '60m'
+      if attributes.key?(:'uid_token')
+        self.uid_token = attributes[:'uid_token']
       end
     end
 
@@ -255,10 +163,6 @@ module Akeyless
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @service_account_type.nil?
-        invalid_properties.push('invalid value for "service_account_type", service_account_type cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -267,7 +171,6 @@ module Akeyless
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @name.nil?
-      return false if @service_account_type.nil?
       true
     end
 
@@ -276,26 +179,16 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          custom_username_template == o.custom_username_template &&
+          accessibility == o.accessibility &&
+          add_tag == o.add_tag &&
           delete_protection == o.delete_protection &&
           description == o.description &&
-          gcp_cred_type == o.gcp_cred_type &&
-          gcp_key == o.gcp_key &&
-          gcp_key_algo == o.gcp_key_algo &&
-          gcp_project_id == o.gcp_project_id &&
-          gcp_sa_email == o.gcp_sa_email &&
-          gcp_token_scopes == o.gcp_token_scopes &&
-          item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
-          producer_encryption_key_name == o.producer_encryption_key_name &&
-          role_binding == o.role_binding &&
-          service_account_type == o.service_account_type &&
-          tags == o.tags &&
-          target_name == o.target_name &&
+          rm_tag == o.rm_tag &&
           token == o.token &&
-          uid_token == o.uid_token &&
-          user_ttl == o.user_ttl
+          type == o.type &&
+          uid_token == o.uid_token
     end
 
     # @see the `==` method
@@ -307,7 +200,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [accessibility, add_tag, delete_protection, description, json, name, rm_tag, token, type, uid_token].hash
     end
 
     # Builds the object from hash

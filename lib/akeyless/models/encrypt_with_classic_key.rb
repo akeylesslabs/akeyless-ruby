@@ -18,6 +18,9 @@ module Akeyless
     # The name of the key to use in the encryption process
     attr_accessor :display_id
 
+    # Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
+    attr_accessor :ignore_cache
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -37,6 +40,7 @@ module Akeyless
     def self.attribute_map
       {
         :'display_id' => :'display-id',
+        :'ignore_cache' => :'ignore-cache',
         :'json' => :'json',
         :'plaintext' => :'plaintext',
         :'token' => :'token',
@@ -54,6 +58,7 @@ module Akeyless
     def self.openapi_types
       {
         :'display_id' => :'String',
+        :'ignore_cache' => :'String',
         :'json' => :'Boolean',
         :'plaintext' => :'String',
         :'token' => :'String',
@@ -87,6 +92,12 @@ module Akeyless
         self.display_id = attributes[:'display_id']
       else
         self.display_id = nil
+      end
+
+      if attributes.key?(:'ignore_cache')
+        self.ignore_cache = attributes[:'ignore_cache']
+      else
+        self.ignore_cache = 'false'
       end
 
       if attributes.key?(:'json')
@@ -152,6 +163,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           display_id == o.display_id &&
+          ignore_cache == o.ignore_cache &&
           json == o.json &&
           plaintext == o.plaintext &&
           token == o.token &&
@@ -168,7 +180,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display_id, json, plaintext, token, uid_token, version].hash
+      [display_id, ignore_cache, json, plaintext, token, uid_token, version].hash
     end
 
     # Builds the object from hash

@@ -13719,6 +13719,262 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param folder_create [FolderCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [FolderCreateOutput]
+    def folder_create(folder_create, opts = {})
+      data, _status_code, _headers = folder_create_with_http_info(folder_create, opts)
+      data
+    end
+
+    # @param folder_create [FolderCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FolderCreateOutput, Integer, Hash)>] FolderCreateOutput data, response status code and response headers
+    def folder_create_with_http_info(folder_create, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.folder_create ...'
+      end
+      # verify the required parameter 'folder_create' is set
+      if @api_client.config.client_side_validation && folder_create.nil?
+        fail ArgumentError, "Missing the required parameter 'folder_create' when calling V2Api.folder_create"
+      end
+      # resource path
+      local_var_path = '/folder-create'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(folder_create)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FolderCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.folder_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#folder_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param folder_delete [FolderDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def folder_delete(folder_delete, opts = {})
+      data, _status_code, _headers = folder_delete_with_http_info(folder_delete, opts)
+      data
+    end
+
+    # @param folder_delete [FolderDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def folder_delete_with_http_info(folder_delete, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.folder_delete ...'
+      end
+      # verify the required parameter 'folder_delete' is set
+      if @api_client.config.client_side_validation && folder_delete.nil?
+        fail ArgumentError, "Missing the required parameter 'folder_delete' when calling V2Api.folder_delete"
+      end
+      # resource path
+      local_var_path = '/folder-delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(folder_delete)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.folder_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#folder_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param folder_get [FolderGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [FolderGetOutput]
+    def folder_get(folder_get, opts = {})
+      data, _status_code, _headers = folder_get_with_http_info(folder_get, opts)
+      data
+    end
+
+    # @param folder_get [FolderGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FolderGetOutput, Integer, Hash)>] FolderGetOutput data, response status code and response headers
+    def folder_get_with_http_info(folder_get, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.folder_get ...'
+      end
+      # verify the required parameter 'folder_get' is set
+      if @api_client.config.client_side_validation && folder_get.nil?
+        fail ArgumentError, "Missing the required parameter 'folder_get' when calling V2Api.folder_get"
+      end
+      # resource path
+      local_var_path = '/folder-get'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(folder_get)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FolderGetOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.folder_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#folder_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param folder_update [FolderUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def folder_update(folder_update, opts = {})
+      data, _status_code, _headers = folder_update_with_http_info(folder_update, opts)
+      data
+    end
+
+    # @param folder_update [FolderUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def folder_update_with_http_info(folder_update, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.folder_update ...'
+      end
+      # verify the required parameter 'folder_update' is set
+      if @api_client.config.client_side_validation && folder_update.nil?
+        fail ArgumentError, "Missing the required parameter 'folder_update' when calling V2Api.folder_update"
+      end
+      # resource path
+      local_var_path = '/folder-update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(folder_update)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.folder_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#folder_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param gateway_create_allowed_access [GatewayCreateAllowedAccess] 
     # @param [Hash] opts the optional parameters
     # @return [AllowedAccess]

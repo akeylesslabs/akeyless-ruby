@@ -14,38 +14,13 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class DecryptWithClassicKey
-    # Ciphertext to be decrypted in base64 encoded format
-    attr_accessor :ciphertext
-
-    # The name of the key to use in the encryption process
-    attr_accessor :display_id
-
-    # Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
-    attr_accessor :ignore_cache
-
-    # Set output format to JSON
-    attr_accessor :json
-
-    # Authentication token (see `/auth` and `/configure`)
-    attr_accessor :token
-
-    # The universal identity token, Required only for universal_identity authentication
-    attr_accessor :uid_token
-
-    # classic key version
-    attr_accessor :version
+  class FolderCreateOutput
+    attr_accessor :folder_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ciphertext' => :'ciphertext',
-        :'display_id' => :'display-id',
-        :'ignore_cache' => :'ignore-cache',
-        :'json' => :'json',
-        :'token' => :'token',
-        :'uid_token' => :'uid-token',
-        :'version' => :'version'
+        :'folder_id' => :'folder_id'
       }
     end
 
@@ -57,13 +32,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'ciphertext' => :'String',
-        :'display_id' => :'String',
-        :'ignore_cache' => :'String',
-        :'json' => :'Boolean',
-        :'token' => :'String',
-        :'uid_token' => :'String',
-        :'version' => :'Integer'
+        :'folder_id' => :'Integer'
       }
     end
 
@@ -77,53 +46,19 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::DecryptWithClassicKey` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::FolderCreateOutput` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::DecryptWithClassicKey`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::FolderCreateOutput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'ciphertext')
-        self.ciphertext = attributes[:'ciphertext']
-      else
-        self.ciphertext = nil
-      end
-
-      if attributes.key?(:'display_id')
-        self.display_id = attributes[:'display_id']
-      else
-        self.display_id = nil
-      end
-
-      if attributes.key?(:'ignore_cache')
-        self.ignore_cache = attributes[:'ignore_cache']
-      else
-        self.ignore_cache = 'false'
-      end
-
-      if attributes.key?(:'json')
-        self.json = attributes[:'json']
-      else
-        self.json = false
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
-      end
-
-      if attributes.key?(:'uid_token')
-        self.uid_token = attributes[:'uid_token']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      else
-        self.version = nil
+      if attributes.key?(:'folder_id')
+        self.folder_id = attributes[:'folder_id']
       end
     end
 
@@ -132,18 +67,6 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @ciphertext.nil?
-        invalid_properties.push('invalid value for "ciphertext", ciphertext cannot be nil.')
-      end
-
-      if @display_id.nil?
-        invalid_properties.push('invalid value for "display_id", display_id cannot be nil.')
-      end
-
-      if @version.nil?
-        invalid_properties.push('invalid value for "version", version cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -151,9 +74,6 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @ciphertext.nil?
-      return false if @display_id.nil?
-      return false if @version.nil?
       true
     end
 
@@ -162,13 +82,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ciphertext == o.ciphertext &&
-          display_id == o.display_id &&
-          ignore_cache == o.ignore_cache &&
-          json == o.json &&
-          token == o.token &&
-          uid_token == o.uid_token &&
-          version == o.version
+          folder_id == o.folder_id
     end
 
     # @see the `==` method
@@ -180,7 +94,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ciphertext, display_id, ignore_cache, json, token, uid_token, version].hash
+      [folder_id].hash
     end
 
     # Builds the object from hash
