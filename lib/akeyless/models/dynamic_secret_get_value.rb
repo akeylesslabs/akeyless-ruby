@@ -18,6 +18,9 @@ module Akeyless
     # Optional arguments as key=value pairs or JSON strings, e.g - \\\"--args=csr=base64_encoded_csr --args=common_name=bar\\\" or args='{\\\"csr\\\":\\\"base64_encoded_csr\\\"}. It is possible to combine both formats.'
     attr_accessor :args
 
+    # DBName: Optional override DB name (works only if DS allows it. only relevant for MSSQL)
+    attr_accessor :dbname
+
     # Host
     attr_accessor :host
 
@@ -43,6 +46,7 @@ module Akeyless
     def self.attribute_map
       {
         :'args' => :'args',
+        :'dbname' => :'dbname',
         :'host' => :'host',
         :'json' => :'json',
         :'name' => :'name',
@@ -62,6 +66,7 @@ module Akeyless
     def self.openapi_types
       {
         :'args' => :'Array<String>',
+        :'dbname' => :'String',
         :'host' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
@@ -97,6 +102,10 @@ module Akeyless
         if (value = attributes[:'args']).is_a?(Array)
           self.args = value
         end
+      end
+
+      if attributes.key?(:'dbname')
+        self.dbname = attributes[:'dbname']
       end
 
       if attributes.key?(:'host')
@@ -160,6 +169,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           args == o.args &&
+          dbname == o.dbname &&
           host == o.host &&
           json == o.json &&
           name == o.name &&
@@ -178,7 +188,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [args, host, json, name, target, timeout, token, uid_token].hash
+      [args, dbname, host, json, name, target, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

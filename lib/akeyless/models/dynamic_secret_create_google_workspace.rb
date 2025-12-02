@@ -55,6 +55,9 @@ module Akeyless
 
     attr_accessor :role_scope
 
+    # The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+    attr_accessor :secure_access_delay
+
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
@@ -102,6 +105,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'role_name' => :'role-name',
         :'role_scope' => :'role-scope',
+        :'secure_access_delay' => :'secure-access-delay',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_url' => :'secure-access-url',
         :'secure_access_web' => :'secure-access-web',
@@ -137,6 +141,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'String',
         :'role_name' => :'String',
         :'role_scope' => :'String',
+        :'secure_access_delay' => :'Integer',
         :'secure_access_enable' => :'String',
         :'secure_access_url' => :'String',
         :'secure_access_web' => :'Boolean',
@@ -239,6 +244,10 @@ module Akeyless
         self.role_scope = attributes[:'role_scope']
       end
 
+      if attributes.key?(:'secure_access_delay')
+        self.secure_access_delay = attributes[:'secure_access_delay']
+      end
+
       if attributes.key?(:'secure_access_enable')
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
@@ -339,6 +348,7 @@ module Akeyless
           producer_encryption_key_name == o.producer_encryption_key_name &&
           role_name == o.role_name &&
           role_scope == o.role_scope &&
+          secure_access_delay == o.secure_access_delay &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_url == o.secure_access_url &&
           secure_access_web == o.secure_access_web &&
@@ -360,7 +370,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_email, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, item_custom_fields, json, name, producer_encryption_key_name, role_name, role_scope, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
+      [access_mode, admin_email, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, item_custom_fields, json, name, producer_encryption_key_name, role_name, role_scope, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

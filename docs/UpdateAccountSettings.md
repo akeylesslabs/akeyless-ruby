@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **address** | **String** | Address | [optional] |
+| **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_email_domains** | **Array&lt;String&gt;** | Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed. | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A default list of comma-separated CIDR block that are allowed to authenticate. | [optional] |
 | **city** | **String** | City | [optional] |
@@ -32,6 +33,7 @@
 | **jwt_ttl_default** | **Integer** | Default ttl | [optional] |
 | **jwt_ttl_max** | **Integer** | Maximum ttl | [optional] |
 | **jwt_ttl_min** | **Integer** | Minimum ttl | [optional] |
+| **lock_allowed_client_type** | **String** |  | [optional] |
 | **lock_bound_ips** | **String** | Lock bound-ips setting globally in the account. | [optional] |
 | **lock_default_key** | **String** | Lock the account&#39;s default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false] | [optional] |
 | **lock_gw_bound_ips** | **String** | Lock gw-bound-ips setting in the account. | [optional] |
@@ -60,6 +62,7 @@ require 'akeyless'
 
 instance = Akeyless::UpdateAccountSettings.new(
   address: null,
+  allowed_client_type: null,
   allowed_email_domains: null,
   bound_ips: null,
   city: null,
@@ -87,6 +90,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   jwt_ttl_default: null,
   jwt_ttl_max: null,
   jwt_ttl_min: null,
+  lock_allowed_client_type: null,
   lock_bound_ips: null,
   lock_default_key: null,
   lock_gw_bound_ips: null,

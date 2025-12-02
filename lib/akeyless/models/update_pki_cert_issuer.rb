@@ -54,8 +54,12 @@ module Akeyless
     # Set this to allow the issuer will expose a CRL endpoint in the Gateway
     attr_accessor :create_private_crl
 
+    attr_accessor :create_private_ocsp
+
     # Set this to allow the cert issuer will expose a public CRL endpoint
     attr_accessor :create_public_crl
+
+    attr_accessor :create_public_ocsp
 
     # Mark key usage as critical [true/false]
     attr_accessor :critical_key_usage
@@ -114,6 +118,8 @@ module Akeyless
     # If set, clients can request certificates without a CN
     attr_accessor :not_require_cn
 
+    attr_accessor :ocsp_ttl
+
     # A comma-separated list of organizational units (OU) that will be set in the issued certificate
     attr_accessor :organizational_units
 
@@ -169,7 +175,9 @@ module Akeyless
         :'code_signing_flag' => :'code-signing-flag',
         :'country' => :'country',
         :'create_private_crl' => :'create-private-crl',
+        :'create_private_ocsp' => :'create-private-ocsp',
         :'create_public_crl' => :'create-public-crl',
+        :'create_public_ocsp' => :'create-public-ocsp',
         :'critical_key_usage' => :'critical-key-usage',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -189,6 +197,7 @@ module Akeyless
         :'new_name' => :'new-name',
         :'not_enforce_hostnames' => :'not-enforce-hostnames',
         :'not_require_cn' => :'not-require-cn',
+        :'ocsp_ttl' => :'ocsp-ttl',
         :'organizational_units' => :'organizational-units',
         :'organizations' => :'organizations',
         :'postal_code' => :'postal-code',
@@ -226,7 +235,9 @@ module Akeyless
         :'code_signing_flag' => :'Boolean',
         :'country' => :'String',
         :'create_private_crl' => :'Boolean',
+        :'create_private_ocsp' => :'Boolean',
         :'create_public_crl' => :'Boolean',
+        :'create_public_ocsp' => :'Boolean',
         :'critical_key_usage' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -246,6 +257,7 @@ module Akeyless
         :'new_name' => :'String',
         :'not_enforce_hostnames' => :'Boolean',
         :'not_require_cn' => :'Boolean',
+        :'ocsp_ttl' => :'String',
         :'organizational_units' => :'String',
         :'organizations' => :'String',
         :'postal_code' => :'String',
@@ -337,8 +349,16 @@ module Akeyless
         self.create_private_crl = attributes[:'create_private_crl']
       end
 
+      if attributes.key?(:'create_private_ocsp')
+        self.create_private_ocsp = attributes[:'create_private_ocsp']
+      end
+
       if attributes.key?(:'create_public_crl')
         self.create_public_crl = attributes[:'create_public_crl']
+      end
+
+      if attributes.key?(:'create_public_ocsp')
+        self.create_public_ocsp = attributes[:'create_public_ocsp']
       end
 
       if attributes.key?(:'critical_key_usage')
@@ -429,6 +449,10 @@ module Akeyless
 
       if attributes.key?(:'not_require_cn')
         self.not_require_cn = attributes[:'not_require_cn']
+      end
+
+      if attributes.key?(:'ocsp_ttl')
+        self.ocsp_ttl = attributes[:'ocsp_ttl']
       end
 
       if attributes.key?(:'organizational_units')
@@ -531,7 +555,9 @@ module Akeyless
           code_signing_flag == o.code_signing_flag &&
           country == o.country &&
           create_private_crl == o.create_private_crl &&
+          create_private_ocsp == o.create_private_ocsp &&
           create_public_crl == o.create_public_crl &&
+          create_public_ocsp == o.create_public_ocsp &&
           critical_key_usage == o.critical_key_usage &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -551,6 +577,7 @@ module Akeyless
           new_name == o.new_name &&
           not_enforce_hostnames == o.not_enforce_hostnames &&
           not_require_cn == o.not_require_cn &&
+          ocsp_ttl == o.ocsp_ttl &&
           organizational_units == o.organizational_units &&
           organizations == o.organizations &&
           postal_code == o.postal_code &&
@@ -575,7 +602,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
+      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

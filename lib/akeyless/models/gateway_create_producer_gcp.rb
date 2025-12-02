@@ -16,27 +16,32 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]
   class GatewayCreateProducerGcp
+    attr_accessor :access_type
+
     # Customize how temporary usernames are generated using go template
     attr_accessor :custom_username_template
 
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)
+    attr_accessor :fixed_user_claim_keyname
+
     attr_accessor :gcp_cred_type
 
     # Base64-encoded service account private key text
     attr_accessor :gcp_key
 
-    # Service account key algorithm, e.g. KEY_ALG_RSA_1024
+    # Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type=sa and --gcp-cred-type=key)
     attr_accessor :gcp_key_algo
 
-    # GCP Project ID override for dynamic secret operations (tmp service accounts)
+    # GCP Project ID override for dynamic secret operations
     attr_accessor :gcp_project_id
 
-    # The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
+    # The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type=sa and --service-account-type=fixed)
     attr_accessor :gcp_sa_email
 
-    # Access token scopes list, e.g. scope1,scope2
+    # Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)
     attr_accessor :gcp_token_scopes
 
     # Additional custom fields to associate with the item
@@ -51,10 +56,28 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
-    # Role binding definitions in json format
+    # Role binding definitions in JSON format (Relevant only when --access-type=sa and --service-account-type=dynamic)
     attr_accessor :role_binding
 
-    # The type of the gcp dynamic secret. Options[fixed, dynamic]
+    # Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type=external)
+    attr_accessor :role_names
+
+    # The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+    attr_accessor :secure_access_delay
+
+    # Enable/Disable secure remote access [true/false]
+    attr_accessor :secure_access_enable
+
+    # Destination URL to inject secrets
+    attr_accessor :secure_access_url
+
+    # Secure browser via Akeyless's Secure Remote Access (SRA)
+    attr_accessor :secure_access_web_browsing
+
+    # Web-Proxy via Akeyless's Secure Remote Access (SRA)
+    attr_accessor :secure_access_web_proxy
+
+    # The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)
     attr_accessor :service_account_type
 
     # Add tags attached to this object
@@ -75,8 +98,10 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'access_type' => :'access-type',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
+        :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'gcp_cred_type' => :'gcp-cred-type',
         :'gcp_key' => :'gcp-key',
         :'gcp_key_algo' => :'gcp-key-algo',
@@ -88,6 +113,12 @@ module Akeyless
         :'name' => :'name',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'role_binding' => :'role-binding',
+        :'role_names' => :'role-names',
+        :'secure_access_delay' => :'secure-access-delay',
+        :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_url' => :'secure-access-url',
+        :'secure_access_web_browsing' => :'secure-access-web-browsing',
+        :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'service_account_type' => :'service-account-type',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -105,8 +136,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'access_type' => :'String',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
+        :'fixed_user_claim_keyname' => :'String',
         :'gcp_cred_type' => :'String',
         :'gcp_key' => :'String',
         :'gcp_key_algo' => :'String',
@@ -118,6 +151,12 @@ module Akeyless
         :'name' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'role_binding' => :'String',
+        :'role_names' => :'String',
+        :'secure_access_delay' => :'Integer',
+        :'secure_access_enable' => :'String',
+        :'secure_access_url' => :'String',
+        :'secure_access_web_browsing' => :'Boolean',
+        :'secure_access_web_proxy' => :'Boolean',
         :'service_account_type' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
@@ -148,12 +187,22 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'access_type')
+        self.access_type = attributes[:'access_type']
+      end
+
       if attributes.key?(:'custom_username_template')
         self.custom_username_template = attributes[:'custom_username_template']
       end
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'fixed_user_claim_keyname')
+        self.fixed_user_claim_keyname = attributes[:'fixed_user_claim_keyname']
+      else
+        self.fixed_user_claim_keyname = 'ext_email'
       end
 
       if attributes.key?(:'gcp_cred_type')
@@ -206,6 +255,34 @@ module Akeyless
         self.role_binding = attributes[:'role_binding']
       end
 
+      if attributes.key?(:'role_names')
+        self.role_names = attributes[:'role_names']
+      end
+
+      if attributes.key?(:'secure_access_delay')
+        self.secure_access_delay = attributes[:'secure_access_delay']
+      end
+
+      if attributes.key?(:'secure_access_enable')
+        self.secure_access_enable = attributes[:'secure_access_enable']
+      end
+
+      if attributes.key?(:'secure_access_url')
+        self.secure_access_url = attributes[:'secure_access_url']
+      end
+
+      if attributes.key?(:'secure_access_web_browsing')
+        self.secure_access_web_browsing = attributes[:'secure_access_web_browsing']
+      else
+        self.secure_access_web_browsing = false
+      end
+
+      if attributes.key?(:'secure_access_web_proxy')
+        self.secure_access_web_proxy = attributes[:'secure_access_web_proxy']
+      else
+        self.secure_access_web_proxy = false
+      end
+
       if attributes.key?(:'service_account_type')
         self.service_account_type = attributes[:'service_account_type']
       else
@@ -246,10 +323,6 @@ module Akeyless
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @service_account_type.nil?
-        invalid_properties.push('invalid value for "service_account_type", service_account_type cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -258,7 +331,6 @@ module Akeyless
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @name.nil?
-      return false if @service_account_type.nil?
       true
     end
 
@@ -267,8 +339,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          access_type == o.access_type &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
+          fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           gcp_cred_type == o.gcp_cred_type &&
           gcp_key == o.gcp_key &&
           gcp_key_algo == o.gcp_key_algo &&
@@ -280,6 +354,12 @@ module Akeyless
           name == o.name &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           role_binding == o.role_binding &&
+          role_names == o.role_names &&
+          secure_access_delay == o.secure_access_delay &&
+          secure_access_enable == o.secure_access_enable &&
+          secure_access_url == o.secure_access_url &&
+          secure_access_web_browsing == o.secure_access_web_browsing &&
+          secure_access_web_proxy == o.secure_access_web_proxy &&
           service_account_type == o.service_account_type &&
           tags == o.tags &&
           target_name == o.target_name &&
@@ -297,7 +377,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, producer_encryption_key_name, role_binding, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [access_type, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

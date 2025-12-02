@@ -18,6 +18,8 @@ module Akeyless
     # Address
     attr_accessor :address
 
+    attr_accessor :allowed_client_type
+
     # Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
     attr_accessor :allowed_email_domains
 
@@ -99,6 +101,8 @@ module Akeyless
     # Minimum ttl
     attr_accessor :jwt_ttl_min
 
+    attr_accessor :lock_allowed_client_type
+
     # Lock bound-ips setting globally in the account.
     attr_accessor :lock_bound_ips
 
@@ -163,6 +167,7 @@ module Akeyless
     def self.attribute_map
       {
         :'address' => :'address',
+        :'allowed_client_type' => :'allowed-client-type',
         :'allowed_email_domains' => :'allowed-email-domains',
         :'bound_ips' => :'bound-ips',
         :'city' => :'city',
@@ -190,6 +195,7 @@ module Akeyless
         :'jwt_ttl_default' => :'jwt-ttl-default',
         :'jwt_ttl_max' => :'jwt-ttl-max',
         :'jwt_ttl_min' => :'jwt-ttl-min',
+        :'lock_allowed_client_type' => :'lock-allowed-client-type',
         :'lock_bound_ips' => :'lock-bound-ips',
         :'lock_default_key' => :'lock-default-key',
         :'lock_gw_bound_ips' => :'lock-gw-bound-ips',
@@ -222,6 +228,7 @@ module Akeyless
     def self.openapi_types
       {
         :'address' => :'String',
+        :'allowed_client_type' => :'Array<String>',
         :'allowed_email_domains' => :'Array<String>',
         :'bound_ips' => :'Array<String>',
         :'city' => :'String',
@@ -249,6 +256,7 @@ module Akeyless
         :'jwt_ttl_default' => :'Integer',
         :'jwt_ttl_max' => :'Integer',
         :'jwt_ttl_min' => :'Integer',
+        :'lock_allowed_client_type' => :'String',
         :'lock_bound_ips' => :'String',
         :'lock_default_key' => :'String',
         :'lock_gw_bound_ips' => :'String',
@@ -295,6 +303,12 @@ module Akeyless
 
       if attributes.key?(:'address')
         self.address = attributes[:'address']
+      end
+
+      if attributes.key?(:'allowed_client_type')
+        if (value = attributes[:'allowed_client_type']).is_a?(Array)
+          self.allowed_client_type = value
+        end
       end
 
       if attributes.key?(:'allowed_email_domains')
@@ -417,6 +431,10 @@ module Akeyless
         self.jwt_ttl_min = attributes[:'jwt_ttl_min']
       end
 
+      if attributes.key?(:'lock_allowed_client_type')
+        self.lock_allowed_client_type = attributes[:'lock_allowed_client_type']
+      end
+
       if attributes.key?(:'lock_bound_ips')
         self.lock_bound_ips = attributes[:'lock_bound_ips']
       end
@@ -519,6 +537,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           address == o.address &&
+          allowed_client_type == o.allowed_client_type &&
           allowed_email_domains == o.allowed_email_domains &&
           bound_ips == o.bound_ips &&
           city == o.city &&
@@ -546,6 +565,7 @@ module Akeyless
           jwt_ttl_default == o.jwt_ttl_default &&
           jwt_ttl_max == o.jwt_ttl_max &&
           jwt_ttl_min == o.jwt_ttl_min &&
+          lock_allowed_client_type == o.lock_allowed_client_type &&
           lock_bound_ips == o.lock_bound_ips &&
           lock_default_key == o.lock_default_key &&
           lock_gw_bound_ips == o.lock_gw_bound_ips &&
@@ -577,7 +597,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

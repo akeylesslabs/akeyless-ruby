@@ -8982,7 +8982,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-dynamic_secret_create_gcp = Akeyless::DynamicSecretCreateGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # DynamicSecretCreateGcp | 
+dynamic_secret_create_gcp = Akeyless::DynamicSecretCreateGcp.new({name: 'name_example'}) # DynamicSecretCreateGcp | 
 
 begin
   
@@ -11152,7 +11152,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-dynamic_secret_update_gcp = Akeyless::DynamicSecretUpdateGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # DynamicSecretUpdateGcp | 
+dynamic_secret_update_gcp = Akeyless::DynamicSecretUpdateGcp.new({name: 'name_example'}) # DynamicSecretUpdateGcp | 
 
 begin
   
@@ -14812,7 +14812,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-gateway_create_producer_gcp = Akeyless::GatewayCreateProducerGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # GatewayCreateProducerGcp | 
+gateway_create_producer_gcp = Akeyless::GatewayCreateProducerGcp.new({name: 'name_example'}) # GatewayCreateProducerGcp | 
 
 begin
   
@@ -19155,7 +19155,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-gateway_update_producer_gcp = Akeyless::GatewayUpdateProducerGcp.new({name: 'name_example', service_account_type: 'service_account_type_example'}) # GatewayUpdateProducerGcp | 
+gateway_update_producer_gcp = Akeyless::GatewayUpdateProducerGcp.new({name: 'name_example'}) # GatewayUpdateProducerGcp | 
 
 begin
   

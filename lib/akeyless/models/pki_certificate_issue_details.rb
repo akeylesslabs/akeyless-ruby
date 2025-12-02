@@ -45,7 +45,13 @@ module Akeyless
 
     attr_accessor :create_private_crl
 
+    # CreatePrivateOcsp enables exposing an OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates.
+    attr_accessor :create_private_ocsp
+
     attr_accessor :create_public_crl
+
+    # CreatePublicOcsp enables exposing a public OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates.
+    attr_accessor :create_public_ocsp
 
     # DestinationPath is the destination to save generated certificates
     attr_accessor :destination_path
@@ -78,6 +84,9 @@ module Akeyless
 
     # A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
     attr_accessor :not_before_duration
+
+    # OcspNextUpdate defines the desired NextUpdate window for OCSP responses. Value is in seconds; 0 means not set. Minimum enforced is 10 minutes.
+    attr_accessor :ocsp_next_update
 
     attr_accessor :organization_list
 
@@ -118,7 +127,9 @@ module Akeyless
         :'code_signing_flag' => :'code_signing_flag',
         :'country' => :'country',
         :'create_private_crl' => :'create_private_crl',
+        :'create_private_ocsp' => :'create_private_ocsp',
         :'create_public_crl' => :'create_public_crl',
+        :'create_public_ocsp' => :'create_public_ocsp',
         :'destination_path' => :'destination_path',
         :'disable_wildcards' => :'disable_wildcards',
         :'enforce_hostnames' => :'enforce_hostnames',
@@ -133,6 +144,7 @@ module Akeyless
         :'max_path_len' => :'max_path_len',
         :'non_critical_key_usage' => :'non_critical_key_usage',
         :'not_before_duration' => :'not_before_duration',
+        :'ocsp_next_update' => :'ocsp_next_update',
         :'organization_list' => :'organization_list',
         :'organization_unit_list' => :'organization_unit_list',
         :'pki_issuer_type' => :'pki_issuer_type',
@@ -169,7 +181,9 @@ module Akeyless
         :'code_signing_flag' => :'Boolean',
         :'country' => :'Array<String>',
         :'create_private_crl' => :'Boolean',
+        :'create_private_ocsp' => :'Boolean',
         :'create_public_crl' => :'Boolean',
+        :'create_public_ocsp' => :'Boolean',
         :'destination_path' => :'String',
         :'disable_wildcards' => :'Boolean',
         :'enforce_hostnames' => :'Boolean',
@@ -184,6 +198,7 @@ module Akeyless
         :'max_path_len' => :'Integer',
         :'non_critical_key_usage' => :'Boolean',
         :'not_before_duration' => :'Integer',
+        :'ocsp_next_update' => :'Integer',
         :'organization_list' => :'Array<String>',
         :'organization_unit_list' => :'Array<String>',
         :'pki_issuer_type' => :'String',
@@ -288,8 +303,16 @@ module Akeyless
         self.create_private_crl = attributes[:'create_private_crl']
       end
 
+      if attributes.key?(:'create_private_ocsp')
+        self.create_private_ocsp = attributes[:'create_private_ocsp']
+      end
+
       if attributes.key?(:'create_public_crl')
         self.create_public_crl = attributes[:'create_public_crl']
+      end
+
+      if attributes.key?(:'create_public_ocsp')
+        self.create_public_ocsp = attributes[:'create_public_ocsp']
       end
 
       if attributes.key?(:'destination_path')
@@ -352,6 +375,10 @@ module Akeyless
 
       if attributes.key?(:'not_before_duration')
         self.not_before_duration = attributes[:'not_before_duration']
+      end
+
+      if attributes.key?(:'ocsp_next_update')
+        self.ocsp_next_update = attributes[:'ocsp_next_update']
       end
 
       if attributes.key?(:'organization_list')
@@ -440,7 +467,9 @@ module Akeyless
           code_signing_flag == o.code_signing_flag &&
           country == o.country &&
           create_private_crl == o.create_private_crl &&
+          create_private_ocsp == o.create_private_ocsp &&
           create_public_crl == o.create_public_crl &&
+          create_public_ocsp == o.create_public_ocsp &&
           destination_path == o.destination_path &&
           disable_wildcards == o.disable_wildcards &&
           enforce_hostnames == o.enforce_hostnames &&
@@ -455,6 +484,7 @@ module Akeyless
           max_path_len == o.max_path_len &&
           non_critical_key_usage == o.non_critical_key_usage &&
           not_before_duration == o.not_before_duration &&
+          ocsp_next_update == o.ocsp_next_update &&
           organization_list == o.organization_list &&
           organization_unit_list == o.organization_unit_list &&
           pki_issuer_type == o.pki_issuer_type &&
@@ -476,7 +506,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_public_crl, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, street_address].hash
+      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, street_address].hash
     end
 
     # Builds the object from hash

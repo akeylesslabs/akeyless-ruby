@@ -58,6 +58,9 @@ module Akeyless
     # MongoDB Roles
     attr_accessor :mongodb_roles
 
+    # MongoDB Scopes (Atlas only)
+    attr_accessor :mongodb_scopes
+
     # MongoDB server URI
     attr_accessor :mongodb_server_uri
 
@@ -132,6 +135,7 @@ module Akeyless
         :'mongodb_name' => :'mongodb-name',
         :'mongodb_password' => :'mongodb-password',
         :'mongodb_roles' => :'mongodb-roles',
+        :'mongodb_scopes' => :'mongodb-scopes',
         :'mongodb_server_uri' => :'mongodb-server-uri',
         :'mongodb_uri_options' => :'mongodb-uri-options',
         :'mongodb_username' => :'mongodb-username',
@@ -176,6 +180,7 @@ module Akeyless
         :'mongodb_name' => :'String',
         :'mongodb_password' => :'String',
         :'mongodb_roles' => :'String',
+        :'mongodb_scopes' => :'String',
         :'mongodb_server_uri' => :'String',
         :'mongodb_uri_options' => :'String',
         :'mongodb_username' => :'String',
@@ -279,6 +284,10 @@ module Akeyless
         self.mongodb_roles = attributes[:'mongodb_roles']
       else
         self.mongodb_roles = '[]'
+      end
+
+      if attributes.key?(:'mongodb_scopes')
+        self.mongodb_scopes = attributes[:'mongodb_scopes']
       end
 
       if attributes.key?(:'mongodb_server_uri')
@@ -407,6 +416,7 @@ module Akeyless
           mongodb_name == o.mongodb_name &&
           mongodb_password == o.mongodb_password &&
           mongodb_roles == o.mongodb_roles &&
+          mongodb_scopes == o.mongodb_scopes &&
           mongodb_server_uri == o.mongodb_server_uri &&
           mongodb_uri_options == o.mongodb_uri_options &&
           mongodb_username == o.mongodb_username &&
@@ -437,7 +447,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, item_custom_fields, json, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_default_auth_db, mongodb_host_port, mongodb_name, mongodb_password, mongodb_roles, mongodb_server_uri, mongodb_uri_options, mongodb_username, name, new_name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, delete_protection, description, item_custom_fields, json, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_default_auth_db, mongodb_host_port, mongodb_name, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_server_uri, mongodb_uri_options, mongodb_username, name, new_name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

@@ -24,6 +24,9 @@ module Akeyless
     # Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
     attr_accessor :ad_computer_base_dn
 
+    # Enable/Disable discovery of IIS application from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
+    attr_accessor :ad_discover_iis_app
+
     # Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
     attr_accessor :ad_discover_services
 
@@ -201,6 +204,7 @@ module Akeyless
         :'service_account_key_decoded' => :'ServiceAccountKeyDecoded',
         :'ad_auto_rotate' => :'ad-auto-rotate',
         :'ad_computer_base_dn' => :'ad-computer-base-dn',
+        :'ad_discover_iis_app' => :'ad-discover-iis-app',
         :'ad_discover_services' => :'ad-discover-services',
         :'ad_discovery_types' => :'ad-discovery-types',
         :'ad_domain_name' => :'ad-domain-name',
@@ -272,6 +276,7 @@ module Akeyless
         :'service_account_key_decoded' => :'String',
         :'ad_auto_rotate' => :'String',
         :'ad_computer_base_dn' => :'String',
+        :'ad_discover_iis_app' => :'String',
         :'ad_discover_services' => :'String',
         :'ad_discovery_types' => :'Array<String>',
         :'ad_domain_name' => :'String',
@@ -363,6 +368,12 @@ module Akeyless
 
       if attributes.key?(:'ad_computer_base_dn')
         self.ad_computer_base_dn = attributes[:'ad_computer_base_dn']
+      end
+
+      if attributes.key?(:'ad_discover_iis_app')
+        self.ad_discover_iis_app = attributes[:'ad_discover_iis_app']
+      else
+        self.ad_discover_iis_app = 'false'
       end
 
       if attributes.key?(:'ad_discover_services')
@@ -668,6 +679,7 @@ module Akeyless
           service_account_key_decoded == o.service_account_key_decoded &&
           ad_auto_rotate == o.ad_auto_rotate &&
           ad_computer_base_dn == o.ad_computer_base_dn &&
+          ad_discover_iis_app == o.ad_discover_iis_app &&
           ad_discover_services == o.ad_discover_services &&
           ad_discovery_types == o.ad_discovery_types &&
           ad_domain_name == o.ad_domain_name &&
@@ -736,7 +748,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
     end
 
     # Builds the object from hash

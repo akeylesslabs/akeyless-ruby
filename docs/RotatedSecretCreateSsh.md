@@ -11,9 +11,11 @@
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **key_data_base64** | **String** | Private key file contents encoded using base64 | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
+| **public_key_remote_path** | **String** | The path to the public key that will be rotated on the server | [optional] |
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) | [optional] |
@@ -50,9 +52,11 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   item_custom_fields: null,
   json: null,
   key: null,
+  key_data_base64: null,
   max_versions: null,
   name: null,
   password_length: null,
+  public_key_remote_path: null,
   rotate_after_disconnect: null,
   rotated_password: null,
   rotated_username: null,

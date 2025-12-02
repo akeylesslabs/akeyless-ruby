@@ -19,7 +19,9 @@
 | **code_signing_flag** | **Boolean** |  | [optional] |
 | **country** | **Array&lt;String&gt;** |  | [optional] |
 | **create_private_crl** | **Boolean** |  | [optional] |
+| **create_private_ocsp** | **Boolean** | CreatePrivateOcsp enables exposing an OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates. | [optional] |
 | **create_public_crl** | **Boolean** |  | [optional] |
+| **create_public_ocsp** | **Boolean** | CreatePublicOcsp enables exposing a public OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates. | [optional] |
 | **destination_path** | **String** | DestinationPath is the destination to save generated certificates | [optional] |
 | **disable_wildcards** | **Boolean** |  | [optional] |
 | **enforce_hostnames** | **Boolean** |  | [optional] |
@@ -34,6 +36,7 @@
 | **max_path_len** | **Integer** |  | [optional] |
 | **non_critical_key_usage** | **Boolean** |  | [optional] |
 | **not_before_duration** | **Integer** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. | [optional] |
+| **ocsp_next_update** | **Integer** | OcspNextUpdate defines the desired NextUpdate window for OCSP responses. Value is in seconds; 0 means not set. Minimum enforced is 10 minutes. | [optional] |
 | **organization_list** | **Array&lt;String&gt;** |  | [optional] |
 | **organization_unit_list** | **Array&lt;String&gt;** |  | [optional] |
 | **pki_issuer_type** | **String** |  | [optional] |
@@ -66,7 +69,9 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   code_signing_flag: null,
   country: null,
   create_private_crl: null,
+  create_private_ocsp: null,
   create_public_crl: null,
+  create_public_ocsp: null,
   destination_path: null,
   disable_wildcards: null,
   enforce_hostnames: null,
@@ -81,6 +86,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   max_path_len: null,
   non_critical_key_usage: null,
   not_before_duration: null,
+  ocsp_next_update: null,
   organization_list: null,
   organization_unit_list: null,
   pki_issuer_type: null,

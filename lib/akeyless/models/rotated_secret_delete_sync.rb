@@ -21,6 +21,9 @@ module Akeyless
     # Rotated secret name
     attr_accessor :name
 
+    # Remote Secret Name to disambiguate when multiple syncs exist under the same USC
+    attr_accessor :remote_secret_name
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -35,6 +38,7 @@ module Akeyless
       {
         :'json' => :'json',
         :'name' => :'name',
+        :'remote_secret_name' => :'remote-secret-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name'
@@ -51,6 +55,7 @@ module Akeyless
       {
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'remote_secret_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String'
@@ -88,6 +93,10 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'remote_secret_name')
+        self.remote_secret_name = attributes[:'remote_secret_name']
       end
 
       if attributes.key?(:'token')
@@ -137,6 +146,7 @@ module Akeyless
       self.class == o.class &&
           json == o.json &&
           name == o.name &&
+          remote_secret_name == o.remote_secret_name &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name
@@ -151,7 +161,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, token, uid_token, usc_name].hash
+      [json, name, remote_secret_name, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

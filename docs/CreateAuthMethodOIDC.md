@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_redirect_uri** | **Array&lt;String&gt;** | Allowed redirect URIs after the authentication | [optional] |
 | **audience** | **String** | Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider&#39;s Application | [optional] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
@@ -35,6 +36,7 @@ require 'akeyless'
 
 instance = Akeyless::CreateAuthMethodOIDC.new(
   access_expires: null,
+  allowed_client_type: null,
   allowed_redirect_uri: null,
   audience: null,
   audit_logs_claims: null,

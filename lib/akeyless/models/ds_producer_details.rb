@@ -199,11 +199,17 @@ module Akeyless
 
     attr_accessor :fixed_user_only
 
+    attr_accessor :gcp_access_type
+
+    attr_accessor :gcp_fixed_user_claim_keyname
+
     attr_accessor :gcp_key_algo
 
     attr_accessor :gcp_project_id
 
     attr_accessor :gcp_role_bindings
+
+    attr_accessor :gcp_role_names
 
     # GCPServiceAccountEmail overrides the deprecated field from the target
     attr_accessor :gcp_service_account_email
@@ -395,12 +401,17 @@ module Akeyless
     # common fields
     attr_accessor :mongodb_roles
 
+    attr_accessor :mongodb_scopes
+
     # mongodb fields
     attr_accessor :mongodb_uri_connection
 
     attr_accessor :mongodb_uri_options
 
     attr_accessor :mongodb_username
+
+    # Comma-separated list of allowed DB names for runtime selection when fetching the secret value. Empty string => use target DB name only (no override allowed) \"*\" => any DB name is allowed One or more names => user must select one of the provided names
+    attr_accessor :mssql_allowed_db_names
 
     attr_accessor :mssql_creation_statements
 
@@ -647,9 +658,12 @@ module Akeyless
         :'externally_provided_user' => :'externally_provided_user',
         :'failure_message' => :'failure_message',
         :'fixed_user_only' => :'fixed_user_only',
+        :'gcp_access_type' => :'gcp_access_type',
+        :'gcp_fixed_user_claim_keyname' => :'gcp_fixed_user_claim_keyname',
         :'gcp_key_algo' => :'gcp_key_algo',
         :'gcp_project_id' => :'gcp_project_id',
         :'gcp_role_bindings' => :'gcp_role_bindings',
+        :'gcp_role_names' => :'gcp_role_names',
         :'gcp_service_account_email' => :'gcp_service_account_email',
         :'gcp_service_account_key' => :'gcp_service_account_key',
         :'gcp_service_account_key_base64' => :'gcp_service_account_key_base64',
@@ -740,9 +754,11 @@ module Akeyless
         :'mongodb_is_atlas' => :'mongodb_is_atlas',
         :'mongodb_password' => :'mongodb_password',
         :'mongodb_roles' => :'mongodb_roles',
+        :'mongodb_scopes' => :'mongodb_scopes',
         :'mongodb_uri_connection' => :'mongodb_uri_connection',
         :'mongodb_uri_options' => :'mongodb_uri_options',
         :'mongodb_username' => :'mongodb_username',
+        :'mssql_allowed_db_names' => :'mssql_allowed_db_names',
         :'mssql_creation_statements' => :'mssql_creation_statements',
         :'mssql_revocation_statements' => :'mssql_revocation_statements',
         :'mysql_creation_statements' => :'mysql_creation_statements',
@@ -917,9 +933,12 @@ module Akeyless
         :'externally_provided_user' => :'String',
         :'failure_message' => :'String',
         :'fixed_user_only' => :'String',
+        :'gcp_access_type' => :'String',
+        :'gcp_fixed_user_claim_keyname' => :'String',
         :'gcp_key_algo' => :'String',
         :'gcp_project_id' => :'String',
         :'gcp_role_bindings' => :'Hash<String, Array<String>>',
+        :'gcp_role_names' => :'String',
         :'gcp_service_account_email' => :'String',
         :'gcp_service_account_key' => :'String',
         :'gcp_service_account_key_base64' => :'String',
@@ -1010,9 +1029,11 @@ module Akeyless
         :'mongodb_is_atlas' => :'Boolean',
         :'mongodb_password' => :'String',
         :'mongodb_roles' => :'String',
+        :'mongodb_scopes' => :'String',
         :'mongodb_uri_connection' => :'String',
         :'mongodb_uri_options' => :'String',
         :'mongodb_username' => :'String',
+        :'mssql_allowed_db_names' => :'String',
         :'mssql_creation_statements' => :'String',
         :'mssql_revocation_statements' => :'String',
         :'mysql_creation_statements' => :'String',
@@ -1472,6 +1493,14 @@ module Akeyless
         self.fixed_user_only = attributes[:'fixed_user_only']
       end
 
+      if attributes.key?(:'gcp_access_type')
+        self.gcp_access_type = attributes[:'gcp_access_type']
+      end
+
+      if attributes.key?(:'gcp_fixed_user_claim_keyname')
+        self.gcp_fixed_user_claim_keyname = attributes[:'gcp_fixed_user_claim_keyname']
+      end
+
       if attributes.key?(:'gcp_key_algo')
         self.gcp_key_algo = attributes[:'gcp_key_algo']
       end
@@ -1484,6 +1513,10 @@ module Akeyless
         if (value = attributes[:'gcp_role_bindings']).is_a?(Hash)
           self.gcp_role_bindings = value
         end
+      end
+
+      if attributes.key?(:'gcp_role_names')
+        self.gcp_role_names = attributes[:'gcp_role_names']
       end
 
       if attributes.key?(:'gcp_service_account_email')
@@ -1862,6 +1895,10 @@ module Akeyless
         self.mongodb_roles = attributes[:'mongodb_roles']
       end
 
+      if attributes.key?(:'mongodb_scopes')
+        self.mongodb_scopes = attributes[:'mongodb_scopes']
+      end
+
       if attributes.key?(:'mongodb_uri_connection')
         self.mongodb_uri_connection = attributes[:'mongodb_uri_connection']
       end
@@ -1872,6 +1909,10 @@ module Akeyless
 
       if attributes.key?(:'mongodb_username')
         self.mongodb_username = attributes[:'mongodb_username']
+      end
+
+      if attributes.key?(:'mssql_allowed_db_names')
+        self.mssql_allowed_db_names = attributes[:'mssql_allowed_db_names']
       end
 
       if attributes.key?(:'mssql_creation_statements')
@@ -2287,9 +2328,12 @@ module Akeyless
           externally_provided_user == o.externally_provided_user &&
           failure_message == o.failure_message &&
           fixed_user_only == o.fixed_user_only &&
+          gcp_access_type == o.gcp_access_type &&
+          gcp_fixed_user_claim_keyname == o.gcp_fixed_user_claim_keyname &&
           gcp_key_algo == o.gcp_key_algo &&
           gcp_project_id == o.gcp_project_id &&
           gcp_role_bindings == o.gcp_role_bindings &&
+          gcp_role_names == o.gcp_role_names &&
           gcp_service_account_email == o.gcp_service_account_email &&
           gcp_service_account_key == o.gcp_service_account_key &&
           gcp_service_account_key_base64 == o.gcp_service_account_key_base64 &&
@@ -2380,9 +2424,11 @@ module Akeyless
           mongodb_is_atlas == o.mongodb_is_atlas &&
           mongodb_password == o.mongodb_password &&
           mongodb_roles == o.mongodb_roles &&
+          mongodb_scopes == o.mongodb_scopes &&
           mongodb_uri_connection == o.mongodb_uri_connection &&
           mongodb_uri_options == o.mongodb_uri_options &&
           mongodb_username == o.mongodb_username &&
+          mssql_allowed_db_names == o.mssql_allowed_db_names &&
           mssql_creation_statements == o.mssql_creation_statements &&
           mssql_revocation_statements == o.mssql_revocation_statements &&
           mysql_creation_statements == o.mysql_creation_statements &&
@@ -2467,7 +2513,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
+      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_access_type, gcp_fixed_user_claim_keyname, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_role_names, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_allowed_db_names, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
     end
 
     # Builds the object from hash

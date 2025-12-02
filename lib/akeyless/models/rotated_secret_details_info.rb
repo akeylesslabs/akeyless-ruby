@@ -28,6 +28,8 @@ module Akeyless
 
     attr_accessor :gw_cluster_id
 
+    attr_accessor :iis_apps_details
+
     attr_accessor :last_rotation_error
 
     attr_accessor :managed_by_akeyless
@@ -37,6 +39,8 @@ module Akeyless
     attr_accessor :next_auto_rotate_type
 
     attr_accessor :number_of_versions_to_save
+
+    attr_accessor :public_key_remote_path
 
     attr_accessor :rotation_hour
 
@@ -66,11 +70,13 @@ module Akeyless
         :'grace_rotation_hour' => :'grace_rotation_hour',
         :'grace_rotation_interval' => :'grace_rotation_interval',
         :'gw_cluster_id' => :'gw_cluster_id',
+        :'iis_apps_details' => :'iis_apps_details',
         :'last_rotation_error' => :'last_rotation_error',
         :'managed_by_akeyless' => :'managed_by_akeyless',
         :'max_versions' => :'max_versions',
         :'next_auto_rotate_type' => :'next_auto_rotate_type',
         :'number_of_versions_to_save' => :'number_of_versions_to_save',
+        :'public_key_remote_path' => :'public_key_remote_path',
         :'rotation_hour' => :'rotation_hour',
         :'rotation_interval_min' => :'rotation_interval_min',
         :'rotation_statement' => :'rotation_statement',
@@ -97,11 +103,13 @@ module Akeyless
         :'grace_rotation_hour' => :'Integer',
         :'grace_rotation_interval' => :'Integer',
         :'gw_cluster_id' => :'Integer',
+        :'iis_apps_details' => :'Array<WindowsService>',
         :'last_rotation_error' => :'String',
         :'managed_by_akeyless' => :'Boolean',
         :'max_versions' => :'Integer',
         :'next_auto_rotate_type' => :'String',
         :'number_of_versions_to_save' => :'Integer',
+        :'public_key_remote_path' => :'String',
         :'rotation_hour' => :'Integer',
         :'rotation_interval_min' => :'Boolean',
         :'rotation_statement' => :'String',
@@ -159,6 +167,12 @@ module Akeyless
         self.gw_cluster_id = attributes[:'gw_cluster_id']
       end
 
+      if attributes.key?(:'iis_apps_details')
+        if (value = attributes[:'iis_apps_details']).is_a?(Array)
+          self.iis_apps_details = value
+        end
+      end
+
       if attributes.key?(:'last_rotation_error')
         self.last_rotation_error = attributes[:'last_rotation_error']
       end
@@ -177,6 +191,10 @@ module Akeyless
 
       if attributes.key?(:'number_of_versions_to_save')
         self.number_of_versions_to_save = attributes[:'number_of_versions_to_save']
+      end
+
+      if attributes.key?(:'public_key_remote_path')
+        self.public_key_remote_path = attributes[:'public_key_remote_path']
       end
 
       if attributes.key?(:'rotation_hour')
@@ -244,11 +262,13 @@ module Akeyless
           grace_rotation_hour == o.grace_rotation_hour &&
           grace_rotation_interval == o.grace_rotation_interval &&
           gw_cluster_id == o.gw_cluster_id &&
+          iis_apps_details == o.iis_apps_details &&
           last_rotation_error == o.last_rotation_error &&
           managed_by_akeyless == o.managed_by_akeyless &&
           max_versions == o.max_versions &&
           next_auto_rotate_type == o.next_auto_rotate_type &&
           number_of_versions_to_save == o.number_of_versions_to_save &&
+          public_key_remote_path == o.public_key_remote_path &&
           rotation_hour == o.rotation_hour &&
           rotation_interval_min == o.rotation_interval_min &&
           rotation_statement == o.rotation_statement &&
@@ -269,7 +289,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, gw_cluster_id, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, timeout_seconds].hash
+      [delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, gw_cluster_id, iis_apps_details, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, timeout_seconds].hash
     end
 
     # Builds the object from hash

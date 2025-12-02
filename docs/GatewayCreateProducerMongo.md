@@ -17,6 +17,7 @@
 | **mongodb_name** | **String** | MongoDB Name | [optional] |
 | **mongodb_password** | **String** | MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters | [optional] |
 | **mongodb_roles** | **String** | MongoDB Roles | [optional][default to &#39;[]&#39;] |
+| **mongodb_scopes** | **String** | MongoDB Scopes (Atlas only) | [optional] |
 | **mongodb_server_uri** | **String** | MongoDB server URI | [optional] |
 | **mongodb_uri_options** | **String** | MongoDB server URI options | [optional] |
 | **mongodb_username** | **String** | MongoDB server username | [optional] |
@@ -55,6 +56,7 @@ instance = Akeyless::GatewayCreateProducerMongo.new(
   mongodb_name: null,
   mongodb_password: null,
   mongodb_roles: null,
+  mongodb_scopes: null,
   mongodb_server_uri: null,
   mongodb_uri_options: null,
   mongodb_username: null,

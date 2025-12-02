@@ -37,6 +37,7 @@ docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
 docs/AllowedAccess.md
 docs/AllowedAccessOld.md
+docs/AllowedClientType.md
 docs/AllowedIpSettings.md
 docs/ArtifactoryTargetDetails.md
 docs/AssocRoleAuthMethod.md
@@ -768,6 +769,7 @@ docs/Name.md
 docs/NativeK8sTargetDetails.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
+docs/NotiForwarderDetailsInput.md
 docs/NullString.md
 docs/NullTime.md
 docs/OAuth2AccessRules.md
@@ -903,6 +905,7 @@ docs/SignPKICertOutput.md
 docs/SignPKICertWithClassicKey.md
 docs/SignRsaSsaPss.md
 docs/SignRsaSsaPssOutput.md
+docs/SlackNotiForwarderDetails.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
 docs/SraDesktopAppConf.md
@@ -985,6 +988,7 @@ docs/TargetUpdateSsh.md
 docs/TargetUpdateWeb.md
 docs/TargetUpdateWindows.md
 docs/TargetUpdateZeroSSL.md
+docs/TeamsNotiForwarderDetails.md
 docs/TmpUserData.md
 docs/Tokenize.md
 docs/TokenizeOutput.md
@@ -1135,6 +1139,7 @@ docs/WebBastionGuacamole.md
 docs/WebBastionRdpRecord.md
 docs/WebHookNotiForwarderPublicDetails.md
 docs/WebTargetDetails.md
+docs/WebhookNotiForwarderDetails.md
 docs/WindowsService.md
 docs/WindowsServiceAttributes.md
 docs/WindowsTargetDetails.md
@@ -1169,6 +1174,7 @@ lib/akeyless/models/alias_details_output.rb
 lib/akeyless/models/all_analytics_data.rb
 lib/akeyless/models/allowed_access.rb
 lib/akeyless/models/allowed_access_old.rb
+lib/akeyless/models/allowed_client_type.rb
 lib/akeyless/models/allowed_ip_settings.rb
 lib/akeyless/models/api_key_access_rules.rb
 lib/akeyless/models/artifactory_target_details.rb
@@ -1906,6 +1912,7 @@ lib/akeyless/models/name.rb
 lib/akeyless/models/native_k8s_target_details.rb
 lib/akeyless/models/next_auto_rotation_event.rb
 lib/akeyless/models/noti_forwarder.rb
+lib/akeyless/models/noti_forwarder_details_input.rb
 lib/akeyless/models/null_string.rb
 lib/akeyless/models/null_time.rb
 lib/akeyless/models/o_auth2_access_rules.rb
@@ -2039,6 +2046,7 @@ lib/akeyless/models/sign_pki_cert_output.rb
 lib/akeyless/models/sign_pki_cert_with_classic_key.rb
 lib/akeyless/models/sign_rsa_ssa_pss.rb
 lib/akeyless/models/sign_rsa_ssa_pss_output.rb
+lib/akeyless/models/slack_noti_forwarder_details.rb
 lib/akeyless/models/sm_info.rb
 lib/akeyless/models/splunk_log_forwarding_config.rb
 lib/akeyless/models/sra_desktop_app_conf.rb
@@ -2123,6 +2131,7 @@ lib/akeyless/models/target_update_ssh.rb
 lib/akeyless/models/target_update_web.rb
 lib/akeyless/models/target_update_windows.rb
 lib/akeyless/models/target_update_zero_ssl.rb
+lib/akeyless/models/teams_noti_forwarder_details.rb
 lib/akeyless/models/tmp_user_data.rb
 lib/akeyless/models/tokenize.rb
 lib/akeyless/models/tokenize_output.rb
@@ -2272,16 +2281,15 @@ lib/akeyless/models/web_bastion_guacamole.rb
 lib/akeyless/models/web_bastion_rdp_record.rb
 lib/akeyless/models/web_hook_noti_forwarder_public_details.rb
 lib/akeyless/models/web_target_details.rb
+lib/akeyless/models/webhook_noti_forwarder_details.rb
 lib/akeyless/models/windows_service.rb
 lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/folder_create_output_spec.rb
-spec/models/folder_create_spec.rb
-spec/models/folder_delete_spec.rb
-spec/models/folder_get_output_spec.rb
-spec/models/folder_get_spec.rb
-spec/models/folder_update_spec.rb
-spec/models/get_folder_output_spec.rb
+spec/models/allowed_client_type_spec.rb
+spec/models/noti_forwarder_details_input_spec.rb
+spec/models/slack_noti_forwarder_details_spec.rb
+spec/models/teams_noti_forwarder_details_spec.rb
+spec/models/webhook_noti_forwarder_details_spec.rb
 spec/spec_helper.rb

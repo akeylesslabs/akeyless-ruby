@@ -20,6 +20,8 @@ module Akeyless
     # for accounts where AccessId holds encrypted email this field will hold generated AccessId, for accounts based on regular AccessId it will be equal to accessId itself
     attr_accessor :access_id_alias
 
+    attr_accessor :allowed_client_type
+
     attr_accessor :api_key_access_rules
 
     attr_accessor :audit_logs_claims
@@ -73,6 +75,7 @@ module Akeyless
       {
         :'access_expires' => :'access_expires',
         :'access_id_alias' => :'access_id_alias',
+        :'allowed_client_type' => :'allowed_client_type',
         :'api_key_access_rules' => :'api_key_access_rules',
         :'audit_logs_claims' => :'audit_logs_claims',
         :'aws_iam_access_rules' => :'aws_iam_access_rules',
@@ -109,6 +112,7 @@ module Akeyless
       {
         :'access_expires' => :'Integer',
         :'access_id_alias' => :'String',
+        :'allowed_client_type' => :'Array<String>',
         :'api_key_access_rules' => :'APIKeyAccessRules',
         :'audit_logs_claims' => :'Array<String>',
         :'aws_iam_access_rules' => :'AWSIAMAccessRules',
@@ -162,6 +166,12 @@ module Akeyless
 
       if attributes.key?(:'access_id_alias')
         self.access_id_alias = attributes[:'access_id_alias']
+      end
+
+      if attributes.key?(:'allowed_client_type')
+        if (value = attributes[:'allowed_client_type']).is_a?(Array)
+          self.allowed_client_type = value
+        end
       end
 
       if attributes.key?(:'api_key_access_rules')
@@ -285,6 +295,7 @@ module Akeyless
       self.class == o.class &&
           access_expires == o.access_expires &&
           access_id_alias == o.access_id_alias &&
+          allowed_client_type == o.allowed_client_type &&
           api_key_access_rules == o.api_key_access_rules &&
           audit_logs_claims == o.audit_logs_claims &&
           aws_iam_access_rules == o.aws_iam_access_rules &&
@@ -319,7 +330,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, access_id_alias, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, universal_identity_access_rules].hash
+      [access_expires, access_id_alias, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, universal_identity_access_rules].hash
     end
 
     # Builds the object from hash

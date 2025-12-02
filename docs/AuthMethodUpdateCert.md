@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_cors** | **String** | Comma separated list of allowed CORS domains to be validated as part of the authentication flow. | [optional] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_common_names** | **Array&lt;String&gt;** | A list of names. At least one must exist in the Common Name. Supports globbing. | [optional] |
@@ -37,6 +38,7 @@ require 'akeyless'
 
 instance = Akeyless::AuthMethodUpdateCert.new(
   access_expires: null,
+  allowed_client_type: null,
   allowed_cors: null,
   audit_logs_claims: null,
   bound_common_names: null,

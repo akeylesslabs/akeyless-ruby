@@ -28,6 +28,9 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # CSV of allowed DB names for runtime selection when getting the secret value. Empty => use target DB only; \"*\" => any DB allowed; One or more names => user must choose from this list
+    attr_accessor :mssql_allowed_db_names
+
     # MSSQL Creation statements
     attr_accessor :mssql_create_statements
 
@@ -104,6 +107,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
+        :'mssql_allowed_db_names' => :'mssql-allowed-db-names',
         :'mssql_create_statements' => :'mssql-create-statements',
         :'mssql_dbname' => :'mssql-dbname',
         :'mssql_host' => :'mssql-host',
@@ -142,6 +146,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
+        :'mssql_allowed_db_names' => :'String',
         :'mssql_create_statements' => :'String',
         :'mssql_dbname' => :'String',
         :'mssql_host' => :'String',
@@ -207,6 +212,10 @@ module Akeyless
         self.json = attributes[:'json']
       else
         self.json = false
+      end
+
+      if attributes.key?(:'mssql_allowed_db_names')
+        self.mssql_allowed_db_names = attributes[:'mssql_allowed_db_names']
       end
 
       if attributes.key?(:'mssql_create_statements')
@@ -345,6 +354,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
+          mssql_allowed_db_names == o.mssql_allowed_db_names &&
           mssql_create_statements == o.mssql_create_statements &&
           mssql_dbname == o.mssql_dbname &&
           mssql_host == o.mssql_host &&
@@ -379,7 +389,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, item_custom_fields, json, mssql_create_statements, mssql_dbname, mssql_host, mssql_password, mssql_port, mssql_revocation_statements, mssql_username, name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, delete_protection, item_custom_fields, json, mssql_allowed_db_names, mssql_create_statements, mssql_dbname, mssql_host, mssql_password, mssql_port, mssql_revocation_statements, mssql_username, name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

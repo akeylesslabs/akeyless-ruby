@@ -36,6 +36,9 @@ module Akeyless
     # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Private key file contents encoded using base64
+    attr_accessor :key_data_base64
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -44,6 +47,9 @@ module Akeyless
 
     # The length of the password to be generated
     attr_accessor :password_length
+
+    # The path to the public key that will be rotated on the server
+    attr_accessor :public_key_remote_path
 
     # Rotate the value of the secret after SRA session ends [true/false]
     attr_accessor :rotate_after_disconnect
@@ -121,9 +127,11 @@ module Akeyless
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
+        :'key_data_base64' => :'key-data-base64',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password_length' => :'password-length',
+        :'public_key_remote_path' => :'public-key-remote-path',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
         :'rotated_password' => :'rotated-password',
         :'rotated_username' => :'rotated-username',
@@ -164,9 +172,11 @@ module Akeyless
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'key_data_base64' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password_length' => :'String',
+        :'public_key_remote_path' => :'String',
         :'rotate_after_disconnect' => :'String',
         :'rotated_password' => :'String',
         :'rotated_username' => :'String',
@@ -247,6 +257,10 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'key_data_base64')
+        self.key_data_base64 = attributes[:'key_data_base64']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -259,6 +273,10 @@ module Akeyless
 
       if attributes.key?(:'password_length')
         self.password_length = attributes[:'password_length']
+      end
+
+      if attributes.key?(:'public_key_remote_path')
+        self.public_key_remote_path = attributes[:'public_key_remote_path']
       end
 
       if attributes.key?(:'rotate_after_disconnect')
@@ -408,9 +426,11 @@ module Akeyless
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
+          key_data_base64 == o.key_data_base64 &&
           max_versions == o.max_versions &&
           name == o.name &&
           password_length == o.password_length &&
+          public_key_remote_path == o.public_key_remote_path &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
           rotated_password == o.rotated_password &&
           rotated_username == o.rotated_username &&
@@ -444,7 +464,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, key, key_data_base64, max_versions, name, password_length, public_key_remote_path, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

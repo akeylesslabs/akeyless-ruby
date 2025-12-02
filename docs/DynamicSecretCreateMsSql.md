@@ -9,6 +9,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **mssql_allowed_db_names** | **String** | CSV of allowed DB names for runtime selection when getting the secret value. Empty &#x3D;&gt; use target DB only; \&quot;*\&quot; &#x3D;&gt; any DB allowed; One or more names &#x3D;&gt; user must choose from this list | [optional] |
 | **mssql_create_statements** | **String** | MSSQL Creation statements | [optional] |
 | **mssql_dbname** | **String** | MSSQL Name | [optional] |
 | **mssql_host** | **String** | MSSQL Host | [optional][default to &#39;127.0.0.1&#39;] |
@@ -44,6 +45,7 @@ instance = Akeyless::DynamicSecretCreateMsSql.new(
   description: null,
   item_custom_fields: null,
   json: null,
+  mssql_allowed_db_names: null,
   mssql_create_statements: null,
   mssql_dbname: null,
   mssql_host: null,

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **audience** | **String** | The audience to verify in the JWT received by the client | [default to &#39;akeyless.io&#39;] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
@@ -35,6 +36,7 @@ require 'akeyless'
 
 instance = Akeyless::CreateAuthMethodGCP.new(
   access_expires: null,
+  allowed_client_type: null,
   audience: null,
   audit_logs_claims: null,
   bound_ips: null,

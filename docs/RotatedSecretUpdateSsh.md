@@ -13,10 +13,12 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **key_data_base64** | **String** | Private key file contents encoded using base64 | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
+| **public_key_remote_path** | **String** | The path to the public key that will be rotated on the server | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
@@ -54,10 +56,12 @@ instance = Akeyless::RotatedSecretUpdateSsh.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  key_data_base64: null,
   max_versions: null,
   name: null,
   new_name: null,
   password_length: null,
+  public_key_remote_path: null,
   rm_tag: null,
   rotate_after_disconnect: null,
   rotated_password: null,

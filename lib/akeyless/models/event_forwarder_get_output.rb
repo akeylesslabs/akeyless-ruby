@@ -17,10 +17,13 @@ module Akeyless
   class EventForwarderGetOutput
     attr_accessor :event_forwarder
 
+    attr_accessor :event_forwarder_details
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event_forwarder' => :'event_forwarder'
+        :'event_forwarder' => :'event_forwarder',
+        :'event_forwarder_details' => :'event_forwarder_details'
       }
     end
 
@@ -32,7 +35,8 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'event_forwarder' => :'NotiForwarder'
+        :'event_forwarder' => :'NotiForwarder',
+        :'event_forwarder_details' => :'NotiForwarderDetailsInput'
       }
     end
 
@@ -60,6 +64,10 @@ module Akeyless
       if attributes.key?(:'event_forwarder')
         self.event_forwarder = attributes[:'event_forwarder']
       end
+
+      if attributes.key?(:'event_forwarder_details')
+        self.event_forwarder_details = attributes[:'event_forwarder_details']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -82,7 +90,8 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          event_forwarder == o.event_forwarder
+          event_forwarder == o.event_forwarder &&
+          event_forwarder_details == o.event_forwarder_details
     end
 
     # @see the `==` method
@@ -94,7 +103,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_forwarder].hash
+      [event_forwarder, event_forwarder_details].hash
     end
 
     # Builds the object from hash

@@ -94,9 +94,12 @@
 | **externally_provided_user** | **String** |  | [optional] |
 | **failure_message** | **String** |  | [optional] |
 | **fixed_user_only** | **String** |  | [optional] |
+| **gcp_access_type** | **String** |  | [optional] |
+| **gcp_fixed_user_claim_keyname** | **String** |  | [optional] |
 | **gcp_key_algo** | **String** |  | [optional] |
 | **gcp_project_id** | **String** |  | [optional] |
 | **gcp_role_bindings** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
+| **gcp_role_names** | **String** |  | [optional] |
 | **gcp_service_account_email** | **String** | GCPServiceAccountEmail overrides the deprecated field from the target | [optional] |
 | **gcp_service_account_key** | **String** |  | [optional] |
 | **gcp_service_account_key_base64** | **String** |  | [optional] |
@@ -187,9 +190,11 @@
 | **mongodb_is_atlas** | **Boolean** |  | [optional] |
 | **mongodb_password** | **String** |  | [optional] |
 | **mongodb_roles** | **String** | common fields | [optional] |
+| **mongodb_scopes** | **String** |  | [optional] |
 | **mongodb_uri_connection** | **String** | mongodb fields | [optional] |
 | **mongodb_uri_options** | **String** |  | [optional] |
 | **mongodb_username** | **String** |  | [optional] |
+| **mssql_allowed_db_names** | **String** | Comma-separated list of allowed DB names for runtime selection when fetching the secret value. Empty string &#x3D;&gt; use target DB name only (no override allowed) \&quot;*\&quot; &#x3D;&gt; any DB name is allowed One or more names &#x3D;&gt; user must select one of the provided names | [optional] |
 | **mssql_creation_statements** | **String** |  | [optional] |
 | **mssql_revocation_statements** | **String** |  | [optional] |
 | **mysql_creation_statements** | **String** |  | [optional] |
@@ -360,9 +365,12 @@ instance = Akeyless::DSProducerDetails.new(
   externally_provided_user: null,
   failure_message: null,
   fixed_user_only: null,
+  gcp_access_type: null,
+  gcp_fixed_user_claim_keyname: null,
   gcp_key_algo: null,
   gcp_project_id: null,
   gcp_role_bindings: null,
+  gcp_role_names: null,
   gcp_service_account_email: null,
   gcp_service_account_key: null,
   gcp_service_account_key_base64: null,
@@ -453,9 +461,11 @@ instance = Akeyless::DSProducerDetails.new(
   mongodb_is_atlas: null,
   mongodb_password: null,
   mongodb_roles: null,
+  mongodb_scopes: null,
   mongodb_uri_connection: null,
   mongodb_uri_options: null,
   mongodb_username: null,
+  mssql_allowed_db_names: null,
   mssql_creation_statements: null,
   mssql_revocation_statements: null,
   mysql_creation_statements: null,

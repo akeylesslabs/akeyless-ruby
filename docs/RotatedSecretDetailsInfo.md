@@ -10,11 +10,13 @@
 | **grace_rotation_hour** | **Integer** |  | [optional] |
 | **grace_rotation_interval** | **Integer** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
+| **iis_apps_details** | [**Array&lt;WindowsService&gt;**](WindowsService.md) |  | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
 | **managed_by_akeyless** | **Boolean** |  | [optional] |
 | **max_versions** | **Integer** |  | [optional] |
 | **next_auto_rotate_type** | **String** |  | [optional] |
 | **number_of_versions_to_save** | **Integer** |  | [optional] |
+| **public_key_remote_path** | **String** |  | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval_min** | **Boolean** |  | [optional] |
 | **rotation_statement** | **String** |  | [optional] |
@@ -37,11 +39,13 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   grace_rotation_hour: null,
   grace_rotation_interval: null,
   gw_cluster_id: null,
+  iis_apps_details: null,
   last_rotation_error: null,
   managed_by_akeyless: null,
   max_versions: null,
   next_auto_rotate_type: null,
   number_of_versions_to_save: null,
+  public_key_remote_path: null,
   rotation_hour: null,
   rotation_interval_min: null,
   rotation_statement: null,

@@ -25,6 +25,8 @@ module Akeyless
 
     attr_accessor :computer_base_dn
 
+    attr_accessor :discover_iis_apps
+
     # Deprecated
     attr_accessor :discover_local_users
 
@@ -68,6 +70,7 @@ module Akeyless
         :'auto_rotate_interval_in_days' => :'auto_rotate_interval_in_days',
         :'auto_rotate_rotation_hour' => :'auto_rotate_rotation_hour',
         :'computer_base_dn' => :'computer_base_dn',
+        :'discover_iis_apps' => :'discover_iis_apps',
         :'discover_local_users' => :'discover_local_users',
         :'discover_services' => :'discover_services',
         :'discovery_types' => :'discovery_types',
@@ -101,6 +104,7 @@ module Akeyless
         :'auto_rotate_interval_in_days' => :'Integer',
         :'auto_rotate_rotation_hour' => :'Integer',
         :'computer_base_dn' => :'String',
+        :'discover_iis_apps' => :'Boolean',
         :'discover_local_users' => :'Boolean',
         :'discover_services' => :'Boolean',
         :'discovery_types' => :'Array<String>',
@@ -160,6 +164,10 @@ module Akeyless
 
       if attributes.key?(:'computer_base_dn')
         self.computer_base_dn = attributes[:'computer_base_dn']
+      end
+
+      if attributes.key?(:'discover_iis_apps')
+        self.discover_iis_apps = attributes[:'discover_iis_apps']
       end
 
       if attributes.key?(:'discover_local_users')
@@ -262,6 +270,7 @@ module Akeyless
           auto_rotate_interval_in_days == o.auto_rotate_interval_in_days &&
           auto_rotate_rotation_hour == o.auto_rotate_rotation_hour &&
           computer_base_dn == o.computer_base_dn &&
+          discover_iis_apps == o.discover_iis_apps &&
           discover_local_users == o.discover_local_users &&
           discover_services == o.discover_services &&
           discovery_types == o.discovery_types &&
@@ -290,7 +299,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_target_id, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, computer_base_dn, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
+      [active_directory_target_id, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, computer_base_dn, discover_iis_apps, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
     end
 
     # Builds the object from hash

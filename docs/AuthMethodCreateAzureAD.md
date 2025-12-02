@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** | Access expiration date in Unix timestamp (select 0 for access without expiry date) | [optional][default to 0] |
+| **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **audience** | **String** | Deprecated (Deprecated) The audience in the JWT | [optional][default to &#39;https://management.azure.com/&#39;] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_group_id** | **Array&lt;String&gt;** | A list of group ids that the access is restricted to | [optional] |
@@ -39,6 +40,7 @@ require 'akeyless'
 
 instance = Akeyless::AuthMethodCreateAzureAD.new(
   access_expires: null,
+  allowed_client_type: null,
   audience: null,
   audit_logs_claims: null,
   bound_group_id: null,

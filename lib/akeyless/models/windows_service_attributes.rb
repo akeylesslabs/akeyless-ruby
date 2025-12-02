@@ -17,7 +17,13 @@ module Akeyless
   class WindowsServiceAttributes
     attr_accessor :connection_type
 
+    # IISAppPool marks this entry as an IIS Application Pool rather than a Windows Service
+    attr_accessor :iis_app_pool
+
     attr_accessor :port
+
+    # SkipRestart allows skipping recycle/start of the IIS App Pool after credential update
+    attr_accessor :skip_restart
 
     attr_accessor :use_tls
 
@@ -25,7 +31,9 @@ module Akeyless
     def self.attribute_map
       {
         :'connection_type' => :'connection_type',
+        :'iis_app_pool' => :'iis_app_pool',
         :'port' => :'port',
+        :'skip_restart' => :'skip_restart',
         :'use_tls' => :'use_tls'
       }
     end
@@ -39,7 +47,9 @@ module Akeyless
     def self.openapi_types
       {
         :'connection_type' => :'String',
+        :'iis_app_pool' => :'Boolean',
         :'port' => :'String',
+        :'skip_restart' => :'Boolean',
         :'use_tls' => :'Boolean'
       }
     end
@@ -69,8 +79,16 @@ module Akeyless
         self.connection_type = attributes[:'connection_type']
       end
 
+      if attributes.key?(:'iis_app_pool')
+        self.iis_app_pool = attributes[:'iis_app_pool']
+      end
+
       if attributes.key?(:'port')
         self.port = attributes[:'port']
+      end
+
+      if attributes.key?(:'skip_restart')
+        self.skip_restart = attributes[:'skip_restart']
       end
 
       if attributes.key?(:'use_tls')
@@ -99,7 +117,9 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           connection_type == o.connection_type &&
+          iis_app_pool == o.iis_app_pool &&
           port == o.port &&
+          skip_restart == o.skip_restart &&
           use_tls == o.use_tls
     end
 
@@ -112,7 +132,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [connection_type, port, use_tls].hash
+      [connection_type, iis_app_pool, port, skip_restart, use_tls].hash
     end
 
     # Builds the object from hash

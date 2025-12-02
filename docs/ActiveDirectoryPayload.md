@@ -9,6 +9,7 @@
 | **auto_rotate_interval_in_days** | **Integer** |  | [optional] |
 | **auto_rotate_rotation_hour** | **Integer** |  | [optional] |
 | **computer_base_dn** | **String** |  | [optional] |
+| **discover_iis_apps** | **Boolean** |  | [optional] |
 | **discover_local_users** | **Boolean** | Deprecated | [optional] |
 | **discover_services** | **Boolean** |  | [optional] |
 | **discovery_types** | **Array&lt;String&gt;** |  | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::ActiveDirectoryPayload.new(
   auto_rotate_interval_in_days: null,
   auto_rotate_rotation_hour: null,
   computer_base_dn: null,
+  discover_iis_apps: null,
   discover_local_users: null,
   discover_services: null,
   discovery_types: null,

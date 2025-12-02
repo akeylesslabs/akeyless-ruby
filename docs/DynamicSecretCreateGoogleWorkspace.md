@@ -18,6 +18,7 @@
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **role_name** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode | [optional] |
 | **role_scope** | **String** |  | [optional] |
+| **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
@@ -49,6 +50,7 @@ instance = Akeyless::DynamicSecretCreateGoogleWorkspace.new(
   producer_encryption_key_name: null,
   role_name: null,
   role_scope: null,
+  secure_access_delay: null,
   secure_access_enable: null,
   secure_access_url: null,
   secure_access_web: null,

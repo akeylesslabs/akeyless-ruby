@@ -19,6 +19,8 @@ module Akeyless
     # Access expiration date in Unix timestamp (select 0 for access without expiry date)
     attr_accessor :access_expires
 
+    attr_accessor :allowed_client_type
+
     # The audience in the Kubernetes JWT that the access is restricted to
     attr_accessor :audience
 
@@ -80,6 +82,7 @@ module Akeyless
     def self.attribute_map
       {
         :'access_expires' => :'access-expires',
+        :'allowed_client_type' => :'allowed-client-type',
         :'audience' => :'audience',
         :'audit_logs_claims' => :'audit-logs-claims',
         :'bound_ips' => :'bound-ips',
@@ -111,6 +114,7 @@ module Akeyless
     def self.openapi_types
       {
         :'access_expires' => :'Integer',
+        :'allowed_client_type' => :'Array<String>',
         :'audience' => :'String',
         :'audit_logs_claims' => :'Array<String>',
         :'bound_ips' => :'Array<String>',
@@ -158,6 +162,12 @@ module Akeyless
         self.access_expires = attributes[:'access_expires']
       else
         self.access_expires = 0
+      end
+
+      if attributes.key?(:'allowed_client_type')
+        if (value = attributes[:'allowed_client_type']).is_a?(Array)
+          self.allowed_client_type = value
+        end
       end
 
       if attributes.key?(:'audience')
@@ -287,6 +297,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           access_expires == o.access_expires &&
+          allowed_client_type == o.allowed_client_type &&
           audience == o.audience &&
           audit_logs_claims == o.audit_logs_claims &&
           bound_ips == o.bound_ips &&
@@ -317,7 +328,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, audience, audit_logs_claims, bound_ips, bound_namespaces, bound_pod_names, bound_sa_names, delete_protection, description, expiration_event_in, force_sub_claims, gen_key, gw_bound_ips, json, jwt_ttl, name, product_type, public_key, token, uid_token].hash
+      [access_expires, allowed_client_type, audience, audit_logs_claims, bound_ips, bound_namespaces, bound_pod_names, bound_sa_names, delete_protection, description, expiration_event_in, force_sub_claims, gen_key, gw_bound_ips, json, jwt_ttl, name, product_type, public_key, token, uid_token].hash
     end
 
     # Builds the object from hash
