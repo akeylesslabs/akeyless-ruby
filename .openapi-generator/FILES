@@ -2287,9 +2287,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/allowed_client_type_spec.rb
-spec/models/noti_forwarder_details_input_spec.rb
-spec/models/slack_noti_forwarder_details_spec.rb
-spec/models/teams_noti_forwarder_details_spec.rb
-spec/models/webhook_noti_forwarder_details_spec.rb
 spec/spec_helper.rb
