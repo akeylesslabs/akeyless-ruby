@@ -16,8 +16,14 @@ require 'time'
 module Akeyless
   # gatewayUpdateRemoteAccess is a command that update remote access config
   class GatewayUpdateRemoteAccess
+    # Specify a valid SSH-URL to tunnel to SSH session
+    attr_accessor :allowed_ssh_url
+
     # List of valid URLs to redirect from the Portal back to the remote access server (in a comma-delimited list)
     attr_accessor :allowed_urls
+
+    # Default session TTL in minutes
+    attr_accessor :default_session_ttl_minutes
 
     # Specifies whether to show/hide if the session is currently recorded [true/false]
     attr_accessor :hide_session_recording
@@ -49,7 +55,9 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'allowed_ssh_url' => :'allowed-ssh-url',
         :'allowed_urls' => :'allowed-urls',
+        :'default_session_ttl_minutes' => :'default-session-ttl-minutes',
         :'hide_session_recording' => :'hide-session-recording',
         :'json' => :'json',
         :'kexalgs' => :'kexalgs',
@@ -70,7 +78,9 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'allowed_ssh_url' => :'String',
         :'allowed_urls' => :'String',
+        :'default_session_ttl_minutes' => :'String',
         :'hide_session_recording' => :'String',
         :'json' => :'Boolean',
         :'kexalgs' => :'String',
@@ -104,10 +114,22 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'allowed_ssh_url')
+        self.allowed_ssh_url = attributes[:'allowed_ssh_url']
+      else
+        self.allowed_ssh_url = 'use-existing'
+      end
+
       if attributes.key?(:'allowed_urls')
         self.allowed_urls = attributes[:'allowed_urls']
       else
         self.allowed_urls = 'use-existing'
+      end
+
+      if attributes.key?(:'default_session_ttl_minutes')
+        self.default_session_ttl_minutes = attributes[:'default_session_ttl_minutes']
+      else
+        self.default_session_ttl_minutes = 'use-existing'
       end
 
       if attributes.key?(:'hide_session_recording')
@@ -177,7 +199,9 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allowed_ssh_url == o.allowed_ssh_url &&
           allowed_urls == o.allowed_urls &&
+          default_session_ttl_minutes == o.default_session_ttl_minutes &&
           hide_session_recording == o.hide_session_recording &&
           json == o.json &&
           kexalgs == o.kexalgs &&
@@ -198,7 +222,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_urls, hide_session_recording, json, kexalgs, keyboard_layout, legacy_ssh_algorithm, rdp_target_configuration, ssh_target_configuration, token, uid_token].hash
+      [allowed_ssh_url, allowed_urls, default_session_ttl_minutes, hide_session_recording, json, kexalgs, keyboard_layout, legacy_ssh_algorithm, rdp_target_configuration, ssh_target_configuration, token, uid_token].hash
     end
 
     # Builds the object from hash

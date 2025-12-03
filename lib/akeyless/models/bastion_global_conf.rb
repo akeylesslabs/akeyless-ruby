@@ -17,6 +17,10 @@ module Akeyless
   class BastionGlobalConf
     attr_accessor :allowed_bastion_urls
 
+    attr_accessor :allowed_ssh_url
+
+    attr_accessor :default_session_ttl_minutes
+
     attr_accessor :legacy_signing_alg
 
     attr_accessor :rdp_username_sub_claim
@@ -27,6 +31,8 @@ module Akeyless
     def self.attribute_map
       {
         :'allowed_bastion_urls' => :'allowed_bastion_urls',
+        :'allowed_ssh_url' => :'allowed_ssh_url',
+        :'default_session_ttl_minutes' => :'default_session_ttl_minutes',
         :'legacy_signing_alg' => :'legacy_signing_alg',
         :'rdp_username_sub_claim' => :'rdp_username_sub_claim',
         :'ssh_username_sub_claim' => :'ssh_username_sub_claim'
@@ -42,6 +48,8 @@ module Akeyless
     def self.openapi_types
       {
         :'allowed_bastion_urls' => :'Array<String>',
+        :'allowed_ssh_url' => :'String',
+        :'default_session_ttl_minutes' => :'Integer',
         :'legacy_signing_alg' => :'Boolean',
         :'rdp_username_sub_claim' => :'String',
         :'ssh_username_sub_claim' => :'String'
@@ -73,6 +81,14 @@ module Akeyless
         if (value = attributes[:'allowed_bastion_urls']).is_a?(Array)
           self.allowed_bastion_urls = value
         end
+      end
+
+      if attributes.key?(:'allowed_ssh_url')
+        self.allowed_ssh_url = attributes[:'allowed_ssh_url']
+      end
+
+      if attributes.key?(:'default_session_ttl_minutes')
+        self.default_session_ttl_minutes = attributes[:'default_session_ttl_minutes']
       end
 
       if attributes.key?(:'legacy_signing_alg')
@@ -109,6 +125,8 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           allowed_bastion_urls == o.allowed_bastion_urls &&
+          allowed_ssh_url == o.allowed_ssh_url &&
+          default_session_ttl_minutes == o.default_session_ttl_minutes &&
           legacy_signing_alg == o.legacy_signing_alg &&
           rdp_username_sub_claim == o.rdp_username_sub_claim &&
           ssh_username_sub_claim == o.ssh_username_sub_claim
@@ -123,7 +141,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_bastion_urls, legacy_signing_alg, rdp_username_sub_claim, ssh_username_sub_claim].hash
+      [allowed_bastion_urls, allowed_ssh_url, default_session_ttl_minutes, legacy_signing_alg, rdp_username_sub_claim, ssh_username_sub_claim].hash
     end
 
     # Builds the object from hash
