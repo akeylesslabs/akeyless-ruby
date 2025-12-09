@@ -19,6 +19,7 @@ module Akeyless
     # Access expiration date in Unix timestamp (select 0 for access without expiry date)
     attr_accessor :access_expires
 
+    # limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension]
     attr_accessor :allowed_client_type
 
     # Comma separated list of allowed CORS domains to be validated as part of the authentication flow.

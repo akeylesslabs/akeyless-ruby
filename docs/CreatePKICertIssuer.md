@@ -17,9 +17,9 @@
 | **code_signing_flag** | **Boolean** | If set, certificates will be flagged for code signing use | [optional] |
 | **country** | **String** | A comma-separated list of countries that will be set in the issued certificate | [optional] |
 | **create_private_crl** | **Boolean** | Set this to allow the issuer will expose a CRL endpoint in the Gateway | [optional] |
-| **create_private_ocsp** | **Boolean** |  | [optional] |
+| **create_private_ocsp** | **Boolean** | Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA | [optional] |
 | **create_public_crl** | **Boolean** | Set this to allow the cert issuer will expose a public CRL endpoint | [optional] |
-| **create_public_ocsp** | **Boolean** |  | [optional] |
+| **create_public_ocsp** | **Boolean** | Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id) | [optional] |
 | **critical_key_usage** | **String** | Mark key usage as critical [true/false] | [optional][default to &#39;true&#39;] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
@@ -38,7 +38,7 @@
 | **name** | **String** | PKI certificate issuer name |  |
 | **not_enforce_hostnames** | **Boolean** | If set, any names are allowed for CN and SANs in the certificate and not only a valid host name | [optional] |
 | **not_require_cn** | **Boolean** | If set, clients can request certificates without a CN | [optional] |
-| **ocsp_ttl** | **String** |  | [optional] |
+| **ocsp_ttl** | **String** | OCSP NextUpdate window for OCSP responses (min 10m). Supports s,m,h,d suffix. | [optional] |
 | **organizational_units** | **String** | A comma-separated list of organizational units (OU) that will be set in the issued certificate | [optional] |
 | **organizations** | **String** | A comma-separated list of organizations (O) that will be set in the issued certificate | [optional] |
 | **postal_code** | **String** | A comma-separated list of postal codes that will be set in the issued certificate | [optional] |

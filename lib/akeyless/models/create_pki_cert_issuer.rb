@@ -54,11 +54,13 @@ module Akeyless
     # Set this to allow the issuer will expose a CRL endpoint in the Gateway
     attr_accessor :create_private_crl
 
+    # Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA
     attr_accessor :create_private_ocsp
 
     # Set this to allow the cert issuer will expose a public CRL endpoint
     attr_accessor :create_public_crl
 
+    # Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id)
     attr_accessor :create_public_ocsp
 
     # Mark key usage as critical [true/false]
@@ -115,6 +117,7 @@ module Akeyless
     # If set, clients can request certificates without a CN
     attr_accessor :not_require_cn
 
+    # OCSP NextUpdate window for OCSP responses (min 10m). Supports s,m,h,d suffix.
     attr_accessor :ocsp_ttl
 
     # A comma-separated list of organizational units (OU) that will be set in the issued certificate

@@ -18,6 +18,7 @@ module Akeyless
     # Address
     attr_accessor :address
 
+    # A default list of client types that are allowed to authenticate [cli,ui,gateway-admin,sdk,mobile,extension].
     attr_accessor :allowed_client_type
 
     # Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
@@ -101,6 +102,7 @@ module Akeyless
     # Minimum ttl
     attr_accessor :jwt_ttl_min
 
+    # Lock allowed-client-type setting in the account [true/false].
     attr_accessor :lock_allowed_client_type
 
     # Lock bound-ips setting globally in the account.
