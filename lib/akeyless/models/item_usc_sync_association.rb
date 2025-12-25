@@ -20,6 +20,8 @@ module Akeyless
 
     attr_accessor :attributes
 
+    attr_accessor :delete_remote
+
     attr_accessor :item_id
 
     attr_accessor :item_name
@@ -31,6 +33,7 @@ module Akeyless
       {
         :'assoc_id' => :'assoc_id',
         :'attributes' => :'attributes',
+        :'delete_remote' => :'delete_remote',
         :'item_id' => :'item_id',
         :'item_name' => :'item_name',
         :'item_type' => :'item_type'
@@ -47,6 +50,7 @@ module Akeyless
       {
         :'assoc_id' => :'String',
         :'attributes' => :'UscSyncInfo',
+        :'delete_remote' => :'Boolean',
         :'item_id' => :'Integer',
         :'item_name' => :'String',
         :'item_type' => :'String'
@@ -80,6 +84,10 @@ module Akeyless
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.key?(:'delete_remote')
+        self.delete_remote = attributes[:'delete_remote']
       end
 
       if attributes.key?(:'item_id')
@@ -117,6 +125,7 @@ module Akeyless
       self.class == o.class &&
           assoc_id == o.assoc_id &&
           attributes == o.attributes &&
+          delete_remote == o.delete_remote &&
           item_id == o.item_id &&
           item_name == o.item_name &&
           item_type == o.item_type
@@ -131,7 +140,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assoc_id, attributes, item_id, item_name, item_type].hash
+      [assoc_id, attributes, delete_remote, item_id, item_name, item_type].hash
     end
 
     # Builds the object from hash

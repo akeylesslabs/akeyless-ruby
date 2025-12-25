@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class UscSyncInfo
+    attr_accessor :delete_remote
+
     attr_accessor :jq_secret_filter
 
     attr_accessor :last_error
@@ -28,6 +30,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_remote' => :'delete_remote',
         :'jq_secret_filter' => :'jq_secret_filter',
         :'last_error' => :'last_error',
         :'namespace' => :'namespace',
@@ -44,6 +47,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_remote' => :'Boolean',
         :'jq_secret_filter' => :'String',
         :'last_error' => :'String',
         :'namespace' => :'String',
@@ -72,6 +76,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_remote')
+        self.delete_remote = attributes[:'delete_remote']
+      end
 
       if attributes.key?(:'jq_secret_filter')
         self.jq_secret_filter = attributes[:'jq_secret_filter']
@@ -114,6 +122,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_remote == o.delete_remote &&
           jq_secret_filter == o.jq_secret_filter &&
           last_error == o.last_error &&
           namespace == o.namespace &&
@@ -130,7 +139,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [jq_secret_filter, last_error, namespace, secret_id, secret_name].hash
+      [delete_remote, jq_secret_filter, last_error, namespace, secret_id, secret_name].hash
     end
 
     # Builds the object from hash

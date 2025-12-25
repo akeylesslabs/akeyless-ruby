@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_remote** | **Boolean** | Delete the secret from remote secret manager (for association create/update) | [optional] |
 | **filter_secret_value** | **String** | JQ expression to filter or transform the secret value | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Rotated secret name |  |
@@ -19,6 +20,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretSync.new(
+  delete_remote: null,
   filter_secret_value: null,
   json: null,
   name: null,

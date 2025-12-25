@@ -24,6 +24,9 @@ module Akeyless
     # Retrieve all items using pagination, when disabled retrieving only first 1000 items
     attr_accessor :auto_pagination
 
+    # List only items in the current folder (excludes subfolders)
+    attr_accessor :current_folder
+
     # Filter by item name or part of it
     attr_accessor :filter
 
@@ -65,6 +68,7 @@ module Akeyless
         :'accessibility' => :'accessibility',
         :'advanced_filter' => :'advanced-filter',
         :'auto_pagination' => :'auto-pagination',
+        :'current_folder' => :'current-folder',
         :'filter' => :'filter',
         :'json' => :'json',
         :'minimal_view' => :'minimal-view',
@@ -91,6 +95,7 @@ module Akeyless
         :'accessibility' => :'String',
         :'advanced_filter' => :'String',
         :'auto_pagination' => :'String',
+        :'current_folder' => :'Boolean',
         :'filter' => :'String',
         :'json' => :'Boolean',
         :'minimal_view' => :'Boolean',
@@ -141,6 +146,12 @@ module Akeyless
         self.auto_pagination = attributes[:'auto_pagination']
       else
         self.auto_pagination = 'enabled'
+      end
+
+      if attributes.key?(:'current_folder')
+        self.current_folder = attributes[:'current_folder']
+      else
+        self.current_folder = false
       end
 
       if attributes.key?(:'filter')
@@ -223,6 +234,7 @@ module Akeyless
           accessibility == o.accessibility &&
           advanced_filter == o.advanced_filter &&
           auto_pagination == o.auto_pagination &&
+          current_folder == o.current_folder &&
           filter == o.filter &&
           json == o.json &&
           minimal_view == o.minimal_view &&
@@ -246,7 +258,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, advanced_filter, auto_pagination, filter, json, minimal_view, modified_after, pagination_token, path, sra_only, sub_types, tag, token, type, uid_token].hash
+      [accessibility, advanced_filter, auto_pagination, current_folder, filter, json, minimal_view, modified_after, pagination_token, path, sra_only, sub_types, tag, token, type, uid_token].hash
     end
 
     # Builds the object from hash

@@ -411,6 +411,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_create_mongodb**](V2Api.md#rotated_secret_create_mongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotated_secret_create_mssql**](V2Api.md#rotated_secret_create_mssql) | **POST** /rotated-secret-create-mssql |  |
 | [**rotated_secret_create_mysql**](V2Api.md#rotated_secret_create_mysql) | **POST** /rotated-secret-create-mysql |  |
+| [**rotated_secret_create_open_ai**](V2Api.md#rotated_secret_create_open_ai) | **POST** /rotated-secret-create-openai |  |
 | [**rotated_secret_create_oracledb**](V2Api.md#rotated_secret_create_oracledb) | **POST** /rotated-secret-create-oracledb |  |
 | [**rotated_secret_create_postgresql**](V2Api.md#rotated_secret_create_postgresql) | **POST** /rotated-secret-create-postgresql |  |
 | [**rotated_secret_create_redis**](V2Api.md#rotated_secret_create_redis) | **POST** /rotated-secret-create-redis |  |
@@ -434,6 +435,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_update_mongodb**](V2Api.md#rotated_secret_update_mongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotated_secret_update_mssql**](V2Api.md#rotated_secret_update_mssql) | **POST** /rotated-secret-update-mssql |  |
 | [**rotated_secret_update_mysql**](V2Api.md#rotated_secret_update_mysql) | **POST** /rotated-secret-update-mysql |  |
+| [**rotated_secret_update_open_ai**](V2Api.md#rotated_secret_update_open_ai) | **POST** /rotated-secret-update-openai |  |
 | [**rotated_secret_update_oracledb**](V2Api.md#rotated_secret_update_oracledb) | **POST** /rotated-secret-update-oracledb |  |
 | [**rotated_secret_update_postgresql**](V2Api.md#rotated_secret_update_postgresql) | **POST** /rotated-secret-update-postgresql |  |
 | [**rotated_secret_update_redis**](V2Api.md#rotated_secret_update_redis) | **POST** /rotated-secret-update-redis |  |
@@ -25855,6 +25857,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_open_ai
+
+> <RotatedSecretCreateOutput> rotated_secret_create_open_ai(rotated_secret_create_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_open_ai = Akeyless::RotatedSecretCreateOpenAI.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateOpenAI | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_open_ai(rotated_secret_create_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_open_ai: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_open_ai_with_http_info(rotated_secret_create_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_open_ai_with_http_info(rotated_secret_create_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_open_ai** | [**RotatedSecretCreateOpenAI**](RotatedSecretCreateOpenAI.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_oracledb
 
 > <RotatedSecretCreateOutput> rotated_secret_create_oracledb(rotated_secret_create_oracledb)
@@ -27266,6 +27330,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rotated_secret_update_mysql** | [**RotatedSecretUpdateMysql**](RotatedSecretUpdateMysql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_open_ai
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_open_ai(rotated_secret_update_open_ai)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_open_ai = Akeyless::RotatedSecretUpdateOpenAI.new({name: 'name_example'}) # RotatedSecretUpdateOpenAI | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_open_ai(rotated_secret_update_open_ai)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_open_ai: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_open_ai_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_open_ai_with_http_info(rotated_secret_update_open_ai)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_open_ai_with_http_info(rotated_secret_update_open_ai)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_open_ai_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_open_ai** | [**RotatedSecretUpdateOpenAI**](RotatedSecretUpdateOpenAI.md) |  |  |
 
 ### Return type
 

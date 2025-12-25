@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_remote** | **Boolean** |  | [optional] |
 | **jq_secret_filter** | **String** |  | [optional] |
 | **last_error** | **String** |  | [optional] |
 | **namespace** | **String** |  | [optional] |
@@ -16,6 +17,7 @@
 require 'akeyless'
 
 instance = Akeyless::UscSyncInfo.new(
+  delete_remote: null,
   jq_secret_filter: null,
   last_error: null,
   namespace: null,

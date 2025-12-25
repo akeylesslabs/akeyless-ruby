@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_from_usc** | **Boolean** | Delete the secret from the remote target USC as well | [optional][default to false] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Rotated secret name |  |
 | **remote_secret_name** | **String** | Remote Secret Name to disambiguate when multiple syncs exist under the same USC | [optional] |
@@ -17,6 +18,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretDeleteSync.new(
+  delete_from_usc: null,
   json: null,
   name: null,
   remote_secret_name: null,

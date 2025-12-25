@@ -84,7 +84,7 @@ module Akeyless
     # Custom rotation command
     attr_accessor :rotator_custom_cmd
 
-    # The rotator type. options: [target/password]
+    # The rotator type. options: [target/password/key]
     attr_accessor :rotator_type
 
     # Rotate same password for each host from the Linked Target (relevant only for Linked Target)

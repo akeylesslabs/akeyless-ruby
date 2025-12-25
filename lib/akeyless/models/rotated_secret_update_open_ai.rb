@@ -14,7 +14,17 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class RotatedSecretCreateSsh
+  # rotatedSecretUpdateOpenAI is a command that updates an OpenAI rotated secret.
+  class RotatedSecretUpdateOpenAI
+    # List of the new tags that will be attached to this item
+    attr_accessor :add_tag
+
+    # Admin API key value to update (relevant only for rotator-type=api-key)
+    attr_accessor :api_key
+
+    # Admin API key ID to update (relevant only for rotator-type=api-key)
+    attr_accessor :api_key_id
+
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
@@ -33,11 +43,11 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # Whether to keep previous version [true/false]. If not set, use default according to account settings
+    attr_accessor :keep_prev_version
+
     # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
-
-    # Private key file contents encoded using base64
-    attr_accessor :key_data_base64
 
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
@@ -45,20 +55,14 @@ module Akeyless
     # Rotated secret name
     attr_accessor :name
 
+    # New item name
+    attr_accessor :new_name
+
     # The length of the password to be generated
     attr_accessor :password_length
 
-    # The path to the public key that will be rotated on the server
-    attr_accessor :public_key_remote_path
-
-    # Rotate the value of the secret after SRA session ends [true/false]
-    attr_accessor :rotate_after_disconnect
-
-    # rotated-username password (relevant only for rotator-type=password)
-    attr_accessor :rotated_password
-
-    # username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it's own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)
-    attr_accessor :rotated_username
+    # List of the existent tags that will be removed from this item
+    attr_accessor :rm_tag
 
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
@@ -69,48 +73,6 @@ module Akeyless
     # The number of days to wait between every automatic key rotation (1-365)
     attr_accessor :rotation_interval
 
-    # Custom rotation command
-    attr_accessor :rotator_custom_cmd
-
-    # The rotator type. options: [target/password/key]
-    attr_accessor :rotator_type
-
-    # Rotate same password for each host from the Linked Target (relevant only for Linked Target)
-    attr_accessor :same_password
-
-    # Allow providing external user for a domain users
-    attr_accessor :secure_access_allow_external_user
-
-    # Deprecated. use secure-access-certificate-issuer
-    attr_accessor :secure_access_bastion_issuer
-
-    # Path to the SSH Certificate Issuer for your Akeyless Secure Access
-    attr_accessor :secure_access_certificate_issuer
-
-    # Enable/Disable secure remote access [true/false]
-    attr_accessor :secure_access_enable
-
-    # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
-    attr_accessor :secure_access_host
-
-    # Default domain name server. i.e. microsoft.com
-    attr_accessor :secure_access_rdp_domain
-
-    # Override the RDP Domain username
-    attr_accessor :secure_access_rdp_user
-
-    # Override the SSH username as indicated in SSH Certificate Issuer
-    attr_accessor :secure_access_ssh_user
-
-    # Specify target type. Options are ssh or rdp
-    attr_accessor :secure_access_target_type
-
-    # Add tags attached to this object
-    attr_accessor :tags
-
-    # Target name
-    attr_accessor :target_name
-
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -120,38 +82,25 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'add_tag' => :'add-tag',
+        :'api_key' => :'api-key',
+        :'api_key_id' => :'api-key-id',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
+        :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
-        :'key_data_base64' => :'key-data-base64',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
+        :'new_name' => :'new-name',
         :'password_length' => :'password-length',
-        :'public_key_remote_path' => :'public-key-remote-path',
-        :'rotate_after_disconnect' => :'rotate-after-disconnect',
-        :'rotated_password' => :'rotated-password',
-        :'rotated_username' => :'rotated-username',
+        :'rm_tag' => :'rm-tag',
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
-        :'rotator_custom_cmd' => :'rotator-custom-cmd',
-        :'rotator_type' => :'rotator-type',
-        :'same_password' => :'same-password',
-        :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
-        :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
-        :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
-        :'secure_access_enable' => :'secure-access-enable',
-        :'secure_access_host' => :'secure-access-host',
-        :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
-        :'secure_access_rdp_user' => :'secure-access-rdp-user',
-        :'secure_access_ssh_user' => :'secure-access-ssh-user',
-        :'secure_access_target_type' => :'secure-access-target-type',
-        :'tags' => :'tags',
-        :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -165,38 +114,25 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'add_tag' => :'Array<String>',
+        :'api_key' => :'String',
+        :'api_key_id' => :'String',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
+        :'keep_prev_version' => :'String',
         :'key' => :'String',
-        :'key_data_base64' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
+        :'new_name' => :'String',
         :'password_length' => :'String',
-        :'public_key_remote_path' => :'String',
-        :'rotate_after_disconnect' => :'String',
-        :'rotated_password' => :'String',
-        :'rotated_username' => :'String',
+        :'rm_tag' => :'Array<String>',
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
-        :'rotator_custom_cmd' => :'String',
-        :'rotator_type' => :'String',
-        :'same_password' => :'String',
-        :'secure_access_allow_external_user' => :'Boolean',
-        :'secure_access_bastion_issuer' => :'String',
-        :'secure_access_certificate_issuer' => :'String',
-        :'secure_access_enable' => :'String',
-        :'secure_access_host' => :'Array<String>',
-        :'secure_access_rdp_domain' => :'String',
-        :'secure_access_rdp_user' => :'String',
-        :'secure_access_ssh_user' => :'String',
-        :'secure_access_target_type' => :'String',
-        :'tags' => :'Array<String>',
-        :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -212,16 +148,30 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::RotatedSecretCreateSsh` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::RotatedSecretUpdateOpenAI` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::RotatedSecretCreateSsh`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::RotatedSecretUpdateOpenAI`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'add_tag')
+        if (value = attributes[:'add_tag']).is_a?(Array)
+          self.add_tag = value
+        end
+      end
+
+      if attributes.key?(:'api_key')
+        self.api_key = attributes[:'api_key']
+      end
+
+      if attributes.key?(:'api_key_id')
+        self.api_key_id = attributes[:'api_key_id']
+      end
 
       if attributes.key?(:'authentication_credentials')
         self.authentication_credentials = attributes[:'authentication_credentials']
@@ -239,6 +189,8 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      else
+        self.description = 'default_metadata'
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -253,12 +205,12 @@ module Akeyless
         self.json = false
       end
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'keep_prev_version')
+        self.keep_prev_version = attributes[:'keep_prev_version']
       end
 
-      if attributes.key?(:'key_data_base64')
-        self.key_data_base64 = attributes[:'key_data_base64']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
       if attributes.key?(:'max_versions')
@@ -271,26 +223,18 @@ module Akeyless
         self.name = nil
       end
 
+      if attributes.key?(:'new_name')
+        self.new_name = attributes[:'new_name']
+      end
+
       if attributes.key?(:'password_length')
         self.password_length = attributes[:'password_length']
       end
 
-      if attributes.key?(:'public_key_remote_path')
-        self.public_key_remote_path = attributes[:'public_key_remote_path']
-      end
-
-      if attributes.key?(:'rotate_after_disconnect')
-        self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
-      else
-        self.rotate_after_disconnect = 'false'
-      end
-
-      if attributes.key?(:'rotated_password')
-        self.rotated_password = attributes[:'rotated_password']
-      end
-
-      if attributes.key?(:'rotated_username')
-        self.rotated_username = attributes[:'rotated_username']
+      if attributes.key?(:'rm_tag')
+        if (value = attributes[:'rm_tag']).is_a?(Array)
+          self.rm_tag = value
+        end
       end
 
       if attributes.key?(:'rotation_event_in')
@@ -305,74 +249,6 @@ module Akeyless
 
       if attributes.key?(:'rotation_interval')
         self.rotation_interval = attributes[:'rotation_interval']
-      end
-
-      if attributes.key?(:'rotator_custom_cmd')
-        self.rotator_custom_cmd = attributes[:'rotator_custom_cmd']
-      end
-
-      if attributes.key?(:'rotator_type')
-        self.rotator_type = attributes[:'rotator_type']
-      else
-        self.rotator_type = nil
-      end
-
-      if attributes.key?(:'same_password')
-        self.same_password = attributes[:'same_password']
-      end
-
-      if attributes.key?(:'secure_access_allow_external_user')
-        self.secure_access_allow_external_user = attributes[:'secure_access_allow_external_user']
-      else
-        self.secure_access_allow_external_user = false
-      end
-
-      if attributes.key?(:'secure_access_bastion_issuer')
-        self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
-      end
-
-      if attributes.key?(:'secure_access_certificate_issuer')
-        self.secure_access_certificate_issuer = attributes[:'secure_access_certificate_issuer']
-      end
-
-      if attributes.key?(:'secure_access_enable')
-        self.secure_access_enable = attributes[:'secure_access_enable']
-      end
-
-      if attributes.key?(:'secure_access_host')
-        if (value = attributes[:'secure_access_host']).is_a?(Array)
-          self.secure_access_host = value
-        end
-      end
-
-      if attributes.key?(:'secure_access_rdp_domain')
-        self.secure_access_rdp_domain = attributes[:'secure_access_rdp_domain']
-      end
-
-      if attributes.key?(:'secure_access_rdp_user')
-        self.secure_access_rdp_user = attributes[:'secure_access_rdp_user']
-      end
-
-      if attributes.key?(:'secure_access_ssh_user')
-        self.secure_access_ssh_user = attributes[:'secure_access_ssh_user']
-      end
-
-      if attributes.key?(:'secure_access_target_type')
-        self.secure_access_target_type = attributes[:'secure_access_target_type']
-      else
-        self.secure_access_target_type = 'false'
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'target_name')
-        self.target_name = attributes[:'target_name']
-      else
-        self.target_name = nil
       end
 
       if attributes.key?(:'token')
@@ -393,14 +269,6 @@ module Akeyless
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @rotator_type.nil?
-        invalid_properties.push('invalid value for "rotator_type", rotator_type cannot be nil.')
-      end
-
-      if @target_name.nil?
-        invalid_properties.push('invalid value for "target_name", target_name cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -409,8 +277,6 @@ module Akeyless
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @name.nil?
-      return false if @rotator_type.nil?
-      return false if @target_name.nil?
       true
     end
 
@@ -419,38 +285,25 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          add_tag == o.add_tag &&
+          api_key == o.api_key &&
+          api_key_id == o.api_key_id &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
+          keep_prev_version == o.keep_prev_version &&
           key == o.key &&
-          key_data_base64 == o.key_data_base64 &&
           max_versions == o.max_versions &&
           name == o.name &&
+          new_name == o.new_name &&
           password_length == o.password_length &&
-          public_key_remote_path == o.public_key_remote_path &&
-          rotate_after_disconnect == o.rotate_after_disconnect &&
-          rotated_password == o.rotated_password &&
-          rotated_username == o.rotated_username &&
+          rm_tag == o.rm_tag &&
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
-          rotator_custom_cmd == o.rotator_custom_cmd &&
-          rotator_type == o.rotator_type &&
-          same_password == o.same_password &&
-          secure_access_allow_external_user == o.secure_access_allow_external_user &&
-          secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
-          secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
-          secure_access_enable == o.secure_access_enable &&
-          secure_access_host == o.secure_access_host &&
-          secure_access_rdp_domain == o.secure_access_rdp_domain &&
-          secure_access_rdp_user == o.secure_access_rdp_user &&
-          secure_access_ssh_user == o.secure_access_ssh_user &&
-          secure_access_target_type == o.secure_access_target_type &&
-          tags == o.tags &&
-          target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -464,7 +317,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, key, key_data_base64, max_versions, name, password_length, public_key_remote_path, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, tags, target_name, token, uid_token].hash
+      [add_tag, api_key, api_key_id, authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, token, uid_token].hash
     end
 
     # Builds the object from hash

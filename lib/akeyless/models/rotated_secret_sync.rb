@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class RotatedSecretSync
+    # Delete the secret from remote secret manager (for association create/update)
+    attr_accessor :delete_remote
+
     # JQ expression to filter or transform the secret value
     attr_accessor :filter_secret_value
 
@@ -42,6 +45,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_remote' => :'DeleteRemote',
         :'filter_secret_value' => :'filter-secret-value',
         :'json' => :'json',
         :'name' => :'name',
@@ -61,6 +65,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_remote' => :'Boolean',
         :'filter_secret_value' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
@@ -92,6 +97,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_remote')
+        self.delete_remote = attributes[:'delete_remote']
+      end
 
       if attributes.key?(:'filter_secret_value')
         self.filter_secret_value = attributes[:'filter_secret_value']
@@ -155,6 +164,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_remote == o.delete_remote &&
           filter_secret_value == o.filter_secret_value &&
           json == o.json &&
           name == o.name &&
@@ -174,7 +184,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter_secret_value, json, name, namespace, remote_secret_name, token, uid_token, usc_name].hash
+      [delete_remote, filter_secret_value, json, name, namespace, remote_secret_name, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

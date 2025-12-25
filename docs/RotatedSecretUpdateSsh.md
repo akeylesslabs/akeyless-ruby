@@ -27,7 +27,7 @@
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **rotator_custom_cmd** | **String** | Custom rotation command | [optional] |
-| **rotator_type** | **String** | The rotator type. options: [target/password] |  |
+| **rotator_type** | **String** | The rotator type. options: [target/password/key] |  |
 | **same_password** | **String** | Rotate same password for each host from the Linked Target (relevant only for Linked Target) | [optional] |
 | **secure_access_allow_external_user** | **Boolean** | Allow providing external user for a domain users | [optional][default to false] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |

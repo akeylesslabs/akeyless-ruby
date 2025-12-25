@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class RotatedSecretDeleteSync
+    # Delete the secret from the remote target USC as well
+    attr_accessor :delete_from_usc
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -36,6 +39,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_from_usc' => :'delete-from-usc',
         :'json' => :'json',
         :'name' => :'name',
         :'remote_secret_name' => :'remote-secret-name',
@@ -53,6 +57,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_from_usc' => :'Boolean',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'remote_secret_name' => :'String',
@@ -82,6 +87,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_from_usc')
+        self.delete_from_usc = attributes[:'delete_from_usc']
+      else
+        self.delete_from_usc = false
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -144,6 +155,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_from_usc == o.delete_from_usc &&
           json == o.json &&
           name == o.name &&
           remote_secret_name == o.remote_secret_name &&
@@ -161,7 +173,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, remote_secret_name, token, uid_token, usc_name].hash
+      [delete_from_usc, json, name, remote_secret_name, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash
