@@ -108,6 +108,9 @@ module Akeyless
     # Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)
     attr_accessor :azure_tenant_id
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
     attr_accessor :gcp_key
 
@@ -122,6 +125,9 @@ module Akeyless
 
     # HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration)
     attr_accessor :hashi_url
+
+    # A comma separated list of IPs, CIDR ranges, or DNS names to scan
+    attr_accessor :hosts
 
     # Migration ID (Can be retrieved with gateway-list-migration command)
     attr_accessor :id
@@ -161,6 +167,9 @@ module Akeyless
 
     # New migration name
     attr_accessor :new_name
+
+    # A comma separated list of port ranges Examples: \"80,443\" or \"80,443,8080-8090\" or \"443\"
+    attr_accessor :port_ranges
 
     # The name of the key that protects the classic key value (if empty, the account default key will be used)
     attr_accessor :protection_key
@@ -232,11 +241,13 @@ module Akeyless
         :'azure_kv_name' => :'azure-kv-name',
         :'azure_secret' => :'azure-secret',
         :'azure_tenant_id' => :'azure-tenant-id',
+        :'expiration_event_in' => :'expiration-event-in',
         :'gcp_key' => :'gcp-key',
         :'hashi_json' => :'hashi-json',
         :'hashi_ns' => :'hashi-ns',
         :'hashi_token' => :'hashi-token',
         :'hashi_url' => :'hashi-url',
+        :'hosts' => :'hosts',
         :'id' => :'id',
         :'json' => :'json',
         :'k8s_ca_certificate' => :'k8s-ca-certificate',
@@ -250,6 +261,7 @@ module Akeyless
         :'k8s_username' => :'k8s-username',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'port_ranges' => :'port-ranges',
         :'protection_key' => :'protection-key',
         :'si_auto_rotate' => :'si-auto-rotate',
         :'si_rotation_hour' => :'si-rotation-hour',
@@ -304,11 +316,13 @@ module Akeyless
         :'azure_kv_name' => :'String',
         :'azure_secret' => :'String',
         :'azure_tenant_id' => :'String',
+        :'expiration_event_in' => :'Array<String>',
         :'gcp_key' => :'String',
         :'hashi_json' => :'String',
         :'hashi_ns' => :'Array<String>',
         :'hashi_token' => :'String',
         :'hashi_url' => :'String',
+        :'hosts' => :'String',
         :'id' => :'String',
         :'json' => :'Boolean',
         :'k8s_ca_certificate' => :'Array<Integer>',
@@ -322,6 +336,7 @@ module Akeyless
         :'k8s_username' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'port_ranges' => :'String',
         :'protection_key' => :'String',
         :'si_auto_rotate' => :'String',
         :'si_rotation_hour' => :'Integer',
@@ -500,6 +515,12 @@ module Akeyless
         self.azure_tenant_id = attributes[:'azure_tenant_id']
       end
 
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
+      end
+
       if attributes.key?(:'gcp_key')
         self.gcp_key = attributes[:'gcp_key']
       end
@@ -522,6 +543,12 @@ module Akeyless
 
       if attributes.key?(:'hashi_url')
         self.hashi_url = attributes[:'hashi_url']
+      end
+
+      if attributes.key?(:'hosts')
+        self.hosts = attributes[:'hosts']
+      else
+        self.hosts = nil
       end
 
       if attributes.key?(:'id')
@@ -582,6 +609,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'port_ranges')
+        self.port_ranges = attributes[:'port_ranges']
+      else
+        self.port_ranges = '443'
       end
 
       if attributes.key?(:'protection_key')
@@ -646,6 +679,10 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @hosts.nil?
+        invalid_properties.push('invalid value for "hosts", hosts cannot be nil.')
+      end
+
       if @si_target_name.nil?
         invalid_properties.push('invalid value for "si_target_name", si_target_name cannot be nil.')
       end
@@ -665,6 +702,7 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @hosts.nil?
       return false if @si_target_name.nil?
       return false if @si_users_path_template.nil?
       return false if @target_location.nil?
@@ -707,11 +745,13 @@ module Akeyless
           azure_kv_name == o.azure_kv_name &&
           azure_secret == o.azure_secret &&
           azure_tenant_id == o.azure_tenant_id &&
+          expiration_event_in == o.expiration_event_in &&
           gcp_key == o.gcp_key &&
           hashi_json == o.hashi_json &&
           hashi_ns == o.hashi_ns &&
           hashi_token == o.hashi_token &&
           hashi_url == o.hashi_url &&
+          hosts == o.hosts &&
           id == o.id &&
           json == o.json &&
           k8s_ca_certificate == o.k8s_ca_certificate &&
@@ -725,6 +765,7 @@ module Akeyless
           k8s_username == o.k8s_username &&
           name == o.name &&
           new_name == o.new_name &&
+          port_ranges == o.port_ranges &&
           protection_key == o.protection_key &&
           si_auto_rotate == o.si_auto_rotate &&
           si_rotation_hour == o.si_rotation_hour &&
@@ -748,7 +789,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, expiration_event_in, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, hosts, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
     end
 
     # Builds the object from hash

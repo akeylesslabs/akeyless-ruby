@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscDelete is a command that deletes a secret from a Universal Secrets Connector
   class UscDelete
+    # Force delete objects that are soft deleted by default (relavent only for Azure target)
+    attr_accessor :force_delete
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -37,6 +40,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'force_delete' => :'force-delete',
         :'json' => :'json',
         :'namespace' => :'namespace',
         :'secret_id' => :'secret-id',
@@ -54,6 +58,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'force_delete' => :'Boolean',
         :'json' => :'Boolean',
         :'namespace' => :'String',
         :'secret_id' => :'String',
@@ -83,6 +88,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'force_delete')
+        self.force_delete = attributes[:'force_delete']
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -145,6 +154,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          force_delete == o.force_delete &&
           json == o.json &&
           namespace == o.namespace &&
           secret_id == o.secret_id &&
@@ -162,7 +172,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, namespace, secret_id, token, uid_token, usc_name].hash
+      [force_delete, json, namespace, secret_id, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

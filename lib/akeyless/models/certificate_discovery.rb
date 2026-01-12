@@ -14,40 +14,47 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class MigrationsConfigPart
-    attr_accessor :active_directory_migrations
+  # CertificateDiscovery is a command that discovery certificates
+  class CertificateDiscovery
+    # Debug mode
+    attr_accessor :debug
 
-    attr_accessor :aws_secrets_migrations
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
 
-    attr_accessor :azure_kv_migrations
+    # A comma separated list of IPs, CIDR ranges, or DNS names to discovery
+    attr_accessor :hosts
 
-    attr_accessor :certificate_migrations
+    # Set output format to JSON
+    attr_accessor :json
 
-    attr_accessor :gcp_secrets_migrations
+    # A comma separated list of port ranges Examples: \"80,443\" or \"80,443,8080-8090\" or \"443\"
+    attr_accessor :port_ranges
 
-    attr_accessor :hashi_migrations
+    # The name of the key that protects the certificate value
+    attr_accessor :protection_key
 
-    attr_accessor :k8s_migrations
+    # The folder where the results will be saved
+    attr_accessor :target_location
 
-    attr_accessor :mock_migrations
+    # Authentication token (see `/auth` and `/configure`)
+    attr_accessor :token
 
-    attr_accessor :one_password_migrations
-
-    attr_accessor :server_inventory_migrations
+    # The universal identity token, Required only for universal_identity authentication
+    attr_accessor :uid_token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'active_directory_migrations' => :'active_directory_migrations',
-        :'aws_secrets_migrations' => :'aws_secrets_migrations',
-        :'azure_kv_migrations' => :'azure_kv_migrations',
-        :'certificate_migrations' => :'certificate_migrations',
-        :'gcp_secrets_migrations' => :'gcp_secrets_migrations',
-        :'hashi_migrations' => :'hashi_migrations',
-        :'k8s_migrations' => :'k8s_migrations',
-        :'mock_migrations' => :'mock_migrations',
-        :'one_password_migrations' => :'one_password_migrations',
-        :'server_inventory_migrations' => :'server_inventory_migrations'
+        :'debug' => :'debug',
+        :'expiration_event_in' => :'expiration-event-in',
+        :'hosts' => :'hosts',
+        :'json' => :'json',
+        :'port_ranges' => :'port-ranges',
+        :'protection_key' => :'protection-key',
+        :'target_location' => :'target-location',
+        :'token' => :'token',
+        :'uid_token' => :'uid-token'
       }
     end
 
@@ -59,16 +66,15 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'active_directory_migrations' => :'Array<ActiveDirectoryMigration>',
-        :'aws_secrets_migrations' => :'Array<AWSSecretsMigration>',
-        :'azure_kv_migrations' => :'Array<AzureKeyVaultMigration>',
-        :'certificate_migrations' => :'Array<CertificateMigration>',
-        :'gcp_secrets_migrations' => :'Array<GCPSecretsMigration>',
-        :'hashi_migrations' => :'Array<HashiMigration>',
-        :'k8s_migrations' => :'Array<K8SMigration>',
-        :'mock_migrations' => :'Array<MockMigration>',
-        :'one_password_migrations' => :'Array<OnePasswordMigration>',
-        :'server_inventory_migrations' => :'Array<ServerInventoryMigration>'
+        :'debug' => :'Boolean',
+        :'expiration_event_in' => :'Array<String>',
+        :'hosts' => :'String',
+        :'json' => :'Boolean',
+        :'port_ranges' => :'String',
+        :'protection_key' => :'String',
+        :'target_location' => :'String',
+        :'token' => :'String',
+        :'uid_token' => :'String'
       }
     end
 
@@ -82,75 +88,63 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::MigrationsConfigPart` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::CertificateDiscovery` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::MigrationsConfigPart`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::CertificateDiscovery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'active_directory_migrations')
-        if (value = attributes[:'active_directory_migrations']).is_a?(Array)
-          self.active_directory_migrations = value
+      if attributes.key?(:'debug')
+        self.debug = attributes[:'debug']
+      else
+        self.debug = false
+      end
+
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
         end
       end
 
-      if attributes.key?(:'aws_secrets_migrations')
-        if (value = attributes[:'aws_secrets_migrations']).is_a?(Array)
-          self.aws_secrets_migrations = value
-        end
+      if attributes.key?(:'hosts')
+        self.hosts = attributes[:'hosts']
+      else
+        self.hosts = nil
       end
 
-      if attributes.key?(:'azure_kv_migrations')
-        if (value = attributes[:'azure_kv_migrations']).is_a?(Array)
-          self.azure_kv_migrations = value
-        end
+      if attributes.key?(:'json')
+        self.json = attributes[:'json']
+      else
+        self.json = false
       end
 
-      if attributes.key?(:'certificate_migrations')
-        if (value = attributes[:'certificate_migrations']).is_a?(Array)
-          self.certificate_migrations = value
-        end
+      if attributes.key?(:'port_ranges')
+        self.port_ranges = attributes[:'port_ranges']
+      else
+        self.port_ranges = '443'
       end
 
-      if attributes.key?(:'gcp_secrets_migrations')
-        if (value = attributes[:'gcp_secrets_migrations']).is_a?(Array)
-          self.gcp_secrets_migrations = value
-        end
+      if attributes.key?(:'protection_key')
+        self.protection_key = attributes[:'protection_key']
       end
 
-      if attributes.key?(:'hashi_migrations')
-        if (value = attributes[:'hashi_migrations']).is_a?(Array)
-          self.hashi_migrations = value
-        end
+      if attributes.key?(:'target_location')
+        self.target_location = attributes[:'target_location']
+      else
+        self.target_location = nil
       end
 
-      if attributes.key?(:'k8s_migrations')
-        if (value = attributes[:'k8s_migrations']).is_a?(Array)
-          self.k8s_migrations = value
-        end
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'mock_migrations')
-        if (value = attributes[:'mock_migrations']).is_a?(Array)
-          self.mock_migrations = value
-        end
-      end
-
-      if attributes.key?(:'one_password_migrations')
-        if (value = attributes[:'one_password_migrations']).is_a?(Array)
-          self.one_password_migrations = value
-        end
-      end
-
-      if attributes.key?(:'server_inventory_migrations')
-        if (value = attributes[:'server_inventory_migrations']).is_a?(Array)
-          self.server_inventory_migrations = value
-        end
+      if attributes.key?(:'uid_token')
+        self.uid_token = attributes[:'uid_token']
       end
     end
 
@@ -159,6 +153,14 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @hosts.nil?
+        invalid_properties.push('invalid value for "hosts", hosts cannot be nil.')
+      end
+
+      if @target_location.nil?
+        invalid_properties.push('invalid value for "target_location", target_location cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -166,6 +168,8 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @hosts.nil?
+      return false if @target_location.nil?
       true
     end
 
@@ -174,16 +178,15 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          active_directory_migrations == o.active_directory_migrations &&
-          aws_secrets_migrations == o.aws_secrets_migrations &&
-          azure_kv_migrations == o.azure_kv_migrations &&
-          certificate_migrations == o.certificate_migrations &&
-          gcp_secrets_migrations == o.gcp_secrets_migrations &&
-          hashi_migrations == o.hashi_migrations &&
-          k8s_migrations == o.k8s_migrations &&
-          mock_migrations == o.mock_migrations &&
-          one_password_migrations == o.one_password_migrations &&
-          server_inventory_migrations == o.server_inventory_migrations
+          debug == o.debug &&
+          expiration_event_in == o.expiration_event_in &&
+          hosts == o.hosts &&
+          json == o.json &&
+          port_ranges == o.port_ranges &&
+          protection_key == o.protection_key &&
+          target_location == o.target_location &&
+          token == o.token &&
+          uid_token == o.uid_token
     end
 
     # @see the `==` method
@@ -195,7 +198,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_migrations, aws_secrets_migrations, azure_kv_migrations, certificate_migrations, gcp_secrets_migrations, hashi_migrations, k8s_migrations, mock_migrations, one_password_migrations, server_inventory_migrations].hash
+      [debug, expiration_event_in, hosts, json, port_ranges, protection_key, target_location, token, uid_token].hash
     end
 
     # Builds the object from hash

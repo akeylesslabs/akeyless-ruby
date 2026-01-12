@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **force_delete** | **Boolean** | Force delete objects that are soft deleted by default (relavent only for Azure target) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **secret_id** | **String** | The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to delete |  |
@@ -17,6 +18,7 @@
 require 'akeyless'
 
 instance = Akeyless::UscDelete.new(
+  force_delete: null,
   json: null,
   namespace: null,
   secret_id: null,

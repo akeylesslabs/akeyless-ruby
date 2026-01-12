@@ -14,40 +14,16 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class MigrationsConfigPart
-    attr_accessor :active_directory_migrations
+  class CertificateScanTarget
+    attr_accessor :host
 
-    attr_accessor :aws_secrets_migrations
-
-    attr_accessor :azure_kv_migrations
-
-    attr_accessor :certificate_migrations
-
-    attr_accessor :gcp_secrets_migrations
-
-    attr_accessor :hashi_migrations
-
-    attr_accessor :k8s_migrations
-
-    attr_accessor :mock_migrations
-
-    attr_accessor :one_password_migrations
-
-    attr_accessor :server_inventory_migrations
+    attr_accessor :port_ranges
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'active_directory_migrations' => :'active_directory_migrations',
-        :'aws_secrets_migrations' => :'aws_secrets_migrations',
-        :'azure_kv_migrations' => :'azure_kv_migrations',
-        :'certificate_migrations' => :'certificate_migrations',
-        :'gcp_secrets_migrations' => :'gcp_secrets_migrations',
-        :'hashi_migrations' => :'hashi_migrations',
-        :'k8s_migrations' => :'k8s_migrations',
-        :'mock_migrations' => :'mock_migrations',
-        :'one_password_migrations' => :'one_password_migrations',
-        :'server_inventory_migrations' => :'server_inventory_migrations'
+        :'host' => :'host',
+        :'port_ranges' => :'portRanges'
       }
     end
 
@@ -59,16 +35,8 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'active_directory_migrations' => :'Array<ActiveDirectoryMigration>',
-        :'aws_secrets_migrations' => :'Array<AWSSecretsMigration>',
-        :'azure_kv_migrations' => :'Array<AzureKeyVaultMigration>',
-        :'certificate_migrations' => :'Array<CertificateMigration>',
-        :'gcp_secrets_migrations' => :'Array<GCPSecretsMigration>',
-        :'hashi_migrations' => :'Array<HashiMigration>',
-        :'k8s_migrations' => :'Array<K8SMigration>',
-        :'mock_migrations' => :'Array<MockMigration>',
-        :'one_password_migrations' => :'Array<OnePasswordMigration>',
-        :'server_inventory_migrations' => :'Array<ServerInventoryMigration>'
+        :'host' => :'String',
+        :'port_ranges' => :'String'
       }
     end
 
@@ -82,75 +50,23 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::MigrationsConfigPart` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::CertificateScanTarget` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::MigrationsConfigPart`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::CertificateScanTarget`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'active_directory_migrations')
-        if (value = attributes[:'active_directory_migrations']).is_a?(Array)
-          self.active_directory_migrations = value
-        end
+      if attributes.key?(:'host')
+        self.host = attributes[:'host']
       end
 
-      if attributes.key?(:'aws_secrets_migrations')
-        if (value = attributes[:'aws_secrets_migrations']).is_a?(Array)
-          self.aws_secrets_migrations = value
-        end
-      end
-
-      if attributes.key?(:'azure_kv_migrations')
-        if (value = attributes[:'azure_kv_migrations']).is_a?(Array)
-          self.azure_kv_migrations = value
-        end
-      end
-
-      if attributes.key?(:'certificate_migrations')
-        if (value = attributes[:'certificate_migrations']).is_a?(Array)
-          self.certificate_migrations = value
-        end
-      end
-
-      if attributes.key?(:'gcp_secrets_migrations')
-        if (value = attributes[:'gcp_secrets_migrations']).is_a?(Array)
-          self.gcp_secrets_migrations = value
-        end
-      end
-
-      if attributes.key?(:'hashi_migrations')
-        if (value = attributes[:'hashi_migrations']).is_a?(Array)
-          self.hashi_migrations = value
-        end
-      end
-
-      if attributes.key?(:'k8s_migrations')
-        if (value = attributes[:'k8s_migrations']).is_a?(Array)
-          self.k8s_migrations = value
-        end
-      end
-
-      if attributes.key?(:'mock_migrations')
-        if (value = attributes[:'mock_migrations']).is_a?(Array)
-          self.mock_migrations = value
-        end
-      end
-
-      if attributes.key?(:'one_password_migrations')
-        if (value = attributes[:'one_password_migrations']).is_a?(Array)
-          self.one_password_migrations = value
-        end
-      end
-
-      if attributes.key?(:'server_inventory_migrations')
-        if (value = attributes[:'server_inventory_migrations']).is_a?(Array)
-          self.server_inventory_migrations = value
-        end
+      if attributes.key?(:'port_ranges')
+        self.port_ranges = attributes[:'port_ranges']
       end
     end
 
@@ -174,16 +90,8 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          active_directory_migrations == o.active_directory_migrations &&
-          aws_secrets_migrations == o.aws_secrets_migrations &&
-          azure_kv_migrations == o.azure_kv_migrations &&
-          certificate_migrations == o.certificate_migrations &&
-          gcp_secrets_migrations == o.gcp_secrets_migrations &&
-          hashi_migrations == o.hashi_migrations &&
-          k8s_migrations == o.k8s_migrations &&
-          mock_migrations == o.mock_migrations &&
-          one_password_migrations == o.one_password_migrations &&
-          server_inventory_migrations == o.server_inventory_migrations
+          host == o.host &&
+          port_ranges == o.port_ranges
     end
 
     # @see the `==` method
@@ -195,7 +103,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_migrations, aws_secrets_migrations, azure_kv_migrations, certificate_migrations, gcp_secrets_migrations, hashi_migrations, k8s_migrations, mock_migrations, one_password_migrations, server_inventory_migrations].hash
+      [host, port_ranges].hash
     end
 
     # Builds the object from hash

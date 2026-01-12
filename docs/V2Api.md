@@ -45,6 +45,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**auth_method_update_saml**](V2Api.md#auth_method_update_saml) | **POST** /auth-method-update-saml |  |
 | [**auth_method_update_universal_identity**](V2Api.md#auth_method_update_universal_identity) | **POST** /auth-method-update-universal-identity |  |
 | [**calc_password_security_info**](V2Api.md#calc_password_security_info) | **POST** /calc-password-security-info |  |
+| [**certificate_discovery**](V2Api.md#certificate_discovery) | **POST** /certificate-discovery |  |
 | [**change_admin_account_password**](V2Api.md#change_admin_account_password) | **POST** /change-admin-account-password |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
@@ -3130,6 +3131,68 @@ end
 ### Return type
 
 [**PasswordSecurityInfo**](PasswordSecurityInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## certificate_discovery
+
+> <CertificateDiscoveryOutput> certificate_discovery(certificate_discovery)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+certificate_discovery = Akeyless::CertificateDiscovery.new({hosts: 'hosts_example', target_location: 'target_location_example'}) # CertificateDiscovery | 
+
+begin
+  
+  result = api_instance.certificate_discovery(certificate_discovery)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->certificate_discovery: #{e}"
+end
+```
+
+#### Using the certificate_discovery_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CertificateDiscoveryOutput>, Integer, Hash)> certificate_discovery_with_http_info(certificate_discovery)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.certificate_discovery_with_http_info(certificate_discovery)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CertificateDiscoveryOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->certificate_discovery_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **certificate_discovery** | [**CertificateDiscovery**](CertificateDiscovery.md) |  |  |
+
+### Return type
+
+[**CertificateDiscoveryOutput**](CertificateDiscoveryOutput.md)
 
 ### Authorization
 
@@ -14254,7 +14317,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-gateway_create_migration = Akeyless::GatewayCreateMigration.new({name: 'name_example', si_target_name: 'si_target_name_example', si_users_path_template: 'si_users_path_template_example', target_location: 'target_location_example'}) # GatewayCreateMigration | 
+gateway_create_migration = Akeyless::GatewayCreateMigration.new({hosts: 'hosts_example', name: 'name_example', si_target_name: 'si_target_name_example', si_users_path_template: 'si_users_path_template_example', target_location: 'target_location_example'}) # GatewayCreateMigration | 
 
 begin
   
@@ -18597,7 +18660,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-gateway_update_migration = Akeyless::GatewayUpdateMigration.new({si_target_name: 'si_target_name_example', si_users_path_template: 'si_users_path_template_example', target_location: 'target_location_example'}) # GatewayUpdateMigration | 
+gateway_update_migration = Akeyless::GatewayUpdateMigration.new({hosts: 'hosts_example', si_target_name: 'si_target_name_example', si_users_path_template: 'si_users_path_template_example', target_location: 'target_location_example'}) # GatewayUpdateMigration | 
 
 begin
   

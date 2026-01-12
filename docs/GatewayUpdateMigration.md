@@ -35,11 +35,13 @@
 | **azure_kv_name** | **String** | Azure Key Vault Name (relevant only for Azure Key Vault migration) | [optional] |
 | **azure_secret** | **String** | Azure Key Vault secret (relevant only for Azure Key Vault migration) | [optional] |
 | **azure_tenant_id** | **String** | Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration) | [optional] |
+| **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gcp_key** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) | [optional] |
 | **hashi_json** | **String** | Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false] | [optional][default to &#39;true&#39;] |
 | **hashi_ns** | **Array&lt;String&gt;** | HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration) | [optional] |
 | **hashi_token** | **String** | HashiCorp Vault access token with sufficient permissions to preform list &amp; read operations on secrets objects (relevant only for HasiCorp Vault migration) | [optional] |
 | **hashi_url** | **String** | HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration) | [optional] |
+| **hosts** | **String** | A comma separated list of IPs, CIDR ranges, or DNS names to scan |  |
 | **id** | **String** | Migration ID (Can be retrieved with gateway-list-migration command) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_ca_certificate** | **Array&lt;Integer&gt;** | For Certificate Authentication method K8s Cluster CA certificate (relevant only for K8s migration with Certificate Authentication method) | [optional] |
@@ -53,6 +55,7 @@
 | **k8s_username** | **String** | For Password Authentication method K8s Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Password Authentication method) | [optional] |
 | **name** | **String** | Migration name | [optional] |
 | **new_name** | **String** | New migration name | [optional] |
+| **port_ranges** | **String** | A comma separated list of port ranges Examples: \&quot;80,443\&quot; or \&quot;80,443,8080-8090\&quot; or \&quot;443\&quot; | [optional][default to &#39;443&#39;] |
 | **protection_key** | **String** | The name of the key that protects the classic key value (if empty, the account default key will be used) | [optional] |
 | **si_auto_rotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration) | [optional] |
 | **si_rotation_hour** | **Integer** | The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration) | [optional] |
@@ -103,11 +106,13 @@ instance = Akeyless::GatewayUpdateMigration.new(
   azure_kv_name: null,
   azure_secret: null,
   azure_tenant_id: null,
+  expiration_event_in: null,
   gcp_key: null,
   hashi_json: null,
   hashi_ns: null,
   hashi_token: null,
   hashi_url: null,
+  hosts: null,
   id: null,
   json: null,
   k8s_ca_certificate: null,
@@ -121,6 +126,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   k8s_username: null,
   name: null,
   new_name: null,
+  port_ranges: null,
   protection_key: null,
   si_auto_rotate: null,
   si_rotation_hour: null,

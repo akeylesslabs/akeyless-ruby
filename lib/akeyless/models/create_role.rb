@@ -18,7 +18,7 @@ module Akeyless
     # Allow this role to view analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
     attr_accessor :analytics_access
 
-    # Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+    # Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
     attr_accessor :audit_access
 
     # Deprecated - use description
@@ -30,7 +30,7 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
-    # Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported
+    # Allow this role to view Event Center. Currently only 'none', 'scoped' and 'all' values are supported
     attr_accessor :event_center_access
 
     # Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
@@ -39,7 +39,7 @@ module Akeyless
     # Allow this role to manage the following Event Forwarders.
     attr_accessor :event_forwarders_name
 
-    # Allow this role to view gw analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+    # Allow this role to view gw analytics. Currently only 'none', 'scoped', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
     attr_accessor :gw_analytics_access
 
     # Set output format to JSON
@@ -48,10 +48,10 @@ module Akeyless
     # Role name
     attr_accessor :name
 
-    # Allow this role to view Reverse RBAC. Supported values: 'own', 'all'.
+    # Allow this role to view Reverse RBAC. Supported values: 'scoped', 'all'.
     attr_accessor :reverse_rbac_access
 
-    # Allow this role to view SRA Clusters. Currently only 'none', 'own', 'all' values are supported.
+    # Allow this role to view SRA Clusters. Currently only 'none', 'scoped', 'all' values are supported.
     attr_accessor :sra_reports_access
 
     # Authentication token (see `/auth` and `/configure`)
