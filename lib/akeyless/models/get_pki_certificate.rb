@@ -27,7 +27,7 @@ module Akeyless
     # Certificate Signing Request contents encoded in base64 to generate the certificate with
     attr_accessor :csr_data_base64
 
-    # A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical
+    # A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', 'codesigning'. If critical is present the extension will be marked as critical
     attr_accessor :extended_key_usage
 
     # A json string that defines the requested extra extensions for the certificate

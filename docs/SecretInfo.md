@@ -11,6 +11,7 @@
 | **last_retrieved** | **Time** |  | [optional] |
 | **location** | **Object** |  | [optional] |
 | **name** | **String** |  | [optional] |
+| **region** | **String** |  | [optional] |
 | **secret_id** | **String** |  | [optional] |
 | **status** | **Boolean** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** |  | [optional] |
@@ -31,6 +32,7 @@ instance = Akeyless::SecretInfo.new(
   last_retrieved: null,
   location: null,
   name: null,
+  region: null,
   secret_id: null,
   status: null,
   tags: null,

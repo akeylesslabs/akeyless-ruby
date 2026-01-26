@@ -40,6 +40,9 @@ module Akeyless
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
 
+    # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. USC with GCP targets only.
+    attr_accessor :gcp_sm_regions
+
     # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
     attr_accessor :host_provider
 
@@ -174,6 +177,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'expiration_event_in' => :'expiration-event-in',
+        :'gcp_sm_regions' => :'gcp-sm-regions',
         :'host_provider' => :'host-provider',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -235,6 +239,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'expiration_event_in' => :'Array<String>',
+        :'gcp_sm_regions' => :'String',
         :'host_provider' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -342,6 +347,10 @@ module Akeyless
         if (value = attributes[:'expiration_event_in']).is_a?(Array)
           self.expiration_event_in = value
         end
+      end
+
+      if attributes.key?(:'gcp_sm_regions')
+        self.gcp_sm_regions = attributes[:'gcp_sm_regions']
       end
 
       if attributes.key?(:'host_provider')
@@ -565,6 +574,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           expiration_event_in == o.expiration_event_in &&
+          gcp_sm_regions == o.gcp_sm_regions &&
           host_provider == o.host_provider &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -617,7 +627,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, host_provider, item_custom_fields, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -42,6 +42,12 @@ module Akeyless
 
     attr_accessor :tls_cert
 
+    attr_accessor :tls_cert_common_name
+
+    attr_accessor :tls_cert_expiration_date
+
+    attr_accessor :tls_cert_expiration_events
+
     attr_accessor :tls_key
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -60,6 +66,9 @@ module Akeyless
         :'notify_on_status_change' => :'notify_on_status_change',
         :'tcp_port' => :'tcp_port',
         :'tls_cert' => :'tls_cert',
+        :'tls_cert_common_name' => :'tls_cert_common_name',
+        :'tls_cert_expiration_date' => :'tls_cert_expiration_date',
+        :'tls_cert_expiration_events' => :'tls_cert_expiration_events',
         :'tls_key' => :'tls_key'
       }
     end
@@ -85,6 +94,9 @@ module Akeyless
         :'notify_on_status_change' => :'Boolean',
         :'tcp_port' => :'String',
         :'tls_cert' => :'String',
+        :'tls_cert_common_name' => :'String',
+        :'tls_cert_expiration_date' => :'Time',
+        :'tls_cert_expiration_events' => :'Array<CertificateExpirationEvent>',
         :'tls_key' => :'String'
       }
     end
@@ -162,6 +174,20 @@ module Akeyless
         self.tls_cert = attributes[:'tls_cert']
       end
 
+      if attributes.key?(:'tls_cert_common_name')
+        self.tls_cert_common_name = attributes[:'tls_cert_common_name']
+      end
+
+      if attributes.key?(:'tls_cert_expiration_date')
+        self.tls_cert_expiration_date = attributes[:'tls_cert_expiration_date']
+      end
+
+      if attributes.key?(:'tls_cert_expiration_events')
+        if (value = attributes[:'tls_cert_expiration_events']).is_a?(Array)
+          self.tls_cert_expiration_events = value
+        end
+      end
+
       if attributes.key?(:'tls_key')
         self.tls_key = attributes[:'tls_key']
       end
@@ -200,6 +226,9 @@ module Akeyless
           notify_on_status_change == o.notify_on_status_change &&
           tcp_port == o.tcp_port &&
           tls_cert == o.tls_cert &&
+          tls_cert_common_name == o.tls_cert_common_name &&
+          tls_cert_expiration_date == o.tls_cert_expiration_date &&
+          tls_cert_expiration_events == o.tls_cert_expiration_events &&
           tls_key == o.tls_key
     end
 
@@ -212,7 +241,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [akeyless_url, api_token_ttl, display_name, enable_sni_proxy, enable_tls, enable_tls_configure, enable_tls_curl, enable_tls_hvp, gw_cluster_url, hvp_route_version, notify_on_status_change, tcp_port, tls_cert, tls_key].hash
+      [akeyless_url, api_token_ttl, display_name, enable_sni_proxy, enable_tls, enable_tls_configure, enable_tls_curl, enable_tls_hvp, gw_cluster_url, hvp_route_version, notify_on_status_change, tcp_port, tls_cert, tls_cert_common_name, tls_cert_expiration_date, tls_cert_expiration_events, tls_key].hash
     end
 
     # Builds the object from hash

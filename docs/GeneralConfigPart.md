@@ -17,6 +17,9 @@
 | **notify_on_status_change** | **Boolean** |  | [optional] |
 | **tcp_port** | **String** |  | [optional] |
 | **tls_cert** | **String** |  | [optional] |
+| **tls_cert_common_name** | **String** |  | [optional] |
+| **tls_cert_expiration_date** | **Time** |  | [optional] |
+| **tls_cert_expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **tls_key** | **String** |  | [optional] |
 
 ## Example
@@ -38,6 +41,9 @@ instance = Akeyless::GeneralConfigPart.new(
   notify_on_status_change: null,
   tcp_port: null,
   tls_cert: null,
+  tls_cert_common_name: null,
+  tls_cert_expiration_date: null,
+  tls_cert_expiration_events: null,
   tls_key: null
 )
 ```

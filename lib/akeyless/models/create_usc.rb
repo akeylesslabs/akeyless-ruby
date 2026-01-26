@@ -28,6 +28,9 @@ module Akeyless
     # GCP Project ID (Relevant only for GCP targets)
     attr_accessor :gcp_project_id
 
+    # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type=regional-secrets.
+    attr_accessor :gcp_sm_regions
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -65,6 +68,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'gcp_project_id' => :'gcp-project-id',
+        :'gcp_sm_regions' => :'gcp-sm-regions',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'k8s_namespace' => :'k8s-namespace',
@@ -90,6 +94,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'gcp_project_id' => :'String',
+        :'gcp_sm_regions' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'k8s_namespace' => :'String',
@@ -138,6 +143,10 @@ module Akeyless
 
       if attributes.key?(:'gcp_project_id')
         self.gcp_project_id = attributes[:'gcp_project_id']
+      end
+
+      if attributes.key?(:'gcp_sm_regions')
+        self.gcp_sm_regions = attributes[:'gcp_sm_regions']
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -227,6 +236,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           gcp_project_id == o.gcp_project_id &&
+          gcp_sm_regions == o.gcp_sm_regions &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           k8s_namespace == o.k8s_namespace &&
@@ -248,7 +258,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, gcp_project_id, item_custom_fields, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
+      [azure_kv_name, delete_protection, description, gcp_project_id, gcp_sm_regions, item_custom_fields, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
     end
 
     # Builds the object from hash

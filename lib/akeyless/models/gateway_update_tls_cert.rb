@@ -19,6 +19,9 @@ module Akeyless
     # TLS Certificate (base64 encoded)
     attr_accessor :cert_data
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -35,6 +38,7 @@ module Akeyless
     def self.attribute_map
       {
         :'cert_data' => :'cert-data',
+        :'expiration_event_in' => :'expiration-event-in',
         :'json' => :'json',
         :'key_data' => :'key-data',
         :'token' => :'token',
@@ -51,6 +55,7 @@ module Akeyless
     def self.openapi_types
       {
         :'cert_data' => :'String',
+        :'expiration_event_in' => :'Array<String>',
         :'json' => :'Boolean',
         :'key_data' => :'String',
         :'token' => :'String',
@@ -81,6 +86,12 @@ module Akeyless
 
       if attributes.key?(:'cert_data')
         self.cert_data = attributes[:'cert_data']
+      end
+
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -123,6 +134,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           cert_data == o.cert_data &&
+          expiration_event_in == o.expiration_event_in &&
           json == o.json &&
           key_data == o.key_data &&
           token == o.token &&
@@ -138,7 +150,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_data, json, key_data, token, uid_token].hash
+      [cert_data, expiration_event_in, json, key_data, token, uid_token].hash
     end
 
     # Builds the object from hash

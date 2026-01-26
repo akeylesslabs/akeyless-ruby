@@ -21,6 +21,8 @@ module Akeyless
 
     attr_accessor :expiration_date
 
+    attr_accessor :expiration_events
+
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -29,6 +31,7 @@ module Akeyless
         :'certificate_pem' => :'certificate_pem',
         :'common_name' => :'common_name',
         :'expiration_date' => :'expiration_date',
+        :'expiration_events' => :'expiration_events',
         :'name' => :'name'
       }
     end
@@ -44,6 +47,7 @@ module Akeyless
         :'certificate_pem' => :'String',
         :'common_name' => :'String',
         :'expiration_date' => :'Time',
+        :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'name' => :'String'
       }
     end
@@ -81,6 +85,12 @@ module Akeyless
         self.expiration_date = attributes[:'expiration_date']
       end
 
+      if attributes.key?(:'expiration_events')
+        if (value = attributes[:'expiration_events']).is_a?(Array)
+          self.expiration_events = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -109,6 +119,7 @@ module Akeyless
           certificate_pem == o.certificate_pem &&
           common_name == o.common_name &&
           expiration_date == o.expiration_date &&
+          expiration_events == o.expiration_events &&
           name == o.name
     end
 
@@ -121,7 +132,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_pem, common_name, expiration_date, name].hash
+      [certificate_pem, common_name, expiration_date, expiration_events, name].hash
     end
 
     # Builds the object from hash

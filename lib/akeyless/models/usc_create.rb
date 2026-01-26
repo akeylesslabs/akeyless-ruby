@@ -33,6 +33,9 @@ module Akeyless
     # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
     attr_accessor :pfx_password
 
+    # Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default).
+    attr_accessor :region
+
     # Name for the new universal secrets
     attr_accessor :secret_name
 
@@ -63,6 +66,7 @@ module Akeyless
         :'namespace' => :'namespace',
         :'object_type' => :'object-type',
         :'pfx_password' => :'pfx-password',
+        :'region' => :'region',
         :'secret_name' => :'secret-name',
         :'tags' => :'tags',
         :'token' => :'token',
@@ -87,6 +91,7 @@ module Akeyless
         :'namespace' => :'String',
         :'object_type' => :'String',
         :'pfx_password' => :'String',
+        :'region' => :'String',
         :'secret_name' => :'String',
         :'tags' => :'Hash<String, String>',
         :'token' => :'String',
@@ -142,6 +147,10 @@ module Akeyless
 
       if attributes.key?(:'pfx_password')
         self.pfx_password = attributes[:'pfx_password']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'secret_name')
@@ -222,6 +231,7 @@ module Akeyless
           namespace == o.namespace &&
           object_type == o.object_type &&
           pfx_password == o.pfx_password &&
+          region == o.region &&
           secret_name == o.secret_name &&
           tags == o.tags &&
           token == o.token &&
@@ -240,7 +250,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, secret_name, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [binary_value, description, json, namespace, object_type, pfx_password, region, secret_name, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

@@ -2305,11 +2305,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/certificate_discovery_output_spec.rb
-spec/models/certificate_discovery_spec.rb
-spec/models/certificate_migration_spec.rb
-spec/models/certificate_payload_spec.rb
-spec/models/certificate_scan_target_spec.rb
-spec/models/scan_results_spec.rb
-spec/models/target_error_spec.rb
 spec/spec_helper.rb

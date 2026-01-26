@@ -8,6 +8,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the Universal Secrets Connector | [optional] |
 | **gcp_project_id** | **String** | GCP Project ID (Relevant only for GCP targets) | [optional] |
+| **gcp_sm_regions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type&#x3D;regional-secrets. | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_namespace** | **String** | K8s namespace (Relevant to Kubernetes targets) | [optional] |
@@ -29,6 +30,7 @@ instance = Akeyless::CreateUSC.new(
   delete_protection: null,
   description: null,
   gcp_project_id: null,
+  gcp_sm_regions: null,
   item_custom_fields: null,
   json: null,
   k8s_namespace: null,
