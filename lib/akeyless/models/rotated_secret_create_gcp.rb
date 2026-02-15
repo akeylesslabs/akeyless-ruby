@@ -36,7 +36,7 @@ module Akeyless
     # The key id of the gcp service account to rotate
     attr_accessor :gcp_service_account_key_id
 
-    # Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]
+    # Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]
     attr_accessor :grace_rotation
 
     # The Hour of the grace rotation in UTC
@@ -44,6 +44,9 @@ module Akeyless
 
     # The number of days to wait before deleting the old key (must be bigger than rotation-interval)
     attr_accessor :grace_rotation_interval
+
+    # When to create the new version relative to the rotation date [after/before]
+    attr_accessor :grace_rotation_timing
 
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
@@ -78,7 +81,7 @@ module Akeyless
     # Add tags attached to this object
     attr_accessor :tags
 
-    # Target name
+    # The target name to associate
     attr_accessor :target_name
 
     # Authentication token (see `/auth` and `/configure`)
@@ -100,6 +103,7 @@ module Akeyless
         :'grace_rotation' => :'grace-rotation',
         :'grace_rotation_hour' => :'grace-rotation-hour',
         :'grace_rotation_interval' => :'grace-rotation-interval',
+        :'grace_rotation_timing' => :'grace-rotation-timing',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
@@ -135,6 +139,7 @@ module Akeyless
         :'grace_rotation' => :'String',
         :'grace_rotation_hour' => :'Integer',
         :'grace_rotation_interval' => :'String',
+        :'grace_rotation_timing' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -213,6 +218,10 @@ module Akeyless
 
       if attributes.key?(:'grace_rotation_interval')
         self.grace_rotation_interval = attributes[:'grace_rotation_interval']
+      end
+
+      if attributes.key?(:'grace_rotation_timing')
+        self.grace_rotation_timing = attributes[:'grace_rotation_timing']
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -331,6 +340,7 @@ module Akeyless
           grace_rotation == o.grace_rotation &&
           grace_rotation_hour == o.grace_rotation_hour &&
           grace_rotation_interval == o.grace_rotation_interval &&
+          grace_rotation_timing == o.grace_rotation_timing &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
@@ -356,7 +366,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, item_custom_fields, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, item_custom_fields, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

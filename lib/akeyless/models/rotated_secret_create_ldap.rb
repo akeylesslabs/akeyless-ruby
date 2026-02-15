@@ -104,7 +104,7 @@ module Akeyless
     # A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
     attr_accessor :target
 
-    # Target name
+    # The target name to associate
     attr_accessor :target_name
 
     # Authentication token (see `/auth` and `/configure`)

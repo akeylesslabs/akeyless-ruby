@@ -17,10 +17,16 @@ module Akeyless
   class GCPPayload
     attr_accessor :gcp_credentials_json
 
+    attr_accessor :project_id
+
+    attr_accessor :use_gw_cloud_identity
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'gcp_credentials_json' => :'gcp_credentials_json'
+        :'gcp_credentials_json' => :'gcp_credentials_json',
+        :'project_id' => :'project_id',
+        :'use_gw_cloud_identity' => :'use_gw_cloud_identity'
       }
     end
 
@@ -32,7 +38,9 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'gcp_credentials_json' => :'String'
+        :'gcp_credentials_json' => :'String',
+        :'project_id' => :'String',
+        :'use_gw_cloud_identity' => :'Boolean'
       }
     end
 
@@ -60,6 +68,14 @@ module Akeyless
       if attributes.key?(:'gcp_credentials_json')
         self.gcp_credentials_json = attributes[:'gcp_credentials_json']
       end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
+      end
+
+      if attributes.key?(:'use_gw_cloud_identity')
+        self.use_gw_cloud_identity = attributes[:'use_gw_cloud_identity']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -82,7 +98,9 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          gcp_credentials_json == o.gcp_credentials_json
+          gcp_credentials_json == o.gcp_credentials_json &&
+          project_id == o.project_id &&
+          use_gw_cloud_identity == o.use_gw_cloud_identity
     end
 
     # @see the `==` method
@@ -94,7 +112,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [gcp_credentials_json].hash
+      [gcp_credentials_json, project_id, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

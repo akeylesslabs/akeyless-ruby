@@ -22,6 +22,7 @@
 | **godaddy_target_details** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  | [optional] |
 | **hashi_vault_target_details** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  | [optional] |
 | **ldap_target_details** | [**LdapTargetDetails**](LdapTargetDetails.md) |  | [optional] |
+| **letsencrypt_target_details** | [**LetsEncryptTargetDetails**](LetsEncryptTargetDetails.md) |  | [optional] |
 | **linked_target_details** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  | [optional] |
 | **mongo_db_target_details** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  | [optional] |
 | **native_k8s_target_details** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  | [optional] |
@@ -30,6 +31,7 @@
 | **rabbit_mq_target_details** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  | [optional] |
 | **salesforce_target_details** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  | [optional] |
 | **sectigo_target_details** | [**SectigoTargetDetails**](SectigoTargetDetails.md) |  | [optional] |
+| **splunk_target_details** | [**SplunkTargetDetails**](SplunkTargetDetails.md) |  | [optional] |
 | **ssh_target_details** | [**SSHTargetDetails**](SSHTargetDetails.md) |  | [optional] |
 | **venafi_target_details** | [**VenafiTargetDetails**](VenafiTargetDetails.md) |  | [optional] |
 | **web_target_details** | [**WebTargetDetails**](WebTargetDetails.md) |  | [optional] |
@@ -60,6 +62,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   godaddy_target_details: null,
   hashi_vault_target_details: null,
   ldap_target_details: null,
+  letsencrypt_target_details: null,
   linked_target_details: null,
   mongo_db_target_details: null,
   native_k8s_target_details: null,
@@ -68,6 +71,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   rabbit_mq_target_details: null,
   salesforce_target_details: null,
   sectigo_target_details: null,
+  splunk_target_details: null,
   ssh_target_details: null,
   venafi_target_details: null,
   web_target_details: null,

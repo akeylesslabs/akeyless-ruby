@@ -51,6 +51,8 @@ module Akeyless
 
     attr_accessor :ldap_target_details
 
+    attr_accessor :letsencrypt_target_details
+
     attr_accessor :linked_target_details
 
     attr_accessor :mongo_db_target_details
@@ -66,6 +68,8 @@ module Akeyless
     attr_accessor :salesforce_target_details
 
     attr_accessor :sectigo_target_details
+
+    attr_accessor :splunk_target_details
 
     attr_accessor :ssh_target_details
 
@@ -98,6 +102,7 @@ module Akeyless
         :'godaddy_target_details' => :'godaddy_target_details',
         :'hashi_vault_target_details' => :'hashi_vault_target_details',
         :'ldap_target_details' => :'ldap_target_details',
+        :'letsencrypt_target_details' => :'letsencrypt_target_details',
         :'linked_target_details' => :'linked_target_details',
         :'mongo_db_target_details' => :'mongo_db_target_details',
         :'native_k8s_target_details' => :'native_k8s_target_details',
@@ -106,6 +111,7 @@ module Akeyless
         :'rabbit_mq_target_details' => :'rabbit_mq_target_details',
         :'salesforce_target_details' => :'salesforce_target_details',
         :'sectigo_target_details' => :'sectigo_target_details',
+        :'splunk_target_details' => :'splunk_target_details',
         :'ssh_target_details' => :'ssh_target_details',
         :'venafi_target_details' => :'venafi_target_details',
         :'web_target_details' => :'web_target_details',
@@ -140,6 +146,7 @@ module Akeyless
         :'godaddy_target_details' => :'GodaddyTargetDetails',
         :'hashi_vault_target_details' => :'HashiVaultTargetDetails',
         :'ldap_target_details' => :'LdapTargetDetails',
+        :'letsencrypt_target_details' => :'LetsEncryptTargetDetails',
         :'linked_target_details' => :'LinkedTargetDetails',
         :'mongo_db_target_details' => :'MongoDBTargetDetails',
         :'native_k8s_target_details' => :'NativeK8sTargetDetails',
@@ -148,6 +155,7 @@ module Akeyless
         :'rabbit_mq_target_details' => :'RabbitMQTargetDetails',
         :'salesforce_target_details' => :'SalesforceTargetDetails',
         :'sectigo_target_details' => :'SectigoTargetDetails',
+        :'splunk_target_details' => :'SplunkTargetDetails',
         :'ssh_target_details' => :'SSHTargetDetails',
         :'venafi_target_details' => :'VenafiTargetDetails',
         :'web_target_details' => :'WebTargetDetails',
@@ -249,6 +257,10 @@ module Akeyless
         self.ldap_target_details = attributes[:'ldap_target_details']
       end
 
+      if attributes.key?(:'letsencrypt_target_details')
+        self.letsencrypt_target_details = attributes[:'letsencrypt_target_details']
+      end
+
       if attributes.key?(:'linked_target_details')
         self.linked_target_details = attributes[:'linked_target_details']
       end
@@ -279,6 +291,10 @@ module Akeyless
 
       if attributes.key?(:'sectigo_target_details')
         self.sectigo_target_details = attributes[:'sectigo_target_details']
+      end
+
+      if attributes.key?(:'splunk_target_details')
+        self.splunk_target_details = attributes[:'splunk_target_details']
       end
 
       if attributes.key?(:'ssh_target_details')
@@ -340,6 +356,7 @@ module Akeyless
           godaddy_target_details == o.godaddy_target_details &&
           hashi_vault_target_details == o.hashi_vault_target_details &&
           ldap_target_details == o.ldap_target_details &&
+          letsencrypt_target_details == o.letsencrypt_target_details &&
           linked_target_details == o.linked_target_details &&
           mongo_db_target_details == o.mongo_db_target_details &&
           native_k8s_target_details == o.native_k8s_target_details &&
@@ -348,6 +365,7 @@ module Akeyless
           rabbit_mq_target_details == o.rabbit_mq_target_details &&
           salesforce_target_details == o.salesforce_target_details &&
           sectigo_target_details == o.sectigo_target_details &&
+          splunk_target_details == o.splunk_target_details &&
           ssh_target_details == o.ssh_target_details &&
           venafi_target_details == o.venafi_target_details &&
           web_target_details == o.web_target_details &&
@@ -364,7 +382,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, hashi_vault_target_details, ldap_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

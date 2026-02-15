@@ -11,9 +11,10 @@
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **gcp_service_account_email** | **String** | The email of the gcp service account to rotate | [optional] |
 | **gcp_service_account_key_id** | **String** | The key id of the gcp service account to rotate | [optional] |
-| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] | [optional] |
+| **grace_rotation** | **String** | Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false] | [optional] |
 | **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
 | **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
+| **grace_rotation_timing** | **String** | When to create the new version relative to the rotation date [after/before] | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -25,7 +26,7 @@
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/service-account-rotator] |  |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target_name** | **String** | Target name |  |
+| **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -45,6 +46,7 @@ instance = Akeyless::RotatedSecretCreateGcp.new(
   grace_rotation: null,
   grace_rotation_hour: null,
   grace_rotation_interval: null,
+  grace_rotation_timing: null,
   item_custom_fields: null,
   json: null,
   key: null,

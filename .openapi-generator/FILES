@@ -737,6 +737,7 @@ docs/LastStatusInfo.md
 docs/LdapConfigPart.md
 docs/LdapTargetDetails.md
 docs/LeadershipConfigPart.md
+docs/LetsEncryptTargetDetails.md
 docs/LinkedDetails.md
 docs/LinkedTargetDetails.md
 docs/ListAcmeAccounts.md
@@ -796,6 +797,15 @@ docs/PasswordScoreSetting.md
 docs/PasswordSecurityInfo.md
 docs/PathRule.md
 docs/PingTargetDetails.md
+docs/PoliciesCreateOutput.md
+docs/PoliciesDelete.md
+docs/PoliciesGet.md
+docs/PoliciesGetOutput.md
+docs/PoliciesList.md
+docs/PoliciesListOutput.md
+docs/PolicyCreateKeys.md
+docs/PolicyOutput.md
+docs/PolicyUpdateKeys.md
 docs/Producer.md
 docs/ProducersConfigPart.md
 docs/ProvisionCertificate.md
@@ -846,6 +856,7 @@ docs/RotatedSecretCreatePostgresql.md
 docs/RotatedSecretCreateRedis.md
 docs/RotatedSecretCreateRedshift.md
 docs/RotatedSecretCreateSnowflake.md
+docs/RotatedSecretCreateSplunk.md
 docs/RotatedSecretCreateSsh.md
 docs/RotatedSecretCreateWindows.md
 docs/RotatedSecretDelete.md
@@ -874,6 +885,7 @@ docs/RotatedSecretUpdatePostgresql.md
 docs/RotatedSecretUpdateRedis.md
 docs/RotatedSecretUpdateRedshift.md
 docs/RotatedSecretUpdateSnowflake.md
+docs/RotatedSecretUpdateSplunk.md
 docs/RotatedSecretUpdateSsh.md
 docs/RotatedSecretUpdateWindows.md
 docs/RotationSecretMaxInterval.md
@@ -916,6 +928,8 @@ docs/SignRsaSsaPssOutput.md
 docs/SlackNotiForwarderDetails.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
+docs/SplunkPayload.md
+docs/SplunkTargetDetails.md
 docs/SraDesktopAppConf.md
 docs/SraInfo.md
 docs/SraSessionEntryOut.md
@@ -949,6 +963,7 @@ docs/TargetCreateGodaddy.md
 docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
+docs/TargetCreateLetsEncrypt.md
 docs/TargetCreateLinked.md
 docs/TargetCreateOpenAI.md
 docs/TargetCreateOutput.md
@@ -956,6 +971,7 @@ docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
 docs/TargetCreateSalesforce.md
 docs/TargetCreateSectigo.md
+docs/TargetCreateSplunk.md
 docs/TargetCreateSsh.md
 docs/TargetCreateWeb.md
 docs/TargetCreateWindows.md
@@ -986,6 +1002,7 @@ docs/TargetUpdateGodaddy.md
 docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
+docs/TargetUpdateLetsEncrypt.md
 docs/TargetUpdateLinked.md
 docs/TargetUpdateOpenAI.md
 docs/TargetUpdateOutput.md
@@ -1889,6 +1906,7 @@ lib/akeyless/models/ldap_access_rules.rb
 lib/akeyless/models/ldap_config_part.rb
 lib/akeyless/models/ldap_target_details.rb
 lib/akeyless/models/leadership_config_part.rb
+lib/akeyless/models/lets_encrypt_target_details.rb
 lib/akeyless/models/linked_details.rb
 lib/akeyless/models/linked_target_details.rb
 lib/akeyless/models/list_acme_accounts.rb
@@ -1948,6 +1966,15 @@ lib/akeyless/models/password_security_info.rb
 lib/akeyless/models/path_rule.rb
 lib/akeyless/models/ping_target_details.rb
 lib/akeyless/models/pki_certificate_issue_details.rb
+lib/akeyless/models/policies_create_output.rb
+lib/akeyless/models/policies_delete.rb
+lib/akeyless/models/policies_get.rb
+lib/akeyless/models/policies_get_output.rb
+lib/akeyless/models/policies_list.rb
+lib/akeyless/models/policies_list_output.rb
+lib/akeyless/models/policy_create_keys.rb
+lib/akeyless/models/policy_output.rb
+lib/akeyless/models/policy_update_keys.rb
 lib/akeyless/models/producer.rb
 lib/akeyless/models/producers_config_part.rb
 lib/akeyless/models/provision_certificate.rb
@@ -1998,6 +2025,7 @@ lib/akeyless/models/rotated_secret_create_postgresql.rb
 lib/akeyless/models/rotated_secret_create_redis.rb
 lib/akeyless/models/rotated_secret_create_redshift.rb
 lib/akeyless/models/rotated_secret_create_snowflake.rb
+lib/akeyless/models/rotated_secret_create_splunk.rb
 lib/akeyless/models/rotated_secret_create_ssh.rb
 lib/akeyless/models/rotated_secret_create_windows.rb
 lib/akeyless/models/rotated_secret_delete.rb
@@ -2026,6 +2054,7 @@ lib/akeyless/models/rotated_secret_update_postgresql.rb
 lib/akeyless/models/rotated_secret_update_redis.rb
 lib/akeyless/models/rotated_secret_update_redshift.rb
 lib/akeyless/models/rotated_secret_update_snowflake.rb
+lib/akeyless/models/rotated_secret_update_splunk.rb
 lib/akeyless/models/rotated_secret_update_ssh.rb
 lib/akeyless/models/rotated_secret_update_windows.rb
 lib/akeyless/models/rotation_secret_max_interval.rb
@@ -2066,6 +2095,8 @@ lib/akeyless/models/sign_rsa_ssa_pss_output.rb
 lib/akeyless/models/slack_noti_forwarder_details.rb
 lib/akeyless/models/sm_info.rb
 lib/akeyless/models/splunk_log_forwarding_config.rb
+lib/akeyless/models/splunk_payload.rb
+lib/akeyless/models/splunk_target_details.rb
 lib/akeyless/models/sra_desktop_app_conf.rb
 lib/akeyless/models/sra_info.rb
 lib/akeyless/models/sra_session_entry_out.rb
@@ -2101,6 +2132,7 @@ lib/akeyless/models/target_create_godaddy.rb
 lib/akeyless/models/target_create_hashi_vault.rb
 lib/akeyless/models/target_create_k8s.rb
 lib/akeyless/models/target_create_ldap.rb
+lib/akeyless/models/target_create_lets_encrypt.rb
 lib/akeyless/models/target_create_linked.rb
 lib/akeyless/models/target_create_open_ai.rb
 lib/akeyless/models/target_create_output.rb
@@ -2108,6 +2140,7 @@ lib/akeyless/models/target_create_ping.rb
 lib/akeyless/models/target_create_rabbit_mq.rb
 lib/akeyless/models/target_create_salesforce.rb
 lib/akeyless/models/target_create_sectigo.rb
+lib/akeyless/models/target_create_splunk.rb
 lib/akeyless/models/target_create_ssh.rb
 lib/akeyless/models/target_create_web.rb
 lib/akeyless/models/target_create_windows.rb
@@ -2138,6 +2171,7 @@ lib/akeyless/models/target_update_godaddy.rb
 lib/akeyless/models/target_update_hashi_vault.rb
 lib/akeyless/models/target_update_k8s.rb
 lib/akeyless/models/target_update_ldap.rb
+lib/akeyless/models/target_update_lets_encrypt.rb
 lib/akeyless/models/target_update_linked.rb
 lib/akeyless/models/target_update_open_ai.rb
 lib/akeyless/models/target_update_output.rb
@@ -2305,4 +2339,21 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/lets_encrypt_target_details_spec.rb
+spec/models/policies_create_output_spec.rb
+spec/models/policies_delete_spec.rb
+spec/models/policies_get_output_spec.rb
+spec/models/policies_get_spec.rb
+spec/models/policies_list_output_spec.rb
+spec/models/policies_list_spec.rb
+spec/models/policy_create_keys_spec.rb
+spec/models/policy_output_spec.rb
+spec/models/policy_update_keys_spec.rb
+spec/models/rotated_secret_create_splunk_spec.rb
+spec/models/rotated_secret_update_splunk_spec.rb
+spec/models/splunk_payload_spec.rb
+spec/models/splunk_target_details_spec.rb
+spec/models/target_create_lets_encrypt_spec.rb
+spec/models/target_create_splunk_spec.rb
+spec/models/target_update_lets_encrypt_spec.rb
 spec/spec_helper.rb

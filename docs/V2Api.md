@@ -388,6 +388,11 @@ All URIs are relative to *https://api.akeyless.io*
 | [**list_sra_sessions**](V2Api.md#list_sra_sessions) | **POST** /list-sra-sessions |  |
 | [**list_targets**](V2Api.md#list_targets) | **POST** /list-targets |  |
 | [**move_objects**](V2Api.md#move_objects) | **POST** /move-objects |  |
+| [**policies_delete**](V2Api.md#policies_delete) | **POST** /policy-delete |  |
+| [**policies_get**](V2Api.md#policies_get) | **POST** /policy-get |  |
+| [**policies_list**](V2Api.md#policies_list) | **POST** /policy-list |  |
+| [**policy_create_keys**](V2Api.md#policy_create_keys) | **POST** /policy-create-keys |  |
+| [**policy_update_keys**](V2Api.md#policy_update_keys) | **POST** /policy-update-keys |  |
 | [**provision_certificate**](V2Api.md#provision_certificate) | **POST** /provision-certificate |  |
 | [**raw_creds**](V2Api.md#raw_creds) | **POST** /raw-creds |  |
 | [**refresh_key**](V2Api.md#refresh_key) | **POST** /refresh-key |  |
@@ -418,6 +423,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_create_redis**](V2Api.md#rotated_secret_create_redis) | **POST** /rotated-secret-create-redis |  |
 | [**rotated_secret_create_redshift**](V2Api.md#rotated_secret_create_redshift) | **POST** /rotated-secret-create-redshift |  |
 | [**rotated_secret_create_snowflake**](V2Api.md#rotated_secret_create_snowflake) | **POST** /rotated-secret-create-snowflake |  |
+| [**rotated_secret_create_splunk**](V2Api.md#rotated_secret_create_splunk) | **POST** /rotated-secret-create-splunk |  |
 | [**rotated_secret_create_ssh**](V2Api.md#rotated_secret_create_ssh) | **POST** /rotated-secret-create-ssh |  |
 | [**rotated_secret_create_windows**](V2Api.md#rotated_secret_create_windows) | **POST** /rotated-secret-create-windows |  |
 | [**rotated_secret_delete**](V2Api.md#rotated_secret_delete) | **POST** /rotated-secret-delete |  |
@@ -442,6 +448,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_update_redis**](V2Api.md#rotated_secret_update_redis) | **POST** /rotated-secret-update-redis |  |
 | [**rotated_secret_update_redshift**](V2Api.md#rotated_secret_update_redshift) | **POST** /rotated-secret-update-redshift |  |
 | [**rotated_secret_update_snowflake**](V2Api.md#rotated_secret_update_snowflake) | **POST** /rotated-secret-update-snowflake |  |
+| [**rotated_secret_update_splunk**](V2Api.md#rotated_secret_update_splunk) | **POST** /rotated-secret-update-splunk |  |
 | [**rotated_secret_update_ssh**](V2Api.md#rotated_secret_update_ssh) | **POST** /rotated-secret-update-ssh |  |
 | [**rotated_secret_update_windows**](V2Api.md#rotated_secret_update_windows) | **POST** /rotated-secret-update-windows |  |
 | [**set_item_state**](V2Api.md#set_item_state) | **POST** /set-item-state |  |
@@ -474,12 +481,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_hashi_vault**](V2Api.md#target_create_hashi_vault) | **POST** /target-create-hashi-vault |  |
 | [**target_create_k8s**](V2Api.md#target_create_k8s) | **POST** /target-create-k8s |  |
 | [**target_create_ldap**](V2Api.md#target_create_ldap) | **POST** /target-create-ldap |  |
+| [**target_create_lets_encrypt**](V2Api.md#target_create_lets_encrypt) | **POST** /target-create-lets-encrypt |  |
 | [**target_create_linked**](V2Api.md#target_create_linked) | **POST** /target-create-linked |  |
 | [**target_create_open_ai**](V2Api.md#target_create_open_ai) | **POST** /target-create-openai |  |
 | [**target_create_ping**](V2Api.md#target_create_ping) | **POST** /target-create-ping |  |
 | [**target_create_rabbit_mq**](V2Api.md#target_create_rabbit_mq) | **POST** /target-create-rabbitmq |  |
 | [**target_create_salesforce**](V2Api.md#target_create_salesforce) | **POST** /target-create-salesforce |  |
 | [**target_create_sectigo**](V2Api.md#target_create_sectigo) | **POST** /target-create-sectigo |  |
+| [**target_create_splunk**](V2Api.md#target_create_splunk) | **POST** /target-create-splunk |  |
 | [**target_create_ssh**](V2Api.md#target_create_ssh) | **POST** /target-create-ssh |  |
 | [**target_create_web**](V2Api.md#target_create_web) | **POST** /target-create-web |  |
 | [**target_create_windows**](V2Api.md#target_create_windows) | **POST** /target-create-windows |  |
@@ -505,6 +514,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_hashi_vault**](V2Api.md#target_update_hashi_vault) | **POST** /target-update-hashi-vault |  |
 | [**target_update_k8s**](V2Api.md#target_update_k8s) | **POST** /target-update-k8s |  |
 | [**target_update_ldap**](V2Api.md#target_update_ldap) | **POST** /target-update-ldap |  |
+| [**target_update_lets_encrypt**](V2Api.md#target_update_lets_encrypt) | **POST** /target-update-lets-encrypt |  |
 | [**target_update_linked**](V2Api.md#target_update_linked) | **POST** /target-update-linked |  |
 | [**target_update_open_ai**](V2Api.md#target_update_open_ai) | **POST** /target-update-openai |  |
 | [**target_update_ping**](V2Api.md#target_update_ping) | **POST** /target-update-ping |  |
@@ -24433,6 +24443,316 @@ No authorization required
 - **Accept**: application/json
 
 
+## policies_delete
+
+> Object policies_delete(policies_delete)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+policies_delete = Akeyless::PoliciesDelete.new({id: 'id_example'}) # PoliciesDelete | 
+
+begin
+  
+  result = api_instance.policies_delete(policies_delete)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_delete: #{e}"
+end
+```
+
+#### Using the policies_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> policies_delete_with_http_info(policies_delete)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.policies_delete_with_http_info(policies_delete)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **policies_delete** | [**PoliciesDelete**](PoliciesDelete.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## policies_get
+
+> <PoliciesGetOutput> policies_get(policies_get)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+policies_get = Akeyless::PoliciesGet.new({id: 'id_example'}) # PoliciesGet | 
+
+begin
+  
+  result = api_instance.policies_get(policies_get)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_get: #{e}"
+end
+```
+
+#### Using the policies_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PoliciesGetOutput>, Integer, Hash)> policies_get_with_http_info(policies_get)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.policies_get_with_http_info(policies_get)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PoliciesGetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **policies_get** | [**PoliciesGet**](PoliciesGet.md) |  |  |
+
+### Return type
+
+[**PoliciesGetOutput**](PoliciesGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## policies_list
+
+> <PoliciesListOutput> policies_list(policies_list)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+policies_list = Akeyless::PoliciesList.new # PoliciesList | 
+
+begin
+  
+  result = api_instance.policies_list(policies_list)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_list: #{e}"
+end
+```
+
+#### Using the policies_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PoliciesListOutput>, Integer, Hash)> policies_list_with_http_info(policies_list)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.policies_list_with_http_info(policies_list)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PoliciesListOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policies_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **policies_list** | [**PoliciesList**](PoliciesList.md) |  |  |
+
+### Return type
+
+[**PoliciesListOutput**](PoliciesListOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## policy_create_keys
+
+> <PoliciesCreateOutput> policy_create_keys(policy_create_keys)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+policy_create_keys = Akeyless::PolicyCreateKeys.new({path: 'path_example'}) # PolicyCreateKeys | 
+
+begin
+  
+  result = api_instance.policy_create_keys(policy_create_keys)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policy_create_keys: #{e}"
+end
+```
+
+#### Using the policy_create_keys_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PoliciesCreateOutput>, Integer, Hash)> policy_create_keys_with_http_info(policy_create_keys)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.policy_create_keys_with_http_info(policy_create_keys)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PoliciesCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policy_create_keys_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **policy_create_keys** | [**PolicyCreateKeys**](PolicyCreateKeys.md) |  |  |
+
+### Return type
+
+[**PoliciesCreateOutput**](PoliciesCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## policy_update_keys
+
+> Object policy_update_keys(policy_update_keys)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+policy_update_keys = Akeyless::PolicyUpdateKeys.new({id: 'id_example'}) # PolicyUpdateKeys | 
+
+begin
+  
+  result = api_instance.policy_update_keys(policy_update_keys)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policy_update_keys: #{e}"
+end
+```
+
+#### Using the policy_update_keys_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> policy_update_keys_with_http_info(policy_update_keys)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.policy_update_keys_with_http_info(policy_update_keys)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->policy_update_keys_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **policy_update_keys** | [**PolicyUpdateKeys**](PolicyUpdateKeys.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## provision_certificate
 
 > <ProvisionCertificateOutput> provision_certificate(provision_certificate)
@@ -26292,6 +26612,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_splunk
+
+> <RotatedSecretCreateOutput> rotated_secret_create_splunk(rotated_secret_create_splunk)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_splunk = Akeyless::RotatedSecretCreateSplunk.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateSplunk | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_splunk(rotated_secret_create_splunk)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_splunk: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_splunk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_splunk_with_http_info(rotated_secret_create_splunk)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_splunk_with_http_info(rotated_secret_create_splunk)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_splunk_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_splunk** | [**RotatedSecretCreateSplunk**](RotatedSecretCreateSplunk.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_ssh
 
 > <RotatedSecretCreateOutput> rotated_secret_create_ssh(rotated_secret_create_ssh)
@@ -27765,6 +28147,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rotated_secret_update_snowflake** | [**RotatedSecretUpdateSnowflake**](RotatedSecretUpdateSnowflake.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_splunk
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_splunk(rotated_secret_update_splunk)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_splunk = Akeyless::RotatedSecretUpdateSplunk.new({name: 'name_example'}) # RotatedSecretUpdateSplunk | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_splunk(rotated_secret_update_splunk)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_splunk: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_splunk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_splunk_with_http_info(rotated_secret_update_splunk)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_splunk_with_http_info(rotated_secret_update_splunk)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_splunk_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_splunk** | [**RotatedSecretUpdateSplunk**](RotatedSecretUpdateSplunk.md) |  |  |
 
 ### Return type
 
@@ -29764,6 +30208,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_lets_encrypt
+
+> <TargetCreateOutput> target_create_lets_encrypt(target_create_lets_encrypt)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_lets_encrypt = Akeyless::TargetCreateLetsEncrypt.new({name: 'name_example'}) # TargetCreateLetsEncrypt | 
+
+begin
+  
+  result = api_instance.target_create_lets_encrypt(target_create_lets_encrypt)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_lets_encrypt: #{e}"
+end
+```
+
+#### Using the target_create_lets_encrypt_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_lets_encrypt_with_http_info(target_create_lets_encrypt)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_lets_encrypt_with_http_info(target_create_lets_encrypt)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_lets_encrypt_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_lets_encrypt** | [**TargetCreateLetsEncrypt**](TargetCreateLetsEncrypt.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_linked
 
 > <TargetCreateOutput> target_create_linked(target_create_linked)
@@ -30121,6 +30627,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_sectigo** | [**TargetCreateSectigo**](TargetCreateSectigo.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_splunk
+
+> <TargetCreateOutput> target_create_splunk(target_create_splunk)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_splunk = Akeyless::TargetCreateSplunk.new({name: 'name_example', url: 'url_example'}) # TargetCreateSplunk | 
+
+begin
+  
+  result = api_instance.target_create_splunk(target_create_splunk)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_splunk: #{e}"
+end
+```
+
+#### Using the target_create_splunk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_splunk_with_http_info(target_create_splunk)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_splunk_with_http_info(target_create_splunk)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_splunk_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_splunk** | [**TargetCreateSplunk**](TargetCreateSplunk.md) |  |  |
 
 ### Return type
 
@@ -31671,6 +32239,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_ldap** | [**TargetUpdateLdap**](TargetUpdateLdap.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_lets_encrypt
+
+> <TargetUpdateOutput> target_update_lets_encrypt(target_update_lets_encrypt)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_lets_encrypt = Akeyless::TargetUpdateLetsEncrypt.new({name: 'name_example'}) # TargetUpdateLetsEncrypt | 
+
+begin
+  
+  result = api_instance.target_update_lets_encrypt(target_update_lets_encrypt)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_lets_encrypt: #{e}"
+end
+```
+
+#### Using the target_update_lets_encrypt_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_lets_encrypt_with_http_info(target_update_lets_encrypt)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_lets_encrypt_with_http_info(target_update_lets_encrypt)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_lets_encrypt_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_lets_encrypt** | [**TargetUpdateLetsEncrypt**](TargetUpdateLetsEncrypt.md) |  |  |
 
 ### Return type
 

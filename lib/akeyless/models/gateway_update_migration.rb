@@ -114,6 +114,9 @@ module Akeyless
     # Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
     attr_accessor :gcp_key
 
+    # GCP Project ID (cross-project override)
+    attr_accessor :gcp_project_id
+
     # Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false]
     attr_accessor :hashi_json
 
@@ -207,6 +210,9 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Use the GW's Cloud IAM
+    attr_accessor :use_gw_cloud_identity
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -243,6 +249,7 @@ module Akeyless
         :'azure_tenant_id' => :'azure-tenant-id',
         :'expiration_event_in' => :'expiration-event-in',
         :'gcp_key' => :'gcp-key',
+        :'gcp_project_id' => :'gcp-project-id',
         :'hashi_json' => :'hashi-json',
         :'hashi_ns' => :'hashi-ns',
         :'hashi_token' => :'hashi-token',
@@ -273,7 +280,8 @@ module Akeyless
         :'si_users_path_template' => :'si-users-path-template',
         :'target_location' => :'target-location',
         :'token' => :'token',
-        :'uid_token' => :'uid-token'
+        :'uid_token' => :'uid-token',
+        :'use_gw_cloud_identity' => :'use-gw-cloud-identity'
       }
     end
 
@@ -318,6 +326,7 @@ module Akeyless
         :'azure_tenant_id' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'gcp_key' => :'String',
+        :'gcp_project_id' => :'String',
         :'hashi_json' => :'String',
         :'hashi_ns' => :'Array<String>',
         :'hashi_token' => :'String',
@@ -348,7 +357,8 @@ module Akeyless
         :'si_users_path_template' => :'String',
         :'target_location' => :'String',
         :'token' => :'String',
-        :'uid_token' => :'String'
+        :'uid_token' => :'String',
+        :'use_gw_cloud_identity' => :'Boolean'
       }
     end
 
@@ -525,6 +535,10 @@ module Akeyless
         self.gcp_key = attributes[:'gcp_key']
       end
 
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
+      end
+
       if attributes.key?(:'hashi_json')
         self.hashi_json = attributes[:'hashi_json']
       else
@@ -672,6 +686,10 @@ module Akeyless
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
+
+      if attributes.key?(:'use_gw_cloud_identity')
+        self.use_gw_cloud_identity = attributes[:'use_gw_cloud_identity']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -747,6 +765,7 @@ module Akeyless
           azure_tenant_id == o.azure_tenant_id &&
           expiration_event_in == o.expiration_event_in &&
           gcp_key == o.gcp_key &&
+          gcp_project_id == o.gcp_project_id &&
           hashi_json == o.hashi_json &&
           hashi_ns == o.hashi_ns &&
           hashi_token == o.hashi_token &&
@@ -777,7 +796,8 @@ module Akeyless
           si_users_path_template == o.si_users_path_template &&
           target_location == o.target_location &&
           token == o.token &&
-          uid_token == o.uid_token
+          uid_token == o.uid_token &&
+          use_gw_cloud_identity == o.use_gw_cloud_identity
     end
 
     # @see the `==` method
@@ -789,7 +809,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, expiration_event_in, gcp_key, hashi_json, hashi_ns, hashi_token, hashi_url, hosts, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, expiration_event_in, gcp_key, gcp_project_id, hashi_json, hashi_ns, hashi_token, hashi_url, hosts, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

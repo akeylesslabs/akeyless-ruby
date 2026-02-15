@@ -24513,6 +24513,326 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param policies_delete [PoliciesDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def policies_delete(policies_delete, opts = {})
+      data, _status_code, _headers = policies_delete_with_http_info(policies_delete, opts)
+      data
+    end
+
+    # @param policies_delete [PoliciesDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def policies_delete_with_http_info(policies_delete, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.policies_delete ...'
+      end
+      # verify the required parameter 'policies_delete' is set
+      if @api_client.config.client_side_validation && policies_delete.nil?
+        fail ArgumentError, "Missing the required parameter 'policies_delete' when calling V2Api.policies_delete"
+      end
+      # resource path
+      local_var_path = '/policy-delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(policies_delete)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.policies_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#policies_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param policies_get [PoliciesGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesGetOutput]
+    def policies_get(policies_get, opts = {})
+      data, _status_code, _headers = policies_get_with_http_info(policies_get, opts)
+      data
+    end
+
+    # @param policies_get [PoliciesGet] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesGetOutput, Integer, Hash)>] PoliciesGetOutput data, response status code and response headers
+    def policies_get_with_http_info(policies_get, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.policies_get ...'
+      end
+      # verify the required parameter 'policies_get' is set
+      if @api_client.config.client_side_validation && policies_get.nil?
+        fail ArgumentError, "Missing the required parameter 'policies_get' when calling V2Api.policies_get"
+      end
+      # resource path
+      local_var_path = '/policy-get'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(policies_get)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesGetOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.policies_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#policies_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param policies_list [PoliciesList] 
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesListOutput]
+    def policies_list(policies_list, opts = {})
+      data, _status_code, _headers = policies_list_with_http_info(policies_list, opts)
+      data
+    end
+
+    # @param policies_list [PoliciesList] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesListOutput, Integer, Hash)>] PoliciesListOutput data, response status code and response headers
+    def policies_list_with_http_info(policies_list, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.policies_list ...'
+      end
+      # verify the required parameter 'policies_list' is set
+      if @api_client.config.client_side_validation && policies_list.nil?
+        fail ArgumentError, "Missing the required parameter 'policies_list' when calling V2Api.policies_list"
+      end
+      # resource path
+      local_var_path = '/policy-list'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(policies_list)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesListOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.policies_list",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#policies_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param policy_create_keys [PolicyCreateKeys] 
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesCreateOutput]
+    def policy_create_keys(policy_create_keys, opts = {})
+      data, _status_code, _headers = policy_create_keys_with_http_info(policy_create_keys, opts)
+      data
+    end
+
+    # @param policy_create_keys [PolicyCreateKeys] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesCreateOutput, Integer, Hash)>] PoliciesCreateOutput data, response status code and response headers
+    def policy_create_keys_with_http_info(policy_create_keys, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.policy_create_keys ...'
+      end
+      # verify the required parameter 'policy_create_keys' is set
+      if @api_client.config.client_side_validation && policy_create_keys.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_create_keys' when calling V2Api.policy_create_keys"
+      end
+      # resource path
+      local_var_path = '/policy-create-keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(policy_create_keys)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.policy_create_keys",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#policy_create_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param policy_update_keys [PolicyUpdateKeys] 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def policy_update_keys(policy_update_keys, opts = {})
+      data, _status_code, _headers = policy_update_keys_with_http_info(policy_update_keys, opts)
+      data
+    end
+
+    # @param policy_update_keys [PolicyUpdateKeys] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def policy_update_keys_with_http_info(policy_update_keys, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.policy_update_keys ...'
+      end
+      # verify the required parameter 'policy_update_keys' is set
+      if @api_client.config.client_side_validation && policy_update_keys.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_update_keys' when calling V2Api.policy_update_keys"
+      end
+      # resource path
+      local_var_path = '/policy-update-keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(policy_update_keys)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.policy_update_keys",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#policy_update_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param provision_certificate [ProvisionCertificate] 
     # @param [Hash] opts the optional parameters
     # @return [ProvisionCertificateOutput]
@@ -26418,6 +26738,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param rotated_secret_create_splunk [RotatedSecretCreateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretCreateOutput]
+    def rotated_secret_create_splunk(rotated_secret_create_splunk, opts = {})
+      data, _status_code, _headers = rotated_secret_create_splunk_with_http_info(rotated_secret_create_splunk, opts)
+      data
+    end
+
+    # @param rotated_secret_create_splunk [RotatedSecretCreateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretCreateOutput, Integer, Hash)>] RotatedSecretCreateOutput data, response status code and response headers
+    def rotated_secret_create_splunk_with_http_info(rotated_secret_create_splunk, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_create_splunk ...'
+      end
+      # verify the required parameter 'rotated_secret_create_splunk' is set
+      if @api_client.config.client_side_validation && rotated_secret_create_splunk.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_create_splunk' when calling V2Api.rotated_secret_create_splunk"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-create-splunk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_create_splunk)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_create_splunk",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_create_splunk\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param rotated_secret_create_ssh [RotatedSecretCreateSsh] 
     # @param [Hash] opts the optional parameters
     # @return [RotatedSecretCreateOutput]
@@ -27950,6 +28334,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_snowflake\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_update_splunk [RotatedSecretUpdateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretUpdateOutput]
+    def rotated_secret_update_splunk(rotated_secret_update_splunk, opts = {})
+      data, _status_code, _headers = rotated_secret_update_splunk_with_http_info(rotated_secret_update_splunk, opts)
+      data
+    end
+
+    # @param rotated_secret_update_splunk [RotatedSecretUpdateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretUpdateOutput, Integer, Hash)>] RotatedSecretUpdateOutput data, response status code and response headers
+    def rotated_secret_update_splunk_with_http_info(rotated_secret_update_splunk, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_update_splunk ...'
+      end
+      # verify the required parameter 'rotated_secret_update_splunk' is set
+      if @api_client.config.client_side_validation && rotated_secret_update_splunk.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_update_splunk' when calling V2Api.rotated_secret_update_splunk"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-update-splunk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_update_splunk)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_update_splunk",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_splunk\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -30002,6 +30450,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_lets_encrypt [TargetCreateLetsEncrypt] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_lets_encrypt(target_create_lets_encrypt, opts = {})
+      data, _status_code, _headers = target_create_lets_encrypt_with_http_info(target_create_lets_encrypt, opts)
+      data
+    end
+
+    # @param target_create_lets_encrypt [TargetCreateLetsEncrypt] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_lets_encrypt_with_http_info(target_create_lets_encrypt, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_lets_encrypt ...'
+      end
+      # verify the required parameter 'target_create_lets_encrypt' is set
+      if @api_client.config.client_side_validation && target_create_lets_encrypt.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_lets_encrypt' when calling V2Api.target_create_lets_encrypt"
+      end
+      # resource path
+      local_var_path = '/target-create-lets-encrypt'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_lets_encrypt)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_lets_encrypt",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_lets_encrypt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_linked [TargetCreateLinked] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -30382,6 +30894,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_sectigo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_splunk [TargetCreateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_splunk(target_create_splunk, opts = {})
+      data, _status_code, _headers = target_create_splunk_with_http_info(target_create_splunk, opts)
+      data
+    end
+
+    # @param target_create_splunk [TargetCreateSplunk] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_splunk_with_http_info(target_create_splunk, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_splunk ...'
+      end
+      # verify the required parameter 'target_create_splunk' is set
+      if @api_client.config.client_side_validation && target_create_splunk.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_splunk' when calling V2Api.target_create_splunk"
+      end
+      # resource path
+      local_var_path = '/target-create-splunk'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_splunk)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_splunk",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_splunk\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -31982,6 +32558,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_ldap\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_lets_encrypt [TargetUpdateLetsEncrypt] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_lets_encrypt(target_update_lets_encrypt, opts = {})
+      data, _status_code, _headers = target_update_lets_encrypt_with_http_info(target_update_lets_encrypt, opts)
+      data
+    end
+
+    # @param target_update_lets_encrypt [TargetUpdateLetsEncrypt] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_lets_encrypt_with_http_info(target_update_lets_encrypt, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_lets_encrypt ...'
+      end
+      # verify the required parameter 'target_update_lets_encrypt' is set
+      if @api_client.config.client_side_validation && target_update_lets_encrypt.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_lets_encrypt' when calling V2Api.target_update_lets_encrypt"
+      end
+      # resource path
+      local_var_path = '/target-update-lets-encrypt'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_lets_encrypt)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_lets_encrypt",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_lets_encrypt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

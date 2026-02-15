@@ -9,6 +9,7 @@
 | **grace_rotation** | **Boolean** |  | [optional] |
 | **grace_rotation_hour** | **Integer** |  | [optional] |
 | **grace_rotation_interval** | **Integer** |  | [optional] |
+| **grace_rotation_timing** | **String** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **iis_apps_details** | [**Array&lt;WindowsService&gt;**](WindowsService.md) |  | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   grace_rotation: null,
   grace_rotation_hour: null,
   grace_rotation_interval: null,
+  grace_rotation_timing: null,
   gw_cluster_id: null,
   iis_apps_details: null,
   last_rotation_error: null,

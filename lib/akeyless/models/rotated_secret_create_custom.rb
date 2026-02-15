@@ -102,7 +102,7 @@ module Akeyless
     # Add tags attached to this object
     attr_accessor :tags
 
-    # Target name
+    # The target name to associate
     attr_accessor :target_name
 
     # Maximum allowed time in seconds for the custom rotator to return the results

@@ -13,9 +13,10 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **explicitly_set_sa** | **String** | If set, explicitly provide the storage account details [true/false] | [optional][default to &#39;false&#39;] |
-| **grace_rotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] | [optional] |
+| **grace_rotation** | **String** | Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false] | [optional] |
 | **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
 | **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
+| **grace_rotation_timing** | **String** | When to create the new version relative to the rotation date [after/before] | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -60,6 +61,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   grace_rotation: null,
   grace_rotation_hour: null,
   grace_rotation_interval: null,
+  grace_rotation_timing: null,
   item_custom_fields: null,
   json: null,
   keep_prev_version: null,

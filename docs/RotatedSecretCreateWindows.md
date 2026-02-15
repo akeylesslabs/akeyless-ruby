@@ -30,7 +30,7 @@
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target_name** | **String** | Target name |  |
+| **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 

@@ -81,7 +81,7 @@ module Akeyless
     # Add tags attached to this object
     attr_accessor :tags
 
-    # Target name
+    # The target name to associate
     attr_accessor :target_name
 
     # Authentication token (see `/auth` and `/configure`)

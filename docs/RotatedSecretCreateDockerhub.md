@@ -18,7 +18,7 @@
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
 | **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target_name** | **String** | Target name |  |
+| **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
