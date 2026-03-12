@@ -5,9 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **active_directory_target_id** | **Integer** |  | [optional] |
+| **ai_certificate_discovery** | **Boolean** |  | [optional] |
 | **auto_rotate** | **Boolean** |  | [optional] |
 | **auto_rotate_interval_in_days** | **Integer** |  | [optional] |
 | **auto_rotate_rotation_hour** | **Integer** |  | [optional] |
+| **certificates_expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
+| **certificates_path_template** | **String** |  | [optional] |
 | **computer_base_dn** | **String** |  | [optional] |
 | **discover_iis_apps** | **Boolean** |  | [optional] |
 | **discover_local_users** | **Boolean** | Deprecated | [optional] |
@@ -35,9 +38,12 @@ require 'akeyless'
 
 instance = Akeyless::ActiveDirectoryPayload.new(
   active_directory_target_id: null,
+  ai_certificate_discovery: null,
   auto_rotate: null,
   auto_rotate_interval_in_days: null,
   auto_rotate_rotation_hour: null,
+  certificates_expiration_events: null,
+  certificates_path_template: null,
   computer_base_dn: null,
   discover_iis_apps: null,
   discover_local_users: null,

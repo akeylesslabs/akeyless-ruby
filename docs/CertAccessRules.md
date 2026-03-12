@@ -12,6 +12,7 @@
 | **bound_organizational_units** | **Array&lt;String&gt;** | A list of Organizational Units names. At least one must exist in the OU field. | [optional] |
 | **bound_uri_sans** | **Array&lt;String&gt;** | A list of URIs. At least one must exist in the SANs. Supports globbing. | [optional] |
 | **certificate** | **String** | Base64 encdoed PEM certificate | [optional] |
+| **require_crl_dp** | **Boolean** | RequireCrlDp indicates whether CRL distribution points are required on the leaf client certificate, and whether CRL validation must be enforced during authentication. | [optional] |
 | **revoked_cert_ids** | **Array&lt;String&gt;** | A list of revoked cert ids | [optional] |
 | **unique_identifier** | **String** | A unique identifier to distinguish different users | [optional] |
 
@@ -29,6 +30,7 @@ instance = Akeyless::CertAccessRules.new(
   bound_organizational_units: null,
   bound_uri_sans: null,
   certificate: null,
+  require_crl_dp: null,
   revoked_cert_ids: null,
   unique_identifier: null
 )

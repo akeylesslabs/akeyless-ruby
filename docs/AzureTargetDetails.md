@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **azure_client_id** | **String** |  | [optional] |
 | **azure_client_secret** | **String** |  | [optional] |
+| **azure_cloud** | **String** |  | [optional] |
 | **azure_resource_group_name** | **String** |  | [optional] |
 | **azure_resource_name** | **String** |  | [optional] |
 | **azure_subscription_id** | **String** |  | [optional] |
@@ -24,6 +25,7 @@ require 'akeyless'
 instance = Akeyless::AzureTargetDetails.new(
   azure_client_id: null,
   azure_client_secret: null,
+  azure_cloud: null,
   azure_resource_group_name: null,
   azure_resource_name: null,
   azure_subscription_id: null,

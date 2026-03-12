@@ -37938,6 +37938,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param validate_certificate_challenge [ValidateCertificateChallenge] 
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateCertificateChallengeOutput]
+    def validate_certificate_challenge(validate_certificate_challenge, opts = {})
+      data, _status_code, _headers = validate_certificate_challenge_with_http_info(validate_certificate_challenge, opts)
+      data
+    end
+
+    # @param validate_certificate_challenge [ValidateCertificateChallenge] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateCertificateChallengeOutput, Integer, Hash)>] ValidateCertificateChallengeOutput data, response status code and response headers
+    def validate_certificate_challenge_with_http_info(validate_certificate_challenge, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.validate_certificate_challenge ...'
+      end
+      # verify the required parameter 'validate_certificate_challenge' is set
+      if @api_client.config.client_side_validation && validate_certificate_challenge.nil?
+        fail ArgumentError, "Missing the required parameter 'validate_certificate_challenge' when calling V2Api.validate_certificate_challenge"
+      end
+      # resource path
+      local_var_path = '/validate-certificate-challenge'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(validate_certificate_challenge)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ValidateCertificateChallengeOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.validate_certificate_challenge",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#validate_certificate_challenge\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param validate_token [ValidateToken] 
     # @param [Hash] opts the optional parameters
     # @return [ValidateTokenOutput]
@@ -37998,6 +38062,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#validate_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param vault_address [VaultAddress] 
+    # @param [Hash] opts the optional parameters
+    # @return [VaultAddressOutput]
+    def vault_address(vault_address, opts = {})
+      data, _status_code, _headers = vault_address_with_http_info(vault_address, opts)
+      data
+    end
+
+    # @param vault_address [VaultAddress] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(VaultAddressOutput, Integer, Hash)>] VaultAddressOutput data, response status code and response headers
+    def vault_address_with_http_info(vault_address, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.vault_address ...'
+      end
+      # verify the required parameter 'vault_address' is set
+      if @api_client.config.client_side_validation && vault_address.nil?
+        fail ArgumentError, "Missing the required parameter 'vault_address' when calling V2Api.vault_address"
+      end
+      # resource path
+      local_var_path = '/vault-address'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(vault_address)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'VaultAddressOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.vault_address",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#vault_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

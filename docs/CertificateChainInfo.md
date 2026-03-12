@@ -15,6 +15,7 @@
 | **certificate_pem** | **String** |  | [optional] |
 | **certificate_status** | **String** |  | [optional] |
 | **common_name** | **String** |  | [optional] |
+| **csr_pem** | **String** | CSRPEM contains the PEM-encoded CSR for pending certificates (HTTP-01 challenge) | [optional] |
 | **error_message** | **String** |  | [optional] |
 | **expiration_date** | **Time** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
@@ -40,6 +41,7 @@ instance = Akeyless::CertificateChainInfo.new(
   certificate_pem: null,
   certificate_status: null,
   common_name: null,
+  csr_pem: null,
   error_message: null,
   expiration_date: null,
   expiration_events: null,

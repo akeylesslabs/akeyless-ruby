@@ -39,6 +39,9 @@ module Akeyless
     # Base64 encdoed PEM certificate
     attr_accessor :certificate
 
+    # RequireCrlDp indicates whether CRL distribution points are required on the leaf client certificate, and whether CRL validation must be enforced during authentication.
+    attr_accessor :require_crl_dp
+
     # A list of revoked cert ids
     attr_accessor :revoked_cert_ids
 
@@ -56,6 +59,7 @@ module Akeyless
         :'bound_organizational_units' => :'bound_organizational_units',
         :'bound_uri_sans' => :'bound_uri_sans',
         :'certificate' => :'certificate',
+        :'require_crl_dp' => :'require_crl_dp',
         :'revoked_cert_ids' => :'revoked_cert_ids',
         :'unique_identifier' => :'unique_identifier'
       }
@@ -77,6 +81,7 @@ module Akeyless
         :'bound_organizational_units' => :'Array<String>',
         :'bound_uri_sans' => :'Array<String>',
         :'certificate' => :'String',
+        :'require_crl_dp' => :'Boolean',
         :'revoked_cert_ids' => :'Array<String>',
         :'unique_identifier' => :'String'
       }
@@ -149,6 +154,10 @@ module Akeyless
         self.certificate = attributes[:'certificate']
       end
 
+      if attributes.key?(:'require_crl_dp')
+        self.require_crl_dp = attributes[:'require_crl_dp']
+      end
+
       if attributes.key?(:'revoked_cert_ids')
         if (value = attributes[:'revoked_cert_ids']).is_a?(Array)
           self.revoked_cert_ids = value
@@ -188,6 +197,7 @@ module Akeyless
           bound_organizational_units == o.bound_organizational_units &&
           bound_uri_sans == o.bound_uri_sans &&
           certificate == o.certificate &&
+          require_crl_dp == o.require_crl_dp &&
           revoked_cert_ids == o.revoked_cert_ids &&
           unique_identifier == o.unique_identifier
     end
@@ -201,7 +211,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_cors, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_organizational_units, bound_uri_sans, certificate, revoked_cert_ids, unique_identifier].hash
+      [allowed_cors, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_organizational_units, bound_uri_sans, certificate, require_crl_dp, revoked_cert_ids, unique_identifier].hash
     end
 
     # Builds the object from hash

@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class TargetUpdateAzure
+    # Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+    attr_accessor :azure_cloud
+
     # Azure client/application id
     attr_accessor :client_id
 
@@ -69,6 +72,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'azure_cloud' => :'azure-cloud',
         :'client_id' => :'client-id',
         :'client_secret' => :'client-secret',
         :'connection_type' => :'connection-type',
@@ -97,6 +101,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'azure_cloud' => :'String',
         :'client_id' => :'String',
         :'client_secret' => :'String',
         :'connection_type' => :'String',
@@ -137,6 +142,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'azure_cloud')
+        self.azure_cloud = attributes[:'azure_cloud']
+      else
+        self.azure_cloud = 'AzureCloud'
+      end
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
@@ -238,6 +249,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          azure_cloud == o.azure_cloud &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
           connection_type == o.connection_type &&
@@ -266,7 +278,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, client_secret, connection_type, description, json, keep_prev_version, key, max_versions, name, new_name, resource_group_name, resource_name, subscription_id, tenant_id, token, uid_token, use_gw_cloud_identity].hash
+      [azure_cloud, client_id, client_secret, connection_type, description, json, keep_prev_version, key, max_versions, name, new_name, resource_group_name, resource_name, subscription_id, tenant_id, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

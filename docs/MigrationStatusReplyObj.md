@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **certificates** | [**MigrationItems**](MigrationItems.md) |  | [optional] |
 | **computers** | **Integer** |  | [optional] |
 | **duration_time** | **String** |  | [optional] |
 | **error** | **String** |  | [optional] |
@@ -26,6 +27,7 @@
 require 'akeyless'
 
 instance = Akeyless::MigrationStatusReplyObj.new(
+  certificates: null,
   computers: null,
   duration_time: null,
   error: null,

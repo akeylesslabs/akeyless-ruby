@@ -37,6 +37,9 @@ module Akeyless
 
     attr_accessor :common_name
 
+    # CSRPEM contains the PEM-encoded CSR for pending certificates (HTTP-01 challenge)
+    attr_accessor :csr_pem
+
     attr_accessor :error_message
 
     attr_accessor :expiration_date
@@ -65,6 +68,7 @@ module Akeyless
         :'certificate_pem' => :'certificate_pem',
         :'certificate_status' => :'certificate_status',
         :'common_name' => :'common_name',
+        :'csr_pem' => :'csr_pem',
         :'error_message' => :'error_message',
         :'expiration_date' => :'expiration_date',
         :'expiration_events' => :'expiration_events',
@@ -94,6 +98,7 @@ module Akeyless
         :'certificate_pem' => :'String',
         :'certificate_status' => :'String',
         :'common_name' => :'String',
+        :'csr_pem' => :'String',
         :'error_message' => :'String',
         :'expiration_date' => :'Time',
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
@@ -171,6 +176,10 @@ module Akeyless
         self.common_name = attributes[:'common_name']
       end
 
+      if attributes.key?(:'csr_pem')
+        self.csr_pem = attributes[:'csr_pem']
+      end
+
       if attributes.key?(:'error_message')
         self.error_message = attributes[:'error_message']
       end
@@ -233,6 +242,7 @@ module Akeyless
           certificate_pem == o.certificate_pem &&
           certificate_status == o.certificate_status &&
           common_name == o.common_name &&
+          csr_pem == o.csr_pem &&
           error_message == o.error_message &&
           expiration_date == o.expiration_date &&
           expiration_events == o.expiration_events &&
@@ -251,7 +261,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, not_before, renew_before_expiration_in_days].hash
+      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, csr_pem, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, not_before, renew_before_expiration_in_days].hash
     end
 
     # Builds the object from hash

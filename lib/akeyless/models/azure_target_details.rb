@@ -19,6 +19,8 @@ module Akeyless
 
     attr_accessor :azure_client_secret
 
+    attr_accessor :azure_cloud
+
     attr_accessor :azure_resource_group_name
 
     attr_accessor :azure_resource_name
@@ -42,6 +44,7 @@ module Akeyless
       {
         :'azure_client_id' => :'azure_client_id',
         :'azure_client_secret' => :'azure_client_secret',
+        :'azure_cloud' => :'azure_cloud',
         :'azure_resource_group_name' => :'azure_resource_group_name',
         :'azure_resource_name' => :'azure_resource_name',
         :'azure_subscription_id' => :'azure_subscription_id',
@@ -64,6 +67,7 @@ module Akeyless
       {
         :'azure_client_id' => :'String',
         :'azure_client_secret' => :'String',
+        :'azure_cloud' => :'String',
         :'azure_resource_group_name' => :'String',
         :'azure_resource_name' => :'String',
         :'azure_subscription_id' => :'String',
@@ -103,6 +107,10 @@ module Akeyless
 
       if attributes.key?(:'azure_client_secret')
         self.azure_client_secret = attributes[:'azure_client_secret']
+      end
+
+      if attributes.key?(:'azure_cloud')
+        self.azure_cloud = attributes[:'azure_cloud']
       end
 
       if attributes.key?(:'azure_resource_group_name')
@@ -164,6 +172,7 @@ module Akeyless
       self.class == o.class &&
           azure_client_id == o.azure_client_id &&
           azure_client_secret == o.azure_client_secret &&
+          azure_cloud == o.azure_cloud &&
           azure_resource_group_name == o.azure_resource_group_name &&
           azure_resource_name == o.azure_resource_name &&
           azure_subscription_id == o.azure_subscription_id &&
@@ -184,7 +193,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_client_id, azure_client_secret, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_username, connection_type, expiration_date, grace_rotated_secret_key, use_gw_cloud_identity].hash
+      [azure_client_id, azure_client_secret, azure_cloud, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_username, connection_type, expiration_date, grace_rotated_secret_key, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

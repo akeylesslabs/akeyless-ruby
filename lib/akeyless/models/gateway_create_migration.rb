@@ -21,6 +21,12 @@ module Akeyless
     # Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration)
     attr_accessor :ad_auto_rotate
 
+    # How many days before the expiration of discovered certificates would you like to be notified (Relevant only for Active Directory migration with certificate discovery enabled)
+    attr_accessor :ad_cert_expiration_event_in
+
+    # Path location template for migrating certificates e.g.: /Certificates/{{COMMON_NAME}} (Relevant only for Active Directory migration with certificate discovery enabled)
+    attr_accessor :ad_certificates_path_template
+
     # Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
     attr_accessor :ad_computer_base_dn
 
@@ -87,6 +93,9 @@ module Akeyless
     # Enable/Disable discovery of local users from each domain server and migrate them as SSH/Windows Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration) Deprecated: use AdDiscoverTypes
     attr_accessor :ad_discover_local_users
 
+    # Enable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway)
+    attr_accessor :ai_certificate_discovery
+
     # AWS Secret Access Key (relevant only for AWS migration)
     attr_accessor :aws_key
 
@@ -107,6 +116,18 @@ module Akeyless
 
     # Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)
     attr_accessor :azure_tenant_id
+
+    # Conjur account name set on your Conjur server (relevant only for Conjur migration).
+    attr_accessor :conjur_account
+
+    # Conjur API Key for the specified user (relevant only for Conjur migration).
+    attr_accessor :conjur_api_key
+
+    # Conjur server base URL (relevant only for Conjur migration). If conjur-url is HTTPS and Conjur uses a private CA/self-signed certificate, make the CA bundle available on the Gateway and set CONJUR_SSL_CERT_PATH to its path.
+    attr_accessor :conjur_url
+
+    # Conjur username used to authenticate (relevant only for Conjur migration).
+    attr_accessor :conjur_username
 
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
@@ -201,7 +222,7 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
-    # Migration type (hashi/aws/gcp/k8s/azure_kv/active_directory/server_inventory/certificate)
+    # Migration type (hashi/aws/gcp/k8s/azure_kv/conjur/active_directory/server_inventory/certificate)
     attr_accessor :type
 
     # The universal identity token, Required only for universal_identity authentication
@@ -215,6 +236,8 @@ module Akeyless
       {
         :'service_account_key_decoded' => :'ServiceAccountKeyDecoded',
         :'ad_auto_rotate' => :'ad-auto-rotate',
+        :'ad_cert_expiration_event_in' => :'ad-cert-expiration-event-in',
+        :'ad_certificates_path_template' => :'ad-certificates-path-template',
         :'ad_computer_base_dn' => :'ad-computer-base-dn',
         :'ad_discover_iis_app' => :'ad-discover-iis-app',
         :'ad_discover_services' => :'ad-discover-services',
@@ -237,6 +260,7 @@ module Akeyless
         :'ad_winrm_over_http' => :'ad-winrm-over-http',
         :'ad_winrm_port' => :'ad-winrm-port',
         :'ad_discover_local_users' => :'ad_discover_local_users',
+        :'ai_certificate_discovery' => :'ai-certificate-discovery',
         :'aws_key' => :'aws-key',
         :'aws_key_id' => :'aws-key-id',
         :'aws_region' => :'aws-region',
@@ -244,6 +268,10 @@ module Akeyless
         :'azure_kv_name' => :'azure-kv-name',
         :'azure_secret' => :'azure-secret',
         :'azure_tenant_id' => :'azure-tenant-id',
+        :'conjur_account' => :'conjur-account',
+        :'conjur_api_key' => :'conjur-api-key',
+        :'conjur_url' => :'conjur-url',
+        :'conjur_username' => :'conjur-username',
         :'expiration_event_in' => :'expiration-event-in',
         :'gcp_key' => :'gcp-key',
         :'gcp_project_id' => :'gcp-project-id',
@@ -291,6 +319,8 @@ module Akeyless
       {
         :'service_account_key_decoded' => :'String',
         :'ad_auto_rotate' => :'String',
+        :'ad_cert_expiration_event_in' => :'Array<String>',
+        :'ad_certificates_path_template' => :'String',
         :'ad_computer_base_dn' => :'String',
         :'ad_discover_iis_app' => :'String',
         :'ad_discover_services' => :'String',
@@ -313,6 +343,7 @@ module Akeyless
         :'ad_winrm_over_http' => :'String',
         :'ad_winrm_port' => :'String',
         :'ad_discover_local_users' => :'String',
+        :'ai_certificate_discovery' => :'String',
         :'aws_key' => :'String',
         :'aws_key_id' => :'String',
         :'aws_region' => :'String',
@@ -320,6 +351,10 @@ module Akeyless
         :'azure_kv_name' => :'String',
         :'azure_secret' => :'String',
         :'azure_tenant_id' => :'String',
+        :'conjur_account' => :'String',
+        :'conjur_api_key' => :'String',
+        :'conjur_url' => :'String',
+        :'conjur_username' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'gcp_key' => :'String',
         :'gcp_project_id' => :'String',
@@ -384,6 +419,16 @@ module Akeyless
 
       if attributes.key?(:'ad_auto_rotate')
         self.ad_auto_rotate = attributes[:'ad_auto_rotate']
+      end
+
+      if attributes.key?(:'ad_cert_expiration_event_in')
+        if (value = attributes[:'ad_cert_expiration_event_in']).is_a?(Array)
+          self.ad_cert_expiration_event_in = value
+        end
+      end
+
+      if attributes.key?(:'ad_certificates_path_template')
+        self.ad_certificates_path_template = attributes[:'ad_certificates_path_template']
       end
 
       if attributes.key?(:'ad_computer_base_dn')
@@ -490,6 +535,10 @@ module Akeyless
         self.ad_discover_local_users = attributes[:'ad_discover_local_users']
       end
 
+      if attributes.key?(:'ai_certificate_discovery')
+        self.ai_certificate_discovery = attributes[:'ai_certificate_discovery']
+      end
+
       if attributes.key?(:'aws_key')
         self.aws_key = attributes[:'aws_key']
       end
@@ -518,6 +567,22 @@ module Akeyless
 
       if attributes.key?(:'azure_tenant_id')
         self.azure_tenant_id = attributes[:'azure_tenant_id']
+      end
+
+      if attributes.key?(:'conjur_account')
+        self.conjur_account = attributes[:'conjur_account']
+      end
+
+      if attributes.key?(:'conjur_api_key')
+        self.conjur_api_key = attributes[:'conjur_api_key']
+      end
+
+      if attributes.key?(:'conjur_url')
+        self.conjur_url = attributes[:'conjur_url']
+      end
+
+      if attributes.key?(:'conjur_username')
+        self.conjur_username = attributes[:'conjur_username']
       end
 
       if attributes.key?(:'expiration_event_in')
@@ -732,6 +797,8 @@ module Akeyless
       self.class == o.class &&
           service_account_key_decoded == o.service_account_key_decoded &&
           ad_auto_rotate == o.ad_auto_rotate &&
+          ad_cert_expiration_event_in == o.ad_cert_expiration_event_in &&
+          ad_certificates_path_template == o.ad_certificates_path_template &&
           ad_computer_base_dn == o.ad_computer_base_dn &&
           ad_discover_iis_app == o.ad_discover_iis_app &&
           ad_discover_services == o.ad_discover_services &&
@@ -754,6 +821,7 @@ module Akeyless
           ad_winrm_over_http == o.ad_winrm_over_http &&
           ad_winrm_port == o.ad_winrm_port &&
           ad_discover_local_users == o.ad_discover_local_users &&
+          ai_certificate_discovery == o.ai_certificate_discovery &&
           aws_key == o.aws_key &&
           aws_key_id == o.aws_key_id &&
           aws_region == o.aws_region &&
@@ -761,6 +829,10 @@ module Akeyless
           azure_kv_name == o.azure_kv_name &&
           azure_secret == o.azure_secret &&
           azure_tenant_id == o.azure_tenant_id &&
+          conjur_account == o.conjur_account &&
+          conjur_api_key == o.conjur_api_key &&
+          conjur_url == o.conjur_url &&
+          conjur_username == o.conjur_username &&
           expiration_event_in == o.expiration_event_in &&
           gcp_key == o.gcp_key &&
           gcp_project_id == o.gcp_project_id &&
@@ -806,7 +878,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_account_key_decoded, ad_auto_rotate, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, expiration_event_in, gcp_key, gcp_project_id, hashi_json, hashi_ns, hashi_token, hashi_url, hosts, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, type, uid_token, use_gw_cloud_identity].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_cert_expiration_event_in, ad_certificates_path_template, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, ai_certificate_discovery, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, conjur_account, conjur_api_key, conjur_url, conjur_username, expiration_event_in, gcp_key, gcp_project_id, hashi_json, hashi_ns, hashi_token, hashi_url, hosts, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, type, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

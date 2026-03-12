@@ -21,6 +21,8 @@ module Akeyless
 
     attr_accessor :data
 
+    attr_accessor :http_challenge_info
+
     attr_accessor :parent_cert
 
     attr_accessor :path
@@ -33,6 +35,7 @@ module Akeyless
         :'cert_display_id' => :'cert_display_id',
         :'cert_item_id' => :'cert_item_id',
         :'data' => :'data',
+        :'http_challenge_info' => :'http_challenge_info',
         :'parent_cert' => :'parent_cert',
         :'path' => :'path',
         :'reading_token' => :'reading_token'
@@ -50,6 +53,7 @@ module Akeyless
         :'cert_display_id' => :'String',
         :'cert_item_id' => :'Integer',
         :'data' => :'String',
+        :'http_challenge_info' => :'HTTPChallengeInfo',
         :'parent_cert' => :'String',
         :'path' => :'String',
         :'reading_token' => :'String'
@@ -89,6 +93,10 @@ module Akeyless
         self.data = attributes[:'data']
       end
 
+      if attributes.key?(:'http_challenge_info')
+        self.http_challenge_info = attributes[:'http_challenge_info']
+      end
+
       if attributes.key?(:'parent_cert')
         self.parent_cert = attributes[:'parent_cert']
       end
@@ -125,6 +133,7 @@ module Akeyless
           cert_display_id == o.cert_display_id &&
           cert_item_id == o.cert_item_id &&
           data == o.data &&
+          http_challenge_info == o.http_challenge_info &&
           parent_cert == o.parent_cert &&
           path == o.path &&
           reading_token == o.reading_token
@@ -139,7 +148,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_display_id, cert_item_id, data, parent_cert, path, reading_token].hash
+      [cert_display_id, cert_item_id, data, http_challenge_info, parent_cert, path, reading_token].hash
     end
 
     # Builds the object from hash

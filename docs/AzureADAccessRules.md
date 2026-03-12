@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **ad_endpoint** | **String** | The audience in the JWT. | [optional] |
+| **azure_cloud** | **String** | Azure cloud environment [AzureCloud/AzureUSGovernment/AzureChinaCloud]. For create/update, cloud is inferred from jwks_uri. | [optional] |
 | **bound_group_ids** | **Array&lt;String&gt;** | The list of group ids that login is restricted to. | [optional] |
 | **bound_resource_groups** | **Array&lt;String&gt;** | The list of resource groups that login is restricted to. | [optional] |
 | **bound_resource_ids** | **Array&lt;String&gt;** | The list of full resource ids that the login is restricted to. | [optional] |
@@ -25,6 +26,7 @@ require 'akeyless'
 
 instance = Akeyless::AzureADAccessRules.new(
   ad_endpoint: null,
+  azure_cloud: null,
   bound_group_ids: null,
   bound_resource_groups: null,
   bound_resource_ids: null,

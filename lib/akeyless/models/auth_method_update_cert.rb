@@ -82,6 +82,9 @@ module Akeyless
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
     attr_accessor :product_type
 
+    # Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication.
+    attr_accessor :require_crl_dp
+
     # A list of revoked cert ids
     attr_accessor :revoked_cert_ids
 
@@ -119,6 +122,7 @@ module Akeyless
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'product_type' => :'product-type',
+        :'require_crl_dp' => :'require-crl-dp',
         :'revoked_cert_ids' => :'revoked-cert-ids',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -156,6 +160,7 @@ module Akeyless
         :'name' => :'String',
         :'new_name' => :'String',
         :'product_type' => :'Array<String>',
+        :'require_crl_dp' => :'Boolean',
         :'revoked_cert_ids' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -304,6 +309,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'require_crl_dp')
+        self.require_crl_dp = attributes[:'require_crl_dp']
+      end
+
       if attributes.key?(:'revoked_cert_ids')
         if (value = attributes[:'revoked_cert_ids']).is_a?(Array)
           self.revoked_cert_ids = value
@@ -377,6 +386,7 @@ module Akeyless
           name == o.name &&
           new_name == o.new_name &&
           product_type == o.product_type &&
+          require_crl_dp == o.require_crl_dp &&
           revoked_cert_ids == o.revoked_cert_ids &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -392,7 +402,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, product_type, revoked_cert_ids, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_client_type, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, product_type, require_crl_dp, revoked_cert_ids, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

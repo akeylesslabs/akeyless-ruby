@@ -33,6 +33,9 @@ module Akeyless
     # Password (relevant only for access-type=password)
     attr_accessor :admin_password
 
+    # Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+    attr_accessor :azure_cloud
+
     # Certificate challenge encoded in base64. (relevant only for access-type=cert)
     attr_accessor :cert_challenge
 
@@ -115,6 +118,7 @@ module Akeyless
         :'account_id' => :'account-id',
         :'admin_email' => :'admin-email',
         :'admin_password' => :'admin-password',
+        :'azure_cloud' => :'azure-cloud',
         :'cert_challenge' => :'cert-challenge',
         :'cert_data' => :'cert-data',
         :'cloud_id' => :'cloud-id',
@@ -157,6 +161,7 @@ module Akeyless
         :'account_id' => :'String',
         :'admin_email' => :'String',
         :'admin_password' => :'String',
+        :'azure_cloud' => :'String',
         :'cert_challenge' => :'String',
         :'cert_data' => :'String',
         :'cloud_id' => :'String',
@@ -230,6 +235,12 @@ module Akeyless
 
       if attributes.key?(:'admin_password')
         self.admin_password = attributes[:'admin_password']
+      end
+
+      if attributes.key?(:'azure_cloud')
+        self.azure_cloud = attributes[:'azure_cloud']
+      else
+        self.azure_cloud = 'AzureCloud'
       end
 
       if attributes.key?(:'cert_challenge')
@@ -367,6 +378,7 @@ module Akeyless
           account_id == o.account_id &&
           admin_email == o.admin_email &&
           admin_password == o.admin_password &&
+          azure_cloud == o.azure_cloud &&
           cert_challenge == o.cert_challenge &&
           cert_data == o.cert_data &&
           cloud_id == o.cloud_id &&
@@ -403,7 +415,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, access_type, account_id, admin_email, admin_password, cert_challenge, cert_data, cloud_id, debug, disable_pafxfast, gateway_spn, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, ldap_password, oci_auth_type, oci_group_ocid, otp, signed_cert_challenge, uid_token, use_remote_browser, username].hash
+      [access_id, access_key, access_type, account_id, admin_email, admin_password, azure_cloud, cert_challenge, cert_data, cloud_id, debug, disable_pafxfast, gateway_spn, gateway_url, gcp_audience, json, jwt, k8s_auth_config_name, k8s_service_account_token, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, ldap_password, oci_auth_type, oci_group_ocid, otp, signed_cert_challenge, uid_token, use_remote_browser, username].hash
     end
 
     # Builds the object from hash

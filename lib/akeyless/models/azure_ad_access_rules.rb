@@ -19,6 +19,9 @@ module Akeyless
     # The audience in the JWT.
     attr_accessor :ad_endpoint
 
+    # Azure cloud environment [AzureCloud/AzureUSGovernment/AzureChinaCloud]. For create/update, cloud is inferred from jwks_uri.
+    attr_accessor :azure_cloud
+
     # The list of group ids that login is restricted to.
     attr_accessor :bound_group_ids
 
@@ -59,6 +62,7 @@ module Akeyless
     def self.attribute_map
       {
         :'ad_endpoint' => :'ad_endpoint',
+        :'azure_cloud' => :'azure_cloud',
         :'bound_group_ids' => :'bound_group_ids',
         :'bound_resource_groups' => :'bound_resource_groups',
         :'bound_resource_ids' => :'bound_resource_ids',
@@ -83,6 +87,7 @@ module Akeyless
     def self.openapi_types
       {
         :'ad_endpoint' => :'String',
+        :'azure_cloud' => :'String',
         :'bound_group_ids' => :'Array<String>',
         :'bound_resource_groups' => :'Array<String>',
         :'bound_resource_ids' => :'Array<String>',
@@ -121,6 +126,10 @@ module Akeyless
 
       if attributes.key?(:'ad_endpoint')
         self.ad_endpoint = attributes[:'ad_endpoint']
+      end
+
+      if attributes.key?(:'azure_cloud')
+        self.azure_cloud = attributes[:'azure_cloud']
       end
 
       if attributes.key?(:'bound_group_ids')
@@ -209,6 +218,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           ad_endpoint == o.ad_endpoint &&
+          azure_cloud == o.azure_cloud &&
           bound_group_ids == o.bound_group_ids &&
           bound_resource_groups == o.bound_resource_groups &&
           bound_resource_ids == o.bound_resource_ids &&
@@ -232,7 +242,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ad_endpoint, bound_group_ids, bound_resource_groups, bound_resource_ids, bound_resource_names, bound_resource_providers, bound_resource_types, bound_service_principal_ids, bound_subscription_ids, bound_tenant_id, issuer, jwks_uri, unique_identifier].hash
+      [ad_endpoint, azure_cloud, bound_group_ids, bound_resource_groups, bound_resource_ids, bound_resource_names, bound_resource_providers, bound_resource_types, bound_service_principal_ids, bound_subscription_ids, bound_tenant_id, issuer, jwks_uri, unique_identifier].hash
     end
 
     # Builds the object from hash

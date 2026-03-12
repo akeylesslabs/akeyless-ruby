@@ -36,6 +36,7 @@
 | **azure_app_object_id** | **String** |  | [optional] |
 | **azure_client_id** | **String** |  | [optional] |
 | **azure_client_secret** | **String** |  | [optional] |
+| **azure_cloud** | **String** |  | [optional] |
 | **azure_fixed_user_name_sub_claim_key** | **String** |  | [optional] |
 | **azure_fixed_user_only** | **Boolean** |  | [optional] |
 | **azure_resource_group_name** | **String** |  | [optional] |
@@ -307,6 +308,7 @@ instance = Akeyless::DSProducerDetails.new(
   azure_app_object_id: null,
   azure_client_id: null,
   azure_client_secret: null,
+  azure_cloud: null,
   azure_fixed_user_name_sub_claim_key: null,
   azure_fixed_user_only: null,
   azure_resource_group_name: null,

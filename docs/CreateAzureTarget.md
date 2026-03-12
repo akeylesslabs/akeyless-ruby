@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **azure_cloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. | [optional][default to &#39;AzureCloud&#39;] |
 | **client_id** | **String** | Azure client/application id | [optional] |
 | **client_secret** | **String** | Azure client secret | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
@@ -27,6 +28,7 @@
 require 'akeyless'
 
 instance = Akeyless::CreateAzureTarget.new(
+  azure_cloud: null,
   client_id: null,
   client_secret: null,
   comment: null,

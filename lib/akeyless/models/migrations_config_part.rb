@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :certificate_migrations
 
+    attr_accessor :conjur_migrations
+
     attr_accessor :gcp_secrets_migrations
 
     attr_accessor :hashi_migrations
@@ -42,6 +44,7 @@ module Akeyless
         :'aws_secrets_migrations' => :'aws_secrets_migrations',
         :'azure_kv_migrations' => :'azure_kv_migrations',
         :'certificate_migrations' => :'certificate_migrations',
+        :'conjur_migrations' => :'conjur_migrations',
         :'gcp_secrets_migrations' => :'gcp_secrets_migrations',
         :'hashi_migrations' => :'hashi_migrations',
         :'k8s_migrations' => :'k8s_migrations',
@@ -63,6 +66,7 @@ module Akeyless
         :'aws_secrets_migrations' => :'Array<AWSSecretsMigration>',
         :'azure_kv_migrations' => :'Array<AzureKeyVaultMigration>',
         :'certificate_migrations' => :'Array<CertificateMigration>',
+        :'conjur_migrations' => :'Array<ConjurMigration>',
         :'gcp_secrets_migrations' => :'Array<GCPSecretsMigration>',
         :'hashi_migrations' => :'Array<HashiMigration>',
         :'k8s_migrations' => :'Array<K8SMigration>',
@@ -114,6 +118,12 @@ module Akeyless
       if attributes.key?(:'certificate_migrations')
         if (value = attributes[:'certificate_migrations']).is_a?(Array)
           self.certificate_migrations = value
+        end
+      end
+
+      if attributes.key?(:'conjur_migrations')
+        if (value = attributes[:'conjur_migrations']).is_a?(Array)
+          self.conjur_migrations = value
         end
       end
 
@@ -178,6 +188,7 @@ module Akeyless
           aws_secrets_migrations == o.aws_secrets_migrations &&
           azure_kv_migrations == o.azure_kv_migrations &&
           certificate_migrations == o.certificate_migrations &&
+          conjur_migrations == o.conjur_migrations &&
           gcp_secrets_migrations == o.gcp_secrets_migrations &&
           hashi_migrations == o.hashi_migrations &&
           k8s_migrations == o.k8s_migrations &&
@@ -195,7 +206,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_migrations, aws_secrets_migrations, azure_kv_migrations, certificate_migrations, gcp_secrets_migrations, hashi_migrations, k8s_migrations, mock_migrations, one_password_migrations, server_inventory_migrations].hash
+      [active_directory_migrations, aws_secrets_migrations, azure_kv_migrations, certificate_migrations, conjur_migrations, gcp_secrets_migrations, hashi_migrations, k8s_migrations, mock_migrations, one_password_migrations, server_inventory_migrations].hash
     end
 
     # Builds the object from hash

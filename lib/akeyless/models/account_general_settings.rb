@@ -38,6 +38,8 @@ module Akeyless
 
     attr_accessor :data_protection_section
 
+    attr_accessor :default_auth_method
+
     attr_accessor :default_home_page
 
     attr_accessor :dynamic_secret_max_ttl
@@ -81,6 +83,7 @@ module Akeyless
         :'auth_usage_event' => :'auth_usage_event',
         :'certificate_expiration_events' => :'certificate_expiration_events',
         :'data_protection_section' => :'data_protection_section',
+        :'default_auth_method' => :'default_auth_method',
         :'default_home_page' => :'default_home_page',
         :'dynamic_secret_max_ttl' => :'dynamic_secret_max_ttl',
         :'enable_request_for_access' => :'enable_request_for_access',
@@ -116,6 +119,7 @@ module Akeyless
         :'auth_usage_event' => :'UsageEventSetting',
         :'certificate_expiration_events' => :'CertificateExpirationEventsSettings',
         :'data_protection_section' => :'DataProtectionSection',
+        :'default_auth_method' => :'DefaultAuthMethodSettings',
         :'default_home_page' => :'DefaultHomePage',
         :'dynamic_secret_max_ttl' => :'DynamicSecretMaxTtl',
         :'enable_request_for_access' => :'Boolean',
@@ -192,6 +196,10 @@ module Akeyless
 
       if attributes.key?(:'data_protection_section')
         self.data_protection_section = attributes[:'data_protection_section']
+      end
+
+      if attributes.key?(:'default_auth_method')
+        self.default_auth_method = attributes[:'default_auth_method']
       end
 
       if attributes.key?(:'default_home_page')
@@ -281,6 +289,7 @@ module Akeyless
           auth_usage_event == o.auth_usage_event &&
           certificate_expiration_events == o.certificate_expiration_events &&
           data_protection_section == o.data_protection_section &&
+          default_auth_method == o.default_auth_method &&
           default_home_page == o.default_home_page &&
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           enable_request_for_access == o.enable_request_for_access &&
@@ -306,7 +315,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_static_password, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_static_password, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

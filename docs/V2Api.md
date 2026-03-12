@@ -598,7 +598,9 @@ All URIs are relative to *https://api.akeyless.io*
 | [**usc_get**](V2Api.md#usc_get) | **POST** /usc-get |  |
 | [**usc_list**](V2Api.md#usc_list) | **POST** /usc-list |  |
 | [**usc_update**](V2Api.md#usc_update) | **POST** /usc-update |  |
+| [**validate_certificate_challenge**](V2Api.md#validate_certificate_challenge) | **POST** /validate-certificate-challenge |  |
 | [**validate_token**](V2Api.md#validate_token) | **POST** /validate-token |  |
+| [**vault_address**](V2Api.md#vault_address) | **POST** /vault-address |  |
 | [**verify_data_with_classic_key**](V2Api.md#verify_data_with_classic_key) | **POST** /verify-data-with-classic-key |  |
 | [**verify_ec_dsa**](V2Api.md#verify_ec_dsa) | **POST** /verify-ecdsa |  |
 | [**verify_gpg**](V2Api.md#verify_gpg) | **POST** /verify-gpg |  |
@@ -37462,6 +37464,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## validate_certificate_challenge
+
+> <ValidateCertificateChallengeOutput> validate_certificate_challenge(validate_certificate_challenge)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+validate_certificate_challenge = Akeyless::ValidateCertificateChallenge.new # ValidateCertificateChallenge | 
+
+begin
+  
+  result = api_instance.validate_certificate_challenge(validate_certificate_challenge)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->validate_certificate_challenge: #{e}"
+end
+```
+
+#### Using the validate_certificate_challenge_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ValidateCertificateChallengeOutput>, Integer, Hash)> validate_certificate_challenge_with_http_info(validate_certificate_challenge)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.validate_certificate_challenge_with_http_info(validate_certificate_challenge)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ValidateCertificateChallengeOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->validate_certificate_challenge_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **validate_certificate_challenge** | [**ValidateCertificateChallenge**](ValidateCertificateChallenge.md) |  |  |
+
+### Return type
+
+[**ValidateCertificateChallengeOutput**](ValidateCertificateChallengeOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## validate_token
 
 > <ValidateTokenOutput> validate_token(validate_token)
@@ -37513,6 +37577,68 @@ end
 ### Return type
 
 [**ValidateTokenOutput**](ValidateTokenOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## vault_address
+
+> <VaultAddressOutput> vault_address(vault_address)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+vault_address = Akeyless::VaultAddress.new # VaultAddress | 
+
+begin
+  
+  result = api_instance.vault_address(vault_address)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->vault_address: #{e}"
+end
+```
+
+#### Using the vault_address_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VaultAddressOutput>, Integer, Hash)> vault_address_with_http_info(vault_address)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.vault_address_with_http_info(vault_address)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VaultAddressOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->vault_address_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vault_address** | [**VaultAddress**](VaultAddress.md) |  |  |
+
+### Return type
+
+[**VaultAddressOutput**](VaultAddressOutput.md)
 
 ### Authorization
 

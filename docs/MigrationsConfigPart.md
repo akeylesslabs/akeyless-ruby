@@ -8,6 +8,7 @@
 | **aws_secrets_migrations** | [**Array&lt;AWSSecretsMigration&gt;**](AWSSecretsMigration.md) |  | [optional] |
 | **azure_kv_migrations** | [**Array&lt;AzureKeyVaultMigration&gt;**](AzureKeyVaultMigration.md) |  | [optional] |
 | **certificate_migrations** | [**Array&lt;CertificateMigration&gt;**](CertificateMigration.md) |  | [optional] |
+| **conjur_migrations** | [**Array&lt;ConjurMigration&gt;**](ConjurMigration.md) |  | [optional] |
 | **gcp_secrets_migrations** | [**Array&lt;GCPSecretsMigration&gt;**](GCPSecretsMigration.md) |  | [optional] |
 | **hashi_migrations** | [**Array&lt;HashiMigration&gt;**](HashiMigration.md) |  | [optional] |
 | **k8s_migrations** | [**Array&lt;K8SMigration&gt;**](K8SMigration.md) |  | [optional] |
@@ -25,6 +26,7 @@ instance = Akeyless::MigrationsConfigPart.new(
   aws_secrets_migrations: null,
   azure_kv_migrations: null,
   certificate_migrations: null,
+  conjur_migrations: null,
   gcp_secrets_migrations: null,
   hashi_migrations: null,
   k8s_migrations: null,

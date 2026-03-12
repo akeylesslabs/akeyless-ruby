@@ -10,6 +10,7 @@
 | **account_id** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) | [optional] |
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
+| **azure_cloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. | [optional][default to &#39;AzureCloud&#39;] |
 | **cert_challenge** | **String** | Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) | [optional] |
 | **cert_data** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) | [optional] |
 | **cloud_id** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) | [optional] |
@@ -48,6 +49,7 @@ instance = Akeyless::Auth.new(
   account_id: null,
   admin_email: null,
   admin_password: null,
+  azure_cloud: null,
   cert_challenge: null,
   cert_data: null,
   cloud_id: null,

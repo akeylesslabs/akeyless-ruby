@@ -11,6 +11,7 @@
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
 | **azure_ad_object_id** | **String** | Azure Active Directory ObjectId (relevant only for access-type&#x3D;azure_ad) | [optional] |
+| **azure_cloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. | [optional][default to &#39;AzureCloud&#39;] |
 | **cert_data** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert in Curl Context) | [optional] |
 | **cert_issuer_name** | **String** | Certificate Issuer Name | [optional] |
 | **cert_username** | **String** | The username to sign in the SSH certificate (use a comma-separated list for more than one username) | [optional] |
@@ -42,6 +43,7 @@ instance = Akeyless::Configure.new(
   admin_email: null,
   admin_password: null,
   azure_ad_object_id: null,
+  azure_cloud: null,
   cert_data: null,
   cert_issuer_name: null,
   cert_username: null,

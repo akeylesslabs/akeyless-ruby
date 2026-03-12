@@ -35,6 +35,8 @@ module Akeyless
 
     attr_accessor :importer_info
 
+    attr_accessor :issuer_overview_info
+
     attr_accessor :next_rotation_events
 
     attr_accessor :oidc_client_info
@@ -62,6 +64,7 @@ module Akeyless
         :'dynamic_secret_producer_details' => :'dynamic_secret_producer_details',
         :'expiration_events' => :'expiration_events',
         :'importer_info' => :'importer_info',
+        :'issuer_overview_info' => :'issuer_overview_info',
         :'next_rotation_events' => :'next_rotation_events',
         :'oidc_client_info' => :'oidc_client_info',
         :'password_policy' => :'password_policy',
@@ -90,6 +93,7 @@ module Akeyless
         :'dynamic_secret_producer_details' => :'DynamicSecretProducerInfo',
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'importer_info' => :'ImporterInfo',
+        :'issuer_overview_info' => :'IssuerOverviewInfo',
         :'next_rotation_events' => :'Array<NextAutoRotationEvent>',
         :'oidc_client_info' => :'OidcClientInfo',
         :'password_policy' => :'PasswordPolicyInfo',
@@ -163,6 +167,10 @@ module Akeyless
         self.importer_info = attributes[:'importer_info']
       end
 
+      if attributes.key?(:'issuer_overview_info')
+        self.issuer_overview_info = attributes[:'issuer_overview_info']
+      end
+
       if attributes.key?(:'next_rotation_events')
         if (value = attributes[:'next_rotation_events']).is_a?(Array)
           self.next_rotation_events = value
@@ -224,6 +232,7 @@ module Akeyless
           dynamic_secret_producer_details == o.dynamic_secret_producer_details &&
           expiration_events == o.expiration_events &&
           importer_info == o.importer_info &&
+          issuer_overview_info == o.issuer_overview_info &&
           next_rotation_events == o.next_rotation_events &&
           oidc_client_info == o.oidc_client_info &&
           password_policy == o.password_policy &&
@@ -242,7 +251,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, next_rotation_events, oidc_client_info, password_policy, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
+      [cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, issuer_overview_info, next_rotation_events, oidc_client_info, password_policy, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
     end
 
     # Builds the object from hash

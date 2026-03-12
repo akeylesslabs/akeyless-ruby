@@ -25,11 +25,17 @@ module Akeyless
     # Description of the Universal Secrets Connector
     attr_accessor :description
 
+    # The environments in repo-name/environment-name format, comma-separated (only relevant for: github-scope=repository-environment)
+    attr_accessor :environment_names
+
     # GCP Project ID (Relevant only for GCP targets)
     attr_accessor :gcp_project_id
 
     # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type=regional-secrets.
     attr_accessor :gcp_sm_regions
+
+    # The scope where secrets will be created, available options: [repository, organization, repository-environment]
+    attr_accessor :github_scope
 
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
@@ -42,6 +48,14 @@ module Akeyless
 
     # Universal Secrets Connector name
     attr_accessor :name
+
+    # The organization name to create the secret in (only relevant for: github-scope=organization)
+    attr_accessor :organization_name
+
+    attr_accessor :repository_access
+
+    # The repository names, comma-separated (only relevant for: github-scope=repository)
+    attr_accessor :repository_names
 
     # List of the tags attached to this Universal Secrets Connector
     attr_accessor :tags
@@ -67,12 +81,17 @@ module Akeyless
         :'azure_kv_name' => :'azure-kv-name',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'environment_names' => :'environment-names',
         :'gcp_project_id' => :'gcp-project-id',
         :'gcp_sm_regions' => :'gcp-sm-regions',
+        :'github_scope' => :'github-scope',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'k8s_namespace' => :'k8s-namespace',
         :'name' => :'name',
+        :'organization_name' => :'organization-name',
+        :'repository_access' => :'repository-access',
+        :'repository_names' => :'repository-names',
         :'tags' => :'tags',
         :'target_to_associate' => :'target-to-associate',
         :'token' => :'token',
@@ -93,12 +112,17 @@ module Akeyless
         :'azure_kv_name' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'environment_names' => :'String',
         :'gcp_project_id' => :'String',
         :'gcp_sm_regions' => :'String',
+        :'github_scope' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'k8s_namespace' => :'String',
         :'name' => :'String',
+        :'organization_name' => :'String',
+        :'repository_access' => :'String',
+        :'repository_names' => :'String',
         :'tags' => :'Array<String>',
         :'target_to_associate' => :'String',
         :'token' => :'String',
@@ -141,12 +165,22 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'environment_names')
+        self.environment_names = attributes[:'environment_names']
+      end
+
       if attributes.key?(:'gcp_project_id')
         self.gcp_project_id = attributes[:'gcp_project_id']
       end
 
       if attributes.key?(:'gcp_sm_regions')
         self.gcp_sm_regions = attributes[:'gcp_sm_regions']
+      end
+
+      if attributes.key?(:'github_scope')
+        self.github_scope = attributes[:'github_scope']
+      else
+        self.github_scope = 'repository'
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -169,6 +203,20 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'organization_name')
+        self.organization_name = attributes[:'organization_name']
+      end
+
+      if attributes.key?(:'repository_access')
+        self.repository_access = attributes[:'repository_access']
+      else
+        self.repository_access = 'public'
+      end
+
+      if attributes.key?(:'repository_names')
+        self.repository_names = attributes[:'repository_names']
       end
 
       if attributes.key?(:'tags')
@@ -235,12 +283,17 @@ module Akeyless
           azure_kv_name == o.azure_kv_name &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          environment_names == o.environment_names &&
           gcp_project_id == o.gcp_project_id &&
           gcp_sm_regions == o.gcp_sm_regions &&
+          github_scope == o.github_scope &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           k8s_namespace == o.k8s_namespace &&
           name == o.name &&
+          organization_name == o.organization_name &&
+          repository_access == o.repository_access &&
+          repository_names == o.repository_names &&
           tags == o.tags &&
           target_to_associate == o.target_to_associate &&
           token == o.token &&
@@ -258,7 +311,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, gcp_project_id, gcp_sm_regions, item_custom_fields, json, k8s_namespace, name, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
+      [azure_kv_name, delete_protection, description, environment_names, gcp_project_id, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
     end
 
     # Builds the object from hash

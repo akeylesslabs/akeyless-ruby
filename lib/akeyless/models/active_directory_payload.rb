@@ -17,11 +17,17 @@ module Akeyless
   class ActiveDirectoryPayload
     attr_accessor :active_directory_target_id
 
+    attr_accessor :ai_certificate_discovery
+
     attr_accessor :auto_rotate
 
     attr_accessor :auto_rotate_interval_in_days
 
     attr_accessor :auto_rotate_rotation_hour
+
+    attr_accessor :certificates_expiration_events
+
+    attr_accessor :certificates_path_template
 
     attr_accessor :computer_base_dn
 
@@ -66,9 +72,12 @@ module Akeyless
     def self.attribute_map
       {
         :'active_directory_target_id' => :'active_directory_target_id',
+        :'ai_certificate_discovery' => :'ai_certificate_discovery',
         :'auto_rotate' => :'auto_rotate',
         :'auto_rotate_interval_in_days' => :'auto_rotate_interval_in_days',
         :'auto_rotate_rotation_hour' => :'auto_rotate_rotation_hour',
+        :'certificates_expiration_events' => :'certificates_expiration_events',
+        :'certificates_path_template' => :'certificates_path_template',
         :'computer_base_dn' => :'computer_base_dn',
         :'discover_iis_apps' => :'discover_iis_apps',
         :'discover_local_users' => :'discover_local_users',
@@ -100,9 +109,12 @@ module Akeyless
     def self.openapi_types
       {
         :'active_directory_target_id' => :'Integer',
+        :'ai_certificate_discovery' => :'Boolean',
         :'auto_rotate' => :'Boolean',
         :'auto_rotate_interval_in_days' => :'Integer',
         :'auto_rotate_rotation_hour' => :'Integer',
+        :'certificates_expiration_events' => :'Array<CertificateExpirationEvent>',
+        :'certificates_path_template' => :'String',
         :'computer_base_dn' => :'String',
         :'discover_iis_apps' => :'Boolean',
         :'discover_local_users' => :'Boolean',
@@ -150,6 +162,10 @@ module Akeyless
         self.active_directory_target_id = attributes[:'active_directory_target_id']
       end
 
+      if attributes.key?(:'ai_certificate_discovery')
+        self.ai_certificate_discovery = attributes[:'ai_certificate_discovery']
+      end
+
       if attributes.key?(:'auto_rotate')
         self.auto_rotate = attributes[:'auto_rotate']
       end
@@ -160,6 +176,16 @@ module Akeyless
 
       if attributes.key?(:'auto_rotate_rotation_hour')
         self.auto_rotate_rotation_hour = attributes[:'auto_rotate_rotation_hour']
+      end
+
+      if attributes.key?(:'certificates_expiration_events')
+        if (value = attributes[:'certificates_expiration_events']).is_a?(Array)
+          self.certificates_expiration_events = value
+        end
+      end
+
+      if attributes.key?(:'certificates_path_template')
+        self.certificates_path_template = attributes[:'certificates_path_template']
       end
 
       if attributes.key?(:'computer_base_dn')
@@ -266,9 +292,12 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           active_directory_target_id == o.active_directory_target_id &&
+          ai_certificate_discovery == o.ai_certificate_discovery &&
           auto_rotate == o.auto_rotate &&
           auto_rotate_interval_in_days == o.auto_rotate_interval_in_days &&
           auto_rotate_rotation_hour == o.auto_rotate_rotation_hour &&
+          certificates_expiration_events == o.certificates_expiration_events &&
+          certificates_path_template == o.certificates_path_template &&
           computer_base_dn == o.computer_base_dn &&
           discover_iis_apps == o.discover_iis_apps &&
           discover_local_users == o.discover_local_users &&
@@ -299,7 +328,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_target_id, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, computer_base_dn, discover_iis_apps, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
+      [active_directory_target_id, ai_certificate_discovery, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, certificates_expiration_events, certificates_path_template, computer_base_dn, discover_iis_apps, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
     end
 
     # Builds the object from hash

@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class MigrationStatusReplyObj
+    attr_accessor :certificates
+
     attr_accessor :computers
 
     attr_accessor :duration_time
@@ -48,6 +50,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'certificates' => :'certificates',
         :'computers' => :'computers',
         :'duration_time' => :'duration_time',
         :'error' => :'error',
@@ -74,6 +77,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'certificates' => :'MigrationItems',
         :'computers' => :'Integer',
         :'duration_time' => :'String',
         :'error' => :'String',
@@ -112,6 +116,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'certificates')
+        self.certificates = attributes[:'certificates']
+      end
 
       if attributes.key?(:'computers')
         self.computers = attributes[:'computers']
@@ -194,6 +202,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          certificates == o.certificates &&
           computers == o.computers &&
           duration_time == o.duration_time &&
           error == o.error &&
@@ -220,7 +229,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [computers, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, targets].hash
+      [certificates, computers, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, targets].hash
     end
 
     # Builds the object from hash

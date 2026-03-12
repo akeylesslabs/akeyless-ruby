@@ -14,6 +14,7 @@
 | **dynamic_secret_producer_details** | [**DynamicSecretProducerInfo**](DynamicSecretProducerInfo.md) |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **importer_info** | [**ImporterInfo**](ImporterInfo.md) |  | [optional] |
+| **issuer_overview_info** | [**IssuerOverviewInfo**](IssuerOverviewInfo.md) |  | [optional] |
 | **next_rotation_events** | [**Array&lt;NextAutoRotationEvent&gt;**](NextAutoRotationEvent.md) |  | [optional] |
 | **oidc_client_info** | [**OidcClientInfo**](OidcClientInfo.md) |  | [optional] |
 | **password_policy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
@@ -38,6 +39,7 @@ instance = Akeyless::ItemGeneralInfo.new(
   dynamic_secret_producer_details: null,
   expiration_events: null,
   importer_info: null,
+  issuer_overview_info: null,
   next_rotation_events: null,
   oidc_client_info: null,
   password_policy: null,

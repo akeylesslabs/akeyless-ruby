@@ -14,6 +14,7 @@
 | **auth_usage_event** | [**UsageEventSetting**](UsageEventSetting.md) |  | [optional] |
 | **certificate_expiration_events** | [**CertificateExpirationEventsSettings**](CertificateExpirationEventsSettings.md) |  | [optional] |
 | **data_protection_section** | [**DataProtectionSection**](DataProtectionSection.md) |  | [optional] |
+| **default_auth_method** | [**DefaultAuthMethodSettings**](DefaultAuthMethodSettings.md) |  | [optional] |
 | **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
 | **enable_request_for_access** | **Boolean** |  | [optional] |
@@ -45,6 +46,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   auth_usage_event: null,
   certificate_expiration_events: null,
   data_protection_section: null,
+  default_auth_method: null,
   default_home_page: null,
   dynamic_secret_max_ttl: null,
   enable_request_for_access: null,

@@ -36,6 +36,9 @@ module Akeyless
     # Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
     attr_accessor :azure_ad_object_id
 
+    # Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+    attr_accessor :azure_cloud
+
     # Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
     attr_accessor :cert_data
 
@@ -97,6 +100,7 @@ module Akeyless
         :'admin_email' => :'admin-email',
         :'admin_password' => :'admin-password',
         :'azure_ad_object_id' => :'azure-ad-object-id',
+        :'azure_cloud' => :'azure-cloud',
         :'cert_data' => :'cert-data',
         :'cert_issuer_name' => :'cert-issuer-name',
         :'cert_username' => :'cert-username',
@@ -132,6 +136,7 @@ module Akeyless
         :'admin_email' => :'String',
         :'admin_password' => :'String',
         :'azure_ad_object_id' => :'String',
+        :'azure_cloud' => :'String',
         :'cert_data' => :'String',
         :'cert_issuer_name' => :'String',
         :'cert_username' => :'String',
@@ -201,6 +206,12 @@ module Akeyless
 
       if attributes.key?(:'azure_ad_object_id')
         self.azure_ad_object_id = attributes[:'azure_ad_object_id']
+      end
+
+      if attributes.key?(:'azure_cloud')
+        self.azure_cloud = attributes[:'azure_cloud']
+      else
+        self.azure_cloud = 'AzureCloud'
       end
 
       if attributes.key?(:'cert_data')
@@ -307,6 +318,7 @@ module Akeyless
           admin_email == o.admin_email &&
           admin_password == o.admin_password &&
           azure_ad_object_id == o.azure_ad_object_id &&
+          azure_cloud == o.azure_cloud &&
           cert_data == o.cert_data &&
           cert_issuer_name == o.cert_issuer_name &&
           cert_username == o.cert_username &&
@@ -335,7 +347,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, access_type, account_id, admin_email, admin_password, azure_ad_object_id, cert_data, cert_issuer_name, cert_username, default_location_prefix, disable_pafxfast, gateway_spn, gcp_audience, json, k8s_auth_config_name, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, legacy_signing_alg_name, oci_auth_type, oci_group_ocid].hash
+      [access_id, access_key, access_type, account_id, admin_email, admin_password, azure_ad_object_id, azure_cloud, cert_data, cert_issuer_name, cert_username, default_location_prefix, disable_pafxfast, gateway_spn, gcp_audience, json, k8s_auth_config_name, kerberos_token, kerberos_username, key_data, keytab_data, krb5_conf_data, legacy_signing_alg_name, oci_auth_type, oci_group_ocid].hash
     end
 
     # Builds the object from hash
