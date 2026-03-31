@@ -28,6 +28,9 @@ module Akeyless
     # A CIDR whitelist with the IPs that the access is restricted to
     attr_accessor :bound_ips
 
+    # Maximum child token ttl allowed in uid-create-child-token
+    attr_accessor :child_ttl_limit
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -64,6 +67,9 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
+    # Maximum UID tree depth allowed (child of child of ...)
+    attr_accessor :tree_length
+
     # Token ttl
     attr_accessor :ttl
 
@@ -77,6 +83,7 @@ module Akeyless
         :'allowed_client_type' => :'allowed-client-type',
         :'audit_logs_claims' => :'audit-logs-claims',
         :'bound_ips' => :'bound-ips',
+        :'child_ttl_limit' => :'child-ttl-limit',
         :'delete_protection' => :'delete_protection',
         :'deny_inheritance' => :'deny-inheritance',
         :'deny_rotate' => :'deny-rotate',
@@ -89,6 +96,7 @@ module Akeyless
         :'name' => :'name',
         :'product_type' => :'product-type',
         :'token' => :'token',
+        :'tree_length' => :'tree-length',
         :'ttl' => :'ttl',
         :'uid_token' => :'uid-token'
       }
@@ -106,6 +114,7 @@ module Akeyless
         :'allowed_client_type' => :'Array<String>',
         :'audit_logs_claims' => :'Array<String>',
         :'bound_ips' => :'Array<String>',
+        :'child_ttl_limit' => :'Integer',
         :'delete_protection' => :'String',
         :'deny_inheritance' => :'Boolean',
         :'deny_rotate' => :'Boolean',
@@ -118,6 +127,7 @@ module Akeyless
         :'name' => :'String',
         :'product_type' => :'Array<String>',
         :'token' => :'String',
+        :'tree_length' => :'Integer',
         :'ttl' => :'Integer',
         :'uid_token' => :'String'
       }
@@ -166,6 +176,12 @@ module Akeyless
         if (value = attributes[:'bound_ips']).is_a?(Array)
           self.bound_ips = value
         end
+      end
+
+      if attributes.key?(:'child_ttl_limit')
+        self.child_ttl_limit = attributes[:'child_ttl_limit']
+      else
+        self.child_ttl_limit = 43200
       end
 
       if attributes.key?(:'delete_protection')
@@ -228,6 +244,12 @@ module Akeyless
         self.token = attributes[:'token']
       end
 
+      if attributes.key?(:'tree_length')
+        self.tree_length = attributes[:'tree_length']
+      else
+        self.tree_length = 200
+      end
+
       if attributes.key?(:'ttl')
         self.ttl = attributes[:'ttl']
       else
@@ -268,6 +290,7 @@ module Akeyless
           allowed_client_type == o.allowed_client_type &&
           audit_logs_claims == o.audit_logs_claims &&
           bound_ips == o.bound_ips &&
+          child_ttl_limit == o.child_ttl_limit &&
           delete_protection == o.delete_protection &&
           deny_inheritance == o.deny_inheritance &&
           deny_rotate == o.deny_rotate &&
@@ -280,6 +303,7 @@ module Akeyless
           name == o.name &&
           product_type == o.product_type &&
           token == o.token &&
+          tree_length == o.tree_length &&
           ttl == o.ttl &&
           uid_token == o.uid_token
     end
@@ -293,7 +317,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, ttl, uid_token].hash
+      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, child_ttl_limit, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, tree_length, ttl, uid_token].hash
     end
 
     # Builds the object from hash

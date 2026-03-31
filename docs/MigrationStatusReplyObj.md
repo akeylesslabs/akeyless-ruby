@@ -19,6 +19,7 @@
 | **migration_type_name** | **String** |  | [optional] |
 | **rotated_secrets** | [**MigrationItems**](MigrationItems.md) |  | [optional] |
 | **start_time** | **String** |  | [optional] |
+| **sync** | [**SyncCounters**](SyncCounters.md) |  | [optional] |
 | **targets** | [**MigrationItems**](MigrationItems.md) |  | [optional] |
 
 ## Example
@@ -42,6 +43,7 @@ instance = Akeyless::MigrationStatusReplyObj.new(
   migration_type_name: null,
   rotated_secrets: null,
   start_time: null,
+  sync: null,
   targets: null
 )
 ```

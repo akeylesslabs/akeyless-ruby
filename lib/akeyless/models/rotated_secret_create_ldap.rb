@@ -41,6 +41,9 @@ module Akeyless
     # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret for read/update while an SRA session is active
+    attr_accessor :lock_during_sra_session
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -50,7 +53,7 @@ module Akeyless
     # The length of the password to be generated
     attr_accessor :password_length
 
-    # Rotate the value of the secret after SRA session ends [true/false]
+    # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
 
     # rotated-username password (relevant only for rotator-type=ldap)
@@ -131,6 +134,7 @@ module Akeyless
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_during_sra_session' => :'lock-during-sra-session',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password_length' => :'password-length',
@@ -177,6 +181,7 @@ module Akeyless
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_during_sra_session' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password_length' => :'String',
@@ -269,6 +274,10 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_during_sra_session')
+        self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -285,8 +294,6 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
-      else
-        self.rotate_after_disconnect = 'false'
       end
 
       if attributes.key?(:'rotated_password')
@@ -442,6 +449,7 @@ module Akeyless
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
+          lock_during_sra_session == o.lock_during_sra_session &&
           max_versions == o.max_versions &&
           name == o.name &&
           password_length == o.password_length &&
@@ -479,7 +487,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, authentication_credentials, auto_rotate, delete_protection, description, host_provider, item_custom_fields, json, key, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, authentication_credentials, auto_rotate, delete_protection, description, host_provider, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

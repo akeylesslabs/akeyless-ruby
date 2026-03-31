@@ -28,11 +28,13 @@
 | **is_desktop_app** | **Boolean** |  | [optional] |
 | **is_web** | **Boolean** |  | [optional] |
 | **isolated** | **Boolean** |  | [optional] |
+| **lock_during_sra_session** | **Boolean** |  | [optional] |
 | **native** | **Boolean** |  | [optional] |
 | **rd_gateway_server** | **String** |  | [optional] |
 | **rdp_user** | **String** |  | [optional] |
 | **region** | **String** |  | [optional] |
 | **rotate_after_disconnect** | **Boolean** |  | [optional] |
+| **rotate_after_disconnect_delay_mins** | **Integer** |  | [optional] |
 | **schema** | **String** |  | [optional] |
 | **ssh_password** | **Boolean** |  | [optional] |
 | **ssh_private_key** | **Boolean** |  | [optional] |
@@ -74,11 +76,13 @@ instance = Akeyless::SecureRemoteAccess.new(
   is_desktop_app: null,
   is_web: null,
   isolated: null,
+  lock_during_sra_session: null,
   native: null,
   rd_gateway_server: null,
   rdp_user: null,
   region: null,
   rotate_after_disconnect: null,
+  rotate_after_disconnect_delay_mins: null,
   schema: null,
   ssh_password: null,
   ssh_private_key: null,

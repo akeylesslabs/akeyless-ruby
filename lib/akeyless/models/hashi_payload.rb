@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class HashiPayload
+    attr_accessor :delete_sync_on_deletion
+
     attr_accessor :import_as_json
 
     attr_accessor :namespaces
@@ -23,13 +25,17 @@ module Akeyless
 
     attr_accessor :url
 
+    attr_accessor :usc_name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_sync_on_deletion' => :'delete_sync_on_deletion',
         :'import_as_json' => :'import_as_json',
         :'namespaces' => :'namespaces',
         :'token' => :'token',
-        :'url' => :'url'
+        :'url' => :'url',
+        :'usc_name' => :'usc_name'
       }
     end
 
@@ -41,10 +47,12 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_sync_on_deletion' => :'Boolean',
         :'import_as_json' => :'Boolean',
         :'namespaces' => :'Array<String>',
         :'token' => :'String',
-        :'url' => :'String'
+        :'url' => :'String',
+        :'usc_name' => :'String'
       }
     end
 
@@ -69,6 +77,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'delete_sync_on_deletion')
+        self.delete_sync_on_deletion = attributes[:'delete_sync_on_deletion']
+      end
+
       if attributes.key?(:'import_as_json')
         self.import_as_json = attributes[:'import_as_json']
       end
@@ -85,6 +97,10 @@ module Akeyless
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'usc_name')
+        self.usc_name = attributes[:'usc_name']
       end
     end
 
@@ -108,10 +124,12 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_sync_on_deletion == o.delete_sync_on_deletion &&
           import_as_json == o.import_as_json &&
           namespaces == o.namespaces &&
           token == o.token &&
-          url == o.url
+          url == o.url &&
+          usc_name == o.usc_name
     end
 
     # @see the `==` method
@@ -123,7 +141,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [import_as_json, namespaces, token, url].hash
+      [delete_sync_on_deletion, import_as_json, namespaces, token, url, usc_name].hash
     end
 
     # Builds the object from hash

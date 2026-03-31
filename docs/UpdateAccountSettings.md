@@ -27,6 +27,7 @@
 | **hide_personal_folder** | **String** | Hide personal folder, if set - users will not be able to use personal folder [true/false] | [optional] |
 | **hide_static_password** | **String** | Hide static secret&#39;s password type [true/false] | [optional] |
 | **invalid_characters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. | [optional][default to &#39;notReceivedInvalidCharacter&#39;] |
+| **item_locking_enabled** | **String** | Enable item locking feature [true/false] | [optional] |
 | **item_type** | **String** | VersionSettingsObjectType defines object types for account version settings | [optional] |
 | **items_deletion_protection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -37,6 +38,7 @@
 | **lock_bound_ips** | **String** | Lock bound-ips setting globally in the account. | [optional] |
 | **lock_default_key** | **String** | Lock the account&#39;s default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false] | [optional] |
 | **lock_gw_bound_ips** | **String** | Lock gw-bound-ips setting in the account. | [optional] |
+| **lock_max_ttl** | **Integer** | Set the maximum TTL for item/target locks in minutes | [optional] |
 | **max_rotation_interval** | **Integer** | Set the maximum rotation interval for rotated secrets auto rotation settings | [optional] |
 | **max_rotation_interval_enable** | **String** | Set a maximum rotation interval for rotated secrets auto rotation settings [true/false] | [optional] |
 | **max_versions** | **String** | Max versions | [optional] |
@@ -84,6 +86,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   hide_personal_folder: null,
   hide_static_password: null,
   invalid_characters: null,
+  item_locking_enabled: null,
   item_type: null,
   items_deletion_protection: null,
   json: null,
@@ -94,6 +97,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   lock_bound_ips: null,
   lock_default_key: null,
   lock_gw_bound_ips: null,
+  lock_max_ttl: null,
   max_rotation_interval: null,
   max_rotation_interval_enable: null,
   max_versions: null,

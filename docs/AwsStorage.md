@@ -8,6 +8,7 @@
 | **access_key_secret** | **String** |  | [optional] |
 | **auth_type** | **String** |  | [optional] |
 | **bucket** | **String** |  | [optional] |
+| **endpoint_url** | **String** |  | [optional] |
 | **prefix** | **String** |  | [optional] |
 | **region** | **String** |  | [optional] |
 
@@ -21,6 +22,7 @@ instance = Akeyless::AwsStorage.new(
   access_key_secret: null,
   auth_type: null,
   bucket: null,
+  endpoint_url: null,
   prefix: null,
   region: null
 )

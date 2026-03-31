@@ -8,6 +8,7 @@
 | **allowed_client_type** | **Array&lt;String&gt;** | limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension] | [optional] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
+| **child_ttl_limit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token | [optional][default to 43200] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **deny_inheritance** | **Boolean** | Deny from root to create children | [optional] |
 | **deny_rotate** | **Boolean** | Deny from the token to rotate | [optional] |
@@ -21,6 +22,7 @@
 | **new_name** | **String** | Auth Method new name | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
+| **tree_length** | **Integer** | Maximum UID tree depth allowed (child of child of ...) | [optional][default to 200] |
 | **ttl** | **Integer** | Token ttl | [optional][default to 60] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -34,6 +36,7 @@ instance = Akeyless::UpdateAuthMethodUniversalIdentity.new(
   allowed_client_type: null,
   audit_logs_claims: null,
   bound_ips: null,
+  child_ttl_limit: null,
   delete_protection: null,
   deny_inheritance: null,
   deny_rotate: null,
@@ -47,6 +50,7 @@ instance = Akeyless::UpdateAuthMethodUniversalIdentity.new(
   new_name: null,
   product_type: null,
   token: null,
+  tree_length: null,
   ttl: null,
   uid_token: null
 )

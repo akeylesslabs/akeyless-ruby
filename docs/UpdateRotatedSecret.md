@@ -18,12 +18,13 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **name** | **String** | Secret name |  |
 | **new_metadata** | **String** | Deprecated - use description | [optional][default to &#39;default_metadata&#39;] |
 | **new_name** | **String** | New item name | [optional] |
 | **new_version** | **Boolean** | Deprecated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
-| **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
+| **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
 | **rotated_password** | **String** | rotated-username password | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
@@ -75,6 +76,7 @@ instance = Akeyless::UpdateRotatedSecret.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  lock_during_sra_session: null,
   name: null,
   new_metadata: null,
   new_name: null,

@@ -15,17 +15,23 @@ require 'time'
 
 module Akeyless
   class UniversalIdentityAccessRules
+    attr_accessor :child_ttl_limit
+
     attr_accessor :deny_inheritance
 
     attr_accessor :deny_rotate
+
+    attr_accessor :tree_length
 
     attr_accessor :ttl
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'child_ttl_limit' => :'child_ttl_limit',
         :'deny_inheritance' => :'deny_inheritance',
         :'deny_rotate' => :'deny_rotate',
+        :'tree_length' => :'tree_length',
         :'ttl' => :'ttl'
       }
     end
@@ -38,8 +44,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'child_ttl_limit' => :'Integer',
         :'deny_inheritance' => :'Boolean',
         :'deny_rotate' => :'Boolean',
+        :'tree_length' => :'Integer',
         :'ttl' => :'Integer'
       }
     end
@@ -65,12 +73,20 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'child_ttl_limit')
+        self.child_ttl_limit = attributes[:'child_ttl_limit']
+      end
+
       if attributes.key?(:'deny_inheritance')
         self.deny_inheritance = attributes[:'deny_inheritance']
       end
 
       if attributes.key?(:'deny_rotate')
         self.deny_rotate = attributes[:'deny_rotate']
+      end
+
+      if attributes.key?(:'tree_length')
+        self.tree_length = attributes[:'tree_length']
       end
 
       if attributes.key?(:'ttl')
@@ -98,8 +114,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          child_ttl_limit == o.child_ttl_limit &&
           deny_inheritance == o.deny_inheritance &&
           deny_rotate == o.deny_rotate &&
+          tree_length == o.tree_length &&
           ttl == o.ttl
     end
 
@@ -112,7 +130,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [deny_inheritance, deny_rotate, ttl].hash
+      [child_ttl_limit, deny_inheritance, deny_rotate, tree_length, ttl].hash
     end
 
     # Builds the object from hash

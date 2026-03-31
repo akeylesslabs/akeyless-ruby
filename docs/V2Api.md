@@ -387,6 +387,8 @@ All URIs are relative to *https://api.akeyless.io*
 | [**list_sra_bastions**](V2Api.md#list_sra_bastions) | **POST** /list-sra-bastions |  |
 | [**list_sra_sessions**](V2Api.md#list_sra_sessions) | **POST** /list-sra-sessions |  |
 | [**list_targets**](V2Api.md#list_targets) | **POST** /list-targets |  |
+| [**lock_item**](V2Api.md#lock_item) | **POST** /lock-item |  |
+| [**lock_target**](V2Api.md#lock_target) | **POST** /lock-target |  |
 | [**move_objects**](V2Api.md#move_objects) | **POST** /move-objects |  |
 | [**policies_delete**](V2Api.md#policies_delete) | **POST** /policy-delete |  |
 | [**policies_get**](V2Api.md#policies_get) | **POST** /policy-get |  |
@@ -468,6 +470,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
 | [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
 | [**target_create_db**](V2Api.md#target_create_db) | **POST** /target-create-db |  |
+| [**target_create_digi_cert**](V2Api.md#target_create_digi_cert) | **POST** /target-create-digicert |  |
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
 | [**target_create_eks**](V2Api.md#target_create_eks) | **POST** /target-create-eks |  |
 | [**target_create_gcp**](V2Api.md#target_create_gcp) | **POST** /target-create-gcp |  |
@@ -478,6 +481,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_global_sign**](V2Api.md#target_create_global_sign) | **POST** /target-create-globalsign |  |
 | [**target_create_global_sign_atlas**](V2Api.md#target_create_global_sign_atlas) | **POST** /target-create-globalsign-atlas |  |
 | [**target_create_godaddy**](V2Api.md#target_create_godaddy) | **POST** /target-create-godaddy |  |
+| [**target_create_google_trust**](V2Api.md#target_create_google_trust) | **POST** /target-create-google-trust |  |
 | [**target_create_hashi_vault**](V2Api.md#target_create_hashi_vault) | **POST** /target-create-hashi-vault |  |
 | [**target_create_k8s**](V2Api.md#target_create_k8s) | **POST** /target-create-k8s |  |
 | [**target_create_ldap**](V2Api.md#target_create_ldap) | **POST** /target-create-ldap |  |
@@ -501,6 +505,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
 | [**target_update_azure**](V2Api.md#target_update_azure) | **POST** /target-update-azure |  |
 | [**target_update_db**](V2Api.md#target_update_db) | **POST** /target-update-db |  |
+| [**target_update_digi_cert**](V2Api.md#target_update_digi_cert) | **POST** /target-update-digicert |  |
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
 | [**target_update_eks**](V2Api.md#target_update_eks) | **POST** /target-update-eks |  |
 | [**target_update_gcp**](V2Api.md#target_update_gcp) | **POST** /target-update-gcp |  |
@@ -511,6 +516,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_global_sign**](V2Api.md#target_update_global_sign) | **POST** /target-update-globalsign |  |
 | [**target_update_global_sign_atlas**](V2Api.md#target_update_global_sign_atlas) | **POST** /target-update-globalsign-atlas |  |
 | [**target_update_godaddy**](V2Api.md#target_update_godaddy) | **POST** /target-update-godaddy |  |
+| [**target_update_google_trust**](V2Api.md#target_update_google_trust) | **POST** /target-update-google-trust |  |
 | [**target_update_hashi_vault**](V2Api.md#target_update_hashi_vault) | **POST** /target-update-hashi-vault |  |
 | [**target_update_k8s**](V2Api.md#target_update_k8s) | **POST** /target-update-k8s |  |
 | [**target_update_ldap**](V2Api.md#target_update_ldap) | **POST** /target-update-ldap |  |
@@ -532,6 +538,8 @@ All URIs are relative to *https://api.akeyless.io*
 | [**uid_list_children**](V2Api.md#uid_list_children) | **POST** /uid-list-children |  |
 | [**uid_revoke_token**](V2Api.md#uid_revoke_token) | **POST** /uid-revoke-token |  |
 | [**uid_rotate_token**](V2Api.md#uid_rotate_token) | **POST** /uid-rotate-token |  |
+| [**unlock_item**](V2Api.md#unlock_item) | **POST** /unlock-item |  |
+| [**unlock_target**](V2Api.md#unlock_target) | **POST** /unlock-target |  |
 | [**unwrap_token**](V2Api.md#unwrap_token) | **POST** /unwrap-token |  |
 | [**update_account_settings**](V2Api.md#update_account_settings) | **POST** /update-account-settings |  |
 | [**update_artifactory_target**](V2Api.md#update_artifactory_target) | **POST** /update-artifactory-target |  |
@@ -24383,6 +24391,130 @@ No authorization required
 - **Accept**: application/json
 
 
+## lock_item
+
+> Object lock_item(lock_item)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+lock_item = Akeyless::LockItem.new({name: 'name_example'}) # LockItem | 
+
+begin
+  
+  result = api_instance.lock_item(lock_item)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->lock_item: #{e}"
+end
+```
+
+#### Using the lock_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> lock_item_with_http_info(lock_item)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.lock_item_with_http_info(lock_item)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->lock_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **lock_item** | [**LockItem**](LockItem.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## lock_target
+
+> Object lock_target(lock_target)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+lock_target = Akeyless::LockTarget.new({name: 'name_example'}) # LockTarget | 
+
+begin
+  
+  result = api_instance.lock_target(lock_target)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->lock_target: #{e}"
+end
+```
+
+#### Using the lock_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> lock_target_with_http_info(lock_target)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.lock_target_with_http_info(lock_target)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->lock_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **lock_target** | [**LockTarget**](LockTarget.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## move_objects
 
 > Object move_objects(move_objects)
@@ -29404,6 +29536,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_digi_cert
+
+> <TargetCreateOutput> target_create_digi_cert(target_create_digi_cert)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_digi_cert = Akeyless::TargetCreateDigiCert.new({email: 'email_example', name: 'name_example'}) # TargetCreateDigiCert | 
+
+begin
+  
+  result = api_instance.target_create_digi_cert(target_create_digi_cert)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_digi_cert: #{e}"
+end
+```
+
+#### Using the target_create_digi_cert_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_digi_cert_with_http_info(target_create_digi_cert)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_digi_cert_with_http_info(target_create_digi_cert)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_digi_cert_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_digi_cert** | [**TargetCreateDigiCert**](TargetCreateDigiCert.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_dockerhub
 
 > <TargetCreateOutput> target_create_dockerhub(target_create_dockerhub)
@@ -30024,6 +30218,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_google_trust
+
+> <TargetCreateOutput> target_create_google_trust(target_create_google_trust)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_google_trust = Akeyless::TargetCreateGoogleTrust.new({email: 'email_example', name: 'name_example'}) # TargetCreateGoogleTrust | 
+
+begin
+  
+  result = api_instance.target_create_google_trust(target_create_google_trust)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_google_trust: #{e}"
+end
+```
+
+#### Using the target_create_google_trust_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_google_trust_with_http_info(target_create_google_trust)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_google_trust_with_http_info(target_create_google_trust)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_google_trust_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_google_trust** | [**TargetCreateGoogleTrust**](TargetCreateGoogleTrust.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_hashi_vault
 
 > <TargetCreateOutput> target_create_hashi_vault(target_create_hashi_vault)
@@ -30223,7 +30479,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-target_create_lets_encrypt = Akeyless::TargetCreateLetsEncrypt.new({name: 'name_example'}) # TargetCreateLetsEncrypt | 
+target_create_lets_encrypt = Akeyless::TargetCreateLetsEncrypt.new({email: 'email_example', name: 'name_example'}) # TargetCreateLetsEncrypt | 
 
 begin
   
@@ -31450,6 +31706,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_digi_cert
+
+> <TargetUpdateOutput> target_update_digi_cert(target_update_digi_cert)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_digi_cert = Akeyless::TargetUpdateDigiCert.new({email: 'email_example', name: 'name_example'}) # TargetUpdateDigiCert | 
+
+begin
+  
+  result = api_instance.target_update_digi_cert(target_update_digi_cert)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_digi_cert: #{e}"
+end
+```
+
+#### Using the target_update_digi_cert_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_digi_cert_with_http_info(target_update_digi_cert)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_digi_cert_with_http_info(target_update_digi_cert)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_digi_cert_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_digi_cert** | [**TargetUpdateDigiCert**](TargetUpdateDigiCert.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_dockerhub
 
 > <TargetUpdateOutput> target_update_dockerhub(target_update_dockerhub)
@@ -32070,6 +32388,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_google_trust
+
+> <TargetUpdateOutput> target_update_google_trust(target_update_google_trust)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_google_trust = Akeyless::TargetUpdateGoogleTrust.new({email: 'email_example', name: 'name_example'}) # TargetUpdateGoogleTrust | 
+
+begin
+  
+  result = api_instance.target_update_google_trust(target_update_google_trust)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_google_trust: #{e}"
+end
+```
+
+#### Using the target_update_google_trust_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_google_trust_with_http_info(target_update_google_trust)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_google_trust_with_http_info(target_update_google_trust)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_google_trust_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_google_trust** | [**TargetUpdateGoogleTrust**](TargetUpdateGoogleTrust.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_hashi_vault
 
 > <TargetUpdateOutput> target_update_hashi_vault(target_update_hashi_vault)
@@ -32269,7 +32649,7 @@ require 'time'
 require 'akeyless'
 
 api_instance = Akeyless::V2Api.new
-target_update_lets_encrypt = Akeyless::TargetUpdateLetsEncrypt.new({name: 'name_example'}) # TargetUpdateLetsEncrypt | 
+target_update_lets_encrypt = Akeyless::TargetUpdateLetsEncrypt.new({email: 'email_example', name: 'name_example'}) # TargetUpdateLetsEncrypt | 
 
 begin
   
@@ -33361,6 +33741,130 @@ end
 ### Return type
 
 [**UidRotateTokenOutput**](UidRotateTokenOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## unlock_item
+
+> Object unlock_item(unlock_item)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+unlock_item = Akeyless::UnlockItem.new({name: 'name_example'}) # UnlockItem | 
+
+begin
+  
+  result = api_instance.unlock_item(unlock_item)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->unlock_item: #{e}"
+end
+```
+
+#### Using the unlock_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> unlock_item_with_http_info(unlock_item)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.unlock_item_with_http_info(unlock_item)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->unlock_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **unlock_item** | [**UnlockItem**](UnlockItem.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## unlock_target
+
+> Object unlock_target(unlock_target)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+unlock_target = Akeyless::UnlockTarget.new({name: 'name_example'}) # UnlockTarget | 
+
+begin
+  
+  result = api_instance.unlock_target(unlock_target)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->unlock_target: #{e}"
+end
+```
+
+#### Using the unlock_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> unlock_target_with_http_info(unlock_target)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.unlock_target_with_http_info(unlock_target)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->unlock_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **unlock_target** | [**UnlockTarget**](UnlockTarget.md) |  |  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

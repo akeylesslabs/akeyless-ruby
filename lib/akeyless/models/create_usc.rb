@@ -49,7 +49,7 @@ module Akeyless
     # Universal Secrets Connector name
     attr_accessor :name
 
-    # The organization name to create the secret in (only relevant for: github-scope=organization)
+    # The organization name to create the secret in
     attr_accessor :organization_name
 
     attr_accessor :repository_access

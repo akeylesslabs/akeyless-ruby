@@ -39,6 +39,8 @@ module Akeyless
     # Name for the new universal secrets
     attr_accessor :secret_name
 
+    attr_accessor :selected_repositories
+
     # Tags for the universal secrets
     attr_accessor :tags
 
@@ -68,6 +70,7 @@ module Akeyless
         :'pfx_password' => :'pfx-password',
         :'region' => :'region',
         :'secret_name' => :'secret-name',
+        :'selected_repositories' => :'selected-repositories',
         :'tags' => :'tags',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -93,6 +96,7 @@ module Akeyless
         :'pfx_password' => :'String',
         :'region' => :'String',
         :'secret_name' => :'String',
+        :'selected_repositories' => :'String',
         :'tags' => :'Hash<String, String>',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -157,6 +161,10 @@ module Akeyless
         self.secret_name = attributes[:'secret_name']
       else
         self.secret_name = nil
+      end
+
+      if attributes.key?(:'selected_repositories')
+        self.selected_repositories = attributes[:'selected_repositories']
       end
 
       if attributes.key?(:'tags')
@@ -233,6 +241,7 @@ module Akeyless
           pfx_password == o.pfx_password &&
           region == o.region &&
           secret_name == o.secret_name &&
+          selected_repositories == o.selected_repositories &&
           tags == o.tags &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -250,7 +259,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, region, secret_name, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [binary_value, description, json, namespace, object_type, pfx_password, region, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

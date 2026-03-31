@@ -34,6 +34,8 @@ module Akeyless
 
     attr_accessor :last_version
 
+    attr_accessor :locking_info
+
     attr_accessor :modification_date
 
     attr_accessor :parent_target_name
@@ -68,6 +70,7 @@ module Akeyless
         :'creation_date' => :'creation_date',
         :'is_access_request_enabled' => :'is_access_request_enabled',
         :'last_version' => :'last_version',
+        :'locking_info' => :'locking_info',
         :'modification_date' => :'modification_date',
         :'parent_target_name' => :'parent_target_name',
         :'protection_key_name' => :'protection_key_name',
@@ -99,6 +102,7 @@ module Akeyless
         :'creation_date' => :'Time',
         :'is_access_request_enabled' => :'Boolean',
         :'last_version' => :'Integer',
+        :'locking_info' => :'LockingInfo',
         :'modification_date' => :'Time',
         :'parent_target_name' => :'String',
         :'protection_key_name' => :'String',
@@ -172,6 +176,10 @@ module Akeyless
 
       if attributes.key?(:'last_version')
         self.last_version = attributes[:'last_version']
+      end
+
+      if attributes.key?(:'locking_info')
+        self.locking_info = attributes[:'locking_info']
       end
 
       if attributes.key?(:'modification_date')
@@ -252,6 +260,7 @@ module Akeyless
           creation_date == o.creation_date &&
           is_access_request_enabled == o.is_access_request_enabled &&
           last_version == o.last_version &&
+          locking_info == o.locking_info &&
           modification_date == o.modification_date &&
           parent_target_name == o.parent_target_name &&
           protection_key_name == o.protection_key_name &&
@@ -274,7 +283,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, access_request_status, attributes, client_permissions, comment, creation_date, is_access_request_enabled, last_version, modification_date, parent_target_name, protection_key_name, target_details, target_id, target_items_assoc, target_name, target_sub_type, target_type, target_versions, with_customer_fragment].hash
+      [access_date, access_date_display, access_request_status, attributes, client_permissions, comment, creation_date, is_access_request_enabled, last_version, locking_info, modification_date, parent_target_name, protection_key_name, target_details, target_id, target_items_assoc, target_name, target_sub_type, target_type, target_versions, with_customer_fragment].hash
     end
 
     # Builds the object from hash

@@ -38,6 +38,9 @@ module Akeyless
     attr_accessor :password
 
     # Splunk Token (used when authenticating with token)
+    attr_accessor :splunk_token
+
+    # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
     # Splunk Token Owner (required when using token authentication for rotation)
@@ -65,6 +68,7 @@ module Akeyless
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password' => :'password',
+        :'splunk_token' => :'splunk-token',
         :'token' => :'token',
         :'token_owner' => :'token-owner',
         :'uid_token' => :'uid-token',
@@ -89,6 +93,7 @@ module Akeyless
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password' => :'String',
+        :'splunk_token' => :'String',
         :'token' => :'String',
         :'token_owner' => :'String',
         :'uid_token' => :'String',
@@ -149,6 +154,10 @@ module Akeyless
 
       if attributes.key?(:'password')
         self.password = attributes[:'password']
+      end
+
+      if attributes.key?(:'splunk_token')
+        self.splunk_token = attributes[:'splunk_token']
       end
 
       if attributes.key?(:'token')
@@ -217,6 +226,7 @@ module Akeyless
           max_versions == o.max_versions &&
           name == o.name &&
           password == o.password &&
+          splunk_token == o.splunk_token &&
           token == o.token &&
           token_owner == o.token_owner &&
           uid_token == o.uid_token &&
@@ -234,7 +244,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [audience, description, json, key, max_versions, name, password, token, token_owner, uid_token, url, use_tls, username].hash
+      [audience, description, json, key, max_versions, name, password, splunk_token, token, token_owner, uid_token, url, use_tls, username].hash
     end
 
     # Builds the object from hash

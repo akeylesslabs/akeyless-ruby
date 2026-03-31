@@ -63,6 +63,8 @@ module Akeyless
 
     attr_accessor :isolated
 
+    attr_accessor :lock_during_sra_session
+
     attr_accessor :native
 
     attr_accessor :rd_gateway_server
@@ -72,6 +74,8 @@ module Akeyless
     attr_accessor :region
 
     attr_accessor :rotate_after_disconnect
+
+    attr_accessor :rotate_after_disconnect_delay_mins
 
     attr_accessor :schema
 
@@ -120,11 +124,13 @@ module Akeyless
         :'is_desktop_app' => :'is_desktop_app',
         :'is_web' => :'is_web',
         :'isolated' => :'isolated',
+        :'lock_during_sra_session' => :'lock_during_sra_session',
         :'native' => :'native',
         :'rd_gateway_server' => :'rd_gateway_server',
         :'rdp_user' => :'rdp_user',
         :'region' => :'region',
         :'rotate_after_disconnect' => :'rotate_after_disconnect',
+        :'rotate_after_disconnect_delay_mins' => :'rotate_after_disconnect_delay_mins',
         :'schema' => :'schema',
         :'ssh_password' => :'ssh_password',
         :'ssh_private_key' => :'ssh_private_key',
@@ -170,11 +176,13 @@ module Akeyless
         :'is_desktop_app' => :'Boolean',
         :'is_web' => :'Boolean',
         :'isolated' => :'Boolean',
+        :'lock_during_sra_session' => :'Boolean',
         :'native' => :'Boolean',
         :'rd_gateway_server' => :'String',
         :'rdp_user' => :'String',
         :'region' => :'String',
         :'rotate_after_disconnect' => :'Boolean',
+        :'rotate_after_disconnect_delay_mins' => :'Integer',
         :'schema' => :'String',
         :'ssh_password' => :'Boolean',
         :'ssh_private_key' => :'Boolean',
@@ -307,6 +315,10 @@ module Akeyless
         self.isolated = attributes[:'isolated']
       end
 
+      if attributes.key?(:'lock_during_sra_session')
+        self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
       if attributes.key?(:'native')
         self.native = attributes[:'native']
       end
@@ -325,6 +337,10 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
+      end
+
+      if attributes.key?(:'rotate_after_disconnect_delay_mins')
+        self.rotate_after_disconnect_delay_mins = attributes[:'rotate_after_disconnect_delay_mins']
       end
 
       if attributes.key?(:'schema')
@@ -416,11 +432,13 @@ module Akeyless
           is_desktop_app == o.is_desktop_app &&
           is_web == o.is_web &&
           isolated == o.isolated &&
+          lock_during_sra_session == o.lock_during_sra_session &&
           native == o.native &&
           rd_gateway_server == o.rd_gateway_server &&
           rdp_user == o.rdp_user &&
           region == o.region &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotate_after_disconnect_delay_mins == o.rotate_after_disconnect_delay_mins &&
           schema == o.schema &&
           ssh_password == o.ssh_password &&
           ssh_private_key == o.ssh_private_key &&
@@ -442,7 +460,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, allow_port_forwarding, allow_providing_external_username, bastion_api, bastion_issuer, bastion_issuer_id, bastion_ssh, block_concurrent_connections, block_concurrent_connections_level, category, connection_delay_seconds, dashboard_url, db_name, domain, enable, endpoint, enforce_hosts_restriction, gw_cluster_id, host, host_provider_type, is_cli, is_desktop_app, is_web, isolated, native, rd_gateway_server, rdp_user, region, rotate_after_disconnect, schema, ssh_password, ssh_private_key, ssh_user, status_info, target_hosts, targets, url, use_internal_bastion, web_proxy].hash
+      [account_id, allow_port_forwarding, allow_providing_external_username, bastion_api, bastion_issuer, bastion_issuer_id, bastion_ssh, block_concurrent_connections, block_concurrent_connections_level, category, connection_delay_seconds, dashboard_url, db_name, domain, enable, endpoint, enforce_hosts_restriction, gw_cluster_id, host, host_provider_type, is_cli, is_desktop_app, is_web, isolated, lock_during_sra_session, native, rd_gateway_server, rdp_user, region, rotate_after_disconnect, rotate_after_disconnect_delay_mins, schema, ssh_password, ssh_private_key, ssh_user, status_info, target_hosts, targets, url, use_internal_bastion, web_proxy].hash
     end
 
     # Builds the object from hash

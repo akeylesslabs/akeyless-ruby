@@ -142,6 +142,8 @@ module Akeyless
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
+      else
+        self.email = nil
       end
 
       if attributes.key?(:'gcp_project')
@@ -202,6 +204,10 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -213,6 +219,7 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @email.nil?
       return false if @name.nil?
       true
     end

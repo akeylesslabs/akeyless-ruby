@@ -24,6 +24,8 @@ module Akeyless
 
     attr_accessor :bucket
 
+    attr_accessor :endpoint_url
+
     attr_accessor :prefix
 
     attr_accessor :region
@@ -35,6 +37,7 @@ module Akeyless
         :'access_key_secret' => :'access_key_secret',
         :'auth_type' => :'auth_type',
         :'bucket' => :'bucket',
+        :'endpoint_url' => :'endpoint_url',
         :'prefix' => :'prefix',
         :'region' => :'region'
       }
@@ -52,6 +55,7 @@ module Akeyless
         :'access_key_secret' => :'String',
         :'auth_type' => :'String',
         :'bucket' => :'String',
+        :'endpoint_url' => :'String',
         :'prefix' => :'String',
         :'region' => :'String'
       }
@@ -94,6 +98,10 @@ module Akeyless
         self.bucket = attributes[:'bucket']
       end
 
+      if attributes.key?(:'endpoint_url')
+        self.endpoint_url = attributes[:'endpoint_url']
+      end
+
       if attributes.key?(:'prefix')
         self.prefix = attributes[:'prefix']
       end
@@ -127,6 +135,7 @@ module Akeyless
           access_key_secret == o.access_key_secret &&
           auth_type == o.auth_type &&
           bucket == o.bucket &&
+          endpoint_url == o.endpoint_url &&
           prefix == o.prefix &&
           region == o.region
     end
@@ -140,7 +149,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_key_id, access_key_secret, auth_type, bucket, prefix, region].hash
+      [access_key_id, access_key_secret, auth_type, bucket, endpoint_url, prefix, region].hash
     end
 
     # Builds the object from hash

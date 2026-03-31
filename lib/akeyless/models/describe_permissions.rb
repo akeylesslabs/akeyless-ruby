@@ -25,7 +25,7 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
-    # Type of object (item, am, role, target)
+    # Type of object (item, am, role, target, sra, ara)
     attr_accessor :type
 
     # The universal identity token, Required only for universal_identity authentication

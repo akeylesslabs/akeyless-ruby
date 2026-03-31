@@ -25,6 +25,9 @@ module Akeyless
     # The folder name in S3 bucket. For more information refer to https://docs.aws.amazon.com/s3/
     attr_accessor :aws_storage_bucket_prefix
 
+    # Custom AWS endpoint URL for S3-compatible storage (e.g. a private AWS endpoint)
+    attr_accessor :aws_storage_endpoint_url
+
     # The region where the storage is located
     attr_accessor :aws_storage_region
 
@@ -76,6 +79,7 @@ module Akeyless
         :'aws_storage_access_key_id' => :'aws-storage-access-key-id',
         :'aws_storage_bucket_name' => :'aws-storage-bucket-name',
         :'aws_storage_bucket_prefix' => :'aws-storage-bucket-prefix',
+        :'aws_storage_endpoint_url' => :'aws-storage-endpoint-url',
         :'aws_storage_region' => :'aws-storage-region',
         :'aws_storage_secret_access_key' => :'aws-storage-secret-access-key',
         :'azure_storage_account_name' => :'azure-storage-account-name',
@@ -105,6 +109,7 @@ module Akeyless
         :'aws_storage_access_key_id' => :'String',
         :'aws_storage_bucket_name' => :'String',
         :'aws_storage_bucket_prefix' => :'String',
+        :'aws_storage_endpoint_url' => :'String',
         :'aws_storage_region' => :'String',
         :'aws_storage_secret_access_key' => :'String',
         :'azure_storage_account_name' => :'String',
@@ -154,6 +159,10 @@ module Akeyless
 
       if attributes.key?(:'aws_storage_bucket_prefix')
         self.aws_storage_bucket_prefix = attributes[:'aws_storage_bucket_prefix']
+      end
+
+      if attributes.key?(:'aws_storage_endpoint_url')
+        self.aws_storage_endpoint_url = attributes[:'aws_storage_endpoint_url']
       end
 
       if attributes.key?(:'aws_storage_region')
@@ -242,6 +251,7 @@ module Akeyless
           aws_storage_access_key_id == o.aws_storage_access_key_id &&
           aws_storage_bucket_name == o.aws_storage_bucket_name &&
           aws_storage_bucket_prefix == o.aws_storage_bucket_prefix &&
+          aws_storage_endpoint_url == o.aws_storage_endpoint_url &&
           aws_storage_region == o.aws_storage_region &&
           aws_storage_secret_access_key == o.aws_storage_secret_access_key &&
           azure_storage_account_name == o.azure_storage_account_name &&
@@ -268,7 +278,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_storage_access_key_id, aws_storage_bucket_name, aws_storage_bucket_prefix, aws_storage_region, aws_storage_secret_access_key, azure_storage_account_name, azure_storage_client_id, azure_storage_client_secret, azure_storage_container_name, azure_storage_tenant_id, json, rdp_session_recording, rdp_session_recording_compress, rdp_session_recording_encryption_key, rdp_session_recording_quality, rdp_session_storage, token, uid_token].hash
+      [aws_storage_access_key_id, aws_storage_bucket_name, aws_storage_bucket_prefix, aws_storage_endpoint_url, aws_storage_region, aws_storage_secret_access_key, azure_storage_account_name, azure_storage_client_id, azure_storage_client_secret, azure_storage_container_name, azure_storage_tenant_id, json, rdp_session_recording, rdp_session_recording_compress, rdp_session_recording_encryption_key, rdp_session_recording_quality, rdp_session_storage, token, uid_token].hash
     end
 
     # Builds the object from hash

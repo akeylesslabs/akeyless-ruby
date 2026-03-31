@@ -84,6 +84,9 @@ module Akeyless
     # Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing.
     attr_accessor :invalid_characters
 
+    # Enable item locking feature [true/false]
+    attr_accessor :item_locking_enabled
+
     # VersionSettingsObjectType defines object types for account version settings
     attr_accessor :item_type
 
@@ -113,6 +116,9 @@ module Akeyless
 
     # Lock gw-bound-ips setting in the account.
     attr_accessor :lock_gw_bound_ips
+
+    # Set the maximum TTL for item/target locks in minutes
+    attr_accessor :lock_max_ttl
 
     # Set the maximum rotation interval for rotated secrets auto rotation settings
     attr_accessor :max_rotation_interval
@@ -191,6 +197,7 @@ module Akeyless
         :'hide_personal_folder' => :'hide-personal-folder',
         :'hide_static_password' => :'hide-static-password',
         :'invalid_characters' => :'invalid-characters',
+        :'item_locking_enabled' => :'item-locking-enabled',
         :'item_type' => :'item-type',
         :'items_deletion_protection' => :'items-deletion-protection',
         :'json' => :'json',
@@ -201,6 +208,7 @@ module Akeyless
         :'lock_bound_ips' => :'lock-bound-ips',
         :'lock_default_key' => :'lock-default-key',
         :'lock_gw_bound_ips' => :'lock-gw-bound-ips',
+        :'lock_max_ttl' => :'lock-max-ttl',
         :'max_rotation_interval' => :'max-rotation-interval',
         :'max_rotation_interval_enable' => :'max-rotation-interval-enable',
         :'max_versions' => :'max-versions',
@@ -252,6 +260,7 @@ module Akeyless
         :'hide_personal_folder' => :'String',
         :'hide_static_password' => :'String',
         :'invalid_characters' => :'String',
+        :'item_locking_enabled' => :'String',
         :'item_type' => :'String',
         :'items_deletion_protection' => :'String',
         :'json' => :'Boolean',
@@ -262,6 +271,7 @@ module Akeyless
         :'lock_bound_ips' => :'String',
         :'lock_default_key' => :'String',
         :'lock_gw_bound_ips' => :'String',
+        :'lock_max_ttl' => :'Integer',
         :'max_rotation_interval' => :'Integer',
         :'max_rotation_interval_enable' => :'String',
         :'max_versions' => :'String',
@@ -407,6 +417,10 @@ module Akeyless
         self.invalid_characters = 'notReceivedInvalidCharacter'
       end
 
+      if attributes.key?(:'item_locking_enabled')
+        self.item_locking_enabled = attributes[:'item_locking_enabled']
+      end
+
       if attributes.key?(:'item_type')
         self.item_type = attributes[:'item_type']
       end
@@ -447,6 +461,10 @@ module Akeyless
 
       if attributes.key?(:'lock_gw_bound_ips')
         self.lock_gw_bound_ips = attributes[:'lock_gw_bound_ips']
+      end
+
+      if attributes.key?(:'lock_max_ttl')
+        self.lock_max_ttl = attributes[:'lock_max_ttl']
       end
 
       if attributes.key?(:'max_rotation_interval')
@@ -561,6 +579,7 @@ module Akeyless
           hide_personal_folder == o.hide_personal_folder &&
           hide_static_password == o.hide_static_password &&
           invalid_characters == o.invalid_characters &&
+          item_locking_enabled == o.item_locking_enabled &&
           item_type == o.item_type &&
           items_deletion_protection == o.items_deletion_protection &&
           json == o.json &&
@@ -571,6 +590,7 @@ module Akeyless
           lock_bound_ips == o.lock_bound_ips &&
           lock_default_key == o.lock_default_key &&
           lock_gw_bound_ips == o.lock_gw_bound_ips &&
+          lock_max_ttl == o.lock_max_ttl &&
           max_rotation_interval == o.max_rotation_interval &&
           max_rotation_interval_enable == o.max_rotation_interval_enable &&
           max_versions == o.max_versions &&
@@ -599,7 +619,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_locking_enabled, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, lock_max_ttl, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

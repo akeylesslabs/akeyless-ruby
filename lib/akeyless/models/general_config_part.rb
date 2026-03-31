@@ -22,6 +22,8 @@ module Akeyless
 
     attr_accessor :display_name
 
+    attr_accessor :enable_json_body_limit
+
     attr_accessor :enable_sni_proxy
 
     attr_accessor :enable_tls
@@ -35,6 +37,8 @@ module Akeyless
     attr_accessor :gw_cluster_url
 
     attr_accessor :hvp_route_version
+
+    attr_accessor :json_body_limit_mb
 
     attr_accessor :notify_on_status_change
 
@@ -56,6 +60,7 @@ module Akeyless
         :'akeyless_url' => :'akeyless_url',
         :'api_token_ttl' => :'api_token_ttl',
         :'display_name' => :'display_name',
+        :'enable_json_body_limit' => :'enable_json_body_limit',
         :'enable_sni_proxy' => :'enable_sni_proxy',
         :'enable_tls' => :'enable_tls',
         :'enable_tls_configure' => :'enable_tls_configure',
@@ -63,6 +68,7 @@ module Akeyless
         :'enable_tls_hvp' => :'enable_tls_hvp',
         :'gw_cluster_url' => :'gw_cluster_url',
         :'hvp_route_version' => :'hvp_route_version',
+        :'json_body_limit_mb' => :'json_body_limit_mb',
         :'notify_on_status_change' => :'notify_on_status_change',
         :'tcp_port' => :'tcp_port',
         :'tls_cert' => :'tls_cert',
@@ -84,6 +90,7 @@ module Akeyless
         :'akeyless_url' => :'String',
         :'api_token_ttl' => :'String',
         :'display_name' => :'String',
+        :'enable_json_body_limit' => :'Boolean',
         :'enable_sni_proxy' => :'Boolean',
         :'enable_tls' => :'Boolean',
         :'enable_tls_configure' => :'Boolean',
@@ -91,6 +98,7 @@ module Akeyless
         :'enable_tls_hvp' => :'Boolean',
         :'gw_cluster_url' => :'String',
         :'hvp_route_version' => :'Integer',
+        :'json_body_limit_mb' => :'Integer',
         :'notify_on_status_change' => :'Boolean',
         :'tcp_port' => :'String',
         :'tls_cert' => :'String',
@@ -134,6 +142,10 @@ module Akeyless
         self.display_name = attributes[:'display_name']
       end
 
+      if attributes.key?(:'enable_json_body_limit')
+        self.enable_json_body_limit = attributes[:'enable_json_body_limit']
+      end
+
       if attributes.key?(:'enable_sni_proxy')
         self.enable_sni_proxy = attributes[:'enable_sni_proxy']
       end
@@ -160,6 +172,10 @@ module Akeyless
 
       if attributes.key?(:'hvp_route_version')
         self.hvp_route_version = attributes[:'hvp_route_version']
+      end
+
+      if attributes.key?(:'json_body_limit_mb')
+        self.json_body_limit_mb = attributes[:'json_body_limit_mb']
       end
 
       if attributes.key?(:'notify_on_status_change')
@@ -216,6 +232,7 @@ module Akeyless
           akeyless_url == o.akeyless_url &&
           api_token_ttl == o.api_token_ttl &&
           display_name == o.display_name &&
+          enable_json_body_limit == o.enable_json_body_limit &&
           enable_sni_proxy == o.enable_sni_proxy &&
           enable_tls == o.enable_tls &&
           enable_tls_configure == o.enable_tls_configure &&
@@ -223,6 +240,7 @@ module Akeyless
           enable_tls_hvp == o.enable_tls_hvp &&
           gw_cluster_url == o.gw_cluster_url &&
           hvp_route_version == o.hvp_route_version &&
+          json_body_limit_mb == o.json_body_limit_mb &&
           notify_on_status_change == o.notify_on_status_change &&
           tcp_port == o.tcp_port &&
           tls_cert == o.tls_cert &&
@@ -241,7 +259,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [akeyless_url, api_token_ttl, display_name, enable_sni_proxy, enable_tls, enable_tls_configure, enable_tls_curl, enable_tls_hvp, gw_cluster_url, hvp_route_version, notify_on_status_change, tcp_port, tls_cert, tls_cert_common_name, tls_cert_expiration_date, tls_cert_expiration_events, tls_key].hash
+      [akeyless_url, api_token_ttl, display_name, enable_json_body_limit, enable_sni_proxy, enable_tls, enable_tls_configure, enable_tls_curl, enable_tls_hvp, gw_cluster_url, hvp_route_version, json_body_limit_mb, notify_on_status_change, tcp_port, tls_cert, tls_cert_common_name, tls_cert_expiration_date, tls_cert_expiration_events, tls_key].hash
     end
 
     # Builds the object from hash

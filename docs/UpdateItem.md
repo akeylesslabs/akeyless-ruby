@@ -17,12 +17,13 @@
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Current item name |  |
 | **new_metadata** | **String** | Deprecated - use description | [optional][default to &#39;default_metadata&#39;] |
 | **new_name** | **String** | New item name | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
-| **rotate_after_disconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] | [optional][default to &#39;false&#39;] |
+| **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
 | **secure_access_add_host** | **Array&lt;String&gt;** | List of the new hosts that will be attached to SRA servers host | [optional] |
 | **secure_access_allow_external_user** | **String** | Allow providing external user for a domain users [true/false] | [optional] |
 | **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) | [optional] |
@@ -75,6 +76,7 @@ instance = Akeyless::UpdateItem.new(
   host_provider: null,
   item_custom_fields: null,
   json: null,
+  lock_during_sra_session: null,
   max_versions: null,
   name: null,
   new_metadata: null,

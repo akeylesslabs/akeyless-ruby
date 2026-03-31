@@ -45,6 +45,8 @@ module Akeyless
 
     attr_accessor :start_time
 
+    attr_accessor :sync
+
     attr_accessor :targets
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -65,6 +67,7 @@ module Akeyless
         :'migration_type_name' => :'migration_type_name',
         :'rotated_secrets' => :'rotated_secrets',
         :'start_time' => :'start_time',
+        :'sync' => :'sync',
         :'targets' => :'targets'
       }
     end
@@ -92,6 +95,7 @@ module Akeyless
         :'migration_type_name' => :'String',
         :'rotated_secrets' => :'MigrationItems',
         :'start_time' => :'String',
+        :'sync' => :'SyncCounters',
         :'targets' => :'MigrationItems'
       }
     end
@@ -177,6 +181,10 @@ module Akeyless
         self.start_time = attributes[:'start_time']
       end
 
+      if attributes.key?(:'sync')
+        self.sync = attributes[:'sync']
+      end
+
       if attributes.key?(:'targets')
         self.targets = attributes[:'targets']
       end
@@ -217,6 +225,7 @@ module Akeyless
           migration_type_name == o.migration_type_name &&
           rotated_secrets == o.rotated_secrets &&
           start_time == o.start_time &&
+          sync == o.sync &&
           targets == o.targets
     end
 
@@ -229,7 +238,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificates, computers, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, targets].hash
+      [certificates, computers, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, sync, targets].hash
     end
 
     # Builds the object from hash

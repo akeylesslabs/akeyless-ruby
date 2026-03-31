@@ -12,6 +12,7 @@
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
 | **region** | **String** | Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default). | [optional] |
 | **secret_name** | **String** | Name for the new universal secrets |  |
+| **selected_repositories** | **String** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -33,6 +34,7 @@ instance = Akeyless::UscCreate.new(
   pfx_password: null,
   region: null,
   secret_name: null,
+  selected_repositories: null,
   tags: null,
   token: null,
   uid_token: null,

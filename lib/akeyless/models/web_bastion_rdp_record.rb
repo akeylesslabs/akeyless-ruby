@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :encryption_key
 
+    attr_accessor :netapp
+
     attr_accessor :recording_quality
 
     attr_accessor :storage_type
@@ -34,6 +36,7 @@ module Akeyless
         :'azure' => :'azure',
         :'compress' => :'compress',
         :'encryption_key' => :'encryption_key',
+        :'netapp' => :'netapp',
         :'recording_quality' => :'recording_quality',
         :'storage_type' => :'storage_type'
       }
@@ -51,6 +54,7 @@ module Akeyless
         :'azure' => :'AzureStorage',
         :'compress' => :'Boolean',
         :'encryption_key' => :'String',
+        :'netapp' => :'NetappStorage',
         :'recording_quality' => :'String',
         :'storage_type' => :'String'
       }
@@ -93,6 +97,10 @@ module Akeyless
         self.encryption_key = attributes[:'encryption_key']
       end
 
+      if attributes.key?(:'netapp')
+        self.netapp = attributes[:'netapp']
+      end
+
       if attributes.key?(:'recording_quality')
         self.recording_quality = attributes[:'recording_quality']
       end
@@ -126,6 +134,7 @@ module Akeyless
           azure == o.azure &&
           compress == o.compress &&
           encryption_key == o.encryption_key &&
+          netapp == o.netapp &&
           recording_quality == o.recording_quality &&
           storage_type == o.storage_type
     end
@@ -139,7 +148,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws, azure, compress, encryption_key, recording_quality, storage_type].hash
+      [aws, azure, compress, encryption_key, netapp, recording_quality, storage_type].hash
     end
 
     # Builds the object from hash

@@ -52,6 +52,9 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # Lock this secret for read/update while an SRA session is active
+    attr_accessor :lock_during_sra_session
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -67,7 +70,7 @@ module Akeyless
     # List of the existent tags that will be removed from this item
     attr_accessor :rm_tag
 
-    # Rotate the value of the secret after SRA session ends [true/false]
+    # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
 
     # List of the new hosts that will be attached to SRA servers host
@@ -181,6 +184,7 @@ module Akeyless
         :'host_provider' => :'host-provider',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
+        :'lock_during_sra_session' => :'lock-during-sra-session',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_metadata' => :'new-metadata',
@@ -243,6 +247,7 @@ module Akeyless
         :'host_provider' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
+        :'lock_during_sra_session' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_metadata' => :'String',
@@ -369,6 +374,10 @@ module Akeyless
         self.json = false
       end
 
+      if attributes.key?(:'lock_during_sra_session')
+        self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -397,8 +406,6 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
-      else
-        self.rotate_after_disconnect = 'false'
       end
 
       if attributes.key?(:'secure_access_add_host')
@@ -578,6 +585,7 @@ module Akeyless
           host_provider == o.host_provider &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
+          lock_during_sra_session == o.lock_during_sra_session &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_metadata == o.new_metadata &&
@@ -627,7 +635,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
     end
 
     # Builds the object from hash

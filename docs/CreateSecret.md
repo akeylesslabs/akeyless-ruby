@@ -13,6 +13,7 @@
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
+| **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **multiline_value** | **Boolean** | The provided value is a multiline value (separated by &#39;\\n&#39;) | [optional] |
@@ -52,6 +53,7 @@ instance = Akeyless::CreateSecret.new(
   inject_url: null,
   item_custom_fields: null,
   json: null,
+  lock_during_sra_session: null,
   max_versions: null,
   metadata: null,
   multiline_value: null,

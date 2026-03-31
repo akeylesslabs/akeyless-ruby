@@ -7,6 +7,7 @@
 | **aws_storage_access_key_id** | **String** | AWS access key id. For more information refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html | [optional] |
 | **aws_storage_bucket_name** | **String** | The AWS bucket name. For more information refer to https://docs.aws.amazon.com/s3/ | [optional] |
 | **aws_storage_bucket_prefix** | **String** | The folder name in S3 bucket. For more information refer to https://docs.aws.amazon.com/s3/ | [optional] |
+| **aws_storage_endpoint_url** | **String** | Custom AWS endpoint URL for S3-compatible storage (e.g. a private AWS endpoint) | [optional] |
 | **aws_storage_region** | **String** | The region where the storage is located | [optional] |
 | **aws_storage_secret_access_key** | **String** | AWS secret access key. For more information refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html | [optional] |
 | **azure_storage_account_name** | **String** | Azure account name. For more information refer to https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview | [optional] |
@@ -32,6 +33,7 @@ instance = Akeyless::GatewayUpdateRemoteAccessRdpRecordings.new(
   aws_storage_access_key_id: null,
   aws_storage_bucket_name: null,
   aws_storage_bucket_prefix: null,
+  aws_storage_endpoint_url: null,
   aws_storage_region: null,
   aws_storage_secret_access_key: null,
   azure_storage_account_name: null,

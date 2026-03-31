@@ -301,6 +301,7 @@ docs/DescribeSubClaimsOutput.md
 docs/DesktopAppConf.md
 docs/Detokenize.md
 docs/DetokenizeOutput.md
+docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
 docs/DynamicSecretCreateArtifactory.md
 docs/DynamicSecretCreateAws.md
@@ -661,6 +662,7 @@ docs/GlobalSignAtlasTargetDetails.md
 docs/GlobalSignGCCTargetDetails.md
 docs/GodaddyTargetDetails.md
 docs/GoogleChronicleForwardingConfig.md
+docs/GoogleTrustTargetDetails.md
 docs/Group.md
 docs/GwClusterIdentity.md
 docs/GwUpdateRemoteAccessSessionLogsAwsS3.md
@@ -688,6 +690,7 @@ docs/IssuerOverviewInfo.md
 docs/Item.md
 docs/ItemCustomFieldsDetails.md
 docs/ItemGeneralInfo.md
+docs/ItemLockingSetting.md
 docs/ItemSraStatus.md
 docs/ItemTargetAssociation.md
 docs/ItemUSCSyncAssociation.md
@@ -764,6 +767,9 @@ docs/ListSharedItems.md
 docs/ListSraSessionsOutput.md
 docs/ListTargets.md
 docs/ListTargetsOutput.md
+docs/LockItem.md
+docs/LockTarget.md
+docs/LockingInfo.md
 docs/LogForwardingConfigPart.md
 docs/LogstashLogForwardingConfig.md
 docs/LogzIoLogForwardingConfig.md
@@ -779,6 +785,7 @@ docs/MongoDBTargetDetails.md
 docs/MoveObjects.md
 docs/Name.md
 docs/NativeK8sTargetDetails.md
+docs/NetappStorage.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
 docs/NotiForwarderDetailsInput.md
@@ -948,6 +955,7 @@ docs/StaticSecretDeleteSyncOutput.md
 docs/StaticSecretDetailsInfo.md
 docs/StaticSecretSync.md
 docs/SumologicLogForwardingConfig.md
+docs/SyncCounters.md
 docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
@@ -956,6 +964,7 @@ docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
 docs/TargetCreateAzure.md
 docs/TargetCreateDB.md
+docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
 docs/TargetCreateGcp.md
@@ -966,6 +975,7 @@ docs/TargetCreateGke.md
 docs/TargetCreateGlobalSign.md
 docs/TargetCreateGlobalSignAtlas.md
 docs/TargetCreateGodaddy.md
+docs/TargetCreateGoogleTrust.md
 docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
@@ -995,6 +1005,7 @@ docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
 docs/TargetUpdateAzure.md
 docs/TargetUpdateDB.md
+docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
 docs/TargetUpdateGcp.md
@@ -1005,6 +1016,7 @@ docs/TargetUpdateGke.md
 docs/TargetUpdateGlobalSign.md
 docs/TargetUpdateGlobalSignAtlas.md
 docs/TargetUpdateGodaddy.md
+docs/TargetUpdateGoogleTrust.md
 docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
@@ -1037,6 +1049,8 @@ docs/UidRotateTokenOutput.md
 docs/Unconfigure.md
 docs/UniversalIdentityAccessRules.md
 docs/UniversalIdentityDetails.md
+docs/UnlockItem.md
+docs/UnlockTarget.md
 docs/UnwrapToken.md
 docs/UnwrapTokenOutput.md
 docs/Update.md
@@ -1479,6 +1493,7 @@ lib/akeyless/models/describe_sub_claims_output.rb
 lib/akeyless/models/desktop_app_conf.rb
 lib/akeyless/models/detokenize.rb
 lib/akeyless/models/detokenize_output.rb
+lib/akeyless/models/digi_cert_target_details.rb
 lib/akeyless/models/dockerhub_target_details.rb
 lib/akeyless/models/ds_producer_details.rb
 lib/akeyless/models/dynamic_secret_create_artifactory.rb
@@ -1840,6 +1855,7 @@ lib/akeyless/models/global_sign_atlas_target_details.rb
 lib/akeyless/models/global_sign_gcc_target_details.rb
 lib/akeyless/models/godaddy_target_details.rb
 lib/akeyless/models/google_chronicle_forwarding_config.rb
+lib/akeyless/models/google_trust_target_details.rb
 lib/akeyless/models/group.rb
 lib/akeyless/models/gw_cluster_identity.rb
 lib/akeyless/models/gw_update_remote_access_session_logs_aws_s3.rb
@@ -1867,6 +1883,7 @@ lib/akeyless/models/issuer_overview_info.rb
 lib/akeyless/models/item.rb
 lib/akeyless/models/item_custom_fields_details.rb
 lib/akeyless/models/item_general_info.rb
+lib/akeyless/models/item_locking_setting.rb
 lib/akeyless/models/item_sra_status.rb
 lib/akeyless/models/item_target_association.rb
 lib/akeyless/models/item_usc_sync_association.rb
@@ -1943,6 +1960,9 @@ lib/akeyless/models/list_sra_sessions.rb
 lib/akeyless/models/list_sra_sessions_output.rb
 lib/akeyless/models/list_targets.rb
 lib/akeyless/models/list_targets_output.rb
+lib/akeyless/models/lock_item.rb
+lib/akeyless/models/lock_target.rb
+lib/akeyless/models/locking_info.rb
 lib/akeyless/models/log_forwarding_config_part.rb
 lib/akeyless/models/logstash_log_forwarding_config.rb
 lib/akeyless/models/logz_io_log_forwarding_config.rb
@@ -1958,6 +1978,7 @@ lib/akeyless/models/mongo_db_target_details.rb
 lib/akeyless/models/move_objects.rb
 lib/akeyless/models/name.rb
 lib/akeyless/models/native_k8s_target_details.rb
+lib/akeyless/models/netapp_storage.rb
 lib/akeyless/models/next_auto_rotation_event.rb
 lib/akeyless/models/noti_forwarder.rb
 lib/akeyless/models/noti_forwarder_details_input.rb
@@ -2127,6 +2148,7 @@ lib/akeyless/models/static_secret_delete_sync_output.rb
 lib/akeyless/models/static_secret_details_info.rb
 lib/akeyless/models/static_secret_sync.rb
 lib/akeyless/models/sumologic_log_forwarding_config.rb
+lib/akeyless/models/sync_counters.rb
 lib/akeyless/models/syslog_log_forwarding_config.rb
 lib/akeyless/models/system_access_credentials_reply_obj.rb
 lib/akeyless/models/system_access_creds_settings.rb
@@ -2135,6 +2157,7 @@ lib/akeyless/models/target_create_artifactory.rb
 lib/akeyless/models/target_create_aws.rb
 lib/akeyless/models/target_create_azure.rb
 lib/akeyless/models/target_create_db.rb
+lib/akeyless/models/target_create_digi_cert.rb
 lib/akeyless/models/target_create_dockerhub.rb
 lib/akeyless/models/target_create_eks.rb
 lib/akeyless/models/target_create_gcp.rb
@@ -2145,6 +2168,7 @@ lib/akeyless/models/target_create_gke.rb
 lib/akeyless/models/target_create_global_sign.rb
 lib/akeyless/models/target_create_global_sign_atlas.rb
 lib/akeyless/models/target_create_godaddy.rb
+lib/akeyless/models/target_create_google_trust.rb
 lib/akeyless/models/target_create_hashi_vault.rb
 lib/akeyless/models/target_create_k8s.rb
 lib/akeyless/models/target_create_ldap.rb
@@ -2174,6 +2198,7 @@ lib/akeyless/models/target_update_artifactory.rb
 lib/akeyless/models/target_update_aws.rb
 lib/akeyless/models/target_update_azure.rb
 lib/akeyless/models/target_update_db.rb
+lib/akeyless/models/target_update_digi_cert.rb
 lib/akeyless/models/target_update_dockerhub.rb
 lib/akeyless/models/target_update_eks.rb
 lib/akeyless/models/target_update_gcp.rb
@@ -2184,6 +2209,7 @@ lib/akeyless/models/target_update_gke.rb
 lib/akeyless/models/target_update_global_sign.rb
 lib/akeyless/models/target_update_global_sign_atlas.rb
 lib/akeyless/models/target_update_godaddy.rb
+lib/akeyless/models/target_update_google_trust.rb
 lib/akeyless/models/target_update_hashi_vault.rb
 lib/akeyless/models/target_update_k8s.rb
 lib/akeyless/models/target_update_ldap.rb
@@ -2216,6 +2242,8 @@ lib/akeyless/models/uid_token_details.rb
 lib/akeyless/models/unconfigure.rb
 lib/akeyless/models/universal_identity_access_rules.rb
 lib/akeyless/models/universal_identity_details.rb
+lib/akeyless/models/unlock_item.rb
+lib/akeyless/models/unlock_target.rb
 lib/akeyless/models/unwrap_token.rb
 lib/akeyless/models/unwrap_token_output.rb
 lib/akeyless/models/update.rb
@@ -2359,14 +2387,18 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/conjur_migration_spec.rb
-spec/models/conjur_payload_spec.rb
-spec/models/default_auth_method_settings_spec.rb
-spec/models/github_metadata_spec.rb
-spec/models/http_challenge_info_spec.rb
-spec/models/issuer_overview_info_spec.rb
-spec/models/validate_certificate_challenge_output_spec.rb
-spec/models/validate_certificate_challenge_spec.rb
-spec/models/vault_address_output_spec.rb
-spec/models/vault_address_spec.rb
+spec/models/digi_cert_target_details_spec.rb
+spec/models/google_trust_target_details_spec.rb
+spec/models/item_locking_setting_spec.rb
+spec/models/lock_item_spec.rb
+spec/models/lock_target_spec.rb
+spec/models/locking_info_spec.rb
+spec/models/netapp_storage_spec.rb
+spec/models/sync_counters_spec.rb
+spec/models/target_create_digi_cert_spec.rb
+spec/models/target_create_google_trust_spec.rb
+spec/models/target_update_digi_cert_spec.rb
+spec/models/target_update_google_trust_spec.rb
+spec/models/unlock_item_spec.rb
+spec/models/unlock_target_spec.rb
 spec/spec_helper.rb

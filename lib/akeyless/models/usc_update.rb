@@ -28,11 +28,16 @@ module Akeyless
     # The namespace (relevant for Hashi vault target)
     attr_accessor :namespace
 
+    attr_accessor :object_type
+
     # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
     attr_accessor :pfx_password
 
     # The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update
     attr_accessor :secret_id
+
+    # GitHub selected repositories (required for GitHub USC when repository-access is 'selected' or for repository scope) Comma-separated repository names (e.g., \"repo1,repo2\")
+    attr_accessor :selected_repositories
 
     # Tags for the universal secrets
     attr_accessor :tags
@@ -59,8 +64,10 @@ module Akeyless
         :'description' => :'description',
         :'json' => :'json',
         :'namespace' => :'namespace',
+        :'object_type' => :'object-type',
         :'pfx_password' => :'pfx-password',
         :'secret_id' => :'secret-id',
+        :'selected_repositories' => :'selected-repositories',
         :'tags' => :'tags',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -82,8 +89,10 @@ module Akeyless
         :'description' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
+        :'object_type' => :'String',
         :'pfx_password' => :'String',
         :'secret_id' => :'String',
+        :'selected_repositories' => :'String',
         :'tags' => :'Hash<String, String>',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -132,6 +141,10 @@ module Akeyless
         self.namespace = attributes[:'namespace']
       end
 
+      if attributes.key?(:'object_type')
+        self.object_type = attributes[:'object_type']
+      end
+
       if attributes.key?(:'pfx_password')
         self.pfx_password = attributes[:'pfx_password']
       end
@@ -140,6 +153,10 @@ module Akeyless
         self.secret_id = attributes[:'secret_id']
       else
         self.secret_id = nil
+      end
+
+      if attributes.key?(:'selected_repositories')
+        self.selected_repositories = attributes[:'selected_repositories']
       end
 
       if attributes.key?(:'tags')
@@ -212,8 +229,10 @@ module Akeyless
           description == o.description &&
           json == o.json &&
           namespace == o.namespace &&
+          object_type == o.object_type &&
           pfx_password == o.pfx_password &&
           secret_id == o.secret_id &&
+          selected_repositories == o.selected_repositories &&
           tags == o.tags &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -231,7 +250,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, pfx_password, secret_id, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [binary_value, description, json, namespace, object_type, pfx_password, secret_id, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

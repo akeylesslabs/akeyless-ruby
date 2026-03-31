@@ -27,6 +27,8 @@ module Akeyless
 
     attr_accessor :db_target_details
 
+    attr_accessor :digicert_target_details
+
     attr_accessor :dockerhub_target_details
 
     attr_accessor :eks_target_details
@@ -46,6 +48,8 @@ module Akeyless
     attr_accessor :globalsign_target_details
 
     attr_accessor :godaddy_target_details
+
+    attr_accessor :google_trust_target_details
 
     attr_accessor :hashi_vault_target_details
 
@@ -90,6 +94,7 @@ module Akeyless
         :'chef_target_details' => :'chef_target_details',
         :'custom_target_details' => :'custom_target_details',
         :'db_target_details' => :'db_target_details',
+        :'digicert_target_details' => :'digicert_target_details',
         :'dockerhub_target_details' => :'dockerhub_target_details',
         :'eks_target_details' => :'eks_target_details',
         :'gcp_target_details' => :'gcp_target_details',
@@ -100,6 +105,7 @@ module Akeyless
         :'globalsign_atlas_target_details' => :'globalsign_atlas_target_details',
         :'globalsign_target_details' => :'globalsign_target_details',
         :'godaddy_target_details' => :'godaddy_target_details',
+        :'google_trust_target_details' => :'google_trust_target_details',
         :'hashi_vault_target_details' => :'hashi_vault_target_details',
         :'ldap_target_details' => :'ldap_target_details',
         :'letsencrypt_target_details' => :'letsencrypt_target_details',
@@ -134,6 +140,7 @@ module Akeyless
         :'chef_target_details' => :'ChefTargetDetails',
         :'custom_target_details' => :'CustomTargetDetails',
         :'db_target_details' => :'DbTargetDetails',
+        :'digicert_target_details' => :'DigiCertTargetDetails',
         :'dockerhub_target_details' => :'DockerhubTargetDetails',
         :'eks_target_details' => :'EKSTargetDetails',
         :'gcp_target_details' => :'GcpTargetDetails',
@@ -144,6 +151,7 @@ module Akeyless
         :'globalsign_atlas_target_details' => :'GlobalSignAtlasTargetDetails',
         :'globalsign_target_details' => :'GlobalSignGCCTargetDetails',
         :'godaddy_target_details' => :'GodaddyTargetDetails',
+        :'google_trust_target_details' => :'GoogleTrustTargetDetails',
         :'hashi_vault_target_details' => :'HashiVaultTargetDetails',
         :'ldap_target_details' => :'LdapTargetDetails',
         :'letsencrypt_target_details' => :'LetsEncryptTargetDetails',
@@ -209,6 +217,10 @@ module Akeyless
         self.db_target_details = attributes[:'db_target_details']
       end
 
+      if attributes.key?(:'digicert_target_details')
+        self.digicert_target_details = attributes[:'digicert_target_details']
+      end
+
       if attributes.key?(:'dockerhub_target_details')
         self.dockerhub_target_details = attributes[:'dockerhub_target_details']
       end
@@ -247,6 +259,10 @@ module Akeyless
 
       if attributes.key?(:'godaddy_target_details')
         self.godaddy_target_details = attributes[:'godaddy_target_details']
+      end
+
+      if attributes.key?(:'google_trust_target_details')
+        self.google_trust_target_details = attributes[:'google_trust_target_details']
       end
 
       if attributes.key?(:'hashi_vault_target_details')
@@ -344,6 +360,7 @@ module Akeyless
           chef_target_details == o.chef_target_details &&
           custom_target_details == o.custom_target_details &&
           db_target_details == o.db_target_details &&
+          digicert_target_details == o.digicert_target_details &&
           dockerhub_target_details == o.dockerhub_target_details &&
           eks_target_details == o.eks_target_details &&
           gcp_target_details == o.gcp_target_details &&
@@ -354,6 +371,7 @@ module Akeyless
           globalsign_atlas_target_details == o.globalsign_atlas_target_details &&
           globalsign_target_details == o.globalsign_target_details &&
           godaddy_target_details == o.godaddy_target_details &&
+          google_trust_target_details == o.google_trust_target_details &&
           hashi_vault_target_details == o.hashi_vault_target_details &&
           ldap_target_details == o.ldap_target_details &&
           letsencrypt_target_details == o.letsencrypt_target_details &&
@@ -382,7 +400,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

@@ -37,6 +37,7 @@
 | **last_rotation_date** | **Time** |  | [optional] |
 | **last_version** | **Integer** |  | [optional] |
 | **linked_details** | [**LinkedDetails**](LinkedDetails.md) |  | [optional] |
+| **locking_info** | [**LockingInfo**](LockingInfo.md) |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **next_rotation_date** | **Time** |  | [optional] |
 | **protection_key_name** | **String** |  | [optional] |
@@ -87,6 +88,7 @@ instance = Akeyless::Item.new(
   last_rotation_date: null,
   last_version: null,
   linked_details: null,
+  locking_info: null,
   modification_date: null,
   next_rotation_date: null,
   protection_key_name: null,

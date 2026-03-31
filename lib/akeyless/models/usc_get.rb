@@ -22,8 +22,13 @@ module Akeyless
     # The namespace (relevant for Hashi vault target)
     attr_accessor :namespace
 
+    attr_accessor :object_type
+
     # The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector
     attr_accessor :secret_id
+
+    # GitHub selected repositories. For repository scope: repo name. For repository-environment scope: repo/env (format: repo-name/env-name). Required when multiple repos/envs configured.
+    attr_accessor :selected_repositories
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -42,7 +47,9 @@ module Akeyless
       {
         :'json' => :'json',
         :'namespace' => :'namespace',
+        :'object_type' => :'object-type',
         :'secret_id' => :'secret-id',
+        :'selected_repositories' => :'selected-repositories',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name',
@@ -60,7 +67,9 @@ module Akeyless
       {
         :'json' => :'Boolean',
         :'namespace' => :'String',
+        :'object_type' => :'String',
         :'secret_id' => :'String',
+        :'selected_repositories' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String',
@@ -99,10 +108,18 @@ module Akeyless
         self.namespace = attributes[:'namespace']
       end
 
+      if attributes.key?(:'object_type')
+        self.object_type = attributes[:'object_type']
+      end
+
       if attributes.key?(:'secret_id')
         self.secret_id = attributes[:'secret_id']
       else
         self.secret_id = nil
+      end
+
+      if attributes.key?(:'selected_repositories')
+        self.selected_repositories = attributes[:'selected_repositories']
       end
 
       if attributes.key?(:'token')
@@ -156,7 +173,9 @@ module Akeyless
       self.class == o.class &&
           json == o.json &&
           namespace == o.namespace &&
+          object_type == o.object_type &&
           secret_id == o.secret_id &&
+          selected_repositories == o.selected_repositories &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name &&
@@ -172,7 +191,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, namespace, secret_id, token, uid_token, usc_name, version_id].hash
+      [json, namespace, object_type, secret_id, selected_repositories, token, uid_token, usc_name, version_id].hash
     end
 
     # Builds the object from hash

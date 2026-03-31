@@ -48,10 +48,14 @@ module Akeyless
 
     attr_accessor :hide_personal_folder
 
+    attr_accessor :hide_secret_reveal_copy
+
     attr_accessor :hide_static_password
 
     # InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention
     attr_accessor :invalid_characters
+
+    attr_accessor :item_locking
 
     attr_accessor :item_usage_event
 
@@ -88,8 +92,10 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'dynamic_secret_max_ttl',
         :'enable_request_for_access' => :'enable_request_for_access',
         :'hide_personal_folder' => :'hide_personal_folder',
+        :'hide_secret_reveal_copy' => :'hide_secret_reveal_copy',
         :'hide_static_password' => :'hide_static_password',
         :'invalid_characters' => :'invalid_characters',
+        :'item_locking' => :'item_locking',
         :'item_usage_event' => :'item_usage_event',
         :'lock_default_key' => :'lock_default_key',
         :'password_expiration_info' => :'password_expiration_info',
@@ -124,8 +130,10 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'DynamicSecretMaxTtl',
         :'enable_request_for_access' => :'Boolean',
         :'hide_personal_folder' => :'Boolean',
+        :'hide_secret_reveal_copy' => :'Boolean',
         :'hide_static_password' => :'Boolean',
         :'invalid_characters' => :'String',
+        :'item_locking' => :'ItemLockingSetting',
         :'item_usage_event' => :'UsageEventSetting',
         :'lock_default_key' => :'Boolean',
         :'password_expiration_info' => :'PasswordExpirationInfo',
@@ -218,12 +226,20 @@ module Akeyless
         self.hide_personal_folder = attributes[:'hide_personal_folder']
       end
 
+      if attributes.key?(:'hide_secret_reveal_copy')
+        self.hide_secret_reveal_copy = attributes[:'hide_secret_reveal_copy']
+      end
+
       if attributes.key?(:'hide_static_password')
         self.hide_static_password = attributes[:'hide_static_password']
       end
 
       if attributes.key?(:'invalid_characters')
         self.invalid_characters = attributes[:'invalid_characters']
+      end
+
+      if attributes.key?(:'item_locking')
+        self.item_locking = attributes[:'item_locking']
       end
 
       if attributes.key?(:'item_usage_event')
@@ -294,8 +310,10 @@ module Akeyless
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           enable_request_for_access == o.enable_request_for_access &&
           hide_personal_folder == o.hide_personal_folder &&
+          hide_secret_reveal_copy == o.hide_secret_reveal_copy &&
           hide_static_password == o.hide_static_password &&
           invalid_characters == o.invalid_characters &&
+          item_locking == o.item_locking &&
           item_usage_event == o.item_usage_event &&
           lock_default_key == o.lock_default_key &&
           password_expiration_info == o.password_expiration_info &&
@@ -315,7 +333,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_static_password, invalid_characters, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

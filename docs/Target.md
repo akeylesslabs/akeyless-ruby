@@ -13,6 +13,7 @@
 | **creation_date** | **Time** |  | [optional] |
 | **is_access_request_enabled** | **Boolean** |  | [optional] |
 | **last_version** | **Integer** |  | [optional] |
+| **locking_info** | [**LockingInfo**](LockingInfo.md) |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **parent_target_name** | **String** |  | [optional] |
 | **protection_key_name** | **String** |  | [optional] |
@@ -40,6 +41,7 @@ instance = Akeyless::Target.new(
   creation_date: null,
   is_access_request_enabled: null,
   last_version: null,
+  locking_info: null,
   modification_date: null,
   parent_target_name: null,
   protection_key_name: null,

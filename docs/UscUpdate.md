@@ -8,8 +8,10 @@
 | **description** | **String** | Description of the universal secrets | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
+| **object_type** | **String** |  | [optional] |
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
 | **secret_id** | **String** | The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update |  |
+| **selected_repositories** | **String** | GitHub selected repositories (required for GitHub USC when repository-access is &#39;selected&#39; or for repository scope) Comma-separated repository names (e.g., \&quot;repo1,repo2\&quot;) | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -27,8 +29,10 @@ instance = Akeyless::UscUpdate.new(
   description: null,
   json: null,
   namespace: null,
+  object_type: null,
   pfx_password: null,
   secret_id: null,
+  selected_repositories: null,
   tags: null,
   token: null,
   uid_token: null,

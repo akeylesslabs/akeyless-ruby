@@ -60,6 +60,9 @@ module Akeyless
     # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret for read/update while an SRA session is active
+    attr_accessor :lock_during_sra_session
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -75,7 +78,7 @@ module Akeyless
     # The name of the storage account (only relevant when explicitly-set-sa=true)
     attr_accessor :resource_name
 
-    # Rotate the value of the secret after SRA session ends [true/false]
+    # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
 
     # How many days before the rotation of the item would you like to be notified
@@ -144,6 +147,7 @@ module Akeyless
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_during_sra_session' => :'lock-during-sra-session',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password_length' => :'password-length',
@@ -192,6 +196,7 @@ module Akeyless
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_during_sra_session' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password_length' => :'String',
@@ -306,6 +311,10 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_during_sra_session')
+        self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -330,8 +339,6 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
-      else
-        self.rotate_after_disconnect = 'false'
       end
 
       if attributes.key?(:'rotation_event_in')
@@ -463,6 +470,7 @@ module Akeyless
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
+          lock_during_sra_session == o.lock_during_sra_session &&
           max_versions == o.max_versions &&
           name == o.name &&
           password_length == o.password_length &&
@@ -496,7 +504,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, item_custom_fields, json, key, max_versions, name, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
+      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
     end
 
     # Builds the object from hash

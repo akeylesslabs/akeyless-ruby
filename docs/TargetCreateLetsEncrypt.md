@@ -7,7 +7,7 @@
 | **acme_challenge** | **String** |  | [optional][default to &#39;http&#39;] |
 | **description** | **String** | Description of the object | [optional] |
 | **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP targets | [optional] |
-| **email** | **String** | Email address for ACME account registration | [optional] |
+| **email** | **String** | Email address for ACME account registration |  |
 | **gcp_project** | **String** | GCP Cloud DNS: Project ID. Optional - can be derived from service account | [optional] |
 | **hosted_zone** | **String** | AWS Route53 hosted zone ID. Required when dns-target-creds points to AWS target | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |

@@ -17,10 +17,13 @@ module Akeyless
   class UscListSecretsOutput
     attr_accessor :secrets_list
 
+    attr_accessor :warnings
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'secrets_list' => :'secrets_list'
+        :'secrets_list' => :'secrets_list',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -32,7 +35,8 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'secrets_list' => :'Array<SecretInfo>'
+        :'secrets_list' => :'Array<SecretInfo>',
+        :'warnings' => :'Array<String>'
       }
     end
 
@@ -62,6 +66,12 @@ module Akeyless
           self.secrets_list = value
         end
       end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -84,7 +94,8 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          secrets_list == o.secrets_list
+          secrets_list == o.secrets_list &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -96,7 +107,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [secrets_list].hash
+      [secrets_list, warnings].hash
     end
 
     # Builds the object from hash
