@@ -18,6 +18,9 @@ module Akeyless
     # Allow this role to view analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
     attr_accessor :analytics_access
 
+    # Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped', 'all' values are supported.
+    attr_accessor :ara_reports_access
+
     # Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
     attr_accessor :audit_access
 
@@ -67,6 +70,7 @@ module Akeyless
     def self.attribute_map
       {
         :'analytics_access' => :'analytics-access',
+        :'ara_reports_access' => :'ara-reports-access',
         :'audit_access' => :'audit-access',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -94,6 +98,7 @@ module Akeyless
     def self.openapi_types
       {
         :'analytics_access' => :'String',
+        :'ara_reports_access' => :'String',
         :'audit_access' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -135,6 +140,10 @@ module Akeyless
 
       if attributes.key?(:'analytics_access')
         self.analytics_access = attributes[:'analytics_access']
+      end
+
+      if attributes.key?(:'ara_reports_access')
+        self.ara_reports_access = attributes[:'ara_reports_access']
       end
 
       if attributes.key?(:'audit_access')
@@ -232,6 +241,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           analytics_access == o.analytics_access &&
+          ara_reports_access == o.ara_reports_access &&
           audit_access == o.audit_access &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -258,7 +268,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, audit_access, delete_protection, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, ara_reports_access, audit_access, delete_protection, description, event_center_access, event_forwarder_access, gw_analytics_access, json, name, new_comment, new_name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
     end
 
     # Builds the object from hash

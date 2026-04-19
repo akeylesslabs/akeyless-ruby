@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **analytics_access** | **String** | Allow this role to view analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods. | [optional] |
+| **ara_reports_access** | **String** | Allow this role to view Agentic Runtime Authority Dashboard. Currently only &#39;none&#39;, &#39;scoped&#39;, &#39;all&#39; values are supported. | [optional] |
 | **audit_access** | **String** | Allow this role to view audit logs. Currently only &#39;none&#39;, &#39;own&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods. | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
@@ -28,6 +29,7 @@ require 'akeyless'
 
 instance = Akeyless::CreateRole.new(
   analytics_access: null,
+  ara_reports_access: null,
   audit_access: null,
   comment: null,
   delete_protection: null,

@@ -22,6 +22,9 @@ module Akeyless
     # Customer Uri of the Sectigo account
     attr_accessor :customer_uri
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -63,6 +66,7 @@ module Akeyless
       {
         :'certificate_profile_id' => :'certificate-profile-id',
         :'customer_uri' => :'customer-uri',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'external_requester' => :'external-requester',
         :'json' => :'json',
@@ -88,6 +92,7 @@ module Akeyless
       {
         :'certificate_profile_id' => :'Integer',
         :'customer_uri' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'external_requester' => :'String',
         :'json' => :'Boolean',
@@ -134,6 +139,10 @@ module Akeyless
         self.customer_uri = attributes[:'customer_uri']
       else
         self.customer_uri = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -256,6 +265,7 @@ module Akeyless
       self.class == o.class &&
           certificate_profile_id == o.certificate_profile_id &&
           customer_uri == o.customer_uri &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           external_requester == o.external_requester &&
           json == o.json &&
@@ -279,7 +289,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_profile_id, customer_uri, description, external_requester, json, key, max_versions, name, organization_id, password, timeout, token, uid_token, username].hash
+      [certificate_profile_id, customer_uri, delete_protection, description, external_requester, json, key, max_versions, name, organization_id, password, timeout, token, uid_token, username].hash
     end
 
     # Builds the object from hash

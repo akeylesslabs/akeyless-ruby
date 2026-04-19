@@ -56,6 +56,8 @@
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **usc_tags** | **String** | Comma-separated list of tags to apply to all secrets created/synced on the remote USC  USC items only. | [optional] |
+| **use_tags_as_filter** | **String** | Whether to filter the USC secret list using the specified usc-tags [true/false]  USC items only. | [optional] |
 
 ## Example
 
@@ -114,7 +116,9 @@ instance = Akeyless::UpdateItem.new(
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  usc_tags: null,
+  use_tags_as_filter: null
 )
 ```
 

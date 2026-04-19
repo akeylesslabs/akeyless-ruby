@@ -15,11 +15,14 @@ require 'time'
 
 module Akeyless
   class GatewayMigrationCreateOutput
+    attr_accessor :migration_id
+
     attr_accessor :migration_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'migration_id' => :'migration_id',
         :'migration_name' => :'migration_name'
       }
     end
@@ -32,6 +35,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'migration_id' => :'String',
         :'migration_name' => :'String'
       }
     end
@@ -56,6 +60,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'migration_id')
+        self.migration_id = attributes[:'migration_id']
+      end
 
       if attributes.key?(:'migration_name')
         self.migration_name = attributes[:'migration_name']
@@ -82,6 +90,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          migration_id == o.migration_id &&
           migration_name == o.migration_name
     end
 
@@ -94,7 +103,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [migration_name].hash
+      [migration_id, migration_name].hash
     end
 
     # Builds the object from hash

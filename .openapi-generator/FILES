@@ -29,6 +29,8 @@ docs/ActiveDirectoryMigration.md
 docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
+docs/AgenticRule.md
+docs/AgenticRules.md
 docs/AiInsightsConfigPart.md
 docs/AiInsightsSetting.md
 docs/AkeylessGatewayConfig.md
@@ -906,6 +908,7 @@ docs/Rotator.md
 docs/RotatorsConfigPart.md
 docs/RuleAssigner.md
 docs/Rules.md
+docs/RuntimeAuthorityCommand.md
 docs/SAMLAccessRules.md
 docs/SAMLAttribute.md
 docs/SSHCertificateIssueDetails.md
@@ -918,6 +921,8 @@ docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
 docs/ServerInventoryPayload.md
+docs/SetDefaultProfile.md
+docs/SetDefaultProfileOutput.md
 docs/SetItemState.md
 docs/SetRoleRule.md
 docs/ShareItem.md
@@ -1216,6 +1221,8 @@ lib/akeyless/models/active_directory_migration.rb
 lib/akeyless/models/active_directory_payload.rb
 lib/akeyless/models/add_gateway_allowed_access_id.rb
 lib/akeyless/models/admins_config_part.rb
+lib/akeyless/models/agentic_rule.rb
+lib/akeyless/models/agentic_rules.rb
 lib/akeyless/models/ai_insights_config_part.rb
 lib/akeyless/models/ai_insights_setting.rb
 lib/akeyless/models/akeyless_gateway_config.rb
@@ -2099,6 +2106,7 @@ lib/akeyless/models/rotator.rb
 lib/akeyless/models/rotators_config_part.rb
 lib/akeyless/models/rule_assigner.rb
 lib/akeyless/models/rules.rb
+lib/akeyless/models/runtime_authority_command.rb
 lib/akeyless/models/salesforce_target_details.rb
 lib/akeyless/models/saml_access_rules.rb
 lib/akeyless/models/saml_attribute.rb
@@ -2109,6 +2117,8 @@ lib/akeyless/models/sectigo_target_details.rb
 lib/akeyless/models/secure_remote_access.rb
 lib/akeyless/models/server_inventory_migration.rb
 lib/akeyless/models/server_inventory_payload.rb
+lib/akeyless/models/set_default_profile.rb
+lib/akeyless/models/set_default_profile_output.rb
 lib/akeyless/models/set_item_state.rb
 lib/akeyless/models/set_role_rule.rb
 lib/akeyless/models/share_item.rb
@@ -2387,18 +2397,9 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/digi_cert_target_details_spec.rb
-spec/models/google_trust_target_details_spec.rb
-spec/models/item_locking_setting_spec.rb
-spec/models/lock_item_spec.rb
-spec/models/lock_target_spec.rb
-spec/models/locking_info_spec.rb
-spec/models/netapp_storage_spec.rb
-spec/models/sync_counters_spec.rb
-spec/models/target_create_digi_cert_spec.rb
-spec/models/target_create_google_trust_spec.rb
-spec/models/target_update_digi_cert_spec.rb
-spec/models/target_update_google_trust_spec.rb
-spec/models/unlock_item_spec.rb
-spec/models/unlock_target_spec.rb
+spec/models/agentic_rule_spec.rb
+spec/models/agentic_rules_spec.rb
+spec/models/runtime_authority_command_spec.rb
+spec/models/set_default_profile_output_spec.rb
+spec/models/set_default_profile_spec.rb
 spec/spec_helper.rb

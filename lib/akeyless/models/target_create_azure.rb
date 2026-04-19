@@ -27,6 +27,9 @@ module Akeyless
     # Type of connection [credentials/cloud-identity]
     attr_accessor :connection_type
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -70,6 +73,7 @@ module Akeyless
         :'client_id' => :'client-id',
         :'client_secret' => :'client-secret',
         :'connection_type' => :'connection-type',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'key' => :'key',
@@ -97,6 +101,7 @@ module Akeyless
         :'client_id' => :'String',
         :'client_secret' => :'String',
         :'connection_type' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -151,6 +156,10 @@ module Akeyless
         self.connection_type = attributes[:'connection_type']
       else
         self.connection_type = 'credentials'
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -235,6 +244,7 @@ module Akeyless
           client_id == o.client_id &&
           client_secret == o.client_secret &&
           connection_type == o.connection_type &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           key == o.key &&
@@ -258,7 +268,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_cloud, client_id, client_secret, connection_type, description, json, key, max_versions, name, resource_group_name, resource_name, subscription_id, tenant_id, token, uid_token, use_gw_cloud_identity].hash
+      [azure_cloud, client_id, client_secret, connection_type, delete_protection, description, json, key, max_versions, name, resource_group_name, resource_name, subscription_id, tenant_id, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

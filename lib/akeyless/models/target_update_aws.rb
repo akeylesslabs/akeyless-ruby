@@ -21,6 +21,9 @@ module Akeyless
     # AWS access key ID
     attr_accessor :access_key_id
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -68,6 +71,7 @@ module Akeyless
       {
         :'access_key' => :'access-key',
         :'access_key_id' => :'access-key-id',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'generate_external_id' => :'generate-external-id',
         :'json' => :'json',
@@ -95,6 +99,7 @@ module Akeyless
       {
         :'access_key' => :'String',
         :'access_key_id' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'generate_external_id' => :'Boolean',
         :'json' => :'Boolean',
@@ -143,6 +148,10 @@ module Akeyless
         self.access_key_id = attributes[:'access_key_id']
       else
         self.access_key_id = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -245,6 +254,7 @@ module Akeyless
       self.class == o.class &&
           access_key == o.access_key &&
           access_key_id == o.access_key_id &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           generate_external_id == o.generate_external_id &&
           json == o.json &&
@@ -270,7 +280,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_key, access_key_id, description, generate_external_id, json, keep_prev_version, key, max_versions, name, new_name, region, role_arn, session_token, token, uid_token, use_gw_cloud_identity].hash
+      [access_key, access_key_id, delete_protection, description, generate_external_id, json, keep_prev_version, key, max_versions, name, new_name, region, role_arn, session_token, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

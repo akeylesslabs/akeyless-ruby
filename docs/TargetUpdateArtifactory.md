@@ -7,6 +7,7 @@
 | **artifactory_admin_name** | **String** | Artifactory Admin Name |  |
 | **artifactory_admin_pwd** | **String** | Artifactory Admin password |  |
 | **base_url** | **String** | Base URL |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -26,6 +27,7 @@ instance = Akeyless::TargetUpdateArtifactory.new(
   artifactory_admin_name: null,
   artifactory_admin_pwd: null,
   base_url: null,
+  delete_protection: null,
   description: null,
   json: null,
   keep_prev_version: null,

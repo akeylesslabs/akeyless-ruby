@@ -34,6 +34,9 @@ module Akeyless
     # Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
     attr_accessor :client_secret
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -76,6 +79,7 @@ module Akeyless
         :'ca_cert_name' => :'ca-cert-name',
         :'client_id' => :'client-id',
         :'client_secret' => :'client-secret',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'email' => :'email',
         :'json' => :'json',
@@ -104,6 +108,7 @@ module Akeyless
         :'ca_cert_name' => :'String',
         :'client_id' => :'String',
         :'client_secret' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'email' => :'String',
         :'json' => :'Boolean',
@@ -165,6 +170,10 @@ module Akeyless
 
       if attributes.key?(:'client_secret')
         self.client_secret = attributes[:'client_secret']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -271,6 +280,7 @@ module Akeyless
           ca_cert_name == o.ca_cert_name &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           email == o.email &&
           json == o.json &&
@@ -293,7 +303,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_private_key_data, auth_flow, ca_cert_data, ca_cert_name, client_id, client_secret, description, email, json, key, max_versions, name, password, security_token, tenant_url, token, uid_token].hash
+      [app_private_key_data, auth_flow, ca_cert_data, ca_cert_name, client_id, client_secret, delete_protection, description, email, json, key, max_versions, name, password, security_token, tenant_url, token, uid_token].hash
     end
 
     # Builds the object from hash

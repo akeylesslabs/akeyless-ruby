@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **bind_dn** | **String** | Bind DN |  |
 | **bind_dn_password** | **String** | Bind DN Password |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -26,6 +27,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateLdap.new(
   bind_dn: null,
   bind_dn_password: null,
+  delete_protection: null,
   description: null,
   json: null,
   key: null,

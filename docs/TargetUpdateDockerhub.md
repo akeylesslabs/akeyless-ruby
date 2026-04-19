@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **dockerhub_password** | **String** | Password for docker repository | [optional] |
 | **dockerhub_username** | **String** | Username for docker repository | [optional] |
@@ -22,6 +23,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetUpdateDockerhub.new(
+  delete_protection: null,
   description: null,
   dockerhub_password: null,
   dockerhub_username: null,

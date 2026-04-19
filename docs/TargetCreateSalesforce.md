@@ -10,6 +10,7 @@
 | **ca_cert_name** | **String** | name of the certificate in Salesforce tenant to use when uploading new key | [optional] |
 | **client_id** | **String** | Client ID of the oauth2 app to use for connecting to Salesforce |  |
 | **client_secret** | **String** | Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow) | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **email** | **String** | The email of the user attached to the oauth2 app used for connecting to Salesforce |  |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -34,6 +35,7 @@ instance = Akeyless::TargetCreateSalesforce.new(
   ca_cert_name: null,
   client_id: null,
   client_secret: null,
+  delete_protection: null,
   description: null,
   email: null,
   json: null,

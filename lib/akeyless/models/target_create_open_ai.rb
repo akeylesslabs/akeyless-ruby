@@ -22,6 +22,9 @@ module Akeyless
     # API key ID
     attr_accessor :api_key_id
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -57,6 +60,7 @@ module Akeyless
       {
         :'api_key' => :'api-key',
         :'api_key_id' => :'api-key-id',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'key' => :'key',
@@ -80,6 +84,7 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_key_id' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -120,6 +125,10 @@ module Akeyless
 
       if attributes.key?(:'api_key_id')
         self.api_key_id = attributes[:'api_key_id']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -196,6 +205,7 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           key == o.key &&
@@ -217,7 +227,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_key_id, description, json, key, max_versions, model, name, openai_url, organization_id, token, uid_token].hash
+      [api_key, api_key_id, delete_protection, description, json, key, max_versions, model, name, openai_url, organization_id, token, uid_token].hash
     end
 
     # Builds the object from hash

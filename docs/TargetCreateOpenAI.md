@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API key for OpenAI | [optional] |
 | **api_key_id** | **String** | API key ID | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -25,6 +26,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateOpenAI.new(
   api_key: null,
   api_key_id: null,
+  delete_protection: null,
   description: null,
   json: null,
   key: null,

@@ -24,6 +24,9 @@ module Akeyless
     # Base URL
     attr_accessor :base_url
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -57,6 +60,7 @@ module Akeyless
         :'artifactory_admin_name' => :'artifactory-admin-name',
         :'artifactory_admin_pwd' => :'artifactory-admin-pwd',
         :'base_url' => :'base-url',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
@@ -80,6 +84,7 @@ module Akeyless
         :'artifactory_admin_name' => :'String',
         :'artifactory_admin_pwd' => :'String',
         :'base_url' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
@@ -129,6 +134,10 @@ module Akeyless
         self.base_url = attributes[:'base_url']
       else
         self.base_url = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -215,6 +224,7 @@ module Akeyless
           artifactory_admin_name == o.artifactory_admin_name &&
           artifactory_admin_pwd == o.artifactory_admin_pwd &&
           base_url == o.base_url &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
@@ -235,7 +245,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_admin_name, artifactory_admin_pwd, base_url, description, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token].hash
+      [artifactory_admin_name, artifactory_admin_pwd, base_url, delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token].hash
     end
 
     # Builds the object from hash

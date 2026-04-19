@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API key for Gemini | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_comment&#39;] |
 | **gemini_url** | **String** | Base URL of the Gemini API | [optional][default to &#39;https://generativelanguage.googleapis.com&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -24,6 +25,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetUpdateGemini.new(
   api_key: null,
+  delete_protection: null,
   description: null,
   gemini_url: null,
   json: null,

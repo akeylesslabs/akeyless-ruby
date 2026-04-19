@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -20,6 +21,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetCreateGcp.new(
+  delete_protection: null,
   description: null,
   gcp_key: null,
   json: null,

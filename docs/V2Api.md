@@ -152,7 +152,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_create_ms_sql**](V2Api.md#dynamic_secret_create_ms_sql) | **POST** /dynamic-secret-create-mssql |  |
 | [**dynamic_secret_create_my_sql**](V2Api.md#dynamic_secret_create_my_sql) | **POST** /dynamic-secret-create-mysql |  |
 | [**dynamic_secret_create_open_ai**](V2Api.md#dynamic_secret_create_open_ai) | **POST** /dynamic-secret-create-openai |  |
-| [**dynamic_secret_create_oracle_db**](V2Api.md#dynamic_secret_create_oracle_db) | **POST** /dynamic-secret-create-oracle |  |
+| [**dynamic_secret_create_oracle_db**](V2Api.md#dynamic_secret_create_oracle_db) | **POST** /dynamic-secret-create-oracledb |  |
 | [**dynamic_secret_create_ping**](V2Api.md#dynamic_secret_create_ping) | **POST** /dynamic-secret-create-ping |  |
 | [**dynamic_secret_create_postgre_sql**](V2Api.md#dynamic_secret_create_postgre_sql) | **POST** /dynamic-secret-create-postgresql |  |
 | [**dynamic_secret_create_rabbit_mq**](V2Api.md#dynamic_secret_create_rabbit_mq) | **POST** /dynamic-secret-create-rabbitmq |  |
@@ -166,7 +166,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_get_value**](V2Api.md#dynamic_secret_get_value) | **POST** /dynamic-secret-get-value |  |
 | [**dynamic_secret_list**](V2Api.md#dynamic_secret_list) | **POST** /dynamic-secret-list |  |
 | [**dynamic_secret_tmp_creds_delete**](V2Api.md#dynamic_secret_tmp_creds_delete) | **POST** /dynamic-secret-tmp-creds-delete |  |
-| [**dynamic_secret_tmp_creds_get**](V2Api.md#dynamic_secret_tmp_creds_get) | **POST** /dynamic-secret-tmp-creds-Get |  |
+| [**dynamic_secret_tmp_creds_get**](V2Api.md#dynamic_secret_tmp_creds_get) | **POST** /dynamic-secret-tmp-creds-get |  |
 | [**dynamic_secret_tmp_creds_update**](V2Api.md#dynamic_secret_tmp_creds_update) | **POST** /dynamic-secret-tmp-creds-update |  |
 | [**dynamic_secret_update_artifactory**](V2Api.md#dynamic_secret_update_artifactory) | **POST** /dynamic-secret-update-artifactory |  |
 | [**dynamic_secret_update_aws**](V2Api.md#dynamic_secret_update_aws) | **POST** /dynamic-secret-update-aws |  |
@@ -180,10 +180,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_update_gitlab**](V2Api.md#dynamic_secret_update_gitlab) | **POST** /dynamic-secret-update-gitlab |  |
 | [**dynamic_secret_update_gke**](V2Api.md#dynamic_secret_update_gke) | **POST** /dynamic-secret-update-gke |  |
 | [**dynamic_secret_update_google_workspace**](V2Api.md#dynamic_secret_update_google_workspace) | **POST** /dynamic-secret-update-google-workspace |  |
-| [**dynamic_secret_update_hana_db**](V2Api.md#dynamic_secret_update_hana_db) | **POST** /dynamic-secret-update-hana |  |
+| [**dynamic_secret_update_hana_db**](V2Api.md#dynamic_secret_update_hana_db) | **POST** /dynamic-secret-update-hanadb |  |
 | [**dynamic_secret_update_k8s**](V2Api.md#dynamic_secret_update_k8s) | **POST** /dynamic-secret-update-k8s |  |
 | [**dynamic_secret_update_ldap**](V2Api.md#dynamic_secret_update_ldap) | **POST** /dynamic-secret-update-ldap |  |
-| [**dynamic_secret_update_mongo_db**](V2Api.md#dynamic_secret_update_mongo_db) | **POST** /dynamic-secret-update-mongo |  |
+| [**dynamic_secret_update_mongo_db**](V2Api.md#dynamic_secret_update_mongo_db) | **POST** /dynamic-secret-update-mongodb |  |
 | [**dynamic_secret_update_ms_sql**](V2Api.md#dynamic_secret_update_ms_sql) | **POST** /dynamic-secret-update-mssql |  |
 | [**dynamic_secret_update_my_sql**](V2Api.md#dynamic_secret_update_my_sql) | **POST** /dynamic-secret-update-mysql |  |
 | [**dynamic_secret_update_open_ai**](V2Api.md#dynamic_secret_update_open_ai) | **POST** /dynamic-secret-update-openai |  |
@@ -453,6 +453,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_update_splunk**](V2Api.md#rotated_secret_update_splunk) | **POST** /rotated-secret-update-splunk |  |
 | [**rotated_secret_update_ssh**](V2Api.md#rotated_secret_update_ssh) | **POST** /rotated-secret-update-ssh |  |
 | [**rotated_secret_update_windows**](V2Api.md#rotated_secret_update_windows) | **POST** /rotated-secret-update-windows |  |
+| [**runtime_authority**](V2Api.md#runtime_authority) | **POST** /runtime-authority |  |
 | [**set_item_state**](V2Api.md#set_item_state) | **POST** /set-item-state |  |
 | [**set_role_rule**](V2Api.md#set_role_rule) | **POST** /set-role-rule |  |
 | [**share_item**](V2Api.md#share_item) | **POST** /share-item |  |
@@ -28471,6 +28472,67 @@ end
 ### Return type
 
 [**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## runtime_authority
+
+> runtime_authority(runtime_authority_command)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+runtime_authority_command = Akeyless::RuntimeAuthorityCommand.new({agent_id: 'agent_id_example', name: 'name_example', payload: 'payload_example'}) # RuntimeAuthorityCommand | 
+
+begin
+  
+  api_instance.runtime_authority(runtime_authority_command)
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->runtime_authority: #{e}"
+end
+```
+
+#### Using the runtime_authority_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> runtime_authority_with_http_info(runtime_authority_command)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.runtime_authority_with_http_info(runtime_authority_command)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->runtime_authority_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **runtime_authority_command** | [**RuntimeAuthorityCommand**](RuntimeAuthorityCommand.md) |  |  |
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

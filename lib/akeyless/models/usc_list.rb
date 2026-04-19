@@ -21,6 +21,12 @@ module Akeyless
 
     attr_accessor :object_type
 
+    # Optional: number of items requested per response (Azure KV). When set, response may include next_token
+    attr_accessor :page_size
+
+    # Optional: continuation token returned by a previous usc list --page-size call
+    attr_accessor :page_token
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -35,6 +41,8 @@ module Akeyless
       {
         :'json' => :'json',
         :'object_type' => :'object-type',
+        :'page_size' => :'page-size',
+        :'page_token' => :'page-token',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name'
@@ -51,6 +59,8 @@ module Akeyless
       {
         :'json' => :'Boolean',
         :'object_type' => :'String',
+        :'page_size' => :'Integer',
+        :'page_token' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String'
@@ -86,6 +96,14 @@ module Akeyless
 
       if attributes.key?(:'object_type')
         self.object_type = attributes[:'object_type']
+      end
+
+      if attributes.key?(:'page_size')
+        self.page_size = attributes[:'page_size']
+      end
+
+      if attributes.key?(:'page_token')
+        self.page_token = attributes[:'page_token']
       end
 
       if attributes.key?(:'token')
@@ -130,6 +148,8 @@ module Akeyless
       self.class == o.class &&
           json == o.json &&
           object_type == o.object_type &&
+          page_size == o.page_size &&
+          page_token == o.page_token &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name
@@ -144,7 +164,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, object_type, token, uid_token, usc_name].hash
+      [json, object_type, page_size, page_token, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

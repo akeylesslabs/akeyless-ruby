@@ -19,6 +19,9 @@ module Akeyless
     # ACME challenge type. Options: [dns]
     attr_accessor :acme_challenge
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -77,6 +80,7 @@ module Akeyless
     def self.attribute_map
       {
         :'acme_challenge' => :'acme-challenge',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'dns_target_creds' => :'dns-target-creds',
         :'eab_hmac_key' => :'eab-hmac-key',
@@ -107,6 +111,7 @@ module Akeyless
     def self.openapi_types
       {
         :'acme_challenge' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'dns_target_creds' => :'String',
         :'eab_hmac_key' => :'String',
@@ -153,6 +158,10 @@ module Akeyless
         self.acme_challenge = attributes[:'acme_challenge']
       else
         self.acme_challenge = 'dns'
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -269,6 +278,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           acme_challenge == o.acme_challenge &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           dns_target_creds == o.dns_target_creds &&
           eab_hmac_key == o.eab_hmac_key &&
@@ -298,7 +308,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, description, dns_target_creds, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, keep_prev_version, key, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
+      [acme_challenge, delete_protection, description, dns_target_creds, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, keep_prev_version, key, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

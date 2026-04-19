@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **eks_access_key_id** | **String** | Access Key ID |  |
 | **eks_cluster_ca_cert** | **String** | EKS cluster CA certificate |  |
@@ -27,6 +28,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetUpdateEks.new(
+  delete_protection: null,
   description: null,
   eks_access_key_id: null,
   eks_cluster_ca_cert: null,

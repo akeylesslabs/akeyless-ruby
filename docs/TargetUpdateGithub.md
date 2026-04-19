@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **github_app_id** | **Integer** | Github app id | [optional] |
 | **github_app_private_key** | **String** | App private key | [optional] |
@@ -23,6 +24,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetUpdateGithub.new(
+  delete_protection: null,
   description: null,
   github_app_id: null,
   github_app_private_key: null,

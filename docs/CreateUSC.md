@@ -23,7 +23,9 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **usc_prefix** | **String** | Prefix for all secrets created in AWS Secrets Manager | [optional] |
+| **usc_tags** | **String** | Comma-separated list of tags to apply to all secrets created on the remote USC | [optional] |
 | **use_prefix_as_filter** | **String** | Whether to filter the USC secret list using the specified usc-prefix [true/false] | [optional][default to &#39;false&#39;] |
+| **use_tags_as_filter** | **Boolean** | Filter the USC secret list by the value(s) of --usc-tags. [true|false] | [optional] |
 
 ## Example
 
@@ -50,7 +52,9 @@ instance = Akeyless::CreateUSC.new(
   token: null,
   uid_token: null,
   usc_prefix: null,
-  use_prefix_as_filter: null
+  usc_tags: null,
+  use_prefix_as_filter: null,
+  use_tags_as_filter: null
 )
 ```
 

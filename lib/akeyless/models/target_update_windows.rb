@@ -22,6 +22,9 @@ module Akeyless
     # Type of connection to Windows Server [credentials/parent-target]
     attr_accessor :connection_type
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -75,6 +78,7 @@ module Akeyless
       {
         :'certificate' => :'certificate',
         :'connection_type' => :'connection-type',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'domain' => :'domain',
         :'hostname' => :'hostname',
@@ -104,6 +108,7 @@ module Akeyless
       {
         :'certificate' => :'String',
         :'connection_type' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'domain' => :'String',
         :'hostname' => :'String',
@@ -152,6 +157,10 @@ module Akeyless
         self.connection_type = attributes[:'connection_type']
       else
         self.connection_type = 'credentials'
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -275,6 +284,7 @@ module Akeyless
       self.class == o.class &&
           certificate == o.certificate &&
           connection_type == o.connection_type &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           domain == o.domain &&
           hostname == o.hostname &&
@@ -302,7 +312,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate, connection_type, description, domain, hostname, json, keep_prev_version, key, max_versions, name, new_name, parent_target_name, password, port, token, uid_token, use_tls, username].hash
+      [certificate, connection_type, delete_protection, description, domain, hostname, json, keep_prev_version, key, max_versions, name, new_name, parent_target_name, password, port, token, uid_token, use_tls, username].hash
     end
 
     # Builds the object from hash

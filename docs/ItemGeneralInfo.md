@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **agentic_rules** | [**AgenticRules**](AgenticRules.md) |  | [optional] |
 | **cert_issue_details** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  | [optional] |
 | **certificate_chain_info** | [**CertificateChainInfo**](CertificateChainInfo.md) |  | [optional] |
 | **certificate_format** | **String** |  | [optional] |
@@ -29,6 +30,7 @@
 require 'akeyless'
 
 instance = Akeyless::ItemGeneralInfo.new(
+  agentic_rules: null,
   cert_issue_details: null,
   certificate_chain_info: null,
   certificate_format: null,

@@ -15,6 +15,7 @@
 | **db_server_certificates** | **String** | (Optional) DB server certificates | [optional] |
 | **db_server_name** | **String** | (Optional) Server name for certificate verification | [optional] |
 | **db_type** | **String** |  |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **host** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -60,6 +61,7 @@ instance = Akeyless::TargetCreateDB.new(
   db_server_certificates: null,
   db_server_name: null,
   db_type: null,
+  delete_protection: null,
   description: null,
   host: null,
   json: null,

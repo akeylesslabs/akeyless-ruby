@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_comment&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -19,6 +20,7 @@
 require 'akeyless'
 
 instance = Akeyless::UpdateTarget.new(
+  delete_protection: null,
   description: null,
   json: null,
   max_versions: null,

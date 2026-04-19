@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **k8s_auth_type** | **String** | K8S auth type [token/certificate] | [optional][default to &#39;token&#39;] |
@@ -26,6 +27,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetCreateK8s.new(
+  delete_protection: null,
   description: null,
   json: null,
   k8s_auth_type: null,

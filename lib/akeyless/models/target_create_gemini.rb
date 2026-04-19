@@ -19,6 +19,9 @@ module Akeyless
     # API key for Gemini
     attr_accessor :api_key
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -47,6 +50,7 @@ module Akeyless
     def self.attribute_map
       {
         :'api_key' => :'api-key',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'gemini_url' => :'gemini-url',
         :'json' => :'json',
@@ -67,6 +71,7 @@ module Akeyless
     def self.openapi_types
       {
         :'api_key' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'gemini_url' => :'String',
         :'json' => :'Boolean',
@@ -101,6 +106,10 @@ module Akeyless
 
       if attributes.key?(:'api_key')
         self.api_key = attributes[:'api_key']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -168,6 +177,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           api_key == o.api_key &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           gemini_url == o.gemini_url &&
           json == o.json &&
@@ -187,7 +197,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, description, gemini_url, json, key, max_versions, name, token, uid_token].hash
+      [api_key, delete_protection, description, gemini_url, json, key, max_versions, name, token, uid_token].hash
     end
 
     # Builds the object from hash

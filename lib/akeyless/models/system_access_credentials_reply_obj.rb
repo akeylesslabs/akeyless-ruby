@@ -20,6 +20,9 @@ module Akeyless
     # Temporary credentials for accessing Auth
     attr_accessor :auth_creds
 
+    # CSRF token for synchronizer-token pattern (only populated for WebUI clients)
+    attr_accessor :csrf_token
+
     # Credentials expiration date
     attr_accessor :expiry
 
@@ -42,6 +45,7 @@ module Akeyless
       {
         :'access_id' => :'access_id',
         :'auth_creds' => :'auth_creds',
+        :'csrf_token' => :'csrf_token',
         :'expiry' => :'expiry',
         :'kfm_creds' => :'kfm_creds',
         :'need_mfa_app_first_config' => :'need_mfa_app_first_config',
@@ -61,6 +65,7 @@ module Akeyless
       {
         :'access_id' => :'String',
         :'auth_creds' => :'String',
+        :'csrf_token' => :'String',
         :'expiry' => :'Integer',
         :'kfm_creds' => :'String',
         :'need_mfa_app_first_config' => :'Boolean',
@@ -97,6 +102,10 @@ module Akeyless
 
       if attributes.key?(:'auth_creds')
         self.auth_creds = attributes[:'auth_creds']
+      end
+
+      if attributes.key?(:'csrf_token')
+        self.csrf_token = attributes[:'csrf_token']
       end
 
       if attributes.key?(:'expiry')
@@ -146,6 +155,7 @@ module Akeyless
       self.class == o.class &&
           access_id == o.access_id &&
           auth_creds == o.auth_creds &&
+          csrf_token == o.csrf_token &&
           expiry == o.expiry &&
           kfm_creds == o.kfm_creds &&
           need_mfa_app_first_config == o.need_mfa_app_first_config &&
@@ -163,7 +173,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, auth_creds, expiry, kfm_creds, need_mfa_app_first_config, required_mfa, token, uam_creds].hash
+      [access_id, auth_creds, csrf_token, expiry, kfm_creds, need_mfa_app_first_config, required_mfa, token, uam_creds].hash
     end
 
     # Builds the object from hash

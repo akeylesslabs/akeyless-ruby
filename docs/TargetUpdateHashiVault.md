@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **hashi_url** | **String** | HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -23,6 +24,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetUpdateHashiVault.new(
+  delete_protection: null,
   description: null,
   hashi_url: null,
   json: null,

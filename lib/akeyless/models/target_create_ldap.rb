@@ -22,6 +22,9 @@ module Akeyless
     # Bind DN Password
     attr_accessor :bind_dn_password
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -60,6 +63,7 @@ module Akeyless
       {
         :'bind_dn' => :'bind-dn',
         :'bind_dn_password' => :'bind-dn-password',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'key' => :'key',
@@ -84,6 +88,7 @@ module Akeyless
       {
         :'bind_dn' => :'String',
         :'bind_dn_password' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -129,6 +134,10 @@ module Akeyless
         self.bind_dn_password = attributes[:'bind_dn_password']
       else
         self.bind_dn_password = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -226,6 +235,7 @@ module Akeyless
       self.class == o.class &&
           bind_dn == o.bind_dn &&
           bind_dn_password == o.bind_dn_password &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           key == o.key &&
@@ -248,7 +258,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_dn, bind_dn_password, description, json, key, ldap_ca_cert, ldap_url, max_versions, name, server_type, token, token_expiration, uid_token].hash
+      [bind_dn, bind_dn_password, delete_protection, description, json, key, ldap_ca_cert, ldap_url, max_versions, name, server_type, token, token_expiration, uid_token].hash
     end
 
     # Builds the object from hash

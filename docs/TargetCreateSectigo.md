@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **certificate_profile_id** | **Integer** | Certificate Profile ID in Sectigo account |  |
 | **customer_uri** | **String** | Customer Uri of the Sectigo account |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **external_requester** | **String** | External Requester - a comma separated list of emails |  |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -27,6 +28,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateSectigo.new(
   certificate_profile_id: null,
   customer_uri: null,
+  delete_protection: null,
   description: null,
   external_requester: null,
   json: null,

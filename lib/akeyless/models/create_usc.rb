@@ -72,8 +72,14 @@ module Akeyless
     # Prefix for all secrets created in AWS Secrets Manager
     attr_accessor :usc_prefix
 
+    # Comma-separated list of tags to apply to all secrets created on the remote USC
+    attr_accessor :usc_tags
+
     # Whether to filter the USC secret list using the specified usc-prefix [true/false]
     attr_accessor :use_prefix_as_filter
+
+    # Filter the USC secret list by the value(s) of --usc-tags. [true|false]
+    attr_accessor :use_tags_as_filter
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -97,7 +103,9 @@ module Akeyless
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_prefix' => :'usc-prefix',
-        :'use_prefix_as_filter' => :'use-prefix-as-filter'
+        :'usc_tags' => :'usc-tags',
+        :'use_prefix_as_filter' => :'use-prefix-as-filter',
+        :'use_tags_as_filter' => :'use-tags-as-filter'
       }
     end
 
@@ -128,7 +136,9 @@ module Akeyless
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_prefix' => :'String',
-        :'use_prefix_as_filter' => :'String'
+        :'usc_tags' => :'String',
+        :'use_prefix_as_filter' => :'String',
+        :'use_tags_as_filter' => :'Boolean'
       }
     end
 
@@ -243,10 +253,18 @@ module Akeyless
         self.usc_prefix = attributes[:'usc_prefix']
       end
 
+      if attributes.key?(:'usc_tags')
+        self.usc_tags = attributes[:'usc_tags']
+      end
+
       if attributes.key?(:'use_prefix_as_filter')
         self.use_prefix_as_filter = attributes[:'use_prefix_as_filter']
       else
         self.use_prefix_as_filter = 'false'
+      end
+
+      if attributes.key?(:'use_tags_as_filter')
+        self.use_tags_as_filter = attributes[:'use_tags_as_filter']
       end
     end
 
@@ -299,7 +317,9 @@ module Akeyless
           token == o.token &&
           uid_token == o.uid_token &&
           usc_prefix == o.usc_prefix &&
-          use_prefix_as_filter == o.use_prefix_as_filter
+          usc_tags == o.usc_tags &&
+          use_prefix_as_filter == o.use_prefix_as_filter &&
+          use_tags_as_filter == o.use_tags_as_filter
     end
 
     # @see the `==` method
@@ -311,7 +331,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, environment_names, gcp_project_id, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, use_prefix_as_filter].hash
+      [azure_kv_name, delete_protection, description, environment_names, gcp_project_id, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, usc_tags, use_prefix_as_filter, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

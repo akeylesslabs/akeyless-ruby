@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API Key of the GlobalSign Atlas account |  |
 | **api_secret** | **String** | API Secret of the GlobalSign Atlas account |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -25,6 +26,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateGlobalSignAtlas.new(
   api_key: null,
   api_secret: null,
+  delete_protection: null,
   description: null,
   json: null,
   key: null,

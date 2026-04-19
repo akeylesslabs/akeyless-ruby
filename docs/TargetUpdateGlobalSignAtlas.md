@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API Key of the GlobalSign Atlas account |  |
 | **api_secret** | **String** | API Secret of the GlobalSign Atlas account |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -27,6 +28,7 @@ require 'akeyless'
 instance = Akeyless::TargetUpdateGlobalSignAtlas.new(
   api_key: null,
   api_secret: null,
+  delete_protection: null,
   description: null,
   json: null,
   keep_prev_version: null,

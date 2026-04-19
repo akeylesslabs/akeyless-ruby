@@ -11,6 +11,7 @@
 | **admin_pwd** | **String** |  | [optional] |
 | **admin_rotation_interval_days** | **Integer** |  | [optional] |
 | **administrative_port** | **String** |  | [optional] |
+| **agentic_rules** | [**AgenticRules**](AgenticRules.md) |  | [optional] |
 | **api_key** | **String** |  | [optional] |
 | **api_key_id** | **String** |  | [optional] |
 | **artifactory_admin_apikey** | **String** |  | [optional] |
@@ -283,6 +284,7 @@ instance = Akeyless::DSProducerDetails.new(
   admin_pwd: null,
   admin_rotation_interval_days: null,
   administrative_port: null,
+  agentic_rules: null,
   api_key: null,
   api_key_id: null,
   artifactory_admin_apikey: null,

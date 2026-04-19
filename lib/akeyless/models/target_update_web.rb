@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # targetUpdateWeb is a command that updates an existing web target
   class TargetUpdateWeb
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -49,6 +52,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
@@ -70,6 +74,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
@@ -103,6 +108,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -174,6 +183,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
@@ -195,7 +205,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token, url].hash
+      [delete_protection, description, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token, url].hash
     end
 
     # Builds the object from hash

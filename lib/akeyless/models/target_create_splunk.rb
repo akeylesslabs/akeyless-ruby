@@ -19,6 +19,9 @@ module Akeyless
     # Splunk token audience (required when using token authentication for rotation)
     attr_accessor :audience
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -62,6 +65,7 @@ module Akeyless
     def self.attribute_map
       {
         :'audience' => :'audience',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'key' => :'key',
@@ -87,6 +91,7 @@ module Akeyless
     def self.openapi_types
       {
         :'audience' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -126,6 +131,10 @@ module Akeyless
 
       if attributes.key?(:'audience')
         self.audience = attributes[:'audience']
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -220,6 +229,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           audience == o.audience &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           key == o.key &&
@@ -244,7 +254,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [audience, description, json, key, max_versions, name, password, splunk_token, token, token_owner, uid_token, url, use_tls, username].hash
+      [audience, delete_protection, description, json, key, max_versions, name, password, splunk_token, token, token_owner, uid_token, url, use_tls, username].hash
     end
 
     # Builds the object from hash

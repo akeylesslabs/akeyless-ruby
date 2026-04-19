@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **gitlab_access_token** | **String** | Gitlab access token | [optional] |
 | **gitlab_certificate** | **String** | Gitlab tls certificate (base64 encoded) | [optional] |
@@ -21,6 +22,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetCreateGitlab.new(
+  delete_protection: null,
   description: null,
   gitlab_access_token: null,
   gitlab_certificate: null,

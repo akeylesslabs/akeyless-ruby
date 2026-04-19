@@ -168,6 +168,12 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Comma-separated list of tags to apply to all secrets created/synced on the remote USC  USC items only.
+    attr_accessor :usc_tags
+
+    # Whether to filter the USC secret list using the specified usc-tags [true/false]  USC items only.
+    attr_accessor :use_tags_as_filter
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -222,7 +228,9 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'token' => :'token',
-        :'uid_token' => :'uid-token'
+        :'uid_token' => :'uid-token',
+        :'usc_tags' => :'usc-tags',
+        :'use_tags_as_filter' => :'use-tags-as-filter'
       }
     end
 
@@ -285,7 +293,9 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'token' => :'String',
-        :'uid_token' => :'String'
+        :'uid_token' => :'String',
+        :'usc_tags' => :'String',
+        :'use_tags_as_filter' => :'String'
       }
     end
 
@@ -545,6 +555,14 @@ module Akeyless
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
+
+      if attributes.key?(:'usc_tags')
+        self.usc_tags = attributes[:'usc_tags']
+      end
+
+      if attributes.key?(:'use_tags_as_filter')
+        self.use_tags_as_filter = attributes[:'use_tags_as_filter']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -623,7 +641,9 @@ module Akeyless
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
           token == o.token &&
-          uid_token == o.uid_token
+          uid_token == o.uid_token &&
+          usc_tags == o.usc_tags &&
+          use_tags_as_filter == o.use_tags_as_filter
     end
 
     # @see the `==` method
@@ -635,7 +655,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token, usc_tags, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

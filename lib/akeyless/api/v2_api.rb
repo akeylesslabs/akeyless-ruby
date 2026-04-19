@@ -9519,7 +9519,7 @@ module Akeyless
         fail ArgumentError, "Missing the required parameter 'dynamic_secret_create_oracle_db' when calling V2Api.dynamic_secret_create_oracle_db"
       end
       # resource path
-      local_var_path = '/dynamic-secret-create-oracle'
+      local_var_path = '/dynamic-secret-create-oracledb'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -10415,7 +10415,7 @@ module Akeyless
         fail ArgumentError, "Missing the required parameter 'dynamic_secret_tmp_creds_get' when calling V2Api.dynamic_secret_tmp_creds_get"
       end
       # resource path
-      local_var_path = '/dynamic-secret-tmp-creds-Get'
+      local_var_path = '/dynamic-secret-tmp-creds-get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -11307,7 +11307,7 @@ module Akeyless
         fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_hana_db' when calling V2Api.dynamic_secret_update_hana_db"
       end
       # resource path
-      local_var_path = '/dynamic-secret-update-hana'
+      local_var_path = '/dynamic-secret-update-hanadb'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -11499,7 +11499,7 @@ module Akeyless
         fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_mongo_db' when calling V2Api.dynamic_secret_update_mongo_db"
       end
       # resource path
-      local_var_path = '/dynamic-secret-update-mongo'
+      local_var_path = '/dynamic-secret-update-mongodb'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -28654,6 +28654,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_windows\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param runtime_authority_command [RuntimeAuthorityCommand] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def runtime_authority(runtime_authority_command, opts = {})
+      runtime_authority_with_http_info(runtime_authority_command, opts)
+      nil
+    end
+
+    # @param runtime_authority_command [RuntimeAuthorityCommand] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def runtime_authority_with_http_info(runtime_authority_command, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.runtime_authority ...'
+      end
+      # verify the required parameter 'runtime_authority_command' is set
+      if @api_client.config.client_side_validation && runtime_authority_command.nil?
+        fail ArgumentError, "Missing the required parameter 'runtime_authority_command' when calling V2Api.runtime_authority"
+      end
+      # resource path
+      local_var_path = '/runtime-authority'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(runtime_authority_command)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.runtime_authority",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#runtime_authority\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

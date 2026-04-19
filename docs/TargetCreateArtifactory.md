@@ -7,6 +7,7 @@
 | **artifactory_admin_name** | **String** | Artifactory Admin Name |  |
 | **artifactory_admin_pwd** | **String** | Artifactory Admin password |  |
 | **base_url** | **String** | Base URL |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
@@ -24,6 +25,7 @@ instance = Akeyless::TargetCreateArtifactory.new(
   artifactory_admin_name: null,
   artifactory_admin_pwd: null,
   base_url: null,
+  delete_protection: null,
   description: null,
   json: null,
   key: null,

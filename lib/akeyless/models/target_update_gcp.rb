@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class TargetUpdateGcp
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -50,6 +53,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'gcp_key' => :'gcp-key',
         :'json' => :'json',
@@ -72,6 +76,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'gcp_key' => :'String',
         :'json' => :'Boolean',
@@ -106,6 +111,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -181,6 +190,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           gcp_key == o.gcp_key &&
           json == o.json &&
@@ -203,7 +213,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, gcp_key, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token, use_gw_cloud_identity].hash
+      [delete_protection, description, gcp_key, json, keep_prev_version, key, max_versions, name, new_name, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

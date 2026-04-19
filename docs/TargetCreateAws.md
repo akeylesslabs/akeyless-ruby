@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_key** | **String** | AWS secret access key |  |
 | **access_key_id** | **String** | AWS access key ID |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **generate_external_id** | **Boolean** | A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using GW cloud ID | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -27,6 +28,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateAws.new(
   access_key: null,
   access_key_id: null,
+  delete_protection: null,
   description: null,
   generate_external_id: null,
   json: null,

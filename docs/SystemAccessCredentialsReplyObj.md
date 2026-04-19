@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_id** | **String** |  | [optional] |
 | **auth_creds** | **String** | Temporary credentials for accessing Auth | [optional] |
+| **csrf_token** | **String** | CSRF token for synchronizer-token pattern (only populated for WebUI clients) | [optional] |
 | **expiry** | **Integer** | Credentials expiration date | [optional] |
 | **kfm_creds** | **String** | Temporary credentials for accessing the KFMs instances | [optional] |
 | **need_mfa_app_first_config** | **Boolean** | If the user didn&#39;t complete to configure the MFA app | [optional] |
@@ -21,6 +22,7 @@ require 'akeyless'
 instance = Akeyless::SystemAccessCredentialsReplyObj.new(
   access_id: null,
   auth_creds: null,
+  csrf_token: null,
   expiry: null,
   kfm_creds: null,
   need_mfa_app_first_config: null,

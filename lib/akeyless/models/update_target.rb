@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class UpdateTarget
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -42,6 +45,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'max_versions' => :'max-versions',
@@ -61,6 +65,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'max_versions' => :'String',
@@ -92,6 +97,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
@@ -159,6 +168,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           max_versions == o.max_versions &&
@@ -178,7 +188,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, json, max_versions, name, new_comment, new_name, token, uid_token].hash
+      [delete_protection, description, json, max_versions, name, new_comment, new_name, token, uid_token].hash
     end
 
     # Builds the object from hash

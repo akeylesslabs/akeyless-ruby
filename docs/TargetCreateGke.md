@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **gke_account_key** | **String** | GKE Service Account key file path | [optional] |
 | **gke_cluster_cert** | **String** | GKE cluster CA certificate | [optional] |
@@ -24,6 +25,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetCreateGke.new(
+  delete_protection: null,
   description: null,
   gke_account_key: null,
   gke_cluster_cert: null,

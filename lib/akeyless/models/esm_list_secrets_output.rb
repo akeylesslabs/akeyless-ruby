@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class EsmListSecretsOutput
+    attr_accessor :next_token
+
     attr_accessor :secrets_list
 
     attr_accessor :warnings
@@ -22,6 +24,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'next_token' => :'next_token',
         :'secrets_list' => :'secrets_list',
         :'warnings' => :'warnings'
       }
@@ -35,6 +38,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'next_token' => :'String',
         :'secrets_list' => :'Array<SecretInfo>',
         :'warnings' => :'Array<String>'
       }
@@ -60,6 +64,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'next_token')
+        self.next_token = attributes[:'next_token']
+      end
 
       if attributes.key?(:'secrets_list')
         if (value = attributes[:'secrets_list']).is_a?(Array)
@@ -94,6 +102,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          next_token == o.next_token &&
           secrets_list == o.secrets_list &&
           warnings == o.warnings
     end
@@ -107,7 +116,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [secrets_list, warnings].hash
+      [next_token, secrets_list, warnings].hash
     end
 
     # Builds the object from hash

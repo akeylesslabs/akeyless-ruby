@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acme_challenge** | **String** |  | [optional][default to &#39;http&#39;] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP targets | [optional] |
 | **email** | **String** | Email address for ACME account registration |  |
@@ -29,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetUpdateLetsEncrypt.new(
   acme_challenge: null,
+  delete_protection: null,
   description: null,
   dns_target_creds: null,
   email: null,

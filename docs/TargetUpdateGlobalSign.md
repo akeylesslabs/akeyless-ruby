@@ -8,6 +8,7 @@
 | **contact_first_name** | **String** | First name of the GlobalSign GCC account contact |  |
 | **contact_last_name** | **String** | Last name of the GlobalSign GCC account contact |  |
 | **contact_phone** | **String** | Telephone of the GlobalSign GCC account contact |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -32,6 +33,7 @@ instance = Akeyless::TargetUpdateGlobalSign.new(
   contact_first_name: null,
   contact_last_name: null,
   contact_phone: null,
+  delete_protection: null,
   description: null,
   json: null,
   keep_prev_version: null,

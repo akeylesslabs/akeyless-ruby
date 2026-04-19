@@ -21,6 +21,9 @@ module Akeyless
     # Filter by item name/username/website or part of it
     attr_accessor :advanced_filter
 
+    # Filter by items with ARA functionality enabled
+    attr_accessor :ara_only
+
     # Retrieve all items using pagination, when disabled retrieving only first 1000 items
     attr_accessor :auto_pagination
 
@@ -67,6 +70,7 @@ module Akeyless
       {
         :'accessibility' => :'accessibility',
         :'advanced_filter' => :'advanced-filter',
+        :'ara_only' => :'ara-only',
         :'auto_pagination' => :'auto-pagination',
         :'current_folder' => :'current-folder',
         :'filter' => :'filter',
@@ -94,6 +98,7 @@ module Akeyless
       {
         :'accessibility' => :'String',
         :'advanced_filter' => :'String',
+        :'ara_only' => :'Boolean',
         :'auto_pagination' => :'String',
         :'current_folder' => :'Boolean',
         :'filter' => :'String',
@@ -140,6 +145,12 @@ module Akeyless
 
       if attributes.key?(:'advanced_filter')
         self.advanced_filter = attributes[:'advanced_filter']
+      end
+
+      if attributes.key?(:'ara_only')
+        self.ara_only = attributes[:'ara_only']
+      else
+        self.ara_only = false
       end
 
       if attributes.key?(:'auto_pagination')
@@ -233,6 +244,7 @@ module Akeyless
       self.class == o.class &&
           accessibility == o.accessibility &&
           advanced_filter == o.advanced_filter &&
+          ara_only == o.ara_only &&
           auto_pagination == o.auto_pagination &&
           current_folder == o.current_folder &&
           filter == o.filter &&
@@ -258,7 +270,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, advanced_filter, auto_pagination, current_folder, filter, json, minimal_view, modified_after, pagination_token, path, sra_only, sub_types, tag, token, type, uid_token].hash
+      [accessibility, advanced_filter, ara_only, auto_pagination, current_folder, filter, json, minimal_view, modified_after, pagination_token, path, sra_only, sub_types, tag, token, type, uid_token].hash
     end
 
     # Builds the object from hash

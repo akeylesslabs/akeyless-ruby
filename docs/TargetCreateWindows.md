@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **certificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) | [optional] |
 | **connection_type** | **String** | Type of connection to Windows Server [credentials/parent-target] | [optional][default to &#39;credentials&#39;] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **domain** | **String** | User domain name | [optional] |
 | **hostname** | **String** | Server hostname |  |
@@ -29,6 +30,7 @@ require 'akeyless'
 instance = Akeyless::TargetCreateWindows.new(
   certificate: null,
   connection_type: null,
+  delete_protection: null,
   description: null,
   domain: null,
   hostname: null,

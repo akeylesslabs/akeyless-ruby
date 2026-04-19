@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acme_challenge** | **String** | ACME challenge type. Options: [dns] | [optional][default to &#39;dns&#39;] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **digicert_url** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] | [optional][default to &#39;us-production&#39;] |
 | **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP | [optional] |
@@ -29,6 +30,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetCreateDigiCert.new(
   acme_challenge: null,
+  delete_protection: null,
   description: null,
   digicert_url: null,
   dns_target_creds: null,

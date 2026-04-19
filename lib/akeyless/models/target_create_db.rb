@@ -46,6 +46,9 @@ module Akeyless
 
     attr_accessor :db_type
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -135,6 +138,7 @@ module Akeyless
         :'db_server_certificates' => :'db-server-certificates',
         :'db_server_name' => :'db-server-name',
         :'db_type' => :'db-type',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'host' => :'host',
         :'json' => :'json',
@@ -184,6 +188,7 @@ module Akeyless
         :'db_server_certificates' => :'String',
         :'db_server_name' => :'String',
         :'db_type' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'host' => :'String',
         :'json' => :'Boolean',
@@ -281,6 +286,10 @@ module Akeyless
         self.db_type = attributes[:'db_type']
       else
         self.db_type = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -444,6 +453,7 @@ module Akeyless
           db_server_certificates == o.db_server_certificates &&
           db_server_name == o.db_server_name &&
           db_type == o.db_type &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           host == o.host &&
           json == o.json &&
@@ -482,7 +492,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_client_id, azure_client_secret, azure_tenant_id, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, description, host, json, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
+      [azure_client_id, azure_client_secret, azure_tenant_id, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, delete_protection, description, host, json, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
     end
 
     # Builds the object from hash

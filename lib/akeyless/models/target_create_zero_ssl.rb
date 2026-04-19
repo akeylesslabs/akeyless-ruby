@@ -19,6 +19,9 @@ module Akeyless
     # API Key of the ZeroSSLTarget account
     attr_accessor :api_key
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -62,6 +65,7 @@ module Akeyless
     def self.attribute_map
       {
         :'api_key' => :'api-key',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'imap_fqdn' => :'imap-fqdn',
         :'imap_password' => :'imap-password',
@@ -87,6 +91,7 @@ module Akeyless
     def self.openapi_types
       {
         :'api_key' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'imap_fqdn' => :'String',
         :'imap_password' => :'String',
@@ -128,6 +133,10 @@ module Akeyless
         self.api_key = attributes[:'api_key']
       else
         self.api_key = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -243,6 +252,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           api_key == o.api_key &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           imap_fqdn == o.imap_fqdn &&
           imap_password == o.imap_password &&
@@ -267,7 +277,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, description, imap_fqdn, imap_password, imap_port, imap_target_email, imap_username, json, key, max_versions, name, timeout, token, uid_token].hash
+      [api_key, delete_protection, description, imap_fqdn, imap_password, imap_port, imap_target_email, imap_username, json, key, max_versions, name, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

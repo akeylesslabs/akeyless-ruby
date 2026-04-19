@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class ItemGeneralInfo
+    attr_accessor :agentic_rules
+
     attr_accessor :cert_issue_details
 
     attr_accessor :certificate_chain_info
@@ -54,6 +56,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'agentic_rules' => :'agentic_rules',
         :'cert_issue_details' => :'cert_issue_details',
         :'certificate_chain_info' => :'certificate_chain_info',
         :'certificate_format' => :'certificate_format',
@@ -83,6 +86,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'agentic_rules' => :'AgenticRules',
         :'cert_issue_details' => :'CertificateIssueInfo',
         :'certificate_chain_info' => :'CertificateChainInfo',
         :'certificate_format' => :'String',
@@ -124,6 +128,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'agentic_rules')
+        self.agentic_rules = attributes[:'agentic_rules']
+      end
 
       if attributes.key?(:'cert_issue_details')
         self.cert_issue_details = attributes[:'cert_issue_details']
@@ -222,6 +230,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          agentic_rules == o.agentic_rules &&
           cert_issue_details == o.cert_issue_details &&
           certificate_chain_info == o.certificate_chain_info &&
           certificate_format == o.certificate_format &&
@@ -251,7 +260,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, issuer_overview_info, next_rotation_events, oidc_client_info, password_policy, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
+      [agentic_rules, cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, issuer_overview_info, next_rotation_events, oidc_client_info, password_policy, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
     end
 
     # Builds the object from hash

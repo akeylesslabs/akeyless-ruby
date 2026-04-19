@@ -24,7 +24,7 @@ module Akeyless
     # The role name to be updated
     attr_accessor :role_name
 
-    # item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, sra-rule, ara-rule
+    # item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule, usage-reports-rule, event-rule, event-forwarder-rule, reverse-rbac-rule
     attr_accessor :rule_type
 
     # Authentication token (see `/auth` and `/configure`)

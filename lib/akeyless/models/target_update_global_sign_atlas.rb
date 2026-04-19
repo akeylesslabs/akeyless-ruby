@@ -21,6 +21,9 @@ module Akeyless
     # API Secret of the GlobalSign Atlas account
     attr_accessor :api_secret
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -62,6 +65,7 @@ module Akeyless
       {
         :'api_key' => :'api-key',
         :'api_secret' => :'api-secret',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
@@ -87,6 +91,7 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_secret' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
@@ -133,6 +138,10 @@ module Akeyless
         self.api_secret = attributes[:'api_secret']
       else
         self.api_secret = nil
+      end
+
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
       end
 
       if attributes.key?(:'description')
@@ -227,6 +236,7 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_secret == o.api_secret &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
@@ -250,7 +260,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_secret, description, json, keep_prev_version, key, max_versions, mtls_cert_data_base64, mtls_key_data_base64, name, new_name, timeout, token, uid_token].hash
+      [api_key, api_secret, delete_protection, description, json, keep_prev_version, key, max_versions, mtls_cert_data_base64, mtls_key_data_base64, name, new_name, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

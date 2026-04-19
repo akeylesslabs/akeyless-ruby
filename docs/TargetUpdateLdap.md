@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **bind_dn** | **String** | Bind DN |  |
 | **bind_dn_password** | **String** | Bind DN Password |  |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -28,6 +29,7 @@ require 'akeyless'
 instance = Akeyless::TargetUpdateLdap.new(
   bind_dn: null,
   bind_dn_password: null,
+  delete_protection: null,
   description: null,
   json: null,
   keep_prev_version: null,

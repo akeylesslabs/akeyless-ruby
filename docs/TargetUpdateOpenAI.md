@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API key for OpenAI | [optional] |
 | **api_key_id** | **String** | API key ID | [optional] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_comment&#39;] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -28,6 +29,7 @@ require 'akeyless'
 instance = Akeyless::TargetUpdateOpenAI.new(
   api_key: null,
   api_key_id: null,
+  delete_protection: null,
   description: null,
   json: null,
   keep_prev_version: null,
