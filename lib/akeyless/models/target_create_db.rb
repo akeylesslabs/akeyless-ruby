@@ -24,6 +24,15 @@ module Akeyless
     # (Optional) Tenant id (relevant for \"cloud-service-provider\" only)
     attr_accessor :azure_tenant_id
 
+    # Client certificate for mutual TLS
+    attr_accessor :client_certificate
+
+    # Client private key passphrase for mutual TLS
+    attr_accessor :client_key_passphrase
+
+    # Client private key for mutual TLS
+    attr_accessor :client_private_key
+
     # (Optional) Cloud service provider (currently only supports Azure)
     attr_accessor :cloud_service_provider
 
@@ -51,6 +60,9 @@ module Akeyless
 
     # Description of the object
     attr_accessor :description
+
+    # Enable mutual TLS
+    attr_accessor :enable_mtls
 
     attr_accessor :host
 
@@ -130,6 +142,9 @@ module Akeyless
         :'azure_client_id' => :'azure-client-id',
         :'azure_client_secret' => :'azure-client-secret',
         :'azure_tenant_id' => :'azure-tenant-id',
+        :'client_certificate' => :'client-certificate',
+        :'client_key_passphrase' => :'client-key-passphrase',
+        :'client_private_key' => :'client-private-key',
         :'cloud_service_provider' => :'cloud-service-provider',
         :'cluster_mode' => :'cluster-mode',
         :'comment' => :'comment',
@@ -140,6 +155,7 @@ module Akeyless
         :'db_type' => :'db-type',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_mtls' => :'enable-mtls',
         :'host' => :'host',
         :'json' => :'json',
         :'key' => :'key',
@@ -180,6 +196,9 @@ module Akeyless
         :'azure_client_id' => :'String',
         :'azure_client_secret' => :'String',
         :'azure_tenant_id' => :'String',
+        :'client_certificate' => :'String',
+        :'client_key_passphrase' => :'String',
+        :'client_private_key' => :'String',
         :'cloud_service_provider' => :'String',
         :'cluster_mode' => :'Boolean',
         :'comment' => :'String',
@@ -190,6 +209,7 @@ module Akeyless
         :'db_type' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_mtls' => :'Boolean',
         :'host' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
@@ -252,6 +272,18 @@ module Akeyless
         self.azure_tenant_id = attributes[:'azure_tenant_id']
       end
 
+      if attributes.key?(:'client_certificate')
+        self.client_certificate = attributes[:'client_certificate']
+      end
+
+      if attributes.key?(:'client_key_passphrase')
+        self.client_key_passphrase = attributes[:'client_key_passphrase']
+      end
+
+      if attributes.key?(:'client_private_key')
+        self.client_private_key = attributes[:'client_private_key']
+      end
+
       if attributes.key?(:'cloud_service_provider')
         self.cloud_service_provider = attributes[:'cloud_service_provider']
       end
@@ -294,6 +326,10 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_mtls')
+        self.enable_mtls = attributes[:'enable_mtls']
       end
 
       if attributes.key?(:'host')
@@ -445,6 +481,9 @@ module Akeyless
           azure_client_id == o.azure_client_id &&
           azure_client_secret == o.azure_client_secret &&
           azure_tenant_id == o.azure_tenant_id &&
+          client_certificate == o.client_certificate &&
+          client_key_passphrase == o.client_key_passphrase &&
+          client_private_key == o.client_private_key &&
           cloud_service_provider == o.cloud_service_provider &&
           cluster_mode == o.cluster_mode &&
           comment == o.comment &&
@@ -455,6 +494,7 @@ module Akeyless
           db_type == o.db_type &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_mtls == o.enable_mtls &&
           host == o.host &&
           json == o.json &&
           key == o.key &&
@@ -492,7 +532,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_client_id, azure_client_secret, azure_tenant_id, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, delete_protection, description, host, json, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
+      [azure_client_id, azure_client_secret, azure_tenant_id, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, delete_protection, description, enable_mtls, host, json, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
     end
 
     # Builds the object from hash

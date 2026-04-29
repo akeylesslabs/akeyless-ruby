@@ -11755,7 +11755,7 @@ module Akeyless
         fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_oracle_db' when calling V2Api.dynamic_secret_update_oracle_db"
       end
       # resource path
-      local_var_path = '/dynamic-secret-update-oracle'
+      local_var_path = '/dynamic-secret-update-oracledb'
 
       # query parameters
       query_params = opts[:query_params] || {}

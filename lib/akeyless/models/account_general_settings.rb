@@ -26,6 +26,8 @@ module Akeyless
 
     attr_accessor :allow_auto_fill
 
+    attr_accessor :allow_passkeys
+
     attr_accessor :allowed_client_types
 
     attr_accessor :allowed_clients_ips
@@ -81,6 +83,7 @@ module Akeyless
         :'account_default_key_name' => :'account_default_key_name',
         :'ai_insights' => :'ai_insights',
         :'allow_auto_fill' => :'allow_auto_fill',
+        :'allow_passkeys' => :'allow_passkeys',
         :'allowed_client_types' => :'allowed_client_types',
         :'allowed_clients_ips' => :'allowed_clients_ips',
         :'allowed_gateways_ips' => :'allowed_gateways_ips',
@@ -119,6 +122,7 @@ module Akeyless
         :'account_default_key_name' => :'String',
         :'ai_insights' => :'AiInsightsSetting',
         :'allow_auto_fill' => :'Boolean',
+        :'allow_passkeys' => :'Boolean',
         :'allowed_client_types' => :'AllowedClientType',
         :'allowed_clients_ips' => :'AllowedIpSettings',
         :'allowed_gateways_ips' => :'AllowedIpSettings',
@@ -180,6 +184,10 @@ module Akeyless
 
       if attributes.key?(:'allow_auto_fill')
         self.allow_auto_fill = attributes[:'allow_auto_fill']
+      end
+
+      if attributes.key?(:'allow_passkeys')
+        self.allow_passkeys = attributes[:'allow_passkeys']
       end
 
       if attributes.key?(:'allowed_client_types')
@@ -299,6 +307,7 @@ module Akeyless
           account_default_key_name == o.account_default_key_name &&
           ai_insights == o.ai_insights &&
           allow_auto_fill == o.allow_auto_fill &&
+          allow_passkeys == o.allow_passkeys &&
           allowed_client_types == o.allowed_client_types &&
           allowed_clients_ips == o.allowed_clients_ips &&
           allowed_gateways_ips == o.allowed_gateways_ips &&
@@ -333,7 +342,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

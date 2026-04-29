@@ -2397,9 +2397,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/agentic_rule_spec.rb
-spec/models/agentic_rules_spec.rb
-spec/models/runtime_authority_command_spec.rb
-spec/models/set_default_profile_output_spec.rb
-spec/models/set_default_profile_spec.rb
 spec/spec_helper.rb

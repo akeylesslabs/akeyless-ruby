@@ -59,6 +59,9 @@
 | **chef_server_username** | **String** |  | [optional] |
 | **chef_skip_ssl** | **Boolean** |  | [optional] |
 | **client_authentication_type** | **String** |  | [optional] |
+| **client_certificate** | **String** | (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field | [optional] |
+| **client_key_passphrase** | **String** | (Optional) ClientKeyPassphrase defines the passphrase for the client private key | [optional] |
+| **client_private_key** | **String** | (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field | [optional] |
 | **cloud_service_provider** | **String** |  | [optional] |
 | **cluster_mode** | **Boolean** |  | [optional] |
 | **connection_type** | **String** |  | [optional] |
@@ -91,6 +94,7 @@
 | **eks_region** | **String** |  | [optional] |
 | **eks_secret_access_key** | **String** |  | [optional] |
 | **enable_admin_rotation** | **Boolean** |  | [optional] |
+| **enable_mtls** | **Boolean** | (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB | [optional] |
 | **enforce_replay_prevention** | **Boolean** | relevant for PRIVATE_KEY_JWT client authentication type | [optional] |
 | **expiration_date** | **Time** |  | [optional] |
 | **externally_provided_user** | **String** |  | [optional] |
@@ -332,6 +336,9 @@ instance = Akeyless::DSProducerDetails.new(
   chef_server_username: null,
   chef_skip_ssl: null,
   client_authentication_type: null,
+  client_certificate: null,
+  client_key_passphrase: null,
+  client_private_key: null,
   cloud_service_provider: null,
   cluster_mode: null,
   connection_type: null,
@@ -364,6 +371,7 @@ instance = Akeyless::DSProducerDetails.new(
   eks_region: null,
   eks_secret_access_key: null,
   enable_admin_rotation: null,
+  enable_mtls: null,
   enforce_replay_prevention: null,
   expiration_date: null,
   externally_provided_user: null,

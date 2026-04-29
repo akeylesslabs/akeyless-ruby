@@ -16,6 +16,15 @@ require 'time'
 module Akeyless
   # DbTargetDetails
   class DbTargetDetails
+    # (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field
+    attr_accessor :client_certificate
+
+    # (Optional) ClientKeyPassphrase defines the passphrase for the client private key
+    attr_accessor :client_key_passphrase
+
+    # (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field
+    attr_accessor :client_private_key
+
     attr_accessor :cloud_service_provider
 
     attr_accessor :cluster_mode
@@ -49,6 +58,9 @@ module Akeyless
 
     attr_accessor :db_user_name
 
+    # (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB
+    attr_accessor :enable_mtls
+
     attr_accessor :oracle_wallet_details
 
     attr_accessor :sf_account
@@ -62,6 +74,9 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'client_certificate' => :'client_certificate',
+        :'client_key_passphrase' => :'client_key_passphrase',
+        :'client_private_key' => :'client_private_key',
         :'cloud_service_provider' => :'cloud_service_provider',
         :'cluster_mode' => :'cluster_mode',
         :'connection_type' => :'connection_type',
@@ -77,6 +92,7 @@ module Akeyless
         :'db_server_name' => :'db_server_name',
         :'db_tenant_id' => :'db_tenant_id',
         :'db_user_name' => :'db_user_name',
+        :'enable_mtls' => :'enable_mtls',
         :'oracle_wallet_details' => :'oracle_wallet_details',
         :'sf_account' => :'sf_account',
         :'ssl_connection_certificate' => :'ssl_connection_certificate',
@@ -92,6 +108,9 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'client_certificate' => :'String',
+        :'client_key_passphrase' => :'String',
+        :'client_private_key' => :'String',
         :'cloud_service_provider' => :'String',
         :'cluster_mode' => :'Boolean',
         :'connection_type' => :'String',
@@ -107,6 +126,7 @@ module Akeyless
         :'db_server_name' => :'String',
         :'db_tenant_id' => :'String',
         :'db_user_name' => :'String',
+        :'enable_mtls' => :'Boolean',
         :'oracle_wallet_details' => :'WalletDetails',
         :'sf_account' => :'String',
         :'ssl_connection_certificate' => :'String',
@@ -134,6 +154,18 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'client_certificate')
+        self.client_certificate = attributes[:'client_certificate']
+      end
+
+      if attributes.key?(:'client_key_passphrase')
+        self.client_key_passphrase = attributes[:'client_key_passphrase']
+      end
+
+      if attributes.key?(:'client_private_key')
+        self.client_private_key = attributes[:'client_private_key']
+      end
 
       if attributes.key?(:'cloud_service_provider')
         self.cloud_service_provider = attributes[:'cloud_service_provider']
@@ -195,6 +227,10 @@ module Akeyless
         self.db_user_name = attributes[:'db_user_name']
       end
 
+      if attributes.key?(:'enable_mtls')
+        self.enable_mtls = attributes[:'enable_mtls']
+      end
+
       if attributes.key?(:'oracle_wallet_details')
         self.oracle_wallet_details = attributes[:'oracle_wallet_details']
       end
@@ -232,6 +268,9 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          client_certificate == o.client_certificate &&
+          client_key_passphrase == o.client_key_passphrase &&
+          client_private_key == o.client_private_key &&
           cloud_service_provider == o.cloud_service_provider &&
           cluster_mode == o.cluster_mode &&
           connection_type == o.connection_type &&
@@ -247,6 +286,7 @@ module Akeyless
           db_server_name == o.db_server_name &&
           db_tenant_id == o.db_tenant_id &&
           db_user_name == o.db_user_name &&
+          enable_mtls == o.enable_mtls &&
           oracle_wallet_details == o.oracle_wallet_details &&
           sf_account == o.sf_account &&
           ssl_connection_certificate == o.ssl_connection_certificate &&
@@ -262,7 +302,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud_service_provider, cluster_mode, connection_type, db_client_id, db_client_secret, db_host_name, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, oracle_wallet_details, sf_account, ssl_connection_certificate, ssl_connection_mode].hash
+      [client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, db_client_id, db_client_secret, db_host_name, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, enable_mtls, oracle_wallet_details, sf_account, ssl_connection_certificate, ssl_connection_mode].hash
     end
 
     # Builds the object from hash

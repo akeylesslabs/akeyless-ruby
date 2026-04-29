@@ -7,6 +7,9 @@
 | **azure_client_id** | **String** | (Optional) Client id (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **azure_client_secret** | **String** | (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
 | **azure_tenant_id** | **String** | (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only) | [optional] |
+| **client_certificate** | **String** | Client certificate for mutual TLS | [optional] |
+| **client_key_passphrase** | **String** | Client private key passphrase for mutual TLS | [optional] |
+| **client_private_key** | **String** | Client private key for mutual TLS | [optional] |
 | **cloud_service_provider** | **String** | (Optional) Cloud service provider (currently only supports Azure) | [optional] |
 | **cluster_mode** | **Boolean** | Cluster Mode | [optional] |
 | **comment** | **String** | Deprecated - use description | [optional] |
@@ -17,6 +20,7 @@
 | **db_type** | **String** |  |  |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **enable_mtls** | **Boolean** | Enable mutual TLS | [optional] |
 | **host** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -55,6 +59,9 @@ instance = Akeyless::TargetUpdateDB.new(
   azure_client_id: null,
   azure_client_secret: null,
   azure_tenant_id: null,
+  client_certificate: null,
+  client_key_passphrase: null,
+  client_private_key: null,
   cloud_service_provider: null,
   cluster_mode: null,
   comment: null,
@@ -65,6 +72,7 @@ instance = Akeyless::TargetUpdateDB.new(
   db_type: null,
   delete_protection: null,
   description: null,
+  enable_mtls: null,
   host: null,
   json: null,
   keep_prev_version: null,
