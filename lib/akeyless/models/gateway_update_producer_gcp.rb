@@ -44,6 +44,9 @@ module Akeyless
     # Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)
     attr_accessor :gcp_token_scopes
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -55,6 +58,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
@@ -111,10 +117,12 @@ module Akeyless
         :'gcp_project_id' => :'gcp-project-id',
         :'gcp_sa_email' => :'gcp-sa-email',
         :'gcp_token_scopes' => :'gcp-token-scopes',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'role_binding' => :'role-binding',
         :'role_names' => :'role-names',
@@ -150,10 +158,12 @@ module Akeyless
         :'gcp_project_id' => :'String',
         :'gcp_sa_email' => :'String',
         :'gcp_token_scopes' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
         :'role_binding' => :'String',
         :'role_names' => :'String',
@@ -234,6 +244,12 @@ module Akeyless
         self.gcp_token_scopes = attributes[:'gcp_token_scopes']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -254,6 +270,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'producer_encryption_key_name')
@@ -358,10 +380,12 @@ module Akeyless
           gcp_project_id == o.gcp_project_id &&
           gcp_sa_email == o.gcp_sa_email &&
           gcp_token_scopes == o.gcp_token_scopes &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           role_binding == o.role_binding &&
           role_names == o.role_names &&
@@ -387,7 +411,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_type, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, item_custom_fields, json, name, new_name, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [access_type, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

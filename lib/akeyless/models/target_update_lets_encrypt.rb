@@ -24,8 +24,11 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
-    # Name of existing cloud target for DNS credentials. Required when acme-challenge=dns. Supported: AWS, Azure, GCP targets
+    # Name of existing cloud target for DNS credentials. Required when acme-challenge=dns. Supported: AWS, Azure, GCP, Cloudflare targets
     attr_accessor :dns_target_creds
+
+    # Cloudflare DNS zone identifier. Required when dns-target-creds points to Cloudflare target
+    attr_accessor :dns_zone
 
     # Email address for ACME account registration
     attr_accessor :email
@@ -74,6 +77,7 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'dns_target_creds' => :'dns-target-creds',
+        :'dns_zone' => :'dns-zone',
         :'email' => :'email',
         :'gcp_project' => :'gcp-project',
         :'hosted_zone' => :'hosted-zone',
@@ -103,6 +107,7 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'dns_target_creds' => :'String',
+        :'dns_zone' => :'String',
         :'email' => :'String',
         :'gcp_project' => :'String',
         :'hosted_zone' => :'String',
@@ -157,6 +162,10 @@ module Akeyless
 
       if attributes.key?(:'dns_target_creds')
         self.dns_target_creds = attributes[:'dns_target_creds']
+      end
+
+      if attributes.key?(:'dns_zone')
+        self.dns_zone = attributes[:'dns_zone']
       end
 
       if attributes.key?(:'email')
@@ -260,6 +269,7 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           dns_target_creds == o.dns_target_creds &&
+          dns_zone == o.dns_zone &&
           email == o.email &&
           gcp_project == o.gcp_project &&
           hosted_zone == o.hosted_zone &&
@@ -285,7 +295,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, delete_protection, description, dns_target_creds, email, gcp_project, hosted_zone, json, keep_prev_version, key, lets_encrypt_url, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
+      [acme_challenge, delete_protection, description, dns_target_creds, dns_zone, email, gcp_project, hosted_zone, json, keep_prev_version, key, lets_encrypt_url, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

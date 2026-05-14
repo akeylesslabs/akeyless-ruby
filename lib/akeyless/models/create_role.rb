@@ -45,6 +45,9 @@ module Akeyless
     # Allow this role to view gw analytics. Currently only 'none', 'scoped', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
     attr_accessor :gw_analytics_access
 
+    # Allow this role to access Identity & Secrets Intelligence. Currently only 'none', 'scoped' and 'all' values are supported.
+    attr_accessor :isi_access
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -79,6 +82,7 @@ module Akeyless
         :'event_forwarders_access' => :'event-forwarders-access',
         :'event_forwarders_name' => :'event-forwarders-name',
         :'gw_analytics_access' => :'gw-analytics-access',
+        :'isi_access' => :'isi-access',
         :'json' => :'json',
         :'name' => :'name',
         :'reverse_rbac_access' => :'reverse-rbac-access',
@@ -107,6 +111,7 @@ module Akeyless
         :'event_forwarders_access' => :'String',
         :'event_forwarders_name' => :'Array<String>',
         :'gw_analytics_access' => :'String',
+        :'isi_access' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'reverse_rbac_access' => :'String',
@@ -180,6 +185,10 @@ module Akeyless
         self.gw_analytics_access = attributes[:'gw_analytics_access']
       end
 
+      if attributes.key?(:'isi_access')
+        self.isi_access = attributes[:'isi_access']
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -248,6 +257,7 @@ module Akeyless
           event_forwarders_access == o.event_forwarders_access &&
           event_forwarders_name == o.event_forwarders_name &&
           gw_analytics_access == o.gw_analytics_access &&
+          isi_access == o.isi_access &&
           json == o.json &&
           name == o.name &&
           reverse_rbac_access == o.reverse_rbac_access &&
@@ -266,7 +276,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, ara_reports_access, audit_access, comment, delete_protection, description, event_center_access, event_forwarders_access, event_forwarders_name, gw_analytics_access, json, name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, ara_reports_access, audit_access, comment, delete_protection, description, event_center_access, event_forwarders_access, event_forwarders_name, gw_analytics_access, isi_access, json, name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
     end
 
     # Builds the object from hash

@@ -37,6 +37,9 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -48,6 +51,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -86,10 +92,12 @@ module Akeyless
         :'cassandra_username' => :'cassandra-username',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'ssl' => :'ssl',
@@ -117,10 +125,12 @@ module Akeyless
         :'cassandra_username' => :'String',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'ssl' => :'Boolean',
@@ -184,6 +194,12 @@ module Akeyless
         self.delete_protection = attributes[:'delete_protection']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -204,6 +220,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -281,10 +303,12 @@ module Akeyless
           cassandra_username == o.cassandra_username &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           ssl == o.ssl &&
@@ -305,7 +329,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cassandra_creation_statements, cassandra_hosts, cassandra_password, cassandra_port, cassandra_username, custom_username_template, delete_protection, item_custom_fields, json, name, new_name, password_length, producer_encryption_key_name, ssl, ssl_certificate, tags, target_name, token, uid_token, user_ttl].hash
+      [cassandra_creation_statements, cassandra_hosts, cassandra_password, cassandra_port, cassandra_username, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, ssl, ssl_certificate, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

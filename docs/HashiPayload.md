@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **delete_sync_on_deletion** | **Boolean** |  | [optional] |
 | **import_as_json** | **Boolean** |  | [optional] |
+| **metadata_mode** | **String** |  | [optional] |
 | **namespaces** | **Array&lt;String&gt;** |  | [optional] |
 | **token** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
@@ -19,6 +20,7 @@ require 'akeyless'
 instance = Akeyless::HashiPayload.new(
   delete_sync_on_deletion: null,
   import_as_json: null,
+  metadata_mode: null,
   namespaces: null,
   token: null,
   url: null,

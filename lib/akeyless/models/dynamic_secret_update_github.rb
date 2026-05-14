@@ -31,6 +31,9 @@ module Akeyless
     # Base URL
     attr_accessor :github_base_url
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # GitHub application installation id
     attr_accessor :installation_id
 
@@ -51,6 +54,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Add tags attached to this object
     attr_accessor :tags
@@ -81,6 +87,7 @@ module Akeyless
         :'github_app_id' => :'github-app-id',
         :'github_app_private_key' => :'github-app-private-key',
         :'github_base_url' => :'github-base-url',
+        :'input_rule' => :'input-rule',
         :'installation_id' => :'installation-id',
         :'installation_organization' => :'installation-organization',
         :'installation_repository' => :'installation-repository',
@@ -88,6 +95,7 @@ module Akeyless
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -111,6 +119,7 @@ module Akeyless
         :'github_app_id' => :'Integer',
         :'github_app_private_key' => :'String',
         :'github_base_url' => :'String',
+        :'input_rule' => :'Array<String>',
         :'installation_id' => :'Integer',
         :'installation_organization' => :'String',
         :'installation_repository' => :'String',
@@ -118,6 +127,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -171,6 +181,12 @@ module Akeyless
         self.github_base_url = 'https://api.github.com/'
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'installation_id')
         self.installation_id = attributes[:'installation_id']
       end
@@ -203,6 +219,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'tags')
@@ -272,6 +294,7 @@ module Akeyless
           github_app_id == o.github_app_id &&
           github_app_private_key == o.github_app_private_key &&
           github_base_url == o.github_base_url &&
+          input_rule == o.input_rule &&
           installation_id == o.installation_id &&
           installation_organization == o.installation_organization &&
           installation_repository == o.installation_repository &&
@@ -279,6 +302,7 @@ module Akeyless
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -297,7 +321,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, github_app_id, github_app_private_key, github_base_url, installation_id, installation_organization, installation_repository, item_custom_fields, json, name, new_name, tags, target_name, token, token_permissions, token_repositories, token_ttl, uid_token].hash
+      [delete_protection, description, github_app_id, github_app_private_key, github_base_url, input_rule, installation_id, installation_organization, installation_repository, item_custom_fields, json, name, new_name, output_rule, tags, target_name, token, token_permissions, token_repositories, token_ttl, uid_token].hash
     end
 
     # Builds the object from hash

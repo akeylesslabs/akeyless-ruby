@@ -34,6 +34,9 @@ module Akeyless
     # Automatic admin credentials rotation
     attr_accessor :enable_admin_rotation
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -45,6 +48,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
@@ -106,10 +112,12 @@ module Akeyless
         :'auto_generated_folder' => :'auto-generated-folder',
         :'delete_protection' => :'delete_protection',
         :'enable_admin_rotation' => :'enable-admin-rotation',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'root_first_in_chain' => :'root-first-in-chain',
         :'sign_using_akeyless_pki' => :'sign-using-akeyless-pki',
@@ -144,10 +152,12 @@ module Akeyless
         :'auto_generated_folder' => :'String',
         :'delete_protection' => :'String',
         :'enable_admin_rotation' => :'Boolean',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
         :'root_first_in_chain' => :'Boolean',
         :'sign_using_akeyless_pki' => :'Boolean',
@@ -219,6 +229,12 @@ module Akeyless
         self.enable_admin_rotation = false
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -239,6 +255,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'producer_encryption_key_name')
@@ -347,10 +369,12 @@ module Akeyless
           auto_generated_folder == o.auto_generated_folder &&
           delete_protection == o.delete_protection &&
           enable_admin_rotation == o.enable_admin_rotation &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           root_first_in_chain == o.root_first_in_chain &&
           sign_using_akeyless_pki == o.sign_using_akeyless_pki &&
@@ -379,7 +403,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, allow_subdomains, allowed_domains, auto_generated_folder, delete_protection, enable_admin_rotation, item_custom_fields, json, name, new_name, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
+      [admin_rotation_interval_days, allow_subdomains, allowed_domains, auto_generated_folder, delete_protection, enable_admin_rotation, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
     end
 
     # Builds the object from hash

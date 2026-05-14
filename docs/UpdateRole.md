@@ -12,6 +12,7 @@
 | **event_center_access** | **String** | Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported | [optional] |
 | **event_forwarder_access** | **String** | Allow this role to manage Event Forwarders. Currently only &#39;none&#39; and &#39;all&#39; values are supported. | [optional] |
 | **gw_analytics_access** | **String** | Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;scoped&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods. | [optional] |
+| **isi_access** | **String** | Allow this role to access Identity &amp; Secrets Intelligence. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Role name |  |
 | **new_comment** | **String** | Deprecated - use description | [optional][default to &#39;default_comment&#39;] |
@@ -36,6 +37,7 @@ instance = Akeyless::UpdateRole.new(
   event_center_access: null,
   event_forwarder_access: null,
   gw_analytics_access: null,
+  isi_access: null,
   json: null,
   name: null,
   new_comment: null,

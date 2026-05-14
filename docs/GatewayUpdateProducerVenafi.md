@@ -10,10 +10,12 @@
 | **auto_generated_folder** | **String** | Auto generated folder | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **root_first_in_chain** | **Boolean** | Root first in chain | [optional] |
 | **sign_using_akeyless_pki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer | [optional] |
@@ -44,10 +46,12 @@ instance = Akeyless::GatewayUpdateProducerVenafi.new(
   auto_generated_folder: null,
   delete_protection: null,
   enable_admin_rotation: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   name: null,
   new_name: null,
+  output_rule: null,
   producer_encryption_key_name: null,
   root_first_in_chain: null,
   sign_using_akeyless_pki: null,

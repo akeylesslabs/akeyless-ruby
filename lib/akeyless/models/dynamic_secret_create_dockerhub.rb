@@ -31,6 +31,9 @@ module Akeyless
     # DockerhubUsername is the name of the user in dockerhub
     attr_accessor :dockerhub_username
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -39,6 +42,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
@@ -66,9 +72,11 @@ module Akeyless
         :'dockerhub_password' => :'dockerhub-password',
         :'dockerhub_token_scopes' => :'dockerhub-token-scopes',
         :'dockerhub_username' => :'dockerhub-username',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -91,9 +99,11 @@ module Akeyless
         :'dockerhub_password' => :'String',
         :'dockerhub_token_scopes' => :'String',
         :'dockerhub_username' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
@@ -144,6 +154,12 @@ module Akeyless
         self.dockerhub_username = attributes[:'dockerhub_username']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -160,6 +176,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'producer_encryption_key_name')
@@ -221,9 +243,11 @@ module Akeyless
           dockerhub_password == o.dockerhub_password &&
           dockerhub_token_scopes == o.dockerhub_token_scopes &&
           dockerhub_username == o.dockerhub_username &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
+          output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           tags == o.tags &&
           target_name == o.target_name &&
@@ -241,7 +265,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, dockerhub_password, dockerhub_token_scopes, dockerhub_username, item_custom_fields, json, name, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
+      [delete_protection, description, dockerhub_password, dockerhub_token_scopes, dockerhub_username, input_rule, item_custom_fields, json, name, output_rule, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

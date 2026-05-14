@@ -58,7 +58,7 @@ module Akeyless
       {
         :'account_id' => :'String',
         :'creation_date' => :'Time',
-        :'deletion_date' => :'NullTime',
+        :'deletion_date' => :'Time',
         :'id' => :'Integer',
         :'modification_date' => :'Time',
         :'name' => :'String',

@@ -12,9 +12,11 @@
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
 | **group_email** | **String** | A group email, relevant only for group access-mode | [optional] |
 | **group_role** | **String** |  | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **role_name** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode | [optional] |
 | **role_scope** | **String** |  | [optional] |
@@ -44,9 +46,11 @@ instance = Akeyless::DynamicSecretCreateGoogleWorkspace.new(
   gcp_key: null,
   group_email: null,
   group_role: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   name: null,
+  output_rule: null,
   producer_encryption_key_name: null,
   role_name: null,
   role_scope: null,

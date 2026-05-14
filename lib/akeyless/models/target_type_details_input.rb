@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :chef_target_details
 
+    attr_accessor :cloudflare_target_details
+
     attr_accessor :custom_target_details
 
     attr_accessor :db_target_details
@@ -92,6 +94,7 @@ module Akeyless
         :'aws_target_details' => :'aws_target_details',
         :'azure_target_details' => :'azure_target_details',
         :'chef_target_details' => :'chef_target_details',
+        :'cloudflare_target_details' => :'cloudflare_target_details',
         :'custom_target_details' => :'custom_target_details',
         :'db_target_details' => :'db_target_details',
         :'digicert_target_details' => :'digicert_target_details',
@@ -138,6 +141,7 @@ module Akeyless
         :'aws_target_details' => :'AWSTargetDetails',
         :'azure_target_details' => :'AzureTargetDetails',
         :'chef_target_details' => :'ChefTargetDetails',
+        :'cloudflare_target_details' => :'CloudflareTargetDetails',
         :'custom_target_details' => :'CustomTargetDetails',
         :'db_target_details' => :'DbTargetDetails',
         :'digicert_target_details' => :'DigiCertTargetDetails',
@@ -207,6 +211,10 @@ module Akeyless
 
       if attributes.key?(:'chef_target_details')
         self.chef_target_details = attributes[:'chef_target_details']
+      end
+
+      if attributes.key?(:'cloudflare_target_details')
+        self.cloudflare_target_details = attributes[:'cloudflare_target_details']
       end
 
       if attributes.key?(:'custom_target_details')
@@ -358,6 +366,7 @@ module Akeyless
           aws_target_details == o.aws_target_details &&
           azure_target_details == o.azure_target_details &&
           chef_target_details == o.chef_target_details &&
+          cloudflare_target_details == o.cloudflare_target_details &&
           custom_target_details == o.custom_target_details &&
           db_target_details == o.db_target_details &&
           digicert_target_details == o.digicert_target_details &&
@@ -400,7 +409,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, cloudflare_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

@@ -36,6 +36,9 @@ module Akeyless
     # For Password Management use, reflect the website context
     attr_accessor :inject_url
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -56,6 +59,9 @@ module Akeyless
 
     # Secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # For Password Management use, additional fields
     attr_accessor :password
@@ -123,6 +129,7 @@ module Akeyless
         :'description' => :'description',
         :'format' => :'format',
         :'inject_url' => :'inject-url',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'lock_during_sra_session' => :'lock-during-sra-session',
@@ -130,6 +137,7 @@ module Akeyless
         :'metadata' => :'metadata',
         :'multiline_value' => :'multiline_value',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'password' => :'password',
         :'protection_key' => :'protection_key',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -167,6 +175,7 @@ module Akeyless
         :'description' => :'String',
         :'format' => :'String',
         :'inject_url' => :'Array<String>',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'lock_during_sra_session' => :'String',
@@ -174,6 +183,7 @@ module Akeyless
         :'metadata' => :'String',
         :'multiline_value' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password' => :'String',
         :'protection_key' => :'String',
         :'secure_access_bastion_issuer' => :'String',
@@ -253,6 +263,12 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -285,6 +301,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password')
@@ -413,6 +435,7 @@ module Akeyless
           description == o.description &&
           format == o.format &&
           inject_url == o.inject_url &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           lock_during_sra_session == o.lock_during_sra_session &&
@@ -420,6 +443,7 @@ module Akeyless
           metadata == o.metadata &&
           multiline_value == o.multiline_value &&
           name == o.name &&
+          output_rule == o.output_rule &&
           password == o.password &&
           protection_key == o.protection_key &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -450,7 +474,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, change_event, custom_field, delete_protection, description, format, inject_url, item_custom_fields, json, lock_during_sra_session, max_versions, metadata, multiline_value, name, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, token, type, uid_token, username, value].hash
+      [accessibility, change_event, custom_field, delete_protection, description, format, inject_url, input_rule, item_custom_fields, json, lock_during_sra_session, max_versions, metadata, multiline_value, name, output_rule, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, token, type, uid_token, username, value].hash
     end
 
     # Builds the object from hash

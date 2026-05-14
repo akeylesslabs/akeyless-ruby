@@ -11,6 +11,8 @@
 | **object_type** | **String** |  | [optional] |
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
 | **region** | **String** | Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default). | [optional] |
+| **remote_secret_activation_date** | **String** | Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
+| **remote_secret_expires** | **String** | Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **secret_name** | **String** | Name for the new universal secrets |  |
 | **selected_repositories** | **String** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
@@ -33,6 +35,8 @@ instance = Akeyless::UscCreate.new(
   object_type: null,
   pfx_password: null,
   region: null,
+  remote_secret_activation_date: null,
+  remote_secret_expires: null,
   secret_name: null,
   selected_repositories: null,
   tags: null,

@@ -15,12 +15,14 @@
 | **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
 | **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
 | **grace_rotation_timing** | **String** | When to create the new version relative to the rotation date [after/before] | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
@@ -54,12 +56,14 @@ instance = Akeyless::RotatedSecretCreateAws.new(
   grace_rotation_hour: null,
   grace_rotation_interval: null,
   grace_rotation_timing: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   key: null,
   lock_during_sra_session: null,
   max_versions: null,
   name: null,
+  output_rule: null,
   password_length: null,
   rotate_after_disconnect: null,
   rotation_event_in: null,

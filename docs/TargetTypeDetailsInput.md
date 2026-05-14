@@ -8,6 +8,7 @@
 | **aws_target_details** | [**AWSTargetDetails**](AWSTargetDetails.md) |  | [optional] |
 | **azure_target_details** | [**AzureTargetDetails**](AzureTargetDetails.md) |  | [optional] |
 | **chef_target_details** | [**ChefTargetDetails**](ChefTargetDetails.md) |  | [optional] |
+| **cloudflare_target_details** | [**CloudflareTargetDetails**](CloudflareTargetDetails.md) |  | [optional] |
 | **custom_target_details** | [**CustomTargetDetails**](CustomTargetDetails.md) |  | [optional] |
 | **db_target_details** | [**DbTargetDetails**](DbTargetDetails.md) |  | [optional] |
 | **digicert_target_details** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   aws_target_details: null,
   azure_target_details: null,
   chef_target_details: null,
+  cloudflare_target_details: null,
   custom_target_details: null,
   db_target_details: null,
   digicert_target_details: null,

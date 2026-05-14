@@ -25,6 +25,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -69,6 +72,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
@@ -127,6 +133,7 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'k8s_allowed_namespaces' => :'k8s-allowed-namespaces',
@@ -142,6 +149,7 @@ module Akeyless
         :'k8s_service_account' => :'k8s-service-account',
         :'k8s_service_account_type' => :'k8s-service-account-type',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -173,6 +181,7 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'k8s_allowed_namespaces' => :'String',
@@ -188,6 +197,7 @@ module Akeyless
         :'k8s_service_account' => :'String',
         :'k8s_service_account_type' => :'String',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
         :'secure_access_allow_port_forwading' => :'Boolean',
         :'secure_access_bastion_issuer' => :'String',
@@ -239,6 +249,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -305,6 +321,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'producer_encryption_key_name')
@@ -414,6 +436,7 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           k8s_allowed_namespaces == o.k8s_allowed_namespaces &&
@@ -429,6 +452,7 @@ module Akeyless
           k8s_service_account == o.k8s_service_account &&
           k8s_service_account_type == o.k8s_service_account_type &&
           name == o.name &&
+          output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -457,7 +481,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, item_custom_fields, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
+      [custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
     end
 
     # Builds the object from hash

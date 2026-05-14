@@ -36,6 +36,8 @@ module Akeyless
 
     attr_accessor :tags
 
+    attr_accessor :usc_sync_configs
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -48,7 +50,8 @@ module Akeyless
         :'folder_name' => :'folder_name',
         :'metadata' => :'metadata',
         :'modification_date' => :'modification_date',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'usc_sync_configs' => :'usc_sync_configs'
       }
     end
 
@@ -69,7 +72,8 @@ module Akeyless
         :'folder_name' => :'String',
         :'metadata' => :'String',
         :'modification_date' => :'Time',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'usc_sync_configs' => :'Array<FolderUSCSyncConfig>'
       }
     end
 
@@ -135,6 +139,12 @@ module Akeyless
           self.tags = value
         end
       end
+
+      if attributes.key?(:'usc_sync_configs')
+        if (value = attributes[:'usc_sync_configs']).is_a?(Array)
+          self.usc_sync_configs = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -166,7 +176,8 @@ module Akeyless
           folder_name == o.folder_name &&
           metadata == o.metadata &&
           modification_date == o.modification_date &&
-          tags == o.tags
+          tags == o.tags &&
+          usc_sync_configs == o.usc_sync_configs
     end
 
     # @see the `==` method
@@ -178,7 +189,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, accessibility, creation_date, delete_protection, folder_id, folder_name, metadata, modification_date, tags].hash
+      [access_date, access_date_display, accessibility, creation_date, delete_protection, folder_id, folder_name, metadata, modification_date, tags, usc_sync_configs].hash
     end
 
     # Builds the object from hash

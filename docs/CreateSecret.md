@@ -11,6 +11,7 @@
 | **description** | **String** | Description of the object | [optional] |
 | **format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) | [optional][default to &#39;text&#39;] |
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
@@ -18,6 +19,7 @@
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **multiline_value** | **Boolean** | The provided value is a multiline value (separated by &#39;\\n&#39;) | [optional] |
 | **name** | **String** | Secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password** | **String** | For Password Management use, additional fields | [optional] |
 | **protection_key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
@@ -51,6 +53,7 @@ instance = Akeyless::CreateSecret.new(
   description: null,
   format: null,
   inject_url: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   lock_during_sra_session: null,
@@ -58,6 +61,7 @@ instance = Akeyless::CreateSecret.new(
   metadata: null,
   multiline_value: null,
   name: null,
+  output_rule: null,
   password: null,
   protection_key: null,
   secure_access_bastion_issuer: null,

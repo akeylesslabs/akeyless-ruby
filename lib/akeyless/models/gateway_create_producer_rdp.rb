@@ -31,6 +31,9 @@ module Akeyless
     # Allow access using externally (IdP) provided username [true/false]
     attr_accessor :fixed_user_only
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -39,6 +42,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -114,9 +120,11 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'fixed_user_only' => :'fixed-user-only',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'rdp_admin_name' => :'rdp-admin-name',
@@ -155,9 +163,11 @@ module Akeyless
         :'delete_protection' => :'String',
         :'fixed_user_claim_keyname' => :'String',
         :'fixed_user_only' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'rdp_admin_name' => :'String',
@@ -228,6 +238,12 @@ module Akeyless
         self.fixed_user_only = 'false'
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -244,6 +260,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -375,9 +397,11 @@ module Akeyless
           delete_protection == o.delete_protection &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           fixed_user_only == o.fixed_user_only &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           rdp_admin_name == o.rdp_admin_name &&
@@ -411,7 +435,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_user_extend_session, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, item_custom_fields, json, name, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token, user_ttl, warn_user_before_expiration].hash
+      [allow_user_extend_session, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token, user_ttl, warn_user_before_expiration].hash
     end
 
     # Builds the object from hash

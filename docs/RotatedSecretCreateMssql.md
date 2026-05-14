@@ -8,12 +8,14 @@
 | **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
@@ -44,12 +46,14 @@ instance = Akeyless::RotatedSecretCreateMssql.new(
   auto_rotate: null,
   delete_protection: null,
   description: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   key: null,
   lock_during_sra_session: null,
   max_versions: null,
   name: null,
+  output_rule: null,
   password_length: null,
   rotate_after_disconnect: null,
   rotated_password: null,

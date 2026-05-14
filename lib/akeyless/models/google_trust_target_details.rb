@@ -33,6 +33,9 @@ module Akeyless
 
     attr_accessor :dns_target_type
 
+    # Cloudflare zone identifier Required when DNSTargetType is Cloudflare
+    attr_accessor :dns_zone
+
     # External Account Binding HMAC key (required for ACME account bootstrap on target creation) Not persisted after bootstrap
     attr_accessor :eab_hmac_key
 
@@ -63,6 +66,7 @@ module Akeyless
         :'challenge_type' => :'challenge_type',
         :'dns_target_name' => :'dns_target_name',
         :'dns_target_type' => :'dns_target_type',
+        :'dns_zone' => :'dns_zone',
         :'eab_hmac_key' => :'eab_hmac_key',
         :'eab_key_id' => :'eab_key_id',
         :'email' => :'email',
@@ -87,6 +91,7 @@ module Akeyless
         :'challenge_type' => :'String',
         :'dns_target_name' => :'String',
         :'dns_target_type' => :'String',
+        :'dns_zone' => :'String',
         :'eab_hmac_key' => :'String',
         :'eab_key_id' => :'String',
         :'email' => :'String',
@@ -140,6 +145,10 @@ module Akeyless
 
       if attributes.key?(:'dns_target_type')
         self.dns_target_type = attributes[:'dns_target_type']
+      end
+
+      if attributes.key?(:'dns_zone')
+        self.dns_zone = attributes[:'dns_zone']
       end
 
       if attributes.key?(:'eab_hmac_key')
@@ -197,6 +206,7 @@ module Akeyless
           challenge_type == o.challenge_type &&
           dns_target_name == o.dns_target_name &&
           dns_target_type == o.dns_target_type &&
+          dns_zone == o.dns_zone &&
           eab_hmac_key == o.eab_hmac_key &&
           eab_key_id == o.eab_key_id &&
           email == o.email &&
@@ -215,7 +225,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_key_pem, account_url, acme_environment, challenge_type, dns_target_name, dns_target_type, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
+      [account_key_pem, account_url, acme_environment, challenge_type, dns_target_name, dns_target_type, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
     end
 
     # Builds the object from hash

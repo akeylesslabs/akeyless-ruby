@@ -43,6 +43,9 @@ module Akeyless
     # Gitlab group name, required for access-type=group
     attr_accessor :group_name
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Gitlab project name, required for access-type=project
     attr_accessor :installation_organization
 
@@ -54,6 +57,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Add tags attached to this object
     attr_accessor :tags
@@ -82,10 +88,12 @@ module Akeyless
         :'gitlab_token_scopes' => :'gitlab-token-scopes',
         :'gitlab_url' => :'gitlab-url',
         :'group_name' => :'group-name',
+        :'input_rule' => :'input-rule',
         :'installation_organization' => :'installation-organization',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -111,10 +119,12 @@ module Akeyless
         :'gitlab_token_scopes' => :'String',
         :'gitlab_url' => :'String',
         :'group_name' => :'String',
+        :'input_rule' => :'Array<String>',
         :'installation_organization' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -186,6 +196,12 @@ module Akeyless
         self.group_name = attributes[:'group_name']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'installation_organization')
         self.installation_organization = attributes[:'installation_organization']
       end
@@ -206,6 +222,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'tags')
@@ -275,10 +297,12 @@ module Akeyless
           gitlab_token_scopes == o.gitlab_token_scopes &&
           gitlab_url == o.gitlab_url &&
           group_name == o.group_name &&
+          input_rule == o.input_rule &&
           installation_organization == o.installation_organization &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
+          output_rule == o.output_rule &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -295,7 +319,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, installation_organization, item_custom_fields, json, name, tags, target_name, token, ttl, uid_token].hash
+      [delete_protection, description, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, input_rule, installation_organization, item_custom_fields, json, name, output_rule, tags, target_name, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

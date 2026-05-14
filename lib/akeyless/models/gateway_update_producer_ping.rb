@@ -19,6 +19,9 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -30,6 +33,9 @@ module Akeyless
 
     # Dynamic secret New name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Ping Federate administrative port
     attr_accessor :ping_administrative_port
@@ -101,10 +107,12 @@ module Akeyless
     def self.attribute_map
       {
         :'delete_protection' => :'delete_protection',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'ping_administrative_port' => :'ping-administrative-port',
         :'ping_atm_id' => :'ping-atm-id',
         :'ping_authorization_port' => :'ping-authorization-port',
@@ -139,10 +147,12 @@ module Akeyless
     def self.openapi_types
       {
         :'delete_protection' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'ping_administrative_port' => :'String',
         :'ping_atm_id' => :'String',
         :'ping_authorization_port' => :'String',
@@ -193,6 +203,12 @@ module Akeyless
         self.delete_protection = attributes[:'delete_protection']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -213,6 +229,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'ping_administrative_port')
@@ -348,10 +370,12 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           delete_protection == o.delete_protection &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           ping_administrative_port == o.ping_administrative_port &&
           ping_atm_id == o.ping_atm_id &&
           ping_authorization_port == o.ping_authorization_port &&
@@ -385,7 +409,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, item_custom_fields, json, name, new_name, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
+      [delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

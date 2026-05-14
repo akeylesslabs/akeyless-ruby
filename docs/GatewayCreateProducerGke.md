@@ -10,9 +10,11 @@
 | **gke_cluster_endpoint** | **String** | GKE cluster URL endpoint | [optional] |
 | **gke_cluster_name** | **String** | GKE cluster name | [optional] |
 | **gke_service_account_email** | **String** | GKE service account email | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
@@ -39,9 +41,11 @@ instance = Akeyless::GatewayCreateProducerGke.new(
   gke_cluster_endpoint: null,
   gke_cluster_name: null,
   gke_service_account_email: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   name: null,
+  output_rule: null,
   producer_encryption_key_name: null,
   secure_access_allow_port_forwading: null,
   secure_access_bastion_issuer: null,

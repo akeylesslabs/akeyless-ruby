@@ -19,6 +19,9 @@ module Akeyless
     # Host
     attr_accessor :host
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -27,6 +30,9 @@ module Akeyless
 
     # New TTL in Minutes
     attr_accessor :new_ttl_min
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Tmp Creds ID
     attr_accessor :tmp_creds_id
@@ -41,9 +47,11 @@ module Akeyless
     def self.attribute_map
       {
         :'host' => :'host',
+        :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
         :'new_ttl_min' => :'new-ttl-min',
+        :'output_rule' => :'output-rule',
         :'tmp_creds_id' => :'tmp-creds-id',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -59,9 +67,11 @@ module Akeyless
     def self.openapi_types
       {
         :'host' => :'String',
+        :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_ttl_min' => :'Integer',
+        :'output_rule' => :'Array<String>',
         :'tmp_creds_id' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -95,6 +105,12 @@ module Akeyless
         self.host = nil
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -111,6 +127,12 @@ module Akeyless
         self.new_ttl_min = attributes[:'new_ttl_min']
       else
         self.new_ttl_min = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'tmp_creds_id')
@@ -169,9 +191,11 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           host == o.host &&
+          input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
           new_ttl_min == o.new_ttl_min &&
+          output_rule == o.output_rule &&
           tmp_creds_id == o.tmp_creds_id &&
           token == o.token &&
           uid_token == o.uid_token
@@ -186,7 +210,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [host, json, name, new_ttl_min, tmp_creds_id, token, uid_token].hash
+      [host, input_rule, json, name, new_ttl_min, output_rule, tmp_creds_id, token, uid_token].hash
     end
 
     # Builds the object from hash

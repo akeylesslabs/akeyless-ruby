@@ -10,6 +10,8 @@
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
+| **remote_secret_activation_date** | **String** | Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
+| **remote_secret_expires** | **String** | Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **secret_id** | **String** | The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update |  |
 | **selected_repositories** | **String** | GitHub selected repositories (required for GitHub USC when repository-access is &#39;selected&#39; or for repository scope) Comma-separated repository names (e.g., \&quot;repo1,repo2\&quot;) | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** | Tags for the universal secrets | [optional] |
@@ -31,6 +33,8 @@ instance = Akeyless::UscUpdate.new(
   namespace: null,
   object_type: null,
   pfx_password: null,
+  remote_secret_activation_date: null,
+  remote_secret_expires: null,
   secret_id: null,
   selected_repositories: null,
   tags: null,

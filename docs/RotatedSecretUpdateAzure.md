@@ -17,6 +17,7 @@
 | **grace_rotation_hour** | **Integer** | The Hour of the grace rotation in UTC | [optional] |
 | **grace_rotation_interval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) | [optional] |
 | **grace_rotation_timing** | **String** | When to create the new version relative to the rotation date [after/before] | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -25,6 +26,7 @@
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **resource_group_name** | **String** | The resource group name (only relevant when explicitly-set-sa&#x3D;true) | [optional] |
 | **resource_name** | **String** | The name of the storage account (only relevant when explicitly-set-sa&#x3D;true) | [optional] |
@@ -63,6 +65,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   grace_rotation_hour: null,
   grace_rotation_interval: null,
   grace_rotation_timing: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   keep_prev_version: null,
@@ -71,6 +74,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   max_versions: null,
   name: null,
   new_name: null,
+  output_rule: null,
   password_length: null,
   resource_group_name: null,
   resource_name: null,

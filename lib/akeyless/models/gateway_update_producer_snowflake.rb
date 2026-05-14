@@ -37,6 +37,9 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -50,6 +53,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -91,11 +97,13 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'db_name' => :'db-name',
         :'delete_protection' => :'delete_protection',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key_algo' => :'key-algo',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'private_key' => :'private-key',
         :'private_key_passphrase' => :'private-key-passphrase',
@@ -124,11 +132,13 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'db_name' => :'String',
         :'delete_protection' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key_algo' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'private_key' => :'String',
         :'private_key_passphrase' => :'String',
@@ -193,6 +203,12 @@ module Akeyless
         self.delete_protection = attributes[:'delete_protection']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -217,6 +233,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -296,11 +318,13 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           db_name == o.db_name &&
           delete_protection == o.delete_protection &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key_algo == o.key_algo &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           private_key == o.private_key &&
           private_key_passphrase == o.private_key_passphrase &&
@@ -322,7 +346,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account, account_password, account_username, auth_mode, custom_username_template, db_name, delete_protection, item_custom_fields, json, key_algo, name, new_name, password_length, private_key, private_key_passphrase, role, tags, target_name, token, uid_token, user_ttl, warehouse].hash
+      [account, account_password, account_username, auth_mode, custom_username_template, db_name, delete_protection, input_rule, item_custom_fields, json, key_algo, name, new_name, output_rule, password_length, private_key, private_key_passphrase, role, tags, target_name, token, uid_token, user_ttl, warehouse].hash
     end
 
     # Builds the object from hash

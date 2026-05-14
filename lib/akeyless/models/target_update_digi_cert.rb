@@ -25,8 +25,11 @@ module Akeyless
     # DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo]
     attr_accessor :digicert_url
 
-    # Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP
+    # Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare
     attr_accessor :dns_target_creds
+
+    # Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare
+    attr_accessor :dns_zone
 
     # External Account Binding HMAC key (required for ACME account bootstrap on create)
     attr_accessor :eab_hmac_key
@@ -80,6 +83,7 @@ module Akeyless
         :'description' => :'description',
         :'digicert_url' => :'digicert-url',
         :'dns_target_creds' => :'dns-target-creds',
+        :'dns_zone' => :'dns-zone',
         :'eab_hmac_key' => :'eab-hmac-key',
         :'eab_key_id' => :'eab-key-id',
         :'email' => :'email',
@@ -110,6 +114,7 @@ module Akeyless
         :'description' => :'String',
         :'digicert_url' => :'String',
         :'dns_target_creds' => :'String',
+        :'dns_zone' => :'String',
         :'eab_hmac_key' => :'String',
         :'eab_key_id' => :'String',
         :'email' => :'String',
@@ -167,6 +172,10 @@ module Akeyless
 
       if attributes.key?(:'dns_target_creds')
         self.dns_target_creds = attributes[:'dns_target_creds']
+      end
+
+      if attributes.key?(:'dns_zone')
+        self.dns_zone = attributes[:'dns_zone']
       end
 
       if attributes.key?(:'eab_hmac_key')
@@ -272,6 +281,7 @@ module Akeyless
           description == o.description &&
           digicert_url == o.digicert_url &&
           dns_target_creds == o.dns_target_creds &&
+          dns_zone == o.dns_zone &&
           eab_hmac_key == o.eab_hmac_key &&
           eab_key_id == o.eab_key_id &&
           email == o.email &&
@@ -298,7 +308,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, description, digicert_url, dns_target_creds, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, json, keep_prev_version, key, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
+      [acme_challenge, description, digicert_url, dns_target_creds, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, json, keep_prev_version, key, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

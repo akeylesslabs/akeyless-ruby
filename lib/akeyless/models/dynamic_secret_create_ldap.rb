@@ -45,6 +45,9 @@ module Akeyless
     # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
     attr_accessor :host_provider
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -59,6 +62,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -127,11 +133,13 @@ module Akeyless
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'group_dn' => :'group-dn',
         :'host_provider' => :'host-provider',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'ldap_ca_cert' => :'ldap-ca-cert',
         :'ldap_url' => :'ldap-url',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -171,11 +179,13 @@ module Akeyless
         :'fixed_user_claim_keyname' => :'String',
         :'group_dn' => :'String',
         :'host_provider' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'ldap_ca_cert' => :'String',
         :'ldap_url' => :'String',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'secure_access_bastion_issuer' => :'String',
@@ -262,6 +272,12 @@ module Akeyless
         self.host_provider = attributes[:'host_provider']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -286,6 +302,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -404,11 +426,13 @@ module Akeyless
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           group_dn == o.group_dn &&
           host_provider == o.host_provider &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           ldap_ca_cert == o.ldap_ca_cert &&
           ldap_url == o.ldap_url &&
           name == o.name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -438,7 +462,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, description, external_username, fixed_user_claim_keyname, group_dn, host_provider, item_custom_fields, json, ldap_ca_cert, ldap_url, name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
+      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, description, external_username, fixed_user_claim_keyname, group_dn, host_provider, input_rule, item_custom_fields, json, ldap_ca_cert, ldap_url, name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
     end
 
     # Builds the object from hash

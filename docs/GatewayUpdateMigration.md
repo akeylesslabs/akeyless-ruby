@@ -47,6 +47,7 @@
 | **gcp_key** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) | [optional] |
 | **gcp_project_id** | **String** | GCP Project ID (cross-project override) | [optional] |
 | **hashi_json** | **String** | Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false] | [optional][default to &#39;true&#39;] |
+| **hashi_metadata_mode** | **String** | Controls the amount of HashiCorp Vault secret metadata migrated with each secret value. Options: none|minimal|full | [optional] |
 | **hashi_ns** | **Array&lt;String&gt;** | HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration) | [optional] |
 | **hashi_token** | **String** | HashiCorp Vault access token with sufficient permissions to preform list &amp; read operations on secrets objects (relevant only for HasiCorp Vault migration) | [optional] |
 | **hashi_url** | **String** | HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration) | [optional] |
@@ -129,6 +130,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   gcp_key: null,
   gcp_project_id: null,
   hashi_json: null,
+  hashi_metadata_mode: null,
   hashi_ns: null,
   hashi_token: null,
   hashi_url: null,

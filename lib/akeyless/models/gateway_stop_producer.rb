@@ -16,11 +16,17 @@ require 'time'
 module Akeyless
   # gatewayStopProducer is a command that stops producer [Deprecated: Use set-item-state command]
   class GatewayStopProducer
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Set output format to JSON
     attr_accessor :json
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -31,8 +37,10 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -46,8 +54,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -74,6 +84,12 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -84,6 +100,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'token')
@@ -120,8 +142,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
+          output_rule == o.output_rule &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -135,7 +159,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, token, uid_token].hash
+      [input_rule, json, name, output_rule, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -19,11 +19,17 @@ module Akeyless
     # Host
     attr_accessor :host
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Set output format to JSON
     attr_accessor :json
 
     # Dynamic secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # Revoke All Temp Creds
     attr_accessor :revoke_all
@@ -44,8 +50,10 @@ module Akeyless
     def self.attribute_map
       {
         :'host' => :'host',
+        :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'revoke_all' => :'revoke-all',
         :'soft_delete' => :'soft-delete',
         :'tmp_creds_id' => :'tmp-creds-id',
@@ -63,8 +71,10 @@ module Akeyless
     def self.openapi_types
       {
         :'host' => :'String',
+        :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'revoke_all' => :'Boolean',
         :'soft_delete' => :'Boolean',
         :'tmp_creds_id' => :'String',
@@ -98,6 +108,12 @@ module Akeyless
         self.host = attributes[:'host']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -108,6 +124,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'revoke_all')
@@ -157,8 +179,10 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           host == o.host &&
+          input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
+          output_rule == o.output_rule &&
           revoke_all == o.revoke_all &&
           soft_delete == o.soft_delete &&
           tmp_creds_id == o.tmp_creds_id &&
@@ -175,7 +199,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [host, json, name, revoke_all, soft_delete, tmp_creds_id, token, uid_token].hash
+      [host, input_rule, json, name, output_rule, revoke_all, soft_delete, tmp_creds_id, token, uid_token].hash
     end
 
     # Builds the object from hash

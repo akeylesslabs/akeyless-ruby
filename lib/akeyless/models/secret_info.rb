@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class SecretInfo
+    attr_accessor :activation_date
+
     attr_accessor :created
 
     attr_accessor :description
@@ -50,6 +52,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'activation_date' => :'activation_date',
         :'created' => :'created',
         :'description' => :'description',
         :'expiration' => :'expiration',
@@ -77,6 +80,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'activation_date' => :'Time',
         :'created' => :'Time',
         :'description' => :'String',
         :'expiration' => :'Time',
@@ -117,6 +121,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'activation_date')
+        self.activation_date = attributes[:'activation_date']
+      end
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
@@ -205,6 +213,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          activation_date == o.activation_date &&
           created == o.created &&
           description == o.description &&
           expiration == o.expiration &&
@@ -232,7 +241,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, description, expiration, github, key_id, last_retrieved, location, name, namespace, region, secret_id, status, tags, thumbprint, type, version].hash
+      [activation_date, created, description, expiration, github, key_id, last_retrieved, location, name, namespace, region, secret_id, status, tags, thumbprint, type, version].hash
     end
 
     # Builds the object from hash

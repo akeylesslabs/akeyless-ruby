@@ -10,6 +10,7 @@
 | **digicert_directory_type** | **String** |  | [optional] |
 | **dns_target_name** | **String** | Name of DNS target (transient field - not stored in DB). Used by CLI to pass DNS target name to SDK for creating target_object_assoc. Retrieved from target_object_assoc when reading target. Required when ChallengeType is dns. | [optional] |
 | **dns_target_type** | **String** |  | [optional] |
+| **dns_zone** | **String** | Cloudflare zone identifier. Required when DNSTargetType is Cloudflare. | [optional] |
 | **eab_hmac_key** | **String** | External Account Binding HMAC key. Required until ACME account is bootstrapped on first issuance. | [optional] |
 | **eab_key_id** | **String** | External Account Binding key identifier. Required until ACME account is bootstrapped on first issuance. | [optional] |
 | **email** | **String** | Email address for ACME account registration. Required. | [optional] |
@@ -30,6 +31,7 @@ instance = Akeyless::DigiCertTargetDetails.new(
   digicert_directory_type: null,
   dns_target_name: null,
   dns_target_type: null,
+  dns_zone: null,
   eab_hmac_key: null,
   eab_key_id: null,
   email: null,

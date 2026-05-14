@@ -51,6 +51,9 @@ module Akeyless
     # When to create the new version relative to the rotation date [after/before]
     attr_accessor :grace_rotation_timing
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -68,6 +71,9 @@ module Akeyless
 
     # Rotated secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -144,12 +150,14 @@ module Akeyless
         :'grace_rotation_hour' => :'grace-rotation-hour',
         :'grace_rotation_interval' => :'grace-rotation-interval',
         :'grace_rotation_timing' => :'grace-rotation-timing',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
         :'lock_during_sra_session' => :'lock-during-sra-session',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'resource_group_name' => :'resource-group-name',
         :'resource_name' => :'resource-name',
@@ -193,12 +201,14 @@ module Akeyless
         :'grace_rotation_hour' => :'Integer',
         :'grace_rotation_interval' => :'String',
         :'grace_rotation_timing' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
         :'lock_during_sra_session' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'resource_group_name' => :'String',
         :'resource_name' => :'String',
@@ -295,6 +305,12 @@ module Akeyless
         self.grace_rotation_timing = attributes[:'grace_rotation_timing']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -323,6 +339,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -467,12 +489,14 @@ module Akeyless
           grace_rotation_hour == o.grace_rotation_hour &&
           grace_rotation_interval == o.grace_rotation_interval &&
           grace_rotation_timing == o.grace_rotation_timing &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
           lock_during_sra_session == o.lock_during_sra_session &&
           max_versions == o.max_versions &&
           name == o.name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           resource_group_name == o.resource_group_name &&
           resource_name == o.resource_name &&
@@ -504,7 +528,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
+      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
     end
 
     # Builds the object from hash

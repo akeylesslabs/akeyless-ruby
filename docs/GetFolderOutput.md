@@ -14,6 +14,7 @@
 | **metadata** | **String** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **tags** | **Array&lt;String&gt;** |  | [optional] |
+| **usc_sync_configs** | [**Array&lt;FolderUSCSyncConfig&gt;**](FolderUSCSyncConfig.md) |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = Akeyless::GetFolderOutput.new(
   folder_name: null,
   metadata: null,
   modification_date: null,
-  tags: null
+  tags: null,
+  usc_sync_configs: null
 )
 ```
 

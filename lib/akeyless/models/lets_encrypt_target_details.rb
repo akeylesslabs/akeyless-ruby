@@ -33,6 +33,9 @@ module Akeyless
 
     attr_accessor :dns_target_type
 
+    # Cloudflare zone identifier Required when DNSTargetType is Cloudflare
+    attr_accessor :dns_zone
+
     # Email address for ACME account registration Required
     attr_accessor :email
 
@@ -57,6 +60,7 @@ module Akeyless
         :'challenge_type' => :'challenge_type',
         :'dns_target_name' => :'dns_target_name',
         :'dns_target_type' => :'dns_target_type',
+        :'dns_zone' => :'dns_zone',
         :'email' => :'email',
         :'gcp_project' => :'gcp_project',
         :'hosted_zone' => :'hosted_zone',
@@ -79,6 +83,7 @@ module Akeyless
         :'challenge_type' => :'String',
         :'dns_target_name' => :'String',
         :'dns_target_type' => :'String',
+        :'dns_zone' => :'String',
         :'email' => :'String',
         :'gcp_project' => :'String',
         :'hosted_zone' => :'String',
@@ -132,6 +137,10 @@ module Akeyless
         self.dns_target_type = attributes[:'dns_target_type']
       end
 
+      if attributes.key?(:'dns_zone')
+        self.dns_zone = attributes[:'dns_zone']
+      end
+
       if attributes.key?(:'email')
         self.email = attributes[:'email']
       end
@@ -179,6 +188,7 @@ module Akeyless
           challenge_type == o.challenge_type &&
           dns_target_name == o.dns_target_name &&
           dns_target_type == o.dns_target_type &&
+          dns_zone == o.dns_zone &&
           email == o.email &&
           gcp_project == o.gcp_project &&
           hosted_zone == o.hosted_zone &&
@@ -195,7 +205,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_key_pem, account_url, acme_environment, challenge_type, dns_target_name, dns_target_type, email, gcp_project, hosted_zone, resource_group, timeout].hash
+      [account_key_pem, account_url, acme_environment, challenge_type, dns_target_name, dns_target_type, dns_zone, email, gcp_project, hosted_zone, resource_group, timeout].hash
     end
 
     # Builds the object from hash

@@ -221,7 +221,7 @@ module Akeyless
     # Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
     # @param account_custom_field_list [AccountCustomFieldList] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [Array<AccountCustomField>]
     def account_custom_field_list(account_custom_field_list, opts = {})
       data, _status_code, _headers = account_custom_field_list_with_http_info(account_custom_field_list, opts)
       data
@@ -231,7 +231,7 @@ module Akeyless
     # Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
     # @param account_custom_field_list [AccountCustomFieldList] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(Array<AccountCustomField>, Integer, Hash)>] Array<AccountCustomField> data, response status code and response headers
     def account_custom_field_list_with_http_info(account_custom_field_list, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: V2Api.account_custom_field_list ...'
@@ -263,7 +263,7 @@ module Akeyless
       post_body = opts[:debug_body] || @api_client.object_to_http_body(account_custom_field_list)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'Array<AccountCustomField>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -23097,6 +23097,66 @@ module Akeyless
     end
 
     # @param [Hash] opts the optional parameters
+    # @option opts [KmipClientUpdate] :kmip_client_update 
+    # @return [KmipClientUpdateOutput]
+    def kmip_client_update(opts = {})
+      data, _status_code, _headers = kmip_client_update_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipClientUpdate] :kmip_client_update 
+    # @return [Array<(KmipClientUpdateOutput, Integer, Hash)>] KmipClientUpdateOutput data, response status code and response headers
+    def kmip_client_update_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_client_update ...'
+      end
+      # resource path
+      local_var_path = '/kmip-client-update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_client_update'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipClientUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_client_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_client_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
     # @option opts [KmipCreateClient] :kmip_create_client 
     # @return [KmipCreateClientOutput]
     def kmip_create_client(opts = {})
@@ -23692,6 +23752,66 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#kmip_server_setup\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipServerUpdate] :kmip_server_update 
+    # @return [KmipServerUpdateOutput]
+    def kmip_server_update(opts = {})
+      data, _status_code, _headers = kmip_server_update_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipServerUpdate] :kmip_server_update 
+    # @return [Array<(KmipServerUpdateOutput, Integer, Hash)>] KmipServerUpdateOutput data, response status code and response headers
+    def kmip_server_update_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_server_update ...'
+      end
+      # resource path
+      local_var_path = '/kmip-server-update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_server_update'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipServerUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_server_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_server_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -29746,6 +29866,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_cloudflare [TargetCreateCloudflare] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_cloudflare(target_create_cloudflare, opts = {})
+      data, _status_code, _headers = target_create_cloudflare_with_http_info(target_create_cloudflare, opts)
+      data
+    end
+
+    # @param target_create_cloudflare [TargetCreateCloudflare] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_cloudflare_with_http_info(target_create_cloudflare, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_cloudflare ...'
+      end
+      # verify the required parameter 'target_create_cloudflare' is set
+      if @api_client.config.client_side_validation && target_create_cloudflare.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_cloudflare' when calling V2Api.target_create_cloudflare"
+      end
+      # resource path
+      local_var_path = '/target-create-cloudflare'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_cloudflare)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_cloudflare",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_cloudflare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_db [TargetCreateDB] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -31982,6 +32166,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_azure\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_cloudflare [TargetUpdateCloudflare] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_cloudflare(target_update_cloudflare, opts = {})
+      data, _status_code, _headers = target_update_cloudflare_with_http_info(target_update_cloudflare, opts)
+      data
+    end
+
+    # @param target_update_cloudflare [TargetUpdateCloudflare] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_cloudflare_with_http_info(target_update_cloudflare, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_cloudflare ...'
+      end
+      # verify the required parameter 'target_update_cloudflare' is set
+      if @api_client.config.client_side_validation && target_update_cloudflare.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_cloudflare' when calling V2Api.target_update_cloudflare"
+      end
+      # resource path
+      local_var_path = '/target-update-cloudflare'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_cloudflare)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_cloudflare",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_cloudflare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

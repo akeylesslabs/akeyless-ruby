@@ -7,7 +7,8 @@
 | **acme_challenge** | **String** | ACME challenge type. Options: [dns] | [optional][default to &#39;dns&#39;] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
-| **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP | [optional] |
+| **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare | [optional] |
+| **dns_zone** | **String** | Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare | [optional] |
 | **eab_hmac_key** | **String** | External Account Binding HMAC key (required for ACME account bootstrap on create) | [optional] |
 | **eab_key_id** | **String** | External Account Binding key identifier (required for ACME account bootstrap on create) | [optional] |
 | **email** | **String** | Email address for ACME account registration |  |
@@ -35,6 +36,7 @@ instance = Akeyless::TargetUpdateGoogleTrust.new(
   delete_protection: null,
   description: null,
   dns_target_creds: null,
+  dns_zone: null,
   eab_hmac_key: null,
   eab_key_id: null,
   email: null,

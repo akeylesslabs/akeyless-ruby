@@ -25,6 +25,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -60,6 +63,9 @@ module Akeyless
 
     # Dynamic secret name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -112,6 +118,7 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'mssql_allowed_db_names' => :'mssql-allowed-db-names',
@@ -124,6 +131,7 @@ module Akeyless
         :'mssql_username' => :'mssql-username',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -153,6 +161,7 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'mssql_allowed_db_names' => :'String',
@@ -165,6 +174,7 @@ module Akeyless
         :'mssql_username' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'secure_access_bastion_issuer' => :'String',
@@ -214,6 +224,12 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -272,6 +288,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -371,6 +393,7 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           mssql_allowed_db_names == o.mssql_allowed_db_names &&
@@ -383,6 +406,7 @@ module Akeyless
           mssql_username == o.mssql_username &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -409,7 +433,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, delete_protection, description, item_custom_fields, json, mssql_allowed_db_names, mssql_create_statements, mssql_dbname, mssql_host, mssql_password, mssql_port, mssql_revocation_statements, mssql_username, name, new_name, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, mssql_allowed_db_names, mssql_create_statements, mssql_dbname, mssql_host, mssql_password, mssql_port, mssql_revocation_statements, mssql_username, name, new_name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

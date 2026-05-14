@@ -11,6 +11,7 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **enable_password_policy** | **String** | Enable password policy | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
@@ -19,6 +20,7 @@
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
@@ -58,6 +60,7 @@ instance = Akeyless::RotatedSecretUpdateCustom.new(
   delete_protection: null,
   description: null,
   enable_password_policy: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   keep_prev_version: null,
@@ -66,6 +69,7 @@ instance = Akeyless::RotatedSecretUpdateCustom.new(
   max_versions: null,
   name: null,
   new_name: null,
+  output_rule: null,
   password_length: null,
   rm_tag: null,
   rotate_after_disconnect: null,

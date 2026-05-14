@@ -9,6 +9,7 @@
 | **github_app_id** | **Integer** | Github app id | [optional] |
 | **github_app_private_key** | **String** | App private key | [optional] |
 | **github_base_url** | **String** | Base URL | [optional][default to &#39;https://api.github.com/&#39;] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **installation_id** | **Integer** | GitHub application installation id | [optional] |
 | **installation_organization** | **String** | Optional, mutually exclusive with installation id, GitHub organization name | [optional] |
 | **installation_repository** | **String** | Optional, mutually exclusive with installation id, GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;&#39; | [optional] |
@@ -16,6 +17,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
 | **new_name** | **String** | Dynamic secret name | [optional] |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -35,6 +37,7 @@ instance = Akeyless::DynamicSecretUpdateGithub.new(
   github_app_id: null,
   github_app_private_key: null,
   github_base_url: null,
+  input_rule: null,
   installation_id: null,
   installation_organization: null,
   installation_repository: null,
@@ -42,6 +45,7 @@ instance = Akeyless::DynamicSecretUpdateGithub.new(
   json: null,
   name: null,
   new_name: null,
+  output_rule: null,
   tags: null,
   target_name: null,
   token: null,

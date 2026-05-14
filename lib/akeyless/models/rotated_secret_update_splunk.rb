@@ -40,6 +40,9 @@ module Akeyless
     # For rotator-type=hec-token, optionally set/replace the stored HEC token value.
     attr_accessor :hec_token
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -60,6 +63,9 @@ module Akeyless
 
     # New item name
     attr_accessor :new_name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -99,6 +105,7 @@ module Akeyless
         :'description' => :'description',
         :'expiration_date' => :'expiration-date',
         :'hec_token' => :'hec-token',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
@@ -106,6 +113,7 @@ module Akeyless
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'rm_tag' => :'rm-tag',
         :'rotation_event_in' => :'rotation-event-in',
@@ -134,6 +142,7 @@ module Akeyless
         :'description' => :'String',
         :'expiration_date' => :'String',
         :'hec_token' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
@@ -141,6 +150,7 @@ module Akeyless
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'rm_tag' => :'Array<String>',
         :'rotation_event_in' => :'Array<String>',
@@ -212,6 +222,12 @@ module Akeyless
         self.hec_token = attributes[:'hec_token']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -244,6 +260,12 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -320,6 +342,7 @@ module Akeyless
           description == o.description &&
           expiration_date == o.expiration_date &&
           hec_token == o.hec_token &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
@@ -327,6 +350,7 @@ module Akeyless
           max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           rm_tag == o.rm_tag &&
           rotation_event_in == o.rotation_event_in &&
@@ -347,7 +371,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, audience, authentication_credentials, auto_rotate, delete_protection, description, expiration_date, hec_token, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, splunk_token, token, token_owner, uid_token].hash
+      [add_tag, audience, authentication_credentials, auto_rotate, delete_protection, description, expiration_date, hec_token, input_rule, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, output_rule, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, splunk_token, token, token_owner, uid_token].hash
     end
 
     # Builds the object from hash

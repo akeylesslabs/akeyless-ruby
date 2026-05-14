@@ -365,6 +365,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**import_passwords**](V2Api.md#import_passwords) | **POST** /import-passwords |  |
 | [**kmip_client_delete_rule**](V2Api.md#kmip_client_delete_rule) | **POST** /kmip-client-delete-rule |  |
 | [**kmip_client_set_rule**](V2Api.md#kmip_client_set_rule) | **POST** /kmip-client-set-rule |  |
+| [**kmip_client_update**](V2Api.md#kmip_client_update) | **POST** /kmip-client-update |  |
 | [**kmip_create_client**](V2Api.md#kmip_create_client) | **POST** /kmip-create-client |  |
 | [**kmip_delete_client**](V2Api.md#kmip_delete_client) | **POST** /kmip-delete-client |  |
 | [**kmip_delete_server**](V2Api.md#kmip_delete_server) | **DELETE** /kmip-delete-environment |  |
@@ -375,6 +376,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmip_renew_client_certificate**](V2Api.md#kmip_renew_client_certificate) | **POST** /kmip-renew-client |  |
 | [**kmip_renew_server_certificate**](V2Api.md#kmip_renew_server_certificate) | **POST** /kmip-renew-environment |  |
 | [**kmip_server_setup**](V2Api.md#kmip_server_setup) | **POST** /kmip-create-environment |  |
+| [**kmip_server_update**](V2Api.md#kmip_server_update) | **POST** /kmip-server-update |  |
 | [**kmip_set_server_state**](V2Api.md#kmip_set_server_state) | **POST** /kmip-set-environment-state |  |
 | [**kubeconfig_generate**](V2Api.md#kubeconfig_generate) | **POST** /kubeconfig-generate |  |
 | [**list_acme_accounts**](V2Api.md#list_acme_accounts) | **POST** /list-acme-accounts |  |
@@ -470,6 +472,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
 | [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
+| [**target_create_cloudflare**](V2Api.md#target_create_cloudflare) | **POST** /target-create-cloudflare |  |
 | [**target_create_db**](V2Api.md#target_create_db) | **POST** /target-create-db |  |
 | [**target_create_digi_cert**](V2Api.md#target_create_digi_cert) | **POST** /target-create-digicert |  |
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
@@ -505,6 +508,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
 | [**target_update_azure**](V2Api.md#target_update_azure) | **POST** /target-update-azure |  |
+| [**target_update_cloudflare**](V2Api.md#target_update_cloudflare) | **POST** /target-update-cloudflare |  |
 | [**target_update_db**](V2Api.md#target_update_db) | **POST** /target-update-db |  |
 | [**target_update_digi_cert**](V2Api.md#target_update_digi_cert) | **POST** /target-update-digicert |  |
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
@@ -807,7 +811,7 @@ No authorization required
 
 ## account_custom_field_list
 
-> Object account_custom_field_list(account_custom_field_list)
+> <Array<AccountCustomField>> account_custom_field_list(account_custom_field_list)
 
 List all account custom fields.
 
@@ -835,7 +839,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> account_custom_field_list_with_http_info(account_custom_field_list)
+> <Array(<Array<AccountCustomField>>, Integer, Hash)> account_custom_field_list_with_http_info(account_custom_field_list)
 
 ```ruby
 begin
@@ -843,7 +847,7 @@ begin
   data, status_code, headers = api_instance.account_custom_field_list_with_http_info(account_custom_field_list)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <Array<AccountCustomField>>
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->account_custom_field_list_with_http_info: #{e}"
 end
@@ -857,7 +861,7 @@ end
 
 ### Return type
 
-**Object**
+[**Array&lt;AccountCustomField&gt;**](AccountCustomField.md)
 
 ### Authorization
 
@@ -23010,6 +23014,70 @@ No authorization required
 - **Accept**: application/json
 
 
+## kmip_client_update
+
+> <KmipClientUpdateOutput> kmip_client_update(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_client_update: Akeyless::KmipClientUpdate.new # KmipClientUpdate | 
+}
+
+begin
+  
+  result = api_instance.kmip_client_update(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_client_update: #{e}"
+end
+```
+
+#### Using the kmip_client_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipClientUpdateOutput>, Integer, Hash)> kmip_client_update_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_client_update_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipClientUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_client_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_client_update** | [**KmipClientUpdate**](KmipClientUpdate.md) |  | [optional] |
+
+### Return type
+
+[**KmipClientUpdateOutput**](KmipClientUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## kmip_create_client
 
 > <KmipCreateClientOutput> kmip_create_client(opts)
@@ -23639,6 +23707,70 @@ end
 ### Return type
 
 [**KMIPEnvironmentCreateResponse**](KMIPEnvironmentCreateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## kmip_server_update
+
+> <KmipServerUpdateOutput> kmip_server_update(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_server_update: Akeyless::KmipServerUpdate.new # KmipServerUpdate | 
+}
+
+begin
+  
+  result = api_instance.kmip_server_update(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_server_update: #{e}"
+end
+```
+
+#### Using the kmip_server_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipServerUpdateOutput>, Integer, Hash)> kmip_server_update_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_server_update_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipServerUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_server_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_server_update** | [**KmipServerUpdate**](KmipServerUpdate.md) |  | [optional] |
+
+### Return type
+
+[**KmipServerUpdateOutput**](KmipServerUpdateOutput.md)
 
 ### Authorization
 
@@ -29536,6 +29668,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_cloudflare
+
+> <TargetCreateOutput> target_create_cloudflare(target_create_cloudflare)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_cloudflare = Akeyless::TargetCreateCloudflare.new({name: 'name_example'}) # TargetCreateCloudflare | 
+
+begin
+  
+  result = api_instance.target_create_cloudflare(target_create_cloudflare)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_cloudflare: #{e}"
+end
+```
+
+#### Using the target_create_cloudflare_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_cloudflare_with_http_info(target_create_cloudflare)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_cloudflare_with_http_info(target_create_cloudflare)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_cloudflare_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_cloudflare** | [**TargetCreateCloudflare**](TargetCreateCloudflare.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_db
 
 > <TargetCreateOutput> target_create_db(target_create_db)
@@ -31691,6 +31885,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_azure** | [**TargetUpdateAzure**](TargetUpdateAzure.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_cloudflare
+
+> <TargetUpdateOutput> target_update_cloudflare(target_update_cloudflare)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_cloudflare = Akeyless::TargetUpdateCloudflare.new({name: 'name_example'}) # TargetUpdateCloudflare | 
+
+begin
+  
+  result = api_instance.target_update_cloudflare(target_update_cloudflare)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_cloudflare: #{e}"
+end
+```
+
+#### Using the target_update_cloudflare_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_cloudflare_with_http_info(target_update_cloudflare)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_cloudflare_with_http_info(target_update_cloudflare)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_cloudflare_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_cloudflare** | [**TargetUpdateCloudflare**](TargetUpdateCloudflare.md) |  |  |
 
 ### Return type
 

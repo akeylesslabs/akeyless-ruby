@@ -27,6 +27,9 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -41,6 +44,9 @@ module Akeyless
 
     # Rotated secret name
     attr_accessor :name
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -73,11 +79,13 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
@@ -101,11 +109,13 @@ module Akeyless
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
@@ -156,6 +166,12 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -180,6 +196,12 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -255,11 +277,13 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
           max_versions == o.max_versions &&
           name == o.name &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
@@ -279,7 +303,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authentication_credentials, auto_rotate, delete_protection, description, item_custom_fields, json, key, max_versions, name, password_length, rotation_event_in, rotation_hour, rotation_interval, tags, target_name, token, uid_token].hash
+      [authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, key, max_versions, name, output_rule, password_length, rotation_event_in, rotation_hour, rotation_interval, tags, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

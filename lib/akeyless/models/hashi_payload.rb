@@ -19,6 +19,8 @@ module Akeyless
 
     attr_accessor :import_as_json
 
+    attr_accessor :metadata_mode
+
     attr_accessor :namespaces
 
     attr_accessor :token
@@ -32,6 +34,7 @@ module Akeyless
       {
         :'delete_sync_on_deletion' => :'delete_sync_on_deletion',
         :'import_as_json' => :'import_as_json',
+        :'metadata_mode' => :'metadata_mode',
         :'namespaces' => :'namespaces',
         :'token' => :'token',
         :'url' => :'url',
@@ -49,6 +52,7 @@ module Akeyless
       {
         :'delete_sync_on_deletion' => :'Boolean',
         :'import_as_json' => :'Boolean',
+        :'metadata_mode' => :'String',
         :'namespaces' => :'Array<String>',
         :'token' => :'String',
         :'url' => :'String',
@@ -83,6 +87,10 @@ module Akeyless
 
       if attributes.key?(:'import_as_json')
         self.import_as_json = attributes[:'import_as_json']
+      end
+
+      if attributes.key?(:'metadata_mode')
+        self.metadata_mode = attributes[:'metadata_mode']
       end
 
       if attributes.key?(:'namespaces')
@@ -126,6 +134,7 @@ module Akeyless
       self.class == o.class &&
           delete_sync_on_deletion == o.delete_sync_on_deletion &&
           import_as_json == o.import_as_json &&
+          metadata_mode == o.metadata_mode &&
           namespaces == o.namespaces &&
           token == o.token &&
           url == o.url &&
@@ -141,7 +150,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_sync_on_deletion, import_as_json, namespaces, token, url, usc_name].hash
+      [delete_sync_on_deletion, import_as_json, metadata_mode, namespaces, token, url, usc_name].hash
     end
 
     # Builds the object from hash

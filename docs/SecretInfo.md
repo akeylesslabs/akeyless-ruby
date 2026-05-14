@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **activation_date** | **Time** |  | [optional] |
 | **created** | **Time** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **expiration** | **Time** |  | [optional] |
@@ -27,6 +28,7 @@
 require 'akeyless'
 
 instance = Akeyless::SecretInfo.new(
+  activation_date: null,
   created: null,
   description: null,
   expiration: null,

@@ -15,6 +15,7 @@ docs/AWSSecretsMigration.md
 docs/AWSTargetDetails.md
 docs/AccessOrGroupPermissionAssignment.md
 docs/AccessPermissionAssignment.md
+docs/AccountCustomField.md
 docs/AccountCustomFieldCreate.md
 docs/AccountCustomFieldCreateOutput.md
 docs/AccountCustomFieldDelete.md
@@ -130,6 +131,7 @@ docs/ClassicKeyTargetInfo.md
 docs/ClientData.md
 docs/ClientUsageInfo.md
 docs/ClientsUsageReport.md
+docs/CloudflareTargetDetails.md
 docs/ConfigChange.md
 docs/ConfigHash.md
 docs/Configure.md
@@ -424,6 +426,7 @@ docs/FolderCreateOutput.md
 docs/FolderDelete.md
 docs/FolderGet.md
 docs/FolderGetOutput.md
+docs/FolderUSCSyncConfig.md
 docs/FolderUpdate.md
 docs/GCPAccessRules.md
 docs/GCPPayload.md
@@ -715,6 +718,8 @@ docs/KerberosAuthMethodInfo.md
 docs/KerberosConfigPart.md
 docs/KmipClientDeleteRule.md
 docs/KmipClientSetRule.md
+docs/KmipClientUpdate.md
+docs/KmipClientUpdateOutput.md
 docs/KmipCreateClient.md
 docs/KmipCreateClientOutput.md
 docs/KmipDeleteClient.md
@@ -730,6 +735,8 @@ docs/KmipRenewClientCertificateOutput.md
 docs/KmipRenewServerCertificate.md
 docs/KmipRenewServerCertificateOutput.md
 docs/KmipServerSetup.md
+docs/KmipServerUpdate.md
+docs/KmipServerUpdateOutput.md
 docs/KmipSetServerState.md
 docs/KmipSetServerStateOutput.md
 docs/KubeConfigValue.md
@@ -792,7 +799,6 @@ docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
 docs/NotiForwarderDetailsInput.md
 docs/NullString.md
-docs/NullTime.md
 docs/OAuth2AccessRules.md
 docs/OAuth2CustomClaim.md
 docs/OCIAccessRules.md
@@ -968,6 +974,7 @@ docs/Target.md
 docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
 docs/TargetCreateAzure.md
+docs/TargetCreateCloudflare.md
 docs/TargetCreateDB.md
 docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
@@ -1009,6 +1016,7 @@ docs/TargetTypeDetailsInput.md
 docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
 docs/TargetUpdateAzure.md
+docs/TargetUpdateCloudflare.md
 docs/TargetUpdateDB.md
 docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
@@ -1207,6 +1215,7 @@ lib/akeyless/api_error.rb
 lib/akeyless/configuration.rb
 lib/akeyless/models/access_or_group_permission_assignment.rb
 lib/akeyless/models/access_permission_assignment.rb
+lib/akeyless/models/account_custom_field.rb
 lib/akeyless/models/account_custom_field_create.rb
 lib/akeyless/models/account_custom_field_create_output.rb
 lib/akeyless/models/account_custom_field_delete.rb
@@ -1328,6 +1337,7 @@ lib/akeyless/models/classic_key_target_info.rb
 lib/akeyless/models/client_data.rb
 lib/akeyless/models/client_usage_info.rb
 lib/akeyless/models/clients_usage_report.rb
+lib/akeyless/models/cloudflare_target_details.rb
 lib/akeyless/models/config_change.rb
 lib/akeyless/models/config_hash.rb
 lib/akeyless/models/configure.rb
@@ -1623,6 +1633,7 @@ lib/akeyless/models/folder_delete.rb
 lib/akeyless/models/folder_get.rb
 lib/akeyless/models/folder_get_output.rb
 lib/akeyless/models/folder_update.rb
+lib/akeyless/models/folder_usc_sync_config.rb
 lib/akeyless/models/gateway_create_allowed_access.rb
 lib/akeyless/models/gateway_create_k8_s_auth_config.rb
 lib/akeyless/models/gateway_create_k8_s_auth_config_output.rb
@@ -1909,6 +1920,8 @@ lib/akeyless/models/kmip_client_delete_rule.rb
 lib/akeyless/models/kmip_client_get_response.rb
 lib/akeyless/models/kmip_client_list_response.rb
 lib/akeyless/models/kmip_client_set_rule.rb
+lib/akeyless/models/kmip_client_update.rb
+lib/akeyless/models/kmip_client_update_output.rb
 lib/akeyless/models/kmip_client_update_response.rb
 lib/akeyless/models/kmip_config_part.rb
 lib/akeyless/models/kmip_create_client.rb
@@ -1928,6 +1941,8 @@ lib/akeyless/models/kmip_renew_server_certificate.rb
 lib/akeyless/models/kmip_renew_server_certificate_output.rb
 lib/akeyless/models/kmip_server.rb
 lib/akeyless/models/kmip_server_setup.rb
+lib/akeyless/models/kmip_server_update.rb
+lib/akeyless/models/kmip_server_update_output.rb
 lib/akeyless/models/kmip_set_server_state.rb
 lib/akeyless/models/kmip_set_server_state_output.rb
 lib/akeyless/models/kube_config_value.rb
@@ -1990,7 +2005,6 @@ lib/akeyless/models/next_auto_rotation_event.rb
 lib/akeyless/models/noti_forwarder.rb
 lib/akeyless/models/noti_forwarder_details_input.rb
 lib/akeyless/models/null_string.rb
-lib/akeyless/models/null_time.rb
 lib/akeyless/models/o_auth2_access_rules.rb
 lib/akeyless/models/o_auth2_custom_claim.rb
 lib/akeyless/models/object_version_settings_output.rb
@@ -2166,6 +2180,7 @@ lib/akeyless/models/target.rb
 lib/akeyless/models/target_create_artifactory.rb
 lib/akeyless/models/target_create_aws.rb
 lib/akeyless/models/target_create_azure.rb
+lib/akeyless/models/target_create_cloudflare.rb
 lib/akeyless/models/target_create_db.rb
 lib/akeyless/models/target_create_digi_cert.rb
 lib/akeyless/models/target_create_dockerhub.rb
@@ -2207,6 +2222,7 @@ lib/akeyless/models/target_type_details_input.rb
 lib/akeyless/models/target_update_artifactory.rb
 lib/akeyless/models/target_update_aws.rb
 lib/akeyless/models/target_update_azure.rb
+lib/akeyless/models/target_update_cloudflare.rb
 lib/akeyless/models/target_update_db.rb
 lib/akeyless/models/target_update_digi_cert.rb
 lib/akeyless/models/target_update_dockerhub.rb
@@ -2397,4 +2413,13 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/account_custom_field_spec.rb
+spec/models/cloudflare_target_details_spec.rb
+spec/models/folder_usc_sync_config_spec.rb
+spec/models/kmip_client_update_output_spec.rb
+spec/models/kmip_client_update_spec.rb
+spec/models/kmip_server_update_output_spec.rb
+spec/models/kmip_server_update_spec.rb
+spec/models/target_create_cloudflare_spec.rb
+spec/models/target_update_cloudflare_spec.rb
 spec/spec_helper.rb

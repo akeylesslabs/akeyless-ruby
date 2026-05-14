@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **account_id** | **String** |  | [optional] |
 | **creation_date** | **Time** |  | [optional] |
-| **deletion_date** | [**NullTime**](NullTime.md) |  | [optional] |
+| **deletion_date** | **Time** |  | [optional] |
 | **id** | **Integer** |  | [optional] |
 | **modification_date** | **Time** |  | [optional] |
 | **name** | **String** |  | [optional] |

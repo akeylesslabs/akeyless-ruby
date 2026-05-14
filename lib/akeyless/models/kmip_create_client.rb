@@ -21,6 +21,9 @@ module Akeyless
     # Client certificate TTL in days
     attr_accessor :certificate_ttl
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -38,6 +41,7 @@ module Akeyless
       {
         :'activate_keys_on_creation' => :'activate-keys-on-creation',
         :'certificate_ttl' => :'certificate-ttl',
+        :'expiration_event_in' => :'expiration-event-in',
         :'json' => :'json',
         :'name' => :'name',
         :'token' => :'token',
@@ -55,6 +59,7 @@ module Akeyless
       {
         :'activate_keys_on_creation' => :'String',
         :'certificate_ttl' => :'Integer',
+        :'expiration_event_in' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'token' => :'String',
@@ -93,6 +98,12 @@ module Akeyless
         self.certificate_ttl = attributes[:'certificate_ttl']
       else
         self.certificate_ttl = 90
+      end
+
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
       end
 
       if attributes.key?(:'json')
@@ -143,6 +154,7 @@ module Akeyless
       self.class == o.class &&
           activate_keys_on_creation == o.activate_keys_on_creation &&
           certificate_ttl == o.certificate_ttl &&
+          expiration_event_in == o.expiration_event_in &&
           json == o.json &&
           name == o.name &&
           token == o.token &&
@@ -158,7 +170,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activate_keys_on_creation, certificate_ttl, json, name, token, uid_token].hash
+      [activate_keys_on_creation, certificate_ttl, expiration_event_in, json, name, token, uid_token].hash
     end
 
     # Builds the object from hash

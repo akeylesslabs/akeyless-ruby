@@ -28,6 +28,9 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -57,6 +60,9 @@ module Akeyless
 
     # Oracle Username
     attr_accessor :oracle_username
+
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -101,6 +107,7 @@ module Akeyless
         :'db_server_certificates' => :'db-server-certificates',
         :'db_server_name' => :'db-server-name',
         :'delete_protection' => :'delete_protection',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'name' => :'name',
@@ -111,6 +118,7 @@ module Akeyless
         :'oracle_screation_statements' => :'oracle-screation-statements',
         :'oracle_service_name' => :'oracle-service-name',
         :'oracle_username' => :'oracle-username',
+        :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -138,6 +146,7 @@ module Akeyless
         :'db_server_certificates' => :'String',
         :'db_server_name' => :'String',
         :'delete_protection' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'name' => :'String',
@@ -148,6 +157,7 @@ module Akeyless
         :'oracle_screation_statements' => :'String',
         :'oracle_service_name' => :'String',
         :'oracle_username' => :'String',
+        :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'secure_access_bastion_issuer' => :'String',
@@ -200,6 +210,12 @@ module Akeyless
         self.delete_protection = attributes[:'delete_protection']
       end
 
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
+      end
+
       if attributes.key?(:'item_custom_fields')
         if (value = attributes[:'item_custom_fields']).is_a?(Hash)
           self.item_custom_fields = value
@@ -248,6 +264,12 @@ module Akeyless
 
       if attributes.key?(:'oracle_username')
         self.oracle_username = attributes[:'oracle_username']
+      end
+
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
       end
 
       if attributes.key?(:'password_length')
@@ -338,6 +360,7 @@ module Akeyless
           db_server_certificates == o.db_server_certificates &&
           db_server_name == o.db_server_name &&
           delete_protection == o.delete_protection &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           name == o.name &&
@@ -348,6 +371,7 @@ module Akeyless
           oracle_screation_statements == o.oracle_screation_statements &&
           oracle_service_name == o.oracle_service_name &&
           oracle_username == o.oracle_username &&
+          output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -371,7 +395,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_username_template, db_server_certificates, db_server_name, delete_protection, item_custom_fields, json, name, oracle_host, oracle_password, oracle_port, oracle_revocation_statements, oracle_screation_statements, oracle_service_name, oracle_username, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [custom_username_template, db_server_certificates, db_server_name, delete_protection, input_rule, item_custom_fields, json, name, oracle_host, oracle_password, oracle_port, oracle_revocation_statements, oracle_screation_statements, oracle_service_name, oracle_username, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

@@ -36,6 +36,12 @@ module Akeyless
     # Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default).
     attr_accessor :region
 
+    # Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
+    attr_accessor :remote_secret_activation_date
+
+    # Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
+    attr_accessor :remote_secret_expires
+
     # Name for the new universal secrets
     attr_accessor :secret_name
 
@@ -69,6 +75,8 @@ module Akeyless
         :'object_type' => :'object-type',
         :'pfx_password' => :'pfx-password',
         :'region' => :'region',
+        :'remote_secret_activation_date' => :'remote-secret-activation-date',
+        :'remote_secret_expires' => :'remote-secret-expires',
         :'secret_name' => :'secret-name',
         :'selected_repositories' => :'selected-repositories',
         :'tags' => :'tags',
@@ -95,6 +103,8 @@ module Akeyless
         :'object_type' => :'String',
         :'pfx_password' => :'String',
         :'region' => :'String',
+        :'remote_secret_activation_date' => :'String',
+        :'remote_secret_expires' => :'String',
         :'secret_name' => :'String',
         :'selected_repositories' => :'String',
         :'tags' => :'Hash<String, String>',
@@ -155,6 +165,14 @@ module Akeyless
 
       if attributes.key?(:'region')
         self.region = attributes[:'region']
+      end
+
+      if attributes.key?(:'remote_secret_activation_date')
+        self.remote_secret_activation_date = attributes[:'remote_secret_activation_date']
+      end
+
+      if attributes.key?(:'remote_secret_expires')
+        self.remote_secret_expires = attributes[:'remote_secret_expires']
       end
 
       if attributes.key?(:'secret_name')
@@ -240,6 +258,8 @@ module Akeyless
           object_type == o.object_type &&
           pfx_password == o.pfx_password &&
           region == o.region &&
+          remote_secret_activation_date == o.remote_secret_activation_date &&
+          remote_secret_expires == o.remote_secret_expires &&
           secret_name == o.secret_name &&
           selected_repositories == o.selected_repositories &&
           tags == o.tags &&
@@ -259,7 +279,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, region, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [binary_value, description, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

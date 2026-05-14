@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :certificate_ttl_in_seconds
 
+    attr_accessor :expiration_events
+
     attr_accessor :hostname
 
     attr_accessor :root
@@ -34,6 +36,7 @@ module Akeyless
         :'ca_cert' => :'ca_cert',
         :'certificate_issue_date' => :'certificate_issue_date',
         :'certificate_ttl_in_seconds' => :'certificate_ttl_in_seconds',
+        :'expiration_events' => :'expiration_events',
         :'hostname' => :'hostname',
         :'root' => :'root'
       }
@@ -51,6 +54,7 @@ module Akeyless
         :'ca_cert' => :'Array<Integer>',
         :'certificate_issue_date' => :'Time',
         :'certificate_ttl_in_seconds' => :'Integer',
+        :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'hostname' => :'String',
         :'root' => :'String'
       }
@@ -95,6 +99,12 @@ module Akeyless
         self.certificate_ttl_in_seconds = attributes[:'certificate_ttl_in_seconds']
       end
 
+      if attributes.key?(:'expiration_events')
+        if (value = attributes[:'expiration_events']).is_a?(Array)
+          self.expiration_events = value
+        end
+      end
+
       if attributes.key?(:'hostname')
         self.hostname = attributes[:'hostname']
       end
@@ -128,6 +138,7 @@ module Akeyless
           ca_cert == o.ca_cert &&
           certificate_issue_date == o.certificate_issue_date &&
           certificate_ttl_in_seconds == o.certificate_ttl_in_seconds &&
+          expiration_events == o.expiration_events &&
           hostname == o.hostname &&
           root == o.root
     end
@@ -141,7 +152,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, ca_cert, certificate_issue_date, certificate_ttl_in_seconds, hostname, root].hash
+      [active, ca_cert, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, hostname, root].hash
     end
 
     # Builds the object from hash

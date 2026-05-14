@@ -18,6 +18,9 @@ module Akeyless
     # Server certificate TTL in days
     attr_accessor :certificate_ttl
 
+    # How many days before the expiration of the certificate would you like to be notified.
+    attr_accessor :expiration_event_in
+
     # Hostname
     attr_accessor :hostname
 
@@ -37,6 +40,7 @@ module Akeyless
     def self.attribute_map
       {
         :'certificate_ttl' => :'certificate-ttl',
+        :'expiration_event_in' => :'expiration-event-in',
         :'hostname' => :'hostname',
         :'json' => :'json',
         :'root' => :'root',
@@ -54,6 +58,7 @@ module Akeyless
     def self.openapi_types
       {
         :'certificate_ttl' => :'Integer',
+        :'expiration_event_in' => :'Array<String>',
         :'hostname' => :'String',
         :'json' => :'Boolean',
         :'root' => :'String',
@@ -87,6 +92,12 @@ module Akeyless
         self.certificate_ttl = attributes[:'certificate_ttl']
       else
         self.certificate_ttl = 90
+      end
+
+      if attributes.key?(:'expiration_event_in')
+        if (value = attributes[:'expiration_event_in']).is_a?(Array)
+          self.expiration_event_in = value
+        end
       end
 
       if attributes.key?(:'hostname')
@@ -147,6 +158,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           certificate_ttl == o.certificate_ttl &&
+          expiration_event_in == o.expiration_event_in &&
           hostname == o.hostname &&
           json == o.json &&
           root == o.root &&
@@ -163,7 +175,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_ttl, hostname, json, root, token, uid_token].hash
+      [certificate_ttl, expiration_event_in, hostname, json, root, token, uid_token].hash
     end
 
     # Builds the object from hash

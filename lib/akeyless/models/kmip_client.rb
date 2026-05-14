@@ -21,6 +21,8 @@ module Akeyless
 
     attr_accessor :certificate_ttl_in_seconds
 
+    attr_accessor :expiration_events
+
     attr_accessor :id
 
     attr_accessor :name
@@ -33,6 +35,7 @@ module Akeyless
         :'activate_keys_on_creation' => :'activate_keys_on_creation',
         :'certificate_issue_date' => :'certificate_issue_date',
         :'certificate_ttl_in_seconds' => :'certificate_ttl_in_seconds',
+        :'expiration_events' => :'expiration_events',
         :'id' => :'id',
         :'name' => :'name',
         :'rules' => :'rules'
@@ -50,6 +53,7 @@ module Akeyless
         :'activate_keys_on_creation' => :'Boolean',
         :'certificate_issue_date' => :'Time',
         :'certificate_ttl_in_seconds' => :'Integer',
+        :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'id' => :'String',
         :'name' => :'String',
         :'rules' => :'Array<PathRule>'
@@ -87,6 +91,12 @@ module Akeyless
 
       if attributes.key?(:'certificate_ttl_in_seconds')
         self.certificate_ttl_in_seconds = attributes[:'certificate_ttl_in_seconds']
+      end
+
+      if attributes.key?(:'expiration_events')
+        if (value = attributes[:'expiration_events']).is_a?(Array)
+          self.expiration_events = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -127,6 +137,7 @@ module Akeyless
           activate_keys_on_creation == o.activate_keys_on_creation &&
           certificate_issue_date == o.certificate_issue_date &&
           certificate_ttl_in_seconds == o.certificate_ttl_in_seconds &&
+          expiration_events == o.expiration_events &&
           id == o.id &&
           name == o.name &&
           rules == o.rules
@@ -141,7 +152,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activate_keys_on_creation, certificate_issue_date, certificate_ttl_in_seconds, id, name, rules].hash
+      [activate_keys_on_creation, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, id, name, rules].hash
     end
 
     # Builds the object from hash

@@ -6,9 +6,11 @@
 | ---- | ---- | ----------- | ----- |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Dynamic secret name |  |
+| **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **ping_administrative_port** | **String** | Ping Federate administrative port | [optional][default to &#39;9999&#39;] |
 | **ping_atm_id** | **String** | Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM Id. If no explicit value is given, the default pingfederate server ATM will be set. | [optional] |
 | **ping_authorization_port** | **String** | Ping Federate authorization port | [optional][default to &#39;9031&#39;] |
@@ -40,9 +42,11 @@ require 'akeyless'
 instance = Akeyless::DynamicSecretCreatePing.new(
   delete_protection: null,
   description: null,
+  input_rule: null,
   item_custom_fields: null,
   json: null,
   name: null,
+  output_rule: null,
   ping_administrative_port: null,
   ping_atm_id: null,
   ping_authorization_port: null,
