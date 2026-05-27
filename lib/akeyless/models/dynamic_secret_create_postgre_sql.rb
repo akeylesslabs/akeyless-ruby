@@ -106,6 +106,17 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
+    attr_accessor :use_capital_letters
+
+    # Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
+    attr_accessor :use_lower_letters
+
+    # Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
+    attr_accessor :use_numbers
+
+    attr_accessor :use_special_characters
+
     # User TTL
     attr_accessor :user_ttl
 
@@ -142,6 +153,10 @@ module Akeyless
         :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
+        :'use_capital_letters' => :'use-capital-letters',
+        :'use_lower_letters' => :'use-lower-letters',
+        :'use_numbers' => :'use-numbers',
+        :'use_special_characters' => :'use-special-characters',
         :'user_ttl' => :'user-ttl'
       }
     end
@@ -184,6 +199,10 @@ module Akeyless
         :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
+        :'use_capital_letters' => :'String',
+        :'use_lower_letters' => :'String',
+        :'use_numbers' => :'String',
+        :'use_special_characters' => :'String',
         :'user_ttl' => :'String'
       }
     end
@@ -351,6 +370,22 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
+      if attributes.key?(:'use_capital_letters')
+        self.use_capital_letters = attributes[:'use_capital_letters']
+      end
+
+      if attributes.key?(:'use_lower_letters')
+        self.use_lower_letters = attributes[:'use_lower_letters']
+      end
+
+      if attributes.key?(:'use_numbers')
+        self.use_numbers = attributes[:'use_numbers']
+      end
+
+      if attributes.key?(:'use_special_characters')
+        self.use_special_characters = attributes[:'use_special_characters']
+      end
+
       if attributes.key?(:'user_ttl')
         self.user_ttl = attributes[:'user_ttl']
       else
@@ -413,6 +448,10 @@ module Akeyless
           target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token &&
+          use_capital_letters == o.use_capital_letters &&
+          use_lower_letters == o.use_lower_letters &&
+          use_numbers == o.use_numbers &&
+          use_special_characters == o.use_special_characters &&
           user_ttl == o.user_ttl
     end
 
@@ -425,7 +464,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [creation_statements, custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, name, output_rule, password_length, postgresql_db_name, postgresql_host, postgresql_password, postgresql_port, postgresql_username, producer_encryption_key, revocation_statement, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, ssl, tags, target_name, token, uid_token, user_ttl].hash
+      [creation_statements, custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, name, output_rule, password_length, postgresql_db_name, postgresql_host, postgresql_password, postgresql_port, postgresql_username, producer_encryption_key, revocation_statement, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, ssl, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

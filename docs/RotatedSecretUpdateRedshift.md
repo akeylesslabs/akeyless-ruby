@@ -32,6 +32,10 @@
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **use_capital_letters** | **String** | Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false] | [optional] |
+| **use_lower_letters** | **String** | Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false] | [optional] |
+| **use_numbers** | **String** | Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false] | [optional] |
+| **use_special_characters** | **String** |  | [optional] |
 
 ## Example
 
@@ -66,7 +70,11 @@ instance = Akeyless::RotatedSecretUpdateRedshift.new(
   secure_access_enable: null,
   secure_access_host: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  use_capital_letters: null,
+  use_lower_letters: null,
+  use_numbers: null,
+  use_special_characters: ! @ # $. [true/false]
 )
 ```
 

@@ -13,6 +13,7 @@
 | **allowed_ip_sans** | **String** | A list of the allowed CIDRs for ips that clients can request to be included in the certificate as part of the IP Subject Alternative Names (in a comma-delimited list) | [optional] |
 | **allowed_uri_sans** | **String** | A list of the allowed URIs that clients can request to be included in the certificate as part of the URI Subject Alternative Names (in a comma-delimited list) | [optional] |
 | **auto_renew** | **Boolean** | Automatically renew certificates before expiration | [optional] |
+| **basic_constraints** | **String** | Defines the X.509 Basic Constraints extension for certificates issued by this PKI issuer template | [optional] |
 | **client_flag** | **Boolean** | If set, certificates will be flagged for client auth use | [optional] |
 | **code_signing_flag** | **Boolean** | If set, certificates will be flagged for code signing use | [optional] |
 | **country** | **String** | A comma-separated list of countries that will be set in the issued certificate | [optional] |
@@ -69,6 +70,7 @@ instance = Akeyless::UpdatePKICertIssuer.new(
   allowed_ip_sans: null,
   allowed_uri_sans: null,
   auto_renew: null,
+  basic_constraints: null,
   client_flag: null,
   code_signing_flag: null,
   country: null,

@@ -132,6 +132,17 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
+    attr_accessor :use_capital_letters
+
+    # Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
+    attr_accessor :use_lower_letters
+
+    # Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
+    attr_accessor :use_numbers
+
+    attr_accessor :use_special_characters
+
     # The user principal name to rotate his password (relevant only for rotator-type=password)
     attr_accessor :username
 
@@ -177,6 +188,10 @@ module Akeyless
         :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
+        :'use_capital_letters' => :'use-capital-letters',
+        :'use_lower_letters' => :'use-lower-letters',
+        :'use_numbers' => :'use-numbers',
+        :'use_special_characters' => :'use-special-characters',
         :'username' => :'username'
       }
     end
@@ -228,6 +243,10 @@ module Akeyless
         :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
+        :'use_capital_letters' => :'String',
+        :'use_lower_letters' => :'String',
+        :'use_numbers' => :'String',
+        :'use_special_characters' => :'String',
         :'username' => :'String'
       }
     end
@@ -437,6 +456,22 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
+      if attributes.key?(:'use_capital_letters')
+        self.use_capital_letters = attributes[:'use_capital_letters']
+      end
+
+      if attributes.key?(:'use_lower_letters')
+        self.use_lower_letters = attributes[:'use_lower_letters']
+      end
+
+      if attributes.key?(:'use_numbers')
+        self.use_numbers = attributes[:'use_numbers']
+      end
+
+      if attributes.key?(:'use_special_characters')
+        self.use_special_characters = attributes[:'use_special_characters']
+      end
+
       if attributes.key?(:'username')
         self.username = attributes[:'username']
       end
@@ -516,6 +551,10 @@ module Akeyless
           target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token &&
+          use_capital_letters == o.use_capital_letters &&
+          use_lower_letters == o.use_lower_letters &&
+          use_numbers == o.use_numbers &&
+          use_special_characters == o.use_special_characters &&
           username == o.username
     end
 
@@ -528,7 +567,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, username].hash
+      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
     end
 
     # Builds the object from hash

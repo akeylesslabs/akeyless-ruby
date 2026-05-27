@@ -33,6 +33,10 @@ module Akeyless
 
     attr_accessor :auto_renew_certificate
 
+    attr_accessor :basic_constraints
+
+    attr_accessor :basic_constraints_critical
+
     attr_accessor :basic_constraints_valid_for_non_ca
 
     attr_accessor :certificate_authority_mode
@@ -121,6 +125,8 @@ module Akeyless
         :'allowed_ip_sans' => :'allowed_ip_sans',
         :'allowed_uri_sans' => :'allowed_uri_sans',
         :'auto_renew_certificate' => :'auto_renew_certificate',
+        :'basic_constraints' => :'basic_constraints',
+        :'basic_constraints_critical' => :'basic_constraints_critical',
         :'basic_constraints_valid_for_non_ca' => :'basic_constraints_valid_for_non_ca',
         :'certificate_authority_mode' => :'certificate_authority_mode',
         :'client_flag' => :'client_flag',
@@ -175,6 +181,8 @@ module Akeyless
         :'allowed_ip_sans' => :'Array<String>',
         :'allowed_uri_sans' => :'Array<String>',
         :'auto_renew_certificate' => :'Boolean',
+        :'basic_constraints' => :'String',
+        :'basic_constraints_critical' => :'Boolean',
         :'basic_constraints_valid_for_non_ca' => :'Boolean',
         :'certificate_authority_mode' => :'String',
         :'client_flag' => :'Boolean',
@@ -275,6 +283,14 @@ module Akeyless
 
       if attributes.key?(:'auto_renew_certificate')
         self.auto_renew_certificate = attributes[:'auto_renew_certificate']
+      end
+
+      if attributes.key?(:'basic_constraints')
+        self.basic_constraints = attributes[:'basic_constraints']
+      end
+
+      if attributes.key?(:'basic_constraints_critical')
+        self.basic_constraints_critical = attributes[:'basic_constraints_critical']
       end
 
       if attributes.key?(:'basic_constraints_valid_for_non_ca')
@@ -461,6 +477,8 @@ module Akeyless
           allowed_ip_sans == o.allowed_ip_sans &&
           allowed_uri_sans == o.allowed_uri_sans &&
           auto_renew_certificate == o.auto_renew_certificate &&
+          basic_constraints == o.basic_constraints &&
+          basic_constraints_critical == o.basic_constraints_critical &&
           basic_constraints_valid_for_non_ca == o.basic_constraints_valid_for_non_ca &&
           certificate_authority_mode == o.certificate_authority_mode &&
           client_flag == o.client_flag &&
@@ -506,7 +524,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, street_address].hash
+      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints, basic_constraints_critical, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, street_address].hash
     end
 
     # Builds the object from hash

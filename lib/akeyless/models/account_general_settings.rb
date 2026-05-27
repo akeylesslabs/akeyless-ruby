@@ -48,6 +48,8 @@ module Akeyless
 
     attr_accessor :enable_request_for_access
 
+    attr_accessor :enable_search_history
+
     attr_accessor :hide_personal_folder
 
     attr_accessor :hide_secret_reveal_copy
@@ -94,6 +96,7 @@ module Akeyless
         :'default_home_page' => :'default_home_page',
         :'dynamic_secret_max_ttl' => :'dynamic_secret_max_ttl',
         :'enable_request_for_access' => :'enable_request_for_access',
+        :'enable_search_history' => :'enable_search_history',
         :'hide_personal_folder' => :'hide_personal_folder',
         :'hide_secret_reveal_copy' => :'hide_secret_reveal_copy',
         :'hide_static_password' => :'hide_static_password',
@@ -133,6 +136,7 @@ module Akeyless
         :'default_home_page' => :'DefaultHomePage',
         :'dynamic_secret_max_ttl' => :'DynamicSecretMaxTtl',
         :'enable_request_for_access' => :'Boolean',
+        :'enable_search_history' => :'Boolean',
         :'hide_personal_folder' => :'Boolean',
         :'hide_secret_reveal_copy' => :'Boolean',
         :'hide_static_password' => :'Boolean',
@@ -230,6 +234,10 @@ module Akeyless
         self.enable_request_for_access = attributes[:'enable_request_for_access']
       end
 
+      if attributes.key?(:'enable_search_history')
+        self.enable_search_history = attributes[:'enable_search_history']
+      end
+
       if attributes.key?(:'hide_personal_folder')
         self.hide_personal_folder = attributes[:'hide_personal_folder']
       end
@@ -318,6 +326,7 @@ module Akeyless
           default_home_page == o.default_home_page &&
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           enable_request_for_access == o.enable_request_for_access &&
+          enable_search_history == o.enable_search_history &&
           hide_personal_folder == o.hide_personal_folder &&
           hide_secret_reveal_copy == o.hide_secret_reveal_copy &&
           hide_static_password == o.hide_static_password &&
@@ -342,7 +351,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

@@ -13,6 +13,8 @@
 | **allowed_ip_sans** | **Array&lt;String&gt;** |  | [optional] |
 | **allowed_uri_sans** | **Array&lt;String&gt;** |  | [optional] |
 | **auto_renew_certificate** | **Boolean** |  | [optional] |
+| **basic_constraints** | **String** |  | [optional] |
+| **basic_constraints_critical** | **Boolean** |  | [optional] |
 | **basic_constraints_valid_for_non_ca** | **Boolean** |  | [optional] |
 | **certificate_authority_mode** | **String** |  | [optional] |
 | **client_flag** | **Boolean** |  | [optional] |
@@ -63,6 +65,8 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   allowed_ip_sans: null,
   allowed_uri_sans: null,
   auto_renew_certificate: null,
+  basic_constraints: null,
+  basic_constraints_critical: null,
   basic_constraints_valid_for_non_ca: null,
   certificate_authority_mode: null,
   client_flag: null,

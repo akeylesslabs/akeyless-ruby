@@ -159,16 +159,15 @@ module Akeyless
     # Usage event is supported for auth method or secrets-and-keys [auth/item]
     attr_accessor :usage_event_object_type
 
-    # Password must contain capital letters [true/false]
+    # Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
     attr_accessor :use_capital_letters
 
-    # Password must contain lower case letters [true/false]
+    # Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
     attr_accessor :use_lower_letters
 
-    # Password must contain numbers [true/false]
+    # Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
     attr_accessor :use_numbers
 
-    # Password must contain special characters [true/false]
     attr_accessor :use_special_characters
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -2413,13 +2413,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/account_custom_field_spec.rb
-spec/models/cloudflare_target_details_spec.rb
-spec/models/folder_usc_sync_config_spec.rb
-spec/models/kmip_client_update_output_spec.rb
-spec/models/kmip_client_update_spec.rb
-spec/models/kmip_server_update_output_spec.rb
-spec/models/kmip_server_update_spec.rb
-spec/models/target_create_cloudflare_spec.rb
-spec/models/target_update_cloudflare_spec.rb
 spec/spec_helper.rb

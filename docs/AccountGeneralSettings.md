@@ -19,6 +19,7 @@
 | **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
 | **enable_request_for_access** | **Boolean** |  | [optional] |
+| **enable_search_history** | **Boolean** |  | [optional] |
 | **hide_personal_folder** | **Boolean** |  | [optional] |
 | **hide_secret_reveal_copy** | **Boolean** |  | [optional] |
 | **hide_static_password** | **Boolean** |  | [optional] |
@@ -54,6 +55,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   default_home_page: null,
   dynamic_secret_max_ttl: null,
   enable_request_for_access: null,
+  enable_search_history: null,
   hide_personal_folder: null,
   hide_secret_reveal_copy: null,
   hide_static_password: null,

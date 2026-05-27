@@ -108,6 +108,17 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
+    attr_accessor :use_capital_letters
+
+    # Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
+    attr_accessor :use_lower_letters
+
+    # Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
+    attr_accessor :use_numbers
+
+    attr_accessor :use_special_characters
+
     # User Attribute
     attr_accessor :user_attribute
 
@@ -151,6 +162,10 @@ module Akeyless
         :'token' => :'token',
         :'token_expiration' => :'token-expiration',
         :'uid_token' => :'uid-token',
+        :'use_capital_letters' => :'use-capital-letters',
+        :'use_lower_letters' => :'use-lower-letters',
+        :'use_numbers' => :'use-numbers',
+        :'use_special_characters' => :'use-special-characters',
         :'user_attribute' => :'user-attribute',
         :'user_dn' => :'user-dn',
         :'user_ttl' => :'user-ttl'
@@ -196,6 +211,10 @@ module Akeyless
         :'token' => :'String',
         :'token_expiration' => :'String',
         :'uid_token' => :'String',
+        :'use_capital_letters' => :'String',
+        :'use_lower_letters' => :'String',
+        :'use_numbers' => :'String',
+        :'use_special_characters' => :'String',
         :'user_attribute' => :'String',
         :'user_dn' => :'String',
         :'user_ttl' => :'String'
@@ -367,6 +386,22 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
+      if attributes.key?(:'use_capital_letters')
+        self.use_capital_letters = attributes[:'use_capital_letters']
+      end
+
+      if attributes.key?(:'use_lower_letters')
+        self.use_lower_letters = attributes[:'use_lower_letters']
+      end
+
+      if attributes.key?(:'use_numbers')
+        self.use_numbers = attributes[:'use_numbers']
+      end
+
+      if attributes.key?(:'use_special_characters')
+        self.use_special_characters = attributes[:'use_special_characters']
+      end
+
       if attributes.key?(:'user_attribute')
         self.user_attribute = attributes[:'user_attribute']
       end
@@ -438,6 +473,10 @@ module Akeyless
           token == o.token &&
           token_expiration == o.token_expiration &&
           uid_token == o.uid_token &&
+          use_capital_letters == o.use_capital_letters &&
+          use_lower_letters == o.use_lower_letters &&
+          use_numbers == o.use_numbers &&
+          use_special_characters == o.use_special_characters &&
           user_attribute == o.user_attribute &&
           user_dn == o.user_dn &&
           user_ttl == o.user_ttl
@@ -452,7 +491,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, input_rule, item_custom_fields, json, ldap_ca_cert, ldap_url, name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, user_attribute, user_dn, user_ttl].hash
+      [provider_type, bind_dn, bind_dn_password, custom_username_template, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, input_rule, item_custom_fields, json, ldap_ca_cert, ldap_url, name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, tags, target, target_name, token, token_expiration, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_attribute, user_dn, user_ttl].hash
     end
 
     # Builds the object from hash

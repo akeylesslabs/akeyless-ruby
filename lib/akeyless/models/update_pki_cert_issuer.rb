@@ -42,6 +42,9 @@ module Akeyless
     # Automatically renew certificates before expiration
     attr_accessor :auto_renew
 
+    # Defines the X.509 Basic Constraints extension for certificates issued by this PKI issuer template
+    attr_accessor :basic_constraints
+
     # If set, certificates will be flagged for client auth use
     attr_accessor :client_flag
 
@@ -174,6 +177,7 @@ module Akeyless
         :'allowed_ip_sans' => :'allowed-ip-sans',
         :'allowed_uri_sans' => :'allowed-uri-sans',
         :'auto_renew' => :'auto-renew',
+        :'basic_constraints' => :'basic-constraints',
         :'client_flag' => :'client-flag',
         :'code_signing_flag' => :'code-signing-flag',
         :'country' => :'country',
@@ -234,6 +238,7 @@ module Akeyless
         :'allowed_ip_sans' => :'String',
         :'allowed_uri_sans' => :'String',
         :'auto_renew' => :'Boolean',
+        :'basic_constraints' => :'String',
         :'client_flag' => :'Boolean',
         :'code_signing_flag' => :'Boolean',
         :'country' => :'String',
@@ -334,6 +339,10 @@ module Akeyless
 
       if attributes.key?(:'auto_renew')
         self.auto_renew = attributes[:'auto_renew']
+      end
+
+      if attributes.key?(:'basic_constraints')
+        self.basic_constraints = attributes[:'basic_constraints']
       end
 
       if attributes.key?(:'client_flag')
@@ -554,6 +563,7 @@ module Akeyless
           allowed_ip_sans == o.allowed_ip_sans &&
           allowed_uri_sans == o.allowed_uri_sans &&
           auto_renew == o.auto_renew &&
+          basic_constraints == o.basic_constraints &&
           client_flag == o.client_flag &&
           code_signing_flag == o.code_signing_flag &&
           country == o.country &&
@@ -605,7 +615,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
+      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, basic_constraints, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, street_address, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

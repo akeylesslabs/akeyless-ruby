@@ -213,10 +213,12 @@
 | **password** | **String** |  | [optional] |
 | **password_length** | **Integer** |  | [optional] |
 | **password_policy** | **String** |  | [optional] |
+| **password_policy_info** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
 | **payload** | **String** |  | [optional] |
 | **ping_url** | **String** |  | [optional] |
 | **postgres_creation_statements** | **String** |  | [optional] |
 | **postgres_revocation_statements** | **String** |  | [optional] |
+| **preserve_existing_password_settings** | **Boolean** | Internal marker for DS update flows: when true, keep the persisted password settings and merge explicit rule updates on top. | [optional] |
 | **privileged_user** | **String** |  | [optional] |
 | **project_id** | **String** |  | [optional] |
 | **rabbitmq_server_password** | **String** |  | [optional] |
@@ -490,10 +492,12 @@ instance = Akeyless::DSProducerDetails.new(
   password: null,
   password_length: null,
   password_policy: null,
+  password_policy_info: null,
   payload: null,
   ping_url: null,
   postgres_creation_statements: null,
   postgres_revocation_statements: null,
+  preserve_existing_password_settings: null,
   privileged_user: null,
   project_id: null,
   rabbitmq_server_password: null,
