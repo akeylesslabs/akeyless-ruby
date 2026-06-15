@@ -72,6 +72,8 @@ module Akeyless
 
     attr_accessor :password_score
 
+    attr_accessor :personal_folder_global_mapping
+
     attr_accessor :protect_items_by_default
 
     attr_accessor :rotation_secret_max_interval
@@ -107,6 +109,7 @@ module Akeyless
         :'password_expiration_info' => :'password_expiration_info',
         :'password_policy' => :'password_policy',
         :'password_score' => :'password_score',
+        :'personal_folder_global_mapping' => :'personal_folder_global_mapping',
         :'protect_items_by_default' => :'protect_items_by_default',
         :'rotation_secret_max_interval' => :'rotation_secret_max_interval',
         :'sharing_policy' => :'sharing_policy'
@@ -147,6 +150,7 @@ module Akeyless
         :'password_expiration_info' => :'PasswordExpirationInfo',
         :'password_policy' => :'PasswordPolicyInfo',
         :'password_score' => :'PasswordScoreSetting',
+        :'personal_folder_global_mapping' => :'PersonalFolderGlobalMappingSettings',
         :'protect_items_by_default' => :'Boolean',
         :'rotation_secret_max_interval' => :'RotationSecretMaxInterval',
         :'sharing_policy' => :'SharingPolicyInfo'
@@ -278,6 +282,10 @@ module Akeyless
         self.password_score = attributes[:'password_score']
       end
 
+      if attributes.key?(:'personal_folder_global_mapping')
+        self.personal_folder_global_mapping = attributes[:'personal_folder_global_mapping']
+      end
+
       if attributes.key?(:'protect_items_by_default')
         self.protect_items_by_default = attributes[:'protect_items_by_default']
       end
@@ -337,6 +345,7 @@ module Akeyless
           password_expiration_info == o.password_expiration_info &&
           password_policy == o.password_policy &&
           password_score == o.password_score &&
+          personal_folder_global_mapping == o.personal_folder_global_mapping &&
           protect_items_by_default == o.protect_items_by_default &&
           rotation_secret_max_interval == o.rotation_secret_max_interval &&
           sharing_policy == o.sharing_policy
@@ -351,7 +360,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

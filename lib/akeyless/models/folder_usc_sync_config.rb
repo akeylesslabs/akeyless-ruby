@@ -17,6 +17,8 @@ module Akeyless
   class FolderUSCSyncConfig
     attr_accessor :delete_remote
 
+    attr_accessor :engine_name
+
     attr_accessor :namespace
 
     attr_accessor :usc_item_id
@@ -27,6 +29,7 @@ module Akeyless
     def self.attribute_map
       {
         :'delete_remote' => :'delete_remote',
+        :'engine_name' => :'engine_name',
         :'namespace' => :'namespace',
         :'usc_item_id' => :'usc_item_id',
         :'usc_item_name' => :'usc_item_name'
@@ -42,6 +45,7 @@ module Akeyless
     def self.openapi_types
       {
         :'delete_remote' => :'Boolean',
+        :'engine_name' => :'String',
         :'namespace' => :'String',
         :'usc_item_id' => :'Integer',
         :'usc_item_name' => :'String'
@@ -71,6 +75,10 @@ module Akeyless
 
       if attributes.key?(:'delete_remote')
         self.delete_remote = attributes[:'delete_remote']
+      end
+
+      if attributes.key?(:'engine_name')
+        self.engine_name = attributes[:'engine_name']
       end
 
       if attributes.key?(:'namespace')
@@ -107,6 +115,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           delete_remote == o.delete_remote &&
+          engine_name == o.engine_name &&
           namespace == o.namespace &&
           usc_item_id == o.usc_item_id &&
           usc_item_name == o.usc_item_name
@@ -121,7 +130,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_remote, namespace, usc_item_id, usc_item_name].hash
+      [delete_remote, engine_name, namespace, usc_item_id, usc_item_name].hash
     end
 
     # Builds the object from hash

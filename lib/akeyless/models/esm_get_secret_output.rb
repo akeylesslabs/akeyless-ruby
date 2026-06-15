@@ -27,6 +27,12 @@ module Akeyless
 
     attr_accessor :value
 
+    attr_accessor :version_id
+
+    attr_accessor :version_ids
+
+    attr_accessor :warnings
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -35,7 +41,10 @@ module Akeyless
         :'id' => :'id',
         :'metadata' => :'metadata',
         :'name' => :'name',
-        :'value' => :'value'
+        :'value' => :'value',
+        :'version_id' => :'version_id',
+        :'version_ids' => :'version_ids',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -52,7 +61,10 @@ module Akeyless
         :'id' => :'String',
         :'metadata' => :'Object',
         :'name' => :'String',
-        :'value' => :'String'
+        :'value' => :'String',
+        :'version_id' => :'String',
+        :'version_ids' => :'Array<String>',
+        :'warnings' => :'Array<String>'
       }
     end
 
@@ -101,6 +113,22 @@ module Akeyless
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
+
+      if attributes.key?(:'version_id')
+        self.version_id = attributes[:'version_id']
+      end
+
+      if attributes.key?(:'version_ids')
+        if (value = attributes[:'version_ids']).is_a?(Array)
+          self.version_ids = value
+        end
+      end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -128,7 +156,10 @@ module Akeyless
           id == o.id &&
           metadata == o.metadata &&
           name == o.name &&
-          value == o.value
+          value == o.value &&
+          version_id == o.version_id &&
+          version_ids == o.version_ids &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -140,7 +171,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, encryption_key, id, metadata, name, value].hash
+      [binary_value, encryption_key, id, metadata, name, value, version_id, version_ids, warnings].hash
     end
 
     # Builds the object from hash

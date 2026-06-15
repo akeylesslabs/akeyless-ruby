@@ -22,6 +22,9 @@ module Akeyless
     # Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application
     attr_accessor :audience
 
+    # AuthorizedGwClusterName binds the access method to a single GW cluster. When empty (or whitespace-only), GW-driven auth is disabled.
+    attr_accessor :authorized_gw_cluster_name
+
     # The claims that login is restricted to.
     attr_accessor :bound_claims
 
@@ -51,6 +54,7 @@ module Akeyless
       {
         :'allowed_redirect_uris' => :'allowed_redirect_URIs',
         :'audience' => :'audience',
+        :'authorized_gw_cluster_name' => :'authorized_gw_cluster_name',
         :'bound_claims' => :'bound_claims',
         :'client_id' => :'client_id',
         :'client_secret' => :'client_secret',
@@ -72,6 +76,7 @@ module Akeyless
       {
         :'allowed_redirect_uris' => :'Array<String>',
         :'audience' => :'String',
+        :'authorized_gw_cluster_name' => :'String',
         :'bound_claims' => :'Array<OIDCCustomClaim>',
         :'client_id' => :'String',
         :'client_secret' => :'String',
@@ -112,6 +117,10 @@ module Akeyless
 
       if attributes.key?(:'audience')
         self.audience = attributes[:'audience']
+      end
+
+      if attributes.key?(:'authorized_gw_cluster_name')
+        self.authorized_gw_cluster_name = attributes[:'authorized_gw_cluster_name']
       end
 
       if attributes.key?(:'bound_claims')
@@ -173,6 +182,7 @@ module Akeyless
       self.class == o.class &&
           allowed_redirect_uris == o.allowed_redirect_uris &&
           audience == o.audience &&
+          authorized_gw_cluster_name == o.authorized_gw_cluster_name &&
           bound_claims == o.bound_claims &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
@@ -192,7 +202,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_redirect_uris, audience, bound_claims, client_id, client_secret, is_internal, issuer, required_scopes, required_scopes_prefix, unique_identifier].hash
+      [allowed_redirect_uris, audience, authorized_gw_cluster_name, bound_claims, client_id, client_secret, is_internal, issuer, required_scopes, required_scopes_prefix, unique_identifier].hash
     end
 
     # Builds the object from hash

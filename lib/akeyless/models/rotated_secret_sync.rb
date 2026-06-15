@@ -45,7 +45,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'delete_remote' => :'DeleteRemote',
+        :'delete_remote' => :'delete-remote',
         :'filter_secret_value' => :'filter-secret-value',
         :'json' => :'json',
         :'name' => :'name',

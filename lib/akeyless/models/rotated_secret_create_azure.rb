@@ -27,7 +27,6 @@ module Akeyless
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
-    # Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
     attr_accessor :auto_rotate
 
     # Protection from accidental deletion of this object [true/false]
@@ -60,7 +59,6 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
-    # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
     # Lock this secret for read/update while an SRA session is active
@@ -74,6 +72,9 @@ module Akeyless
 
     # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
     attr_accessor :output_rule
+
+    # The password for the user principal name to rotate (relevant only for rotator-type=password)
+    attr_accessor :password
 
     # The length of the password to be generated
     attr_accessor :password_length
@@ -90,10 +91,8 @@ module Akeyless
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
 
-    # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
-    # The number of days to wait between every automatic key rotation (1-365)
     attr_accessor :rotation_interval
 
     # The rotator type. options: [target/password/api-key/azure-storage-account]
@@ -169,6 +168,7 @@ module Akeyless
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
+        :'password' => :'password',
         :'password_length' => :'password-length',
         :'resource_group_name' => :'resource-group-name',
         :'resource_name' => :'resource-name',
@@ -224,6 +224,7 @@ module Akeyless
         :'max_versions' => :'String',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
+        :'password' => :'String',
         :'password_length' => :'String',
         :'resource_group_name' => :'String',
         :'resource_name' => :'String',
@@ -364,6 +365,10 @@ module Akeyless
         if (value = attributes[:'output_rule']).is_a?(Array)
           self.output_rule = value
         end
+      end
+
+      if attributes.key?(:'password')
+        self.password = attributes[:'password']
       end
 
       if attributes.key?(:'password_length')
@@ -532,6 +537,7 @@ module Akeyless
           max_versions == o.max_versions &&
           name == o.name &&
           output_rule == o.output_rule &&
+          password == o.password &&
           password_length == o.password_length &&
           resource_group_name == o.resource_group_name &&
           resource_name == o.resource_name &&
@@ -567,7 +573,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
+      [api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
     end
 
     # Builds the object from hash

@@ -25,7 +25,6 @@ module Akeyless
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
-    # Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
     attr_accessor :auto_rotate
 
     # Protection from accidental deletion of this object [true/false]
@@ -52,7 +51,6 @@ module Akeyless
     # Whether to keep previous version [true/false]. If not set, use default according to account settings
     attr_accessor :keep_prev_version
 
-    # The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
     # Set the maximum number of versions, limited by the account settings defaults.
@@ -76,10 +74,8 @@ module Akeyless
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
 
-    # The Hour of the rotation in UTC
     attr_accessor :rotation_hour
 
-    # The number of days to wait between every automatic key rotation (1-365)
     attr_accessor :rotation_interval
 
     # For rotator-type=token, optionally set/replace the stored Splunk authentication token value.

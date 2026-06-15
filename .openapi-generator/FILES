@@ -424,8 +424,14 @@ docs/ExternalKMSKeyId.md
 docs/FolderCreate.md
 docs/FolderCreateOutput.md
 docs/FolderDelete.md
+docs/FolderDeleteSync.md
+docs/FolderDeleteSyncOutput.md
 docs/FolderGet.md
 docs/FolderGetOutput.md
+docs/FolderSync.md
+docs/FolderSyncAll.md
+docs/FolderSyncAllOutput.md
+docs/FolderSyncOutput.md
 docs/FolderUSCSyncConfig.md
 docs/FolderUpdate.md
 docs/GCPAccessRules.md
@@ -817,6 +823,7 @@ docs/PasswordScoreInfo.md
 docs/PasswordScoreSetting.md
 docs/PasswordSecurityInfo.md
 docs/PathRule.md
+docs/PersonalFolderGlobalMappingSettings.md
 docs/PingTargetDetails.md
 docs/PoliciesCreateOutput.md
 docs/PoliciesDelete.md
@@ -866,6 +873,7 @@ docs/RotatedSecretCreateCustom.md
 docs/RotatedSecretCreateDockerhub.md
 docs/RotatedSecretCreateGcp.md
 docs/RotatedSecretCreateHanadb.md
+docs/RotatedSecretCreateHashiVault.md
 docs/RotatedSecretCreateLdap.md
 docs/RotatedSecretCreateMongodb.md
 docs/RotatedSecretCreateMssql.md
@@ -895,6 +903,7 @@ docs/RotatedSecretUpdateCustom.md
 docs/RotatedSecretUpdateDockerhub.md
 docs/RotatedSecretUpdateGcp.md
 docs/RotatedSecretUpdateHanadb.md
+docs/RotatedSecretUpdateHashiVault.md
 docs/RotatedSecretUpdateLdap.md
 docs/RotatedSecretUpdateMongodb.md
 docs/RotatedSecretUpdateMssql.md
@@ -1630,8 +1639,14 @@ lib/akeyless/models/external_kms_key_id.rb
 lib/akeyless/models/folder_create.rb
 lib/akeyless/models/folder_create_output.rb
 lib/akeyless/models/folder_delete.rb
+lib/akeyless/models/folder_delete_sync.rb
+lib/akeyless/models/folder_delete_sync_output.rb
 lib/akeyless/models/folder_get.rb
 lib/akeyless/models/folder_get_output.rb
+lib/akeyless/models/folder_sync.rb
+lib/akeyless/models/folder_sync_all.rb
+lib/akeyless/models/folder_sync_all_output.rb
+lib/akeyless/models/folder_sync_output.rb
 lib/akeyless/models/folder_update.rb
 lib/akeyless/models/folder_usc_sync_config.rb
 lib/akeyless/models/gateway_create_allowed_access.rb
@@ -2022,6 +2037,7 @@ lib/akeyless/models/password_score_info.rb
 lib/akeyless/models/password_score_setting.rb
 lib/akeyless/models/password_security_info.rb
 lib/akeyless/models/path_rule.rb
+lib/akeyless/models/personal_folder_global_mapping_settings.rb
 lib/akeyless/models/ping_target_details.rb
 lib/akeyless/models/pki_certificate_issue_details.rb
 lib/akeyless/models/policies_create_output.rb
@@ -2072,6 +2088,7 @@ lib/akeyless/models/rotated_secret_create_custom.rb
 lib/akeyless/models/rotated_secret_create_dockerhub.rb
 lib/akeyless/models/rotated_secret_create_gcp.rb
 lib/akeyless/models/rotated_secret_create_hanadb.rb
+lib/akeyless/models/rotated_secret_create_hashi_vault.rb
 lib/akeyless/models/rotated_secret_create_ldap.rb
 lib/akeyless/models/rotated_secret_create_mongodb.rb
 lib/akeyless/models/rotated_secret_create_mssql.rb
@@ -2101,6 +2118,7 @@ lib/akeyless/models/rotated_secret_update_custom.rb
 lib/akeyless/models/rotated_secret_update_dockerhub.rb
 lib/akeyless/models/rotated_secret_update_gcp.rb
 lib/akeyless/models/rotated_secret_update_hanadb.rb
+lib/akeyless/models/rotated_secret_update_hashi_vault.rb
 lib/akeyless/models/rotated_secret_update_ldap.rb
 lib/akeyless/models/rotated_secret_update_mongodb.rb
 lib/akeyless/models/rotated_secret_update_mssql.rb
@@ -2413,4 +2431,13 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/folder_delete_sync_output_spec.rb
+spec/models/folder_delete_sync_spec.rb
+spec/models/folder_sync_all_output_spec.rb
+spec/models/folder_sync_all_spec.rb
+spec/models/folder_sync_output_spec.rb
+spec/models/folder_sync_spec.rb
+spec/models/personal_folder_global_mapping_settings_spec.rb
+spec/models/rotated_secret_create_hashi_vault_spec.rb
+spec/models/rotated_secret_update_hashi_vault_spec.rb
 spec/spec_helper.rb

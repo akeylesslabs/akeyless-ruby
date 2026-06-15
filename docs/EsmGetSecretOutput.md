@@ -10,6 +10,9 @@
 | **metadata** | **Object** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **value** | **String** |  | [optional] |
+| **version_id** | **String** |  | [optional] |
+| **version_ids** | **Array&lt;String&gt;** |  | [optional] |
+| **warnings** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -22,7 +25,10 @@ instance = Akeyless::EsmGetSecretOutput.new(
   id: null,
   metadata: null,
   name: null,
-  value: null
+  value: null,
+  version_id: null,
+  version_ids: null,
+  warnings: null
 )
 ```
 

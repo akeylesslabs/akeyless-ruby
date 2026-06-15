@@ -49,6 +49,10 @@ module Akeyless
 
     attr_accessor :version
 
+    attr_accessor :version_id
+
+    attr_accessor :version_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -68,7 +72,9 @@ module Akeyless
         :'tags' => :'tags',
         :'thumbprint' => :'thumbprint',
         :'type' => :'type',
-        :'version' => :'version'
+        :'version' => :'version',
+        :'version_id' => :'version_id',
+        :'version_ids' => :'version_ids'
       }
     end
 
@@ -96,7 +102,9 @@ module Akeyless
         :'tags' => :'Hash<String, String>',
         :'thumbprint' => :'String',
         :'type' => :'String',
-        :'version' => :'Integer'
+        :'version' => :'Integer',
+        :'version_id' => :'String',
+        :'version_ids' => :'Array<String>'
       }
     end
 
@@ -191,6 +199,16 @@ module Akeyless
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
+
+      if attributes.key?(:'version_id')
+        self.version_id = attributes[:'version_id']
+      end
+
+      if attributes.key?(:'version_ids')
+        if (value = attributes[:'version_ids']).is_a?(Array)
+          self.version_ids = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -229,7 +247,9 @@ module Akeyless
           tags == o.tags &&
           thumbprint == o.thumbprint &&
           type == o.type &&
-          version == o.version
+          version == o.version &&
+          version_id == o.version_id &&
+          version_ids == o.version_ids
     end
 
     # @see the `==` method
@@ -241,7 +261,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activation_date, created, description, expiration, github, key_id, last_retrieved, location, name, namespace, region, secret_id, status, tags, thumbprint, type, version].hash
+      [activation_date, created, description, expiration, github, key_id, last_retrieved, location, name, namespace, region, secret_id, status, tags, thumbprint, type, version, version_id, version_ids].hash
     end
 
     # Builds the object from hash

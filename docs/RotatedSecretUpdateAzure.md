@@ -9,7 +9,7 @@
 | **api_key** | **String** | API key to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **application_id** | **String** | Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key &amp; authentication-credentials&#x3D;use-target-creds) | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
-| **auto_rotate** | **String** | Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false] | [optional] |
+| **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **explicitly_set_sa** | **String** | If set, explicitly provide the storage account details [true/false] | [optional][default to &#39;false&#39;] |
@@ -21,20 +21,21 @@
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
-| **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **key** | **String** |  | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
+| **password** | **String** | The password for the user principal name to rotate (relevant only for rotator-type&#x3D;password) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **resource_group_name** | **String** | The resource group name (only relevant when explicitly-set-sa&#x3D;true) | [optional] |
 | **resource_name** | **String** | The name of the storage account (only relevant when explicitly-set-sa&#x3D;true) | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
-| **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
-| **rotation_interval** | **String** | The number of days to wait between every automatic key rotation (1-365) | [optional] |
+| **rotation_hour** | **Integer** |  | [optional] |
+| **rotation_interval** | **String** |  | [optional] |
 | **secure_access_disable_concurrent_connections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
@@ -79,6 +80,7 @@ instance = Akeyless::RotatedSecretUpdateAzure.new(
   name: null,
   new_name: null,
   output_rule: null,
+  password: null,
   password_length: null,
   resource_group_name: null,
   resource_name: null,

@@ -221,7 +221,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**export_classic_key**](V2Api.md#export_classic_key) | **POST** /export-classic-key |  |
 | [**folder_create**](V2Api.md#folder_create) | **POST** /folder-create |  |
 | [**folder_delete**](V2Api.md#folder_delete) | **POST** /folder-delete |  |
+| [**folder_delete_sync**](V2Api.md#folder_delete_sync) | **POST** /folder-delete-sync |  |
 | [**folder_get**](V2Api.md#folder_get) | **POST** /folder-get |  |
+| [**folder_sync**](V2Api.md#folder_sync) | **POST** /folder-sync |  |
+| [**folder_sync_all**](V2Api.md#folder_sync_all) | **POST** /folder-sync-all |  |
 | [**folder_update**](V2Api.md#folder_update) | **POST** /folder-update |  |
 | [**gateway_create_allowed_access**](V2Api.md#gateway_create_allowed_access) | **POST** /gateway-create-allowed-access |  |
 | [**gateway_create_k8_s_auth_config**](V2Api.md#gateway_create_k8_s_auth_config) | **POST** /gateway-create-k8s-auth-config |  |
@@ -417,6 +420,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_create_dockerhub**](V2Api.md#rotated_secret_create_dockerhub) | **POST** /rotated-secret-create-dockerhub |  |
 | [**rotated_secret_create_gcp**](V2Api.md#rotated_secret_create_gcp) | **POST** /rotated-secret-create-gcp |  |
 | [**rotated_secret_create_hanadb**](V2Api.md#rotated_secret_create_hanadb) | **POST** /rotated-secret-create-hanadb |  |
+| [**rotated_secret_create_hashi_vault**](V2Api.md#rotated_secret_create_hashi_vault) | **POST** /rotated-secret-create-hashi-vault |  |
 | [**rotated_secret_create_ldap**](V2Api.md#rotated_secret_create_ldap) | **POST** /rotated-secret-create-ldap |  |
 | [**rotated_secret_create_mongodb**](V2Api.md#rotated_secret_create_mongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotated_secret_create_mssql**](V2Api.md#rotated_secret_create_mssql) | **POST** /rotated-secret-create-mssql |  |
@@ -442,6 +446,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_update_dockerhub**](V2Api.md#rotated_secret_update_dockerhub) | **POST** /rotated-secret-update-dockerhub |  |
 | [**rotated_secret_update_gcp**](V2Api.md#rotated_secret_update_gcp) | **POST** /rotated-secret-update-gcp |  |
 | [**rotated_secret_update_hanadb**](V2Api.md#rotated_secret_update_hanadb) | **POST** /rotated-secret-update-hanadb |  |
+| [**rotated_secret_update_hashi_vault**](V2Api.md#rotated_secret_update_hashi_vault) | **POST** /rotated-secret-update-hashi-vault |  |
 | [**rotated_secret_update_ldap**](V2Api.md#rotated_secret_update_ldap) | **POST** /rotated-secret-update-ldap |  |
 | [**rotated_secret_update_mongodb**](V2Api.md#rotated_secret_update_mongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotated_secret_update_mssql**](V2Api.md#rotated_secret_update_mssql) | **POST** /rotated-secret-update-mssql |  |
@@ -14081,6 +14086,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## folder_delete_sync
+
+> <FolderDeleteSyncOutput> folder_delete_sync(folder_delete_sync)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_delete_sync = Akeyless::FolderDeleteSync.new({name: 'name_example', usc_name: 'usc_name_example'}) # FolderDeleteSync | 
+
+begin
+  
+  result = api_instance.folder_delete_sync(folder_delete_sync)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_delete_sync: #{e}"
+end
+```
+
+#### Using the folder_delete_sync_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FolderDeleteSyncOutput>, Integer, Hash)> folder_delete_sync_with_http_info(folder_delete_sync)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_delete_sync_with_http_info(folder_delete_sync)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FolderDeleteSyncOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_delete_sync_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_delete_sync** | [**FolderDeleteSync**](FolderDeleteSync.md) |  |  |
+
+### Return type
+
+[**FolderDeleteSyncOutput**](FolderDeleteSyncOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## folder_get
 
 > <FolderGetOutput> folder_get(folder_get)
@@ -14132,6 +14199,130 @@ end
 ### Return type
 
 [**FolderGetOutput**](FolderGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_sync
+
+> <FolderSyncOutput> folder_sync(folder_sync)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_sync = Akeyless::FolderSync.new({name: 'name_example'}) # FolderSync | 
+
+begin
+  
+  result = api_instance.folder_sync(folder_sync)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_sync: #{e}"
+end
+```
+
+#### Using the folder_sync_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FolderSyncOutput>, Integer, Hash)> folder_sync_with_http_info(folder_sync)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_sync_with_http_info(folder_sync)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FolderSyncOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_sync_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_sync** | [**FolderSync**](FolderSync.md) |  |  |
+
+### Return type
+
+[**FolderSyncOutput**](FolderSyncOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## folder_sync_all
+
+> <FolderSyncAllOutput> folder_sync_all(folder_sync_all)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+folder_sync_all = Akeyless::FolderSyncAll.new({name: 'name_example'}) # FolderSyncAll | 
+
+begin
+  
+  result = api_instance.folder_sync_all(folder_sync_all)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_sync_all: #{e}"
+end
+```
+
+#### Using the folder_sync_all_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FolderSyncAllOutput>, Integer, Hash)> folder_sync_all_with_http_info(folder_sync_all)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.folder_sync_all_with_http_info(folder_sync_all)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FolderSyncAllOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->folder_sync_all_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **folder_sync_all** | [**FolderSyncAll**](FolderSyncAll.md) |  |  |
+
+### Return type
+
+[**FolderSyncAllOutput**](FolderSyncAllOutput.md)
 
 ### Authorization
 
@@ -26259,6 +26450,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_hashi_vault
+
+> <RotatedSecretCreateOutput> rotated_secret_create_hashi_vault(rotated_secret_create_hashi_vault)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_hashi_vault = Akeyless::RotatedSecretCreateHashiVault.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretCreateHashiVault | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_hashi_vault(rotated_secret_create_hashi_vault)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_hashi_vault: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_hashi_vault_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_hashi_vault_with_http_info(rotated_secret_create_hashi_vault)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_hashi_vault_with_http_info(rotated_secret_create_hashi_vault)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_hashi_vault_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_hashi_vault** | [**RotatedSecretCreateHashiVault**](RotatedSecretCreateHashiVault.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_ldap
 
 > <RotatedSecretCreateOutput> rotated_secret_create_ldap(rotated_secret_create_ldap)
@@ -27794,6 +28047,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rotated_secret_update_hanadb** | [**RotatedSecretUpdateHanadb**](RotatedSecretUpdateHanadb.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_hashi_vault
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_hashi_vault(rotated_secret_update_hashi_vault)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_hashi_vault = Akeyless::RotatedSecretUpdateHashiVault.new({name: 'name_example'}) # RotatedSecretUpdateHashiVault | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_hashi_vault(rotated_secret_update_hashi_vault)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_hashi_vault: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_hashi_vault_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_hashi_vault_with_http_info(rotated_secret_update_hashi_vault)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_hashi_vault_with_http_info(rotated_secret_update_hashi_vault)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_hashi_vault_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_hashi_vault** | [**RotatedSecretUpdateHashiVault**](RotatedSecretUpdateHashiVault.md) |  |  |
 
 ### Return type
 

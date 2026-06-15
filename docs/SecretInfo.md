@@ -21,6 +21,8 @@
 | **thumbprint** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **version** | **Integer** |  | [optional] |
+| **version_id** | **String** |  | [optional] |
+| **version_ids** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -44,7 +46,9 @@ instance = Akeyless::SecretInfo.new(
   tags: null,
   thumbprint: null,
   type: null,
-  version: null
+  version: null,
+  version_id: null,
+  version_ids: null
 )
 ```
 
