@@ -23,6 +23,7 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **tree_length** | **Integer** | Maximum UID tree depth allowed (child of child of ...) | [optional][default to 200] |
 | **ttl** | **Integer** | Token ttl | [optional][default to 60] |
+| **uid_expiration_event_at** | **Array&lt;String&gt;** | Notify when this percent of the token TTL has elapsed (1-99). | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
 ## Example
@@ -50,6 +51,7 @@ instance = Akeyless::AuthMethodCreateUniversalIdentity.new(
   token: null,
   tree_length: null,
   ttl: null,
+  uid_expiration_event_at: null,
   uid_token: null
 )
 ```

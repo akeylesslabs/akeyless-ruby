@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **account_default_key_item_id** | **Integer** | AccountDefaultKeyItemID is the item ID of the DFC key item configured as the default protection key | [optional] |
 | **account_default_key_name** | **String** | AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will. | [optional] |
+| **account_file_bytes_used** | **Integer** | AccountFileBytesUsed tracks active + pending file-item plain bytes for quota enforcement. | [optional] |
 | **ai_insights** | [**AiInsightsSetting**](AiInsightsSetting.md) |  | [optional] |
 | **allow_auto_fill** | **Boolean** |  | [optional] |
 | **allow_passkeys** | **Boolean** |  | [optional] |
@@ -18,6 +19,7 @@
 | **default_auth_method** | [**DefaultAuthMethodSettings**](DefaultAuthMethodSettings.md) |  | [optional] |
 | **default_home_page** | [**DefaultHomePage**](DefaultHomePage.md) |  | [optional] |
 | **dynamic_secret_max_ttl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  | [optional] |
+| **email_customization** | [**EmailCustomization**](EmailCustomization.md) |  | [optional] |
 | **enable_request_for_access** | **Boolean** |  | [optional] |
 | **enable_search_history** | **Boolean** |  | [optional] |
 | **hide_personal_folder** | **Boolean** |  | [optional] |
@@ -43,6 +45,7 @@ require 'akeyless'
 instance = Akeyless::AccountGeneralSettings.new(
   account_default_key_item_id: null,
   account_default_key_name: null,
+  account_file_bytes_used: null,
   ai_insights: null,
   allow_auto_fill: null,
   allow_passkeys: null,
@@ -55,6 +58,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   default_auth_method: null,
   default_home_page: null,
   dynamic_secret_max_ttl: null,
+  email_customization: null,
   enable_request_for_access: null,
   enable_search_history: null,
   hide_personal_folder: null,

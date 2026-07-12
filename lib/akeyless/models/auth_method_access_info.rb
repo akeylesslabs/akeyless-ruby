@@ -68,6 +68,9 @@ module Akeyless
 
     attr_accessor :sub_claims_delimiters
 
+    # Relevant only for Universal Identity auth methods: token about-to-expire notification thresholds.
+    attr_accessor :uid_expiration_events
+
     attr_accessor :universal_identity_access_rules
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -98,6 +101,7 @@ module Akeyless
         :'rules_type' => :'rules_type',
         :'saml_access_rules' => :'saml_access_rules',
         :'sub_claims_delimiters' => :'sub_claims_delimiters',
+        :'uid_expiration_events' => :'uid_expiration_events',
         :'universal_identity_access_rules' => :'universal_identity_access_rules'
       }
     end
@@ -135,6 +139,7 @@ module Akeyless
         :'rules_type' => :'String',
         :'saml_access_rules' => :'SAMLAccessRules',
         :'sub_claims_delimiters' => :'Array<String>',
+        :'uid_expiration_events' => :'Array<UidExpirationEvent>',
         :'universal_identity_access_rules' => :'UniversalIdentityAccessRules'
       }
     end
@@ -268,6 +273,12 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'uid_expiration_events')
+        if (value = attributes[:'uid_expiration_events']).is_a?(Array)
+          self.uid_expiration_events = value
+        end
+      end
+
       if attributes.key?(:'universal_identity_access_rules')
         self.universal_identity_access_rules = attributes[:'universal_identity_access_rules']
       end
@@ -318,6 +329,7 @@ module Akeyless
           rules_type == o.rules_type &&
           saml_access_rules == o.saml_access_rules &&
           sub_claims_delimiters == o.sub_claims_delimiters &&
+          uid_expiration_events == o.uid_expiration_events &&
           universal_identity_access_rules == o.universal_identity_access_rules
     end
 
@@ -330,7 +342,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, access_id_alias, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, universal_identity_access_rules].hash
+      [access_expires, access_id_alias, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, uid_expiration_events, universal_identity_access_rules].hash
     end
 
     # Builds the object from hash

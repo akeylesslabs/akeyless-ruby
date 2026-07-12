@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **file_info** | [**FileInfo**](FileInfo.md) |  | [optional] |
 | **format** | **String** | StaticSecretFormat defines the format of static secret (e.g. Text) | [optional] |
 | **max_versions** | **Integer** |  | [optional] |
 | **notify_on_change_event** | **Boolean** |  | [optional] |
@@ -18,6 +19,7 @@
 require 'akeyless'
 
 instance = Akeyless::StaticSecretDetailsInfo.new(
+  file_info: null,
   format: null,
   max_versions: null,
   notify_on_change_event: null,

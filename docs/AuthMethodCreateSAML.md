@@ -24,6 +24,7 @@
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **unique_identifier** | **String** | A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \&quot;sub claim\&quot; that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. |  |
+| **use_dedicated_saml_urls** | **Boolean** | Use dedicated per-access-id SP URLs for login | [optional] |
 
 ## Example
 
@@ -50,7 +51,8 @@ instance = Akeyless::AuthMethodCreateSAML.new(
   subclaims_delimiters: null,
   token: null,
   uid_token: null,
-  unique_identifier: null
+  unique_identifier: null,
+  use_dedicated_saml_urls: null
 )
 ```
 

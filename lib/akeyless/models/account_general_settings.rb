@@ -22,6 +22,9 @@ module Akeyless
     # AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will.
     attr_accessor :account_default_key_name
 
+    # AccountFileBytesUsed tracks active + pending file-item plain bytes for quota enforcement.
+    attr_accessor :account_file_bytes_used
+
     attr_accessor :ai_insights
 
     attr_accessor :allow_auto_fill
@@ -45,6 +48,8 @@ module Akeyless
     attr_accessor :default_home_page
 
     attr_accessor :dynamic_secret_max_ttl
+
+    attr_accessor :email_customization
 
     attr_accessor :enable_request_for_access
 
@@ -85,6 +90,7 @@ module Akeyless
       {
         :'account_default_key_item_id' => :'account_default_key_item_id',
         :'account_default_key_name' => :'account_default_key_name',
+        :'account_file_bytes_used' => :'account_file_bytes_used',
         :'ai_insights' => :'ai_insights',
         :'allow_auto_fill' => :'allow_auto_fill',
         :'allow_passkeys' => :'allow_passkeys',
@@ -97,6 +103,7 @@ module Akeyless
         :'default_auth_method' => :'default_auth_method',
         :'default_home_page' => :'default_home_page',
         :'dynamic_secret_max_ttl' => :'dynamic_secret_max_ttl',
+        :'email_customization' => :'email_customization',
         :'enable_request_for_access' => :'enable_request_for_access',
         :'enable_search_history' => :'enable_search_history',
         :'hide_personal_folder' => :'hide_personal_folder',
@@ -126,6 +133,7 @@ module Akeyless
       {
         :'account_default_key_item_id' => :'Integer',
         :'account_default_key_name' => :'String',
+        :'account_file_bytes_used' => :'Integer',
         :'ai_insights' => :'AiInsightsSetting',
         :'allow_auto_fill' => :'Boolean',
         :'allow_passkeys' => :'Boolean',
@@ -138,6 +146,7 @@ module Akeyless
         :'default_auth_method' => :'DefaultAuthMethodSettings',
         :'default_home_page' => :'DefaultHomePage',
         :'dynamic_secret_max_ttl' => :'DynamicSecretMaxTtl',
+        :'email_customization' => :'EmailCustomization',
         :'enable_request_for_access' => :'Boolean',
         :'enable_search_history' => :'Boolean',
         :'hide_personal_folder' => :'Boolean',
@@ -186,6 +195,10 @@ module Akeyless
         self.account_default_key_name = attributes[:'account_default_key_name']
       end
 
+      if attributes.key?(:'account_file_bytes_used')
+        self.account_file_bytes_used = attributes[:'account_file_bytes_used']
+      end
+
       if attributes.key?(:'ai_insights')
         self.ai_insights = attributes[:'ai_insights']
       end
@@ -232,6 +245,10 @@ module Akeyless
 
       if attributes.key?(:'dynamic_secret_max_ttl')
         self.dynamic_secret_max_ttl = attributes[:'dynamic_secret_max_ttl']
+      end
+
+      if attributes.key?(:'email_customization')
+        self.email_customization = attributes[:'email_customization']
       end
 
       if attributes.key?(:'enable_request_for_access')
@@ -321,6 +338,7 @@ module Akeyless
       self.class == o.class &&
           account_default_key_item_id == o.account_default_key_item_id &&
           account_default_key_name == o.account_default_key_name &&
+          account_file_bytes_used == o.account_file_bytes_used &&
           ai_insights == o.ai_insights &&
           allow_auto_fill == o.allow_auto_fill &&
           allow_passkeys == o.allow_passkeys &&
@@ -333,6 +351,7 @@ module Akeyless
           default_auth_method == o.default_auth_method &&
           default_home_page == o.default_home_page &&
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
+          email_customization == o.email_customization &&
           enable_request_for_access == o.enable_request_for_access &&
           enable_search_history == o.enable_search_history &&
           hide_personal_folder == o.hide_personal_folder &&
@@ -360,7 +379,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

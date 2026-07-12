@@ -24,6 +24,12 @@ module Akeyless
     # Secret name (dynamic secret or rotated secret)
     attr_accessor :name
 
+    # Original natural-language prompt from the user (optional, for auditing)
+    attr_accessor :original_prompt
+
+    # Human end-user behind the agent (optional, for auditing)
+    attr_accessor :original_user
+
     # Query or action payload (SQL, natural language, or CLI-style)
     attr_accessor :payload
 
@@ -39,6 +45,8 @@ module Akeyless
         :'agent_id' => :'agent-id',
         :'json' => :'json',
         :'name' => :'name',
+        :'original_prompt' => :'original-prompt',
+        :'original_user' => :'original-user',
         :'payload' => :'payload',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -56,6 +64,8 @@ module Akeyless
         :'agent_id' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'original_prompt' => :'String',
+        :'original_user' => :'String',
         :'payload' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -99,6 +109,14 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'original_prompt')
+        self.original_prompt = attributes[:'original_prompt']
+      end
+
+      if attributes.key?(:'original_user')
+        self.original_user = attributes[:'original_user']
       end
 
       if attributes.key?(:'payload')
@@ -154,6 +172,8 @@ module Akeyless
           agent_id == o.agent_id &&
           json == o.json &&
           name == o.name &&
+          original_prompt == o.original_prompt &&
+          original_user == o.original_user &&
           payload == o.payload &&
           token == o.token &&
           uid_token == o.uid_token
@@ -168,7 +188,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, json, name, payload, token, uid_token].hash
+      [agent_id, json, name, original_prompt, original_user, payload, token, uid_token].hash
     end
 
     # Builds the object from hash

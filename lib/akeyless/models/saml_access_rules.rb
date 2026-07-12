@@ -30,6 +30,9 @@ module Akeyless
     # A unique identifier to distinguish different users
     attr_accessor :unique_identifier
 
+    # When true, the login AuthnRequest is signed with this access method's dedicated SP identity (Entity ID https://<sp>/saml/sp/{access_id} and ACS https://<sp>/saml/acs/{access_id}) instead of the shared global identity. Default false keeps the legacy global identity for backward compatibility.
+    attr_accessor :use_dedicated_saml_urls
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +40,8 @@ module Akeyless
         :'bound_attributes' => :'bound_attributes',
         :'idp_metadata_url' => :'idp_metadata_url',
         :'idp_metadata_xml' => :'idp_metadata_xml',
-        :'unique_identifier' => :'unique_identifier'
+        :'unique_identifier' => :'unique_identifier',
+        :'use_dedicated_saml_urls' => :'use_dedicated_saml_urls'
       }
     end
 
@@ -53,7 +57,8 @@ module Akeyless
         :'bound_attributes' => :'Array<SAMLAttribute>',
         :'idp_metadata_url' => :'String',
         :'idp_metadata_xml' => :'String',
-        :'unique_identifier' => :'String'
+        :'unique_identifier' => :'String',
+        :'use_dedicated_saml_urls' => :'Boolean'
       }
     end
 
@@ -101,6 +106,10 @@ module Akeyless
       if attributes.key?(:'unique_identifier')
         self.unique_identifier = attributes[:'unique_identifier']
       end
+
+      if attributes.key?(:'use_dedicated_saml_urls')
+        self.use_dedicated_saml_urls = attributes[:'use_dedicated_saml_urls']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -127,7 +136,8 @@ module Akeyless
           bound_attributes == o.bound_attributes &&
           idp_metadata_url == o.idp_metadata_url &&
           idp_metadata_xml == o.idp_metadata_xml &&
-          unique_identifier == o.unique_identifier
+          unique_identifier == o.unique_identifier &&
+          use_dedicated_saml_urls == o.use_dedicated_saml_urls
     end
 
     # @see the `==` method
@@ -139,7 +149,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_redirect_uris, bound_attributes, idp_metadata_url, idp_metadata_xml, unique_identifier].hash
+      [allowed_redirect_uris, bound_attributes, idp_metadata_url, idp_metadata_xml, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

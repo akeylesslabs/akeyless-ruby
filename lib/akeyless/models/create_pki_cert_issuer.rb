@@ -156,7 +156,7 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
-    # The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target's supported maximum TTLs
+    # The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target's supported maximum TTLs. Not supported for Let's Encrypt, which always uses the CA default lifetime (about 90 days).
     attr_accessor :ttl
 
     # The universal identity token, Required only for universal_identity authentication

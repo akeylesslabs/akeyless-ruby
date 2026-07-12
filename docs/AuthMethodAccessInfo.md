@@ -29,6 +29,7 @@
 | **rules_type** | **String** |  | [optional] |
 | **saml_access_rules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  | [optional] |
 | **sub_claims_delimiters** | **Array&lt;String&gt;** |  | [optional] |
+| **uid_expiration_events** | [**Array&lt;UidExpirationEvent&gt;**](UidExpirationEvent.md) | Relevant only for Universal Identity auth methods: token about-to-expire notification thresholds. | [optional] |
 | **universal_identity_access_rules** | [**UniversalIdentityAccessRules**](UniversalIdentityAccessRules.md) |  | [optional] |
 
 ## Example
@@ -62,6 +63,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   rules_type: null,
   saml_access_rules: null,
   sub_claims_delimiters: null,
+  uid_expiration_events: null,
   universal_identity_access_rules: null
 )
 ```

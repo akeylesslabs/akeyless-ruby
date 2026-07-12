@@ -245,6 +245,7 @@
 | **sf_warehouse_name** | **String** |  | [optional] |
 | **should_stop** | **String** | TODO delete this after migration | [optional] |
 | **signing_algorithm** | **String** |  | [optional] |
+| **skip_server_name_validation** | **String** | (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false. | [optional] |
 | **ssl_connection_certificate** | **String** | (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field | [optional] |
 | **ssl_connection_mode** | **Boolean** | (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB | [optional] |
 | **subject_dn** | **String** |  | [optional] |
@@ -524,6 +525,7 @@ instance = Akeyless::DSProducerDetails.new(
   sf_warehouse_name: null,
   should_stop: null,
   signing_algorithm: null,
+  skip_server_name_validation: null,
   ssl_connection_certificate: null,
   ssl_connection_mode: null,
   subject_dn: null,

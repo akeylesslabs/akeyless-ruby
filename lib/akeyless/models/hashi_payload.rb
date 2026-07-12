@@ -17,6 +17,8 @@ module Akeyless
   class HashiPayload
     attr_accessor :delete_sync_on_deletion
 
+    attr_accessor :hashi_target_id
+
     attr_accessor :import_as_json
 
     attr_accessor :metadata_mode
@@ -33,6 +35,7 @@ module Akeyless
     def self.attribute_map
       {
         :'delete_sync_on_deletion' => :'delete_sync_on_deletion',
+        :'hashi_target_id' => :'hashi_target_id',
         :'import_as_json' => :'import_as_json',
         :'metadata_mode' => :'metadata_mode',
         :'namespaces' => :'namespaces',
@@ -51,6 +54,7 @@ module Akeyless
     def self.openapi_types
       {
         :'delete_sync_on_deletion' => :'Boolean',
+        :'hashi_target_id' => :'Integer',
         :'import_as_json' => :'Boolean',
         :'metadata_mode' => :'String',
         :'namespaces' => :'Array<String>',
@@ -83,6 +87,10 @@ module Akeyless
 
       if attributes.key?(:'delete_sync_on_deletion')
         self.delete_sync_on_deletion = attributes[:'delete_sync_on_deletion']
+      end
+
+      if attributes.key?(:'hashi_target_id')
+        self.hashi_target_id = attributes[:'hashi_target_id']
       end
 
       if attributes.key?(:'import_as_json')
@@ -133,6 +141,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           delete_sync_on_deletion == o.delete_sync_on_deletion &&
+          hashi_target_id == o.hashi_target_id &&
           import_as_json == o.import_as_json &&
           metadata_mode == o.metadata_mode &&
           namespaces == o.namespaces &&
@@ -150,7 +159,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_sync_on_deletion, import_as_json, metadata_mode, namespaces, token, url, usc_name].hash
+      [delete_sync_on_deletion, hashi_target_id, import_as_json, metadata_mode, namespaces, token, url, usc_name].hash
     end
 
     # Builds the object from hash

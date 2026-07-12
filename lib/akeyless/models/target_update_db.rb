@@ -120,6 +120,9 @@ module Akeyless
 
     attr_accessor :pwd
 
+    # (Optional) Skip server name verification
+    attr_accessor :skip_server_name_validation
+
     attr_accessor :snowflake_account
 
     # RSA Private key (base64 encoded)
@@ -182,6 +185,7 @@ module Akeyless
         :'parent_target_name' => :'parent-target-name',
         :'port' => :'port',
         :'pwd' => :'pwd',
+        :'skip_server_name_validation' => :'skip-server-name-validation',
         :'snowflake_account' => :'snowflake-account',
         :'snowflake_api_private_key' => :'snowflake-api-private-key',
         :'snowflake_api_private_key_password' => :'snowflake-api-private-key-password',
@@ -238,6 +242,7 @@ module Akeyless
         :'parent_target_name' => :'String',
         :'port' => :'String',
         :'pwd' => :'String',
+        :'skip_server_name_validation' => :'String',
         :'snowflake_account' => :'String',
         :'snowflake_api_private_key' => :'String',
         :'snowflake_api_private_key_password' => :'String',
@@ -426,6 +431,10 @@ module Akeyless
         self.pwd = attributes[:'pwd']
       end
 
+      if attributes.key?(:'skip_server_name_validation')
+        self.skip_server_name_validation = attributes[:'skip_server_name_validation']
+      end
+
       if attributes.key?(:'snowflake_account')
         self.snowflake_account = attributes[:'snowflake_account']
       end
@@ -533,6 +542,7 @@ module Akeyless
           parent_target_name == o.parent_target_name &&
           port == o.port &&
           pwd == o.pwd &&
+          skip_server_name_validation == o.skip_server_name_validation &&
           snowflake_account == o.snowflake_account &&
           snowflake_api_private_key == o.snowflake_api_private_key &&
           snowflake_api_private_key_password == o.snowflake_api_private_key_password &&
@@ -552,7 +562,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_client_id, azure_client_secret, azure_tenant_id, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, delete_protection, description, enable_mtls, host, json, keep_prev_version, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, new_name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
+      [azure_client_id, azure_client_secret, azure_tenant_id, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, delete_protection, description, enable_mtls, host, json, keep_prev_version, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, new_name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, skip_server_name_validation, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, user_name].hash
     end
 
     # Builds the object from hash

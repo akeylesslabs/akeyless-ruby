@@ -18,6 +18,7 @@
 | **delete_protection** | **Boolean** |  | [optional] |
 | **deletion_date** | **Time** |  | [optional] |
 | **display_id** | **String** |  | [optional] |
+| **file_download** | [**FileDownloadInstructions**](FileDownloadInstructions.md) |  | [optional] |
 | **gateway_details** | [**Array&lt;GatewayDetailsForItemReplyObj&gt;**](GatewayDetailsForItemReplyObj.md) |  | [optional] |
 | **is_access_request_enabled** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  | [optional] |
@@ -69,6 +70,7 @@ instance = Akeyless::Item.new(
   delete_protection: null,
   deletion_date: null,
   display_id: null,
+  file_download: null,
   gateway_details: null,
   is_access_request_enabled: null,
   is_enabled: null,

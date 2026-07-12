@@ -65,6 +65,9 @@ module Akeyless
 
     attr_accessor :sf_account
 
+    # (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \"skip hostname validation\"; MySQL treats empty as false.
+    attr_accessor :skip_server_name_validation
+
     # (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
     attr_accessor :ssl_connection_certificate
 
@@ -95,6 +98,7 @@ module Akeyless
         :'enable_mtls' => :'enable_mtls',
         :'oracle_wallet_details' => :'oracle_wallet_details',
         :'sf_account' => :'sf_account',
+        :'skip_server_name_validation' => :'skip_server_name_validation',
         :'ssl_connection_certificate' => :'ssl_connection_certificate',
         :'ssl_connection_mode' => :'ssl_connection_mode'
       }
@@ -129,6 +133,7 @@ module Akeyless
         :'enable_mtls' => :'Boolean',
         :'oracle_wallet_details' => :'WalletDetails',
         :'sf_account' => :'String',
+        :'skip_server_name_validation' => :'String',
         :'ssl_connection_certificate' => :'String',
         :'ssl_connection_mode' => :'Boolean'
       }
@@ -239,6 +244,10 @@ module Akeyless
         self.sf_account = attributes[:'sf_account']
       end
 
+      if attributes.key?(:'skip_server_name_validation')
+        self.skip_server_name_validation = attributes[:'skip_server_name_validation']
+      end
+
       if attributes.key?(:'ssl_connection_certificate')
         self.ssl_connection_certificate = attributes[:'ssl_connection_certificate']
       end
@@ -289,6 +298,7 @@ module Akeyless
           enable_mtls == o.enable_mtls &&
           oracle_wallet_details == o.oracle_wallet_details &&
           sf_account == o.sf_account &&
+          skip_server_name_validation == o.skip_server_name_validation &&
           ssl_connection_certificate == o.ssl_connection_certificate &&
           ssl_connection_mode == o.ssl_connection_mode
     end
@@ -302,7 +312,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, db_client_id, db_client_secret, db_host_name, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, enable_mtls, oracle_wallet_details, sf_account, ssl_connection_certificate, ssl_connection_mode].hash
+      [client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, db_client_id, db_client_secret, db_host_name, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, enable_mtls, oracle_wallet_details, sf_account, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode].hash
     end
 
     # Builds the object from hash

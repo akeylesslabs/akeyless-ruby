@@ -45,7 +45,7 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
-    # Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
+    # Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL). Ignored for Let's Encrypt public CA issuers, which always use the CA default lifetime (about 90 days).
     attr_accessor :ttl
 
     # The universal identity token, Required only for universal_identity authentication

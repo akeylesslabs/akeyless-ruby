@@ -4,11 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **anthropic_target_details** | [**AnthropicTargetDetails**](AnthropicTargetDetails.md) |  | [optional] |
 | **artifactory_target_details** | [**ArtifactoryTargetDetails**](ArtifactoryTargetDetails.md) |  | [optional] |
 | **aws_target_details** | [**AWSTargetDetails**](AWSTargetDetails.md) |  | [optional] |
 | **azure_target_details** | [**AzureTargetDetails**](AzureTargetDetails.md) |  | [optional] |
+| **bedrock_target_details** | [**BedrockTargetDetails**](BedrockTargetDetails.md) |  | [optional] |
 | **chef_target_details** | [**ChefTargetDetails**](ChefTargetDetails.md) |  | [optional] |
 | **cloudflare_target_details** | [**CloudflareTargetDetails**](CloudflareTargetDetails.md) |  | [optional] |
+| **custom_dns_target_details** | [**CustomDnsTargetDetails**](CustomDnsTargetDetails.md) |  | [optional] |
 | **custom_target_details** | [**CustomTargetDetails**](CustomTargetDetails.md) |  | [optional] |
 | **db_target_details** | [**DbTargetDetails**](DbTargetDetails.md) |  | [optional] |
 | **digicert_target_details** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  | [optional] |
@@ -23,12 +26,15 @@
 | **globalsign_target_details** | [**GlobalSignGCCTargetDetails**](GlobalSignGCCTargetDetails.md) |  | [optional] |
 | **godaddy_target_details** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  | [optional] |
 | **google_trust_target_details** | [**GoogleTrustTargetDetails**](GoogleTrustTargetDetails.md) |  | [optional] |
+| **grok_target_details** | [**GrokTargetDetails**](GrokTargetDetails.md) |  | [optional] |
 | **hashi_vault_target_details** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  | [optional] |
+| **keycloak_target_details** | [**KeycloakTargetDetails**](KeycloakTargetDetails.md) |  | [optional] |
 | **ldap_target_details** | [**LdapTargetDetails**](LdapTargetDetails.md) |  | [optional] |
 | **letsencrypt_target_details** | [**LetsEncryptTargetDetails**](LetsEncryptTargetDetails.md) |  | [optional] |
 | **linked_target_details** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  | [optional] |
 | **mongo_db_target_details** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  | [optional] |
 | **native_k8s_target_details** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  | [optional] |
+| **okta_target_details** | [**OktaTargetDetails**](OktaTargetDetails.md) |  | [optional] |
 | **openai_target_details** | [**OpenAITargetDetails**](OpenAITargetDetails.md) |  | [optional] |
 | **ping_target_details** | [**PingTargetDetails**](PingTargetDetails.md) |  | [optional] |
 | **rabbit_mq_target_details** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  | [optional] |
@@ -47,11 +53,14 @@
 require 'akeyless'
 
 instance = Akeyless::TargetTypeDetailsInput.new(
+  anthropic_target_details: null,
   artifactory_target_details: null,
   aws_target_details: null,
   azure_target_details: null,
+  bedrock_target_details: null,
   chef_target_details: null,
   cloudflare_target_details: null,
+  custom_dns_target_details: null,
   custom_target_details: null,
   db_target_details: null,
   digicert_target_details: null,
@@ -66,12 +75,15 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   globalsign_target_details: null,
   godaddy_target_details: null,
   google_trust_target_details: null,
+  grok_target_details: null,
   hashi_vault_target_details: null,
+  keycloak_target_details: null,
   ldap_target_details: null,
   letsencrypt_target_details: null,
   linked_target_details: null,
   mongo_db_target_details: null,
   native_k8s_target_details: null,
+  okta_target_details: null,
   openai_target_details: null,
   ping_target_details: null,
   rabbit_mq_target_details: null,

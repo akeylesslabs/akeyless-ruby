@@ -76,6 +76,9 @@ module Akeyless
     # A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a \"sub claim\" that contains details uniquely identifying that user. This sub claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
     attr_accessor :unique_identifier
 
+    # Use dedicated per-access-id SP URLs for login
+    attr_accessor :use_dedicated_saml_urls
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -98,7 +101,8 @@ module Akeyless
         :'subclaims_delimiters' => :'subclaims-delimiters',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
-        :'unique_identifier' => :'unique-identifier'
+        :'unique_identifier' => :'unique-identifier',
+        :'use_dedicated_saml_urls' => :'use-dedicated-saml-urls'
       }
     end
 
@@ -129,7 +133,8 @@ module Akeyless
         :'subclaims_delimiters' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
-        :'unique_identifier' => :'String'
+        :'unique_identifier' => :'String',
+        :'use_dedicated_saml_urls' => :'Boolean'
       }
     end
 
@@ -259,6 +264,10 @@ module Akeyless
       else
         self.unique_identifier = nil
       end
+
+      if attributes.key?(:'use_dedicated_saml_urls')
+        self.use_dedicated_saml_urls = attributes[:'use_dedicated_saml_urls']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -310,7 +319,8 @@ module Akeyless
           subclaims_delimiters == o.subclaims_delimiters &&
           token == o.token &&
           uid_token == o.uid_token &&
-          unique_identifier == o.unique_identifier
+          unique_identifier == o.unique_identifier &&
+          use_dedicated_saml_urls == o.use_dedicated_saml_urls
     end
 
     # @see the `==` method
@@ -322,7 +332,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, product_type, subclaims_delimiters, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

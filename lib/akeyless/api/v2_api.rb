@@ -5279,6 +5279,198 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param create_mcp_secret_bearer_token [CreateMcpSecretBearerToken] 
+    # @param [Hash] opts the optional parameters
+    # @return [CreateSecretOutput]
+    def create_mcp_secret_bearer_token(create_mcp_secret_bearer_token, opts = {})
+      data, _status_code, _headers = create_mcp_secret_bearer_token_with_http_info(create_mcp_secret_bearer_token, opts)
+      data
+    end
+
+    # @param create_mcp_secret_bearer_token [CreateMcpSecretBearerToken] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateSecretOutput, Integer, Hash)>] CreateSecretOutput data, response status code and response headers
+    def create_mcp_secret_bearer_token_with_http_info(create_mcp_secret_bearer_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.create_mcp_secret_bearer_token ...'
+      end
+      # verify the required parameter 'create_mcp_secret_bearer_token' is set
+      if @api_client.config.client_side_validation && create_mcp_secret_bearer_token.nil?
+        fail ArgumentError, "Missing the required parameter 'create_mcp_secret_bearer_token' when calling V2Api.create_mcp_secret_bearer_token"
+      end
+      # resource path
+      local_var_path = '/create-mcp-secret-bearer-token'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_mcp_secret_bearer_token)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateSecretOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.create_mcp_secret_bearer_token",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#create_mcp_secret_bearer_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param create_mcp_secret_o_auth_auth_code [CreateMcpSecretOAuthAuthCode] 
+    # @param [Hash] opts the optional parameters
+    # @return [CreateSecretOutput]
+    def create_mcp_secret_o_auth_auth_code(create_mcp_secret_o_auth_auth_code, opts = {})
+      data, _status_code, _headers = create_mcp_secret_o_auth_auth_code_with_http_info(create_mcp_secret_o_auth_auth_code, opts)
+      data
+    end
+
+    # @param create_mcp_secret_o_auth_auth_code [CreateMcpSecretOAuthAuthCode] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateSecretOutput, Integer, Hash)>] CreateSecretOutput data, response status code and response headers
+    def create_mcp_secret_o_auth_auth_code_with_http_info(create_mcp_secret_o_auth_auth_code, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.create_mcp_secret_o_auth_auth_code ...'
+      end
+      # verify the required parameter 'create_mcp_secret_o_auth_auth_code' is set
+      if @api_client.config.client_side_validation && create_mcp_secret_o_auth_auth_code.nil?
+        fail ArgumentError, "Missing the required parameter 'create_mcp_secret_o_auth_auth_code' when calling V2Api.create_mcp_secret_o_auth_auth_code"
+      end
+      # resource path
+      local_var_path = '/create-mcp-secret-oauth-authorization-code'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_mcp_secret_o_auth_auth_code)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateSecretOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.create_mcp_secret_o_auth_auth_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#create_mcp_secret_o_auth_auth_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param create_mcp_secret_o_auth_client_creds [CreateMcpSecretOAuthClientCreds] 
+    # @param [Hash] opts the optional parameters
+    # @return [CreateSecretOutput]
+    def create_mcp_secret_o_auth_client_creds(create_mcp_secret_o_auth_client_creds, opts = {})
+      data, _status_code, _headers = create_mcp_secret_o_auth_client_creds_with_http_info(create_mcp_secret_o_auth_client_creds, opts)
+      data
+    end
+
+    # @param create_mcp_secret_o_auth_client_creds [CreateMcpSecretOAuthClientCreds] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateSecretOutput, Integer, Hash)>] CreateSecretOutput data, response status code and response headers
+    def create_mcp_secret_o_auth_client_creds_with_http_info(create_mcp_secret_o_auth_client_creds, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.create_mcp_secret_o_auth_client_creds ...'
+      end
+      # verify the required parameter 'create_mcp_secret_o_auth_client_creds' is set
+      if @api_client.config.client_side_validation && create_mcp_secret_o_auth_client_creds.nil?
+        fail ArgumentError, "Missing the required parameter 'create_mcp_secret_o_auth_client_creds' when calling V2Api.create_mcp_secret_o_auth_client_creds"
+      end
+      # resource path
+      local_var_path = '/create-mcp-secret-oauth-client-credentials'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_mcp_secret_o_auth_client_creds)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateSecretOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.create_mcp_secret_o_auth_client_creds",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#create_mcp_secret_o_auth_client_creds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param create_native_k8_s_target [CreateNativeK8STarget] 
     # @param [Hash] opts the optional parameters
     # @return [CreateNativeK8STargetOutput]
@@ -29994,6 +30186,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_anthropic [TargetCreateAnthropic] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_anthropic(target_create_anthropic, opts = {})
+      data, _status_code, _headers = target_create_anthropic_with_http_info(target_create_anthropic, opts)
+      data
+    end
+
+    # @param target_create_anthropic [TargetCreateAnthropic] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_anthropic_with_http_info(target_create_anthropic, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_anthropic ...'
+      end
+      # verify the required parameter 'target_create_anthropic' is set
+      if @api_client.config.client_side_validation && target_create_anthropic.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_anthropic' when calling V2Api.target_create_anthropic"
+      end
+      # resource path
+      local_var_path = '/target-create-anthropic'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_anthropic)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_anthropic",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_anthropic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_artifactory [TargetCreateArtifactory] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -30186,6 +30442,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_bedrock [TargetCreateBedrock] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_bedrock(target_create_bedrock, opts = {})
+      data, _status_code, _headers = target_create_bedrock_with_http_info(target_create_bedrock, opts)
+      data
+    end
+
+    # @param target_create_bedrock [TargetCreateBedrock] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_bedrock_with_http_info(target_create_bedrock, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_bedrock ...'
+      end
+      # verify the required parameter 'target_create_bedrock' is set
+      if @api_client.config.client_side_validation && target_create_bedrock.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_bedrock' when calling V2Api.target_create_bedrock"
+      end
+      # resource path
+      local_var_path = '/target-create-bedrock'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_bedrock)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_bedrock",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_bedrock\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_cloudflare [TargetCreateCloudflare] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -30246,6 +30566,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_cloudflare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_custom_dns [TargetCreateCustomDns] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_custom_dns(target_create_custom_dns, opts = {})
+      data, _status_code, _headers = target_create_custom_dns_with_http_info(target_create_custom_dns, opts)
+      data
+    end
+
+    # @param target_create_custom_dns [TargetCreateCustomDns] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_custom_dns_with_http_info(target_create_custom_dns, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_custom_dns ...'
+      end
+      # verify the required parameter 'target_create_custom_dns' is set
+      if @api_client.config.client_side_validation && target_create_custom_dns.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_custom_dns' when calling V2Api.target_create_custom_dns"
+      end
+      # resource path
+      local_var_path = '/target-create-custom-dns'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_custom_dns)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_custom_dns",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_custom_dns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -31082,6 +31466,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_grok [TargetCreateGrok] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_grok(target_create_grok, opts = {})
+      data, _status_code, _headers = target_create_grok_with_http_info(target_create_grok, opts)
+      data
+    end
+
+    # @param target_create_grok [TargetCreateGrok] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_grok_with_http_info(target_create_grok, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_grok ...'
+      end
+      # verify the required parameter 'target_create_grok' is set
+      if @api_client.config.client_side_validation && target_create_grok.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_grok' when calling V2Api.target_create_grok"
+      end
+      # resource path
+      local_var_path = '/target-create-grok'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_grok)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_grok",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_grok\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_hashi_vault [TargetCreateHashiVault] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -31206,6 +31654,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_k8s\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_keycloak [TargetCreateKeycloak] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_keycloak(target_create_keycloak, opts = {})
+      data, _status_code, _headers = target_create_keycloak_with_http_info(target_create_keycloak, opts)
+      data
+    end
+
+    # @param target_create_keycloak [TargetCreateKeycloak] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_keycloak_with_http_info(target_create_keycloak, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_keycloak ...'
+      end
+      # verify the required parameter 'target_create_keycloak' is set
+      if @api_client.config.client_side_validation && target_create_keycloak.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_keycloak' when calling V2Api.target_create_keycloak"
+      end
+      # resource path
+      local_var_path = '/target-create-keycloak'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_keycloak)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_keycloak",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_keycloak\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -31398,6 +31910,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_linked\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_okta [TargetCreateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_okta(target_create_okta, opts = {})
+      data, _status_code, _headers = target_create_okta_with_http_info(target_create_okta, opts)
+      data
+    end
+
+    # @param target_create_okta [TargetCreateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_okta_with_http_info(target_create_okta, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_okta ...'
+      end
+      # verify the required parameter 'target_create_okta' is set
+      if @api_client.config.client_side_validation && target_create_okta.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_okta' when calling V2Api.target_create_okta"
+      end
+      # resource path
+      local_var_path = '/target-create-okta'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_okta)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_okta",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_okta\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -32298,6 +32874,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_update_anthropic [TargetUpdateAnthropic] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_anthropic(target_update_anthropic, opts = {})
+      data, _status_code, _headers = target_update_anthropic_with_http_info(target_update_anthropic, opts)
+      data
+    end
+
+    # @param target_update_anthropic [TargetUpdateAnthropic] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_anthropic_with_http_info(target_update_anthropic, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_anthropic ...'
+      end
+      # verify the required parameter 'target_update_anthropic' is set
+      if @api_client.config.client_side_validation && target_update_anthropic.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_anthropic' when calling V2Api.target_update_anthropic"
+      end
+      # resource path
+      local_var_path = '/target-update-anthropic'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_anthropic)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_anthropic",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_anthropic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_update_artifactory [TargetUpdateArtifactory] 
     # @param [Hash] opts the optional parameters
     # @return [TargetUpdateOutput]
@@ -32490,6 +33130,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_update_bedrock [TargetUpdateBedrock] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_bedrock(target_update_bedrock, opts = {})
+      data, _status_code, _headers = target_update_bedrock_with_http_info(target_update_bedrock, opts)
+      data
+    end
+
+    # @param target_update_bedrock [TargetUpdateBedrock] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_bedrock_with_http_info(target_update_bedrock, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_bedrock ...'
+      end
+      # verify the required parameter 'target_update_bedrock' is set
+      if @api_client.config.client_side_validation && target_update_bedrock.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_bedrock' when calling V2Api.target_update_bedrock"
+      end
+      # resource path
+      local_var_path = '/target-update-bedrock'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_bedrock)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_bedrock",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_bedrock\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_update_cloudflare [TargetUpdateCloudflare] 
     # @param [Hash] opts the optional parameters
     # @return [TargetUpdateOutput]
@@ -32550,6 +33254,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_cloudflare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_custom_dns [TargetUpdateCustomDns] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_custom_dns(target_update_custom_dns, opts = {})
+      data, _status_code, _headers = target_update_custom_dns_with_http_info(target_update_custom_dns, opts)
+      data
+    end
+
+    # @param target_update_custom_dns [TargetUpdateCustomDns] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_custom_dns_with_http_info(target_update_custom_dns, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_custom_dns ...'
+      end
+      # verify the required parameter 'target_update_custom_dns' is set
+      if @api_client.config.client_side_validation && target_update_custom_dns.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_custom_dns' when calling V2Api.target_update_custom_dns"
+      end
+      # resource path
+      local_var_path = '/target-update-custom-dns'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_custom_dns)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_custom_dns",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_custom_dns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -33386,6 +34154,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_update_grok [TargetUpdateGrok] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_grok(target_update_grok, opts = {})
+      data, _status_code, _headers = target_update_grok_with_http_info(target_update_grok, opts)
+      data
+    end
+
+    # @param target_update_grok [TargetUpdateGrok] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_grok_with_http_info(target_update_grok, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_grok ...'
+      end
+      # verify the required parameter 'target_update_grok' is set
+      if @api_client.config.client_side_validation && target_update_grok.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_grok' when calling V2Api.target_update_grok"
+      end
+      # resource path
+      local_var_path = '/target-update-grok'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_grok)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_grok",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_grok\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_update_hashi_vault [TargetUpdateHashiVault] 
     # @param [Hash] opts the optional parameters
     # @return [TargetUpdateOutput]
@@ -33510,6 +34342,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_k8s\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_keycloak [TargetUpdateKeycloak] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_keycloak(target_update_keycloak, opts = {})
+      data, _status_code, _headers = target_update_keycloak_with_http_info(target_update_keycloak, opts)
+      data
+    end
+
+    # @param target_update_keycloak [TargetUpdateKeycloak] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_keycloak_with_http_info(target_update_keycloak, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_keycloak ...'
+      end
+      # verify the required parameter 'target_update_keycloak' is set
+      if @api_client.config.client_side_validation && target_update_keycloak.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_keycloak' when calling V2Api.target_update_keycloak"
+      end
+      # resource path
+      local_var_path = '/target-update-keycloak'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_keycloak)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_keycloak",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_keycloak\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -33702,6 +34598,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_linked\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_okta [TargetUpdateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_okta(target_update_okta, opts = {})
+      data, _status_code, _headers = target_update_okta_with_http_info(target_update_okta, opts)
+      data
+    end
+
+    # @param target_update_okta [TargetUpdateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_okta_with_http_info(target_update_okta, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_okta ...'
+      end
+      # verify the required parameter 'target_update_okta' is set
+      if @api_client.config.client_side_validation && target_update_okta.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_okta' when calling V2Api.target_update_okta"
+      end
+      # resource path
+      local_var_path = '/target-update-okta'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_okta)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_okta",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_okta\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -37350,6 +38310,198 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#update_linked_target\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param update_mcp_secret_bearer_token [UpdateMcpSecretBearerToken] 
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateSecretValOutput]
+    def update_mcp_secret_bearer_token(update_mcp_secret_bearer_token, opts = {})
+      data, _status_code, _headers = update_mcp_secret_bearer_token_with_http_info(update_mcp_secret_bearer_token, opts)
+      data
+    end
+
+    # @param update_mcp_secret_bearer_token [UpdateMcpSecretBearerToken] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateSecretValOutput, Integer, Hash)>] UpdateSecretValOutput data, response status code and response headers
+    def update_mcp_secret_bearer_token_with_http_info(update_mcp_secret_bearer_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.update_mcp_secret_bearer_token ...'
+      end
+      # verify the required parameter 'update_mcp_secret_bearer_token' is set
+      if @api_client.config.client_side_validation && update_mcp_secret_bearer_token.nil?
+        fail ArgumentError, "Missing the required parameter 'update_mcp_secret_bearer_token' when calling V2Api.update_mcp_secret_bearer_token"
+      end
+      # resource path
+      local_var_path = '/update-mcp-secret-bearer-token'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_mcp_secret_bearer_token)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateSecretValOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.update_mcp_secret_bearer_token",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#update_mcp_secret_bearer_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param update_mcp_secret_o_auth_auth_code [UpdateMcpSecretOAuthAuthCode] 
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateSecretValOutput]
+    def update_mcp_secret_o_auth_auth_code(update_mcp_secret_o_auth_auth_code, opts = {})
+      data, _status_code, _headers = update_mcp_secret_o_auth_auth_code_with_http_info(update_mcp_secret_o_auth_auth_code, opts)
+      data
+    end
+
+    # @param update_mcp_secret_o_auth_auth_code [UpdateMcpSecretOAuthAuthCode] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateSecretValOutput, Integer, Hash)>] UpdateSecretValOutput data, response status code and response headers
+    def update_mcp_secret_o_auth_auth_code_with_http_info(update_mcp_secret_o_auth_auth_code, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.update_mcp_secret_o_auth_auth_code ...'
+      end
+      # verify the required parameter 'update_mcp_secret_o_auth_auth_code' is set
+      if @api_client.config.client_side_validation && update_mcp_secret_o_auth_auth_code.nil?
+        fail ArgumentError, "Missing the required parameter 'update_mcp_secret_o_auth_auth_code' when calling V2Api.update_mcp_secret_o_auth_auth_code"
+      end
+      # resource path
+      local_var_path = '/update-mcp-secret-oauth-authorization-code'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_mcp_secret_o_auth_auth_code)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateSecretValOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.update_mcp_secret_o_auth_auth_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#update_mcp_secret_o_auth_auth_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param update_mcp_secret_o_auth_client_creds [UpdateMcpSecretOAuthClientCreds] 
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateSecretValOutput]
+    def update_mcp_secret_o_auth_client_creds(update_mcp_secret_o_auth_client_creds, opts = {})
+      data, _status_code, _headers = update_mcp_secret_o_auth_client_creds_with_http_info(update_mcp_secret_o_auth_client_creds, opts)
+      data
+    end
+
+    # @param update_mcp_secret_o_auth_client_creds [UpdateMcpSecretOAuthClientCreds] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateSecretValOutput, Integer, Hash)>] UpdateSecretValOutput data, response status code and response headers
+    def update_mcp_secret_o_auth_client_creds_with_http_info(update_mcp_secret_o_auth_client_creds, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.update_mcp_secret_o_auth_client_creds ...'
+      end
+      # verify the required parameter 'update_mcp_secret_o_auth_client_creds' is set
+      if @api_client.config.client_side_validation && update_mcp_secret_o_auth_client_creds.nil?
+        fail ArgumentError, "Missing the required parameter 'update_mcp_secret_o_auth_client_creds' when calling V2Api.update_mcp_secret_o_auth_client_creds"
+      end
+      # resource path
+      local_var_path = '/update-mcp-secret-oauth-client-credentials'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_mcp_secret_o_auth_client_creds)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateSecretValOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.update_mcp_secret_o_auth_client_creds",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#update_mcp_secret_o_auth_client_creds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

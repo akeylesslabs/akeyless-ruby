@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class StaticSecretDetailsInfo
+    attr_accessor :file_info
+
     # StaticSecretFormat defines the format of static secret (e.g. Text)
     attr_accessor :format
 
@@ -34,6 +36,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'file_info' => :'file_info',
         :'format' => :'format',
         :'max_versions' => :'max_versions',
         :'notify_on_change_event' => :'notify_on_change_event',
@@ -52,6 +55,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'file_info' => :'FileInfo',
         :'format' => :'String',
         :'max_versions' => :'Integer',
         :'notify_on_change_event' => :'Boolean',
@@ -82,6 +86,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'file_info')
+        self.file_info = attributes[:'file_info']
+      end
 
       if attributes.key?(:'format')
         self.format = attributes[:'format']
@@ -134,6 +142,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          file_info == o.file_info &&
           format == o.format &&
           max_versions == o.max_versions &&
           notify_on_change_event == o.notify_on_change_event &&
@@ -152,7 +161,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [format, max_versions, notify_on_change_event, password_security_info, username, website, websites].hash
+      [file_info, format, max_versions, notify_on_change_event, password_security_info, username, website, websites].hash
     end
 
     # Builds the object from hash

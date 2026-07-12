@@ -38,6 +38,7 @@
 | **parent_target_name** | **String** | Name of the parent target, relevant only when connection-type is parent-target | [optional] |
 | **port** | **String** |  | [optional] |
 | **pwd** | **String** |  | [optional] |
+| **skip_server_name_validation** | **String** | (Optional) Skip server name verification | [optional] |
 | **snowflake_account** | **String** |  | [optional] |
 | **snowflake_api_private_key** | **String** | RSA Private key (base64 encoded) | [optional] |
 | **snowflake_api_private_key_password** | **String** | The Private key passphrase | [optional] |
@@ -87,6 +88,7 @@ instance = Akeyless::CreateDBTarget.new(
   parent_target_name: null,
   port: null,
   pwd: null,
+  skip_server_name_validation: null,
   snowflake_account: null,
   snowflake_api_private_key: null,
   snowflake_api_private_key_password: null,

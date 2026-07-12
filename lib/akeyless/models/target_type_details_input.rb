@@ -15,15 +15,21 @@ require 'time'
 
 module Akeyless
   class TargetTypeDetailsInput
+    attr_accessor :anthropic_target_details
+
     attr_accessor :artifactory_target_details
 
     attr_accessor :aws_target_details
 
     attr_accessor :azure_target_details
 
+    attr_accessor :bedrock_target_details
+
     attr_accessor :chef_target_details
 
     attr_accessor :cloudflare_target_details
+
+    attr_accessor :custom_dns_target_details
 
     attr_accessor :custom_target_details
 
@@ -53,7 +59,11 @@ module Akeyless
 
     attr_accessor :google_trust_target_details
 
+    attr_accessor :grok_target_details
+
     attr_accessor :hashi_vault_target_details
+
+    attr_accessor :keycloak_target_details
 
     attr_accessor :ldap_target_details
 
@@ -64,6 +74,8 @@ module Akeyless
     attr_accessor :mongo_db_target_details
 
     attr_accessor :native_k8s_target_details
+
+    attr_accessor :okta_target_details
 
     attr_accessor :openai_target_details
 
@@ -90,11 +102,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'anthropic_target_details' => :'anthropic_target_details',
         :'artifactory_target_details' => :'artifactory_target_details',
         :'aws_target_details' => :'aws_target_details',
         :'azure_target_details' => :'azure_target_details',
+        :'bedrock_target_details' => :'bedrock_target_details',
         :'chef_target_details' => :'chef_target_details',
         :'cloudflare_target_details' => :'cloudflare_target_details',
+        :'custom_dns_target_details' => :'custom_dns_target_details',
         :'custom_target_details' => :'custom_target_details',
         :'db_target_details' => :'db_target_details',
         :'digicert_target_details' => :'digicert_target_details',
@@ -109,12 +124,15 @@ module Akeyless
         :'globalsign_target_details' => :'globalsign_target_details',
         :'godaddy_target_details' => :'godaddy_target_details',
         :'google_trust_target_details' => :'google_trust_target_details',
+        :'grok_target_details' => :'grok_target_details',
         :'hashi_vault_target_details' => :'hashi_vault_target_details',
+        :'keycloak_target_details' => :'keycloak_target_details',
         :'ldap_target_details' => :'ldap_target_details',
         :'letsencrypt_target_details' => :'letsencrypt_target_details',
         :'linked_target_details' => :'linked_target_details',
         :'mongo_db_target_details' => :'mongo_db_target_details',
         :'native_k8s_target_details' => :'native_k8s_target_details',
+        :'okta_target_details' => :'okta_target_details',
         :'openai_target_details' => :'openai_target_details',
         :'ping_target_details' => :'ping_target_details',
         :'rabbit_mq_target_details' => :'rabbit_mq_target_details',
@@ -137,11 +155,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'anthropic_target_details' => :'AnthropicTargetDetails',
         :'artifactory_target_details' => :'ArtifactoryTargetDetails',
         :'aws_target_details' => :'AWSTargetDetails',
         :'azure_target_details' => :'AzureTargetDetails',
+        :'bedrock_target_details' => :'BedrockTargetDetails',
         :'chef_target_details' => :'ChefTargetDetails',
         :'cloudflare_target_details' => :'CloudflareTargetDetails',
+        :'custom_dns_target_details' => :'CustomDnsTargetDetails',
         :'custom_target_details' => :'CustomTargetDetails',
         :'db_target_details' => :'DbTargetDetails',
         :'digicert_target_details' => :'DigiCertTargetDetails',
@@ -156,12 +177,15 @@ module Akeyless
         :'globalsign_target_details' => :'GlobalSignGCCTargetDetails',
         :'godaddy_target_details' => :'GodaddyTargetDetails',
         :'google_trust_target_details' => :'GoogleTrustTargetDetails',
+        :'grok_target_details' => :'GrokTargetDetails',
         :'hashi_vault_target_details' => :'HashiVaultTargetDetails',
+        :'keycloak_target_details' => :'KeycloakTargetDetails',
         :'ldap_target_details' => :'LdapTargetDetails',
         :'letsencrypt_target_details' => :'LetsEncryptTargetDetails',
         :'linked_target_details' => :'LinkedTargetDetails',
         :'mongo_db_target_details' => :'MongoDBTargetDetails',
         :'native_k8s_target_details' => :'NativeK8sTargetDetails',
+        :'okta_target_details' => :'OktaTargetDetails',
         :'openai_target_details' => :'OpenAITargetDetails',
         :'ping_target_details' => :'PingTargetDetails',
         :'rabbit_mq_target_details' => :'RabbitMQTargetDetails',
@@ -197,6 +221,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'anthropic_target_details')
+        self.anthropic_target_details = attributes[:'anthropic_target_details']
+      end
+
       if attributes.key?(:'artifactory_target_details')
         self.artifactory_target_details = attributes[:'artifactory_target_details']
       end
@@ -209,12 +237,20 @@ module Akeyless
         self.azure_target_details = attributes[:'azure_target_details']
       end
 
+      if attributes.key?(:'bedrock_target_details')
+        self.bedrock_target_details = attributes[:'bedrock_target_details']
+      end
+
       if attributes.key?(:'chef_target_details')
         self.chef_target_details = attributes[:'chef_target_details']
       end
 
       if attributes.key?(:'cloudflare_target_details')
         self.cloudflare_target_details = attributes[:'cloudflare_target_details']
+      end
+
+      if attributes.key?(:'custom_dns_target_details')
+        self.custom_dns_target_details = attributes[:'custom_dns_target_details']
       end
 
       if attributes.key?(:'custom_target_details')
@@ -273,8 +309,16 @@ module Akeyless
         self.google_trust_target_details = attributes[:'google_trust_target_details']
       end
 
+      if attributes.key?(:'grok_target_details')
+        self.grok_target_details = attributes[:'grok_target_details']
+      end
+
       if attributes.key?(:'hashi_vault_target_details')
         self.hashi_vault_target_details = attributes[:'hashi_vault_target_details']
+      end
+
+      if attributes.key?(:'keycloak_target_details')
+        self.keycloak_target_details = attributes[:'keycloak_target_details']
       end
 
       if attributes.key?(:'ldap_target_details')
@@ -295,6 +339,10 @@ module Akeyless
 
       if attributes.key?(:'native_k8s_target_details')
         self.native_k8s_target_details = attributes[:'native_k8s_target_details']
+      end
+
+      if attributes.key?(:'okta_target_details')
+        self.okta_target_details = attributes[:'okta_target_details']
       end
 
       if attributes.key?(:'openai_target_details')
@@ -362,11 +410,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anthropic_target_details == o.anthropic_target_details &&
           artifactory_target_details == o.artifactory_target_details &&
           aws_target_details == o.aws_target_details &&
           azure_target_details == o.azure_target_details &&
+          bedrock_target_details == o.bedrock_target_details &&
           chef_target_details == o.chef_target_details &&
           cloudflare_target_details == o.cloudflare_target_details &&
+          custom_dns_target_details == o.custom_dns_target_details &&
           custom_target_details == o.custom_target_details &&
           db_target_details == o.db_target_details &&
           digicert_target_details == o.digicert_target_details &&
@@ -381,12 +432,15 @@ module Akeyless
           globalsign_target_details == o.globalsign_target_details &&
           godaddy_target_details == o.godaddy_target_details &&
           google_trust_target_details == o.google_trust_target_details &&
+          grok_target_details == o.grok_target_details &&
           hashi_vault_target_details == o.hashi_vault_target_details &&
+          keycloak_target_details == o.keycloak_target_details &&
           ldap_target_details == o.ldap_target_details &&
           letsencrypt_target_details == o.letsencrypt_target_details &&
           linked_target_details == o.linked_target_details &&
           mongo_db_target_details == o.mongo_db_target_details &&
           native_k8s_target_details == o.native_k8s_target_details &&
+          okta_target_details == o.okta_target_details &&
           openai_target_details == o.openai_target_details &&
           ping_target_details == o.ping_target_details &&
           rabbit_mq_target_details == o.rabbit_mq_target_details &&
@@ -409,7 +463,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_target_details, aws_target_details, azure_target_details, chef_target_details, cloudflare_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, hashi_vault_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [anthropic_target_details, artifactory_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

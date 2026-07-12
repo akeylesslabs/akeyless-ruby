@@ -76,6 +76,7 @@
 | **si_users_ignore** | **String** | Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration) | [optional] |
 | **si_users_path_template** | **String** | Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration) |  |
 | **target_location** | **String** | Target location in Akeyless for imported secrets |  |
+| **target_name** | **String** | Name of existing target to use to create the migration | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **usc_name** | **String** | Universal Secret Connector name | [optional] |
@@ -159,6 +160,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   si_users_ignore: null,
   si_users_path_template: null,
   target_location: null,
+  target_name: null,
   token: null,
   uid_token: null,
   usc_name: null,

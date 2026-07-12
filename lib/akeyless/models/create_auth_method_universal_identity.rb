@@ -73,6 +73,9 @@ module Akeyless
     # Token ttl
     attr_accessor :ttl
 
+    # Notify when this percent of the token TTL has elapsed (1-99).
+    attr_accessor :uid_expiration_event_at
+
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
@@ -98,6 +101,7 @@ module Akeyless
         :'token' => :'token',
         :'tree_length' => :'tree-length',
         :'ttl' => :'ttl',
+        :'uid_expiration_event_at' => :'uid-expiration-event-at',
         :'uid_token' => :'uid-token'
       }
     end
@@ -129,6 +133,7 @@ module Akeyless
         :'token' => :'String',
         :'tree_length' => :'Integer',
         :'ttl' => :'Integer',
+        :'uid_expiration_event_at' => :'Array<String>',
         :'uid_token' => :'String'
       }
     end
@@ -256,6 +261,12 @@ module Akeyless
         self.ttl = 60
       end
 
+      if attributes.key?(:'uid_expiration_event_at')
+        if (value = attributes[:'uid_expiration_event_at']).is_a?(Array)
+          self.uid_expiration_event_at = value
+        end
+      end
+
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
@@ -305,6 +316,7 @@ module Akeyless
           token == o.token &&
           tree_length == o.tree_length &&
           ttl == o.ttl &&
+          uid_expiration_event_at == o.uid_expiration_event_at &&
           uid_token == o.uid_token
     end
 
@@ -317,7 +329,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, child_ttl_limit, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, tree_length, ttl, uid_token].hash
+      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, child_ttl_limit, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, tree_length, ttl, uid_expiration_event_at, uid_token].hash
     end
 
     # Builds the object from hash

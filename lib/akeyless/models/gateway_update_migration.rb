@@ -231,6 +231,9 @@ module Akeyless
     # Target location in Akeyless for imported secrets
     attr_accessor :target_location
 
+    # Name of existing target to use to create the migration
+    attr_accessor :target_name
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -318,6 +321,7 @@ module Akeyless
         :'si_users_ignore' => :'si-users-ignore',
         :'si_users_path_template' => :'si-users-path-template',
         :'target_location' => :'target-location',
+        :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name',
@@ -405,6 +409,7 @@ module Akeyless
         :'si_users_ignore' => :'String',
         :'si_users_path_template' => :'String',
         :'target_location' => :'String',
+        :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String',
@@ -767,6 +772,10 @@ module Akeyless
         self.target_location = nil
       end
 
+      if attributes.key?(:'target_name')
+        self.target_name = attributes[:'target_name']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -896,6 +905,7 @@ module Akeyless
           si_users_ignore == o.si_users_ignore &&
           si_users_path_template == o.si_users_path_template &&
           target_location == o.target_location &&
+          target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name &&
@@ -911,7 +921,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_account_key_decoded, ad_auto_rotate, ad_cert_expiration_event_in, ad_certificates_path_template, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, ai_certificate_discovery, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, conjur_account, conjur_api_key, conjur_url, conjur_username, delete_remote, expiration_event_in, gcp_key, gcp_project_id, hashi_json, hashi_metadata_mode, hashi_ns, hashi_token, hashi_url, hosts, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, token, uid_token, usc_name, use_gw_cloud_identity].hash
+      [service_account_key_decoded, ad_auto_rotate, ad_cert_expiration_event_in, ad_certificates_path_template, ad_computer_base_dn, ad_discover_iis_app, ad_discover_services, ad_discovery_types, ad_domain_name, ad_domain_users_path_template, ad_local_users_ignore, ad_local_users_path_template, ad_os_filter, ad_rotation_hour, ad_rotation_interval, ad_sra_enable_rdp, ad_ssh_port, ad_target_format, ad_target_name, ad_targets_path_template, ad_targets_type, ad_user_base_dn, ad_user_groups, ad_winrm_over_http, ad_winrm_port, ad_discover_local_users, ai_certificate_discovery, aws_key, aws_key_id, aws_region, azure_client_id, azure_kv_name, azure_secret, azure_tenant_id, conjur_account, conjur_api_key, conjur_url, conjur_username, delete_remote, expiration_event_in, gcp_key, gcp_project_id, hashi_json, hashi_metadata_mode, hashi_ns, hashi_token, hashi_url, hosts, id, json, k8s_ca_certificate, k8s_client_certificate, k8s_client_key, k8s_namespace, k8s_password, k8s_skip_system, k8s_token, k8s_url, k8s_username, name, new_name, port_ranges, protection_key, si_auto_rotate, si_rotation_hour, si_rotation_interval, si_sra_enable_rdp, si_target_name, si_user_groups, si_users_ignore, si_users_path_template, target_location, target_name, token, uid_token, usc_name, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

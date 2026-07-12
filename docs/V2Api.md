@@ -86,6 +86,9 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_hashi_vault_target**](V2Api.md#create_hashi_vault_target) | **POST** /create-hashi-vault-target |  |
 | [**create_key**](V2Api.md#create_key) | **POST** /create-key |  |
 | [**create_linked_target**](V2Api.md#create_linked_target) | **POST** /create-linked-target |  |
+| [**create_mcp_secret_bearer_token**](V2Api.md#create_mcp_secret_bearer_token) | **POST** /create-mcp-secret-bearer-token |  |
+| [**create_mcp_secret_o_auth_auth_code**](V2Api.md#create_mcp_secret_o_auth_auth_code) | **POST** /create-mcp-secret-oauth-authorization-code |  |
+| [**create_mcp_secret_o_auth_client_creds**](V2Api.md#create_mcp_secret_o_auth_client_creds) | **POST** /create-mcp-secret-oauth-client-credentials |  |
 | [**create_native_k8_s_target**](V2Api.md#create_native_k8_s_target) | **POST** /create-k8s-target |  |
 | [**create_oidc_app**](V2Api.md#create_oidc_app) | **POST** /create-oidc-app |  |
 | [**create_passkey**](V2Api.md#create_passkey) | **POST** /create-passkey |  |
@@ -474,10 +477,13 @@ All URIs are relative to *https://api.akeyless.io*
 | [**static_creds_auth**](V2Api.md#static_creds_auth) | **POST** /static-creds-auth |  |
 | [**static_secret_delete_sync**](V2Api.md#static_secret_delete_sync) | **POST** /static-secret-delete-sync |  |
 | [**static_secret_sync**](V2Api.md#static_secret_sync) | **POST** /static-secret-sync |  |
+| [**target_create_anthropic**](V2Api.md#target_create_anthropic) | **POST** /target-create-anthropic |  |
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
 | [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
+| [**target_create_bedrock**](V2Api.md#target_create_bedrock) | **POST** /target-create-bedrock |  |
 | [**target_create_cloudflare**](V2Api.md#target_create_cloudflare) | **POST** /target-create-cloudflare |  |
+| [**target_create_custom_dns**](V2Api.md#target_create_custom_dns) | **POST** /target-create-custom-dns |  |
 | [**target_create_db**](V2Api.md#target_create_db) | **POST** /target-create-db |  |
 | [**target_create_digi_cert**](V2Api.md#target_create_digi_cert) | **POST** /target-create-digicert |  |
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
@@ -491,11 +497,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_global_sign_atlas**](V2Api.md#target_create_global_sign_atlas) | **POST** /target-create-globalsign-atlas |  |
 | [**target_create_godaddy**](V2Api.md#target_create_godaddy) | **POST** /target-create-godaddy |  |
 | [**target_create_google_trust**](V2Api.md#target_create_google_trust) | **POST** /target-create-google-trust |  |
+| [**target_create_grok**](V2Api.md#target_create_grok) | **POST** /target-create-grok |  |
 | [**target_create_hashi_vault**](V2Api.md#target_create_hashi_vault) | **POST** /target-create-hashi-vault |  |
 | [**target_create_k8s**](V2Api.md#target_create_k8s) | **POST** /target-create-k8s |  |
+| [**target_create_keycloak**](V2Api.md#target_create_keycloak) | **POST** /target-create-keycloak |  |
 | [**target_create_ldap**](V2Api.md#target_create_ldap) | **POST** /target-create-ldap |  |
 | [**target_create_lets_encrypt**](V2Api.md#target_create_lets_encrypt) | **POST** /target-create-lets-encrypt |  |
 | [**target_create_linked**](V2Api.md#target_create_linked) | **POST** /target-create-linked |  |
+| [**target_create_okta**](V2Api.md#target_create_okta) | **POST** /target-create-okta |  |
 | [**target_create_open_ai**](V2Api.md#target_create_open_ai) | **POST** /target-create-openai |  |
 | [**target_create_ping**](V2Api.md#target_create_ping) | **POST** /target-create-ping |  |
 | [**target_create_rabbit_mq**](V2Api.md#target_create_rabbit_mq) | **POST** /target-create-rabbitmq |  |
@@ -510,10 +519,13 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_get**](V2Api.md#target_get) | **POST** /target-get |  |
 | [**target_get_details**](V2Api.md#target_get_details) | **POST** /target-get-details |  |
 | [**target_list**](V2Api.md#target_list) | **POST** /target-list |  |
+| [**target_update_anthropic**](V2Api.md#target_update_anthropic) | **POST** /target-update-anthropic |  |
 | [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
 | [**target_update_azure**](V2Api.md#target_update_azure) | **POST** /target-update-azure |  |
+| [**target_update_bedrock**](V2Api.md#target_update_bedrock) | **POST** /target-update-bedrock |  |
 | [**target_update_cloudflare**](V2Api.md#target_update_cloudflare) | **POST** /target-update-cloudflare |  |
+| [**target_update_custom_dns**](V2Api.md#target_update_custom_dns) | **POST** /target-update-custom-dns |  |
 | [**target_update_db**](V2Api.md#target_update_db) | **POST** /target-update-db |  |
 | [**target_update_digi_cert**](V2Api.md#target_update_digi_cert) | **POST** /target-update-digicert |  |
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
@@ -527,11 +539,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_global_sign_atlas**](V2Api.md#target_update_global_sign_atlas) | **POST** /target-update-globalsign-atlas |  |
 | [**target_update_godaddy**](V2Api.md#target_update_godaddy) | **POST** /target-update-godaddy |  |
 | [**target_update_google_trust**](V2Api.md#target_update_google_trust) | **POST** /target-update-google-trust |  |
+| [**target_update_grok**](V2Api.md#target_update_grok) | **POST** /target-update-grok |  |
 | [**target_update_hashi_vault**](V2Api.md#target_update_hashi_vault) | **POST** /target-update-hashi-vault |  |
 | [**target_update_k8s**](V2Api.md#target_update_k8s) | **POST** /target-update-k8s |  |
+| [**target_update_keycloak**](V2Api.md#target_update_keycloak) | **POST** /target-update-keycloak |  |
 | [**target_update_ldap**](V2Api.md#target_update_ldap) | **POST** /target-update-ldap |  |
 | [**target_update_lets_encrypt**](V2Api.md#target_update_lets_encrypt) | **POST** /target-update-lets-encrypt |  |
 | [**target_update_linked**](V2Api.md#target_update_linked) | **POST** /target-update-linked |  |
+| [**target_update_okta**](V2Api.md#target_update_okta) | **POST** /target-update-okta |  |
 | [**target_update_open_ai**](V2Api.md#target_update_open_ai) | **POST** /target-update-openai |  |
 | [**target_update_ping**](V2Api.md#target_update_ping) | **POST** /target-update-ping |  |
 | [**target_update_rabbit_mq**](V2Api.md#target_update_rabbit_mq) | **POST** /target-update-rabbitmq |  |
@@ -589,6 +604,9 @@ All URIs are relative to *https://api.akeyless.io*
 | [**update_ldap_target**](V2Api.md#update_ldap_target) | **POST** /update-ldap-target |  |
 | [**update_ldap_target_details**](V2Api.md#update_ldap_target_details) | **POST** /update-ldap-target-details |  |
 | [**update_linked_target**](V2Api.md#update_linked_target) | **POST** /update-linked-target |  |
+| [**update_mcp_secret_bearer_token**](V2Api.md#update_mcp_secret_bearer_token) | **POST** /update-mcp-secret-bearer-token |  |
+| [**update_mcp_secret_o_auth_auth_code**](V2Api.md#update_mcp_secret_o_auth_auth_code) | **POST** /update-mcp-secret-oauth-authorization-code |  |
+| [**update_mcp_secret_o_auth_client_creds**](V2Api.md#update_mcp_secret_o_auth_client_creds) | **POST** /update-mcp-secret-oauth-client-credentials |  |
 | [**update_native_k8_s_target**](V2Api.md#update_native_k8_s_target) | **POST** /update-k8s-target |  |
 | [**update_oidc_app**](V2Api.md#update_oidc_app) | **POST** /update-oidc-app |  |
 | [**update_ping_target**](V2Api.md#update_ping_target) | **POST** /update-ping-target |  |
@@ -5703,6 +5721,192 @@ end
 ### Return type
 
 [**CreateLinkedTargetOutput**](CreateLinkedTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_mcp_secret_bearer_token
+
+> <CreateSecretOutput> create_mcp_secret_bearer_token(create_mcp_secret_bearer_token)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+create_mcp_secret_bearer_token = Akeyless::CreateMcpSecretBearerToken.new({name: 'name_example'}) # CreateMcpSecretBearerToken | 
+
+begin
+  
+  result = api_instance.create_mcp_secret_bearer_token(create_mcp_secret_bearer_token)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_bearer_token: #{e}"
+end
+```
+
+#### Using the create_mcp_secret_bearer_token_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateSecretOutput>, Integer, Hash)> create_mcp_secret_bearer_token_with_http_info(create_mcp_secret_bearer_token)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_mcp_secret_bearer_token_with_http_info(create_mcp_secret_bearer_token)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateSecretOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_bearer_token_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_mcp_secret_bearer_token** | [**CreateMcpSecretBearerToken**](CreateMcpSecretBearerToken.md) |  |  |
+
+### Return type
+
+[**CreateSecretOutput**](CreateSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_mcp_secret_o_auth_auth_code
+
+> <CreateSecretOutput> create_mcp_secret_o_auth_auth_code(create_mcp_secret_o_auth_auth_code)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+create_mcp_secret_o_auth_auth_code = Akeyless::CreateMcpSecretOAuthAuthCode.new({name: 'name_example'}) # CreateMcpSecretOAuthAuthCode | 
+
+begin
+  
+  result = api_instance.create_mcp_secret_o_auth_auth_code(create_mcp_secret_o_auth_auth_code)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_o_auth_auth_code: #{e}"
+end
+```
+
+#### Using the create_mcp_secret_o_auth_auth_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateSecretOutput>, Integer, Hash)> create_mcp_secret_o_auth_auth_code_with_http_info(create_mcp_secret_o_auth_auth_code)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_mcp_secret_o_auth_auth_code_with_http_info(create_mcp_secret_o_auth_auth_code)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateSecretOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_o_auth_auth_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_mcp_secret_o_auth_auth_code** | [**CreateMcpSecretOAuthAuthCode**](CreateMcpSecretOAuthAuthCode.md) |  |  |
+
+### Return type
+
+[**CreateSecretOutput**](CreateSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_mcp_secret_o_auth_client_creds
+
+> <CreateSecretOutput> create_mcp_secret_o_auth_client_creds(create_mcp_secret_o_auth_client_creds)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+create_mcp_secret_o_auth_client_creds = Akeyless::CreateMcpSecretOAuthClientCreds.new({name: 'name_example'}) # CreateMcpSecretOAuthClientCreds | 
+
+begin
+  
+  result = api_instance.create_mcp_secret_o_auth_client_creds(create_mcp_secret_o_auth_client_creds)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_o_auth_client_creds: #{e}"
+end
+```
+
+#### Using the create_mcp_secret_o_auth_client_creds_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateSecretOutput>, Integer, Hash)> create_mcp_secret_o_auth_client_creds_with_http_info(create_mcp_secret_o_auth_client_creds)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_mcp_secret_o_auth_client_creds_with_http_info(create_mcp_secret_o_auth_client_creds)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateSecretOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_mcp_secret_o_auth_client_creds_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_mcp_secret_o_auth_client_creds** | [**CreateMcpSecretOAuthClientCreds**](CreateMcpSecretOAuthClientCreds.md) |  |  |
+
+### Return type
+
+[**CreateSecretOutput**](CreateSecretOutput.md)
 
 ### Authorization
 
@@ -29797,6 +30001,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_anthropic
+
+> <TargetCreateOutput> target_create_anthropic(target_create_anthropic)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_anthropic = Akeyless::TargetCreateAnthropic.new({name: 'name_example'}) # TargetCreateAnthropic | 
+
+begin
+  
+  result = api_instance.target_create_anthropic(target_create_anthropic)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_anthropic: #{e}"
+end
+```
+
+#### Using the target_create_anthropic_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_anthropic_with_http_info(target_create_anthropic)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_anthropic_with_http_info(target_create_anthropic)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_anthropic_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_anthropic** | [**TargetCreateAnthropic**](TargetCreateAnthropic.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_artifactory
 
 > <TargetCreateOutput> target_create_artifactory(target_create_artifactory)
@@ -29983,6 +30249,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_bedrock
+
+> <TargetCreateOutput> target_create_bedrock(target_create_bedrock)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_bedrock = Akeyless::TargetCreateBedrock.new({name: 'name_example'}) # TargetCreateBedrock | 
+
+begin
+  
+  result = api_instance.target_create_bedrock(target_create_bedrock)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_bedrock: #{e}"
+end
+```
+
+#### Using the target_create_bedrock_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_bedrock_with_http_info(target_create_bedrock)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_bedrock_with_http_info(target_create_bedrock)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_bedrock_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_bedrock** | [**TargetCreateBedrock**](TargetCreateBedrock.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_cloudflare
 
 > <TargetCreateOutput> target_create_cloudflare(target_create_cloudflare)
@@ -30030,6 +30358,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_cloudflare** | [**TargetCreateCloudflare**](TargetCreateCloudflare.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_custom_dns
+
+> <TargetCreateOutput> target_create_custom_dns(target_create_custom_dns)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_custom_dns = Akeyless::TargetCreateCustomDns.new({dns_parameter: { key: 'inner_example'}, name: 'name_example', provider_type: 'provider_type_example'}) # TargetCreateCustomDns | 
+
+begin
+  
+  result = api_instance.target_create_custom_dns(target_create_custom_dns)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_custom_dns: #{e}"
+end
+```
+
+#### Using the target_create_custom_dns_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_custom_dns_with_http_info(target_create_custom_dns)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_custom_dns_with_http_info(target_create_custom_dns)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_custom_dns_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_custom_dns** | [**TargetCreateCustomDns**](TargetCreateCustomDns.md) |  |  |
 
 ### Return type
 
@@ -30851,6 +31241,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_grok
+
+> <TargetCreateOutput> target_create_grok(target_create_grok)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_grok = Akeyless::TargetCreateGrok.new({name: 'name_example'}) # TargetCreateGrok | 
+
+begin
+  
+  result = api_instance.target_create_grok(target_create_grok)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_grok: #{e}"
+end
+```
+
+#### Using the target_create_grok_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_grok_with_http_info(target_create_grok)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_grok_with_http_info(target_create_grok)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_grok_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_grok** | [**TargetCreateGrok**](TargetCreateGrok.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_hashi_vault
 
 > <TargetCreateOutput> target_create_hashi_vault(target_create_hashi_vault)
@@ -30960,6 +31412,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_k8s** | [**TargetCreateK8s**](TargetCreateK8s.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_keycloak
+
+> <TargetCreateOutput> target_create_keycloak(target_create_keycloak)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_keycloak = Akeyless::TargetCreateKeycloak.new({name: 'name_example'}) # TargetCreateKeycloak | 
+
+begin
+  
+  result = api_instance.target_create_keycloak(target_create_keycloak)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_keycloak: #{e}"
+end
+```
+
+#### Using the target_create_keycloak_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_keycloak_with_http_info(target_create_keycloak)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_keycloak_with_http_info(target_create_keycloak)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_keycloak_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_keycloak** | [**TargetCreateKeycloak**](TargetCreateKeycloak.md) |  |  |
 
 ### Return type
 
@@ -31146,6 +31660,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_linked** | [**TargetCreateLinked**](TargetCreateLinked.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_okta
+
+> <TargetCreateOutput> target_create_okta(target_create_okta)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_okta = Akeyless::TargetCreateOkta.new({name: 'name_example'}) # TargetCreateOkta | 
+
+begin
+  
+  result = api_instance.target_create_okta(target_create_okta)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_okta: #{e}"
+end
+```
+
+#### Using the target_create_okta_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_okta_with_http_info(target_create_okta)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_okta_with_http_info(target_create_okta)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_okta_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_okta** | [**TargetCreateOkta**](TargetCreateOkta.md) |  |  |
 
 ### Return type
 
@@ -32029,6 +32605,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_anthropic
+
+> <TargetUpdateOutput> target_update_anthropic(target_update_anthropic)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_anthropic = Akeyless::TargetUpdateAnthropic.new({name: 'name_example'}) # TargetUpdateAnthropic | 
+
+begin
+  
+  result = api_instance.target_update_anthropic(target_update_anthropic)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_anthropic: #{e}"
+end
+```
+
+#### Using the target_update_anthropic_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_anthropic_with_http_info(target_update_anthropic)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_anthropic_with_http_info(target_update_anthropic)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_anthropic_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_anthropic** | [**TargetUpdateAnthropic**](TargetUpdateAnthropic.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_artifactory
 
 > <TargetUpdateOutput> target_update_artifactory(target_update_artifactory)
@@ -32215,6 +32853,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_bedrock
+
+> <TargetUpdateOutput> target_update_bedrock(target_update_bedrock)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_bedrock = Akeyless::TargetUpdateBedrock.new({name: 'name_example'}) # TargetUpdateBedrock | 
+
+begin
+  
+  result = api_instance.target_update_bedrock(target_update_bedrock)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_bedrock: #{e}"
+end
+```
+
+#### Using the target_update_bedrock_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_bedrock_with_http_info(target_update_bedrock)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_bedrock_with_http_info(target_update_bedrock)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_bedrock_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_bedrock** | [**TargetUpdateBedrock**](TargetUpdateBedrock.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_cloudflare
 
 > <TargetUpdateOutput> target_update_cloudflare(target_update_cloudflare)
@@ -32262,6 +32962,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_cloudflare** | [**TargetUpdateCloudflare**](TargetUpdateCloudflare.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_custom_dns
+
+> <TargetUpdateOutput> target_update_custom_dns(target_update_custom_dns)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_custom_dns = Akeyless::TargetUpdateCustomDns.new({dns_parameter: { key: 'inner_example'}, name: 'name_example', provider_type: 'provider_type_example'}) # TargetUpdateCustomDns | 
+
+begin
+  
+  result = api_instance.target_update_custom_dns(target_update_custom_dns)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_custom_dns: #{e}"
+end
+```
+
+#### Using the target_update_custom_dns_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_custom_dns_with_http_info(target_update_custom_dns)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_custom_dns_with_http_info(target_update_custom_dns)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_custom_dns_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_custom_dns** | [**TargetUpdateCustomDns**](TargetUpdateCustomDns.md) |  |  |
 
 ### Return type
 
@@ -33083,6 +33845,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_update_grok
+
+> <TargetUpdateOutput> target_update_grok(target_update_grok)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_grok = Akeyless::TargetUpdateGrok.new({name: 'name_example'}) # TargetUpdateGrok | 
+
+begin
+  
+  result = api_instance.target_update_grok(target_update_grok)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_grok: #{e}"
+end
+```
+
+#### Using the target_update_grok_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_grok_with_http_info(target_update_grok)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_grok_with_http_info(target_update_grok)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_grok_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_grok** | [**TargetUpdateGrok**](TargetUpdateGrok.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_update_hashi_vault
 
 > <TargetUpdateOutput> target_update_hashi_vault(target_update_hashi_vault)
@@ -33192,6 +34016,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_k8s** | [**TargetUpdateK8s**](TargetUpdateK8s.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_keycloak
+
+> <TargetUpdateOutput> target_update_keycloak(target_update_keycloak)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_keycloak = Akeyless::TargetUpdateKeycloak.new({name: 'name_example'}) # TargetUpdateKeycloak | 
+
+begin
+  
+  result = api_instance.target_update_keycloak(target_update_keycloak)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_keycloak: #{e}"
+end
+```
+
+#### Using the target_update_keycloak_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_keycloak_with_http_info(target_update_keycloak)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_keycloak_with_http_info(target_update_keycloak)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_keycloak_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_keycloak** | [**TargetUpdateKeycloak**](TargetUpdateKeycloak.md) |  |  |
 
 ### Return type
 
@@ -33378,6 +34264,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_linked** | [**TargetUpdateLinked**](TargetUpdateLinked.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_okta
+
+> <TargetUpdateOutput> target_update_okta(target_update_okta)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_okta = Akeyless::TargetUpdateOkta.new({name: 'name_example'}) # TargetUpdateOkta | 
+
+begin
+  
+  result = api_instance.target_update_okta(target_update_okta)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_okta: #{e}"
+end
+```
+
+#### Using the target_update_okta_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_okta_with_http_info(target_update_okta)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_okta_with_http_info(target_update_okta)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_okta_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_okta** | [**TargetUpdateOkta**](TargetUpdateOkta.md) |  |  |
 
 ### Return type
 
@@ -36916,6 +37864,192 @@ end
 ### Return type
 
 **Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_mcp_secret_bearer_token
+
+> <UpdateSecretValOutput> update_mcp_secret_bearer_token(update_mcp_secret_bearer_token)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+update_mcp_secret_bearer_token = Akeyless::UpdateMcpSecretBearerToken.new({name: 'name_example'}) # UpdateMcpSecretBearerToken | 
+
+begin
+  
+  result = api_instance.update_mcp_secret_bearer_token(update_mcp_secret_bearer_token)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_bearer_token: #{e}"
+end
+```
+
+#### Using the update_mcp_secret_bearer_token_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateSecretValOutput>, Integer, Hash)> update_mcp_secret_bearer_token_with_http_info(update_mcp_secret_bearer_token)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_mcp_secret_bearer_token_with_http_info(update_mcp_secret_bearer_token)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateSecretValOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_bearer_token_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **update_mcp_secret_bearer_token** | [**UpdateMcpSecretBearerToken**](UpdateMcpSecretBearerToken.md) |  |  |
+
+### Return type
+
+[**UpdateSecretValOutput**](UpdateSecretValOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_mcp_secret_o_auth_auth_code
+
+> <UpdateSecretValOutput> update_mcp_secret_o_auth_auth_code(update_mcp_secret_o_auth_auth_code)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+update_mcp_secret_o_auth_auth_code = Akeyless::UpdateMcpSecretOAuthAuthCode.new({name: 'name_example'}) # UpdateMcpSecretOAuthAuthCode | 
+
+begin
+  
+  result = api_instance.update_mcp_secret_o_auth_auth_code(update_mcp_secret_o_auth_auth_code)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_o_auth_auth_code: #{e}"
+end
+```
+
+#### Using the update_mcp_secret_o_auth_auth_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateSecretValOutput>, Integer, Hash)> update_mcp_secret_o_auth_auth_code_with_http_info(update_mcp_secret_o_auth_auth_code)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_mcp_secret_o_auth_auth_code_with_http_info(update_mcp_secret_o_auth_auth_code)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateSecretValOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_o_auth_auth_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **update_mcp_secret_o_auth_auth_code** | [**UpdateMcpSecretOAuthAuthCode**](UpdateMcpSecretOAuthAuthCode.md) |  |  |
+
+### Return type
+
+[**UpdateSecretValOutput**](UpdateSecretValOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_mcp_secret_o_auth_client_creds
+
+> <UpdateSecretValOutput> update_mcp_secret_o_auth_client_creds(update_mcp_secret_o_auth_client_creds)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+update_mcp_secret_o_auth_client_creds = Akeyless::UpdateMcpSecretOAuthClientCreds.new({name: 'name_example'}) # UpdateMcpSecretOAuthClientCreds | 
+
+begin
+  
+  result = api_instance.update_mcp_secret_o_auth_client_creds(update_mcp_secret_o_auth_client_creds)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_o_auth_client_creds: #{e}"
+end
+```
+
+#### Using the update_mcp_secret_o_auth_client_creds_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateSecretValOutput>, Integer, Hash)> update_mcp_secret_o_auth_client_creds_with_http_info(update_mcp_secret_o_auth_client_creds)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_mcp_secret_o_auth_client_creds_with_http_info(update_mcp_secret_o_auth_client_creds)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateSecretValOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_mcp_secret_o_auth_client_creds_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **update_mcp_secret_o_auth_client_creds** | [**UpdateMcpSecretOAuthClientCreds**](UpdateMcpSecretOAuthClientCreds.md) |  |  |
+
+### Return type
+
+[**UpdateSecretValOutput**](UpdateSecretValOutput.md)
 
 ### Authorization
 

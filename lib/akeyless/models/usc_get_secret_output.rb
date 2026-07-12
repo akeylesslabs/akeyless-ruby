@@ -15,9 +15,13 @@ require 'time'
 
 module Akeyless
   class UscGetSecretOutput
+    attr_accessor :activation_date
+
     attr_accessor :binary_value
 
     attr_accessor :encryption_key
+
+    attr_accessor :expiration
 
     attr_accessor :id
 
@@ -36,8 +40,10 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'activation_date' => :'activation_date',
         :'binary_value' => :'binary_value',
         :'encryption_key' => :'encryption_key',
+        :'expiration' => :'expiration',
         :'id' => :'id',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -56,8 +62,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'activation_date' => :'Time',
         :'binary_value' => :'Boolean',
         :'encryption_key' => :'String',
+        :'expiration' => :'Time',
         :'id' => :'String',
         :'metadata' => :'Object',
         :'name' => :'String',
@@ -90,12 +98,20 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'activation_date')
+        self.activation_date = attributes[:'activation_date']
+      end
+
       if attributes.key?(:'binary_value')
         self.binary_value = attributes[:'binary_value']
       end
 
       if attributes.key?(:'encryption_key')
         self.encryption_key = attributes[:'encryption_key']
+      end
+
+      if attributes.key?(:'expiration')
+        self.expiration = attributes[:'expiration']
       end
 
       if attributes.key?(:'id')
@@ -151,8 +167,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          activation_date == o.activation_date &&
           binary_value == o.binary_value &&
           encryption_key == o.encryption_key &&
+          expiration == o.expiration &&
           id == o.id &&
           metadata == o.metadata &&
           name == o.name &&
@@ -171,7 +189,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, encryption_key, id, metadata, name, value, version_id, version_ids, warnings].hash
+      [activation_date, binary_value, encryption_key, expiration, id, metadata, name, value, version_id, version_ids, warnings].hash
     end
 
     # Builds the object from hash
