@@ -43,6 +43,7 @@
 | **conjur_url** | **String** | Conjur server base URL (relevant only for Conjur migration). If conjur-url is HTTPS and Conjur uses a private CA/self-signed certificate, make the CA bundle available on the Gateway and set CONJUR_SSL_CERT_PATH to its path. | [optional] |
 | **conjur_username** | **String** | Conjur username used to authenticate (relevant only for Conjur migration). | [optional] |
 | **delete_remote** | **Boolean** | Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration) | [optional] |
+| **exclude_hosts** | **String** | A comma separated list of IPs, CIDR ranges, or DNS names to exclude from the scan | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gcp_key** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) | [optional] |
 | **gcp_project_id** | **String** | GCP Project ID (cross-project override) | [optional] |
@@ -127,6 +128,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   conjur_url: null,
   conjur_username: null,
   delete_remote: null,
+  exclude_hosts: null,
   expiration_event_in: null,
   gcp_key: null,
   gcp_project_id: null,

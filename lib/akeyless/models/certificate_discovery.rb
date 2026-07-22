@@ -19,6 +19,9 @@ module Akeyless
     # Debug mode
     attr_accessor :debug
 
+    # A comma separated list of IP addresses, CIDR ranges, or DNS names to exclude from the scan
+    attr_accessor :exclude_hosts
+
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
 
@@ -47,6 +50,7 @@ module Akeyless
     def self.attribute_map
       {
         :'debug' => :'debug',
+        :'exclude_hosts' => :'exclude-hosts',
         :'expiration_event_in' => :'expiration-event-in',
         :'hosts' => :'hosts',
         :'json' => :'json',
@@ -67,6 +71,7 @@ module Akeyless
     def self.openapi_types
       {
         :'debug' => :'Boolean',
+        :'exclude_hosts' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'hosts' => :'String',
         :'json' => :'Boolean',
@@ -103,6 +108,10 @@ module Akeyless
         self.debug = attributes[:'debug']
       else
         self.debug = false
+      end
+
+      if attributes.key?(:'exclude_hosts')
+        self.exclude_hosts = attributes[:'exclude_hosts']
       end
 
       if attributes.key?(:'expiration_event_in')
@@ -179,6 +188,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           debug == o.debug &&
+          exclude_hosts == o.exclude_hosts &&
           expiration_event_in == o.expiration_event_in &&
           hosts == o.hosts &&
           json == o.json &&
@@ -198,7 +208,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [debug, expiration_event_in, hosts, json, port_ranges, protection_key, target_location, token, uid_token].hash
+      [debug, exclude_hosts, expiration_event_in, hosts, json, port_ranges, protection_key, target_location, token, uid_token].hash
     end
 
     # Builds the object from hash

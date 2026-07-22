@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **exclude_hosts** | **Array&lt;String&gt;** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **folder** | **String** |  | [optional] |
 | **max_dial_timeout** | **Integer** |  | [optional] |
@@ -18,6 +19,7 @@
 require 'akeyless'
 
 instance = Akeyless::CertificatePayload.new(
+  exclude_hosts: null,
   expiration_events: null,
   folder: null,
   max_dial_timeout: null,

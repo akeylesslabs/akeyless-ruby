@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class CertificatePayload
+    attr_accessor :exclude_hosts
+
     attr_accessor :expiration_events
 
     attr_accessor :folder
@@ -32,6 +34,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'exclude_hosts' => :'exclude_hosts',
         :'expiration_events' => :'expiration_events',
         :'folder' => :'folder',
         :'max_dial_timeout' => :'max_dial_timeout',
@@ -50,6 +53,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'exclude_hosts' => :'Array<String>',
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'folder' => :'String',
         :'max_dial_timeout' => :'Integer',
@@ -80,6 +84,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'exclude_hosts')
+        if (value = attributes[:'exclude_hosts']).is_a?(Array)
+          self.exclude_hosts = value
+        end
+      end
 
       if attributes.key?(:'expiration_events')
         if (value = attributes[:'expiration_events']).is_a?(Array)
@@ -134,6 +144,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          exclude_hosts == o.exclude_hosts &&
           expiration_events == o.expiration_events &&
           folder == o.folder &&
           max_dial_timeout == o.max_dial_timeout &&
@@ -152,7 +163,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [expiration_events, folder, max_dial_timeout, max_scan_duration, max_workers, port_ranges, targets].hash
+      [exclude_hosts, expiration_events, folder, max_dial_timeout, max_scan_duration, max_workers, port_ranges, targets].hash
     end
 
     # Builds the object from hash

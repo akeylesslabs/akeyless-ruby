@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **debug** | **Boolean** | Debug mode | [optional][default to false] |
+| **exclude_hosts** | **String** | A comma separated list of IP addresses, CIDR ranges, or DNS names to exclude from the scan | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **hosts** | **String** | A comma separated list of IPs, CIDR ranges, or DNS names to discovery |  |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -21,6 +22,7 @@ require 'akeyless'
 
 instance = Akeyless::CertificateDiscovery.new(
   debug: null,
+  exclude_hosts: null,
   expiration_event_in: null,
   hosts: null,
   json: null,

@@ -15,6 +15,8 @@ require 'time'
 
 module Akeyless
   class TargetTypeDetailsInput
+    attr_accessor :aerospike_target_details
+
     attr_accessor :anthropic_target_details
 
     attr_accessor :artifactory_target_details
@@ -102,6 +104,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aerospike_target_details' => :'aerospike_target_details',
         :'anthropic_target_details' => :'anthropic_target_details',
         :'artifactory_target_details' => :'artifactory_target_details',
         :'aws_target_details' => :'aws_target_details',
@@ -155,6 +158,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aerospike_target_details' => :'AerospikeTargetDetails',
         :'anthropic_target_details' => :'AnthropicTargetDetails',
         :'artifactory_target_details' => :'ArtifactoryTargetDetails',
         :'aws_target_details' => :'AWSTargetDetails',
@@ -220,6 +224,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aerospike_target_details')
+        self.aerospike_target_details = attributes[:'aerospike_target_details']
+      end
 
       if attributes.key?(:'anthropic_target_details')
         self.anthropic_target_details = attributes[:'anthropic_target_details']
@@ -410,6 +418,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aerospike_target_details == o.aerospike_target_details &&
           anthropic_target_details == o.anthropic_target_details &&
           artifactory_target_details == o.artifactory_target_details &&
           aws_target_details == o.aws_target_details &&
@@ -463,7 +472,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [anthropic_target_details, artifactory_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [aerospike_target_details, anthropic_target_details, artifactory_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

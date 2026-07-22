@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aerospike_target_details** | [**AerospikeTargetDetails**](AerospikeTargetDetails.md) |  | [optional] |
 | **anthropic_target_details** | [**AnthropicTargetDetails**](AnthropicTargetDetails.md) |  | [optional] |
 | **artifactory_target_details** | [**ArtifactoryTargetDetails**](ArtifactoryTargetDetails.md) |  | [optional] |
 | **aws_target_details** | [**AWSTargetDetails**](AWSTargetDetails.md) |  | [optional] |
@@ -53,6 +54,7 @@
 require 'akeyless'
 
 instance = Akeyless::TargetTypeDetailsInput.new(
+  aerospike_target_details: null,
   anthropic_target_details: null,
   artifactory_target_details: null,
   aws_target_details: null,

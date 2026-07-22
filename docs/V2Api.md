@@ -477,6 +477,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**static_creds_auth**](V2Api.md#static_creds_auth) | **POST** /static-creds-auth |  |
 | [**static_secret_delete_sync**](V2Api.md#static_secret_delete_sync) | **POST** /static-secret-delete-sync |  |
 | [**static_secret_sync**](V2Api.md#static_secret_sync) | **POST** /static-secret-sync |  |
+| [**target_create_aerospike**](V2Api.md#target_create_aerospike) | **POST** /target-create-aerospike |  |
 | [**target_create_anthropic**](V2Api.md#target_create_anthropic) | **POST** /target-create-anthropic |  |
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
@@ -519,6 +520,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_get**](V2Api.md#target_get) | **POST** /target-get |  |
 | [**target_get_details**](V2Api.md#target_get_details) | **POST** /target-get-details |  |
 | [**target_list**](V2Api.md#target_list) | **POST** /target-list |  |
+| [**target_update_aerospike**](V2Api.md#target_update_aerospike) | **POST** /target-update-aerospike |  |
 | [**target_update_anthropic**](V2Api.md#target_update_anthropic) | **POST** /target-update-anthropic |  |
 | [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
@@ -30001,6 +30003,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_aerospike
+
+> <TargetCreateOutput> target_create_aerospike(target_create_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_aerospike = Akeyless::TargetCreateAerospike.new({name: 'name_example'}) # TargetCreateAerospike | 
+
+begin
+  
+  result = api_instance.target_create_aerospike(target_create_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_aerospike: #{e}"
+end
+```
+
+#### Using the target_create_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_aerospike_with_http_info(target_create_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_aerospike_with_http_info(target_create_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_aerospike** | [**TargetCreateAerospike**](TargetCreateAerospike.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_anthropic
 
 > <TargetCreateOutput> target_create_anthropic(target_create_anthropic)
@@ -32594,6 +32658,68 @@ end
 ### Return type
 
 [**ListTargetsOutput**](ListTargetsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_aerospike
+
+> <TargetUpdateOutput> target_update_aerospike(target_update_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_aerospike = Akeyless::TargetUpdateAerospike.new({name: 'name_example'}) # TargetUpdateAerospike | 
+
+begin
+  
+  result = api_instance.target_update_aerospike(target_update_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_aerospike: #{e}"
+end
+```
+
+#### Using the target_update_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_aerospike_with_http_info(target_update_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_aerospike_with_http_info(target_update_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_aerospike** | [**TargetUpdateAerospike**](TargetUpdateAerospike.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
 
 ### Authorization
 

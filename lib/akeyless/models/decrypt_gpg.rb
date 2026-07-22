@@ -45,6 +45,9 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # key version (relevant only for classic key)
+    attr_accessor :version
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -57,7 +60,8 @@ module Akeyless
         :'output_format' => :'output-format',
         :'passphrase' => :'passphrase',
         :'token' => :'token',
-        :'uid_token' => :'uid-token'
+        :'uid_token' => :'uid-token',
+        :'version' => :'version'
       }
     end
 
@@ -78,7 +82,8 @@ module Akeyless
         :'output_format' => :'String',
         :'passphrase' => :'String',
         :'token' => :'String',
-        :'uid_token' => :'String'
+        :'uid_token' => :'String',
+        :'version' => :'Integer'
       }
     end
 
@@ -150,6 +155,10 @@ module Akeyless
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -191,7 +200,8 @@ module Akeyless
           output_format == o.output_format &&
           passphrase == o.passphrase &&
           token == o.token &&
-          uid_token == o.uid_token
+          uid_token == o.uid_token &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -203,7 +213,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ciphertext, display_id, input_format, item_id, json, key_name, output_format, passphrase, token, uid_token].hash
+      [ciphertext, display_id, input_format, item_id, json, key_name, output_format, passphrase, token, uid_token, version].hash
     end
 
     # Builds the object from hash

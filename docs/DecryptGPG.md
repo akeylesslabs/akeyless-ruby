@@ -14,6 +14,7 @@
 | **passphrase** | **String** | Passphrase that was used to generate the key | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **version** | **Integer** | key version (relevant only for classic key) | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = Akeyless::DecryptGPG.new(
   output_format: null,
   passphrase: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  version: null
 )
 ```
 
