@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **gcp_project_id** | **String** | The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **object_type** | **String** |  | [optional] |
 | **page_size** | **Integer** | Optional: number of items requested per response (Azure KV). When set, response may include next_token | [optional] |
@@ -18,6 +19,7 @@
 require 'akeyless'
 
 instance = Akeyless::UscList.new(
+  gcp_project_id: null,
   json: null,
   object_type: null,
   page_size: null,

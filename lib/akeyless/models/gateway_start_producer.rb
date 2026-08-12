@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayStartProducer is a command that starts producer [Deprecated: Use set-item-state command]
   class GatewayStartProducer
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
 
@@ -28,6 +31,9 @@ module Akeyless
     # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
     attr_accessor :output_rule
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -37,10 +43,12 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
+        :'skip_dry_run' => :'skip_dry_run',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -54,10 +62,12 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
+        :'skip_dry_run' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -84,6 +94,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
+
       if attributes.key?(:'input_rule')
         if (value = attributes[:'input_rule']).is_a?(Array)
           self.input_rule = value
@@ -106,6 +120,10 @@ module Akeyless
         if (value = attributes[:'output_rule']).is_a?(Array)
           self.output_rule = value
         end
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'token')
@@ -142,10 +160,12 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
           output_rule == o.output_rule &&
+          skip_dry_run == o.skip_dry_run &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -159,7 +179,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [input_rule, json, name, output_rule, token, uid_token].hash
+      [ara_enabled, input_rule, json, name, output_rule, skip_dry_run, token, uid_token].hash
     end
 
     # Builds the object from hash

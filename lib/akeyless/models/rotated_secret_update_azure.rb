@@ -27,6 +27,9 @@ module Akeyless
     # Id of the azure app that hold the serect to be rotated (relevant only for rotator-type=api-key & authentication-credentials=use-target-creds)
     attr_accessor :application_id
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
@@ -125,6 +128,9 @@ module Akeyless
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account)
     attr_accessor :storage_account_key_name
 
@@ -155,6 +161,7 @@ module Akeyless
         :'api_id' => :'api-id',
         :'api_key' => :'api-key',
         :'application_id' => :'application-id',
+        :'ara_enabled' => :'ara-enabled',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
@@ -189,6 +196,7 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
+        :'skip_dry_run' => :'skip_dry_run',
         :'storage_account_key_name' => :'storage-account-key-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -212,6 +220,7 @@ module Akeyless
         :'api_id' => :'String',
         :'api_key' => :'String',
         :'application_id' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
@@ -246,6 +255,7 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'storage_account_key_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -294,6 +304,10 @@ module Akeyless
 
       if attributes.key?(:'application_id')
         self.application_id = attributes[:'application_id']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'authentication_credentials')
@@ -458,6 +472,10 @@ module Akeyless
         self.secure_access_web_proxy = false
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'storage_account_key_name')
         self.storage_account_key_name = attributes[:'storage_account_key_name']
       end
@@ -520,6 +538,7 @@ module Akeyless
           api_id == o.api_id &&
           api_key == o.api_key &&
           application_id == o.application_id &&
+          ara_enabled == o.ara_enabled &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
@@ -554,6 +573,7 @@ module Akeyless
           secure_access_web == o.secure_access_web &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
+          skip_dry_run == o.skip_dry_run &&
           storage_account_key_name == o.storage_account_key_name &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -573,7 +593,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, api_id, api_key, application_id, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, lock_during_sra_session, max_versions, name, new_name, output_rule, password, password_length, resource_group_name, resource_name, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, storage_account_key_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
+      [add_tag, api_id, api_key, application_id, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, lock_during_sra_session, max_versions, name, new_name, output_rule, password, password_length, resource_group_name, resource_name, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, storage_account_key_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
     end
 
     # Builds the object from hash

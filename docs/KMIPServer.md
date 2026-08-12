@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** |  | [optional] |
 | **ca** | **Array&lt;Integer&gt;** |  | [optional] |
+| **cas** | [**Array&lt;KMIPCA&gt;**](KMIPCA.md) |  | [optional] |
 | **certificate** | **Array&lt;Integer&gt;** |  | [optional] |
 | **certificate_issue_date** | **Time** |  | [optional] |
 | **certificate_ttl_in_seconds** | **Integer** |  | [optional] |
@@ -21,6 +22,7 @@ require 'akeyless'
 instance = Akeyless::KMIPServer.new(
   active: null,
   ca: null,
+  cas: null,
   certificate: null,
   certificate_issue_date: null,
   certificate_ttl_in_seconds: null,

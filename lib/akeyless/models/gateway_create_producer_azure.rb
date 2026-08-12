@@ -19,6 +19,9 @@ module Akeyless
     # Azure App Object Id
     attr_accessor :app_obj_id
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Azure AD administrative unit (relevant only when azure-user-portal-access=true)
     attr_accessor :azure_administrative_unit
 
@@ -79,6 +82,9 @@ module Akeyless
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -124,6 +130,7 @@ module Akeyless
     def self.attribute_map
       {
         :'app_obj_id' => :'app-obj-id',
+        :'ara_enabled' => :'ara-enabled',
         :'azure_administrative_unit' => :'azure-administrative-unit',
         :'azure_client_id' => :'azure-client-id',
         :'azure_client_secret' => :'azure-client-secret',
@@ -144,6 +151,7 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -170,6 +178,7 @@ module Akeyless
     def self.openapi_types
       {
         :'app_obj_id' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'azure_administrative_unit' => :'String',
         :'azure_client_id' => :'String',
         :'azure_client_secret' => :'String',
@@ -190,6 +199,7 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -230,6 +240,10 @@ module Akeyless
 
       if attributes.key?(:'app_obj_id')
         self.app_obj_id = attributes[:'app_obj_id']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'azure_administrative_unit')
@@ -332,6 +346,10 @@ module Akeyless
         self.secure_access_web_proxy = false
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -423,6 +441,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           app_obj_id == o.app_obj_id &&
+          ara_enabled == o.ara_enabled &&
           azure_administrative_unit == o.azure_administrative_unit &&
           azure_client_id == o.azure_client_id &&
           azure_client_secret == o.azure_client_secret &&
@@ -443,6 +462,7 @@ module Akeyless
           secure_access_web == o.secure_access_web &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -468,7 +488,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_obj_id, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
+      [app_obj_id, ara_enabled, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
     end
 
     # Builds the object from hash

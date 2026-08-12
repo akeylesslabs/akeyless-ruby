@@ -18,6 +18,9 @@ module Akeyless
     # Define rotation interval in days
     attr_accessor :admin_rotation_interval_days
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create
     attr_accessor :create_sync_url
 
@@ -60,6 +63,9 @@ module Akeyless
     # URL of an endpoint that implements /sync/rotate method, for example https://webhook.example.com/sync/rotate
     attr_accessor :rotate_sync_url
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -79,6 +85,7 @@ module Akeyless
     def self.attribute_map
       {
         :'admin_rotation_interval_days' => :'admin-rotation-interval-days',
+        :'ara_enabled' => :'ara-enabled',
         :'create_sync_url' => :'create-sync-url',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -93,6 +100,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'revoke_sync_url' => :'revoke-sync-url',
         :'rotate_sync_url' => :'rotate-sync-url',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'timeout_sec' => :'timeout-sec',
         :'token' => :'token',
@@ -110,6 +118,7 @@ module Akeyless
     def self.openapi_types
       {
         :'admin_rotation_interval_days' => :'Integer',
+        :'ara_enabled' => :'Boolean',
         :'create_sync_url' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -124,6 +133,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'String',
         :'revoke_sync_url' => :'String',
         :'rotate_sync_url' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'timeout_sec' => :'Integer',
         :'token' => :'String',
@@ -155,6 +165,10 @@ module Akeyless
 
       if attributes.key?(:'admin_rotation_interval_days')
         self.admin_rotation_interval_days = attributes[:'admin_rotation_interval_days']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'create_sync_url')
@@ -229,6 +243,10 @@ module Akeyless
         self.rotate_sync_url = attributes[:'rotate_sync_url']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -292,6 +310,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           admin_rotation_interval_days == o.admin_rotation_interval_days &&
+          ara_enabled == o.ara_enabled &&
           create_sync_url == o.create_sync_url &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -306,6 +325,7 @@ module Akeyless
           producer_encryption_key_name == o.producer_encryption_key_name &&
           revoke_sync_url == o.revoke_sync_url &&
           rotate_sync_url == o.rotate_sync_url &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           timeout_sec == o.timeout_sec &&
           token == o.token &&
@@ -322,7 +342,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, create_sync_url, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, new_name, output_rule, payload, producer_encryption_key_name, revoke_sync_url, rotate_sync_url, tags, timeout_sec, token, uid_token, user_ttl].hash
+      [admin_rotation_interval_days, ara_enabled, create_sync_url, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, new_name, output_rule, payload, producer_encryption_key_name, revoke_sync_url, rotate_sync_url, skip_dry_run, tags, timeout_sec, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

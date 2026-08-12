@@ -22,6 +22,9 @@ module Akeyless
     # Description of the universal secrets
     attr_accessor :description
 
+    # The GCP project to create the secret in (GCP only). Required when the connector spans multiple projects or uses folder/organization scope.
+    attr_accessor :gcp_project_id
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -70,6 +73,7 @@ module Akeyless
       {
         :'binary_value' => :'binary-value',
         :'description' => :'description',
+        :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'namespace' => :'namespace',
         :'object_type' => :'object-type',
@@ -98,6 +102,7 @@ module Akeyless
       {
         :'binary_value' => :'Boolean',
         :'description' => :'String',
+        :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
         :'object_type' => :'String',
@@ -143,6 +148,10 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
       end
 
       if attributes.key?(:'json')
@@ -253,6 +262,7 @@ module Akeyless
       self.class == o.class &&
           binary_value == o.binary_value &&
           description == o.description &&
+          gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           namespace == o.namespace &&
           object_type == o.object_type &&
@@ -279,7 +289,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [binary_value, description, gcp_project_id, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

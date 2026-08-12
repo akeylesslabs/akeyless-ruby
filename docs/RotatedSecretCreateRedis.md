@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
@@ -22,6 +23,7 @@
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval** | **String** |  | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/password] |  |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -37,6 +39,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretCreateRedis.new(
+  ara_enabled: null,
   authentication_credentials: null,
   auto_rotate: null,
   delete_protection: null,
@@ -55,6 +58,7 @@ instance = Akeyless::RotatedSecretCreateRedis.new(
   rotation_hour: null,
   rotation_interval: null,
   rotator_type: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

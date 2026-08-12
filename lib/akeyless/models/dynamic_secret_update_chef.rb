@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateChef is a command that updates chef dynamic secret
   class DynamicSecretUpdateChef
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Organizations
     attr_accessor :chef_orgs
 
@@ -64,6 +67,9 @@ module Akeyless
     # Skip SSL
     attr_accessor :skip_ssl
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -93,6 +99,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'chef_orgs' => :'chef-orgs',
         :'chef_server_key' => :'chef-server-key',
         :'chef_server_url' => :'chef-server-url',
@@ -109,6 +116,7 @@ module Akeyless
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'skip_ssl' => :'skip-ssl',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -129,6 +137,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'chef_orgs' => :'String',
         :'chef_server_key' => :'String',
         :'chef_server_url' => :'String',
@@ -145,6 +154,7 @@ module Akeyless
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
         :'skip_ssl' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -177,6 +187,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'chef_orgs')
         self.chef_orgs = attributes[:'chef_orgs']
@@ -254,6 +268,10 @@ module Akeyless
         self.skip_ssl = true
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -320,6 +338,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           chef_orgs == o.chef_orgs &&
           chef_server_key == o.chef_server_key &&
           chef_server_url == o.chef_server_url &&
@@ -336,6 +355,7 @@ module Akeyless
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           skip_ssl == o.skip_ssl &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -356,7 +376,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [chef_orgs, chef_server_key, chef_server_url, chef_server_username, custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_ssl, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [ara_enabled, chef_orgs, chef_server_key, chef_server_url, chef_server_username, custom_username_template, delete_protection, description, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_ssl, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

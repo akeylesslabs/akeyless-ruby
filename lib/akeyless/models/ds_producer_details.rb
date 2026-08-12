@@ -29,6 +29,40 @@ module Akeyless
 
     attr_accessor :administrative_port
 
+    attr_accessor :aerospike_admin_username
+
+    attr_accessor :aerospike_client_certificate
+
+    attr_accessor :aerospike_client_id
+
+    attr_accessor :aerospike_client_private_key
+
+    attr_accessor :aerospike_client_secret
+
+    attr_accessor :aerospike_cloud
+
+    attr_accessor :aerospike_cluster_id
+
+    attr_accessor :aerospike_db_server_name
+
+    attr_accessor :aerospike_enable_mtls
+
+    attr_accessor :aerospike_hostname
+
+    attr_accessor :aerospike_namespace
+
+    attr_accessor :aerospike_password
+
+    attr_accessor :aerospike_port
+
+    attr_accessor :aerospike_roles
+
+    attr_accessor :aerospike_skip_server_name_validation
+
+    attr_accessor :aerospike_ssl_connection_certificate
+
+    attr_accessor :aerospike_ssl_connection_mode
+
     attr_accessor :agentic_rules
 
     attr_accessor :api_key
@@ -44,6 +78,9 @@ module Akeyless
     attr_accessor :artifactory_token_audience
 
     attr_accessor :artifactory_token_scope
+
+    # AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below.
+    attr_accessor :auth_mode
 
     attr_accessor :authorization_port
 
@@ -68,6 +105,8 @@ module Akeyless
     attr_accessor :aws_user_console_access
 
     attr_accessor :aws_user_groups
+
+    attr_accessor :aws_user_name
 
     attr_accessor :aws_user_policies
 
@@ -437,6 +476,18 @@ module Akeyless
 
     attr_accessor :mysql_revocation_statements
 
+    # OAuthAccessToken is the current ChatGPT-issued access token (the `tokens.access_token` field of the customer's local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived.
+    attr_accessor :oauth_access_token
+
+    # OAuthAccountID is the ChatGPT workspace/account id (`tokens.account_id` in auth.json), required on every request to the ChatGPT backend.
+    attr_accessor :oauth_account_id
+
+    # OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token's JWT exp claim can't be parsed.
+    attr_accessor :oauth_last_refresh
+
+    # OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid.
+    attr_accessor :oauth_refresh_token
+
     attr_accessor :openai_url
 
     attr_accessor :oracle_creation_statements
@@ -520,6 +571,8 @@ module Akeyless
 
     attr_accessor :signing_algorithm
 
+    attr_accessor :skip_dry_run
+
     # (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \"skip hostname validation\"; MySQL treats empty as false.
     attr_accessor :skip_server_name_validation
 
@@ -599,6 +652,23 @@ module Akeyless
         :'admin_pwd' => :'admin_pwd',
         :'admin_rotation_interval_days' => :'admin_rotation_interval_days',
         :'administrative_port' => :'administrative_port',
+        :'aerospike_admin_username' => :'aerospike_admin_username',
+        :'aerospike_client_certificate' => :'aerospike_client_certificate',
+        :'aerospike_client_id' => :'aerospike_client_id',
+        :'aerospike_client_private_key' => :'aerospike_client_private_key',
+        :'aerospike_client_secret' => :'aerospike_client_secret',
+        :'aerospike_cloud' => :'aerospike_cloud',
+        :'aerospike_cluster_id' => :'aerospike_cluster_id',
+        :'aerospike_db_server_name' => :'aerospike_db_server_name',
+        :'aerospike_enable_mtls' => :'aerospike_enable_mtls',
+        :'aerospike_hostname' => :'aerospike_hostname',
+        :'aerospike_namespace' => :'aerospike_namespace',
+        :'aerospike_password' => :'aerospike_password',
+        :'aerospike_port' => :'aerospike_port',
+        :'aerospike_roles' => :'aerospike_roles',
+        :'aerospike_skip_server_name_validation' => :'aerospike_skip_server_name_validation',
+        :'aerospike_ssl_connection_certificate' => :'aerospike_ssl_connection_certificate',
+        :'aerospike_ssl_connection_mode' => :'aerospike_ssl_connection_mode',
         :'agentic_rules' => :'agentic_rules',
         :'api_key' => :'api_key',
         :'api_key_id' => :'api_key_id',
@@ -607,6 +677,7 @@ module Akeyless
         :'artifactory_base_url' => :'artifactory_base_url',
         :'artifactory_token_audience' => :'artifactory_token_audience',
         :'artifactory_token_scope' => :'artifactory_token_scope',
+        :'auth_mode' => :'auth_mode',
         :'authorization_port' => :'authorization_port',
         :'aws_access_key_id' => :'aws_access_key_id',
         :'aws_access_mode' => :'aws_access_mode',
@@ -619,6 +690,7 @@ module Akeyless
         :'aws_transitive_tag_keys' => :'aws_transitive_tag_keys',
         :'aws_user_console_access' => :'aws_user_console_access',
         :'aws_user_groups' => :'aws_user_groups',
+        :'aws_user_name' => :'aws_user_name',
         :'aws_user_policies' => :'aws_user_policies',
         :'aws_user_programmatic_access' => :'aws_user_programmatic_access',
         :'azure_administrative_unit' => :'azure_administrative_unit',
@@ -793,6 +865,10 @@ module Akeyless
         :'mssql_revocation_statements' => :'mssql_revocation_statements',
         :'mysql_creation_statements' => :'mysql_creation_statements',
         :'mysql_revocation_statements' => :'mysql_revocation_statements',
+        :'oauth_access_token' => :'oauth_access_token',
+        :'oauth_account_id' => :'oauth_account_id',
+        :'oauth_last_refresh' => :'oauth_last_refresh',
+        :'oauth_refresh_token' => :'oauth_refresh_token',
         :'openai_url' => :'openai_url',
         :'oracle_creation_statements' => :'oracle_creation_statements',
         :'oracle_revocation_statements' => :'oracle_revocation_statements',
@@ -833,6 +909,7 @@ module Akeyless
         :'sf_warehouse_name' => :'sf_warehouse_name',
         :'should_stop' => :'should_stop',
         :'signing_algorithm' => :'signing_algorithm',
+        :'skip_dry_run' => :'skip_dry_run',
         :'skip_server_name_validation' => :'skip_server_name_validation',
         :'ssl_connection_certificate' => :'ssl_connection_certificate',
         :'ssl_connection_mode' => :'ssl_connection_mode',
@@ -883,6 +960,23 @@ module Akeyless
         :'admin_pwd' => :'String',
         :'admin_rotation_interval_days' => :'Integer',
         :'administrative_port' => :'String',
+        :'aerospike_admin_username' => :'String',
+        :'aerospike_client_certificate' => :'String',
+        :'aerospike_client_id' => :'String',
+        :'aerospike_client_private_key' => :'String',
+        :'aerospike_client_secret' => :'String',
+        :'aerospike_cloud' => :'Boolean',
+        :'aerospike_cluster_id' => :'String',
+        :'aerospike_db_server_name' => :'String',
+        :'aerospike_enable_mtls' => :'Boolean',
+        :'aerospike_hostname' => :'String',
+        :'aerospike_namespace' => :'String',
+        :'aerospike_password' => :'String',
+        :'aerospike_port' => :'String',
+        :'aerospike_roles' => :'Array<String>',
+        :'aerospike_skip_server_name_validation' => :'String',
+        :'aerospike_ssl_connection_certificate' => :'String',
+        :'aerospike_ssl_connection_mode' => :'Boolean',
         :'agentic_rules' => :'AgenticRules',
         :'api_key' => :'String',
         :'api_key_id' => :'String',
@@ -891,6 +985,7 @@ module Akeyless
         :'artifactory_base_url' => :'String',
         :'artifactory_token_audience' => :'String',
         :'artifactory_token_scope' => :'String',
+        :'auth_mode' => :'String',
         :'authorization_port' => :'String',
         :'aws_access_key_id' => :'String',
         :'aws_access_mode' => :'String',
@@ -903,6 +998,7 @@ module Akeyless
         :'aws_transitive_tag_keys' => :'String',
         :'aws_user_console_access' => :'Boolean',
         :'aws_user_groups' => :'String',
+        :'aws_user_name' => :'String',
         :'aws_user_policies' => :'String',
         :'aws_user_programmatic_access' => :'Boolean',
         :'azure_administrative_unit' => :'String',
@@ -1077,6 +1173,10 @@ module Akeyless
         :'mssql_revocation_statements' => :'String',
         :'mysql_creation_statements' => :'String',
         :'mysql_revocation_statements' => :'String',
+        :'oauth_access_token' => :'String',
+        :'oauth_account_id' => :'String',
+        :'oauth_last_refresh' => :'String',
+        :'oauth_refresh_token' => :'String',
         :'openai_url' => :'String',
         :'oracle_creation_statements' => :'String',
         :'oracle_revocation_statements' => :'String',
@@ -1117,6 +1217,7 @@ module Akeyless
         :'sf_warehouse_name' => :'String',
         :'should_stop' => :'String',
         :'signing_algorithm' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'skip_server_name_validation' => :'String',
         :'ssl_connection_certificate' => :'String',
         :'ssl_connection_mode' => :'Boolean',
@@ -1203,6 +1304,76 @@ module Akeyless
         self.administrative_port = attributes[:'administrative_port']
       end
 
+      if attributes.key?(:'aerospike_admin_username')
+        self.aerospike_admin_username = attributes[:'aerospike_admin_username']
+      end
+
+      if attributes.key?(:'aerospike_client_certificate')
+        self.aerospike_client_certificate = attributes[:'aerospike_client_certificate']
+      end
+
+      if attributes.key?(:'aerospike_client_id')
+        self.aerospike_client_id = attributes[:'aerospike_client_id']
+      end
+
+      if attributes.key?(:'aerospike_client_private_key')
+        self.aerospike_client_private_key = attributes[:'aerospike_client_private_key']
+      end
+
+      if attributes.key?(:'aerospike_client_secret')
+        self.aerospike_client_secret = attributes[:'aerospike_client_secret']
+      end
+
+      if attributes.key?(:'aerospike_cloud')
+        self.aerospike_cloud = attributes[:'aerospike_cloud']
+      end
+
+      if attributes.key?(:'aerospike_cluster_id')
+        self.aerospike_cluster_id = attributes[:'aerospike_cluster_id']
+      end
+
+      if attributes.key?(:'aerospike_db_server_name')
+        self.aerospike_db_server_name = attributes[:'aerospike_db_server_name']
+      end
+
+      if attributes.key?(:'aerospike_enable_mtls')
+        self.aerospike_enable_mtls = attributes[:'aerospike_enable_mtls']
+      end
+
+      if attributes.key?(:'aerospike_hostname')
+        self.aerospike_hostname = attributes[:'aerospike_hostname']
+      end
+
+      if attributes.key?(:'aerospike_namespace')
+        self.aerospike_namespace = attributes[:'aerospike_namespace']
+      end
+
+      if attributes.key?(:'aerospike_password')
+        self.aerospike_password = attributes[:'aerospike_password']
+      end
+
+      if attributes.key?(:'aerospike_port')
+        self.aerospike_port = attributes[:'aerospike_port']
+      end
+
+      if attributes.key?(:'aerospike_roles')
+        if (value = attributes[:'aerospike_roles']).is_a?(Array)
+          self.aerospike_roles = value
+        end
+      end
+
+      if attributes.key?(:'aerospike_skip_server_name_validation')
+        self.aerospike_skip_server_name_validation = attributes[:'aerospike_skip_server_name_validation']
+      end
+
+      if attributes.key?(:'aerospike_ssl_connection_certificate')
+        self.aerospike_ssl_connection_certificate = attributes[:'aerospike_ssl_connection_certificate']
+      end
+
+      if attributes.key?(:'aerospike_ssl_connection_mode')
+        self.aerospike_ssl_connection_mode = attributes[:'aerospike_ssl_connection_mode']
+      end
+
       if attributes.key?(:'agentic_rules')
         self.agentic_rules = attributes[:'agentic_rules']
       end
@@ -1233,6 +1404,10 @@ module Akeyless
 
       if attributes.key?(:'artifactory_token_scope')
         self.artifactory_token_scope = attributes[:'artifactory_token_scope']
+      end
+
+      if attributes.key?(:'auth_mode')
+        self.auth_mode = attributes[:'auth_mode']
       end
 
       if attributes.key?(:'authorization_port')
@@ -1281,6 +1456,10 @@ module Akeyless
 
       if attributes.key?(:'aws_user_groups')
         self.aws_user_groups = attributes[:'aws_user_groups']
+      end
+
+      if attributes.key?(:'aws_user_name')
+        self.aws_user_name = attributes[:'aws_user_name']
       end
 
       if attributes.key?(:'aws_user_policies')
@@ -1997,6 +2176,22 @@ module Akeyless
         self.mysql_revocation_statements = attributes[:'mysql_revocation_statements']
       end
 
+      if attributes.key?(:'oauth_access_token')
+        self.oauth_access_token = attributes[:'oauth_access_token']
+      end
+
+      if attributes.key?(:'oauth_account_id')
+        self.oauth_account_id = attributes[:'oauth_account_id']
+      end
+
+      if attributes.key?(:'oauth_last_refresh')
+        self.oauth_last_refresh = attributes[:'oauth_last_refresh']
+      end
+
+      if attributes.key?(:'oauth_refresh_token')
+        self.oauth_refresh_token = attributes[:'oauth_refresh_token']
+      end
+
       if attributes.key?(:'openai_url')
         self.openai_url = attributes[:'openai_url']
       end
@@ -2163,6 +2358,10 @@ module Akeyless
         self.signing_algorithm = attributes[:'signing_algorithm']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'skip_server_name_validation')
         self.skip_server_name_validation = attributes[:'skip_server_name_validation']
       end
@@ -2323,6 +2522,23 @@ module Akeyless
           admin_pwd == o.admin_pwd &&
           admin_rotation_interval_days == o.admin_rotation_interval_days &&
           administrative_port == o.administrative_port &&
+          aerospike_admin_username == o.aerospike_admin_username &&
+          aerospike_client_certificate == o.aerospike_client_certificate &&
+          aerospike_client_id == o.aerospike_client_id &&
+          aerospike_client_private_key == o.aerospike_client_private_key &&
+          aerospike_client_secret == o.aerospike_client_secret &&
+          aerospike_cloud == o.aerospike_cloud &&
+          aerospike_cluster_id == o.aerospike_cluster_id &&
+          aerospike_db_server_name == o.aerospike_db_server_name &&
+          aerospike_enable_mtls == o.aerospike_enable_mtls &&
+          aerospike_hostname == o.aerospike_hostname &&
+          aerospike_namespace == o.aerospike_namespace &&
+          aerospike_password == o.aerospike_password &&
+          aerospike_port == o.aerospike_port &&
+          aerospike_roles == o.aerospike_roles &&
+          aerospike_skip_server_name_validation == o.aerospike_skip_server_name_validation &&
+          aerospike_ssl_connection_certificate == o.aerospike_ssl_connection_certificate &&
+          aerospike_ssl_connection_mode == o.aerospike_ssl_connection_mode &&
           agentic_rules == o.agentic_rules &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
@@ -2331,6 +2547,7 @@ module Akeyless
           artifactory_base_url == o.artifactory_base_url &&
           artifactory_token_audience == o.artifactory_token_audience &&
           artifactory_token_scope == o.artifactory_token_scope &&
+          auth_mode == o.auth_mode &&
           authorization_port == o.authorization_port &&
           aws_access_key_id == o.aws_access_key_id &&
           aws_access_mode == o.aws_access_mode &&
@@ -2343,6 +2560,7 @@ module Akeyless
           aws_transitive_tag_keys == o.aws_transitive_tag_keys &&
           aws_user_console_access == o.aws_user_console_access &&
           aws_user_groups == o.aws_user_groups &&
+          aws_user_name == o.aws_user_name &&
           aws_user_policies == o.aws_user_policies &&
           aws_user_programmatic_access == o.aws_user_programmatic_access &&
           azure_administrative_unit == o.azure_administrative_unit &&
@@ -2517,6 +2735,10 @@ module Akeyless
           mssql_revocation_statements == o.mssql_revocation_statements &&
           mysql_creation_statements == o.mysql_creation_statements &&
           mysql_revocation_statements == o.mysql_revocation_statements &&
+          oauth_access_token == o.oauth_access_token &&
+          oauth_account_id == o.oauth_account_id &&
+          oauth_last_refresh == o.oauth_last_refresh &&
+          oauth_refresh_token == o.oauth_refresh_token &&
           openai_url == o.openai_url &&
           oracle_creation_statements == o.oracle_creation_statements &&
           oracle_revocation_statements == o.oracle_revocation_statements &&
@@ -2557,6 +2779,7 @@ module Akeyless
           sf_warehouse_name == o.sf_warehouse_name &&
           should_stop == o.should_stop &&
           signing_algorithm == o.signing_algorithm &&
+          skip_dry_run == o.skip_dry_run &&
           skip_server_name_validation == o.skip_server_name_validation &&
           ssl_connection_certificate == o.ssl_connection_certificate &&
           ssl_connection_mode == o.ssl_connection_mode &&
@@ -2600,7 +2823,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, agentic_rules, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_cloud, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enable_mtls, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_access_type, gcp_fixed_user_claim_keyname, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_role_names, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_allowed_db_names, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, password_policy_info, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, preserve_existing_password_settings, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
+      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, aerospike_admin_username, aerospike_client_certificate, aerospike_client_id, aerospike_client_private_key, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, aerospike_db_server_name, aerospike_enable_mtls, aerospike_hostname, aerospike_namespace, aerospike_password, aerospike_port, aerospike_roles, aerospike_skip_server_name_validation, aerospike_ssl_connection_certificate, aerospike_ssl_connection_mode, agentic_rules, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, auth_mode, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_name, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_cloud, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enable_mtls, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_access_type, gcp_fixed_user_claim_keyname, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_role_names, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_allowed_db_names, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oauth_access_token, oauth_account_id, oauth_last_refresh, oauth_refresh_token, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, password_policy_info, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, preserve_existing_password_settings, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, skip_dry_run, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
     end
 
     # Builds the object from hash

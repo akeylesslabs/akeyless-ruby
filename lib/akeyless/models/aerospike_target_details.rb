@@ -17,13 +17,21 @@ module Akeyless
   class AerospikeTargetDetails
     attr_accessor :aerospike_admin_username
 
+    attr_accessor :aerospike_client_certificate
+
     attr_accessor :aerospike_client_id
+
+    attr_accessor :aerospike_client_private_key
 
     attr_accessor :aerospike_client_secret
 
     attr_accessor :aerospike_cloud
 
     attr_accessor :aerospike_cluster_id
+
+    attr_accessor :aerospike_db_server_name
+
+    attr_accessor :aerospike_enable_mtls
 
     attr_accessor :aerospike_hostname
 
@@ -33,100 +41,31 @@ module Akeyless
 
     attr_accessor :aerospike_port
 
-    # (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field
-    attr_accessor :client_certificate
+    attr_accessor :aerospike_skip_server_name_validation
 
-    # (Optional) ClientKeyPassphrase defines the passphrase for the client private key
-    attr_accessor :client_key_passphrase
+    attr_accessor :aerospike_ssl_connection_certificate
 
-    # (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field
-    attr_accessor :client_private_key
-
-    attr_accessor :cloud_service_provider
-
-    attr_accessor :cluster_mode
-
-    attr_accessor :connection_type
-
-    attr_accessor :db_client_id
-
-    attr_accessor :db_client_secret
-
-    attr_accessor :db_host_name
-
-    attr_accessor :db_name
-
-    attr_accessor :db_port
-
-    # (Optional) Private Key in PEM format
-    attr_accessor :db_private_key
-
-    attr_accessor :db_private_key_passphrase
-
-    attr_accessor :db_pwd
-
-    # (Optional) DBServerCertificates defines the set of root certificate authorities that clients use when verifying server certificates. If DBServerCertificates is empty, TLS uses the host's root CA set.
-    attr_accessor :db_server_certificates
-
-    # (Optional) ServerName is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address.
-    attr_accessor :db_server_name
-
-    attr_accessor :db_tenant_id
-
-    attr_accessor :db_user_name
-
-    # (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB
-    attr_accessor :enable_mtls
-
-    attr_accessor :oracle_wallet_details
-
-    attr_accessor :sf_account
-
-    # (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \"skip hostname validation\"; MySQL treats empty as false.
-    attr_accessor :skip_server_name_validation
-
-    # (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
-    attr_accessor :ssl_connection_certificate
-
-    # (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB
-    attr_accessor :ssl_connection_mode
+    attr_accessor :aerospike_ssl_connection_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'aerospike_admin_username' => :'aerospike_admin_username',
+        :'aerospike_client_certificate' => :'aerospike_client_certificate',
         :'aerospike_client_id' => :'aerospike_client_id',
+        :'aerospike_client_private_key' => :'aerospike_client_private_key',
         :'aerospike_client_secret' => :'aerospike_client_secret',
         :'aerospike_cloud' => :'aerospike_cloud',
         :'aerospike_cluster_id' => :'aerospike_cluster_id',
+        :'aerospike_db_server_name' => :'aerospike_db_server_name',
+        :'aerospike_enable_mtls' => :'aerospike_enable_mtls',
         :'aerospike_hostname' => :'aerospike_hostname',
         :'aerospike_namespace' => :'aerospike_namespace',
         :'aerospike_password' => :'aerospike_password',
         :'aerospike_port' => :'aerospike_port',
-        :'client_certificate' => :'client_certificate',
-        :'client_key_passphrase' => :'client_key_passphrase',
-        :'client_private_key' => :'client_private_key',
-        :'cloud_service_provider' => :'cloud_service_provider',
-        :'cluster_mode' => :'cluster_mode',
-        :'connection_type' => :'connection_type',
-        :'db_client_id' => :'db_client_id',
-        :'db_client_secret' => :'db_client_secret',
-        :'db_host_name' => :'db_host_name',
-        :'db_name' => :'db_name',
-        :'db_port' => :'db_port',
-        :'db_private_key' => :'db_private_key',
-        :'db_private_key_passphrase' => :'db_private_key_passphrase',
-        :'db_pwd' => :'db_pwd',
-        :'db_server_certificates' => :'db_server_certificates',
-        :'db_server_name' => :'db_server_name',
-        :'db_tenant_id' => :'db_tenant_id',
-        :'db_user_name' => :'db_user_name',
-        :'enable_mtls' => :'enable_mtls',
-        :'oracle_wallet_details' => :'oracle_wallet_details',
-        :'sf_account' => :'sf_account',
-        :'skip_server_name_validation' => :'skip_server_name_validation',
-        :'ssl_connection_certificate' => :'ssl_connection_certificate',
-        :'ssl_connection_mode' => :'ssl_connection_mode'
+        :'aerospike_skip_server_name_validation' => :'aerospike_skip_server_name_validation',
+        :'aerospike_ssl_connection_certificate' => :'aerospike_ssl_connection_certificate',
+        :'aerospike_ssl_connection_mode' => :'aerospike_ssl_connection_mode'
       }
     end
 
@@ -139,38 +78,21 @@ module Akeyless
     def self.openapi_types
       {
         :'aerospike_admin_username' => :'String',
+        :'aerospike_client_certificate' => :'String',
         :'aerospike_client_id' => :'String',
+        :'aerospike_client_private_key' => :'String',
         :'aerospike_client_secret' => :'String',
         :'aerospike_cloud' => :'Boolean',
         :'aerospike_cluster_id' => :'String',
+        :'aerospike_db_server_name' => :'String',
+        :'aerospike_enable_mtls' => :'Boolean',
         :'aerospike_hostname' => :'String',
         :'aerospike_namespace' => :'String',
         :'aerospike_password' => :'String',
         :'aerospike_port' => :'String',
-        :'client_certificate' => :'String',
-        :'client_key_passphrase' => :'String',
-        :'client_private_key' => :'String',
-        :'cloud_service_provider' => :'String',
-        :'cluster_mode' => :'Boolean',
-        :'connection_type' => :'String',
-        :'db_client_id' => :'String',
-        :'db_client_secret' => :'String',
-        :'db_host_name' => :'String',
-        :'db_name' => :'String',
-        :'db_port' => :'String',
-        :'db_private_key' => :'String',
-        :'db_private_key_passphrase' => :'String',
-        :'db_pwd' => :'String',
-        :'db_server_certificates' => :'String',
-        :'db_server_name' => :'String',
-        :'db_tenant_id' => :'String',
-        :'db_user_name' => :'String',
-        :'enable_mtls' => :'Boolean',
-        :'oracle_wallet_details' => :'WalletDetails',
-        :'sf_account' => :'String',
-        :'skip_server_name_validation' => :'String',
-        :'ssl_connection_certificate' => :'String',
-        :'ssl_connection_mode' => :'Boolean'
+        :'aerospike_skip_server_name_validation' => :'String',
+        :'aerospike_ssl_connection_certificate' => :'String',
+        :'aerospike_ssl_connection_mode' => :'Boolean'
       }
     end
 
@@ -199,8 +121,16 @@ module Akeyless
         self.aerospike_admin_username = attributes[:'aerospike_admin_username']
       end
 
+      if attributes.key?(:'aerospike_client_certificate')
+        self.aerospike_client_certificate = attributes[:'aerospike_client_certificate']
+      end
+
       if attributes.key?(:'aerospike_client_id')
         self.aerospike_client_id = attributes[:'aerospike_client_id']
+      end
+
+      if attributes.key?(:'aerospike_client_private_key')
+        self.aerospike_client_private_key = attributes[:'aerospike_client_private_key']
       end
 
       if attributes.key?(:'aerospike_client_secret')
@@ -213,6 +143,14 @@ module Akeyless
 
       if attributes.key?(:'aerospike_cluster_id')
         self.aerospike_cluster_id = attributes[:'aerospike_cluster_id']
+      end
+
+      if attributes.key?(:'aerospike_db_server_name')
+        self.aerospike_db_server_name = attributes[:'aerospike_db_server_name']
+      end
+
+      if attributes.key?(:'aerospike_enable_mtls')
+        self.aerospike_enable_mtls = attributes[:'aerospike_enable_mtls']
       end
 
       if attributes.key?(:'aerospike_hostname')
@@ -231,100 +169,16 @@ module Akeyless
         self.aerospike_port = attributes[:'aerospike_port']
       end
 
-      if attributes.key?(:'client_certificate')
-        self.client_certificate = attributes[:'client_certificate']
+      if attributes.key?(:'aerospike_skip_server_name_validation')
+        self.aerospike_skip_server_name_validation = attributes[:'aerospike_skip_server_name_validation']
       end
 
-      if attributes.key?(:'client_key_passphrase')
-        self.client_key_passphrase = attributes[:'client_key_passphrase']
+      if attributes.key?(:'aerospike_ssl_connection_certificate')
+        self.aerospike_ssl_connection_certificate = attributes[:'aerospike_ssl_connection_certificate']
       end
 
-      if attributes.key?(:'client_private_key')
-        self.client_private_key = attributes[:'client_private_key']
-      end
-
-      if attributes.key?(:'cloud_service_provider')
-        self.cloud_service_provider = attributes[:'cloud_service_provider']
-      end
-
-      if attributes.key?(:'cluster_mode')
-        self.cluster_mode = attributes[:'cluster_mode']
-      end
-
-      if attributes.key?(:'connection_type')
-        self.connection_type = attributes[:'connection_type']
-      end
-
-      if attributes.key?(:'db_client_id')
-        self.db_client_id = attributes[:'db_client_id']
-      end
-
-      if attributes.key?(:'db_client_secret')
-        self.db_client_secret = attributes[:'db_client_secret']
-      end
-
-      if attributes.key?(:'db_host_name')
-        self.db_host_name = attributes[:'db_host_name']
-      end
-
-      if attributes.key?(:'db_name')
-        self.db_name = attributes[:'db_name']
-      end
-
-      if attributes.key?(:'db_port')
-        self.db_port = attributes[:'db_port']
-      end
-
-      if attributes.key?(:'db_private_key')
-        self.db_private_key = attributes[:'db_private_key']
-      end
-
-      if attributes.key?(:'db_private_key_passphrase')
-        self.db_private_key_passphrase = attributes[:'db_private_key_passphrase']
-      end
-
-      if attributes.key?(:'db_pwd')
-        self.db_pwd = attributes[:'db_pwd']
-      end
-
-      if attributes.key?(:'db_server_certificates')
-        self.db_server_certificates = attributes[:'db_server_certificates']
-      end
-
-      if attributes.key?(:'db_server_name')
-        self.db_server_name = attributes[:'db_server_name']
-      end
-
-      if attributes.key?(:'db_tenant_id')
-        self.db_tenant_id = attributes[:'db_tenant_id']
-      end
-
-      if attributes.key?(:'db_user_name')
-        self.db_user_name = attributes[:'db_user_name']
-      end
-
-      if attributes.key?(:'enable_mtls')
-        self.enable_mtls = attributes[:'enable_mtls']
-      end
-
-      if attributes.key?(:'oracle_wallet_details')
-        self.oracle_wallet_details = attributes[:'oracle_wallet_details']
-      end
-
-      if attributes.key?(:'sf_account')
-        self.sf_account = attributes[:'sf_account']
-      end
-
-      if attributes.key?(:'skip_server_name_validation')
-        self.skip_server_name_validation = attributes[:'skip_server_name_validation']
-      end
-
-      if attributes.key?(:'ssl_connection_certificate')
-        self.ssl_connection_certificate = attributes[:'ssl_connection_certificate']
-      end
-
-      if attributes.key?(:'ssl_connection_mode')
-        self.ssl_connection_mode = attributes[:'ssl_connection_mode']
+      if attributes.key?(:'aerospike_ssl_connection_mode')
+        self.aerospike_ssl_connection_mode = attributes[:'aerospike_ssl_connection_mode']
       end
     end
 
@@ -349,38 +203,21 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           aerospike_admin_username == o.aerospike_admin_username &&
+          aerospike_client_certificate == o.aerospike_client_certificate &&
           aerospike_client_id == o.aerospike_client_id &&
+          aerospike_client_private_key == o.aerospike_client_private_key &&
           aerospike_client_secret == o.aerospike_client_secret &&
           aerospike_cloud == o.aerospike_cloud &&
           aerospike_cluster_id == o.aerospike_cluster_id &&
+          aerospike_db_server_name == o.aerospike_db_server_name &&
+          aerospike_enable_mtls == o.aerospike_enable_mtls &&
           aerospike_hostname == o.aerospike_hostname &&
           aerospike_namespace == o.aerospike_namespace &&
           aerospike_password == o.aerospike_password &&
           aerospike_port == o.aerospike_port &&
-          client_certificate == o.client_certificate &&
-          client_key_passphrase == o.client_key_passphrase &&
-          client_private_key == o.client_private_key &&
-          cloud_service_provider == o.cloud_service_provider &&
-          cluster_mode == o.cluster_mode &&
-          connection_type == o.connection_type &&
-          db_client_id == o.db_client_id &&
-          db_client_secret == o.db_client_secret &&
-          db_host_name == o.db_host_name &&
-          db_name == o.db_name &&
-          db_port == o.db_port &&
-          db_private_key == o.db_private_key &&
-          db_private_key_passphrase == o.db_private_key_passphrase &&
-          db_pwd == o.db_pwd &&
-          db_server_certificates == o.db_server_certificates &&
-          db_server_name == o.db_server_name &&
-          db_tenant_id == o.db_tenant_id &&
-          db_user_name == o.db_user_name &&
-          enable_mtls == o.enable_mtls &&
-          oracle_wallet_details == o.oracle_wallet_details &&
-          sf_account == o.sf_account &&
-          skip_server_name_validation == o.skip_server_name_validation &&
-          ssl_connection_certificate == o.ssl_connection_certificate &&
-          ssl_connection_mode == o.ssl_connection_mode
+          aerospike_skip_server_name_validation == o.aerospike_skip_server_name_validation &&
+          aerospike_ssl_connection_certificate == o.aerospike_ssl_connection_certificate &&
+          aerospike_ssl_connection_mode == o.aerospike_ssl_connection_mode
     end
 
     # @see the `==` method
@@ -392,7 +229,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aerospike_admin_username, aerospike_client_id, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, aerospike_hostname, aerospike_namespace, aerospike_password, aerospike_port, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, db_client_id, db_client_secret, db_host_name, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, enable_mtls, oracle_wallet_details, sf_account, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode].hash
+      [aerospike_admin_username, aerospike_client_certificate, aerospike_client_id, aerospike_client_private_key, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, aerospike_db_server_name, aerospike_enable_mtls, aerospike_hostname, aerospike_namespace, aerospike_password, aerospike_port, aerospike_skip_server_name_validation, aerospike_ssl_connection_certificate, aerospike_ssl_connection_mode].hash
     end
 
     # Builds the object from hash

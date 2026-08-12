@@ -19,6 +19,9 @@ module Akeyless
     # A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat By default the user will have permissions to read all keys '[\"~*\", \"+@read\"]'
     attr_accessor :acl_rules
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Customize how temporary usernames are generated using go template
     attr_accessor :custom_username_template
 
@@ -57,6 +60,9 @@ module Akeyless
 
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
+
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
 
     # Enable/Disable SSL [true/false]
     attr_accessor :ssl
@@ -97,6 +103,7 @@ module Akeyless
     def self.attribute_map
       {
         :'acl_rules' => :'acl-rules',
+        :'ara_enabled' => :'ara-enabled',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -110,6 +117,7 @@ module Akeyless
         :'password_length' => :'password-length',
         :'port' => :'port',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'skip_dry_run' => :'skip_dry_run',
         :'ssl' => :'ssl',
         :'ssl_certificate' => :'ssl-certificate',
         :'tags' => :'tags',
@@ -134,6 +142,7 @@ module Akeyless
     def self.openapi_types
       {
         :'acl_rules' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -147,6 +156,7 @@ module Akeyless
         :'password_length' => :'String',
         :'port' => :'String',
         :'producer_encryption_key_name' => :'String',
+        :'skip_dry_run' => :'String',
         :'ssl' => :'Boolean',
         :'ssl_certificate' => :'String',
         :'tags' => :'Array<String>',
@@ -185,6 +195,10 @@ module Akeyless
 
       if attributes.key?(:'acl_rules')
         self.acl_rules = attributes[:'acl_rules']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'custom_username_template')
@@ -251,6 +265,10 @@ module Akeyless
 
       if attributes.key?(:'producer_encryption_key_name')
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'ssl')
@@ -334,6 +352,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           acl_rules == o.acl_rules &&
+          ara_enabled == o.ara_enabled &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -347,6 +366,7 @@ module Akeyless
           password_length == o.password_length &&
           port == o.port &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
+          skip_dry_run == o.skip_dry_run &&
           ssl == o.ssl &&
           ssl_certificate == o.ssl_certificate &&
           tags == o.tags &&
@@ -370,7 +390,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acl_rules, custom_username_template, delete_protection, description, host, input_rule, item_custom_fields, json, name, output_rule, password, password_length, port, producer_encryption_key_name, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, username].hash
+      [acl_rules, ara_enabled, custom_username_template, delete_protection, description, host, input_rule, item_custom_fields, json, name, output_rule, password, password_length, port, producer_encryption_key_name, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, username].hash
     end
 
     # Builds the object from hash

@@ -32,6 +32,9 @@ module Akeyless
     # If the user didn't complete to configure the MFA app
     attr_accessor :need_mfa_app_first_config
 
+    # RecoveryKeyID identifies the DPoP-bound recovery key for WebUI session recovery.
+    attr_accessor :recovery_key_id
+
     attr_accessor :required_mfa
 
     # Credentials tmp token
@@ -49,6 +52,7 @@ module Akeyless
         :'expiry' => :'expiry',
         :'kfm_creds' => :'kfm_creds',
         :'need_mfa_app_first_config' => :'need_mfa_app_first_config',
+        :'recovery_key_id' => :'recovery_key_id',
         :'required_mfa' => :'required_mfa',
         :'token' => :'token',
         :'uam_creds' => :'uam_creds'
@@ -69,6 +73,7 @@ module Akeyless
         :'expiry' => :'Integer',
         :'kfm_creds' => :'String',
         :'need_mfa_app_first_config' => :'Boolean',
+        :'recovery_key_id' => :'String',
         :'required_mfa' => :'String',
         :'token' => :'String',
         :'uam_creds' => :'String'
@@ -120,6 +125,10 @@ module Akeyless
         self.need_mfa_app_first_config = attributes[:'need_mfa_app_first_config']
       end
 
+      if attributes.key?(:'recovery_key_id')
+        self.recovery_key_id = attributes[:'recovery_key_id']
+      end
+
       if attributes.key?(:'required_mfa')
         self.required_mfa = attributes[:'required_mfa']
       end
@@ -159,6 +168,7 @@ module Akeyless
           expiry == o.expiry &&
           kfm_creds == o.kfm_creds &&
           need_mfa_app_first_config == o.need_mfa_app_first_config &&
+          recovery_key_id == o.recovery_key_id &&
           required_mfa == o.required_mfa &&
           token == o.token &&
           uam_creds == o.uam_creds
@@ -173,7 +183,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, auth_creds, csrf_token, expiry, kfm_creds, need_mfa_app_first_config, required_mfa, token, uam_creds].hash
+      [access_id, auth_creds, csrf_token, expiry, kfm_creds, need_mfa_app_first_config, recovery_key_id, required_mfa, token, uam_creds].hash
     end
 
     # Builds the object from hash

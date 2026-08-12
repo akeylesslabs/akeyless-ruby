@@ -18,6 +18,9 @@ module Akeyless
     # for personal password manager
     attr_accessor :accessibility
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
     attr_accessor :input_rule
 
@@ -68,6 +71,7 @@ module Akeyless
     def self.attribute_map
       {
         :'accessibility' => :'accessibility',
+        :'ara_enabled' => :'ara-enabled',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
@@ -96,6 +100,7 @@ module Akeyless
     def self.openapi_types
       {
         :'accessibility' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
@@ -140,6 +145,10 @@ module Akeyless
         self.accessibility = attributes[:'accessibility']
       else
         self.accessibility = 'regular'
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'input_rule')
@@ -243,6 +252,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           accessibility == o.accessibility &&
+          ara_enabled == o.ara_enabled &&
           input_rule == o.input_rule &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
@@ -270,7 +280,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, input_rule, json, keep_prev_version, key, last_version, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, token, uid_token, url].hash
+      [accessibility, ara_enabled, input_rule, json, keep_prev_version, key, last_version, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, token, uid_token, url].hash
     end
 
     # Builds the object from hash

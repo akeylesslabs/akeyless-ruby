@@ -45,7 +45,7 @@ module Akeyless
     # Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]
     attr_accessor :grace_rotation
 
-    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
     attr_accessor :host_provider
 
     # Set output format to JSON
@@ -99,13 +99,16 @@ module Akeyless
     # Rotate same password for each host from the Linked Target (relevant only for Linked Target)
     attr_accessor :same_password
 
-    # Allow providing external user for a domain users (relevant only for rdp)
+    # Allow providing external user for a domain users [true/false]
     attr_accessor :secure_access_allow_external_user
+
+    # Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+    attr_accessor :secure_access_allow_port_forwading
 
     # The AWS account id (relevant only for aws)
     attr_accessor :secure_access_aws_account_id
 
-    # The AWS native cli
+    # The AWS native cli (relevant only for aws)
     attr_accessor :secure_access_aws_native_cli
 
     # Deprecated. use secure-access-certificate-issuer
@@ -126,6 +129,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
     attr_accessor :secure_access_host
 
@@ -138,13 +144,19 @@ module Akeyless
     # Destination URL to inject secrets
     attr_accessor :secure_access_url
 
+    # Deprecated. Use secure-access-use-internal-ssh-access
+    attr_accessor :secure_access_use_internal_bastion
+
+    # Use internal SSH Access
+    attr_accessor :secure_access_use_internal_ssh_access
+
     # Enable Web Secure Remote Access
     attr_accessor :secure_access_web
 
-    # Secure browser viaAkeyless's Secure Remote Access (SRA) (relevant only for aws or azure)
+    # Secure browser via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_browsing
 
-    # Web-Proxy via Akeyless's Secure Remote Access (SRA) (relevant only for aws or azure)
+    # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
     # Deprecated: use RotatedPassword
@@ -155,6 +167,9 @@ module Akeyless
 
     # The name of the storage account key to rotate [key1/key2/kerb1/kerb2]
     attr_accessor :storage_account_key_name
+
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+    attr_accessor :target
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -200,6 +215,7 @@ module Akeyless
         :'rotator_custom_cmd' => :'rotator-custom-cmd',
         :'same_password' => :'same-password',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
+        :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
         :'secure_access_aws_account_id' => :'secure-access-aws-account-id',
         :'secure_access_aws_native_cli' => :'secure-access-aws-native-cli',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -208,16 +224,20 @@ module Akeyless
         :'secure_access_db_schema' => :'secure-access-db-schema',
         :'secure_access_disable_concurrent_connections' => :'secure-access-disable-concurrent-connections',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
         :'secure_access_url' => :'secure-access-url',
+        :'secure_access_use_internal_bastion' => :'secure-access-use-internal-bastion',
+        :'secure_access_use_internal_ssh_access' => :'secure-access-use-internal-ssh-access',
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'ssh_password' => :'ssh-password',
         :'ssh_username' => :'ssh-username',
         :'storage_account_key_name' => :'storage-account-key-name',
+        :'target' => :'target',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'user_attribute' => :'user-attribute',
@@ -261,7 +281,8 @@ module Akeyless
         :'rotator_creds_type' => :'String',
         :'rotator_custom_cmd' => :'String',
         :'same_password' => :'String',
-        :'secure_access_allow_external_user' => :'Boolean',
+        :'secure_access_allow_external_user' => :'String',
+        :'secure_access_allow_port_forwading' => :'Boolean',
         :'secure_access_aws_account_id' => :'String',
         :'secure_access_aws_native_cli' => :'Boolean',
         :'secure_access_bastion_issuer' => :'String',
@@ -270,16 +291,20 @@ module Akeyless
         :'secure_access_db_schema' => :'String',
         :'secure_access_disable_concurrent_connections' => :'Boolean',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
         :'secure_access_url' => :'String',
+        :'secure_access_use_internal_bastion' => :'Boolean',
+        :'secure_access_use_internal_ssh_access' => :'Boolean',
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'ssh_password' => :'String',
         :'ssh_username' => :'String',
         :'storage_account_key_name' => :'String',
+        :'target' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'user_attribute' => :'String',
@@ -332,8 +357,6 @@ module Akeyless
 
       if attributes.key?(:'aws_region')
         self.aws_region = attributes[:'aws_region']
-      else
-        self.aws_region = 'us-east-2'
       end
 
       if attributes.key?(:'custom_payload')
@@ -438,8 +461,10 @@ module Akeyless
 
       if attributes.key?(:'secure_access_allow_external_user')
         self.secure_access_allow_external_user = attributes[:'secure_access_allow_external_user']
-      else
-        self.secure_access_allow_external_user = false
+      end
+
+      if attributes.key?(:'secure_access_allow_port_forwading')
+        self.secure_access_allow_port_forwading = attributes[:'secure_access_allow_port_forwading']
       end
 
       if attributes.key?(:'secure_access_aws_account_id')
@@ -474,6 +499,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_host')
         if (value = attributes[:'secure_access_host']).is_a?(Array)
           self.secure_access_host = value
@@ -492,6 +521,14 @@ module Akeyless
         self.secure_access_url = attributes[:'secure_access_url']
       end
 
+      if attributes.key?(:'secure_access_use_internal_bastion')
+        self.secure_access_use_internal_bastion = attributes[:'secure_access_use_internal_bastion']
+      end
+
+      if attributes.key?(:'secure_access_use_internal_ssh_access')
+        self.secure_access_use_internal_ssh_access = attributes[:'secure_access_use_internal_ssh_access']
+      end
+
       if attributes.key?(:'secure_access_web')
         self.secure_access_web = attributes[:'secure_access_web']
       else
@@ -500,14 +537,10 @@ module Akeyless
 
       if attributes.key?(:'secure_access_web_browsing')
         self.secure_access_web_browsing = attributes[:'secure_access_web_browsing']
-      else
-        self.secure_access_web_browsing = false
       end
 
       if attributes.key?(:'secure_access_web_proxy')
         self.secure_access_web_proxy = attributes[:'secure_access_web_proxy']
-      else
-        self.secure_access_web_proxy = false
       end
 
       if attributes.key?(:'ssh_password')
@@ -520,6 +553,12 @@ module Akeyless
 
       if attributes.key?(:'storage_account_key_name')
         self.storage_account_key_name = attributes[:'storage_account_key_name']
+      end
+
+      if attributes.key?(:'target')
+        if (value = attributes[:'target']).is_a?(Array)
+          self.target = value
+        end
       end
 
       if attributes.key?(:'token')
@@ -595,6 +634,7 @@ module Akeyless
           rotator_custom_cmd == o.rotator_custom_cmd &&
           same_password == o.same_password &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
+          secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
           secure_access_aws_account_id == o.secure_access_aws_account_id &&
           secure_access_aws_native_cli == o.secure_access_aws_native_cli &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -603,16 +643,20 @@ module Akeyless
           secure_access_db_schema == o.secure_access_db_schema &&
           secure_access_disable_concurrent_connections == o.secure_access_disable_concurrent_connections &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
           secure_access_url == o.secure_access_url &&
+          secure_access_use_internal_bastion == o.secure_access_use_internal_bastion &&
+          secure_access_use_internal_ssh_access == o.secure_access_use_internal_ssh_access &&
           secure_access_web == o.secure_access_web &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
           ssh_password == o.ssh_password &&
           ssh_username == o.ssh_username &&
           storage_account_key_name == o.storage_account_key_name &&
+          target == o.target &&
           token == o.token &&
           uid_token == o.uid_token &&
           user_attribute == o.user_attribute &&
@@ -628,7 +672,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, target, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

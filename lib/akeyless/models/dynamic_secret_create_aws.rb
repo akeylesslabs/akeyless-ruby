@@ -21,6 +21,9 @@ module Akeyless
     # Admin credentials rotation interval (days)
     attr_accessor :admin_rotation_interval_days
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Access Key ID
     attr_accessor :aws_access_key_id
 
@@ -111,6 +114,9 @@ module Akeyless
     # String of Key value session tags comma separated, relevant only for Assumed Role
     attr_accessor :session_tags
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -145,6 +151,7 @@ module Akeyless
       {
         :'access_mode' => :'access-mode',
         :'admin_rotation_interval_days' => :'admin-rotation-interval-days',
+        :'ara_enabled' => :'ara-enabled',
         :'aws_access_key_id' => :'aws-access-key-id',
         :'aws_access_secret_key' => :'aws-access-secret-key',
         :'aws_external_id' => :'aws-external-id',
@@ -175,6 +182,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'session_tags' => :'session-tags',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -198,6 +206,7 @@ module Akeyless
       {
         :'access_mode' => :'String',
         :'admin_rotation_interval_days' => :'Integer',
+        :'ara_enabled' => :'Boolean',
         :'aws_access_key_id' => :'String',
         :'aws_access_secret_key' => :'String',
         :'aws_external_id' => :'String',
@@ -228,6 +237,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'session_tags' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -270,6 +280,10 @@ module Akeyless
         self.admin_rotation_interval_days = attributes[:'admin_rotation_interval_days']
       else
         self.admin_rotation_interval_days = 0
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'aws_access_key_id')
@@ -416,6 +430,10 @@ module Akeyless
         self.session_tags = attributes[:'session_tags']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -488,6 +506,7 @@ module Akeyless
       self.class == o.class &&
           access_mode == o.access_mode &&
           admin_rotation_interval_days == o.admin_rotation_interval_days &&
+          ara_enabled == o.ara_enabled &&
           aws_access_key_id == o.aws_access_key_id &&
           aws_access_secret_key == o.aws_access_secret_key &&
           aws_external_id == o.aws_external_id &&
@@ -518,6 +537,7 @@ module Akeyless
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
           session_tags == o.session_tags &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -539,7 +559,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_rotation_interval_days, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, tags, target_name, token, transitive_tag_keys, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [access_mode, admin_rotation_interval_days, ara_enabled, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, skip_dry_run, tags, target_name, token, transitive_tag_keys, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

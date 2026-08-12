@@ -28,8 +28,17 @@ module Akeyless
     # The environments in repo-name/environment-name format, comma-separated (only relevant for: github-scope=repository-environment)
     attr_accessor :environment_names
 
+    # GCP Folder ID (Relevant only for GCP targets with folder scope)
+    attr_accessor :gcp_folder_id
+
+    # GCP Organization ID (Relevant only for GCP targets)
+    attr_accessor :gcp_organization_id
+
     # GCP Project ID (Relevant only for GCP targets)
     attr_accessor :gcp_project_id
+
+    # The gcp usc scope [ project / organization / folder]
+    attr_accessor :gcp_scope
 
     # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type=regional-secrets.
     attr_accessor :gcp_sm_regions
@@ -88,7 +97,10 @@ module Akeyless
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'environment_names' => :'environment-names',
+        :'gcp_folder_id' => :'gcp-folder-id',
+        :'gcp_organization_id' => :'gcp-organization-id',
         :'gcp_project_id' => :'gcp-project-id',
+        :'gcp_scope' => :'gcp-scope',
         :'gcp_sm_regions' => :'gcp-sm-regions',
         :'github_scope' => :'github-scope',
         :'item_custom_fields' => :'item-custom-fields',
@@ -121,7 +133,10 @@ module Akeyless
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'environment_names' => :'String',
+        :'gcp_folder_id' => :'String',
+        :'gcp_organization_id' => :'String',
         :'gcp_project_id' => :'String',
+        :'gcp_scope' => :'String',
         :'gcp_sm_regions' => :'String',
         :'github_scope' => :'String',
         :'item_custom_fields' => :'Hash<String, String>',
@@ -179,8 +194,22 @@ module Akeyless
         self.environment_names = attributes[:'environment_names']
       end
 
+      if attributes.key?(:'gcp_folder_id')
+        self.gcp_folder_id = attributes[:'gcp_folder_id']
+      end
+
+      if attributes.key?(:'gcp_organization_id')
+        self.gcp_organization_id = attributes[:'gcp_organization_id']
+      end
+
       if attributes.key?(:'gcp_project_id')
         self.gcp_project_id = attributes[:'gcp_project_id']
+      end
+
+      if attributes.key?(:'gcp_scope')
+        self.gcp_scope = attributes[:'gcp_scope']
+      else
+        self.gcp_scope = 'project'
       end
 
       if attributes.key?(:'gcp_sm_regions')
@@ -302,7 +331,10 @@ module Akeyless
           delete_protection == o.delete_protection &&
           description == o.description &&
           environment_names == o.environment_names &&
+          gcp_folder_id == o.gcp_folder_id &&
+          gcp_organization_id == o.gcp_organization_id &&
           gcp_project_id == o.gcp_project_id &&
+          gcp_scope == o.gcp_scope &&
           gcp_sm_regions == o.gcp_sm_regions &&
           github_scope == o.github_scope &&
           item_custom_fields == o.item_custom_fields &&
@@ -331,7 +363,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, environment_names, gcp_project_id, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, usc_tags, use_prefix_as_filter, use_tags_as_filter].hash
+      [azure_kv_name, delete_protection, description, environment_names, gcp_folder_id, gcp_organization_id, gcp_project_id, gcp_scope, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, usc_tags, use_prefix_as_filter, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

@@ -19,6 +19,8 @@ module Akeyless
 
     attr_accessor :ca
 
+    attr_accessor :cas
+
     attr_accessor :certificate
 
     attr_accessor :certificate_issue_date
@@ -36,6 +38,7 @@ module Akeyless
       {
         :'active' => :'active',
         :'ca' => :'ca',
+        :'cas' => :'cas',
         :'certificate' => :'certificate',
         :'certificate_issue_date' => :'certificate_issue_date',
         :'certificate_ttl_in_seconds' => :'certificate_ttl_in_seconds',
@@ -55,6 +58,7 @@ module Akeyless
       {
         :'active' => :'Boolean',
         :'ca' => :'Array<Integer>',
+        :'cas' => :'Array<KMIPCA>',
         :'certificate' => :'Array<Integer>',
         :'certificate_issue_date' => :'Time',
         :'certificate_ttl_in_seconds' => :'Integer',
@@ -92,6 +96,12 @@ module Akeyless
       if attributes.key?(:'ca')
         if (value = attributes[:'ca']).is_a?(Array)
           self.ca = value
+        end
+      end
+
+      if attributes.key?(:'cas')
+        if (value = attributes[:'cas']).is_a?(Array)
+          self.cas = value
         end
       end
 
@@ -146,6 +156,7 @@ module Akeyless
       self.class == o.class &&
           active == o.active &&
           ca == o.ca &&
+          cas == o.cas &&
           certificate == o.certificate &&
           certificate_issue_date == o.certificate_issue_date &&
           certificate_ttl_in_seconds == o.certificate_ttl_in_seconds &&
@@ -163,7 +174,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, ca, certificate, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, hostname, root].hash
+      [active, ca, cas, certificate, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, hostname, root].hash
     end
 
     # Builds the object from hash

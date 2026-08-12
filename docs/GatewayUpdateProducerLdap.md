@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **provider_type** | **String** |  | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **bind_dn** | **String** | Bind DN | [optional] |
 | **bind_dn_password** | **String** | Bind DN Password | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
@@ -12,7 +13,7 @@
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **group_dn** | **String** | Group DN which the temporary user should be added | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -27,11 +28,13 @@
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_enforce_hosts_restriction** | **Boolean** | Enforce connections only to allowed SRA hosts | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server | [optional] |
 | **secure_access_rdp_domain** | **String** | Required when the Dynamic Secret is used for a domain user | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
-| **target** | **Array&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **token_expiration** | **String** | Token expiration | [optional] |
@@ -51,6 +54,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerLdap.new(
   provider_type: null,
+  ara_enabled: null,
   bind_dn: null,
   bind_dn_password: null,
   custom_username_template: null,
@@ -73,9 +77,11 @@ instance = Akeyless::GatewayUpdateProducerLdap.new(
   secure_access_certificate_issuer: null,
   secure_access_delay: null,
   secure_access_enable: null,
+  secure_access_enforce_hosts_restriction: null,
   secure_access_host: null,
   secure_access_rd_gateway_server: null,
   secure_access_rdp_domain: null,
+  skip_dry_run: null,
   tags: null,
   target: null,
   target_name: null,

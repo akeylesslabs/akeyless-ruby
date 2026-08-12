@@ -43,6 +43,7 @@
 | **conjur_url** | **String** | Conjur server base URL (relevant only for Conjur migration). If conjur-url is HTTPS and Conjur uses a private CA/self-signed certificate, make the CA bundle available on the Gateway and set CONJUR_SSL_CERT_PATH to its path. | [optional] |
 | **conjur_username** | **String** | Conjur username used to authenticate (relevant only for Conjur migration). | [optional] |
 | **delete_remote** | **Boolean** | Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration) | [optional] |
+| **enable_password_policy** | **String** | Enable password policy for rotated secrets created for Local and Domain users (Relevant only for Active Directory migration) | [optional][default to &#39;false&#39;] |
 | **exclude_hosts** | **String** | A comma separated list of IPs, CIDR ranges, or DNS names to exclude from the scan | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gcp_key** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) | [optional] |
@@ -66,6 +67,7 @@
 | **k8s_username** | **String** | For Password Authentication method K8s Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Password Authentication method) | [optional] |
 | **name** | **String** | Migration name | [optional] |
 | **new_name** | **String** | New migration name | [optional] |
+| **password_length** | **String** | The length of the password to be generated (between 8 and 50). Relevant only for Active Directory migration when enable-password-policy is true. | [optional] |
 | **port_ranges** | **String** | A comma separated list of port ranges Examples: \&quot;80,443\&quot; or \&quot;80,443,8080-8090\&quot; or \&quot;443\&quot; | [optional][default to &#39;443&#39;] |
 | **protection_key** | **String** | The name of the key that protects the classic key value (if empty, the account default key will be used) | [optional] |
 | **si_auto_rotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration) | [optional] |
@@ -76,6 +78,7 @@
 | **si_user_groups** | **String** | Comma-separated list of groups to migrate users from. If empty, all users from all groups will be migrated (Relevant only for Server Inventory migration) | [optional] |
 | **si_users_ignore** | **String** | Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration) | [optional] |
 | **si_users_path_template** | **String** | Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration) |  |
+| **skip_dry_run** | **String** | Skip dry-run validation for rotated secrets created for Local and Domain users (Relevant only for Active Directory migration) | [optional][default to &#39;false&#39;] |
 | **target_location** | **String** | Target location in Akeyless for imported secrets |  |
 | **target_name** | **String** | Name of existing target to use to create the migration | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -128,6 +131,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   conjur_url: null,
   conjur_username: null,
   delete_remote: null,
+  enable_password_policy: null,
   exclude_hosts: null,
   expiration_event_in: null,
   gcp_key: null,
@@ -151,6 +155,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   k8s_username: null,
   name: null,
   new_name: null,
+  password_length: null,
   port_ranges: null,
   protection_key: null,
   si_auto_rotate: null,
@@ -161,6 +166,7 @@ instance = Akeyless::GatewayUpdateMigration.new(
   si_user_groups: null,
   si_users_ignore: null,
   si_users_path_template: null,
+  skip_dry_run: null,
   target_location: null,
   target_name: null,
   token: null,

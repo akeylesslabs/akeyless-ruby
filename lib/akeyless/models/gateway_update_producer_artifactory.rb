@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerArtifactory is a command that updates artifactory producer [Deprecated: Use dynamic-secret-update-artifactory command]
   class GatewayUpdateProducerArtifactory
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Artifactory Admin Name
     attr_accessor :artifactory_admin_name
 
@@ -58,6 +61,9 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -76,6 +82,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'artifactory_admin_name' => :'artifactory-admin-name',
         :'artifactory_admin_pwd' => :'artifactory-admin-pwd',
         :'artifactory_token_audience' => :'artifactory-token-audience',
@@ -90,6 +97,7 @@ module Akeyless
         :'new_name' => :'new-name',
         :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -106,6 +114,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'artifactory_admin_name' => :'String',
         :'artifactory_admin_pwd' => :'String',
         :'artifactory_token_audience' => :'String',
@@ -120,6 +129,7 @@ module Akeyless
         :'new_name' => :'String',
         :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -148,6 +158,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'artifactory_admin_name')
         self.artifactory_admin_name = attributes[:'artifactory_admin_name']
@@ -219,6 +233,10 @@ module Akeyless
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -279,6 +297,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           artifactory_admin_name == o.artifactory_admin_name &&
           artifactory_admin_pwd == o.artifactory_admin_pwd &&
           artifactory_token_audience == o.artifactory_token_audience &&
@@ -293,6 +312,7 @@ module Akeyless
           new_name == o.new_name &&
           output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -309,7 +329,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [artifactory_admin_name, artifactory_admin_pwd, artifactory_token_audience, artifactory_token_scope, base_url, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
+      [ara_enabled, artifactory_admin_name, artifactory_admin_pwd, artifactory_token_audience, artifactory_token_scope, base_url, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

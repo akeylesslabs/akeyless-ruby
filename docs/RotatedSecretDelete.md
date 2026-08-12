@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **force_delete** | **Boolean** | Delete the rotated secret only from Akeyless if failed to delete it from the third-party provider | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Rotated secret name |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -16,6 +17,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretDelete.new(
+  force_delete: null,
   json: null,
   name: null,
   token: null,

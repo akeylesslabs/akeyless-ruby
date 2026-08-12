@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **audience** | **String** | Token audience for Splunk token creation (required for rotator-type&#x3D;token) | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
@@ -26,6 +27,7 @@
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval** | **String** |  | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/password/token/hec-token] |  |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **splunk_token** | **String** | Current Splunk authentication token to store (relevant only for rotator-type&#x3D;token). If not provided, a new token will be created in Splunk. | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |
@@ -43,6 +45,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretCreateSplunk.new(
+  ara_enabled: null,
   audience: null,
   authentication_credentials: null,
   auto_rotate: null,
@@ -65,6 +68,7 @@ instance = Akeyless::RotatedSecretCreateSplunk.new(
   rotation_hour: null,
   rotation_interval: null,
   rotator_type: null,
+  skip_dry_run: null,
   splunk_token: null,
   tags: null,
   target_name: null,

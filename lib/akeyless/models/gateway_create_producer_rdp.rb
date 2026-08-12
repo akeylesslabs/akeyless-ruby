@@ -16,8 +16,13 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use dynamic-secret-create-rdp command]
   class GatewayCreateProducerRdp
+    attr_accessor :provider_type
+
     # AllowUserExtendSession
     attr_accessor :allow_user_extend_session
+
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
 
     # Customize how temporary usernames are generated using go template
     attr_accessor :custom_username_template
@@ -30,6 +35,9 @@ module Akeyless
 
     # Allow access using externally (IdP) provided username [true/false]
     attr_accessor :fixed_user_only
+
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+    attr_accessor :host_provider
 
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
@@ -82,6 +90,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
     attr_accessor :secure_access_host
 
@@ -94,8 +105,14 @@ module Akeyless
     # Override the RDP Domain username
     attr_accessor :secure_access_rdp_user
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
+
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+    attr_accessor :target
 
     # Target name
     attr_accessor :target_name
@@ -126,11 +143,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'provider_type' => :'ProviderType',
         :'allow_user_extend_session' => :'allow-user-extend-session',
+        :'ara_enabled' => :'ara-enabled',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'fixed_user_only' => :'fixed-user-only',
+        :'host_provider' => :'host-provider',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -148,11 +168,14 @@ module Akeyless
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_delay' => :'secure-access-delay',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rd_gateway_server' => :'secure-access-rd-gateway-server',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
+        :'target' => :'target',
         :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -173,11 +196,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'provider_type' => :'String',
         :'allow_user_extend_session' => :'Integer',
+        :'ara_enabled' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'fixed_user_claim_keyname' => :'String',
         :'fixed_user_only' => :'String',
+        :'host_provider' => :'String',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -195,11 +221,14 @@ module Akeyless
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_delay' => :'Integer',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rd_gateway_server' => :'String',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
+        :'target' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -233,8 +262,16 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'provider_type')
+        self.provider_type = attributes[:'provider_type']
+      end
+
       if attributes.key?(:'allow_user_extend_session')
         self.allow_user_extend_session = attributes[:'allow_user_extend_session']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'custom_username_template')
@@ -255,6 +292,10 @@ module Akeyless
         self.fixed_user_only = attributes[:'fixed_user_only']
       else
         self.fixed_user_only = 'false'
+      end
+
+      if attributes.key?(:'host_provider')
+        self.host_provider = attributes[:'host_provider']
       end
 
       if attributes.key?(:'input_rule')
@@ -339,6 +380,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_host')
         if (value = attributes[:'secure_access_host']).is_a?(Array)
           self.secure_access_host = value
@@ -357,9 +402,19 @@ module Akeyless
         self.secure_access_rdp_user = attributes[:'secure_access_rdp_user']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
+        end
+      end
+
+      if attributes.key?(:'target')
+        if (value = attributes[:'target']).is_a?(Array)
+          self.target = value
         end
       end
 
@@ -427,11 +482,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          provider_type == o.provider_type &&
           allow_user_extend_session == o.allow_user_extend_session &&
+          ara_enabled == o.ara_enabled &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           fixed_user_only == o.fixed_user_only &&
+          host_provider == o.host_provider &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -449,11 +507,14 @@ module Akeyless
           secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_delay == o.secure_access_delay &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_host == o.secure_access_host &&
           secure_access_rd_gateway_server == o.secure_access_rd_gateway_server &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
+          target == o.target &&
           target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -474,7 +535,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_user_extend_session, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, warn_user_before_expiration].hash
+      [provider_type, allow_user_extend_session, ara_enabled, custom_username_template, delete_protection, fixed_user_claim_keyname, fixed_user_only, host_provider, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, rdp_admin_name, rdp_admin_pwd, rdp_host_name, rdp_host_port, rdp_user_groups, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, skip_dry_run, tags, target, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, warn_user_before_expiration].hash
     end
 
     # Builds the object from hash

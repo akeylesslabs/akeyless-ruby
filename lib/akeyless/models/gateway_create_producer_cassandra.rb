@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayCreateProducerCassandra is a command that creates a Cassandra producer [Deprecated: Use dynamic-secret-create-cassandra command]
   class GatewayCreateProducerCassandra
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Cassandra creation statements
     attr_accessor :cassandra_creation_statements
 
@@ -58,6 +61,9 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Enable/Disable SSL [true/false]
     attr_accessor :ssl
 
@@ -93,6 +99,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'cassandra_creation_statements' => :'cassandra-creation-statements',
         :'cassandra_hosts' => :'cassandra-hosts',
         :'cassandra_password' => :'cassandra-password',
@@ -107,6 +114,7 @@ module Akeyless
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'skip_dry_run' => :'skip_dry_run',
         :'ssl' => :'ssl',
         :'ssl_certificate' => :'ssl-certificate',
         :'tags' => :'tags',
@@ -129,6 +137,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'cassandra_creation_statements' => :'String',
         :'cassandra_hosts' => :'String',
         :'cassandra_password' => :'String',
@@ -143,6 +152,7 @@ module Akeyless
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
+        :'skip_dry_run' => :'String',
         :'ssl' => :'Boolean',
         :'ssl_certificate' => :'String',
         :'tags' => :'Array<String>',
@@ -177,6 +187,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'cassandra_creation_statements')
         self.cassandra_creation_statements = attributes[:'cassandra_creation_statements']
@@ -244,6 +258,10 @@ module Akeyless
 
       if attributes.key?(:'producer_encryption_key_name')
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'ssl')
@@ -322,6 +340,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           cassandra_creation_statements == o.cassandra_creation_statements &&
           cassandra_hosts == o.cassandra_hosts &&
           cassandra_password == o.cassandra_password &&
@@ -336,6 +355,7 @@ module Akeyless
           output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
+          skip_dry_run == o.skip_dry_run &&
           ssl == o.ssl &&
           ssl_certificate == o.ssl_certificate &&
           tags == o.tags &&
@@ -358,7 +378,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cassandra_creation_statements, cassandra_hosts, cassandra_password, cassandra_port, cassandra_username, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [ara_enabled, cassandra_creation_statements, cassandra_hosts, cassandra_password, cassandra_port, cassandra_username, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

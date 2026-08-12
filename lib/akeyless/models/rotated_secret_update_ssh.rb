@@ -15,8 +15,13 @@ require 'time'
 
 module Akeyless
   class RotatedSecretUpdateSsh
+    attr_accessor :provider_type
+
     # List of the new tags that will be attached to this item
     attr_accessor :add_tag
+
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
 
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
@@ -28,6 +33,9 @@ module Akeyless
 
     # Description of the object
     attr_accessor :description
+
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+    attr_accessor :host_provider
 
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
     attr_accessor :input_rule
@@ -107,6 +115,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
     attr_accessor :secure_access_host
 
@@ -121,6 +132,12 @@ module Akeyless
 
     # Specify target type. Options are ssh or rdp
     attr_accessor :secure_access_target_type
+
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+    attr_accessor :target
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -142,11 +159,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'provider_type' => :'ProviderType',
         :'add_tag' => :'add-tag',
+        :'ara_enabled' => :'ara-enabled',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'host_provider' => :'host-provider',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -174,11 +194,14 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
         :'secure_access_ssh_user' => :'secure-access-ssh-user',
         :'secure_access_target_type' => :'secure-access-target-type',
+        :'skip_dry_run' => :'skip_dry_run',
+        :'target' => :'target',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -196,11 +219,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'provider_type' => :'String',
         :'add_tag' => :'Array<String>',
+        :'ara_enabled' => :'Boolean',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'host_provider' => :'String',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -228,11 +254,14 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
         :'secure_access_ssh_user' => :'String',
         :'secure_access_target_type' => :'String',
+        :'skip_dry_run' => :'String',
+        :'target' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',
@@ -263,10 +292,18 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'provider_type')
+        self.provider_type = attributes[:'provider_type']
+      end
+
       if attributes.key?(:'add_tag')
         if (value = attributes[:'add_tag']).is_a?(Array)
           self.add_tag = value
         end
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'authentication_credentials')
@@ -287,6 +324,10 @@ module Akeyless
         self.description = attributes[:'description']
       else
         self.description = 'default_metadata'
+      end
+
+      if attributes.key?(:'host_provider')
+        self.host_provider = attributes[:'host_provider']
       end
 
       if attributes.key?(:'input_rule')
@@ -415,6 +456,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_host')
         if (value = attributes[:'secure_access_host']).is_a?(Array)
           self.secure_access_host = value
@@ -437,6 +482,16 @@ module Akeyless
         self.secure_access_target_type = attributes[:'secure_access_target_type']
       else
         self.secure_access_target_type = 'false'
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
+      if attributes.key?(:'target')
+        if (value = attributes[:'target']).is_a?(Array)
+          self.target = value
+        end
       end
 
       if attributes.key?(:'token')
@@ -494,11 +549,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          provider_type == o.provider_type &&
           add_tag == o.add_tag &&
+          ara_enabled == o.ara_enabled &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          host_provider == o.host_provider &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -526,11 +584,14 @@ module Akeyless
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
           secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
           secure_access_ssh_user == o.secure_access_ssh_user &&
           secure_access_target_type == o.secure_access_target_type &&
+          skip_dry_run == o.skip_dry_run &&
+          target == o.target &&
           token == o.token &&
           uid_token == o.uid_token &&
           use_capital_letters == o.use_capital_letters &&
@@ -548,7 +609,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, keep_prev_version, key, key_data_base64, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, public_key_remote_path, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [provider_type, add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, host_provider, input_rule, item_custom_fields, json, keep_prev_version, key, key_data_base64, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, public_key_remote_path, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, skip_dry_run, target, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

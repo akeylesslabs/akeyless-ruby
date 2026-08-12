@@ -55,7 +55,7 @@ module Akeyless
     # Auth Method name
     attr_accessor :name
 
-    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
     # A public key generated for LDAP authentication method on Akeyless in base64 or PEM format [RSA2048]

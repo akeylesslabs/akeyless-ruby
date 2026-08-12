@@ -21,6 +21,8 @@ module Akeyless
 
     attr_accessor :s_token
 
+    attr_accessor :shared_token_id
+
     attr_accessor :shared_users
 
     attr_accessor :shared_users_full_info
@@ -33,6 +35,7 @@ module Akeyless
         :'email_error' => :'email_error',
         :'items_error' => :'items_error',
         :'s_token' => :'s_token',
+        :'shared_token_id' => :'shared_token_id',
         :'shared_users' => :'shared_users',
         :'shared_users_full_info' => :'shared_users_full_info',
         :'sharing_url' => :'sharing_url'
@@ -50,6 +53,7 @@ module Akeyless
         :'email_error' => :'Hash<String, String>',
         :'items_error' => :'Array<ResponseStopShareItem>',
         :'s_token' => :'String',
+        :'shared_token_id' => :'String',
         :'shared_users' => :'Array<String>',
         :'shared_users_full_info' => :'Array<SharingItemFullInfo>',
         :'sharing_url' => :'String'
@@ -93,6 +97,10 @@ module Akeyless
         self.s_token = attributes[:'s_token']
       end
 
+      if attributes.key?(:'shared_token_id')
+        self.shared_token_id = attributes[:'shared_token_id']
+      end
+
       if attributes.key?(:'shared_users')
         if (value = attributes[:'shared_users']).is_a?(Array)
           self.shared_users = value
@@ -133,6 +141,7 @@ module Akeyless
           email_error == o.email_error &&
           items_error == o.items_error &&
           s_token == o.s_token &&
+          shared_token_id == o.shared_token_id &&
           shared_users == o.shared_users &&
           shared_users_full_info == o.shared_users_full_info &&
           sharing_url == o.sharing_url
@@ -147,7 +156,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email_error, items_error, s_token, shared_users, shared_users_full_info, sharing_url].hash
+      [email_error, items_error, s_token, shared_token_id, shared_users, shared_users_full_info, sharing_url].hash
     end
 
     # Builds the object from hash

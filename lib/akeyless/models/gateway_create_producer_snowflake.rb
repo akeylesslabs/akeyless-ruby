@@ -25,6 +25,9 @@ module Akeyless
     # Database Username
     attr_accessor :account_username
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # The authentication mode for the temporary user [password/key]
     attr_accessor :auth_mode
 
@@ -66,6 +69,9 @@ module Akeyless
     # User role
     attr_accessor :role
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -101,6 +107,7 @@ module Akeyless
         :'account' => :'account',
         :'account_password' => :'account-password',
         :'account_username' => :'account-username',
+        :'ara_enabled' => :'ara-enabled',
         :'auth_mode' => :'auth-mode',
         :'custom_username_template' => :'custom-username-template',
         :'db_name' => :'db-name',
@@ -115,6 +122,7 @@ module Akeyless
         :'private_key' => :'private-key',
         :'private_key_passphrase' => :'private-key-passphrase',
         :'role' => :'role',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -139,6 +147,7 @@ module Akeyless
         :'account' => :'String',
         :'account_password' => :'String',
         :'account_username' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'auth_mode' => :'String',
         :'custom_username_template' => :'String',
         :'db_name' => :'String',
@@ -153,6 +162,7 @@ module Akeyless
         :'private_key' => :'String',
         :'private_key_passphrase' => :'String',
         :'role' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -197,6 +207,10 @@ module Akeyless
 
       if attributes.key?(:'account_username')
         self.account_username = attributes[:'account_username']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'auth_mode')
@@ -265,6 +279,10 @@ module Akeyless
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'tags')
@@ -340,6 +358,7 @@ module Akeyless
           account == o.account &&
           account_password == o.account_password &&
           account_username == o.account_username &&
+          ara_enabled == o.ara_enabled &&
           auth_mode == o.auth_mode &&
           custom_username_template == o.custom_username_template &&
           db_name == o.db_name &&
@@ -354,6 +373,7 @@ module Akeyless
           private_key == o.private_key &&
           private_key_passphrase == o.private_key_passphrase &&
           role == o.role &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -375,7 +395,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account, account_password, account_username, auth_mode, custom_username_template, db_name, delete_protection, input_rule, item_custom_fields, json, key_algo, name, output_rule, password_length, private_key, private_key_passphrase, role, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, warehouse].hash
+      [account, account_password, account_username, ara_enabled, auth_mode, custom_username_template, db_name, delete_protection, input_rule, item_custom_fields, json, key_algo, name, output_rule, password_length, private_key, private_key_passphrase, role, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, warehouse].hash
     end
 
     # Builds the object from hash

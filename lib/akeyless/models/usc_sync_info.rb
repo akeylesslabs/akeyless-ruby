@@ -27,6 +27,10 @@ module Akeyless
 
     attr_accessor :secret_name
 
+    attr_accessor :selected_environments
+
+    attr_accessor :selected_repositories
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -35,7 +39,9 @@ module Akeyless
         :'last_error' => :'last_error',
         :'namespace' => :'namespace',
         :'secret_id' => :'secret_id',
-        :'secret_name' => :'secret_name'
+        :'secret_name' => :'secret_name',
+        :'selected_environments' => :'selected_environments',
+        :'selected_repositories' => :'selected_repositories'
       }
     end
 
@@ -52,7 +58,9 @@ module Akeyless
         :'last_error' => :'String',
         :'namespace' => :'String',
         :'secret_id' => :'String',
-        :'secret_name' => :'String'
+        :'secret_name' => :'String',
+        :'selected_environments' => :'String',
+        :'selected_repositories' => :'String'
       }
     end
 
@@ -100,6 +108,14 @@ module Akeyless
       if attributes.key?(:'secret_name')
         self.secret_name = attributes[:'secret_name']
       end
+
+      if attributes.key?(:'selected_environments')
+        self.selected_environments = attributes[:'selected_environments']
+      end
+
+      if attributes.key?(:'selected_repositories')
+        self.selected_repositories = attributes[:'selected_repositories']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -127,7 +143,9 @@ module Akeyless
           last_error == o.last_error &&
           namespace == o.namespace &&
           secret_id == o.secret_id &&
-          secret_name == o.secret_name
+          secret_name == o.secret_name &&
+          selected_environments == o.selected_environments &&
+          selected_repositories == o.selected_repositories
     end
 
     # @see the `==` method
@@ -139,7 +157,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_remote, jq_secret_filter, last_error, namespace, secret_id, secret_name].hash
+      [delete_remote, jq_secret_filter, last_error, namespace, secret_id, secret_name, selected_environments, selected_repositories].hash
     end
 
     # Builds the object from hash

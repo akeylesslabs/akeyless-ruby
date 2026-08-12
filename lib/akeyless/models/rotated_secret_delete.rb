@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # rotatedSecretDelete is a command that deletes a rotated secret
   class RotatedSecretDelete
+    # Delete the rotated secret only from Akeyless if failed to delete it from the third-party provider
+    attr_accessor :force_delete
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -34,6 +37,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'force_delete' => :'force-delete',
         :'json' => :'json',
         :'name' => :'name',
         :'token' => :'token',
@@ -50,6 +54,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'force_delete' => :'Boolean',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'token' => :'String',
@@ -78,6 +83,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'force_delete')
+        self.force_delete = attributes[:'force_delete']
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -131,6 +140,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          force_delete == o.force_delete &&
           json == o.json &&
           name == o.name &&
           token == o.token &&
@@ -147,7 +157,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, name, token, uid_token, version].hash
+      [force_delete, json, name, token, uid_token, version].hash
     end
 
     # Builds the object from hash

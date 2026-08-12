@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscGet is a command that gets the value and internal details of a secret from a Universal Secrets Connector
   class UscGet
+    # GCP Project ID (Relevant only for GCP targets)
+    attr_accessor :gcp_project_id
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -45,6 +48,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'namespace' => :'namespace',
         :'object_type' => :'object-type',
@@ -65,6 +69,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
         :'object_type' => :'String',
@@ -97,6 +102,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -171,6 +180,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           namespace == o.namespace &&
           object_type == o.object_type &&
@@ -191,7 +201,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, namespace, object_type, secret_id, selected_repositories, token, uid_token, usc_name, version_id].hash
+      [gcp_project_id, json, namespace, object_type, secret_id, selected_repositories, token, uid_token, usc_name, version_id].hash
     end
 
     # Builds the object from hash

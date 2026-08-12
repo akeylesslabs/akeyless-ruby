@@ -11,6 +11,23 @@
 | **admin_pwd** | **String** |  | [optional] |
 | **admin_rotation_interval_days** | **Integer** |  | [optional] |
 | **administrative_port** | **String** |  | [optional] |
+| **aerospike_admin_username** | **String** |  | [optional] |
+| **aerospike_client_certificate** | **String** |  | [optional] |
+| **aerospike_client_id** | **String** |  | [optional] |
+| **aerospike_client_private_key** | **String** |  | [optional] |
+| **aerospike_client_secret** | **String** |  | [optional] |
+| **aerospike_cloud** | **Boolean** |  | [optional] |
+| **aerospike_cluster_id** | **String** |  | [optional] |
+| **aerospike_db_server_name** | **String** |  | [optional] |
+| **aerospike_enable_mtls** | **Boolean** |  | [optional] |
+| **aerospike_hostname** | **String** |  | [optional] |
+| **aerospike_namespace** | **String** |  | [optional] |
+| **aerospike_password** | **String** |  | [optional] |
+| **aerospike_port** | **String** |  | [optional] |
+| **aerospike_roles** | **Array&lt;String&gt;** |  | [optional] |
+| **aerospike_skip_server_name_validation** | **String** |  | [optional] |
+| **aerospike_ssl_connection_certificate** | **String** |  | [optional] |
+| **aerospike_ssl_connection_mode** | **Boolean** |  | [optional] |
 | **agentic_rules** | [**AgenticRules**](AgenticRules.md) |  | [optional] |
 | **api_key** | **String** |  | [optional] |
 | **api_key_id** | **String** |  | [optional] |
@@ -19,6 +36,7 @@
 | **artifactory_base_url** | **String** |  | [optional] |
 | **artifactory_token_audience** | **String** |  | [optional] |
 | **artifactory_token_scope** | **String** |  | [optional] |
+| **auth_mode** | **String** | AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below. | [optional] |
 | **authorization_port** | **String** |  | [optional] |
 | **aws_access_key_id** | **String** |  | [optional] |
 | **aws_access_mode** | **String** |  | [optional] |
@@ -31,6 +49,7 @@
 | **aws_transitive_tag_keys** | **String** |  | [optional] |
 | **aws_user_console_access** | **Boolean** |  | [optional] |
 | **aws_user_groups** | **String** |  | [optional] |
+| **aws_user_name** | **String** |  | [optional] |
 | **aws_user_policies** | **String** |  | [optional] |
 | **aws_user_programmatic_access** | **Boolean** |  | [optional] |
 | **azure_administrative_unit** | **String** |  | [optional] |
@@ -205,6 +224,10 @@
 | **mssql_revocation_statements** | **String** |  | [optional] |
 | **mysql_creation_statements** | **String** |  | [optional] |
 | **mysql_revocation_statements** | **String** |  | [optional] |
+| **oauth_access_token** | **String** | OAuthAccessToken is the current ChatGPT-issued access token (the &#x60;tokens.access_token&#x60; field of the customer&#39;s local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived. | [optional] |
+| **oauth_account_id** | **String** | OAuthAccountID is the ChatGPT workspace/account id (&#x60;tokens.account_id&#x60; in auth.json), required on every request to the ChatGPT backend. | [optional] |
+| **oauth_last_refresh** | **String** | OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token&#39;s JWT exp claim can&#39;t be parsed. | [optional] |
+| **oauth_refresh_token** | **String** | OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid. | [optional] |
 | **openai_url** | **String** |  | [optional] |
 | **oracle_creation_statements** | **String** |  | [optional] |
 | **oracle_revocation_statements** | **String** |  | [optional] |
@@ -245,6 +268,7 @@
 | **sf_warehouse_name** | **String** |  | [optional] |
 | **should_stop** | **String** | TODO delete this after migration | [optional] |
 | **signing_algorithm** | **String** |  | [optional] |
+| **skip_dry_run** | **Boolean** |  | [optional] |
 | **skip_server_name_validation** | **String** | (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false. | [optional] |
 | **ssl_connection_certificate** | **String** | (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field | [optional] |
 | **ssl_connection_mode** | **Boolean** | (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB | [optional] |
@@ -291,6 +315,23 @@ instance = Akeyless::DSProducerDetails.new(
   admin_pwd: null,
   admin_rotation_interval_days: null,
   administrative_port: null,
+  aerospike_admin_username: null,
+  aerospike_client_certificate: null,
+  aerospike_client_id: null,
+  aerospike_client_private_key: null,
+  aerospike_client_secret: null,
+  aerospike_cloud: null,
+  aerospike_cluster_id: null,
+  aerospike_db_server_name: null,
+  aerospike_enable_mtls: null,
+  aerospike_hostname: null,
+  aerospike_namespace: null,
+  aerospike_password: null,
+  aerospike_port: null,
+  aerospike_roles: null,
+  aerospike_skip_server_name_validation: null,
+  aerospike_ssl_connection_certificate: null,
+  aerospike_ssl_connection_mode: null,
   agentic_rules: null,
   api_key: null,
   api_key_id: null,
@@ -299,6 +340,7 @@ instance = Akeyless::DSProducerDetails.new(
   artifactory_base_url: null,
   artifactory_token_audience: null,
   artifactory_token_scope: null,
+  auth_mode: null,
   authorization_port: null,
   aws_access_key_id: null,
   aws_access_mode: null,
@@ -311,6 +353,7 @@ instance = Akeyless::DSProducerDetails.new(
   aws_transitive_tag_keys: null,
   aws_user_console_access: null,
   aws_user_groups: null,
+  aws_user_name: null,
   aws_user_policies: null,
   aws_user_programmatic_access: null,
   azure_administrative_unit: null,
@@ -485,6 +528,10 @@ instance = Akeyless::DSProducerDetails.new(
   mssql_revocation_statements: null,
   mysql_creation_statements: null,
   mysql_revocation_statements: null,
+  oauth_access_token: null,
+  oauth_account_id: null,
+  oauth_last_refresh: null,
+  oauth_refresh_token: null,
   openai_url: null,
   oracle_creation_statements: null,
   oracle_revocation_statements: null,
@@ -525,6 +572,7 @@ instance = Akeyless::DSProducerDetails.new(
   sf_warehouse_name: null,
   should_stop: null,
   signing_algorithm: null,
+  skip_dry_run: null,
   skip_server_name_validation: null,
   ssl_connection_certificate: null,
   ssl_connection_mode: null,

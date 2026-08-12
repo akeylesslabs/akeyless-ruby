@@ -18,6 +18,9 @@ module Akeyless
     # List of the new tags that will be attached to this item
     attr_accessor :add_tag
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
@@ -74,6 +77,9 @@ module Akeyless
 
     attr_accessor :rotation_interval
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -95,6 +101,7 @@ module Akeyless
     def self.attribute_map
       {
         :'add_tag' => :'add-tag',
+        :'ara_enabled' => :'ara-enabled',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
@@ -115,6 +122,7 @@ module Akeyless
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
+        :'skip_dry_run' => :'skip_dry_run',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -133,6 +141,7 @@ module Akeyless
     def self.openapi_types
       {
         :'add_tag' => :'Array<String>',
+        :'ara_enabled' => :'Boolean',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
@@ -153,6 +162,7 @@ module Akeyless
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
+        :'skip_dry_run' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',
@@ -187,6 +197,10 @@ module Akeyless
         if (value = attributes[:'add_tag']).is_a?(Array)
           self.add_tag = value
         end
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'authentication_credentials')
@@ -287,6 +301,10 @@ module Akeyless
         self.rotation_interval = attributes[:'rotation_interval']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -338,6 +356,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           add_tag == o.add_tag &&
+          ara_enabled == o.ara_enabled &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
@@ -358,6 +377,7 @@ module Akeyless
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
+          skip_dry_run == o.skip_dry_run &&
           token == o.token &&
           uid_token == o.uid_token &&
           use_capital_letters == o.use_capital_letters &&
@@ -375,7 +395,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, output_rule, password_length, rm_tag, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, output_rule, password_length, rm_tag, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, skip_dry_run, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

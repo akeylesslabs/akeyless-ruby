@@ -37,7 +37,7 @@ module Akeyless
     # Pull interval in seconds
     attr_accessor :pull_interval
 
-    # Google chronicle region [eu_multi_region/london/us_multi_region/singapore/tel_aviv]
+    # Google chronicle region [eu_multi_region/london/us_multi_region/singapore/tel_aviv/toronto/sydney/frankfurt/zurich/dammam/mumbai/tokyo]
     attr_accessor :region
 
     # Authentication token (see `/auth` and `/configure`)

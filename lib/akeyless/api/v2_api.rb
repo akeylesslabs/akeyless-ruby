@@ -4575,6 +4575,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param create_f5_big_ip_target [CreateF5BigIpTarget] 
+    # @param [Hash] opts the optional parameters
+    # @return [CreateF5BigIpTargetOutput]
+    def create_f5_big_ip_target(create_f5_big_ip_target, opts = {})
+      data, _status_code, _headers = create_f5_big_ip_target_with_http_info(create_f5_big_ip_target, opts)
+      data
+    end
+
+    # @param create_f5_big_ip_target [CreateF5BigIpTarget] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateF5BigIpTargetOutput, Integer, Hash)>] CreateF5BigIpTargetOutput data, response status code and response headers
+    def create_f5_big_ip_target_with_http_info(create_f5_big_ip_target, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.create_f5_big_ip_target ...'
+      end
+      # verify the required parameter 'create_f5_big_ip_target' is set
+      if @api_client.config.client_side_validation && create_f5_big_ip_target.nil?
+        fail ArgumentError, "Missing the required parameter 'create_f5_big_ip_target' when calling V2Api.create_f5_big_ip_target"
+      end
+      # resource path
+      local_var_path = '/create-f5-big-ip-target'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_f5_big_ip_target)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateF5BigIpTargetOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.create_f5_big_ip_target",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#create_f5_big_ip_target\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param create_gcp_target [CreateGcpTarget] 
     # @param [Hash] opts the optional parameters
     # @return [CreateGcpTargetOutput]
@@ -8479,6 +8543,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param dynamic_secret_create_aerospike [DynamicSecretCreateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretCreateOutput]
+    def dynamic_secret_create_aerospike(dynamic_secret_create_aerospike, opts = {})
+      data, _status_code, _headers = dynamic_secret_create_aerospike_with_http_info(dynamic_secret_create_aerospike, opts)
+      data
+    end
+
+    # @param dynamic_secret_create_aerospike [DynamicSecretCreateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretCreateOutput, Integer, Hash)>] DynamicSecretCreateOutput data, response status code and response headers
+    def dynamic_secret_create_aerospike_with_http_info(dynamic_secret_create_aerospike, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_create_aerospike ...'
+      end
+      # verify the required parameter 'dynamic_secret_create_aerospike' is set
+      if @api_client.config.client_side_validation && dynamic_secret_create_aerospike.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_create_aerospike' when calling V2Api.dynamic_secret_create_aerospike"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-create-aerospike'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_create_aerospike)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_create_aerospike",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_create_aerospike\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param dynamic_secret_create_artifactory [DynamicSecretCreateArtifactory] 
     # @param [Hash] opts the optional parameters
     # @return [DynamicSecretCreateOutput]
@@ -10711,6 +10839,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#dynamic_secret_tmp_creds_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param dynamic_secret_update_aerospike [DynamicSecretUpdateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretUpdateOutput]
+    def dynamic_secret_update_aerospike(dynamic_secret_update_aerospike, opts = {})
+      data, _status_code, _headers = dynamic_secret_update_aerospike_with_http_info(dynamic_secret_update_aerospike, opts)
+      data
+    end
+
+    # @param dynamic_secret_update_aerospike [DynamicSecretUpdateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretUpdateOutput, Integer, Hash)>] DynamicSecretUpdateOutput data, response status code and response headers
+    def dynamic_secret_update_aerospike_with_http_info(dynamic_secret_update_aerospike, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_update_aerospike ...'
+      end
+      # verify the required parameter 'dynamic_secret_update_aerospike' is set
+      if @api_client.config.client_side_validation && dynamic_secret_update_aerospike.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_aerospike' when calling V2Api.dynamic_secret_update_aerospike"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-update-aerospike'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_update_aerospike)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_update_aerospike",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_update_aerospike\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -26282,6 +26474,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param rotated_secret_create_aerospike [RotatedSecretCreateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretCreateOutput]
+    def rotated_secret_create_aerospike(rotated_secret_create_aerospike, opts = {})
+      data, _status_code, _headers = rotated_secret_create_aerospike_with_http_info(rotated_secret_create_aerospike, opts)
+      data
+    end
+
+    # @param rotated_secret_create_aerospike [RotatedSecretCreateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretCreateOutput, Integer, Hash)>] RotatedSecretCreateOutput data, response status code and response headers
+    def rotated_secret_create_aerospike_with_http_info(rotated_secret_create_aerospike, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_create_aerospike ...'
+      end
+      # verify the required parameter 'rotated_secret_create_aerospike' is set
+      if @api_client.config.client_side_validation && rotated_secret_create_aerospike.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_create_aerospike' when calling V2Api.rotated_secret_create_aerospike"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-create-aerospike'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_create_aerospike)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_create_aerospike",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_create_aerospike\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param rotated_secret_create_aws [RotatedSecretCreateAws] 
     # @param [Hash] opts the optional parameters
     # @return [RotatedSecretCreateOutput]
@@ -26598,6 +26854,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#rotated_secret_create_dockerhub\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_create_f5_big_ip [RotatedSecretCreateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretCreateOutput]
+    def rotated_secret_create_f5_big_ip(rotated_secret_create_f5_big_ip, opts = {})
+      data, _status_code, _headers = rotated_secret_create_f5_big_ip_with_http_info(rotated_secret_create_f5_big_ip, opts)
+      data
+    end
+
+    # @param rotated_secret_create_f5_big_ip [RotatedSecretCreateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretCreateOutput, Integer, Hash)>] RotatedSecretCreateOutput data, response status code and response headers
+    def rotated_secret_create_f5_big_ip_with_http_info(rotated_secret_create_f5_big_ip, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_create_f5_big_ip ...'
+      end
+      # verify the required parameter 'rotated_secret_create_f5_big_ip' is set
+      if @api_client.config.client_side_validation && rotated_secret_create_f5_big_ip.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_create_f5_big_ip' when calling V2Api.rotated_secret_create_f5_big_ip"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-create-f5-big-ip'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_create_f5_big_ip)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_create_f5_big_ip",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_create_f5_big_ip\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -27942,6 +28262,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#rotated_secret_sync\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_update_aerospike [RotatedSecretUpdateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretUpdateOutput]
+    def rotated_secret_update_aerospike(rotated_secret_update_aerospike, opts = {})
+      data, _status_code, _headers = rotated_secret_update_aerospike_with_http_info(rotated_secret_update_aerospike, opts)
+      data
+    end
+
+    # @param rotated_secret_update_aerospike [RotatedSecretUpdateAerospike] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretUpdateOutput, Integer, Hash)>] RotatedSecretUpdateOutput data, response status code and response headers
+    def rotated_secret_update_aerospike_with_http_info(rotated_secret_update_aerospike, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_update_aerospike ...'
+      end
+      # verify the required parameter 'rotated_secret_update_aerospike' is set
+      if @api_client.config.client_side_validation && rotated_secret_update_aerospike.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_update_aerospike' when calling V2Api.rotated_secret_update_aerospike"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-update-aerospike'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_update_aerospike)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_update_aerospike",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_aerospike\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -30954,6 +31338,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param target_create_f5_big_ip [TargetCreateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_f5_big_ip(target_create_f5_big_ip, opts = {})
+      data, _status_code, _headers = target_create_f5_big_ip_with_http_info(target_create_f5_big_ip, opts)
+      data
+    end
+
+    # @param target_create_f5_big_ip [TargetCreateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_f5_big_ip_with_http_info(target_create_f5_big_ip, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_f5_big_ip ...'
+      end
+      # verify the required parameter 'target_create_f5_big_ip' is set
+      if @api_client.config.client_side_validation && target_create_f5_big_ip.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_f5_big_ip' when calling V2Api.target_create_f5_big_ip"
+      end
+      # resource path
+      local_var_path = '/target-create-f5-big-ip'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_f5_big_ip)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_f5_big_ip",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_f5_big_ip\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param target_create_gcp [TargetCreateGcp] 
     # @param [Hash] opts the optional parameters
     # @return [TargetCreateOutput]
@@ -33702,6 +34150,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_eks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_f5_big_ip [TargetUpdateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_f5_big_ip(target_update_f5_big_ip, opts = {})
+      data, _status_code, _headers = target_update_f5_big_ip_with_http_info(target_update_f5_big_ip, opts)
+      data
+    end
+
+    # @param target_update_f5_big_ip [TargetUpdateF5BigIp] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_f5_big_ip_with_http_info(target_update_f5_big_ip, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_f5_big_ip ...'
+      end
+      # verify the required parameter 'target_update_f5_big_ip' is set
+      if @api_client.config.client_side_validation && target_update_f5_big_ip.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_f5_big_ip' when calling V2Api.target_update_f5_big_ip"
+      end
+      # resource path
+      local_var_path = '/target-update-f5-big-ip'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_f5_big_ip)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_f5_big_ip",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_f5_big_ip\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -37606,6 +38118,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#update_event_forwarder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param update_f5_big_ip_target [UpdateF5BigIpTarget] 
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateF5BigIpTargetOutput]
+    def update_f5_big_ip_target(update_f5_big_ip_target, opts = {})
+      data, _status_code, _headers = update_f5_big_ip_target_with_http_info(update_f5_big_ip_target, opts)
+      data
+    end
+
+    # @param update_f5_big_ip_target [UpdateF5BigIpTarget] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateF5BigIpTargetOutput, Integer, Hash)>] UpdateF5BigIpTargetOutput data, response status code and response headers
+    def update_f5_big_ip_target_with_http_info(update_f5_big_ip_target, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.update_f5_big_ip_target ...'
+      end
+      # verify the required parameter 'update_f5_big_ip_target' is set
+      if @api_client.config.client_side_validation && update_f5_big_ip_target.nil?
+        fail ArgumentError, "Missing the required parameter 'update_f5_big_ip_target' when calling V2Api.update_f5_big_ip_target"
+      end
+      # resource path
+      local_var_path = '/update-f5-big-ip-target'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_f5_big_ip_target)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateF5BigIpTargetOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.update_f5_big_ip_target",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#update_f5_big_ip_target\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

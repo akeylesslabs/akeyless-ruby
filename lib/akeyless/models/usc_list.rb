@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscList is a command that lists the secrets of a Universal Secrets Connector
   class UscList
+    # The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope.
+    attr_accessor :gcp_project_id
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -39,6 +42,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'object_type' => :'object-type',
         :'page_size' => :'page-size',
@@ -57,6 +61,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'object_type' => :'String',
         :'page_size' => :'Integer',
@@ -87,6 +92,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
+      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
@@ -146,6 +155,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           object_type == o.object_type &&
           page_size == o.page_size &&
@@ -164,7 +174,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, object_type, page_size, page_token, token, uid_token, usc_name].hash
+      [gcp_project_id, json, object_type, page_size, page_token, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

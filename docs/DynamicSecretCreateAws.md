@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_mode** | **String** |  | [optional] |
 | **admin_rotation_interval_days** | **Integer** | Admin credentials rotation interval (days) | [optional][default to 0] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **aws_access_key_id** | **String** | Access Key ID | [optional] |
 | **aws_access_secret_key** | **String** | Secret Access Key | [optional] |
 | **aws_external_id** | **String** | The AWS External ID associated with the AWS role (relevant only for assume_role mode) | [optional] |
@@ -36,6 +37,7 @@
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **session_tags** | **String** | String of Key value session tags comma separated, relevant only for Assumed Role | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -55,6 +57,7 @@ require 'akeyless'
 instance = Akeyless::DynamicSecretCreateAws.new(
   access_mode: null,
   admin_rotation_interval_days: null,
+  ara_enabled: null,
   aws_access_key_id: null,
   aws_access_secret_key: null,
   aws_external_id: null,
@@ -85,6 +88,7 @@ instance = Akeyless::DynamicSecretCreateAws.new(
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
   session_tags: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

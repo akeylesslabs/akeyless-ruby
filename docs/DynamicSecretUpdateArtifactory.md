@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **artifactory_admin_name** | **String** | Artifactory Admin Name | [optional] |
 | **artifactory_admin_pwd** | **String** | Artifactory Admin password | [optional] |
 | **artifactory_token_audience** | **String** | Token Audience |  |
@@ -19,6 +20,7 @@
 | **new_name** | **String** | Dynamic secret name | [optional] |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -31,6 +33,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateArtifactory.new(
+  ara_enabled: null,
   artifactory_admin_name: null,
   artifactory_admin_pwd: null,
   artifactory_token_audience: null,
@@ -46,6 +49,7 @@ instance = Akeyless::DynamicSecretUpdateArtifactory.new(
   new_name: null,
   output_rule: null,
   producer_encryption_key_name: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

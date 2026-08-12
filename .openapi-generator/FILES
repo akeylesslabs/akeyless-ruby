@@ -193,6 +193,8 @@ docs/CreateESM.md
 docs/CreateESMOutput.md
 docs/CreateEventForwarder.md
 docs/CreateEventForwarderOutput.md
+docs/CreateF5BigIpTarget.md
+docs/CreateF5BigIpTargetOutput.md
 docs/CreateGKETarget.md
 docs/CreateGKETargetOutput.md
 docs/CreateGcpTarget.md
@@ -314,6 +316,7 @@ docs/Detokenize.md
 docs/DetokenizeOutput.md
 docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
+docs/DynamicSecretCreateAerospike.md
 docs/DynamicSecretCreateArtifactory.md
 docs/DynamicSecretCreateAws.md
 docs/DynamicSecretCreateAzure.md
@@ -354,6 +357,7 @@ docs/DynamicSecretProducerInfo.md
 docs/DynamicSecretTmpCredsDelete.md
 docs/DynamicSecretTmpCredsGet.md
 docs/DynamicSecretTmpCredsUpdate.md
+docs/DynamicSecretUpdateAerospike.md
 docs/DynamicSecretUpdateArtifactory.md
 docs/DynamicSecretUpdateAws.md
 docs/DynamicSecretUpdateAzure.md
@@ -431,6 +435,7 @@ docs/ExportClassicKey.md
 docs/ExportClassicKeyOutput.md
 docs/Extension.md
 docs/ExternalKMSKeyId.md
+docs/F5BigIpTargetDetails.md
 docs/FileDownloadInstructions.md
 docs/FileInfo.md
 docs/FolderCreate.md
@@ -725,6 +730,7 @@ docs/K8SAuthsConfigLastChange.md
 docs/K8SAuthsConfigPart.md
 docs/K8SMigration.md
 docs/K8SPayload.md
+docs/KMIPCA.md
 docs/KMIPClient.md
 docs/KMIPClientGetResponse.md
 docs/KMIPClientListResponse.md
@@ -881,11 +887,13 @@ docs/RotateKeyOutput.md
 docs/RotateOidcClientOutput.md
 docs/RotateOidcClientSecret.md
 docs/RotateSecret.md
+docs/RotatedSecretCreateAerospike.md
 docs/RotatedSecretCreateAws.md
 docs/RotatedSecretCreateAzure.md
 docs/RotatedSecretCreateCassandra.md
 docs/RotatedSecretCreateCustom.md
 docs/RotatedSecretCreateDockerhub.md
+docs/RotatedSecretCreateF5BigIp.md
 docs/RotatedSecretCreateGcp.md
 docs/RotatedSecretCreateHanadb.md
 docs/RotatedSecretCreateHashiVault.md
@@ -911,6 +919,7 @@ docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
 docs/RotatedSecretSync.md
+docs/RotatedSecretUpdateAerospike.md
 docs/RotatedSecretUpdateAws.md
 docs/RotatedSecretUpdateAzure.md
 docs/RotatedSecretUpdateCassandra.md
@@ -1007,6 +1016,7 @@ docs/TargetCreateDB.md
 docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
+docs/TargetCreateF5BigIp.md
 docs/TargetCreateGcp.md
 docs/TargetCreateGemini.md
 docs/TargetCreateGithub.md
@@ -1056,6 +1066,7 @@ docs/TargetUpdateDB.md
 docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
+docs/TargetUpdateF5BigIp.md
 docs/TargetUpdateGcp.md
 docs/TargetUpdateGemini.md
 docs/TargetUpdateGithub.md
@@ -1143,6 +1154,8 @@ docs/UpdateDockerhubTargetOutput.md
 docs/UpdateEKSTarget.md
 docs/UpdateEKSTargetOutput.md
 docs/UpdateEventForwarder.md
+docs/UpdateF5BigIpTarget.md
+docs/UpdateF5BigIpTargetOutput.md
 docs/UpdateGKETarget.md
 docs/UpdateGKETargetOutput.md
 docs/UpdateGcpTarget.md
@@ -1441,6 +1454,8 @@ lib/akeyless/models/create_esm.rb
 lib/akeyless/models/create_esm_output.rb
 lib/akeyless/models/create_event_forwarder.rb
 lib/akeyless/models/create_event_forwarder_output.rb
+lib/akeyless/models/create_f5_big_ip_target.rb
+lib/akeyless/models/create_f5_big_ip_target_output.rb
 lib/akeyless/models/create_gcp_target.rb
 lib/akeyless/models/create_gcp_target_output.rb
 lib/akeyless/models/create_github_target.rb
@@ -1562,6 +1577,7 @@ lib/akeyless/models/detokenize_output.rb
 lib/akeyless/models/digi_cert_target_details.rb
 lib/akeyless/models/dockerhub_target_details.rb
 lib/akeyless/models/ds_producer_details.rb
+lib/akeyless/models/dynamic_secret_create_aerospike.rb
 lib/akeyless/models/dynamic_secret_create_artifactory.rb
 lib/akeyless/models/dynamic_secret_create_aws.rb
 lib/akeyless/models/dynamic_secret_create_azure.rb
@@ -1602,6 +1618,7 @@ lib/akeyless/models/dynamic_secret_producer_info.rb
 lib/akeyless/models/dynamic_secret_tmp_creds_delete.rb
 lib/akeyless/models/dynamic_secret_tmp_creds_get.rb
 lib/akeyless/models/dynamic_secret_tmp_creds_update.rb
+lib/akeyless/models/dynamic_secret_update_aerospike.rb
 lib/akeyless/models/dynamic_secret_update_artifactory.rb
 lib/akeyless/models/dynamic_secret_update_aws.rb
 lib/akeyless/models/dynamic_secret_update_azure.rb
@@ -1679,6 +1696,7 @@ lib/akeyless/models/export_classic_key.rb
 lib/akeyless/models/export_classic_key_output.rb
 lib/akeyless/models/extension.rb
 lib/akeyless/models/external_kms_key_id.rb
+lib/akeyless/models/f5_big_ip_target_details.rb
 lib/akeyless/models/file_download_instructions.rb
 lib/akeyless/models/file_info.rb
 lib/akeyless/models/folder_create.rb
@@ -2007,6 +2025,7 @@ lib/akeyless/models/kmip_server_update.rb
 lib/akeyless/models/kmip_server_update_output.rb
 lib/akeyless/models/kmip_set_server_state.rb
 lib/akeyless/models/kmip_set_server_state_output.rb
+lib/akeyless/models/kmipca.rb
 lib/akeyless/models/kube_config_value.rb
 lib/akeyless/models/kubeconfig_cluster.rb
 lib/akeyless/models/kubeconfig_context.rb
@@ -2129,11 +2148,13 @@ lib/akeyless/models/rotate_key_output.rb
 lib/akeyless/models/rotate_oidc_client_output.rb
 lib/akeyless/models/rotate_oidc_client_secret.rb
 lib/akeyless/models/rotate_secret.rb
+lib/akeyless/models/rotated_secret_create_aerospike.rb
 lib/akeyless/models/rotated_secret_create_aws.rb
 lib/akeyless/models/rotated_secret_create_azure.rb
 lib/akeyless/models/rotated_secret_create_cassandra.rb
 lib/akeyless/models/rotated_secret_create_custom.rb
 lib/akeyless/models/rotated_secret_create_dockerhub.rb
+lib/akeyless/models/rotated_secret_create_f5_big_ip.rb
 lib/akeyless/models/rotated_secret_create_gcp.rb
 lib/akeyless/models/rotated_secret_create_hanadb.rb
 lib/akeyless/models/rotated_secret_create_hashi_vault.rb
@@ -2159,6 +2180,7 @@ lib/akeyless/models/rotated_secret_get_value.rb
 lib/akeyless/models/rotated_secret_list.rb
 lib/akeyless/models/rotated_secret_output.rb
 lib/akeyless/models/rotated_secret_sync.rb
+lib/akeyless/models/rotated_secret_update_aerospike.rb
 lib/akeyless/models/rotated_secret_update_aws.rb
 lib/akeyless/models/rotated_secret_update_azure.rb
 lib/akeyless/models/rotated_secret_update_cassandra.rb
@@ -2255,6 +2277,7 @@ lib/akeyless/models/target_create_db.rb
 lib/akeyless/models/target_create_digi_cert.rb
 lib/akeyless/models/target_create_dockerhub.rb
 lib/akeyless/models/target_create_eks.rb
+lib/akeyless/models/target_create_f5_big_ip.rb
 lib/akeyless/models/target_create_gcp.rb
 lib/akeyless/models/target_create_gemini.rb
 lib/akeyless/models/target_create_github.rb
@@ -2304,6 +2327,7 @@ lib/akeyless/models/target_update_db.rb
 lib/akeyless/models/target_update_digi_cert.rb
 lib/akeyless/models/target_update_dockerhub.rb
 lib/akeyless/models/target_update_eks.rb
+lib/akeyless/models/target_update_f5_big_ip.rb
 lib/akeyless/models/target_update_gcp.rb
 lib/akeyless/models/target_update_gemini.rb
 lib/akeyless/models/target_update_github.rb
@@ -2391,6 +2415,8 @@ lib/akeyless/models/update_dockerhub_target_output.rb
 lib/akeyless/models/update_eks_target.rb
 lib/akeyless/models/update_eks_target_output.rb
 lib/akeyless/models/update_event_forwarder.rb
+lib/akeyless/models/update_f5_big_ip_target.rb
+lib/akeyless/models/update_f5_big_ip_target_output.rb
 lib/akeyless/models/update_gcp_target.rb
 lib/akeyless/models/update_gcp_target_output.rb
 lib/akeyless/models/update_github_target.rb
@@ -2497,7 +2523,17 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/aerospike_target_details_spec.rb
-spec/models/target_create_aerospike_spec.rb
-spec/models/target_update_aerospike_spec.rb
+spec/models/create_f5_big_ip_target_output_spec.rb
+spec/models/create_f5_big_ip_target_spec.rb
+spec/models/dynamic_secret_create_aerospike_spec.rb
+spec/models/dynamic_secret_update_aerospike_spec.rb
+spec/models/f5_big_ip_target_details_spec.rb
+spec/models/kmipca_spec.rb
+spec/models/rotated_secret_create_aerospike_spec.rb
+spec/models/rotated_secret_create_f5_big_ip_spec.rb
+spec/models/rotated_secret_update_aerospike_spec.rb
+spec/models/target_create_f5_big_ip_spec.rb
+spec/models/target_update_f5_big_ip_spec.rb
+spec/models/update_f5_big_ip_target_output_spec.rb
+spec/models/update_f5_big_ip_target_spec.rb
 spec/spec_helper.rb

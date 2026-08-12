@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **creation_statements** | **String** | Redshift Creation statements | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
@@ -21,6 +22,7 @@
 | **redshift_username** | **String** | Redshift Username | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **ssl** | **Boolean** | Enable/Disable SSL [true/false] | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
@@ -38,6 +40,7 @@
 require 'akeyless'
 
 instance = Akeyless::GatewayCreateProducerRedshift.new(
+  ara_enabled: null,
   creation_statements: null,
   custom_username_template: null,
   delete_protection: null,
@@ -55,6 +58,7 @@ instance = Akeyless::GatewayCreateProducerRedshift.new(
   redshift_username: null,
   secure_access_enable: null,
   secure_access_host: null,
+  skip_dry_run: null,
   ssl: null,
   tags: null,
   target_name: null,

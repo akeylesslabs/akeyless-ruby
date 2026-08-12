@@ -18,6 +18,7 @@
 | **digicert_target_details** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  | [optional] |
 | **dockerhub_target_details** | [**DockerhubTargetDetails**](DockerhubTargetDetails.md) |  | [optional] |
 | **eks_target_details** | [**EKSTargetDetails**](EKSTargetDetails.md) |  | [optional] |
+| **f5_big_ip_target_details** | [**F5BigIpTargetDetails**](F5BigIpTargetDetails.md) |  | [optional] |
 | **gcp_target_details** | [**GcpTargetDetails**](GcpTargetDetails.md) |  | [optional] |
 | **gemini_target_details** | [**GeminiTargetDetails**](GeminiTargetDetails.md) |  | [optional] |
 | **github_target_details** | [**GithubTargetDetails**](GithubTargetDetails.md) |  | [optional] |
@@ -68,6 +69,7 @@ instance = Akeyless::TargetTypeDetailsInput.new(
   digicert_target_details: null,
   dockerhub_target_details: null,
   eks_target_details: null,
+  f5_big_ip_target_details: null,
   gcp_target_details: null,
   gemini_target_details: null,
   github_target_details: null,

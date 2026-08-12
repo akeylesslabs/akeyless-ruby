@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
@@ -18,6 +19,7 @@
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval** | **String** |  | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -33,6 +35,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretCreateHashiVault.new(
+  ara_enabled: null,
   auto_rotate: null,
   delete_protection: null,
   description: null,
@@ -47,6 +50,7 @@ instance = Akeyless::RotatedSecretCreateHashiVault.new(
   rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

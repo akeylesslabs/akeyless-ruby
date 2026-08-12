@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **access_type** | **String** |  | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type&#x3D;external) | [optional][default to &#39;ext_email&#39;] |
@@ -29,6 +30,7 @@
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **service_account_type** | **String** | The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type&#x3D;sa) | [optional][default to &#39;fixed&#39;] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -42,6 +44,7 @@ require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerGcp.new(
   access_type: null,
+  ara_enabled: null,
   custom_username_template: null,
   delete_protection: null,
   fixed_user_claim_keyname: null,
@@ -66,6 +69,7 @@ instance = Akeyless::GatewayUpdateProducerGcp.new(
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
   service_account_type: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

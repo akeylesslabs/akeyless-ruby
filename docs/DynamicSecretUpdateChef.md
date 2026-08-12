@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **chef_orgs** | **String** | Organizations | [optional] |
 | **chef_server_key** | **String** | Server key | [optional] |
 | **chef_server_url** | **String** | Server URL | [optional] |
@@ -20,6 +21,7 @@
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
 | **skip_ssl** | **Boolean** | Skip SSL | [optional][default to true] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -36,6 +38,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateChef.new(
+  ara_enabled: null,
   chef_orgs: null,
   chef_server_key: null,
   chef_server_url: null,
@@ -52,6 +55,7 @@ instance = Akeyless::DynamicSecretUpdateChef.new(
   password_length: null,
   producer_encryption_key_name: null,
   skip_ssl: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

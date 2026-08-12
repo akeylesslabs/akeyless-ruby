@@ -22,6 +22,9 @@ module Akeyless
     # Admin API key ID to rotate (relevant only for rotator-type=api-key)
     attr_accessor :api_key_id
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
@@ -66,6 +69,9 @@ module Akeyless
     # The rotator type. options: [target/api-key]
     attr_accessor :rotator_type
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -94,6 +100,7 @@ module Akeyless
       {
         :'api_key' => :'api-key',
         :'api_key_id' => :'api-key-id',
+        :'ara_enabled' => :'ara-enabled',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
@@ -110,6 +117,7 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -131,6 +139,7 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_key_id' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
@@ -147,6 +156,7 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -185,6 +195,10 @@ module Akeyless
 
       if attributes.key?(:'api_key_id')
         self.api_key_id = attributes[:'api_key_id']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'authentication_credentials')
@@ -267,6 +281,10 @@ module Akeyless
         self.rotator_type = nil
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -341,6 +359,7 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
+          ara_enabled == o.ara_enabled &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
@@ -357,6 +376,7 @@ module Akeyless
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
           rotator_type == o.rotator_type &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -376,7 +396,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_key_id, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, key, max_versions, name, output_rule, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [api_key, api_key_id, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, key, max_versions, name, output_rule, password_length, rotation_event_in, rotation_hour, rotation_interval, rotator_type, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

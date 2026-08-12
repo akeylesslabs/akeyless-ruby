@@ -15,21 +15,12 @@ require 'time'
 
 module Akeyless
   class FolderSyncOutput
-    attr_accessor :failed_items
-
     attr_accessor :folder_name
-
-    attr_accessor :skipped_items
-
-    attr_accessor :synced_items
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'failed_items' => :'failed_items',
-        :'folder_name' => :'folder_name',
-        :'skipped_items' => :'skipped_items',
-        :'synced_items' => :'synced_items'
+        :'folder_name' => :'folder_name'
       }
     end
 
@@ -41,10 +32,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'failed_items' => :'Hash<String, String>',
-        :'folder_name' => :'String',
-        :'skipped_items' => :'Array<String>',
-        :'synced_items' => :'Array<String>'
+        :'folder_name' => :'String'
       }
     end
 
@@ -69,26 +57,8 @@ module Akeyless
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'failed_items')
-        if (value = attributes[:'failed_items']).is_a?(Hash)
-          self.failed_items = value
-        end
-      end
-
       if attributes.key?(:'folder_name')
         self.folder_name = attributes[:'folder_name']
-      end
-
-      if attributes.key?(:'skipped_items')
-        if (value = attributes[:'skipped_items']).is_a?(Array)
-          self.skipped_items = value
-        end
-      end
-
-      if attributes.key?(:'synced_items')
-        if (value = attributes[:'synced_items']).is_a?(Array)
-          self.synced_items = value
-        end
       end
     end
 
@@ -112,10 +82,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          failed_items == o.failed_items &&
-          folder_name == o.folder_name &&
-          skipped_items == o.skipped_items &&
-          synced_items == o.synced_items
+          folder_name == o.folder_name
     end
 
     # @see the `==` method
@@ -127,7 +94,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [failed_items, folder_name, skipped_items, synced_items].hash
+      [folder_name].hash
     end
 
     # Builds the object from hash

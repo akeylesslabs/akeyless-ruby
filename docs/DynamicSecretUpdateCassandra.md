@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **cassandra_creation_statements** | **String** | Cassandra creation statements | [optional] |
 | **cassandra_hosts** | **String** | Cassandra hosts IP or addresses, comma separated | [optional] |
 | **cassandra_password** | **String** | Cassandra superuser password | [optional] |
@@ -20,6 +21,7 @@
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **ssl** | **Boolean** | Enable/Disable SSL [true/false] | [optional][default to false] |
 | **ssl_certificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
@@ -38,6 +40,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateCassandra.new(
+  ara_enabled: null,
   cassandra_creation_statements: null,
   cassandra_hosts: null,
   cassandra_password: null,
@@ -54,6 +57,7 @@ instance = Akeyless::DynamicSecretUpdateCassandra.new(
   output_rule: null,
   password_length: null,
   producer_encryption_key_name: null,
+  skip_dry_run: null,
   ssl: null,
   ssl_certificate: null,
   tags: null,

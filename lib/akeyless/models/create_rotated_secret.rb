@@ -57,7 +57,7 @@ module Akeyless
     # Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false]
     attr_accessor :grace_rotation
 
-    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
     attr_accessor :host_provider
 
     # Set output format to JSON
@@ -131,6 +131,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
     attr_accessor :secure_access_host
 
@@ -164,7 +167,7 @@ module Akeyless
     # Add tags attached to this object
     attr_accessor :tags
 
-    # A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
     attr_accessor :target
 
     # Target name
@@ -224,6 +227,7 @@ module Akeyless
         :'secure_access_db_schema' => :'secure-access-db-schema',
         :'secure_access_disable_concurrent_connections' => :'secure-access-disable-concurrent-connections',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
@@ -291,6 +295,7 @@ module Akeyless
         :'secure_access_db_schema' => :'String',
         :'secure_access_disable_concurrent_connections' => :'Boolean',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
@@ -500,6 +505,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_host')
         if (value = attributes[:'secure_access_host']).is_a?(Array)
           self.secure_access_host = value
@@ -659,6 +668,7 @@ module Akeyless
           secure_access_db_schema == o.secure_access_db_schema &&
           secure_access_disable_concurrent_connections == o.secure_access_disable_concurrent_connections &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
@@ -687,7 +697,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, api_id, api_key, application_id, authentication_credentials, auto_rotate, aws_region, custom_payload, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, host_provider, json, key, lock_during_sra_session, metadata, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, api_id, api_key, application_id, authentication_credentials, auto_rotate, aws_region, custom_payload, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, host_provider, json, key, lock_during_sra_session, metadata, name, password_length, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, tags, target, target_name, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

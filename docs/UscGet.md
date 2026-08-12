@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **gcp_project_id** | **String** | GCP Project ID (Relevant only for GCP targets) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
@@ -20,6 +21,7 @@
 require 'akeyless'
 
 instance = Akeyless::UscGet.new(
+  gcp_project_id: null,
   json: null,
   namespace: null,
   object_type: null,

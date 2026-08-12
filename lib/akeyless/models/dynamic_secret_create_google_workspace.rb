@@ -21,6 +21,9 @@ module Akeyless
     # Admin user email
     attr_accessor :admin_email
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -79,6 +82,9 @@ module Akeyless
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -99,6 +105,7 @@ module Akeyless
       {
         :'access_mode' => :'access-mode',
         :'admin_email' => :'admin-email',
+        :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
@@ -119,6 +126,7 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -137,6 +145,7 @@ module Akeyless
       {
         :'access_mode' => :'String',
         :'admin_email' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'fixed_user_claim_keyname' => :'String',
@@ -157,6 +166,7 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -196,6 +206,10 @@ module Akeyless
         self.admin_email = attributes[:'admin_email']
       else
         self.admin_email = nil
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'delete_protection')
@@ -296,6 +310,10 @@ module Akeyless
         self.secure_access_web_proxy = false
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -358,6 +376,7 @@ module Akeyless
       self.class == o.class &&
           access_mode == o.access_mode &&
           admin_email == o.admin_email &&
+          ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
@@ -378,6 +397,7 @@ module Akeyless
           secure_access_web == o.secure_access_web &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -394,7 +414,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_email, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, input_rule, item_custom_fields, json, name, output_rule, producer_encryption_key_name, role_name, role_scope, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, tags, target_name, token, uid_token, user_ttl].hash
+      [access_mode, admin_email, ara_enabled, delete_protection, description, fixed_user_claim_keyname, gcp_key, group_email, group_role, input_rule, item_custom_fields, json, name, output_rule, producer_encryption_key_name, role_name, role_scope, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

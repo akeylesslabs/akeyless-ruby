@@ -7,6 +7,7 @@
 | **account** | **String** | Account name | [optional] |
 | **account_password** | **String** | Database Password | [optional] |
 | **account_username** | **String** | Database Username | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **auth_mode** | **String** | The authentication mode for the temporary user [password/key] | [optional][default to &#39;password&#39;] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **db_name** | **String** | Database name | [optional] |
@@ -23,6 +24,7 @@
 | **private_key** | **String** | RSA Private key (base64 encoded) | [optional] |
 | **private_key_passphrase** | **String** | The Private key passphrase | [optional] |
 | **role** | **String** | User role | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -43,6 +45,7 @@ instance = Akeyless::DynamicSecretUpdateSnowflake.new(
   account: null,
   account_password: null,
   account_username: null,
+  ara_enabled: null,
   auth_mode: null,
   custom_username_template: null,
   db_name: null,
@@ -59,6 +62,7 @@ instance = Akeyless::DynamicSecretUpdateSnowflake.new(
   private_key: null,
   private_key_passphrase: null,
   role: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

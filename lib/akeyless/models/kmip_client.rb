@@ -25,6 +25,8 @@ module Akeyless
 
     attr_accessor :id
 
+    attr_accessor :issuing_ca_id
+
     attr_accessor :name
 
     attr_accessor :rules
@@ -37,6 +39,7 @@ module Akeyless
         :'certificate_ttl_in_seconds' => :'certificate_ttl_in_seconds',
         :'expiration_events' => :'expiration_events',
         :'id' => :'id',
+        :'issuing_ca_id' => :'issuing_ca_id',
         :'name' => :'name',
         :'rules' => :'rules'
       }
@@ -55,6 +58,7 @@ module Akeyless
         :'certificate_ttl_in_seconds' => :'Integer',
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'id' => :'String',
+        :'issuing_ca_id' => :'String',
         :'name' => :'String',
         :'rules' => :'Array<PathRule>'
       }
@@ -103,6 +107,10 @@ module Akeyless
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'issuing_ca_id')
+        self.issuing_ca_id = attributes[:'issuing_ca_id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -139,6 +147,7 @@ module Akeyless
           certificate_ttl_in_seconds == o.certificate_ttl_in_seconds &&
           expiration_events == o.expiration_events &&
           id == o.id &&
+          issuing_ca_id == o.issuing_ca_id &&
           name == o.name &&
           rules == o.rules
     end
@@ -152,7 +161,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activate_keys_on_creation, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, id, name, rules].hash
+      [activate_keys_on_creation, certificate_issue_date, certificate_ttl_in_seconds, expiration_events, id, issuing_ca_id, name, rules].hash
     end
 
     # Builds the object from hash

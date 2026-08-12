@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :aws_session_token
 
+    attr_accessor :aws_user_name
+
     attr_accessor :gw_cloud_identity_external_id_opt
 
     attr_accessor :use_gw_cloud_identity
@@ -34,6 +36,7 @@ module Akeyless
         :'aws_region' => :'aws_region',
         :'aws_secret_access_key' => :'aws_secret_access_key',
         :'aws_session_token' => :'aws_session_token',
+        :'aws_user_name' => :'aws_user_name',
         :'gw_cloud_identity_external_id_opt' => :'gw_cloud_identity_external_id_opt',
         :'use_gw_cloud_identity' => :'use_gw_cloud_identity'
       }
@@ -51,6 +54,7 @@ module Akeyless
         :'aws_region' => :'String',
         :'aws_secret_access_key' => :'String',
         :'aws_session_token' => :'String',
+        :'aws_user_name' => :'String',
         :'gw_cloud_identity_external_id_opt' => :'AWSGatewayCloudIdentityExternalIdOpt',
         :'use_gw_cloud_identity' => :'Boolean'
       }
@@ -93,6 +97,10 @@ module Akeyless
         self.aws_session_token = attributes[:'aws_session_token']
       end
 
+      if attributes.key?(:'aws_user_name')
+        self.aws_user_name = attributes[:'aws_user_name']
+      end
+
       if attributes.key?(:'gw_cloud_identity_external_id_opt')
         self.gw_cloud_identity_external_id_opt = attributes[:'gw_cloud_identity_external_id_opt']
       end
@@ -126,6 +134,7 @@ module Akeyless
           aws_region == o.aws_region &&
           aws_secret_access_key == o.aws_secret_access_key &&
           aws_session_token == o.aws_session_token &&
+          aws_user_name == o.aws_user_name &&
           gw_cloud_identity_external_id_opt == o.gw_cloud_identity_external_id_opt &&
           use_gw_cloud_identity == o.use_gw_cloud_identity
     end
@@ -139,7 +148,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_access_key_id, aws_region, aws_secret_access_key, aws_session_token, gw_cloud_identity_external_id_opt, use_gw_cloud_identity].hash
+      [aws_access_key_id, aws_region, aws_secret_access_key, aws_session_token, aws_user_name, gw_cloud_identity_external_id_opt, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

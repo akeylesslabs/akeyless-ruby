@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_user_name** | **String** |  | [optional] |
 | **delete_previous_version_in_days** | **Integer** |  | [optional] |
 | **enable_custom_password_policy** | **Boolean** |  | [optional] |
 | **grace_rotation** | **Boolean** |  | [optional] |
@@ -26,6 +27,7 @@
 | **rotator_type** | **String** |  | [optional] |
 | **same_password** | **Boolean** |  | [optional] |
 | **services_details** | [**Array&lt;WindowsService&gt;**](WindowsService.md) |  | [optional] |
+| **skip_dry_run** | **Boolean** |  | [optional] |
 | **timeout_seconds** | **Integer** |  | [optional] |
 
 ## Example
@@ -34,6 +36,7 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretDetailsInfo.new(
+  aws_user_name: null,
   delete_previous_version_in_days: null,
   enable_custom_password_policy: null,
   grace_rotation: null,
@@ -56,6 +59,7 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   rotator_type: null,
   same_password: null,
   services_details: null,
+  skip_dry_run: null,
   timeout_seconds: null
 )
 ```

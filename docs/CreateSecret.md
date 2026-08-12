@@ -4,12 +4,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **provider_type** | **String** |  | [optional] |
 | **accessibility** | **String** | for personal password manager | [optional][default to &#39;regular&#39;] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **change_event** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) | [optional] |
 | **custom_field** | **Hash&lt;String, String&gt;** | For Password Management use, additional fields | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) | [optional][default to &#39;text&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
@@ -25,6 +28,7 @@
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_enforce_hosts_restriction** | **Boolean** | Enforce connections only to allowed SRA hosts | [optional] |
 | **secure_access_gateway** | **String** |  | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_user** | **String** | Remote Desktop Username | [optional] |
@@ -34,6 +38,7 @@
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **type** | **String** | The secret sub type [generic/password] | [optional][default to &#39;generic&#39;] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -46,12 +51,15 @@
 require 'akeyless'
 
 instance = Akeyless::CreateSecret.new(
+  provider_type: null,
   accessibility: null,
+  ara_enabled: null,
   change_event: null,
   custom_field: null,
   delete_protection: null,
   description: null,
   format: null,
+  host_provider: null,
   inject_url: null,
   input_rule: null,
   item_custom_fields: null,
@@ -67,6 +75,7 @@ instance = Akeyless::CreateSecret.new(
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
   secure_access_enable: null,
+  secure_access_enforce_hosts_restriction: null,
   secure_access_gateway: null,
   secure_access_host: null,
   secure_access_rdp_user: null,
@@ -76,6 +85,7 @@ instance = Akeyless::CreateSecret.new(
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
   tags: null,
+  target: null,
   token: null,
   type: null,
   uid_token: null,

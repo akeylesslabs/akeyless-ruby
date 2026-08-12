@@ -15,14 +15,26 @@ require 'time'
 
 module Akeyless
   class UscCreateSecretOutput
+    # PartialFailure aggregates per-target create failures when some targets still succeeded.
+    attr_accessor :partial_failure
+
     attr_accessor :secret_id
+
+    # SelectedEnvironments is the subset of GitHub environments where create succeeded (comma-separated).
+    attr_accessor :selected_environments
+
+    # SelectedRepositories is the subset of GitHub repositories where create succeeded (comma-separated).
+    attr_accessor :selected_repositories
 
     attr_accessor :version_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'partial_failure' => :'partial_failure',
         :'secret_id' => :'secret_id',
+        :'selected_environments' => :'selected_environments',
+        :'selected_repositories' => :'selected_repositories',
         :'version_id' => :'version_id'
       }
     end
@@ -35,7 +47,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'partial_failure' => :'String',
         :'secret_id' => :'String',
+        :'selected_environments' => :'String',
+        :'selected_repositories' => :'String',
         :'version_id' => :'String'
       }
     end
@@ -61,8 +76,20 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'partial_failure')
+        self.partial_failure = attributes[:'partial_failure']
+      end
+
       if attributes.key?(:'secret_id')
         self.secret_id = attributes[:'secret_id']
+      end
+
+      if attributes.key?(:'selected_environments')
+        self.selected_environments = attributes[:'selected_environments']
+      end
+
+      if attributes.key?(:'selected_repositories')
+        self.selected_repositories = attributes[:'selected_repositories']
       end
 
       if attributes.key?(:'version_id')
@@ -90,7 +117,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          partial_failure == o.partial_failure &&
           secret_id == o.secret_id &&
+          selected_environments == o.selected_environments &&
+          selected_repositories == o.selected_repositories &&
           version_id == o.version_id
     end
 
@@ -103,7 +133,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [secret_id, version_id].hash
+      [partial_failure, secret_id, selected_environments, selected_repositories, version_id].hash
     end
 
     # Builds the object from hash

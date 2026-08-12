@@ -8,7 +8,10 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the Universal Secrets Connector | [optional] |
 | **environment_names** | **String** | The environments in repo-name/environment-name format, comma-separated (only relevant for: github-scope&#x3D;repository-environment) | [optional] |
+| **gcp_folder_id** | **String** | GCP Folder ID (Relevant only for GCP targets with folder scope) | [optional] |
+| **gcp_organization_id** | **String** | GCP Organization ID (Relevant only for GCP targets) | [optional] |
 | **gcp_project_id** | **String** | GCP Project ID (Relevant only for GCP targets) | [optional] |
+| **gcp_scope** | **String** | The gcp usc scope [ project / organization / folder] | [optional][default to &#39;project&#39;] |
 | **gcp_sm_regions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type&#x3D;regional-secrets. | [optional] |
 | **github_scope** | **String** | The scope where secrets will be created, available options: [repository, organization, repository-environment] | [optional][default to &#39;repository&#39;] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
@@ -37,7 +40,10 @@ instance = Akeyless::CreateUSC.new(
   delete_protection: null,
   description: null,
   environment_names: null,
+  gcp_folder_id: null,
+  gcp_organization_id: null,
   gcp_project_id: null,
+  gcp_scope: null,
   gcp_sm_regions: null,
   github_scope: null,
   item_custom_fields: null,

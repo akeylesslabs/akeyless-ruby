@@ -22,6 +22,18 @@ module Akeyless
     # API key ID
     attr_accessor :api_key_id
 
+    # Codex OAuth access token (auth.json tokens.access_token), used when codex-oauth-mode=chatgpt_oauth
+    attr_accessor :codex_oauth_access_token
+
+    # Codex OAuth account id (auth.json tokens.account_id), used when codex-oauth-mode=chatgpt_oauth
+    attr_accessor :codex_oauth_account_id
+
+    # Auth mode: empty (default, static api-key) or chatgpt_oauth
+    attr_accessor :codex_oauth_mode
+
+    # Codex OAuth refresh token (auth.json tokens.refresh_token), used when codex-oauth-mode=chatgpt_oauth
+    attr_accessor :codex_oauth_refresh_token
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -60,6 +72,10 @@ module Akeyless
       {
         :'api_key' => :'api-key',
         :'api_key_id' => :'api-key-id',
+        :'codex_oauth_access_token' => :'codex-oauth-access-token',
+        :'codex_oauth_account_id' => :'codex-oauth-account-id',
+        :'codex_oauth_mode' => :'codex-oauth-mode',
+        :'codex_oauth_refresh_token' => :'codex-oauth-refresh-token',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'json' => :'json',
@@ -84,6 +100,10 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_key_id' => :'String',
+        :'codex_oauth_access_token' => :'String',
+        :'codex_oauth_account_id' => :'String',
+        :'codex_oauth_mode' => :'String',
+        :'codex_oauth_refresh_token' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'json' => :'Boolean',
@@ -125,6 +145,22 @@ module Akeyless
 
       if attributes.key?(:'api_key_id')
         self.api_key_id = attributes[:'api_key_id']
+      end
+
+      if attributes.key?(:'codex_oauth_access_token')
+        self.codex_oauth_access_token = attributes[:'codex_oauth_access_token']
+      end
+
+      if attributes.key?(:'codex_oauth_account_id')
+        self.codex_oauth_account_id = attributes[:'codex_oauth_account_id']
+      end
+
+      if attributes.key?(:'codex_oauth_mode')
+        self.codex_oauth_mode = attributes[:'codex_oauth_mode']
+      end
+
+      if attributes.key?(:'codex_oauth_refresh_token')
+        self.codex_oauth_refresh_token = attributes[:'codex_oauth_refresh_token']
       end
 
       if attributes.key?(:'delete_protection')
@@ -205,6 +241,10 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
+          codex_oauth_access_token == o.codex_oauth_access_token &&
+          codex_oauth_account_id == o.codex_oauth_account_id &&
+          codex_oauth_mode == o.codex_oauth_mode &&
+          codex_oauth_refresh_token == o.codex_oauth_refresh_token &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           json == o.json &&
@@ -227,7 +267,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_key_id, delete_protection, description, json, key, max_versions, model, name, openai_url, organization_id, token, uid_token].hash
+      [api_key, api_key_id, codex_oauth_access_token, codex_oauth_account_id, codex_oauth_mode, codex_oauth_refresh_token, delete_protection, description, json, key, max_versions, model, name, openai_url, organization_id, token, uid_token].hash
     end
 
     # Builds the object from hash

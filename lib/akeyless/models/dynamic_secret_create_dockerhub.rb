@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # dynamicSecretCreateDockerhub is a command that creates a DOCKERHUB dynamic secret
   class DynamicSecretCreateDockerhub
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -49,6 +52,9 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -67,6 +73,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'dockerhub_password' => :'dockerhub-password',
@@ -78,6 +85,7 @@ module Akeyless
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -94,6 +102,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'dockerhub_password' => :'String',
@@ -105,6 +114,7 @@ module Akeyless
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -133,6 +143,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
@@ -188,6 +202,10 @@ module Akeyless
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -238,6 +256,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           dockerhub_password == o.dockerhub_password &&
@@ -249,6 +268,7 @@ module Akeyless
           name == o.name &&
           output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -265,7 +285,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, dockerhub_password, dockerhub_token_scopes, dockerhub_username, input_rule, item_custom_fields, json, name, output_rule, producer_encryption_key_name, tags, target_name, token, uid_token, user_ttl].hash
+      [ara_enabled, delete_protection, description, dockerhub_password, dockerhub_token_scopes, dockerhub_username, input_rule, item_custom_fields, json, name, output_rule, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

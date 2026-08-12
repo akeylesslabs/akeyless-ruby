@@ -14,7 +14,7 @@
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gcp_sm_regions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. USC with GCP targets only. | [optional] |
-| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret | [optional] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
@@ -40,6 +40,7 @@
 | **secure_access_db_name** | **String** | The DB name (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_db_schema** | **String** | The DB schema (relevant only for DB Dynamic-Secret) | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_enforce_hosts_restriction** | **Boolean** | Enforce connections only to allowed SRA hosts | [optional] |
 | **secure_access_gateway** | **String** |  | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server (relevant only for rdp) | [optional] |
@@ -52,8 +53,9 @@
 | **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
 | **secure_access_use_internal_bastion** | **Boolean** | Deprecated. Use secure-access-use-internal-ssh-access | [optional] |
 | **secure_access_use_internal_ssh_access** | **Boolean** | Use internal SSH Access | [optional] |
-| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
-| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **usc_tags** | **String** | Comma-separated list of tags to apply to all secrets created/synced on the remote USC  USC items only. | [optional] |
@@ -101,6 +103,7 @@ instance = Akeyless::UpdateItem.new(
   secure_access_db_name: null,
   secure_access_db_schema: null,
   secure_access_enable: null,
+  secure_access_enforce_hosts_restriction: null,
   secure_access_gateway: null,
   secure_access_host: null,
   secure_access_rd_gateway_server: null,
@@ -115,6 +118,7 @@ instance = Akeyless::UpdateItem.new(
   secure_access_use_internal_ssh_access: null,
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
+  target: null,
   token: null,
   uid_token: null,
   usc_tags: null,

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **audience** | **String** | Token audience for Splunk token creation (relevant only for rotator-type&#x3D;token) | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
@@ -26,6 +27,7 @@
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval** | **String** |  | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **splunk_token** | **String** | For rotator-type&#x3D;token, optionally set/replace the stored Splunk authentication token value. | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **token_owner** | **String** | For rotator-type&#x3D;token, specify the Splunk username that the new token should be issued for. (Splunk 10 requires name&#x3D;&lt;token-owner&gt; when creating auth tokens.) | [optional] |
@@ -42,6 +44,7 @@ require 'akeyless'
 
 instance = Akeyless::RotatedSecretUpdateSplunk.new(
   add_tag: null,
+  ara_enabled: null,
   audience: null,
   authentication_credentials: null,
   auto_rotate: null,
@@ -63,6 +66,7 @@ instance = Akeyless::RotatedSecretUpdateSplunk.new(
   rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,
+  skip_dry_run: null,
   splunk_token: null,
   token: null,
   token_owner: null,

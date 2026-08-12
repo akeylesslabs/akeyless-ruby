@@ -9,6 +9,7 @@
 | **certificate_ttl_in_seconds** | **Integer** |  | [optional] |
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **id** | **String** |  | [optional] |
+| **issuing_ca_id** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **rules** | [**Array&lt;PathRule&gt;**](PathRule.md) |  | [optional] |
 
@@ -23,6 +24,7 @@ instance = Akeyless::KMIPClient.new(
   certificate_ttl_in_seconds: null,
   expiration_events: null,
   id: null,
+  issuing_ca_id: null,
   name: null,
   rules: null
 )

@@ -7,6 +7,7 @@
 | **admin_rotation_interval_days** | **Integer** | Admin credentials rotation interval (days) | [optional][default to 0] |
 | **allow_subdomains** | **Boolean** | Allow subdomains | [optional] |
 | **allowed_domains** | **Array&lt;String&gt;** | Allowed domains | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **auto_generated_folder** | **String** | Auto generated folder | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
@@ -20,6 +21,7 @@
 | **root_first_in_chain** | **Boolean** | Root first in chain | [optional] |
 | **sign_using_akeyless_pki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer | [optional] |
 | **signer_key_name** | **String** | Signer key name | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **store_private_key** | **Boolean** | Store private key | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
@@ -43,6 +45,7 @@ instance = Akeyless::DynamicSecretCreateVenafi.new(
   admin_rotation_interval_days: null,
   allow_subdomains: null,
   allowed_domains: null,
+  ara_enabled: null,
   auto_generated_folder: null,
   delete_protection: null,
   description: null,
@@ -56,6 +59,7 @@ instance = Akeyless::DynamicSecretCreateVenafi.new(
   root_first_in_chain: null,
   sign_using_akeyless_pki: null,
   signer_key_name: null,
+  skip_dry_run: null,
   store_private_key: null,
   tags: null,
   target_name: null,

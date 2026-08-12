@@ -24,6 +24,9 @@ module Akeyless
     # API key to rotate (relevant only for rotator-type=api-key)
     attr_accessor :api_key
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # The credentials to connect with use-user-creds/use-target-creds
     attr_accessor :authentication_credentials
 
@@ -110,6 +113,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -133,6 +139,7 @@ module Akeyless
         :'add_tag' => :'add-tag',
         :'api_id' => :'api-id',
         :'api_key' => :'api-key',
+        :'ara_enabled' => :'ara-enabled',
         :'authentication_credentials' => :'authentication-credentials',
         :'auto_rotate' => :'auto-rotate',
         :'aws_region' => :'aws-region',
@@ -163,6 +170,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
+        :'skip_dry_run' => :'skip_dry_run',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -183,6 +191,7 @@ module Akeyless
         :'add_tag' => :'Array<String>',
         :'api_id' => :'String',
         :'api_key' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'authentication_credentials' => :'String',
         :'auto_rotate' => :'String',
         :'aws_region' => :'String',
@@ -213,6 +222,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
+        :'skip_dry_run' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',
@@ -255,6 +265,10 @@ module Akeyless
 
       if attributes.key?(:'api_key')
         self.api_key = attributes[:'api_key']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'authentication_credentials')
@@ -397,6 +411,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -450,6 +468,7 @@ module Akeyless
           add_tag == o.add_tag &&
           api_id == o.api_id &&
           api_key == o.api_key &&
+          ara_enabled == o.ara_enabled &&
           authentication_credentials == o.authentication_credentials &&
           auto_rotate == o.auto_rotate &&
           aws_region == o.aws_region &&
@@ -480,6 +499,7 @@ module Akeyless
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
           secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_enable == o.secure_access_enable &&
+          skip_dry_run == o.skip_dry_run &&
           token == o.token &&
           uid_token == o.uid_token &&
           use_capital_letters == o.use_capital_letters &&
@@ -497,7 +517,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, api_id, api_key, authentication_credentials, auto_rotate, aws_region, delete_protection, description, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [add_tag, api_id, api_key, ara_enabled, authentication_credentials, auto_rotate, aws_region, delete_protection, description, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, rm_tag, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, skip_dry_run, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

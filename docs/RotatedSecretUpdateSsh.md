@@ -4,11 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **provider_type** | **String** |  | [optional] |
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
+| **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -36,11 +39,14 @@
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **secure_access_enforce_hosts_restriction** | **Boolean** | Enforce connections only to allowed SRA hosts | [optional] |
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username | [optional] |
 | **secure_access_ssh_user** | **String** | Override the SSH username as indicated in SSH Certificate Issuer | [optional] |
 | **secure_access_target_type** | **String** | Specify target type. Options are ssh or rdp | [optional][default to &#39;false&#39;] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **use_capital_letters** | **String** | Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false] | [optional] |
@@ -54,11 +60,14 @@
 require 'akeyless'
 
 instance = Akeyless::RotatedSecretUpdateSsh.new(
+  provider_type: null,
   add_tag: null,
+  ara_enabled: null,
   authentication_credentials: null,
   auto_rotate: null,
   delete_protection: null,
   description: null,
+  host_provider: null,
   input_rule: null,
   item_custom_fields: null,
   json: null,
@@ -86,11 +95,14 @@ instance = Akeyless::RotatedSecretUpdateSsh.new(
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
   secure_access_enable: null,
+  secure_access_enforce_hosts_restriction: null,
   secure_access_host: null,
   secure_access_rdp_domain: null,
   secure_access_rdp_user: null,
   secure_access_ssh_user: null,
   secure_access_target_type: null,
+  skip_dry_run: null,
+  target: null,
   token: null,
   uid_token: null,
   use_capital_letters: null,

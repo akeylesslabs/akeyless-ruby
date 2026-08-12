@@ -70,7 +70,7 @@ module Akeyless
     # Auth Method new name
     attr_accessor :new_name
 
-    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
     # Base64-encoded or PEM formatted public key data for K8S authentication method is required [RSA2048]

@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # dynamicSecretTmpCredsUpdate is a command that updates dynamic secret temp creds
   class DynamicSecretTmpCredsUpdate
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Host
     attr_accessor :host
 
@@ -34,6 +37,9 @@ module Akeyless
     # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
     attr_accessor :output_rule
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Tmp Creds ID
     attr_accessor :tmp_creds_id
 
@@ -46,12 +52,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'host' => :'host',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
         :'new_ttl_min' => :'new-ttl-min',
         :'output_rule' => :'output-rule',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tmp_creds_id' => :'tmp-creds-id',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -66,12 +74,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'host' => :'String',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'new_ttl_min' => :'Integer',
         :'output_rule' => :'Array<String>',
+        :'skip_dry_run' => :'String',
         :'tmp_creds_id' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -98,6 +108,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
@@ -133,6 +147,10 @@ module Akeyless
         if (value = attributes[:'output_rule']).is_a?(Array)
           self.output_rule = value
         end
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'tmp_creds_id')
@@ -190,12 +208,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           host == o.host &&
           input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
           new_ttl_min == o.new_ttl_min &&
           output_rule == o.output_rule &&
+          skip_dry_run == o.skip_dry_run &&
           tmp_creds_id == o.tmp_creds_id &&
           token == o.token &&
           uid_token == o.uid_token
@@ -210,7 +230,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [host, input_rule, json, name, new_ttl_min, output_rule, tmp_creds_id, token, uid_token].hash
+      [ara_enabled, host, input_rule, json, name, new_ttl_min, output_rule, skip_dry_run, tmp_creds_id, token, uid_token].hash
     end
 
     # Builds the object from hash

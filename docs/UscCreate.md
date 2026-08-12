@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **binary_value** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary | [optional] |
 | **description** | **String** | Description of the universal secrets | [optional] |
+| **gcp_project_id** | **String** | The GCP project to create the secret in (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
@@ -30,6 +31,7 @@ require 'akeyless'
 instance = Akeyless::UscCreate.new(
   binary_value: null,
   description: null,
+  gcp_project_id: null,
   json: null,
   namespace: null,
   object_type: null,

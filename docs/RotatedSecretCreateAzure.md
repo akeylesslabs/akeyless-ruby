@@ -7,6 +7,7 @@
 | **api_id** | **String** | API ID to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **api_key** | **String** | API key to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **application_id** | **String** | Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key &amp; authentication-credentials&#x3D;use-target-creds) | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
@@ -39,6 +40,7 @@
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **storage_account_key_name** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |
@@ -59,6 +61,7 @@ instance = Akeyless::RotatedSecretCreateAzure.new(
   api_id: null,
   api_key: null,
   application_id: null,
+  ara_enabled: null,
   authentication_credentials: null,
   auto_rotate: null,
   delete_protection: null,
@@ -91,6 +94,7 @@ instance = Akeyless::RotatedSecretCreateAzure.new(
   secure_access_web: null,
   secure_access_web_browsing: null,
   secure_access_web_proxy: null,
+  skip_dry_run: null,
   storage_account_key_name: null,
   tags: null,
   target_name: null,

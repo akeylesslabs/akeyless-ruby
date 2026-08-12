@@ -18,6 +18,9 @@ module Akeyless
   class GatewayUpdateProducerGcp
     attr_accessor :access_type
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Customize how temporary usernames are generated using go template
     attr_accessor :custom_username_template
 
@@ -89,6 +92,9 @@ module Akeyless
     # The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)
     attr_accessor :service_account_type
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -108,6 +114,7 @@ module Akeyless
     def self.attribute_map
       {
         :'access_type' => :'access-type',
+        :'ara_enabled' => :'ara-enabled',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
@@ -132,6 +139,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'service_account_type' => :'service-account-type',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -149,6 +157,7 @@ module Akeyless
     def self.openapi_types
       {
         :'access_type' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'fixed_user_claim_keyname' => :'String',
@@ -173,6 +182,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'service_account_type' => :'String',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -204,6 +214,10 @@ module Akeyless
 
       if attributes.key?(:'access_type')
         self.access_type = attributes[:'access_type']
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'custom_username_template')
@@ -320,6 +334,10 @@ module Akeyless
         self.service_account_type = 'fixed'
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -371,6 +389,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           access_type == o.access_type &&
+          ara_enabled == o.ara_enabled &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
@@ -395,6 +414,7 @@ module Akeyless
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
           service_account_type == o.service_account_type &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -411,7 +431,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_type, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, tags, target_name, token, uid_token, user_ttl].hash
+      [access_type, ara_enabled, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

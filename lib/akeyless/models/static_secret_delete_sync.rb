@@ -18,6 +18,9 @@ module Akeyless
     # Delete the secret from the remote target USC as well
     attr_accessor :delete_from_usc
 
+    # GitHub environments to sync to. Relevant only for GitHub targets. Syncs to all environments defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --environments repo1/env1,repo2/env2).
+    attr_accessor :environments
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -26,6 +29,9 @@ module Akeyless
 
     # Remote Secret Name to disambiguate when multiple syncs exist under the same USC
     attr_accessor :remote_secret_name
+
+    # GitHub repositories to delete from. Defaults to all repositories available on the selected USC. GitHub repositories to sync to. Relevant only for GitHub targets. Syncs to all repositories defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --repositories repo1,repo2).
+    attr_accessor :repositories
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -40,9 +46,11 @@ module Akeyless
     def self.attribute_map
       {
         :'delete_from_usc' => :'delete-from-usc',
+        :'environments' => :'environments',
         :'json' => :'json',
         :'name' => :'name',
         :'remote_secret_name' => :'remote-secret-name',
+        :'repositories' => :'repositories',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name'
@@ -58,9 +66,11 @@ module Akeyless
     def self.openapi_types
       {
         :'delete_from_usc' => :'Boolean',
+        :'environments' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'remote_secret_name' => :'String',
+        :'repositories' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String'
@@ -94,6 +104,10 @@ module Akeyless
         self.delete_from_usc = false
       end
 
+      if attributes.key?(:'environments')
+        self.environments = attributes[:'environments']
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -108,6 +122,10 @@ module Akeyless
 
       if attributes.key?(:'remote_secret_name')
         self.remote_secret_name = attributes[:'remote_secret_name']
+      end
+
+      if attributes.key?(:'repositories')
+        self.repositories = attributes[:'repositories']
       end
 
       if attributes.key?(:'token')
@@ -156,9 +174,11 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           delete_from_usc == o.delete_from_usc &&
+          environments == o.environments &&
           json == o.json &&
           name == o.name &&
           remote_secret_name == o.remote_secret_name &&
+          repositories == o.repositories &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name
@@ -173,7 +193,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_from_usc, json, name, remote_secret_name, token, uid_token, usc_name].hash
+      [delete_from_usc, environments, json, name, remote_secret_name, repositories, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

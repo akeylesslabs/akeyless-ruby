@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **eks_access_key_id** | **String** | Access Key ID | [optional] |
@@ -26,6 +27,7 @@
 | **secure_access_delay** | **Integer** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -38,6 +40,7 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretCreateEks.new(
+  ara_enabled: null,
   delete_protection: null,
   description: null,
   eks_access_key_id: null,
@@ -60,6 +63,7 @@ instance = Akeyless::DynamicSecretCreateEks.new(
   secure_access_delay: null,
   secure_access_enable: null,
   secure_access_web: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

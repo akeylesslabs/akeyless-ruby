@@ -19,10 +19,13 @@
 | **domain_name** | **String** |  | [optional] |
 | **domain_server_targets_path_template** | **String** |  | [optional] |
 | **domain_users_rotated_secrets_path_template** | **String** |  | [optional] |
+| **enable_password_policy** | **Boolean** | EnablePasswordPolicy enables applying PasswordPolicy to newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided). | [optional] |
 | **enable_rdp_sra** | **Boolean** |  | [optional] |
 | **local_users_ignore_list** | **Hash&lt;String, Boolean&gt;** |  | [optional] |
 | **local_users_rotated_secrets_path_template** | **String** |  | [optional] |
 | **os_filter** | **String** |  | [optional] |
+| **password_policy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
+| **skip_dry_run** | **Boolean** | SkipDryRun enables skip_dry_run on newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided). When false/unset, existing rotated-secret SkipDryRun values are left unchanged on sync. | [optional] |
 | **ssh_port** | **String** |  | [optional] |
 | **target_format** | **String** |  | [optional] |
 | **targets_type** | **String** |  | [optional] |
@@ -52,10 +55,13 @@ instance = Akeyless::ActiveDirectoryPayload.new(
   domain_name: null,
   domain_server_targets_path_template: null,
   domain_users_rotated_secrets_path_template: null,
+  enable_password_policy: null,
   enable_rdp_sra: null,
   local_users_ignore_list: null,
   local_users_rotated_secrets_path_template: null,
   os_filter: null,
+  password_policy: null,
+  skip_dry_run: null,
   ssh_port: null,
   target_format: null,
   targets_type: null,

@@ -76,7 +76,7 @@ module Akeyless
     # Auth Method name
     attr_accessor :name
 
-    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
     # Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication.

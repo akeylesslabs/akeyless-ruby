@@ -7,6 +7,7 @@
 | **add_tag** | **Array&lt;String&gt;** | List of the new tags that will be attached to this item | [optional] |
 | **api_id** | **String** | API ID to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **api_key** | **String** | API key to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |
 | **aws_region** | **String** | Aws Region | [optional][default to &#39;us-east-2&#39;] |
@@ -37,6 +38,7 @@
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_enable** | **String** | Enable/Disable secure remote access [true/false] | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **use_capital_letters** | **String** | Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false] | [optional] |
@@ -53,6 +55,7 @@ instance = Akeyless::RotatedSecretUpdateAws.new(
   add_tag: null,
   api_id: null,
   api_key: null,
+  ara_enabled: null,
   authentication_credentials: null,
   auto_rotate: null,
   aws_region: null,
@@ -83,6 +86,7 @@ instance = Akeyless::RotatedSecretUpdateAws.new(
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
   secure_access_enable: null,
+  skip_dry_run: null,
   token: null,
   uid_token: null,
   use_capital_letters: null,

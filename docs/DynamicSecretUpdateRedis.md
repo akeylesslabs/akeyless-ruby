@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acl_rules** | **String** | A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat By default the user will have permissions to read all keys &#39;[\&quot;~*\&quot;, \&quot;+@read\&quot;]&#39; | [optional] |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
@@ -19,6 +20,7 @@
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **port** | **String** | Redis Port | [optional][default to &#39;6379&#39;] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **ssl** | **Boolean** | Enable/Disable SSL [true/false] | [optional][default to false] |
 | **ssl_certificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
@@ -39,6 +41,7 @@ require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateRedis.new(
   acl_rules: null,
+  ara_enabled: null,
   custom_username_template: null,
   delete_protection: null,
   description: null,
@@ -53,6 +56,7 @@ instance = Akeyless::DynamicSecretUpdateRedis.new(
   password_length: null,
   port: null,
   producer_encryption_key_name: null,
+  skip_dry_run: null,
   ssl: null,
   ssl_certificate: null,
   tags: null,

@@ -75,6 +75,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**create_eks_target**](V2Api.md#create_eks_target) | **POST** /create-eks-target |  |
 | [**create_esm**](V2Api.md#create_esm) | **POST** /create-esm |  |
 | [**create_event_forwarder**](V2Api.md#create_event_forwarder) | **POST** /create-event-forwarder |  |
+| [**create_f5_big_ip_target**](V2Api.md#create_f5_big_ip_target) | **POST** /create-f5-big-ip-target |  |
 | [**create_gcp_target**](V2Api.md#create_gcp_target) | **POST** /create-gcp-target |  |
 | [**create_github_target**](V2Api.md#create_github_target) | **POST** /create-github-target |  |
 | [**create_gitlab_target**](V2Api.md#create_gitlab_target) | **POST** /create-gitlab-target |  |
@@ -136,6 +137,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**describe_sub_claims**](V2Api.md#describe_sub_claims) | **POST** /describe-sub-claims |  |
 | [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize |  |
 | [**detokenize_batch**](V2Api.md#detokenize_batch) | **POST** /detokenize-batch |  |
+| [**dynamic_secret_create_aerospike**](V2Api.md#dynamic_secret_create_aerospike) | **POST** /dynamic-secret-create-aerospike |  |
 | [**dynamic_secret_create_artifactory**](V2Api.md#dynamic_secret_create_artifactory) | **POST** /dynamic-secret-create-artifactory |  |
 | [**dynamic_secret_create_aws**](V2Api.md#dynamic_secret_create_aws) | **POST** /dynamic-secret-create-aws |  |
 | [**dynamic_secret_create_azure**](V2Api.md#dynamic_secret_create_azure) | **POST** /dynamic-secret-create-azure |  |
@@ -171,6 +173,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_tmp_creds_delete**](V2Api.md#dynamic_secret_tmp_creds_delete) | **POST** /dynamic-secret-tmp-creds-delete |  |
 | [**dynamic_secret_tmp_creds_get**](V2Api.md#dynamic_secret_tmp_creds_get) | **POST** /dynamic-secret-tmp-creds-get |  |
 | [**dynamic_secret_tmp_creds_update**](V2Api.md#dynamic_secret_tmp_creds_update) | **POST** /dynamic-secret-tmp-creds-update |  |
+| [**dynamic_secret_update_aerospike**](V2Api.md#dynamic_secret_update_aerospike) | **POST** /dynamic-secret-update-aerospike |  |
 | [**dynamic_secret_update_artifactory**](V2Api.md#dynamic_secret_update_artifactory) | **POST** /dynamic-secret-update-artifactory |  |
 | [**dynamic_secret_update_aws**](V2Api.md#dynamic_secret_update_aws) | **POST** /dynamic-secret-update-aws |  |
 | [**dynamic_secret_update_azure**](V2Api.md#dynamic_secret_update_azure) | **POST** /dynamic-secret-update-azure |  |
@@ -416,11 +419,13 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotate_key**](V2Api.md#rotate_key) | **POST** /rotate-key |  |
 | [**rotate_oidc_client_secret**](V2Api.md#rotate_oidc_client_secret) | **POST** /rotate-oidc-client-secret |  |
 | [**rotate_secret**](V2Api.md#rotate_secret) | **POST** /gateway-rotate-secret |  |
+| [**rotated_secret_create_aerospike**](V2Api.md#rotated_secret_create_aerospike) | **POST** /rotated-secret-create-aerospike |  |
 | [**rotated_secret_create_aws**](V2Api.md#rotated_secret_create_aws) | **POST** /rotated-secret-create-aws |  |
 | [**rotated_secret_create_azure**](V2Api.md#rotated_secret_create_azure) | **POST** /rotated-secret-create-azure |  |
 | [**rotated_secret_create_cassandra**](V2Api.md#rotated_secret_create_cassandra) | **POST** /rotated-secret-create-cassandra |  |
 | [**rotated_secret_create_custom**](V2Api.md#rotated_secret_create_custom) | **POST** /rotated-secret-create-custom |  |
 | [**rotated_secret_create_dockerhub**](V2Api.md#rotated_secret_create_dockerhub) | **POST** /rotated-secret-create-dockerhub |  |
+| [**rotated_secret_create_f5_big_ip**](V2Api.md#rotated_secret_create_f5_big_ip) | **POST** /rotated-secret-create-f5-big-ip |  |
 | [**rotated_secret_create_gcp**](V2Api.md#rotated_secret_create_gcp) | **POST** /rotated-secret-create-gcp |  |
 | [**rotated_secret_create_hanadb**](V2Api.md#rotated_secret_create_hanadb) | **POST** /rotated-secret-create-hanadb |  |
 | [**rotated_secret_create_hashi_vault**](V2Api.md#rotated_secret_create_hashi_vault) | **POST** /rotated-secret-create-hashi-vault |  |
@@ -442,6 +447,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_get_value**](V2Api.md#rotated_secret_get_value) | **POST** /rotated-secret-get-value |  |
 | [**rotated_secret_list**](V2Api.md#rotated_secret_list) | **POST** /rotated-secret-list |  |
 | [**rotated_secret_sync**](V2Api.md#rotated_secret_sync) | **POST** /rotated-secret-sync |  |
+| [**rotated_secret_update_aerospike**](V2Api.md#rotated_secret_update_aerospike) | **POST** /rotated-secret-update-aerospike |  |
 | [**rotated_secret_update_aws**](V2Api.md#rotated_secret_update_aws) | **POST** /rotated-secret-update-aws |  |
 | [**rotated_secret_update_azure**](V2Api.md#rotated_secret_update_azure) | **POST** /rotated-secret-update-azure |  |
 | [**rotated_secret_update_cassandra**](V2Api.md#rotated_secret_update_cassandra) | **POST** /rotated-secret-update-cassandra |  |
@@ -489,6 +495,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_digi_cert**](V2Api.md#target_create_digi_cert) | **POST** /target-create-digicert |  |
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
 | [**target_create_eks**](V2Api.md#target_create_eks) | **POST** /target-create-eks |  |
+| [**target_create_f5_big_ip**](V2Api.md#target_create_f5_big_ip) | **POST** /target-create-f5-big-ip |  |
 | [**target_create_gcp**](V2Api.md#target_create_gcp) | **POST** /target-create-gcp |  |
 | [**target_create_gemini**](V2Api.md#target_create_gemini) | **POST** /target-create-gemini |  |
 | [**target_create_github**](V2Api.md#target_create_github) | **POST** /target-create-github |  |
@@ -532,6 +539,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_digi_cert**](V2Api.md#target_update_digi_cert) | **POST** /target-update-digicert |  |
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
 | [**target_update_eks**](V2Api.md#target_update_eks) | **POST** /target-update-eks |  |
+| [**target_update_f5_big_ip**](V2Api.md#target_update_f5_big_ip) | **POST** /target-update-f5-big-ip |  |
 | [**target_update_gcp**](V2Api.md#target_update_gcp) | **POST** /target-update-gcp |  |
 | [**target_update_gemini**](V2Api.md#target_update_gemini) | **POST** /target-update-gemini |  |
 | [**target_update_github**](V2Api.md#target_update_github) | **POST** /target-update-github |  |
@@ -593,6 +601,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**update_dockerhub_target**](V2Api.md#update_dockerhub_target) | **POST** /update-dockerhub-target |  |
 | [**update_eks_target**](V2Api.md#update_eks_target) | **POST** /update-eks-target |  |
 | [**update_event_forwarder**](V2Api.md#update_event_forwarder) | **POST** /update-event-forwarder |  |
+| [**update_f5_big_ip_target**](V2Api.md#update_f5_big_ip_target) | **POST** /update-f5-big-ip-target |  |
 | [**update_gcp_target**](V2Api.md#update_gcp_target) | **POST** /update-gcp-target |  |
 | [**update_github_target**](V2Api.md#update_github_target) | **POST** /update-github-target |  |
 | [**update_gitlab_target**](V2Api.md#update_gitlab_target) | **POST** /update-gitlab-target |  |
@@ -5052,6 +5061,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## create_f5_big_ip_target
+
+> <CreateF5BigIpTargetOutput> create_f5_big_ip_target(create_f5_big_ip_target)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+create_f5_big_ip_target = Akeyless::CreateF5BigIpTarget.new({name: 'name_example', url: 'url_example', username: 'username_example'}) # CreateF5BigIpTarget | 
+
+begin
+  
+  result = api_instance.create_f5_big_ip_target(create_f5_big_ip_target)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_f5_big_ip_target: #{e}"
+end
+```
+
+#### Using the create_f5_big_ip_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateF5BigIpTargetOutput>, Integer, Hash)> create_f5_big_ip_target_with_http_info(create_f5_big_ip_target)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.create_f5_big_ip_target_with_http_info(create_f5_big_ip_target)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateF5BigIpTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->create_f5_big_ip_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_f5_big_ip_target** | [**CreateF5BigIpTarget**](CreateF5BigIpTarget.md) |  |  |
+
+### Return type
+
+[**CreateF5BigIpTargetOutput**](CreateF5BigIpTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## create_gcp_target
 
 > <CreateGcpTargetOutput> create_gcp_target(create_gcp_target)
@@ -8834,6 +8905,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_aerospike
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_aerospike(dynamic_secret_create_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_create_aerospike = Akeyless::DynamicSecretCreateAerospike.new({name: 'name_example'}) # DynamicSecretCreateAerospike | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_aerospike(dynamic_secret_create_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_aerospike: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_aerospike_with_http_info(dynamic_secret_create_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_aerospike_with_http_info(dynamic_secret_create_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_create_aerospike** | [**DynamicSecretCreateAerospike**](DynamicSecretCreateAerospike.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_create_artifactory
 
 > <DynamicSecretCreateOutput> dynamic_secret_create_artifactory(dynamic_secret_create_artifactory)
@@ -10993,6 +11126,68 @@ end
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_aerospike
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_aerospike(dynamic_secret_update_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_update_aerospike = Akeyless::DynamicSecretUpdateAerospike.new({name: 'name_example'}) # DynamicSecretUpdateAerospike | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_aerospike(dynamic_secret_update_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_aerospike: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_aerospike_with_http_info(dynamic_secret_update_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_aerospike_with_http_info(dynamic_secret_update_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_update_aerospike** | [**DynamicSecretUpdateAerospike**](DynamicSecretUpdateAerospike.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
 
 ### Authorization
 
@@ -26222,6 +26417,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_aerospike
+
+> <RotatedSecretCreateOutput> rotated_secret_create_aerospike(rotated_secret_create_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_aerospike = Akeyless::RotatedSecretCreateAerospike.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateAerospike | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_aerospike(rotated_secret_create_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_aerospike: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_aerospike_with_http_info(rotated_secret_create_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_aerospike_with_http_info(rotated_secret_create_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_aerospike** | [**RotatedSecretCreateAerospike**](RotatedSecretCreateAerospike.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_aws
 
 > <RotatedSecretCreateOutput> rotated_secret_create_aws(rotated_secret_create_aws)
@@ -26517,6 +26774,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rotated_secret_create_dockerhub** | [**RotatedSecretCreateDockerhub**](RotatedSecretCreateDockerhub.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_create_f5_big_ip
+
+> <RotatedSecretCreateOutput> rotated_secret_create_f5_big_ip(rotated_secret_create_f5_big_ip)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_f5_big_ip = Akeyless::RotatedSecretCreateF5BigIp.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateF5BigIp | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_f5_big_ip(rotated_secret_create_f5_big_ip)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_f5_big_ip: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_f5_big_ip_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_f5_big_ip_with_http_info(rotated_secret_create_f5_big_ip)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_f5_big_ip_with_http_info(rotated_secret_create_f5_big_ip)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_f5_big_ip_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_f5_big_ip** | [**RotatedSecretCreateF5BigIp**](RotatedSecretCreateF5BigIp.md) |  |  |
 
 ### Return type
 
@@ -27823,6 +28142,68 @@ end
 ### Return type
 
 **Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_aerospike
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_aerospike(rotated_secret_update_aerospike)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_aerospike = Akeyless::RotatedSecretUpdateAerospike.new({name: 'name_example'}) # RotatedSecretUpdateAerospike | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_aerospike(rotated_secret_update_aerospike)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_aerospike: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_aerospike_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_aerospike_with_http_info(rotated_secret_update_aerospike)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_aerospike_with_http_info(rotated_secret_update_aerospike)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_aerospike_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_aerospike** | [**RotatedSecretUpdateAerospike**](RotatedSecretUpdateAerospike.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
 
 ### Authorization
 
@@ -30747,6 +31128,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_f5_big_ip
+
+> <TargetCreateOutput> target_create_f5_big_ip(target_create_f5_big_ip)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_f5_big_ip = Akeyless::TargetCreateF5BigIp.new({name: 'name_example', url: 'url_example', username: 'username_example'}) # TargetCreateF5BigIp | 
+
+begin
+  
+  result = api_instance.target_create_f5_big_ip(target_create_f5_big_ip)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_f5_big_ip: #{e}"
+end
+```
+
+#### Using the target_create_f5_big_ip_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_f5_big_ip_with_http_info(target_create_f5_big_ip)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_f5_big_ip_with_http_info(target_create_f5_big_ip)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_f5_big_ip_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_f5_big_ip** | [**TargetCreateF5BigIp**](TargetCreateF5BigIp.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_gcp
 
 > <TargetCreateOutput> target_create_gcp(target_create_gcp)
@@ -33398,6 +33841,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_eks** | [**TargetUpdateEks**](TargetUpdateEks.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_f5_big_ip
+
+> <TargetUpdateOutput> target_update_f5_big_ip(target_update_f5_big_ip)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_f5_big_ip = Akeyless::TargetUpdateF5BigIp.new({name: 'name_example'}) # TargetUpdateF5BigIp | 
+
+begin
+  
+  result = api_instance.target_update_f5_big_ip(target_update_f5_big_ip)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_f5_big_ip: #{e}"
+end
+```
+
+#### Using the target_update_f5_big_ip_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_f5_big_ip_with_http_info(target_update_f5_big_ip)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_f5_big_ip_with_http_info(target_update_f5_big_ip)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_f5_big_ip_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_f5_big_ip** | [**TargetUpdateF5BigIp**](TargetUpdateF5BigIp.md) |  |  |
 
 ### Return type
 
@@ -37184,6 +37689,68 @@ end
 ### Return type
 
 **Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_f5_big_ip_target
+
+> <UpdateF5BigIpTargetOutput> update_f5_big_ip_target(update_f5_big_ip_target)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+update_f5_big_ip_target = Akeyless::UpdateF5BigIpTarget.new({name: 'name_example'}) # UpdateF5BigIpTarget | 
+
+begin
+  
+  result = api_instance.update_f5_big_ip_target(update_f5_big_ip_target)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_f5_big_ip_target: #{e}"
+end
+```
+
+#### Using the update_f5_big_ip_target_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UpdateF5BigIpTargetOutput>, Integer, Hash)> update_f5_big_ip_target_with_http_info(update_f5_big_ip_target)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.update_f5_big_ip_target_with_http_info(update_f5_big_ip_target)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UpdateF5BigIpTargetOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->update_f5_big_ip_target_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **update_f5_big_ip_target** | [**UpdateF5BigIpTarget**](UpdateF5BigIpTarget.md) |  |  |
+
+### Return type
+
+[**UpdateF5BigIpTargetOutput**](UpdateF5BigIpTargetOutput.md)
 
 ### Authorization
 

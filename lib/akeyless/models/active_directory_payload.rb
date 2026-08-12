@@ -46,6 +46,9 @@ module Akeyless
 
     attr_accessor :domain_users_rotated_secrets_path_template
 
+    # EnablePasswordPolicy enables applying PasswordPolicy to newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil = not provided).
+    attr_accessor :enable_password_policy
+
     attr_accessor :enable_rdp_sra
 
     attr_accessor :local_users_ignore_list
@@ -53,6 +56,11 @@ module Akeyless
     attr_accessor :local_users_rotated_secrets_path_template
 
     attr_accessor :os_filter
+
+    attr_accessor :password_policy
+
+    # SkipDryRun enables skip_dry_run on newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil = not provided). When false/unset, existing rotated-secret SkipDryRun values are left unchanged on sync.
+    attr_accessor :skip_dry_run
 
     attr_accessor :ssh_port
 
@@ -86,10 +94,13 @@ module Akeyless
         :'domain_name' => :'domain_name',
         :'domain_server_targets_path_template' => :'domain_server_targets_path_template',
         :'domain_users_rotated_secrets_path_template' => :'domain_users_rotated_secrets_path_template',
+        :'enable_password_policy' => :'enable_password_policy',
         :'enable_rdp_sra' => :'enable_rdp_sra',
         :'local_users_ignore_list' => :'local_users_ignore_list',
         :'local_users_rotated_secrets_path_template' => :'local_users_rotated_secrets_path_template',
         :'os_filter' => :'os_filter',
+        :'password_policy' => :'password_policy',
+        :'skip_dry_run' => :'skip_dry_run',
         :'ssh_port' => :'ssh_port',
         :'target_format' => :'target_format',
         :'targets_type' => :'targets_type',
@@ -123,10 +134,13 @@ module Akeyless
         :'domain_name' => :'String',
         :'domain_server_targets_path_template' => :'String',
         :'domain_users_rotated_secrets_path_template' => :'String',
+        :'enable_password_policy' => :'Boolean',
         :'enable_rdp_sra' => :'Boolean',
         :'local_users_ignore_list' => :'Hash<String, Boolean>',
         :'local_users_rotated_secrets_path_template' => :'String',
         :'os_filter' => :'String',
+        :'password_policy' => :'PasswordPolicyInfo',
+        :'skip_dry_run' => :'Boolean',
         :'ssh_port' => :'String',
         :'target_format' => :'String',
         :'targets_type' => :'String',
@@ -222,6 +236,10 @@ module Akeyless
         self.domain_users_rotated_secrets_path_template = attributes[:'domain_users_rotated_secrets_path_template']
       end
 
+      if attributes.key?(:'enable_password_policy')
+        self.enable_password_policy = attributes[:'enable_password_policy']
+      end
+
       if attributes.key?(:'enable_rdp_sra')
         self.enable_rdp_sra = attributes[:'enable_rdp_sra']
       end
@@ -238,6 +256,14 @@ module Akeyless
 
       if attributes.key?(:'os_filter')
         self.os_filter = attributes[:'os_filter']
+      end
+
+      if attributes.key?(:'password_policy')
+        self.password_policy = attributes[:'password_policy']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'ssh_port')
@@ -306,10 +332,13 @@ module Akeyless
           domain_name == o.domain_name &&
           domain_server_targets_path_template == o.domain_server_targets_path_template &&
           domain_users_rotated_secrets_path_template == o.domain_users_rotated_secrets_path_template &&
+          enable_password_policy == o.enable_password_policy &&
           enable_rdp_sra == o.enable_rdp_sra &&
           local_users_ignore_list == o.local_users_ignore_list &&
           local_users_rotated_secrets_path_template == o.local_users_rotated_secrets_path_template &&
           os_filter == o.os_filter &&
+          password_policy == o.password_policy &&
+          skip_dry_run == o.skip_dry_run &&
           ssh_port == o.ssh_port &&
           target_format == o.target_format &&
           targets_type == o.targets_type &&
@@ -328,7 +357,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_directory_target_id, ai_certificate_discovery, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, certificates_expiration_events, certificates_path_template, computer_base_dn, discover_iis_apps, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
+      [active_directory_target_id, ai_certificate_discovery, auto_rotate, auto_rotate_interval_in_days, auto_rotate_rotation_hour, certificates_expiration_events, certificates_path_template, computer_base_dn, discover_iis_apps, discover_local_users, discover_services, discovery_types, domain_name, domain_server_targets_path_template, domain_users_rotated_secrets_path_template, enable_password_policy, enable_rdp_sra, local_users_ignore_list, local_users_rotated_secrets_path_template, os_filter, password_policy, skip_dry_run, ssh_port, target_format, targets_type, user_base_dn, user_groups, winrm_over_http, winrm_port].hash
     end
 
     # Builds the object from hash

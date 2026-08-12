@@ -35,6 +35,8 @@ module Akeyless
 
     attr_accessor :producer_type
 
+    attr_accessor :skip_dry_run
+
     attr_accessor :user_ttl
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -48,6 +50,7 @@ module Akeyless
         :'producer_metadata' => :'producer_metadata',
         :'producer_status' => :'producer_status',
         :'producer_type' => :'producer_type',
+        :'skip_dry_run' => :'skip_dry_run',
         :'user_ttl' => :'user_ttl'
       }
     end
@@ -68,6 +71,7 @@ module Akeyless
         :'producer_metadata' => :'String',
         :'producer_status' => :'String',
         :'producer_type' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'user_ttl' => :'String'
       }
     end
@@ -125,6 +129,10 @@ module Akeyless
         self.producer_type = attributes[:'producer_type']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'user_ttl')
         self.user_ttl = attributes[:'user_ttl']
       end
@@ -158,6 +166,7 @@ module Akeyless
           producer_metadata == o.producer_metadata &&
           producer_status == o.producer_status &&
           producer_type == o.producer_type &&
+          skip_dry_run == o.skip_dry_run &&
           user_ttl == o.user_ttl
     end
 
@@ -170,7 +179,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [failure_message, gw_cluster_id, k8s_allowed_namespaces, k8s_dynamic_mode, producer_last_keep_alive, producer_metadata, producer_status, producer_type, user_ttl].hash
+      [failure_message, gw_cluster_id, k8s_allowed_namespaces, k8s_dynamic_mode, producer_last_keep_alive, producer_metadata, producer_status, producer_type, skip_dry_run, user_ttl].hash
     end
 
     # Builds the object from hash

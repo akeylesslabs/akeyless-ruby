@@ -10,6 +10,8 @@
 | **namespace** | **String** |  | [optional] |
 | **secret_id** | **String** |  | [optional] |
 | **secret_name** | **String** |  | [optional] |
+| **selected_environments** | **String** |  | [optional] |
+| **selected_repositories** | **String** |  | [optional] |
 
 ## Example
 
@@ -22,7 +24,9 @@ instance = Akeyless::UscSyncInfo.new(
   last_error: null,
   namespace: null,
   secret_id: null,
-  secret_name: null
+  secret_name: null,
+  selected_environments: null,
+  selected_repositories: null
 )
 ```
 

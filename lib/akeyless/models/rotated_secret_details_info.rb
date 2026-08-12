@@ -16,6 +16,8 @@ require 'time'
 module Akeyless
   # RotatedSecretDetailsInfo The rotated secret rotator info
   class RotatedSecretDetailsInfo
+    attr_accessor :aws_user_name
+
     attr_accessor :delete_previous_version_in_days
 
     attr_accessor :enable_custom_password_policy
@@ -61,11 +63,14 @@ module Akeyless
 
     attr_accessor :services_details
 
+    attr_accessor :skip_dry_run
+
     attr_accessor :timeout_seconds
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_user_name' => :'aws_user_name',
         :'delete_previous_version_in_days' => :'delete_previous_version_in_days',
         :'enable_custom_password_policy' => :'enable_custom_password_policy',
         :'grace_rotation' => :'grace_rotation',
@@ -88,6 +93,7 @@ module Akeyless
         :'rotator_type' => :'rotator_type',
         :'same_password' => :'same_password',
         :'services_details' => :'services_details',
+        :'skip_dry_run' => :'skip_dry_run',
         :'timeout_seconds' => :'timeout_seconds'
       }
     end
@@ -100,6 +106,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_user_name' => :'String',
         :'delete_previous_version_in_days' => :'Integer',
         :'enable_custom_password_policy' => :'Boolean',
         :'grace_rotation' => :'Boolean',
@@ -122,6 +129,7 @@ module Akeyless
         :'rotator_type' => :'String',
         :'same_password' => :'Boolean',
         :'services_details' => :'Array<WindowsService>',
+        :'skip_dry_run' => :'Boolean',
         :'timeout_seconds' => :'Integer'
       }
     end
@@ -146,6 +154,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aws_user_name')
+        self.aws_user_name = attributes[:'aws_user_name']
+      end
 
       if attributes.key?(:'delete_previous_version_in_days')
         self.delete_previous_version_in_days = attributes[:'delete_previous_version_in_days']
@@ -239,6 +251,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'timeout_seconds')
         self.timeout_seconds = attributes[:'timeout_seconds']
       end
@@ -264,6 +280,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_user_name == o.aws_user_name &&
           delete_previous_version_in_days == o.delete_previous_version_in_days &&
           enable_custom_password_policy == o.enable_custom_password_policy &&
           grace_rotation == o.grace_rotation &&
@@ -286,6 +303,7 @@ module Akeyless
           rotator_type == o.rotator_type &&
           same_password == o.same_password &&
           services_details == o.services_details &&
+          skip_dry_run == o.skip_dry_run &&
           timeout_seconds == o.timeout_seconds
     end
 
@@ -298,7 +316,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, timeout_seconds].hash
+      [aws_user_name, delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, skip_dry_run, timeout_seconds].hash
     end
 
     # Builds the object from hash

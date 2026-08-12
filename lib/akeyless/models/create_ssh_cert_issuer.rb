@@ -35,7 +35,7 @@ module Akeyless
     # For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username=true)
     attr_accessor :fixed_user_claim_keyname
 
-    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
     attr_accessor :host_provider
 
     # Additional custom fields to associate with the item
@@ -65,7 +65,7 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
-    # Enable this flag to enforce connections only to the hosts listed in --secure-access-host
+    # Enforce connections only to allowed SRA hosts
     attr_accessor :secure_access_enforce_hosts_restriction
 
     attr_accessor :secure_access_gateway
@@ -91,7 +91,7 @@ module Akeyless
     # List of the tags attached to this key
     attr_accessor :tag
 
-    # A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
     attr_accessor :target
 
     # Authentication token (see `/auth` and `/configure`)

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **dockerhub_password** | **String** | DockerhubPassword is either the user&#39;s password access token to manage the repository | [optional] |
 | **dockerhub_token_scopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; | [optional] |
@@ -15,6 +16,7 @@
 | **new_name** | **String** | Dynamic secret name | [optional] |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -27,6 +29,7 @@
 require 'akeyless'
 
 instance = Akeyless::GatewayUpdateProducerDockerhub.new(
+  ara_enabled: null,
   delete_protection: null,
   dockerhub_password: null,
   dockerhub_token_scopes: null,
@@ -38,6 +41,7 @@ instance = Akeyless::GatewayUpdateProducerDockerhub.new(
   new_name: null,
   output_rule: null,
   producer_encryption_key_name: null,
+  skip_dry_run: null,
   tags: null,
   target_name: null,
   token: null,

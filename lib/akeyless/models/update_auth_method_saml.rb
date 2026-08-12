@@ -64,7 +64,7 @@ module Akeyless
     # Auth Method new name
     attr_accessor :new_name
 
-    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+    # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
     # A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)

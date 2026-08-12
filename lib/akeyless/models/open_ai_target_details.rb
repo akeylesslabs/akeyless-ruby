@@ -20,6 +20,21 @@ module Akeyless
 
     attr_accessor :api_key_id
 
+    # AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below.
+    attr_accessor :auth_mode
+
+    # OAuthAccessToken is the current ChatGPT-issued access token (the `tokens.access_token` field of the customer's local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived.
+    attr_accessor :oauth_access_token
+
+    # OAuthAccountID is the ChatGPT workspace/account id (`tokens.account_id` in auth.json), required on every request to the ChatGPT backend.
+    attr_accessor :oauth_account_id
+
+    # OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token's JWT exp claim can't be parsed.
+    attr_accessor :oauth_last_refresh
+
+    # OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid.
+    attr_accessor :oauth_refresh_token
+
     attr_accessor :openai_url
 
     attr_accessor :organization_id
@@ -31,6 +46,11 @@ module Akeyless
       {
         :'api_key' => :'api_key',
         :'api_key_id' => :'api_key_id',
+        :'auth_mode' => :'auth_mode',
+        :'oauth_access_token' => :'oauth_access_token',
+        :'oauth_account_id' => :'oauth_account_id',
+        :'oauth_last_refresh' => :'oauth_last_refresh',
+        :'oauth_refresh_token' => :'oauth_refresh_token',
         :'openai_url' => :'openai_url',
         :'organization_id' => :'organization_id',
         :'project_id' => :'project_id'
@@ -47,6 +67,11 @@ module Akeyless
       {
         :'api_key' => :'String',
         :'api_key_id' => :'String',
+        :'auth_mode' => :'String',
+        :'oauth_access_token' => :'String',
+        :'oauth_account_id' => :'String',
+        :'oauth_last_refresh' => :'String',
+        :'oauth_refresh_token' => :'String',
         :'openai_url' => :'String',
         :'organization_id' => :'String',
         :'project_id' => :'String'
@@ -80,6 +105,26 @@ module Akeyless
 
       if attributes.key?(:'api_key_id')
         self.api_key_id = attributes[:'api_key_id']
+      end
+
+      if attributes.key?(:'auth_mode')
+        self.auth_mode = attributes[:'auth_mode']
+      end
+
+      if attributes.key?(:'oauth_access_token')
+        self.oauth_access_token = attributes[:'oauth_access_token']
+      end
+
+      if attributes.key?(:'oauth_account_id')
+        self.oauth_account_id = attributes[:'oauth_account_id']
+      end
+
+      if attributes.key?(:'oauth_last_refresh')
+        self.oauth_last_refresh = attributes[:'oauth_last_refresh']
+      end
+
+      if attributes.key?(:'oauth_refresh_token')
+        self.oauth_refresh_token = attributes[:'oauth_refresh_token']
       end
 
       if attributes.key?(:'openai_url')
@@ -117,6 +162,11 @@ module Akeyless
       self.class == o.class &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
+          auth_mode == o.auth_mode &&
+          oauth_access_token == o.oauth_access_token &&
+          oauth_account_id == o.oauth_account_id &&
+          oauth_last_refresh == o.oauth_last_refresh &&
+          oauth_refresh_token == o.oauth_refresh_token &&
           openai_url == o.openai_url &&
           organization_id == o.organization_id &&
           project_id == o.project_id
@@ -131,7 +181,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_key_id, openai_url, organization_id, project_id].hash
+      [api_key, api_key_id, auth_mode, oauth_access_token, oauth_account_id, oauth_last_refresh, oauth_refresh_token, openai_url, organization_id, project_id].hash
     end
 
     # Builds the object from hash

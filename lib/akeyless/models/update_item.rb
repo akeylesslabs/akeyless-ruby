@@ -43,7 +43,7 @@ module Akeyless
     # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. USC with GCP targets only.
     attr_accessor :gcp_sm_regions
 
-    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
     attr_accessor :host_provider
 
     # Additional custom fields to associate with the item
@@ -121,6 +121,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     attr_accessor :secure_access_gateway
 
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
@@ -161,6 +164,9 @@ module Akeyless
 
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
+
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+    attr_accessor :target
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -213,6 +219,7 @@ module Akeyless
         :'secure_access_db_name' => :'secure-access-db-name',
         :'secure_access_db_schema' => :'secure-access-db-schema',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_gateway' => :'secure-access-gateway',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rd_gateway_server' => :'secure-access-rd-gateway-server',
@@ -227,6 +234,7 @@ module Akeyless
         :'secure_access_use_internal_ssh_access' => :'secure-access-use-internal-ssh-access',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
+        :'target' => :'target',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_tags' => :'usc-tags',
@@ -278,6 +286,7 @@ module Akeyless
         :'secure_access_db_name' => :'String',
         :'secure_access_db_schema' => :'String',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_gateway' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rd_gateway_server' => :'String',
@@ -292,6 +301,7 @@ module Akeyless
         :'secure_access_use_internal_ssh_access' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
+        :'target' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_tags' => :'String',
@@ -484,6 +494,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_gateway')
         self.secure_access_gateway = attributes[:'secure_access_gateway']
       end
@@ -538,14 +552,16 @@ module Akeyless
 
       if attributes.key?(:'secure_access_web_browsing')
         self.secure_access_web_browsing = attributes[:'secure_access_web_browsing']
-      else
-        self.secure_access_web_browsing = false
       end
 
       if attributes.key?(:'secure_access_web_proxy')
         self.secure_access_web_proxy = attributes[:'secure_access_web_proxy']
-      else
-        self.secure_access_web_proxy = false
+      end
+
+      if attributes.key?(:'target')
+        if (value = attributes[:'target']).is_a?(Array)
+          self.target = value
+        end
       end
 
       if attributes.key?(:'token')
@@ -626,6 +642,7 @@ module Akeyless
           secure_access_db_name == o.secure_access_db_name &&
           secure_access_db_schema == o.secure_access_db_schema &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_gateway == o.secure_access_gateway &&
           secure_access_host == o.secure_access_host &&
           secure_access_rd_gateway_server == o.secure_access_rd_gateway_server &&
@@ -640,6 +657,7 @@ module Akeyless
           secure_access_use_internal_ssh_access == o.secure_access_use_internal_ssh_access &&
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
+          target == o.target &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_tags == o.usc_tags &&
@@ -655,7 +673,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, token, uid_token, usc_tags, use_tags_as_filter].hash
+      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, target, token, uid_token, usc_tags, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

@@ -20,7 +20,7 @@ module Akeyless
     # A comma-separated list of dns alternative names
     attr_accessor :alt_names
 
-    # The certificate type to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)
+    # A comma-separated list of certificate types to include in the CSR certificate (ssl-client/ssl-server/certificate-signing)
     attr_accessor :certificate_type
 
     # The city to be included in the CSR certificate
@@ -35,6 +35,9 @@ module Akeyless
     # Add critical to the key usage extension (will be false if not added)
     attr_accessor :critical
 
+    # The customer fragment ID that will be used to create the key (if empty, the key will be created independently of a customer fragment)
+    attr_accessor :customer_frg_id
+
     # The department to be included in the CSR certificate
     attr_accessor :dep
 
@@ -43,6 +46,9 @@ module Akeyless
 
     # The flag to indicate if the private key should be exported
     attr_accessor :export_private_key
+
+    # A comma-separated list of extended key usages to include in the CSR certificate
+    attr_accessor :ext_key_usage
 
     # Generate a new classic key for the csr
     attr_accessor :generate_key
@@ -58,6 +64,9 @@ module Akeyless
 
     # The type of the key to generate (classic-key/dfc)
     attr_accessor :key_type
+
+    # A comma-separated list of key usages to include in the CSR certificate
+    attr_accessor :key_usage
 
     # The key name
     attr_accessor :name
@@ -90,14 +99,17 @@ module Akeyless
         :'common_name' => :'common-name',
         :'country' => :'country',
         :'critical' => :'critical',
+        :'customer_frg_id' => :'customer-frg-id',
         :'dep' => :'dep',
         :'email_addresses' => :'email-addresses',
         :'export_private_key' => :'export-private-key',
+        :'ext_key_usage' => :'ext-key-usage',
         :'generate_key' => :'generate-key',
         :'hash_algorithm' => :'hash-algorithm',
         :'ip_addresses' => :'ip-addresses',
         :'json' => :'json',
         :'key_type' => :'key-type',
+        :'key_usage' => :'key-usage',
         :'name' => :'name',
         :'org' => :'org',
         :'split_level' => :'split-level',
@@ -123,14 +135,17 @@ module Akeyless
         :'common_name' => :'String',
         :'country' => :'String',
         :'critical' => :'Boolean',
+        :'customer_frg_id' => :'String',
         :'dep' => :'String',
         :'email_addresses' => :'String',
         :'export_private_key' => :'Boolean',
+        :'ext_key_usage' => :'String',
         :'generate_key' => :'Boolean',
         :'hash_algorithm' => :'String',
         :'ip_addresses' => :'String',
         :'json' => :'Boolean',
         :'key_type' => :'String',
+        :'key_usage' => :'String',
         :'name' => :'String',
         :'org' => :'String',
         :'split_level' => :'Integer',
@@ -192,6 +207,10 @@ module Akeyless
         self.critical = attributes[:'critical']
       end
 
+      if attributes.key?(:'customer_frg_id')
+        self.customer_frg_id = attributes[:'customer_frg_id']
+      end
+
       if attributes.key?(:'dep')
         self.dep = attributes[:'dep']
       end
@@ -204,6 +223,10 @@ module Akeyless
         self.export_private_key = attributes[:'export_private_key']
       else
         self.export_private_key = false
+      end
+
+      if attributes.key?(:'ext_key_usage')
+        self.ext_key_usage = attributes[:'ext_key_usage']
       end
 
       if attributes.key?(:'generate_key')
@@ -230,6 +253,10 @@ module Akeyless
         self.key_type = attributes[:'key_type']
       else
         self.key_type = 'classic-key'
+      end
+
+      if attributes.key?(:'key_usage')
+        self.key_usage = attributes[:'key_usage']
       end
 
       if attributes.key?(:'name')
@@ -307,14 +334,17 @@ module Akeyless
           common_name == o.common_name &&
           country == o.country &&
           critical == o.critical &&
+          customer_frg_id == o.customer_frg_id &&
           dep == o.dep &&
           email_addresses == o.email_addresses &&
           export_private_key == o.export_private_key &&
+          ext_key_usage == o.ext_key_usage &&
           generate_key == o.generate_key &&
           hash_algorithm == o.hash_algorithm &&
           ip_addresses == o.ip_addresses &&
           json == o.json &&
           key_type == o.key_type &&
+          key_usage == o.key_usage &&
           name == o.name &&
           org == o.org &&
           split_level == o.split_level &&
@@ -333,7 +363,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alg, alt_names, certificate_type, city, common_name, country, critical, dep, email_addresses, export_private_key, generate_key, hash_algorithm, ip_addresses, json, key_type, name, org, split_level, state, token, uid_token, uri_sans].hash
+      [alg, alt_names, certificate_type, city, common_name, country, critical, customer_frg_id, dep, email_addresses, export_private_key, ext_key_usage, generate_key, hash_algorithm, ip_addresses, json, key_type, key_usage, name, org, split_level, state, token, uid_token, uri_sans].hash
     end
 
     # Builds the object from hash

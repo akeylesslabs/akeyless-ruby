@@ -43,6 +43,8 @@ module Akeyless
 
     attr_accessor :eks_target_details
 
+    attr_accessor :f5_big_ip_target_details
+
     attr_accessor :gcp_target_details
 
     attr_accessor :gemini_target_details
@@ -118,6 +120,7 @@ module Akeyless
         :'digicert_target_details' => :'digicert_target_details',
         :'dockerhub_target_details' => :'dockerhub_target_details',
         :'eks_target_details' => :'eks_target_details',
+        :'f5_big_ip_target_details' => :'f5_big_ip_target_details',
         :'gcp_target_details' => :'gcp_target_details',
         :'gemini_target_details' => :'gemini_target_details',
         :'github_target_details' => :'github_target_details',
@@ -172,6 +175,7 @@ module Akeyless
         :'digicert_target_details' => :'DigiCertTargetDetails',
         :'dockerhub_target_details' => :'DockerhubTargetDetails',
         :'eks_target_details' => :'EKSTargetDetails',
+        :'f5_big_ip_target_details' => :'F5BigIpTargetDetails',
         :'gcp_target_details' => :'GcpTargetDetails',
         :'gemini_target_details' => :'GeminiTargetDetails',
         :'github_target_details' => :'GithubTargetDetails',
@@ -279,6 +283,10 @@ module Akeyless
 
       if attributes.key?(:'eks_target_details')
         self.eks_target_details = attributes[:'eks_target_details']
+      end
+
+      if attributes.key?(:'f5_big_ip_target_details')
+        self.f5_big_ip_target_details = attributes[:'f5_big_ip_target_details']
       end
 
       if attributes.key?(:'gcp_target_details')
@@ -432,6 +440,7 @@ module Akeyless
           digicert_target_details == o.digicert_target_details &&
           dockerhub_target_details == o.dockerhub_target_details &&
           eks_target_details == o.eks_target_details &&
+          f5_big_ip_target_details == o.f5_big_ip_target_details &&
           gcp_target_details == o.gcp_target_details &&
           gemini_target_details == o.gemini_target_details &&
           github_target_details == o.github_target_details &&
@@ -472,7 +481,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aerospike_target_details, anthropic_target_details, artifactory_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [aerospike_target_details, anthropic_target_details, artifactory_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, f5_big_ip_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

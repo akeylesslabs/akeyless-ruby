@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class AgenticRules
+    # Enabled is a pointer so rules persisted before this field existed (nil) keep enforcing, rather than silently switching off.
+    attr_accessor :enabled
+
     attr_accessor :input_rules
 
     attr_accessor :output_rules
@@ -22,6 +25,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'enabled' => :'enabled',
         :'input_rules' => :'input_rules',
         :'output_rules' => :'output_rules'
       }
@@ -35,6 +39,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'enabled' => :'Boolean',
         :'input_rules' => :'Array<AgenticRule>',
         :'output_rules' => :'Array<AgenticRule>'
       }
@@ -60,6 +65,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
 
       if attributes.key?(:'input_rules')
         if (value = attributes[:'input_rules']).is_a?(Array)
@@ -94,6 +103,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          enabled == o.enabled &&
           input_rules == o.input_rules &&
           output_rules == o.output_rules
     end
@@ -107,7 +117,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [input_rules, output_rules].hash
+      [enabled, input_rules, output_rules].hash
     end
 
     # Builds the object from hash

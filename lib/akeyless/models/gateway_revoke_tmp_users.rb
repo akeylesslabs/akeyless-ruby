@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayRevokeTmpUsers is a command that revoke producer tmp user [Deprecated: Use dynamic-secret-tmp-creds-delete command]
   class GatewayRevokeTmpUsers
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Host
     attr_accessor :host
 
@@ -34,6 +37,9 @@ module Akeyless
     # Revoke All Temp Creds
     attr_accessor :revoke_all
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Soft Delete
     attr_accessor :soft_delete
 
@@ -49,12 +55,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'host' => :'host',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'revoke_all' => :'revoke-all',
+        :'skip_dry_run' => :'skip_dry_run',
         :'soft_delete' => :'soft-delete',
         :'tmp_creds_id' => :'tmp-creds-id',
         :'token' => :'token',
@@ -70,12 +78,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'host' => :'String',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'revoke_all' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'soft_delete' => :'Boolean',
         :'tmp_creds_id' => :'String',
         :'token' => :'String',
@@ -103,6 +113,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
@@ -134,6 +148,10 @@ module Akeyless
 
       if attributes.key?(:'revoke_all')
         self.revoke_all = attributes[:'revoke_all']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'soft_delete')
@@ -178,12 +196,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           host == o.host &&
           input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
           output_rule == o.output_rule &&
           revoke_all == o.revoke_all &&
+          skip_dry_run == o.skip_dry_run &&
           soft_delete == o.soft_delete &&
           tmp_creds_id == o.tmp_creds_id &&
           token == o.token &&
@@ -199,7 +219,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [host, input_rule, json, name, output_rule, revoke_all, soft_delete, tmp_creds_id, token, uid_token].hash
+      [ara_enabled, host, input_rule, json, name, output_rule, revoke_all, skip_dry_run, soft_delete, tmp_creds_id, token, uid_token].hash
     end
 
     # Builds the object from hash

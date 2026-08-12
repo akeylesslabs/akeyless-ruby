@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerGke is a command that updates gke producer [Deprecated: Use dynamic-secret-update-gke command]
   class GatewayUpdateProducerGke
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -76,6 +79,9 @@ module Akeyless
     # Enable Web Secure Remote Access
     attr_accessor :secure_access_web
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Add tags attached to this object
     attr_accessor :tags
 
@@ -94,6 +100,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'gke_account_key' => :'gke-account-key',
         :'gke_cluster_cert' => :'gke-cluster-cert',
@@ -114,6 +121,7 @@ module Akeyless
         :'secure_access_delay' => :'secure-access-delay',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_web' => :'secure-access-web',
+        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -130,6 +138,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'gke_account_key' => :'String',
         :'gke_cluster_cert' => :'String',
@@ -150,6 +159,7 @@ module Akeyless
         :'secure_access_delay' => :'Integer',
         :'secure_access_enable' => :'String',
         :'secure_access_web' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -178,6 +188,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
@@ -271,6 +285,10 @@ module Akeyless
         self.secure_access_web = false
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -321,6 +339,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           gke_account_key == o.gke_account_key &&
           gke_cluster_cert == o.gke_cluster_cert &&
@@ -341,6 +360,7 @@ module Akeyless
           secure_access_delay == o.secure_access_delay &&
           secure_access_enable == o.secure_access_enable &&
           secure_access_web == o.secure_access_web &&
+          skip_dry_run == o.skip_dry_run &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -357,7 +377,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, tags, target_name, token, uid_token, user_ttl].hash
+      [ara_enabled, delete_protection, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

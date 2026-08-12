@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # gatewayUpdateProducerPostgreSQL is a command that updates postgresql producer [Deprecated: Use dynamic-secret-update-postgresql command]
   class GatewayUpdateProducerPostgreSQL
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # PostgreSQL Creation statements
     attr_accessor :creation_statements
 
@@ -91,6 +94,9 @@ module Akeyless
     # Enable Web Secure Remote Access
     attr_accessor :secure_access_web
 
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
+
     # Enable/Disable SSL [true/false]
     attr_accessor :ssl
 
@@ -123,6 +129,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ara_enabled' => :'ara-enabled',
         :'creation_statements' => :'creation-statements',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
@@ -148,6 +155,7 @@ module Akeyless
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_web' => :'secure-access-web',
+        :'skip_dry_run' => :'skip_dry_run',
         :'ssl' => :'ssl',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -169,6 +177,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ara_enabled' => :'Boolean',
         :'creation_statements' => :'String',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
@@ -194,6 +203,7 @@ module Akeyless
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_web' => :'Boolean',
+        :'skip_dry_run' => :'String',
         :'ssl' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
@@ -227,6 +237,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
 
       if attributes.key?(:'creation_statements')
         self.creation_statements = attributes[:'creation_statements']
@@ -346,6 +360,10 @@ module Akeyless
         self.secure_access_web = false
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'ssl')
         self.ssl = attributes[:'ssl']
       else
@@ -418,6 +436,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ara_enabled == o.ara_enabled &&
           creation_statements == o.creation_statements &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
@@ -443,6 +462,7 @@ module Akeyless
           secure_access_enable == o.secure_access_enable &&
           secure_access_host == o.secure_access_host &&
           secure_access_web == o.secure_access_web &&
+          skip_dry_run == o.skip_dry_run &&
           ssl == o.ssl &&
           tags == o.tags &&
           target_name == o.target_name &&
@@ -464,7 +484,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [creation_statements, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, postgresql_db_name, postgresql_host, postgresql_password, postgresql_port, postgresql_username, producer_encryption_key, revocation_statement, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, ssl, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [ara_enabled, creation_statements, custom_username_template, delete_protection, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, postgresql_db_name, postgresql_host, postgresql_password, postgresql_port, postgresql_username, producer_encryption_key, revocation_statement, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, skip_dry_run, ssl, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

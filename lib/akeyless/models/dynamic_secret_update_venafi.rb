@@ -25,6 +25,9 @@ module Akeyless
     # Allowed domains
     attr_accessor :allowed_domains
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+    attr_accessor :ara_enabled
+
     # Auto generated folder
     attr_accessor :auto_generated_folder
 
@@ -66,6 +69,9 @@ module Akeyless
 
     # Signer key name
     attr_accessor :signer_key_name
+
+    # If set, dry-run will be skipped
+    attr_accessor :skip_dry_run
 
     # Store private key
     attr_accessor :store_private_key
@@ -112,6 +118,7 @@ module Akeyless
         :'admin_rotation_interval_days' => :'admin-rotation-interval-days',
         :'allow_subdomains' => :'allow-subdomains',
         :'allowed_domains' => :'allowed-domains',
+        :'ara_enabled' => :'ara-enabled',
         :'auto_generated_folder' => :'auto-generated-folder',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -126,6 +133,7 @@ module Akeyless
         :'root_first_in_chain' => :'root-first-in-chain',
         :'sign_using_akeyless_pki' => :'sign-using-akeyless-pki',
         :'signer_key_name' => :'signer-key-name',
+        :'skip_dry_run' => :'skip_dry_run',
         :'store_private_key' => :'store-private-key',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -153,6 +161,7 @@ module Akeyless
         :'admin_rotation_interval_days' => :'Integer',
         :'allow_subdomains' => :'Boolean',
         :'allowed_domains' => :'Array<String>',
+        :'ara_enabled' => :'Boolean',
         :'auto_generated_folder' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -167,6 +176,7 @@ module Akeyless
         :'root_first_in_chain' => :'Boolean',
         :'sign_using_akeyless_pki' => :'Boolean',
         :'signer_key_name' => :'String',
+        :'skip_dry_run' => :'String',
         :'store_private_key' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
@@ -218,6 +228,10 @@ module Akeyless
         if (value = attributes[:'allowed_domains']).is_a?(Array)
           self.allowed_domains = value
         end
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'auto_generated_folder')
@@ -286,6 +300,10 @@ module Akeyless
 
       if attributes.key?(:'signer_key_name')
         self.signer_key_name = attributes[:'signer_key_name']
+      end
+
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'store_private_key')
@@ -375,6 +393,7 @@ module Akeyless
           admin_rotation_interval_days == o.admin_rotation_interval_days &&
           allow_subdomains == o.allow_subdomains &&
           allowed_domains == o.allowed_domains &&
+          ara_enabled == o.ara_enabled &&
           auto_generated_folder == o.auto_generated_folder &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -389,6 +408,7 @@ module Akeyless
           root_first_in_chain == o.root_first_in_chain &&
           sign_using_akeyless_pki == o.sign_using_akeyless_pki &&
           signer_key_name == o.signer_key_name &&
+          skip_dry_run == o.skip_dry_run &&
           store_private_key == o.store_private_key &&
           tags == o.tags &&
           target_name == o.target_name &&
@@ -413,7 +433,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, allow_subdomains, allowed_domains, auto_generated_folder, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
+      [admin_rotation_interval_days, allow_subdomains, allowed_domains, ara_enabled, auto_generated_folder, delete_protection, description, enable_admin_rotation, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, root_first_in_chain, sign_using_akeyless_pki, signer_key_name, skip_dry_run, store_private_key, tags, target_name, token, uid_token, user_ttl, venafi_access_token, venafi_api_key, venafi_baseurl, venafi_client_id, venafi_refresh_token, venafi_use_tpp, venafi_zone].hash
     end
 
     # Builds the object from hash

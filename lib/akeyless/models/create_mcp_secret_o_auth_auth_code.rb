@@ -18,6 +18,9 @@ module Akeyless
     # for personal password manager
     attr_accessor :accessibility
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -78,6 +81,7 @@ module Akeyless
     def self.attribute_map
       {
         :'accessibility' => :'accessibility',
+        :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'input_rule' => :'input-rule',
@@ -109,6 +113,7 @@ module Akeyless
     def self.openapi_types
       {
         :'accessibility' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'input_rule' => :'Array<String>',
@@ -156,6 +161,10 @@ module Akeyless
         self.accessibility = attributes[:'accessibility']
       else
         self.accessibility = 'regular'
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'delete_protection')
@@ -273,6 +282,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           accessibility == o.accessibility &&
+          ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           input_rule == o.input_rule &&
@@ -303,7 +313,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, delete_protection, description, input_rule, json, max_versions, metadata, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, protection_key, tags, token, uid_token, url].hash
+      [accessibility, ara_enabled, delete_protection, description, input_rule, json, max_versions, metadata, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, protection_key, tags, token, uid_token, url].hash
     end
 
     # Builds the object from hash

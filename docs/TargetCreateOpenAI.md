@@ -6,6 +6,10 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | **String** | API key for OpenAI | [optional] |
 | **api_key_id** | **String** | API key ID | [optional] |
+| **codex_oauth_access_token** | **String** | Codex OAuth access token (auth.json tokens.access_token), used when codex-oauth-mode&#x3D;chatgpt_oauth | [optional] |
+| **codex_oauth_account_id** | **String** | Codex OAuth account id (auth.json tokens.account_id), used when codex-oauth-mode&#x3D;chatgpt_oauth | [optional] |
+| **codex_oauth_mode** | **String** | Auth mode: empty (default, static api-key) or chatgpt_oauth | [optional] |
+| **codex_oauth_refresh_token** | **String** | Codex OAuth refresh token (auth.json tokens.refresh_token), used when codex-oauth-mode&#x3D;chatgpt_oauth | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -26,6 +30,10 @@ require 'akeyless'
 instance = Akeyless::TargetCreateOpenAI.new(
   api_key: null,
   api_key_id: null,
+  codex_oauth_access_token: null,
+  codex_oauth_account_id: null,
+  codex_oauth_mode: null,
+  codex_oauth_refresh_token: null,
   delete_protection: null,
   description: null,
   json: null,

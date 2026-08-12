@@ -15,8 +15,13 @@ require 'time'
 
 module Akeyless
   class CreateSecret
+    attr_accessor :provider_type
+
     # for personal password manager
     attr_accessor :accessibility
+
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
 
     # Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
     attr_accessor :change_event
@@ -32,6 +37,9 @@ module Akeyless
 
     # Secret format [text/json/key-value] (relevant only for type 'generic')
     attr_accessor :format
+
+    # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+    attr_accessor :host_provider
 
     # For Password Management use, reflect the website context
     attr_accessor :inject_url
@@ -78,6 +86,9 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
+    # Enforce connections only to allowed SRA hosts
+    attr_accessor :secure_access_enforce_hosts_restriction
+
     attr_accessor :secure_access_gateway
 
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
@@ -104,6 +115,9 @@ module Akeyless
     # Add tags attached to this object
     attr_accessor :tags
 
+    # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+    attr_accessor :target
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -122,12 +136,15 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'provider_type' => :'ProviderType',
         :'accessibility' => :'accessibility',
+        :'ara_enabled' => :'ara-enabled',
         :'change_event' => :'change-event',
         :'custom_field' => :'custom-field',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'format' => :'format',
+        :'host_provider' => :'host-provider',
         :'inject_url' => :'inject-url',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
@@ -143,6 +160,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
+        :'secure_access_enforce_hosts_restriction' => :'secure-access-enforce-hosts-restriction',
         :'secure_access_gateway' => :'secure-access-gateway',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
@@ -152,6 +170,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'tags' => :'tags',
+        :'target' => :'target',
         :'token' => :'token',
         :'type' => :'type',
         :'uid_token' => :'uid-token',
@@ -168,12 +187,15 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'provider_type' => :'String',
         :'accessibility' => :'String',
+        :'ara_enabled' => :'Boolean',
         :'change_event' => :'String',
         :'custom_field' => :'Hash<String, String>',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'format' => :'String',
+        :'host_provider' => :'String',
         :'inject_url' => :'Array<String>',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
@@ -189,6 +211,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
+        :'secure_access_enforce_hosts_restriction' => :'Boolean',
         :'secure_access_gateway' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_user' => :'String',
@@ -198,6 +221,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'tags' => :'Array<String>',
+        :'target' => :'Array<String>',
         :'token' => :'String',
         :'type' => :'String',
         :'uid_token' => :'String',
@@ -227,10 +251,18 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'provider_type')
+        self.provider_type = attributes[:'provider_type']
+      end
+
       if attributes.key?(:'accessibility')
         self.accessibility = attributes[:'accessibility']
       else
         self.accessibility = 'regular'
+      end
+
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
       end
 
       if attributes.key?(:'change_event')
@@ -255,6 +287,10 @@ module Akeyless
         self.format = attributes[:'format']
       else
         self.format = 'text'
+      end
+
+      if attributes.key?(:'host_provider')
+        self.host_provider = attributes[:'host_provider']
       end
 
       if attributes.key?(:'inject_url')
@@ -329,6 +365,10 @@ module Akeyless
         self.secure_access_enable = attributes[:'secure_access_enable']
       end
 
+      if attributes.key?(:'secure_access_enforce_hosts_restriction')
+        self.secure_access_enforce_hosts_restriction = attributes[:'secure_access_enforce_hosts_restriction']
+      end
+
       if attributes.key?(:'secure_access_gateway')
         self.secure_access_gateway = attributes[:'secure_access_gateway']
       end
@@ -370,6 +410,12 @@ module Akeyless
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
+        end
+      end
+
+      if attributes.key?(:'target')
+        if (value = attributes[:'target']).is_a?(Array)
+          self.target = value
         end
       end
 
@@ -428,12 +474,15 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          provider_type == o.provider_type &&
           accessibility == o.accessibility &&
+          ara_enabled == o.ara_enabled &&
           change_event == o.change_event &&
           custom_field == o.custom_field &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           format == o.format &&
+          host_provider == o.host_provider &&
           inject_url == o.inject_url &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
@@ -449,6 +498,7 @@ module Akeyless
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
           secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_enable == o.secure_access_enable &&
+          secure_access_enforce_hosts_restriction == o.secure_access_enforce_hosts_restriction &&
           secure_access_gateway == o.secure_access_gateway &&
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
@@ -458,6 +508,7 @@ module Akeyless
           secure_access_web_browsing == o.secure_access_web_browsing &&
           secure_access_web_proxy == o.secure_access_web_proxy &&
           tags == o.tags &&
+          target == o.target &&
           token == o.token &&
           type == o.type &&
           uid_token == o.uid_token &&
@@ -474,7 +525,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, change_event, custom_field, delete_protection, description, format, inject_url, input_rule, item_custom_fields, json, lock_during_sra_session, max_versions, metadata, multiline_value, name, output_rule, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, token, type, uid_token, username, value].hash
+      [provider_type, accessibility, ara_enabled, change_event, custom_field, delete_protection, description, format, host_provider, inject_url, input_rule, item_custom_fields, json, lock_during_sra_session, max_versions, metadata, multiline_value, name, output_rule, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, target, token, type, uid_token, username, value].hash
     end
 
     # Builds the object from hash
