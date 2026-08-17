@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **bind_ssl_profiles** | **Array&lt;String&gt;** | Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format &lt;type&gt;:&lt;partition&gt;:&lt;name&gt; (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate&#39;s partition. Repeat the parameter to bind several profiles. | [optional] |
 | **certificate_path** | **String** | A path on the target to store the certificate pem file (relevant only for certificate provisioning) | [optional] |
 | **chain_path** | **String** | A path on the target to store the full chain pem file (relevant only for certificate provisioning) | [optional] |
 | **disable_previous_key_version** | **Boolean** | Automatically disable previous key version (required for azure targets) | [optional][default to false] |
@@ -15,7 +16,7 @@
 | **location_id** | **String** | Location id of the GCP KMS (required for gcp targets) | [optional] |
 | **multi_region** | **String** | Set to &#39;true&#39; to create a multi-region managed key. (Relevant only for Classic Key AWS targets) | [optional][default to &#39;false&#39;] |
 | **name** | **String** | The item to associate |  |
-| **post_provision_command** | **String** | A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning) | [optional] |
+| **post_provision_command** | **String** | A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP) | [optional] |
 | **private_key_path** | **String** | A path on the target to store the private key (relevant only for certificate provisioning) | [optional] |
 | **project_id** | **String** | Project id of the GCP KMS (required for gcp targets) | [optional] |
 | **protection_level** | **String** | Protection level of the key [software/hardware] (relevant for gcp targets) | [optional][default to &#39;software&#39;] |
@@ -34,6 +35,7 @@
 require 'akeyless'
 
 instance = Akeyless::AssocTargetItem.new(
+  bind_ssl_profiles: null,
   certificate_path: null,
   chain_path: null,
   disable_previous_key_version: null,

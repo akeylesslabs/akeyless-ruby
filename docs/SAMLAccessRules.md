@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **allowed_redirect_uris** | **Array&lt;String&gt;** | Allowed redirect URIs after the authentication | [optional] |
+| **authorized_gw_cluster_name** | **String** | AuthorizedGwClusterName binds the access method to a single GW cluster. When empty (or whitespace-only), GW-driven auth is disabled. | [optional] |
 | **bound_attributes** | [**Array&lt;SAMLAttribute&gt;**](SAMLAttribute.md) | The attributes that login is restricted to. | [optional] |
 | **idp_metadata_url** | **String** | IDP metadata url | [optional] |
 | **idp_metadata_xml** | **String** | IDP metadata XML | [optional] |
@@ -18,6 +19,7 @@ require 'akeyless'
 
 instance = Akeyless::SAMLAccessRules.new(
   allowed_redirect_uris: null,
+  authorized_gw_cluster_name: null,
   bound_attributes: null,
   idp_metadata_url: null,
   idp_metadata_xml: null,

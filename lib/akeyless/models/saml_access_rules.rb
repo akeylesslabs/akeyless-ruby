@@ -18,6 +18,9 @@ module Akeyless
     # Allowed redirect URIs after the authentication
     attr_accessor :allowed_redirect_uris
 
+    # AuthorizedGwClusterName binds the access method to a single GW cluster. When empty (or whitespace-only), GW-driven auth is disabled.
+    attr_accessor :authorized_gw_cluster_name
+
     # The attributes that login is restricted to.
     attr_accessor :bound_attributes
 
@@ -37,6 +40,7 @@ module Akeyless
     def self.attribute_map
       {
         :'allowed_redirect_uris' => :'allowed_redirect_URIs',
+        :'authorized_gw_cluster_name' => :'authorized_gw_cluster_name',
         :'bound_attributes' => :'bound_attributes',
         :'idp_metadata_url' => :'idp_metadata_url',
         :'idp_metadata_xml' => :'idp_metadata_xml',
@@ -54,6 +58,7 @@ module Akeyless
     def self.openapi_types
       {
         :'allowed_redirect_uris' => :'Array<String>',
+        :'authorized_gw_cluster_name' => :'String',
         :'bound_attributes' => :'Array<SAMLAttribute>',
         :'idp_metadata_url' => :'String',
         :'idp_metadata_xml' => :'String',
@@ -87,6 +92,10 @@ module Akeyless
         if (value = attributes[:'allowed_redirect_uris']).is_a?(Array)
           self.allowed_redirect_uris = value
         end
+      end
+
+      if attributes.key?(:'authorized_gw_cluster_name')
+        self.authorized_gw_cluster_name = attributes[:'authorized_gw_cluster_name']
       end
 
       if attributes.key?(:'bound_attributes')
@@ -133,6 +142,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           allowed_redirect_uris == o.allowed_redirect_uris &&
+          authorized_gw_cluster_name == o.authorized_gw_cluster_name &&
           bound_attributes == o.bound_attributes &&
           idp_metadata_url == o.idp_metadata_url &&
           idp_metadata_xml == o.idp_metadata_xml &&
@@ -149,7 +159,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowed_redirect_uris, bound_attributes, idp_metadata_url, idp_metadata_xml, unique_identifier, use_dedicated_saml_urls].hash
+      [allowed_redirect_uris, authorized_gw_cluster_name, bound_attributes, idp_metadata_url, idp_metadata_xml, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

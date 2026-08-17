@@ -34,6 +34,9 @@ module Akeyless
 
     attr_accessor :iis_apps_details
 
+    # SSHKeyAlgorithm identifies the key algorithm an SSH rotated secret uses. Kept apart from Algorithm, which is an encryption-key enum and has no ECDSA-384 or ECDSA-521.
+    attr_accessor :key_algorithm
+
     attr_accessor :last_rotation_error
 
     attr_accessor :managed_by_akeyless
@@ -79,6 +82,7 @@ module Akeyless
         :'grace_rotation_timing' => :'grace_rotation_timing',
         :'gw_cluster_id' => :'gw_cluster_id',
         :'iis_apps_details' => :'iis_apps_details',
+        :'key_algorithm' => :'key_algorithm',
         :'last_rotation_error' => :'last_rotation_error',
         :'managed_by_akeyless' => :'managed_by_akeyless',
         :'max_versions' => :'max_versions',
@@ -115,6 +119,7 @@ module Akeyless
         :'grace_rotation_timing' => :'String',
         :'gw_cluster_id' => :'Integer',
         :'iis_apps_details' => :'Array<WindowsService>',
+        :'key_algorithm' => :'String',
         :'last_rotation_error' => :'String',
         :'managed_by_akeyless' => :'Boolean',
         :'max_versions' => :'Integer',
@@ -191,6 +196,10 @@ module Akeyless
         if (value = attributes[:'iis_apps_details']).is_a?(Array)
           self.iis_apps_details = value
         end
+      end
+
+      if attributes.key?(:'key_algorithm')
+        self.key_algorithm = attributes[:'key_algorithm']
       end
 
       if attributes.key?(:'last_rotation_error')
@@ -289,6 +298,7 @@ module Akeyless
           grace_rotation_timing == o.grace_rotation_timing &&
           gw_cluster_id == o.gw_cluster_id &&
           iis_apps_details == o.iis_apps_details &&
+          key_algorithm == o.key_algorithm &&
           last_rotation_error == o.last_rotation_error &&
           managed_by_akeyless == o.managed_by_akeyless &&
           max_versions == o.max_versions &&
@@ -316,7 +326,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_user_name, delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, skip_dry_run, timeout_seconds].hash
+      [aws_user_name, delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, key_algorithm, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, skip_dry_run, timeout_seconds].hash
     end
 
     # Builds the object from hash

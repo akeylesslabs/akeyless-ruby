@@ -35,6 +35,9 @@ module Akeyless
 
     attr_accessor :auth_method_roles_assoc
 
+    # BookmarkLoginURLTemplate is an OIDC login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
+    attr_accessor :bookmark_login_url_template
+
     attr_accessor :client_permissions
 
     attr_accessor :creation_date
@@ -64,6 +67,7 @@ module Akeyless
         :'auth_method_id' => :'auth_method_id',
         :'auth_method_name' => :'auth_method_name',
         :'auth_method_roles_assoc' => :'auth_method_roles_assoc',
+        :'bookmark_login_url_template' => :'bookmark_login_url_template',
         :'client_permissions' => :'client_permissions',
         :'creation_date' => :'creation_date',
         :'delete_protection' => :'delete_protection',
@@ -93,6 +97,7 @@ module Akeyless
         :'auth_method_id' => :'Integer',
         :'auth_method_name' => :'String',
         :'auth_method_roles_assoc' => :'Array<AuthMethodRoleAssociation>',
+        :'bookmark_login_url_template' => :'String',
         :'client_permissions' => :'Array<String>',
         :'creation_date' => :'Time',
         :'delete_protection' => :'Boolean',
@@ -169,6 +174,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'bookmark_login_url_template')
+        self.bookmark_login_url_template = attributes[:'bookmark_login_url_template']
+      end
+
       if attributes.key?(:'client_permissions')
         if (value = attributes[:'client_permissions']).is_a?(Array)
           self.client_permissions = value
@@ -238,6 +247,7 @@ module Akeyless
           auth_method_id == o.auth_method_id &&
           auth_method_name == o.auth_method_name &&
           auth_method_roles_assoc == o.auth_method_roles_assoc &&
+          bookmark_login_url_template == o.bookmark_login_url_template &&
           client_permissions == o.client_permissions &&
           creation_date == o.creation_date &&
           delete_protection == o.delete_protection &&
@@ -257,7 +267,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, access_info, account_id, associated_gw_ids, auth_method_access_id, auth_method_additional_data, auth_method_id, auth_method_name, auth_method_roles_assoc, client_permissions, creation_date, delete_protection, description, expiration_events, is_approved, modification_date, uid_expiration_events].hash
+      [access_date, access_date_display, access_info, account_id, associated_gw_ids, auth_method_access_id, auth_method_additional_data, auth_method_id, auth_method_name, auth_method_roles_assoc, bookmark_login_url_template, client_permissions, creation_date, delete_protection, description, expiration_events, is_approved, modification_date, uid_expiration_events].hash
     end
 
     # Builds the object from hash

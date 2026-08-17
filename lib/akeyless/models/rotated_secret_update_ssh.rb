@@ -51,6 +51,9 @@ module Akeyless
 
     attr_accessor :key
 
+    # The key algorithm to generate with when no private key is supplied, leave empty to keep the current algorithm. options: [ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521]
+    attr_accessor :key_algorithm
+
     # Private key file contents encoded using base64
     attr_accessor :key_data_base64
 
@@ -127,11 +130,26 @@ module Akeyless
     # Override the RDP Domain username
     attr_accessor :secure_access_rdp_user
 
+    # Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret)
+    attr_accessor :secure_access_ssh_creds
+
     # Override the SSH username as indicated in SSH Certificate Issuer
     attr_accessor :secure_access_ssh_user
 
     # Specify target type. Options are ssh or rdp
     attr_accessor :secure_access_target_type
+
+    # Destination URL to inject secrets
+    attr_accessor :secure_access_url
+
+    # Enable Web Secure Remote Access
+    attr_accessor :secure_access_web
+
+    # Secure browser via Akeyless's Secure Remote Access (SRA)
+    attr_accessor :secure_access_web_browsing
+
+    # Web-Proxy via Akeyless's Secure Remote Access (SRA)
+    attr_accessor :secure_access_web_proxy
 
     # If set, dry-run will be skipped
     attr_accessor :skip_dry_run
@@ -172,6 +190,7 @@ module Akeyless
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
+        :'key_algorithm' => :'key-algorithm',
         :'key_data_base64' => :'key-data-base64',
         :'lock_during_sra_session' => :'lock-during-sra-session',
         :'max_versions' => :'max-versions',
@@ -198,8 +217,13 @@ module Akeyless
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
+        :'secure_access_ssh_creds' => :'secure-access-ssh-creds',
         :'secure_access_ssh_user' => :'secure-access-ssh-user',
         :'secure_access_target_type' => :'secure-access-target-type',
+        :'secure_access_url' => :'secure-access-url',
+        :'secure_access_web' => :'secure-access-web',
+        :'secure_access_web_browsing' => :'secure-access-web-browsing',
+        :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'skip_dry_run' => :'skip_dry_run',
         :'target' => :'target',
         :'token' => :'token',
@@ -232,6 +256,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
+        :'key_algorithm' => :'String',
         :'key_data_base64' => :'String',
         :'lock_during_sra_session' => :'String',
         :'max_versions' => :'String',
@@ -258,8 +283,13 @@ module Akeyless
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
+        :'secure_access_ssh_creds' => :'String',
         :'secure_access_ssh_user' => :'String',
         :'secure_access_target_type' => :'String',
+        :'secure_access_url' => :'String',
+        :'secure_access_web' => :'Boolean',
+        :'secure_access_web_browsing' => :'Boolean',
+        :'secure_access_web_proxy' => :'Boolean',
         :'skip_dry_run' => :'String',
         :'target' => :'Array<String>',
         :'token' => :'String',
@@ -354,6 +384,10 @@ module Akeyless
 
       if attributes.key?(:'key')
         self.key = attributes[:'key']
+      end
+
+      if attributes.key?(:'key_algorithm')
+        self.key_algorithm = attributes[:'key_algorithm']
       end
 
       if attributes.key?(:'key_data_base64')
@@ -474,6 +508,10 @@ module Akeyless
         self.secure_access_rdp_user = attributes[:'secure_access_rdp_user']
       end
 
+      if attributes.key?(:'secure_access_ssh_creds')
+        self.secure_access_ssh_creds = attributes[:'secure_access_ssh_creds']
+      end
+
       if attributes.key?(:'secure_access_ssh_user')
         self.secure_access_ssh_user = attributes[:'secure_access_ssh_user']
       end
@@ -482,6 +520,28 @@ module Akeyless
         self.secure_access_target_type = attributes[:'secure_access_target_type']
       else
         self.secure_access_target_type = 'false'
+      end
+
+      if attributes.key?(:'secure_access_url')
+        self.secure_access_url = attributes[:'secure_access_url']
+      end
+
+      if attributes.key?(:'secure_access_web')
+        self.secure_access_web = attributes[:'secure_access_web']
+      else
+        self.secure_access_web = true
+      end
+
+      if attributes.key?(:'secure_access_web_browsing')
+        self.secure_access_web_browsing = attributes[:'secure_access_web_browsing']
+      else
+        self.secure_access_web_browsing = false
+      end
+
+      if attributes.key?(:'secure_access_web_proxy')
+        self.secure_access_web_proxy = attributes[:'secure_access_web_proxy']
+      else
+        self.secure_access_web_proxy = false
       end
 
       if attributes.key?(:'skip_dry_run')
@@ -562,6 +622,7 @@ module Akeyless
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
+          key_algorithm == o.key_algorithm &&
           key_data_base64 == o.key_data_base64 &&
           lock_during_sra_session == o.lock_during_sra_session &&
           max_versions == o.max_versions &&
@@ -588,8 +649,13 @@ module Akeyless
           secure_access_host == o.secure_access_host &&
           secure_access_rdp_domain == o.secure_access_rdp_domain &&
           secure_access_rdp_user == o.secure_access_rdp_user &&
+          secure_access_ssh_creds == o.secure_access_ssh_creds &&
           secure_access_ssh_user == o.secure_access_ssh_user &&
           secure_access_target_type == o.secure_access_target_type &&
+          secure_access_url == o.secure_access_url &&
+          secure_access_web == o.secure_access_web &&
+          secure_access_web_browsing == o.secure_access_web_browsing &&
+          secure_access_web_proxy == o.secure_access_web_proxy &&
           skip_dry_run == o.skip_dry_run &&
           target == o.target &&
           token == o.token &&
@@ -609,7 +675,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, host_provider, input_rule, item_custom_fields, json, keep_prev_version, key, key_data_base64, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, public_key_remote_path, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_target_type, skip_dry_run, target, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [provider_type, add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, host_provider, input_rule, item_custom_fields, json, keep_prev_version, key, key_algorithm, key_data_base64, lock_during_sra_session, max_versions, name, new_name, output_rule, password_length, public_key_remote_path, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotator_custom_cmd, rotator_type, same_password, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_target_type, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, target, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

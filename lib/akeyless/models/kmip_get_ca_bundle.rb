@@ -14,16 +14,9 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class KmipRenewClientCertificate
-    # Client certificate TTL in days. If unset, the existing client TTL is kept.
-    attr_accessor :certificate_ttl
-
-    attr_accessor :client_id
-
+  class KmipGetCABundle
     # Set output format to JSON
     attr_accessor :json
-
-    attr_accessor :name
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -34,10 +27,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'certificate_ttl' => :'certificate-ttl',
-        :'client_id' => :'client-id',
         :'json' => :'json',
-        :'name' => :'name',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -51,10 +41,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'certificate_ttl' => :'Integer',
-        :'client_id' => :'String',
         :'json' => :'Boolean',
-        :'name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -70,33 +57,21 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KmipRenewClientCertificate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KmipGetCABundle` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KmipRenewClientCertificate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KmipGetCABundle`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'certificate_ttl')
-        self.certificate_ttl = attributes[:'certificate_ttl']
-      end
-
-      if attributes.key?(:'client_id')
-        self.client_id = attributes[:'client_id']
-      end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
         self.json = false
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'token')
@@ -128,10 +103,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          certificate_ttl == o.certificate_ttl &&
-          client_id == o.client_id &&
           json == o.json &&
-          name == o.name &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -145,7 +117,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_ttl, client_id, json, name, token, uid_token].hash
+      [json, token, uid_token].hash
     end
 
     # Builds the object from hash

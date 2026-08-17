@@ -380,13 +380,17 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmip_delete_server**](V2Api.md#kmip_delete_server) | **DELETE** /kmip-delete-environment |  |
 | [**kmip_describe_client**](V2Api.md#kmip_describe_client) | **POST** /kmip-get-client |  |
 | [**kmip_describe_server**](V2Api.md#kmip_describe_server) | **POST** /kmip-get-environment |  |
+| [**kmip_get_ca_bundle**](V2Api.md#kmip_get_ca_bundle) | **POST** /kmip-get-ca-bundle |  |
+| [**kmip_list_cas**](V2Api.md#kmip_list_cas) | **POST** /kmip-list-cas |  |
 | [**kmip_list_clients**](V2Api.md#kmip_list_clients) | **POST** /kmip-list-clients |  |
 | [**kmip_move_server**](V2Api.md#kmip_move_server) | **POST** /kmip-move-environment |  |
-| [**kmip_renew_client_certificate**](V2Api.md#kmip_renew_client_certificate) | **POST** /kmip-renew-client |  |
+| [**kmip_renew_client_certificate**](V2Api.md#kmip_renew_client_certificate) | **POST** /kmip-renew-client-certificate |  |
 | [**kmip_renew_server_certificate**](V2Api.md#kmip_renew_server_certificate) | **POST** /kmip-renew-environment |  |
+| [**kmip_rotate_ca**](V2Api.md#kmip_rotate_ca) | **POST** /kmip-rotate-ca |  |
 | [**kmip_server_setup**](V2Api.md#kmip_server_setup) | **POST** /kmip-create-environment |  |
 | [**kmip_server_update**](V2Api.md#kmip_server_update) | **POST** /kmip-server-update |  |
 | [**kmip_set_server_state**](V2Api.md#kmip_set_server_state) | **POST** /kmip-set-environment-state |  |
+| [**kmip_sunset_ca**](V2Api.md#kmip_sunset_ca) | **POST** /kmip-sunset-ca |  |
 | [**kubeconfig_generate**](V2Api.md#kubeconfig_generate) | **POST** /kubeconfig-generate |  |
 | [**list_acme_accounts**](V2Api.md#list_acme_accounts) | **POST** /list-acme-accounts |  |
 | [**list_auth_methods**](V2Api.md#list_auth_methods) | **POST** /list-auth-methods |  |
@@ -23990,6 +23994,134 @@ No authorization required
 - **Accept**: application/json
 
 
+## kmip_get_ca_bundle
+
+> <KmipGetCABundleOutput> kmip_get_ca_bundle(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_get_ca_bundle: Akeyless::KmipGetCABundle.new # KmipGetCABundle | 
+}
+
+begin
+  
+  result = api_instance.kmip_get_ca_bundle(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_get_ca_bundle: #{e}"
+end
+```
+
+#### Using the kmip_get_ca_bundle_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipGetCABundleOutput>, Integer, Hash)> kmip_get_ca_bundle_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_get_ca_bundle_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipGetCABundleOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_get_ca_bundle_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_get_ca_bundle** | [**KmipGetCABundle**](KmipGetCABundle.md) |  | [optional] |
+
+### Return type
+
+[**KmipGetCABundleOutput**](KmipGetCABundleOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## kmip_list_cas
+
+> <KmipListCAsOutput> kmip_list_cas(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_list_cas: Akeyless::KmipListCAs.new # KmipListCAs | 
+}
+
+begin
+  
+  result = api_instance.kmip_list_cas(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_list_cas: #{e}"
+end
+```
+
+#### Using the kmip_list_cas_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipListCAsOutput>, Integer, Hash)> kmip_list_cas_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_list_cas_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipListCAsOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_list_cas_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_list_cas** | [**KmipListCAs**](KmipListCAs.md) |  | [optional] |
+
+### Return type
+
+[**KmipListCAsOutput**](KmipListCAsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## kmip_list_clients
 
 > <KMIPClientListResponse> kmip_list_clients(opts)
@@ -24246,6 +24378,70 @@ No authorization required
 - **Accept**: application/json
 
 
+## kmip_rotate_ca
+
+> <KmipRotateCAOutput> kmip_rotate_ca(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_rotate_ca: Akeyless::KmipRotateCA.new # KmipRotateCA | 
+}
+
+begin
+  
+  result = api_instance.kmip_rotate_ca(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_rotate_ca: #{e}"
+end
+```
+
+#### Using the kmip_rotate_ca_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipRotateCAOutput>, Integer, Hash)> kmip_rotate_ca_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_rotate_ca_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipRotateCAOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_rotate_ca_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_rotate_ca** | [**KmipRotateCA**](KmipRotateCA.md) |  | [optional] |
+
+### Return type
+
+[**KmipRotateCAOutput**](KmipRotateCAOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## kmip_server_setup
 
 > <KMIPEnvironmentCreateResponse> kmip_server_setup(opts)
@@ -24427,6 +24623,70 @@ end
 ### Return type
 
 [**KmipSetServerStateOutput**](KmipSetServerStateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## kmip_sunset_ca
+
+> <KmipSunsetCAOutput> kmip_sunset_ca(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+opts = {
+  kmip_sunset_ca: Akeyless::KmipSunsetCA.new({ca_id: 'ca_id_example'}) # KmipSunsetCA | 
+}
+
+begin
+  
+  result = api_instance.kmip_sunset_ca(opts)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_sunset_ca: #{e}"
+end
+```
+
+#### Using the kmip_sunset_ca_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<KmipSunsetCAOutput>, Integer, Hash)> kmip_sunset_ca_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.kmip_sunset_ca_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <KmipSunsetCAOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->kmip_sunset_ca_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **kmip_sunset_ca** | [**KmipSunsetCA**](KmipSunsetCA.md) |  | [optional] |
+
+### Return type
+
+[**KmipSunsetCAOutput**](KmipSunsetCAOutput.md)
 
 ### Authorization
 

@@ -14,16 +14,18 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class KmipRenewClientCertificate
-    # Client certificate TTL in days. If unset, the existing client TTL is kept.
-    attr_accessor :certificate_ttl
+  class KmipSunsetCA
+    # CA ID to sunset
+    attr_accessor :ca_id
 
-    attr_accessor :client_id
+    # Force sunset even if issued clients or recent usage are detected
+    attr_accessor :force
+
+    # Grace period in seconds for recent CA usage checks
+    attr_accessor :grace_period
 
     # Set output format to JSON
     attr_accessor :json
-
-    attr_accessor :name
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -34,10 +36,10 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'certificate_ttl' => :'certificate-ttl',
-        :'client_id' => :'client-id',
+        :'ca_id' => :'ca-id',
+        :'force' => :'force',
+        :'grace_period' => :'grace-period',
         :'json' => :'json',
-        :'name' => :'name',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -51,10 +53,10 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'certificate_ttl' => :'Integer',
-        :'client_id' => :'String',
+        :'ca_id' => :'String',
+        :'force' => :'Boolean',
+        :'grace_period' => :'Integer',
         :'json' => :'Boolean',
-        :'name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -70,33 +72,37 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KmipRenewClientCertificate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KmipSunsetCA` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KmipRenewClientCertificate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KmipSunsetCA`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'certificate_ttl')
-        self.certificate_ttl = attributes[:'certificate_ttl']
+      if attributes.key?(:'ca_id')
+        self.ca_id = attributes[:'ca_id']
+      else
+        self.ca_id = nil
       end
 
-      if attributes.key?(:'client_id')
-        self.client_id = attributes[:'client_id']
+      if attributes.key?(:'force')
+        self.force = attributes[:'force']
+      else
+        self.force = false
+      end
+
+      if attributes.key?(:'grace_period')
+        self.grace_period = attributes[:'grace_period']
       end
 
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
         self.json = false
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'token')
@@ -113,6 +119,10 @@ module Akeyless
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @ca_id.nil?
+        invalid_properties.push('invalid value for "ca_id", ca_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -120,6 +130,7 @@ module Akeyless
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @ca_id.nil?
       true
     end
 
@@ -128,10 +139,10 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          certificate_ttl == o.certificate_ttl &&
-          client_id == o.client_id &&
+          ca_id == o.ca_id &&
+          force == o.force &&
+          grace_period == o.grace_period &&
           json == o.json &&
-          name == o.name &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -145,7 +156,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_ttl, client_id, json, name, token, uid_token].hash
+      [ca_id, force, grace_period, json, token, uid_token].hash
     end
 
     # Builds the object from hash

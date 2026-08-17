@@ -14,32 +14,37 @@ require 'date'
 require 'time'
 
 module Akeyless
-  class KmipRenewClientCertificate
-    # Client certificate TTL in days. If unset, the existing client TTL is kept.
-    attr_accessor :certificate_ttl
+  class KMIPCAListEntry
+    attr_accessor :certificate
 
-    attr_accessor :client_id
+    attr_accessor :certificate_issue_date
 
-    # Set output format to JSON
-    attr_accessor :json
+    attr_accessor :certificate_ttl_in_seconds
 
-    attr_accessor :name
+    attr_accessor :created_at
 
-    # Authentication token (see `/auth` and `/configure`)
-    attr_accessor :token
+    attr_accessor :id
 
-    # The universal identity token, Required only for universal_identity authentication
-    attr_accessor :uid_token
+    attr_accessor :issued_client_count
+
+    attr_accessor :not_after
+
+    attr_accessor :not_before
+
+    attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'certificate_ttl' => :'certificate-ttl',
-        :'client_id' => :'client-id',
-        :'json' => :'json',
-        :'name' => :'name',
-        :'token' => :'token',
-        :'uid_token' => :'uid-token'
+        :'certificate' => :'certificate',
+        :'certificate_issue_date' => :'certificate_issue_date',
+        :'certificate_ttl_in_seconds' => :'certificate_ttl_in_seconds',
+        :'created_at' => :'created_at',
+        :'id' => :'id',
+        :'issued_client_count' => :'issued_client_count',
+        :'not_after' => :'not_after',
+        :'not_before' => :'not_before',
+        :'state' => :'state'
       }
     end
 
@@ -51,12 +56,15 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'certificate_ttl' => :'Integer',
-        :'client_id' => :'String',
-        :'json' => :'Boolean',
-        :'name' => :'String',
-        :'token' => :'String',
-        :'uid_token' => :'String'
+        :'certificate' => :'Array<Integer>',
+        :'certificate_issue_date' => :'Time',
+        :'certificate_ttl_in_seconds' => :'Integer',
+        :'created_at' => :'Time',
+        :'id' => :'String',
+        :'issued_client_count' => :'Integer',
+        :'not_after' => :'Time',
+        :'not_before' => :'Time',
+        :'state' => :'String'
       }
     end
 
@@ -70,41 +78,53 @@ module Akeyless
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KmipRenewClientCertificate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Akeyless::KMIPCAListEntry` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KmipRenewClientCertificate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Akeyless::KMIPCAListEntry`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'certificate_ttl')
-        self.certificate_ttl = attributes[:'certificate_ttl']
+      if attributes.key?(:'certificate')
+        if (value = attributes[:'certificate']).is_a?(Array)
+          self.certificate = value
+        end
       end
 
-      if attributes.key?(:'client_id')
-        self.client_id = attributes[:'client_id']
+      if attributes.key?(:'certificate_issue_date')
+        self.certificate_issue_date = attributes[:'certificate_issue_date']
       end
 
-      if attributes.key?(:'json')
-        self.json = attributes[:'json']
-      else
-        self.json = false
+      if attributes.key?(:'certificate_ttl_in_seconds')
+        self.certificate_ttl_in_seconds = attributes[:'certificate_ttl_in_seconds']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'uid_token')
-        self.uid_token = attributes[:'uid_token']
+      if attributes.key?(:'issued_client_count')
+        self.issued_client_count = attributes[:'issued_client_count']
+      end
+
+      if attributes.key?(:'not_after')
+        self.not_after = attributes[:'not_after']
+      end
+
+      if attributes.key?(:'not_before')
+        self.not_before = attributes[:'not_before']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
     end
 
@@ -128,12 +148,15 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          certificate_ttl == o.certificate_ttl &&
-          client_id == o.client_id &&
-          json == o.json &&
-          name == o.name &&
-          token == o.token &&
-          uid_token == o.uid_token
+          certificate == o.certificate &&
+          certificate_issue_date == o.certificate_issue_date &&
+          certificate_ttl_in_seconds == o.certificate_ttl_in_seconds &&
+          created_at == o.created_at &&
+          id == o.id &&
+          issued_client_count == o.issued_client_count &&
+          not_after == o.not_after &&
+          not_before == o.not_before &&
+          state == o.state
     end
 
     # @see the `==` method
@@ -145,7 +168,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_ttl, client_id, json, name, token, uid_token].hash
+      [certificate, certificate_issue_date, certificate_ttl_in_seconds, created_at, id, issued_client_count, not_after, not_before, state].hash
     end
 
     # Builds the object from hash

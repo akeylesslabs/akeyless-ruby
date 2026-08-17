@@ -24033,6 +24033,126 @@ module Akeyless
     end
 
     # @param [Hash] opts the optional parameters
+    # @option opts [KmipGetCABundle] :kmip_get_ca_bundle 
+    # @return [KmipGetCABundleOutput]
+    def kmip_get_ca_bundle(opts = {})
+      data, _status_code, _headers = kmip_get_ca_bundle_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipGetCABundle] :kmip_get_ca_bundle 
+    # @return [Array<(KmipGetCABundleOutput, Integer, Hash)>] KmipGetCABundleOutput data, response status code and response headers
+    def kmip_get_ca_bundle_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_get_ca_bundle ...'
+      end
+      # resource path
+      local_var_path = '/kmip-get-ca-bundle'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_get_ca_bundle'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipGetCABundleOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_get_ca_bundle",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_get_ca_bundle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipListCAs] :kmip_list_cas 
+    # @return [KmipListCAsOutput]
+    def kmip_list_cas(opts = {})
+      data, _status_code, _headers = kmip_list_cas_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipListCAs] :kmip_list_cas 
+    # @return [Array<(KmipListCAsOutput, Integer, Hash)>] KmipListCAsOutput data, response status code and response headers
+    def kmip_list_cas_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_list_cas ...'
+      end
+      # resource path
+      local_var_path = '/kmip-list-cas'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_list_cas'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipListCAsOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_list_cas",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_list_cas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
     # @option opts [KmipListClients] :kmip_list_clients 
     # @return [KMIPClientListResponse]
     def kmip_list_clients(opts = {})
@@ -24168,7 +24288,7 @@ module Akeyless
         @api_client.config.logger.debug 'Calling API: V2Api.kmip_renew_client_certificate ...'
       end
       # resource path
-      local_var_path = '/kmip-renew-client'
+      local_var_path = '/kmip-renew-client-certificate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -24268,6 +24388,66 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#kmip_renew_server_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipRotateCA] :kmip_rotate_ca 
+    # @return [KmipRotateCAOutput]
+    def kmip_rotate_ca(opts = {})
+      data, _status_code, _headers = kmip_rotate_ca_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipRotateCA] :kmip_rotate_ca 
+    # @return [Array<(KmipRotateCAOutput, Integer, Hash)>] KmipRotateCAOutput data, response status code and response headers
+    def kmip_rotate_ca_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_rotate_ca ...'
+      end
+      # resource path
+      local_var_path = '/kmip-rotate-ca'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_rotate_ca'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipRotateCAOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_rotate_ca",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_rotate_ca\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -24448,6 +24628,66 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#kmip_set_server_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipSunsetCA] :kmip_sunset_ca 
+    # @return [KmipSunsetCAOutput]
+    def kmip_sunset_ca(opts = {})
+      data, _status_code, _headers = kmip_sunset_ca_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [KmipSunsetCA] :kmip_sunset_ca 
+    # @return [Array<(KmipSunsetCAOutput, Integer, Hash)>] KmipSunsetCAOutput data, response status code and response headers
+    def kmip_sunset_ca_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.kmip_sunset_ca ...'
+      end
+      # resource path
+      local_var_path = '/kmip-sunset-ca'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'kmip_sunset_ca'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'KmipSunsetCAOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.kmip_sunset_ca",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#kmip_sunset_ca\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

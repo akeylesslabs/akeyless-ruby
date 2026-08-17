@@ -13,6 +13,7 @@
 | **grace_rotation_timing** | **String** |  | [optional] |
 | **gw_cluster_id** | **Integer** |  | [optional] |
 | **iis_apps_details** | [**Array&lt;WindowsService&gt;**](WindowsService.md) |  | [optional] |
+| **key_algorithm** | **String** | SSHKeyAlgorithm identifies the key algorithm an SSH rotated secret uses. Kept apart from Algorithm, which is an encryption-key enum and has no ECDSA-384 or ECDSA-521. | [optional] |
 | **last_rotation_error** | **String** |  | [optional] |
 | **managed_by_akeyless** | **Boolean** |  | [optional] |
 | **max_versions** | **Integer** |  | [optional] |
@@ -45,6 +46,7 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   grace_rotation_timing: null,
   gw_cluster_id: null,
   iis_apps_details: null,
+  key_algorithm: null,
   last_rotation_error: null,
   managed_by_akeyless: null,
   max_versions: null,

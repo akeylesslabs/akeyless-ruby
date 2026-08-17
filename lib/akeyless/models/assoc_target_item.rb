@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # assocTargetItem is a command that creates an association between target and item.
   class AssocTargetItem
+    # Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format <type>:<partition>:<name> (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. Repeat the parameter to bind several profiles.
+    attr_accessor :bind_ssl_profiles
+
     # A path on the target to store the certificate pem file (relevant only for certificate provisioning)
     attr_accessor :certificate_path
 
@@ -49,7 +52,7 @@ module Akeyless
     # The item to associate
     attr_accessor :name
 
-    # A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+    # A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
     attr_accessor :post_provision_command
 
     # A path on the target to store the private key (relevant only for certificate provisioning)
@@ -88,6 +91,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'bind_ssl_profiles' => :'bind-ssl-profiles',
         :'certificate_path' => :'certificate-path',
         :'chain_path' => :'chain-path',
         :'disable_previous_key_version' => :'disable-previous-key-version',
@@ -122,6 +126,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'bind_ssl_profiles' => :'Array<String>',
         :'certificate_path' => :'String',
         :'chain_path' => :'String',
         :'disable_previous_key_version' => :'Boolean',
@@ -168,6 +173,12 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'bind_ssl_profiles')
+        if (value = attributes[:'bind_ssl_profiles']).is_a?(Array)
+          self.bind_ssl_profiles = value
+        end
+      end
 
       if attributes.key?(:'certificate_path')
         self.certificate_path = attributes[:'certificate_path']
@@ -310,6 +321,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bind_ssl_profiles == o.bind_ssl_profiles &&
           certificate_path == o.certificate_path &&
           chain_path == o.chain_path &&
           disable_previous_key_version == o.disable_previous_key_version &&
@@ -344,7 +356,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_path, chain_path, disable_previous_key_version, external_key_name, json, key_operations, keyring_name, kms_algorithm, location_id, multi_region, name, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
+      [bind_ssl_profiles, certificate_path, chain_path, disable_previous_key_version, external_key_name, json, key_operations, keyring_name, kms_algorithm, location_id, multi_region, name, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
     end
 
     # Builds the object from hash

@@ -15,6 +15,7 @@
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** |  | [optional] |
+| **key_algorithm** | **String** | The key algorithm to generate with when no private key is supplied. options: [ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521] | [optional] |
 | **key_data_base64** | **String** | Private key file contents encoded using base64 | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -39,8 +40,13 @@
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rdp_domain** | **String** | Default domain name server. i.e. microsoft.com | [optional] |
 | **secure_access_rdp_user** | **String** | Override the RDP Domain username | [optional] |
+| **secure_access_ssh_creds** | **String** | Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret) | [optional] |
 | **secure_access_ssh_user** | **String** | Override the SSH username as indicated in SSH Certificate Issuer | [optional] |
 | **secure_access_target_type** | **String** | Specify target type. Options are ssh or rdp | [optional][default to &#39;false&#39;] |
+| **secure_access_url** | **String** | Destination URL to inject secrets | [optional] |
+| **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to true] |
+| **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
+| **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
@@ -69,6 +75,7 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   item_custom_fields: null,
   json: null,
   key: null,
+  key_algorithm: null,
   key_data_base64: null,
   lock_during_sra_session: null,
   max_versions: null,
@@ -93,8 +100,13 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   secure_access_host: null,
   secure_access_rdp_domain: null,
   secure_access_rdp_user: null,
+  secure_access_ssh_creds: null,
   secure_access_ssh_user: null,
   secure_access_target_type: null,
+  secure_access_url: null,
+  secure_access_web: null,
+  secure_access_web_browsing: null,
+  secure_access_web_proxy: null,
   skip_dry_run: null,
   tags: null,
   target: null,

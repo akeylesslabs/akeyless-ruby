@@ -14,6 +14,7 @@
 | **auth_method_id** | **Integer** |  | [optional] |
 | **auth_method_name** | **String** |  | [optional] |
 | **auth_method_roles_assoc** | [**Array&lt;AuthMethodRoleAssociation&gt;**](AuthMethodRoleAssociation.md) |  | [optional] |
+| **bookmark_login_url_template** | **String** | BookmarkLoginURLTemplate is an OIDC login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback. | [optional] |
 | **client_permissions** | **Array&lt;String&gt;** |  | [optional] |
 | **creation_date** | **Time** |  | [optional] |
 | **delete_protection** | **Boolean** |  | [optional] |
@@ -39,6 +40,7 @@ instance = Akeyless::AuthMethod.new(
   auth_method_id: null,
   auth_method_name: null,
   auth_method_roles_assoc: null,
+  bookmark_login_url_template: null,
   client_permissions: null,
   creation_date: null,
   delete_protection: null,
