@@ -31,6 +31,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -45,6 +51,9 @@ module Akeyless
 
     # SSH private key password
     attr_accessor :private_key_password
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # SSH password to rotate
     attr_accessor :ssh_password
@@ -66,11 +75,14 @@ module Akeyless
         :'host' => :'host',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'port' => :'port',
         :'private_key' => :'private-key',
         :'private_key_password' => :'private-key-password',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'ssh_password' => :'ssh-password',
         :'ssh_username' => :'ssh-username',
         :'token' => :'token',
@@ -91,11 +103,14 @@ module Akeyless
         :'host' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'port' => :'String',
         :'private_key' => :'String',
         :'private_key_password' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'ssh_password' => :'String',
         :'ssh_username' => :'String',
         :'token' => :'String',
@@ -146,6 +161,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -168,6 +191,10 @@ module Akeyless
 
       if attributes.key?(:'private_key_password')
         self.private_key_password = attributes[:'private_key_password']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'ssh_password')
@@ -217,11 +244,14 @@ module Akeyless
           host == o.host &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           port == o.port &&
           private_key == o.private_key &&
           private_key_password == o.private_key_password &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           ssh_password == o.ssh_password &&
           ssh_username == o.ssh_username &&
           token == o.token &&
@@ -237,7 +267,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comment, description, host, json, key, max_versions, name, port, private_key, private_key_password, ssh_password, ssh_username, token, uid_token].hash
+      [comment, description, host, json, key, lock_on_read, lock_ttl, max_versions, name, port, private_key, private_key_password, rotate_on_unlock, ssh_password, ssh_username, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -31,13 +31,13 @@ module Akeyless
     # GCP Folder ID (Relevant only for GCP targets with folder scope)
     attr_accessor :gcp_folder_id
 
-    # GCP Organization ID (Relevant only for GCP targets)
+    # GCP Organization ID (Relevant only for GCP targets with folder or organization scope)
     attr_accessor :gcp_organization_id
 
-    # GCP Project ID (Relevant only for GCP targets)
+    # GCP Project ID to manage secrets in (Relevant only for GCP targets with project scope). If empty, the project is taken from the target.
     attr_accessor :gcp_project_id
 
-    # The gcp usc scope [ project / organization / folder]
+    # The GCP USC scope [project/folder/organization]. With folder/organization, all projects under the folder/org are manageable. Relevant only for GCP targets. Defaults to project when empty.
     attr_accessor :gcp_scope
 
     # GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type=regional-secrets.

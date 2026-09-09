@@ -48,6 +48,7 @@
 | **renew_before_expiration_in_days** | **Integer** |  | [optional] |
 | **require_cn** | **Boolean** |  | [optional] |
 | **server_flag** | **Boolean** |  | [optional] |
+| **split_certificate_chain** | **Boolean** | SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain. | [optional] |
 | **street_address** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
@@ -100,6 +101,7 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   renew_before_expiration_in_days: null,
   require_cn: null,
   server_flag: null,
+  split_certificate_chain: null,
   street_address: null
 )
 ```

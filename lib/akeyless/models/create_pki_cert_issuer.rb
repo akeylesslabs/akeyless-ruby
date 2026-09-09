@@ -147,6 +147,9 @@ module Akeyless
     # A key to sign the certificate with, required in Private CA mode
     attr_accessor :signer_key_name
 
+    # If set, separates the leaf certificate from the certificate chain.
+    attr_accessor :split_certificate_chain
+
     # A comma-separated list of street addresses that will be set in the issued certificate
     attr_accessor :street_address
 
@@ -209,6 +212,7 @@ module Akeyless
         :'scheduled_renew' => :'scheduled-renew',
         :'server_flag' => :'server-flag',
         :'signer_key_name' => :'signer-key-name',
+        :'split_certificate_chain' => :'split-certificate-chain',
         :'street_address' => :'street-address',
         :'tag' => :'tag',
         :'token' => :'token',
@@ -269,6 +273,7 @@ module Akeyless
         :'scheduled_renew' => :'Integer',
         :'server_flag' => :'Boolean',
         :'signer_key_name' => :'String',
+        :'split_certificate_chain' => :'Boolean',
         :'street_address' => :'String',
         :'tag' => :'Array<String>',
         :'token' => :'String',
@@ -488,6 +493,10 @@ module Akeyless
         self.signer_key_name = attributes[:'signer_key_name']
       end
 
+      if attributes.key?(:'split_certificate_chain')
+        self.split_certificate_chain = attributes[:'split_certificate_chain']
+      end
+
       if attributes.key?(:'street_address')
         self.street_address = attributes[:'street_address']
       end
@@ -587,6 +596,7 @@ module Akeyless
           scheduled_renew == o.scheduled_renew &&
           server_flag == o.server_flag &&
           signer_key_name == o.signer_key_name &&
+          split_certificate_chain == o.split_certificate_chain &&
           street_address == o.street_address &&
           tag == o.tag &&
           token == o.token &&
@@ -603,7 +613,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, basic_constraints, ca_target, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, scheduled_renew, server_flag, signer_key_name, street_address, tag, token, ttl, uid_token].hash
+      [allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, basic_constraints, ca_target, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, scheduled_renew, server_flag, signer_key_name, split_certificate_chain, street_address, tag, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

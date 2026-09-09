@@ -27,6 +27,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)
     attr_accessor :fixed_user_claim_keyname
 
@@ -117,6 +123,8 @@ module Akeyless
         :'ara_enabled' => :'ara-enabled',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'gcp_cred_type' => :'gcp-cred-type',
         :'gcp_key' => :'gcp-key',
@@ -160,6 +168,8 @@ module Akeyless
         :'ara_enabled' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'fixed_user_claim_keyname' => :'String',
         :'gcp_cred_type' => :'String',
         :'gcp_key' => :'String',
@@ -226,6 +236,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'fixed_user_claim_keyname')
@@ -392,6 +410,8 @@ module Akeyless
           ara_enabled == o.ara_enabled &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           gcp_cred_type == o.gcp_cred_type &&
           gcp_key == o.gcp_key &&
@@ -431,7 +451,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_type, ara_enabled, custom_username_template, delete_protection, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
+      [access_type, ara_enabled, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, fixed_user_claim_keyname, gcp_cred_type, gcp_key, gcp_key_algo, gcp_project_id, gcp_sa_email, gcp_token_scopes, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, role_binding, role_names, secure_access_delay, secure_access_enable, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, service_account_type, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

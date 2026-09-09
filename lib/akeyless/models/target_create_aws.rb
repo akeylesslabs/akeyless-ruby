@@ -36,6 +36,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -47,6 +53,9 @@ module Akeyless
 
     # AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using external ID
     attr_accessor :role_arn
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Required only for temporary security credentials retrieved using STS
     attr_accessor :session_token
@@ -70,10 +79,13 @@ module Akeyless
         :'generate_external_id' => :'generate-external-id',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'region' => :'region',
         :'role_arn' => :'role-arn',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'session_token' => :'session-token',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -96,10 +108,13 @@ module Akeyless
         :'generate_external_id' => :'Boolean',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'region' => :'String',
         :'role_arn' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'session_token' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -162,6 +177,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -180,6 +203,10 @@ module Akeyless
 
       if attributes.key?(:'role_arn')
         self.role_arn = attributes[:'role_arn']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'session_token')
@@ -241,10 +268,13 @@ module Akeyless
           generate_external_id == o.generate_external_id &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           region == o.region &&
           role_arn == o.role_arn &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           session_token == o.session_token &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -260,7 +290,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_key, access_key_id, delete_protection, description, generate_external_id, json, key, max_versions, name, region, role_arn, session_token, token, uid_token, use_gw_cloud_identity].hash
+      [access_key, access_key_id, delete_protection, description, generate_external_id, json, key, lock_on_read, lock_ttl, max_versions, name, region, role_arn, rotate_on_unlock, session_token, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

@@ -60,6 +60,12 @@ module Akeyless
     # Lock this secret for read/update while an SRA session is active
     attr_accessor :lock_during_sra_session
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Secret name
     attr_accessor :name
 
@@ -77,6 +83,9 @@ module Akeyless
 
     # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # rotated-username password
     attr_accessor :rotated_password
@@ -201,12 +210,15 @@ module Akeyless
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
         :'lock_during_sra_session' => :'lock-during-sra-session',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'name' => :'name',
         :'new_metadata' => :'new-metadata',
         :'new_name' => :'new-name',
         :'new_version' => :'new-version',
         :'rm_tag' => :'rm-tag',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'rotated_password' => :'rotated-password',
         :'rotated_username' => :'rotated-username',
         :'rotation_hour' => :'rotation-hour',
@@ -268,12 +280,15 @@ module Akeyless
         :'keep_prev_version' => :'String',
         :'key' => :'String',
         :'lock_during_sra_session' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'name' => :'String',
         :'new_metadata' => :'String',
         :'new_name' => :'String',
         :'new_version' => :'Boolean',
         :'rm_tag' => :'Array<String>',
         :'rotate_after_disconnect' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'rotated_password' => :'String',
         :'rotated_username' => :'String',
         :'rotation_hour' => :'Integer',
@@ -399,6 +414,14 @@ module Akeyless
         self.lock_during_sra_session = attributes[:'lock_during_sra_session']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -427,6 +450,10 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotated_password')
@@ -620,12 +647,15 @@ module Akeyless
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
           lock_during_sra_session == o.lock_during_sra_session &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           name == o.name &&
           new_metadata == o.new_metadata &&
           new_name == o.new_name &&
           new_version == o.new_version &&
           rm_tag == o.rm_tag &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotated_password == o.rotated_password &&
           rotated_username == o.rotated_username &&
           rotation_hour == o.rotation_hour &&
@@ -672,7 +702,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, target, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, lock_on_read, lock_ttl, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotate_on_unlock, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, target, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

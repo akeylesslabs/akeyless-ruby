@@ -11,6 +11,8 @@
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional][default to &#39;default_metadata&#39;] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **expiration_date** | **String** | Token expiration date in YYYY-MM-DD format (relevant only for rotator-type&#x3D;token when manual rotation is selected). Time will be set to 00:00 UTC. | [optional] |
 | **hec_token** | **String** | For rotator-type&#x3D;hec-token, optionally set/replace the stored HEC token value. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
@@ -18,12 +20,15 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** |  | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **new_name** | **String** | New item name | [optional] |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval** | **String** |  | [optional] |
@@ -50,6 +55,8 @@ instance = Akeyless::RotatedSecretUpdateSplunk.new(
   auto_rotate: null,
   delete_protection: null,
   description: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   expiration_date: null,
   hec_token: null,
   input_rule: null,
@@ -57,12 +64,15 @@ instance = Akeyless::RotatedSecretUpdateSplunk.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   new_name: null,
   output_rule: null,
   password_length: null,
   rm_tag: null,
+  rotate_on_unlock: null,
   rotation_event_in: null,
   rotation_hour: null,
   rotation_interval: null,

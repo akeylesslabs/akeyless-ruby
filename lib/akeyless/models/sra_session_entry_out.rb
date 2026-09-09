@@ -41,6 +41,12 @@ module Akeyless
 
     attr_accessor :target_host
 
+    attr_accessor :target_id
+
+    attr_accessor :target_name
+
+    attr_accessor :target_type
+
     attr_accessor :ttl
 
     attr_accessor :user_identifier
@@ -61,6 +67,9 @@ module Akeyless
         :'start_time' => :'start_time',
         :'status' => :'status',
         :'target_host' => :'target_host',
+        :'target_id' => :'target_id',
+        :'target_name' => :'target_name',
+        :'target_type' => :'target_type',
         :'ttl' => :'ttl',
         :'user_identifier' => :'user_identifier'
       }
@@ -87,6 +96,9 @@ module Akeyless
         :'start_time' => :'Time',
         :'status' => :'String',
         :'target_host' => :'String',
+        :'target_id' => :'Integer',
+        :'target_name' => :'String',
+        :'target_type' => :'String',
         :'ttl' => :'String',
         :'user_identifier' => :'String'
       }
@@ -165,6 +177,18 @@ module Akeyless
         self.target_host = attributes[:'target_host']
       end
 
+      if attributes.key?(:'target_id')
+        self.target_id = attributes[:'target_id']
+      end
+
+      if attributes.key?(:'target_name')
+        self.target_name = attributes[:'target_name']
+      end
+
+      if attributes.key?(:'target_type')
+        self.target_type = attributes[:'target_type']
+      end
+
       if attributes.key?(:'ttl')
         self.ttl = attributes[:'ttl']
       end
@@ -207,6 +231,9 @@ module Akeyless
           start_time == o.start_time &&
           status == o.status &&
           target_host == o.target_host &&
+          target_id == o.target_id &&
+          target_name == o.target_name &&
+          target_type == o.target_type &&
           ttl == o.ttl &&
           user_identifier == o.user_identifier
     end
@@ -220,7 +247,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, client_type, cluster_unique_id, connection_type, end_time, error_msg, gateway_info, instance_id, secret_name, session_id, start_time, status, target_host, ttl, user_identifier].hash
+      [access_id, client_type, cluster_unique_id, connection_type, end_time, error_msg, gateway_info, instance_id, secret_name, session_id, start_time, status, target_host, target_id, target_name, target_type, ttl, user_identifier].hash
     end
 
     # Builds the object from hash

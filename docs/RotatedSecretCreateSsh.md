@@ -10,6 +10,8 @@
 | **auto_rotate** | **String** |  | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
@@ -18,12 +20,15 @@
 | **key_algorithm** | **String** | The key algorithm to generate with when no private key is supplied. options: [ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521] | [optional] |
 | **key_data_base64** | **String** | Private key file contents encoded using base64 | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Rotated secret name |  |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **public_key_remote_path** | **String** | The path to the public key that will be rotated on the server | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotation_event_in** | **Array&lt;String&gt;** | How many days before the rotation of the item would you like to be notified | [optional] |
@@ -70,6 +75,8 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   auto_rotate: null,
   delete_protection: null,
   description: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   host_provider: null,
   input_rule: null,
   item_custom_fields: null,
@@ -78,12 +85,15 @@ instance = Akeyless::RotatedSecretCreateSsh.new(
   key_algorithm: null,
   key_data_base64: null,
   lock_during_sra_session: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   output_rule: null,
   password_length: null,
   public_key_remote_path: null,
   rotate_after_disconnect: null,
+  rotate_on_unlock: null,
   rotated_password: null,
   rotated_username: null,
   rotation_event_in: null,

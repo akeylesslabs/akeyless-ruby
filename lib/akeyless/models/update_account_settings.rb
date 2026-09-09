@@ -60,6 +60,9 @@ module Akeyless
     # Enable AI insights [true/false]
     attr_accessor :enable_ai_insights
 
+    # Enable AI Quorum checks account-wide [true/false]
+    attr_accessor :enable_ai_quorum
+
     # How many days before the expiration of the certificate would you like to be notified. [true/false]
     attr_accessor :enable_default_certificate_expiration_event
 
@@ -188,6 +191,7 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'dynamic-secret-max-ttl',
         :'dynamic_secret_max_ttl_enable' => :'dynamic-secret-max-ttl-enable',
         :'enable_ai_insights' => :'enable-ai-insights',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'enable_default_certificate_expiration_event' => :'enable-default-certificate-expiration-event',
         :'enable_item_sharing' => :'enable-item-sharing',
         :'enable_password_expiration' => :'enable-password-expiration',
@@ -251,6 +255,7 @@ module Akeyless
         :'dynamic_secret_max_ttl' => :'Integer',
         :'dynamic_secret_max_ttl_enable' => :'String',
         :'enable_ai_insights' => :'String',
+        :'enable_ai_quorum' => :'String',
         :'enable_default_certificate_expiration_event' => :'String',
         :'enable_item_sharing' => :'String',
         :'enable_password_expiration' => :'String',
@@ -378,6 +383,10 @@ module Akeyless
 
       if attributes.key?(:'enable_ai_insights')
         self.enable_ai_insights = attributes[:'enable_ai_insights']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'enable_default_certificate_expiration_event')
@@ -570,6 +579,7 @@ module Akeyless
           dynamic_secret_max_ttl == o.dynamic_secret_max_ttl &&
           dynamic_secret_max_ttl_enable == o.dynamic_secret_max_ttl_enable &&
           enable_ai_insights == o.enable_ai_insights &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           enable_default_certificate_expiration_event == o.enable_default_certificate_expiration_event &&
           enable_item_sharing == o.enable_item_sharing &&
           enable_password_expiration == o.enable_password_expiration &&
@@ -618,7 +628,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_locking_enabled, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, lock_max_ttl, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_ai_quorum, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_locking_enabled, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, lock_max_ttl, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

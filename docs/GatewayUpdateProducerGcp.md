@@ -8,6 +8,8 @@
 | **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type&#x3D;external) | [optional][default to &#39;ext_email&#39;] |
 | **gcp_cred_type** | **String** |  | [optional] |
 | **gcp_key** | **String** | Base64-encoded service account private key text | [optional] |
@@ -47,6 +49,8 @@ instance = Akeyless::GatewayUpdateProducerGcp.new(
   ara_enabled: null,
   custom_username_template: null,
   delete_protection: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   fixed_user_claim_keyname: null,
   gcp_cred_type: null,
   gcp_key: null,

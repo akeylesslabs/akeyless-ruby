@@ -25,6 +25,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Gitlab access token
     attr_accessor :gitlab_access_token
 
@@ -88,6 +94,8 @@ module Akeyless
         :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'gitlab_access_token' => :'gitlab-access-token',
         :'gitlab_access_type' => :'gitlab-access-type',
         :'gitlab_certificate' => :'gitlab-certificate',
@@ -121,6 +129,8 @@ module Akeyless
         :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'gitlab_access_token' => :'String',
         :'gitlab_access_type' => :'String',
         :'gitlab_certificate' => :'String',
@@ -174,6 +184,14 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'gitlab_access_token')
@@ -309,6 +327,8 @@ module Akeyless
           ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           gitlab_access_token == o.gitlab_access_token &&
           gitlab_access_type == o.gitlab_access_type &&
           gitlab_certificate == o.gitlab_certificate &&
@@ -339,7 +359,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, delete_protection, description, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, input_rule, installation_organization, item_custom_fields, json, name, output_rule, skip_dry_run, tags, target_name, token, ttl, uid_token].hash
+      [ara_enabled, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_role, gitlab_token_scopes, gitlab_url, group_name, input_rule, installation_organization, item_custom_fields, json, name, output_rule, skip_dry_run, tags, target_name, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

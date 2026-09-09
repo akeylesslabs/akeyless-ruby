@@ -13,8 +13,11 @@
 | **imap_username** | **String** | ImapUsername to access the IMAP service |  |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **secret** | **String** | Secret of the api credentials to the Godaddy account |  |
 | **timeout** | **String** | Timeout waiting for certificate validation in Duration format (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum 1h. | [optional][default to &#39;5m&#39;] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -35,8 +38,11 @@ instance = Akeyless::CreateGodaddyTarget.new(
   imap_username: null,
   json: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
+  rotate_on_unlock: null,
   secret: null,
   timeout: null,
   token: null,

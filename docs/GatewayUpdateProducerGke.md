@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **gke_account_key** | **String** | GKE Service Account key file path | [optional] |
 | **gke_cluster_cert** | **String** | GKE cluster CA certificate | [optional] |
 | **gke_cluster_endpoint** | **String** | GKE cluster URL endpoint | [optional] |
@@ -40,6 +42,8 @@ require 'akeyless'
 instance = Akeyless::GatewayUpdateProducerGke.new(
   ara_enabled: null,
   delete_protection: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   gke_account_key: null,
   gke_cluster_cert: null,
   gke_cluster_endpoint: null,

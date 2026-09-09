@@ -16,9 +16,13 @@
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **importer_info** | [**ImporterInfo**](ImporterInfo.md) |  | [optional] |
 | **issuer_overview_info** | [**IssuerOverviewInfo**](IssuerOverviewInfo.md) |  | [optional] |
+| **lock_on_read** | **Boolean** |  | [optional] |
+| **lock_ttl** | **Integer** |  | [optional] |
 | **next_rotation_events** | [**Array&lt;NextAutoRotationEvent&gt;**](NextAutoRotationEvent.md) |  | [optional] |
 | **oidc_client_info** | [**OidcClientInfo**](OidcClientInfo.md) |  | [optional] |
 | **password_policy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  | [optional] |
+| **pending_rotate_on_unlock** | **Boolean** |  | [optional] |
+| **rotate_on_unlock** | **Boolean** |  | [optional] |
 | **rotated_secret_details** | [**RotatedSecretDetailsInfo**](RotatedSecretDetailsInfo.md) |  | [optional] |
 | **secure_remote_access_details** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  | [optional] |
 | **static_secret_info** | [**StaticSecretDetailsInfo**](StaticSecretDetailsInfo.md) |  | [optional] |
@@ -42,9 +46,13 @@ instance = Akeyless::ItemGeneralInfo.new(
   expiration_events: null,
   importer_info: null,
   issuer_overview_info: null,
+  lock_on_read: null,
+  lock_ttl: null,
   next_rotation_events: null,
   oidc_client_info: null,
   password_policy: null,
+  pending_rotate_on_unlock: null,
+  rotate_on_unlock: null,
   rotated_secret_details: null,
   secure_remote_access_details: null,
   static_secret_info: null,

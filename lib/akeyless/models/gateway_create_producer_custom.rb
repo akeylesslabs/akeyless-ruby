@@ -31,6 +31,12 @@ module Akeyless
     # Should admin credentials be rotated
     attr_accessor :enable_admin_rotation
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
 
@@ -84,6 +90,8 @@ module Akeyless
         :'create_sync_url' => :'create-sync-url',
         :'delete_protection' => :'delete_protection',
         :'enable_admin_rotation' => :'enable-admin-rotation',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -115,6 +123,8 @@ module Akeyless
         :'create_sync_url' => :'String',
         :'delete_protection' => :'String',
         :'enable_admin_rotation' => :'Boolean',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -176,6 +186,14 @@ module Akeyless
         self.enable_admin_rotation = attributes[:'enable_admin_rotation']
       else
         self.enable_admin_rotation = false
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'input_rule')
@@ -297,6 +315,8 @@ module Akeyless
           create_sync_url == o.create_sync_url &&
           delete_protection == o.delete_protection &&
           enable_admin_rotation == o.enable_admin_rotation &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -323,7 +343,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, ara_enabled, create_sync_url, delete_protection, enable_admin_rotation, input_rule, item_custom_fields, json, name, output_rule, payload, producer_encryption_key_name, revoke_sync_url, rotate_sync_url, skip_dry_run, tags, timeout_sec, token, uid_token, user_ttl].hash
+      [admin_rotation_interval_days, ara_enabled, create_sync_url, delete_protection, enable_admin_rotation, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, output_rule, payload, producer_encryption_key_name, revoke_sync_url, rotate_sync_url, skip_dry_run, tags, timeout_sec, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

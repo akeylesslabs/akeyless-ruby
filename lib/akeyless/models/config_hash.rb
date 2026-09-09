@@ -49,6 +49,8 @@ module Akeyless
 
     attr_accessor :saml
 
+    attr_accessor :saml_sp
+
     attr_accessor :universal_identity
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -71,6 +73,7 @@ module Akeyless
         :'producers_status' => :'producers_status',
         :'rotators' => :'rotators',
         :'saml' => :'saml',
+        :'saml_sp' => :'saml_sp',
         :'universal_identity' => :'universal_identity'
       }
     end
@@ -100,6 +103,7 @@ module Akeyless
         :'producers_status' => :'String',
         :'rotators' => :'Object',
         :'saml' => :'String',
+        :'saml_sp' => :'String',
         :'universal_identity' => :'String'
       }
     end
@@ -195,6 +199,10 @@ module Akeyless
         self.saml = attributes[:'saml']
       end
 
+      if attributes.key?(:'saml_sp')
+        self.saml_sp = attributes[:'saml_sp']
+      end
+
       if attributes.key?(:'universal_identity')
         self.universal_identity = attributes[:'universal_identity']
       end
@@ -237,6 +245,7 @@ module Akeyless
           producers_status == o.producers_status &&
           rotators == o.rotators &&
           saml == o.saml &&
+          saml_sp == o.saml_sp &&
           universal_identity == o.universal_identity
     end
 
@@ -249,7 +258,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admins, ai_insights, cache, customer_fragements, general, k8s_auths, kmip, ldap, leadership, log_forwarding, m_queue, migration_status, migrations, producers, producers_status, rotators, saml, universal_identity].hash
+      [admins, ai_insights, cache, customer_fragements, general, k8s_auths, kmip, ldap, leadership, log_forwarding, m_queue, migration_status, migrations, producers, producers_status, rotators, saml, saml_sp, universal_identity].hash
     end
 
     # Builds the object from hash

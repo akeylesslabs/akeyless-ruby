@@ -49,6 +49,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -57,6 +63,9 @@ module Akeyless
 
     # The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)
     attr_accessor :password
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
     attr_accessor :security_token
@@ -84,9 +93,12 @@ module Akeyless
         :'email' => :'email',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'password' => :'password',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'security_token' => :'security-token',
         :'tenant_url' => :'tenant-url',
         :'token' => :'token',
@@ -113,9 +125,12 @@ module Akeyless
         :'email' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'password' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'security_token' => :'String',
         :'tenant_url' => :'String',
         :'token' => :'String',
@@ -196,6 +211,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -208,6 +231,10 @@ module Akeyless
 
       if attributes.key?(:'password')
         self.password = attributes[:'password']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'security_token')
@@ -285,9 +312,12 @@ module Akeyless
           email == o.email &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           password == o.password &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           security_token == o.security_token &&
           tenant_url == o.tenant_url &&
           token == o.token &&
@@ -303,7 +333,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_private_key_data, auth_flow, ca_cert_data, ca_cert_name, client_id, client_secret, comment, description, email, json, key, max_versions, name, password, security_token, tenant_url, token, uid_token].hash
+      [app_private_key_data, auth_flow, ca_cert_data, ca_cert_name, client_id, client_secret, comment, description, email, json, key, lock_on_read, lock_ttl, max_versions, name, password, rotate_on_unlock, security_token, tenant_url, token, uid_token].hash
     end
 
     # Builds the object from hash

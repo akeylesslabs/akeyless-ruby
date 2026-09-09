@@ -17,6 +17,9 @@
 | **start_time** | **Time** |  | [optional] |
 | **status** | **String** |  | [optional] |
 | **target_host** | **String** |  | [optional] |
+| **target_id** | **Integer** |  | [optional] |
+| **target_name** | **String** |  | [optional] |
+| **target_type** | **String** |  | [optional] |
 | **ttl** | **String** |  | [optional] |
 | **user_identifier** | **String** |  | [optional] |
 
@@ -39,6 +42,9 @@ instance = Akeyless::SraSessionEntryOut.new(
   start_time: null,
   status: null,
   target_host: null,
+  target_id: null,
+  target_name: null,
+  target_type: null,
   ttl: null,
   user_identifier: null
 )

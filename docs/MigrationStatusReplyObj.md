@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **certificates** | [**MigrationItems**](MigrationItems.md) |  | [optional] |
 | **computers** | **Integer** |  | [optional] |
+| **download_report** | [**MigrationDownloadReport**](MigrationDownloadReport.md) |  | [optional] |
 | **duration_time** | **String** |  | [optional] |
 | **error** | **String** |  | [optional] |
 | **last_status_message** | **String** |  | [optional] |
@@ -30,6 +31,7 @@ require 'akeyless'
 instance = Akeyless::MigrationStatusReplyObj.new(
   certificates: null,
   computers: null,
+  download_report: null,
   duration_time: null,
   error: null,
   last_status_message: null,

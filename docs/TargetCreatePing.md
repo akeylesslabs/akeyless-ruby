@@ -10,11 +10,14 @@
 | **description** | **String** | Description of the object | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **password** | **String** | Ping Federate privileged user password | [optional] |
 | **ping_url** | **String** | Ping URL | [optional] |
 | **privileged_user** | **String** | Ping Federate privileged user | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 
@@ -30,11 +33,14 @@ instance = Akeyless::TargetCreatePing.new(
   description: null,
   json: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   password: null,
   ping_url: null,
   privileged_user: null,
+  rotate_on_unlock: null,
   token: null,
   uid_token: null
 )

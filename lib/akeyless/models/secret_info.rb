@@ -35,6 +35,8 @@ module Akeyless
 
     attr_accessor :namespace
 
+    attr_accessor :project
+
     attr_accessor :region
 
     attr_accessor :secret_id
@@ -66,6 +68,7 @@ module Akeyless
         :'location' => :'location',
         :'name' => :'name',
         :'namespace' => :'namespace',
+        :'project' => :'project',
         :'region' => :'region',
         :'secret_id' => :'secret_id',
         :'status' => :'status',
@@ -96,6 +99,7 @@ module Akeyless
         :'location' => :'Object',
         :'name' => :'String',
         :'namespace' => :'String',
+        :'project' => :'String',
         :'region' => :'String',
         :'secret_id' => :'String',
         :'status' => :'Boolean',
@@ -170,6 +174,10 @@ module Akeyless
         self.namespace = attributes[:'namespace']
       end
 
+      if attributes.key?(:'project')
+        self.project = attributes[:'project']
+      end
+
       if attributes.key?(:'region')
         self.region = attributes[:'region']
       end
@@ -241,6 +249,7 @@ module Akeyless
           location == o.location &&
           name == o.name &&
           namespace == o.namespace &&
+          project == o.project &&
           region == o.region &&
           secret_id == o.secret_id &&
           status == o.status &&
@@ -261,7 +270,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activation_date, created, description, expiration, github, key_id, last_retrieved, location, name, namespace, region, secret_id, status, tags, thumbprint, type, version, version_id, version_ids].hash
+      [activation_date, created, description, expiration, github, key_id, last_retrieved, location, name, namespace, project, region, secret_id, status, tags, thumbprint, type, version, version_id, version_ids].hash
     end
 
     # Builds the object from hash

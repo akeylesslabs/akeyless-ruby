@@ -21,6 +21,7 @@
 | **producers_status** | **String** |  | [optional] |
 | **rotators** | **Object** |  | [optional] |
 | **saml** | **String** |  | [optional] |
+| **saml_sp** | **String** |  | [optional] |
 | **universal_identity** | **String** |  | [optional] |
 
 ## Example
@@ -46,6 +47,7 @@ instance = Akeyless::ConfigHash.new(
   producers_status: null,
   rotators: null,
   saml: null,
+  saml_sp: null,
   universal_identity: null
 )
 ```

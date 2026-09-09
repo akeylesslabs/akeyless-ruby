@@ -19,12 +19,15 @@
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **name** | **String** | Secret name |  |
 | **new_metadata** | **String** | Deprecated - use description | [optional][default to &#39;default_metadata&#39;] |
 | **new_name** | **String** | New item name | [optional] |
 | **new_version** | **Boolean** | Deprecated | [optional] |
 | **rm_tag** | **Array&lt;String&gt;** | List of the existent tags that will be removed from this item | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **rotated_password** | **String** | rotated-username password | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC | [optional] |
@@ -82,12 +85,15 @@ instance = Akeyless::UpdateRotatedSecret.new(
   keep_prev_version: null,
   key: null,
   lock_during_sra_session: null,
+  lock_on_read: null,
+  lock_ttl: null,
   name: null,
   new_metadata: null,
   new_name: null,
   new_version: null,
   rm_tag: null,
   rotate_after_disconnect: null,
+  rotate_on_unlock: null,
   rotated_password: null,
   rotated_username: null,
   rotation_hour: null,

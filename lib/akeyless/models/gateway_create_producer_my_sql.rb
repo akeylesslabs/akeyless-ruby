@@ -31,6 +31,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
 
@@ -137,6 +143,8 @@ module Akeyless
         :'db_server_certificates' => :'db-server-certificates',
         :'db_server_name' => :'db-server-name',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -186,6 +194,8 @@ module Akeyless
         :'db_server_certificates' => :'String',
         :'db_server_name' => :'String',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -261,6 +271,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'input_rule')
@@ -450,6 +468,8 @@ module Akeyless
           db_server_certificates == o.db_server_certificates &&
           db_server_name == o.db_server_name &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -494,7 +514,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, custom_username_template, db_server_certificates, db_server_name, delete_protection, input_rule, item_custom_fields, json, mysql_dbname, mysql_host, mysql_password, mysql_port, mysql_revocation_statements, mysql_screation_statements, mysql_username, name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [ara_enabled, custom_username_template, db_server_certificates, db_server_name, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, mysql_dbname, mysql_host, mysql_password, mysql_port, mysql_revocation_statements, mysql_screation_statements, mysql_username, name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_delay, secure_access_enable, secure_access_host, secure_access_web, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

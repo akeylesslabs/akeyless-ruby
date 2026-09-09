@@ -35,6 +35,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Secret format [text/json/key-value] (relevant only for type 'generic')
     attr_accessor :format
 
@@ -55,6 +61,12 @@ module Akeyless
 
     # Lock this secret for read/update while an SRA session is active
     attr_accessor :lock_during_sra_session
+
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
 
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
@@ -143,6 +155,8 @@ module Akeyless
         :'custom_field' => :'custom-field',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'format' => :'format',
         :'host_provider' => :'host-provider',
         :'inject_url' => :'inject-url',
@@ -150,6 +164,8 @@ module Akeyless
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'lock_during_sra_session' => :'lock-during-sra-session',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'metadata' => :'metadata',
         :'multiline_value' => :'multiline_value',
@@ -194,6 +210,8 @@ module Akeyless
         :'custom_field' => :'Hash<String, String>',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'format' => :'String',
         :'host_provider' => :'String',
         :'inject_url' => :'Array<String>',
@@ -201,6 +219,8 @@ module Akeyless
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'lock_during_sra_session' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'metadata' => :'String',
         :'multiline_value' => :'Boolean',
@@ -283,6 +303,14 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'format')
         self.format = attributes[:'format']
       else
@@ -319,6 +347,14 @@ module Akeyless
 
       if attributes.key?(:'lock_during_sra_session')
         self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
       end
 
       if attributes.key?(:'max_versions')
@@ -481,6 +517,8 @@ module Akeyless
           custom_field == o.custom_field &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           format == o.format &&
           host_provider == o.host_provider &&
           inject_url == o.inject_url &&
@@ -488,6 +526,8 @@ module Akeyless
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           lock_during_sra_session == o.lock_during_sra_session &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           metadata == o.metadata &&
           multiline_value == o.multiline_value &&
@@ -525,7 +565,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, ara_enabled, change_event, custom_field, delete_protection, description, format, host_provider, inject_url, input_rule, item_custom_fields, json, lock_during_sra_session, max_versions, metadata, multiline_value, name, output_rule, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, target, token, type, uid_token, username, value].hash
+      [provider_type, accessibility, ara_enabled, change_event, custom_field, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, format, host_provider, inject_url, input_rule, item_custom_fields, json, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, metadata, multiline_value, name, output_rule, password, protection_key, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rdp_user, secure_access_ssh_creds, secure_access_ssh_user, secure_access_url, secure_access_web_browsing, secure_access_web_proxy, tags, target, token, type, uid_token, username, value].hash
     end
 
     # Builds the object from hash

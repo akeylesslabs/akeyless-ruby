@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_expires** | **Integer** |  | [optional] |
 | **access_id_alias** | **String** | for accounts where AccessId holds encrypted email this field will hold generated AccessId, for accounts based on regular AccessId it will be equal to accessId itself | [optional] |
+| **alicloud_access_rules** | [**AliCloudAccessRules**](AliCloudAccessRules.md) |  | [optional] |
 | **allowed_client_type** | **Array&lt;String&gt;** |  | [optional] |
 | **api_key_access_rules** | [**APIKeyAccessRules**](APIKeyAccessRules.md) |  | [optional] |
 | **audit_logs_claims** | **Array&lt;String&gt;** |  | [optional] |
@@ -40,6 +41,7 @@ require 'akeyless'
 instance = Akeyless::AuthMethodAccessInfo.new(
   access_expires: null,
   access_id_alias: null,
+  alicloud_access_rules: null,
   allowed_client_type: null,
   api_key_access_rules: null,
   audit_logs_claims: null,

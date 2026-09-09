@@ -21,7 +21,7 @@ module Akeyless
     # Access key (relevant only for access-type=access_key)
     attr_accessor :access_key
 
-    # Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos)
+    # Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/alicloud/universal_identity/jwt/gcp/cert/oci/kerberos)
     attr_accessor :access_type
 
     # Account id (relevant only for access-type=password where the email address is associated with more than one account)
@@ -42,7 +42,7 @@ module Akeyless
     # Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert)
     attr_accessor :cert_data
 
-    # The cloud identity (relevant only for access-type=azure_ad,aws_iam,gcp)
+    # The cloud identity (relevant only for access-type=azure_ad,aws_iam,alicloud,gcp,oci)
     attr_accessor :cloud_id
 
     attr_accessor :debug

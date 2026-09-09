@@ -25,6 +25,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Github app id
     attr_accessor :github_app_id
 
@@ -91,6 +97,8 @@ module Akeyless
         :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'github_app_id' => :'github-app-id',
         :'github_app_private_key' => :'github-app-private-key',
         :'github_base_url' => :'github-base-url',
@@ -125,6 +133,8 @@ module Akeyless
         :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'github_app_id' => :'Integer',
         :'github_app_private_key' => :'String',
         :'github_base_url' => :'String',
@@ -179,6 +189,14 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'github_app_id')
@@ -310,6 +328,8 @@ module Akeyless
           ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           github_app_id == o.github_app_id &&
           github_app_private_key == o.github_app_private_key &&
           github_base_url == o.github_base_url &&
@@ -341,7 +361,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, delete_protection, description, github_app_id, github_app_private_key, github_base_url, input_rule, installation_id, installation_organization, installation_repository, item_custom_fields, json, name, new_name, output_rule, skip_dry_run, tags, target_name, token, token_permissions, token_repositories, token_ttl, uid_token].hash
+      [ara_enabled, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, github_app_id, github_app_private_key, github_base_url, input_rule, installation_id, installation_organization, installation_repository, item_custom_fields, json, name, new_name, output_rule, skip_dry_run, tags, target_name, token, token_permissions, token_repositories, token_ttl, uid_token].hash
     end
 
     # Builds the object from hash

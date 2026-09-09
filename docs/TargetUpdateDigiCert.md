@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acme_challenge** | **String** | ACME challenge type. Options: [dns] | [optional][default to &#39;dns&#39;] |
+| **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **digicert_url** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] | [optional][default to &#39;us-production&#39;] |
 | **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare | [optional] |
@@ -17,10 +18,13 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **new_name** | **String** | New target name | [optional] |
 | **resource_group** | **String** | Azure resource group name. Required when DNS credentials target is Azure | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **timeout** | **String** | Timeout for challenge validation | [optional][default to &#39;5m&#39;] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -32,6 +36,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetUpdateDigiCert.new(
   acme_challenge: null,
+  delete_protection: null,
   description: null,
   digicert_url: null,
   dns_target_creds: null,
@@ -44,10 +49,13 @@ instance = Akeyless::TargetUpdateDigiCert.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   new_name: null,
   resource_group: null,
+  rotate_on_unlock: null,
   timeout: null,
   token: null,
   uid_token: null

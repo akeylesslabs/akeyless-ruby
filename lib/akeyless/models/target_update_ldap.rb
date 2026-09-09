@@ -43,6 +43,12 @@ module Akeyless
     # LDAP Server URL
     attr_accessor :ldap_url
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -51,6 +57,9 @@ module Akeyless
 
     # New target name
     attr_accessor :new_name
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]
     attr_accessor :server_type
@@ -76,9 +85,12 @@ module Akeyless
         :'key' => :'key',
         :'ldap_ca_cert' => :'ldap-ca-cert',
         :'ldap_url' => :'ldap-url',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'server_type' => :'server-type',
         :'token' => :'token',
         :'token_expiration' => :'token-expiration',
@@ -103,9 +115,12 @@ module Akeyless
         :'key' => :'String',
         :'ldap_ca_cert' => :'String',
         :'ldap_url' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'server_type' => :'String',
         :'token' => :'String',
         :'token_expiration' => :'String',
@@ -178,6 +193,14 @@ module Akeyless
         self.ldap_url = nil
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -190,6 +213,10 @@ module Akeyless
 
       if attributes.key?(:'new_name')
         self.new_name = attributes[:'new_name']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'server_type')
@@ -258,9 +285,12 @@ module Akeyless
           key == o.key &&
           ldap_ca_cert == o.ldap_ca_cert &&
           ldap_url == o.ldap_url &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           server_type == o.server_type &&
           token == o.token &&
           token_expiration == o.token_expiration &&
@@ -276,7 +306,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_dn, bind_dn_password, delete_protection, description, json, keep_prev_version, key, ldap_ca_cert, ldap_url, max_versions, name, new_name, server_type, token, token_expiration, uid_token].hash
+      [bind_dn, bind_dn_password, delete_protection, description, json, keep_prev_version, key, ldap_ca_cert, ldap_url, lock_on_read, lock_ttl, max_versions, name, new_name, rotate_on_unlock, server_type, token, token_expiration, uid_token].hash
     end
 
     # Builds the object from hash

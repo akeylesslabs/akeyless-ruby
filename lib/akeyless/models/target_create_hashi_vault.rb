@@ -30,6 +30,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -38,6 +44,9 @@ module Akeyless
 
     # Comma-separated list of vault namespaces
     attr_accessor :namespace
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -56,9 +65,12 @@ module Akeyless
         :'hashi_url' => :'hashi-url',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'namespace' => :'namespace',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'vault_token' => :'vault-token'
@@ -78,9 +90,12 @@ module Akeyless
         :'hashi_url' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'namespace' => :'Array<String>',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'vault_token' => :'String'
@@ -130,6 +145,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -144,6 +167,10 @@ module Akeyless
         if (value = attributes[:'namespace']).is_a?(Array)
           self.namespace = value
         end
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -189,9 +216,12 @@ module Akeyless
           hashi_url == o.hashi_url &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           namespace == o.namespace &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           uid_token == o.uid_token &&
           vault_token == o.vault_token
@@ -206,7 +236,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, hashi_url, json, key, max_versions, name, namespace, token, uid_token, vault_token].hash
+      [delete_protection, description, hashi_url, json, key, lock_on_read, lock_ttl, max_versions, name, namespace, rotate_on_unlock, token, uid_token, vault_token].hash
     end
 
     # Builds the object from hash

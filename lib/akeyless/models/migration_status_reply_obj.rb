@@ -19,6 +19,8 @@ module Akeyless
 
     attr_accessor :computers
 
+    attr_accessor :download_report
+
     attr_accessor :duration_time
 
     attr_accessor :error
@@ -54,6 +56,7 @@ module Akeyless
       {
         :'certificates' => :'certificates',
         :'computers' => :'computers',
+        :'download_report' => :'download_report',
         :'duration_time' => :'duration_time',
         :'error' => :'error',
         :'last_status_message' => :'last_status_message',
@@ -82,6 +85,7 @@ module Akeyless
       {
         :'certificates' => :'MigrationItems',
         :'computers' => :'Integer',
+        :'download_report' => :'MigrationDownloadReport',
         :'duration_time' => :'String',
         :'error' => :'String',
         :'last_status_message' => :'String',
@@ -127,6 +131,10 @@ module Akeyless
 
       if attributes.key?(:'computers')
         self.computers = attributes[:'computers']
+      end
+
+      if attributes.key?(:'download_report')
+        self.download_report = attributes[:'download_report']
       end
 
       if attributes.key?(:'duration_time')
@@ -212,6 +220,7 @@ module Akeyless
       self.class == o.class &&
           certificates == o.certificates &&
           computers == o.computers &&
+          download_report == o.download_report &&
           duration_time == o.duration_time &&
           error == o.error &&
           last_status_message == o.last_status_message &&
@@ -238,7 +247,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificates, computers, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, sync, targets].hash
+      [certificates, computers, download_report, duration_time, error, last_status_message, max_name_length, max_value_length, migration_id, migration_items, migration_name, migration_state, migration_type, migration_type_name, rotated_secrets, start_time, sync, targets].hash
     end
 
     # Builds the object from hash

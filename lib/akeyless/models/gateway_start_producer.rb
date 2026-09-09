@@ -19,6 +19,12 @@ module Akeyless
     # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
     attr_accessor :ara_enabled
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
 
@@ -44,6 +50,8 @@ module Akeyless
     def self.attribute_map
       {
         :'ara_enabled' => :'ara-enabled',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'name' => :'name',
@@ -63,6 +71,8 @@ module Akeyless
     def self.openapi_types
       {
         :'ara_enabled' => :'Boolean',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'name' => :'String',
@@ -96,6 +106,14 @@ module Akeyless
 
       if attributes.key?(:'ara_enabled')
         self.ara_enabled = attributes[:'ara_enabled']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'input_rule')
@@ -161,6 +179,8 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           ara_enabled == o.ara_enabled &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           json == o.json &&
           name == o.name &&
@@ -179,7 +199,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, input_rule, json, name, output_rule, skip_dry_run, token, uid_token].hash
+      [ara_enabled, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, json, name, output_rule, skip_dry_run, token, uid_token].hash
     end
 
     # Builds the object from hash

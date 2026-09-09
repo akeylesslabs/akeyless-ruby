@@ -27,6 +27,15 @@ module Akeyless
 
     attr_accessor :value
 
+    # WrapAlg selects the HSM wrap algorithm for hsm_wrap_encrypt (e.g. rsa-oaep-sha256, aes-gcm, aes-cbc, aes-cbc-pad). RSA uses only WrapAlg; AES modes may require WrapIV and/or WrapTag.
+    attr_accessor :wrap_alg
+
+    # WrapIV is the base64 IV for AES modes that require it (GCM/CBC). Empty for RSA and modes without IV metadata.
+    attr_accessor :wrap_iv
+
+    # WrapTag is the base64 auth tag for AES-GCM only. Empty for RSA and other modes.
+    attr_accessor :wrap_tag
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -35,7 +44,10 @@ module Akeyless
         :'id' => :'id',
         :'key_label' => :'key_label',
         :'name' => :'name',
-        :'value' => :'value'
+        :'value' => :'value',
+        :'wrap_alg' => :'wrap_alg',
+        :'wrap_iv' => :'wrap_iv',
+        :'wrap_tag' => :'wrap_tag'
       }
     end
 
@@ -52,7 +64,10 @@ module Akeyless
         :'id' => :'String',
         :'key_label' => :'String',
         :'name' => :'String',
-        :'value' => :'String'
+        :'value' => :'String',
+        :'wrap_alg' => :'String',
+        :'wrap_iv' => :'String',
+        :'wrap_tag' => :'String'
       }
     end
 
@@ -100,6 +115,18 @@ module Akeyless
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
+
+      if attributes.key?(:'wrap_alg')
+        self.wrap_alg = attributes[:'wrap_alg']
+      end
+
+      if attributes.key?(:'wrap_iv')
+        self.wrap_iv = attributes[:'wrap_iv']
+      end
+
+      if attributes.key?(:'wrap_tag')
+        self.wrap_tag = attributes[:'wrap_tag']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -127,7 +154,10 @@ module Akeyless
           id == o.id &&
           key_label == o.key_label &&
           name == o.name &&
-          value == o.value
+          value == o.value &&
+          wrap_alg == o.wrap_alg &&
+          wrap_iv == o.wrap_iv &&
+          wrap_tag == o.wrap_tag
     end
 
     # @see the `==` method
@@ -139,7 +169,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, fragment_type, id, key_label, name, value].hash
+      [description, fragment_type, id, key_label, name, value, wrap_alg, wrap_iv, wrap_tag].hash
     end
 
     # Builds the object from hash

@@ -33,6 +33,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Externally provided username [true/false]
     attr_accessor :external_username
 
@@ -149,6 +155,8 @@ module Akeyless
         :'bind_dn_password' => :'bind-dn-password',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'external_username' => :'external-username',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'group_dn' => :'group-dn',
@@ -202,6 +210,8 @@ module Akeyless
         :'bind_dn_password' => :'String',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'external_username' => :'String',
         :'fixed_user_claim_keyname' => :'String',
         :'group_dn' => :'String',
@@ -284,6 +294,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'external_username')
@@ -484,6 +502,8 @@ module Akeyless
           bind_dn_password == o.bind_dn_password &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           external_username == o.external_username &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           group_dn == o.group_dn &&
@@ -531,7 +551,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, ara_enabled, bind_dn, bind_dn_password, custom_username_template, delete_protection, external_username, fixed_user_claim_keyname, group_dn, host_provider, input_rule, item_custom_fields, json, ldap_ca_cert, ldap_url, name, new_name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, skip_dry_run, tags, target, target_name, token, token_expiration, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_attribute, user_dn, user_ttl].hash
+      [provider_type, ara_enabled, bind_dn, bind_dn_password, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, external_username, fixed_user_claim_keyname, group_dn, host_provider, input_rule, item_custom_fields, json, ldap_ca_cert, ldap_url, name, new_name, output_rule, password_length, producer_encryption_key_name, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, skip_dry_run, tags, target, target_name, token, token_expiration, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_attribute, user_dn, user_ttl].hash
     end
 
     # Builds the object from hash

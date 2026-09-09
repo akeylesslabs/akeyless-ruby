@@ -14,6 +14,7 @@
 | **location** | **Object** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **namespace** | **String** |  | [optional] |
+| **project** | **String** |  | [optional] |
 | **region** | **String** |  | [optional] |
 | **secret_id** | **String** |  | [optional] |
 | **status** | **Boolean** |  | [optional] |
@@ -40,6 +41,7 @@ instance = Akeyless::SecretInfo.new(
   location: null,
   name: null,
   namespace: null,
+  project: null,
   region: null,
   secret_id: null,
   status: null,

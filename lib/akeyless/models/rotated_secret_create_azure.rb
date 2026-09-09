@@ -38,6 +38,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # If set, explicitly provide the storage account details [true/false]
     attr_accessor :explicitly_set_sa
 
@@ -67,6 +73,12 @@ module Akeyless
     # Lock this secret for read/update while an SRA session is active
     attr_accessor :lock_during_sra_session
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -90,6 +102,9 @@ module Akeyless
 
     # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
@@ -162,6 +177,8 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'explicitly_set_sa' => :'explicitly-set-sa',
         :'grace_rotation' => :'grace-rotation',
         :'grace_rotation_hour' => :'grace-rotation-hour',
@@ -172,6 +189,8 @@ module Akeyless
         :'json' => :'json',
         :'key' => :'key',
         :'lock_during_sra_session' => :'lock-during-sra-session',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
@@ -180,6 +199,7 @@ module Akeyless
         :'resource_group_name' => :'resource-group-name',
         :'resource_name' => :'resource-name',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
@@ -220,6 +240,8 @@ module Akeyless
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'explicitly_set_sa' => :'String',
         :'grace_rotation' => :'String',
         :'grace_rotation_hour' => :'Integer',
@@ -230,6 +252,8 @@ module Akeyless
         :'json' => :'Boolean',
         :'key' => :'String',
         :'lock_during_sra_session' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
@@ -238,6 +262,7 @@ module Akeyless
         :'resource_group_name' => :'String',
         :'resource_name' => :'String',
         :'rotate_after_disconnect' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
@@ -317,6 +342,14 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'explicitly_set_sa')
         self.explicitly_set_sa = attributes[:'explicitly_set_sa']
       else
@@ -365,6 +398,14 @@ module Akeyless
         self.lock_during_sra_session = attributes[:'lock_during_sra_session']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -399,6 +440,10 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotation_event_in')
@@ -543,6 +588,8 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           explicitly_set_sa == o.explicitly_set_sa &&
           grace_rotation == o.grace_rotation &&
           grace_rotation_hour == o.grace_rotation_hour &&
@@ -553,6 +600,8 @@ module Akeyless
           json == o.json &&
           key == o.key &&
           lock_during_sra_session == o.lock_during_sra_session &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           output_rule == o.output_rule &&
@@ -561,6 +610,7 @@ module Akeyless
           resource_group_name == o.resource_group_name &&
           resource_name == o.resource_name &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
@@ -593,7 +643,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, api_key, application_id, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, storage_account_key_name, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
+      [api_id, api_key, application_id, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, explicitly_set_sa, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, key, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, name, output_rule, password, password_length, resource_group_name, resource_name, rotate_after_disconnect, rotate_on_unlock, rotation_event_in, rotation_hour, rotation_interval, rotator_type, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, storage_account_key_name, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, username].hash
     end
 
     # Builds the object from hash

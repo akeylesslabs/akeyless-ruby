@@ -18,6 +18,9 @@ module Akeyless
     # A comma seperated list of new server hosts and server descriptions joined by semicolon ';' that will be added to the Linked Target hosts.
     attr_accessor :add_hosts
 
+    # Protection from accidental deletion of this object [true/false]
+    attr_accessor :delete_protection
+
     # Description of the object
     attr_accessor :description
 
@@ -30,6 +33,15 @@ module Akeyless
     # Whether to keep previous version [true/false]. If not set, use default according to account settings
     attr_accessor :keep_prev_version
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
+    # Set the maximum number of versions, limited by the account settings defaults.
+    attr_accessor :max_versions
+
     # Linked Target name
     attr_accessor :name
 
@@ -41,6 +53,9 @@ module Akeyless
 
     # Comma separated list of existing hosts that will be removed from Linked Target hosts.
     attr_accessor :rm_hosts
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -55,14 +70,19 @@ module Akeyless
     def self.attribute_map
       {
         :'add_hosts' => :'add-hosts',
+        :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'hosts' => :'hosts',
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
+        :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'parent_target_name' => :'parent-target-name',
         :'rm_hosts' => :'rm-hosts',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'type' => :'type',
         :'uid_token' => :'uid-token'
@@ -78,14 +98,19 @@ module Akeyless
     def self.openapi_types
       {
         :'add_hosts' => :'String',
+        :'delete_protection' => :'String',
         :'description' => :'String',
         :'hosts' => :'String',
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
+        :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
         :'parent_target_name' => :'String',
         :'rm_hosts' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'type' => :'String',
         :'uid_token' => :'String'
@@ -117,6 +142,10 @@ module Akeyless
         self.add_hosts = attributes[:'add_hosts']
       end
 
+      if attributes.key?(:'delete_protection')
+        self.delete_protection = attributes[:'delete_protection']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -135,6 +164,18 @@ module Akeyless
         self.keep_prev_version = attributes[:'keep_prev_version']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
+      if attributes.key?(:'max_versions')
+        self.max_versions = attributes[:'max_versions']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -151,6 +192,10 @@ module Akeyless
 
       if attributes.key?(:'rm_hosts')
         self.rm_hosts = attributes[:'rm_hosts']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -192,14 +237,19 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           add_hosts == o.add_hosts &&
+          delete_protection == o.delete_protection &&
           description == o.description &&
           hosts == o.hosts &&
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
+          max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
           parent_target_name == o.parent_target_name &&
           rm_hosts == o.rm_hosts &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           type == o.type &&
           uid_token == o.uid_token
@@ -214,7 +264,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_hosts, description, hosts, json, keep_prev_version, name, new_name, parent_target_name, rm_hosts, token, type, uid_token].hash
+      [add_hosts, delete_protection, description, hosts, json, keep_prev_version, lock_on_read, lock_ttl, max_versions, name, new_name, parent_target_name, rm_hosts, rotate_on_unlock, token, type, uid_token].hash
     end
 
     # Builds the object from hash

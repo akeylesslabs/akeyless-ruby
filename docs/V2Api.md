@@ -13,6 +13,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**assoc_role_auth_method**](V2Api.md#assoc_role_auth_method) | **POST** /assoc-role-am |  |
 | [**assoc_target_item**](V2Api.md#assoc_target_item) | **POST** /assoc-target-item |  |
 | [**auth**](V2Api.md#auth) | **POST** /auth |  |
+| [**auth_method_create_ali_cloud**](V2Api.md#auth_method_create_ali_cloud) | **POST** /auth-method-create-alicloud |  |
 | [**auth_method_create_api_key**](V2Api.md#auth_method_create_api_key) | **POST** /auth-method-create-api-key |  |
 | [**auth_method_create_aws_iam**](V2Api.md#auth_method_create_aws_iam) | **POST** /auth-method-create-aws-iam |  |
 | [**auth_method_create_azure_ad**](V2Api.md#auth_method_create_azure_ad) | **POST** /auth-method-create-azure-ad |  |
@@ -30,6 +31,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**auth_method_delete**](V2Api.md#auth_method_delete) | **POST** /auth-method-delete |  |
 | [**auth_method_get**](V2Api.md#auth_method_get) | **POST** /auth-method-get |  |
 | [**auth_method_list**](V2Api.md#auth_method_list) | **POST** /auth-method-list |  |
+| [**auth_method_update_ali_cloud**](V2Api.md#auth_method_update_ali_cloud) | **POST** /auth-method-update-alicloud |  |
 | [**auth_method_update_api_key**](V2Api.md#auth_method_update_api_key) | **POST** /auth-method-update-api-key |  |
 | [**auth_method_update_aws_iam**](V2Api.md#auth_method_update_aws_iam) | **POST** /auth-method-update-aws-iam |  |
 | [**auth_method_update_azure_ad**](V2Api.md#auth_method_update_azure_ad) | **POST** /auth-method-update-azure-ad |  |
@@ -1221,6 +1223,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## auth_method_create_ali_cloud
+
+> <AuthMethodCreateOutput> auth_method_create_ali_cloud(auth_method_create_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+auth_method_create_ali_cloud = Akeyless::AuthMethodCreateAliCloud.new({name: 'name_example'}) # AuthMethodCreateAliCloud | 
+
+begin
+  
+  result = api_instance.auth_method_create_ali_cloud(auth_method_create_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_ali_cloud: #{e}"
+end
+```
+
+#### Using the auth_method_create_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodCreateOutput>, Integer, Hash)> auth_method_create_ali_cloud_with_http_info(auth_method_create_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_create_ali_cloud_with_http_info(auth_method_create_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_create_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **auth_method_create_ali_cloud** | [**AuthMethodCreateAliCloud**](AuthMethodCreateAliCloud.md) |  |  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## auth_method_create_api_key
 
 > <AuthMethodCreateOutput> auth_method_create_api_key(auth_method_create_api_key)
@@ -2264,6 +2328,68 @@ end
 ### Return type
 
 [**ListAuthMethodsOutput**](ListAuthMethodsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## auth_method_update_ali_cloud
+
+> <AuthMethodUpdateOutput> auth_method_update_ali_cloud(auth_method_update_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+auth_method_update_ali_cloud = Akeyless::AuthMethodUpdateAliCloud.new({name: 'name_example'}) # AuthMethodUpdateAliCloud | 
+
+begin
+  
+  result = api_instance.auth_method_update_ali_cloud(auth_method_update_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_ali_cloud: #{e}"
+end
+```
+
+#### Using the auth_method_update_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMethodUpdateOutput>, Integer, Hash)> auth_method_update_ali_cloud_with_http_info(auth_method_update_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.auth_method_update_ali_cloud_with_http_info(auth_method_update_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMethodUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->auth_method_update_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **auth_method_update_ali_cloud** | [**AuthMethodUpdateAliCloud**](AuthMethodUpdateAliCloud.md) |  |  |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
 
 ### Authorization
 

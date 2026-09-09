@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **access_id** | **String** | Access ID | [optional] |
 | **access_key** | **String** | Access Key | [optional] |
-| **access_type** | **String** | Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert) | [optional][default to &#39;access_key&#39;] |
+| **access_type** | **String** | Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/alicloud/gcp/k8s/cert/oci/kerberos) | [optional][default to &#39;access_key&#39;] |
 | **account_id** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) | [optional] |
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |

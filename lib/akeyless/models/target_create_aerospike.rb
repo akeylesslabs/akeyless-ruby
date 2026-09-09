@@ -57,6 +57,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -71,6 +77,9 @@ module Akeyless
 
     # Database connection port
     attr_accessor :port
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Skip server name verification while still validating the certificate chain (true/false). Empty means do not skip.
     attr_accessor :skip_server_name_validation
@@ -104,11 +113,14 @@ module Akeyless
         :'hostname' => :'hostname',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'namespace' => :'namespace',
         :'password' => :'password',
         :'port' => :'port',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'skip_server_name_validation' => :'skip-server-name-validation',
         :'ssl' => :'ssl',
         :'ssl_certificate' => :'ssl-certificate',
@@ -139,11 +151,14 @@ module Akeyless
         :'hostname' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'namespace' => :'String',
         :'password' => :'String',
         :'port' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'skip_server_name_validation' => :'String',
         :'ssl' => :'Boolean',
         :'ssl_certificate' => :'String',
@@ -231,6 +246,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -251,6 +274,10 @@ module Akeyless
 
       if attributes.key?(:'port')
         self.port = attributes[:'port']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'skip_server_name_validation')
@@ -313,11 +340,14 @@ module Akeyless
           hostname == o.hostname &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           namespace == o.namespace &&
           password == o.password &&
           port == o.port &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           skip_server_name_validation == o.skip_server_name_validation &&
           ssl == o.ssl &&
           ssl_certificate == o.ssl_certificate &&
@@ -334,7 +364,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_username, aerospike_client_id, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, client_certificate, client_private_key, db_server_name, delete_protection, description, enable_mtls, hostname, json, key, max_versions, name, namespace, password, port, skip_server_name_validation, ssl, ssl_certificate, token, uid_token].hash
+      [admin_username, aerospike_client_id, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, client_certificate, client_private_key, db_server_name, delete_protection, description, enable_mtls, hostname, json, key, lock_on_read, lock_ttl, max_versions, name, namespace, password, port, rotate_on_unlock, skip_server_name_validation, ssl, ssl_certificate, token, uid_token].hash
     end
 
     # Builds the object from hash

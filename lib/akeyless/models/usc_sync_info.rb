@@ -23,6 +23,8 @@ module Akeyless
 
     attr_accessor :namespace
 
+    attr_accessor :project
+
     attr_accessor :secret_id
 
     attr_accessor :secret_name
@@ -38,6 +40,7 @@ module Akeyless
         :'jq_secret_filter' => :'jq_secret_filter',
         :'last_error' => :'last_error',
         :'namespace' => :'namespace',
+        :'project' => :'project',
         :'secret_id' => :'secret_id',
         :'secret_name' => :'secret_name',
         :'selected_environments' => :'selected_environments',
@@ -57,6 +60,7 @@ module Akeyless
         :'jq_secret_filter' => :'String',
         :'last_error' => :'String',
         :'namespace' => :'String',
+        :'project' => :'String',
         :'secret_id' => :'String',
         :'secret_name' => :'String',
         :'selected_environments' => :'String',
@@ -101,6 +105,10 @@ module Akeyless
         self.namespace = attributes[:'namespace']
       end
 
+      if attributes.key?(:'project')
+        self.project = attributes[:'project']
+      end
+
       if attributes.key?(:'secret_id')
         self.secret_id = attributes[:'secret_id']
       end
@@ -142,6 +150,7 @@ module Akeyless
           jq_secret_filter == o.jq_secret_filter &&
           last_error == o.last_error &&
           namespace == o.namespace &&
+          project == o.project &&
           secret_id == o.secret_id &&
           secret_name == o.secret_name &&
           selected_environments == o.selected_environments &&
@@ -157,7 +166,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_remote, jq_secret_filter, last_error, namespace, secret_id, secret_name, selected_environments, selected_repositories].hash
+      [delete_remote, jq_secret_filter, last_error, namespace, project, secret_id, secret_name, selected_environments, selected_repositories].hash
     end
 
     # Builds the object from hash

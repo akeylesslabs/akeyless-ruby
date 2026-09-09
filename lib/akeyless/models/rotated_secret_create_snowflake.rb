@@ -29,6 +29,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
     attr_accessor :input_rule
 
@@ -39,6 +45,12 @@ module Akeyless
     attr_accessor :json
 
     attr_accessor :key
+
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
 
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
@@ -57,6 +69,9 @@ module Akeyless
 
     # The path to the file containing the private key (relevant only for rotator-type=key)
     attr_accessor :private_key_file_name
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # rotated-username password (relevant only for rotator-type=password)
     attr_accessor :rotated_password
@@ -111,16 +126,21 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'private_key' => :'private-key',
         :'private_key_file_name' => :'private-key-file-name',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'rotated_password' => :'rotated-password',
         :'rotated_username' => :'rotated-username',
         :'rotation_event_in' => :'rotation-event-in',
@@ -153,16 +173,21 @@ module Akeyless
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'private_key' => :'String',
         :'private_key_file_name' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'rotated_password' => :'String',
         :'rotated_username' => :'String',
         :'rotation_event_in' => :'Array<String>',
@@ -225,6 +250,14 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'input_rule')
         if (value = attributes[:'input_rule']).is_a?(Array)
           self.input_rule = value
@@ -245,6 +278,14 @@ module Akeyless
 
       if attributes.key?(:'key')
         self.key = attributes[:'key']
+      end
+
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
       end
 
       if attributes.key?(:'max_versions')
@@ -273,6 +314,10 @@ module Akeyless
 
       if attributes.key?(:'private_key_file_name')
         self.private_key_file_name = attributes[:'private_key_file_name']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotated_password')
@@ -388,16 +433,21 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           output_rule == o.output_rule &&
           password_length == o.password_length &&
           private_key == o.private_key &&
           private_key_file_name == o.private_key_file_name &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotated_password == o.rotated_password &&
           rotated_username == o.rotated_username &&
           rotation_event_in == o.rotation_event_in &&
@@ -425,7 +475,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, input_rule, item_custom_fields, json, key, max_versions, name, output_rule, password_length, private_key, private_key_file_name, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotation_statement, rotator_type, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, key, lock_on_read, lock_ttl, max_versions, name, output_rule, password_length, private_key, private_key_file_name, rotate_on_unlock, rotated_password, rotated_username, rotation_event_in, rotation_hour, rotation_interval, rotation_statement, rotator_type, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

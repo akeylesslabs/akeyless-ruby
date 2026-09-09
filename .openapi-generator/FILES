@@ -35,7 +35,10 @@ docs/AgenticRule.md
 docs/AgenticRules.md
 docs/AiInsightsConfigPart.md
 docs/AiInsightsSetting.md
+docs/AiModelEntry.md
+docs/AiQuorumSetting.md
 docs/AkeylessGatewayConfig.md
+docs/AliCloudAccessRules.md
 docs/AliasDetails.md
 docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
@@ -53,6 +56,7 @@ docs/AuthExpirationEvent.md
 docs/AuthMethod.md
 docs/AuthMethodAccessInfo.md
 docs/AuthMethodAdditionalData.md
+docs/AuthMethodCreateAliCloud.md
 docs/AuthMethodCreateApiKey.md
 docs/AuthMethodCreateAwsIam.md
 docs/AuthMethodCreateAzureAD.md
@@ -73,6 +77,7 @@ docs/AuthMethodDeleteOutput.md
 docs/AuthMethodGet.md
 docs/AuthMethodList.md
 docs/AuthMethodRoleAssociation.md
+docs/AuthMethodUpdateAliCloud.md
 docs/AuthMethodUpdateApiKey.md
 docs/AuthMethodUpdateAwsIam.md
 docs/AuthMethodUpdateAzureAD.md
@@ -817,6 +822,10 @@ docs/LockingInfo.md
 docs/LogForwardingConfigPart.md
 docs/LogstashLogForwardingConfig.md
 docs/LogzIoLogForwardingConfig.md
+docs/MigrationDownloadJob.md
+docs/MigrationDownloadReport.md
+docs/MigrationDownloadSecret.md
+docs/MigrationDownloadSummary.md
 docs/MigrationGeneral.md
 docs/MigrationItems.md
 docs/MigrationStatus.md
@@ -962,6 +971,7 @@ docs/SAMLAttribute.md
 docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
+docs/SamlSpConfigPart.md
 docs/ScanResults.md
 docs/SecretInfo.md
 docs/SecretSyncOutput.md
@@ -1299,7 +1309,10 @@ lib/akeyless/models/agentic_rule.rb
 lib/akeyless/models/agentic_rules.rb
 lib/akeyless/models/ai_insights_config_part.rb
 lib/akeyless/models/ai_insights_setting.rb
+lib/akeyless/models/ai_model_entry.rb
+lib/akeyless/models/ai_quorum_setting.rb
 lib/akeyless/models/akeyless_gateway_config.rb
+lib/akeyless/models/ali_cloud_access_rules.rb
 lib/akeyless/models/alias_details.rb
 lib/akeyless/models/alias_details_output.rb
 lib/akeyless/models/all_analytics_data.rb
@@ -1318,6 +1331,7 @@ lib/akeyless/models/auth_expiration_event.rb
 lib/akeyless/models/auth_method.rb
 lib/akeyless/models/auth_method_access_info.rb
 lib/akeyless/models/auth_method_additional_data.rb
+lib/akeyless/models/auth_method_create_ali_cloud.rb
 lib/akeyless/models/auth_method_create_api_key.rb
 lib/akeyless/models/auth_method_create_aws_iam.rb
 lib/akeyless/models/auth_method_create_azure_ad.rb
@@ -1338,6 +1352,7 @@ lib/akeyless/models/auth_method_delete_output.rb
 lib/akeyless/models/auth_method_get.rb
 lib/akeyless/models/auth_method_list.rb
 lib/akeyless/models/auth_method_role_association.rb
+lib/akeyless/models/auth_method_update_ali_cloud.rb
 lib/akeyless/models/auth_method_update_api_key.rb
 lib/akeyless/models/auth_method_update_aws_iam.rb
 lib/akeyless/models/auth_method_update_azure_ad.rb
@@ -2087,6 +2102,10 @@ lib/akeyless/models/locking_info.rb
 lib/akeyless/models/log_forwarding_config_part.rb
 lib/akeyless/models/logstash_log_forwarding_config.rb
 lib/akeyless/models/logz_io_log_forwarding_config.rb
+lib/akeyless/models/migration_download_job.rb
+lib/akeyless/models/migration_download_report.rb
+lib/akeyless/models/migration_download_secret.rb
+lib/akeyless/models/migration_download_summary.rb
 lib/akeyless/models/migration_general.rb
 lib/akeyless/models/migration_items.rb
 lib/akeyless/models/migration_status.rb
@@ -2230,6 +2249,7 @@ lib/akeyless/models/runtime_authority_command.rb
 lib/akeyless/models/salesforce_target_details.rb
 lib/akeyless/models/saml_access_rules.rb
 lib/akeyless/models/saml_attribute.rb
+lib/akeyless/models/saml_sp_config_part.rb
 lib/akeyless/models/scan_results.rb
 lib/akeyless/models/secret_info.rb
 lib/akeyless/models/secret_sync_output.rb
@@ -2541,13 +2561,14 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/kmip_get_ca_bundle_output_spec.rb
-spec/models/kmip_get_ca_bundle_spec.rb
-spec/models/kmip_list_cas_output_spec.rb
-spec/models/kmip_list_cas_spec.rb
-spec/models/kmip_rotate_ca_output_spec.rb
-spec/models/kmip_rotate_ca_spec.rb
-spec/models/kmip_sunset_ca_output_spec.rb
-spec/models/kmip_sunset_ca_spec.rb
-spec/models/kmipca_list_entry_spec.rb
+spec/models/ai_model_entry_spec.rb
+spec/models/ai_quorum_setting_spec.rb
+spec/models/ali_cloud_access_rules_spec.rb
+spec/models/auth_method_create_ali_cloud_spec.rb
+spec/models/auth_method_update_ali_cloud_spec.rb
+spec/models/migration_download_job_spec.rb
+spec/models/migration_download_report_spec.rb
+spec/models/migration_download_secret_spec.rb
+spec/models/migration_download_summary_spec.rb
+spec/models/saml_sp_config_part_spec.rb
 spec/spec_helper.rb

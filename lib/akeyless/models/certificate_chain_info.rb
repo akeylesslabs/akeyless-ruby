@@ -50,9 +50,15 @@ module Akeyless
 
     attr_accessor :issuance_status
 
+    # LeafCertificatePem contains only the leaf certificate, derived from CertificatePem. Populated only when the certificate was issued with SplitCertificateChain enabled.
+    attr_accessor :leaf_certificate_pem
+
     attr_accessor :not_before
 
     attr_accessor :renew_before_expiration_in_days
+
+    # SplitCertificateChain reflects whether this certificate was issued while its PKI Cert Issuer had split-certificate-chain enabled. When true, LeafCertificatePem is populated in addition to CertificatePem (which always holds the full chain).
+    attr_accessor :split_certificate_chain
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -74,8 +80,10 @@ module Akeyless
         :'expiration_events' => :'expiration_events',
         :'external_ca_id' => :'external_ca_id',
         :'issuance_status' => :'issuance_status',
+        :'leaf_certificate_pem' => :'leaf_certificate_pem',
         :'not_before' => :'not_before',
-        :'renew_before_expiration_in_days' => :'renew_before_expiration_in_days'
+        :'renew_before_expiration_in_days' => :'renew_before_expiration_in_days',
+        :'split_certificate_chain' => :'split_certificate_chain'
       }
     end
 
@@ -104,8 +112,10 @@ module Akeyless
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'external_ca_id' => :'NullString',
         :'issuance_status' => :'String',
+        :'leaf_certificate_pem' => :'String',
         :'not_before' => :'Time',
-        :'renew_before_expiration_in_days' => :'Integer'
+        :'renew_before_expiration_in_days' => :'Integer',
+        :'split_certificate_chain' => :'Boolean'
       }
     end
 
@@ -202,12 +212,20 @@ module Akeyless
         self.issuance_status = attributes[:'issuance_status']
       end
 
+      if attributes.key?(:'leaf_certificate_pem')
+        self.leaf_certificate_pem = attributes[:'leaf_certificate_pem']
+      end
+
       if attributes.key?(:'not_before')
         self.not_before = attributes[:'not_before']
       end
 
       if attributes.key?(:'renew_before_expiration_in_days')
         self.renew_before_expiration_in_days = attributes[:'renew_before_expiration_in_days']
+      end
+
+      if attributes.key?(:'split_certificate_chain')
+        self.split_certificate_chain = attributes[:'split_certificate_chain']
       end
     end
 
@@ -248,8 +266,10 @@ module Akeyless
           expiration_events == o.expiration_events &&
           external_ca_id == o.external_ca_id &&
           issuance_status == o.issuance_status &&
+          leaf_certificate_pem == o.leaf_certificate_pem &&
           not_before == o.not_before &&
-          renew_before_expiration_in_days == o.renew_before_expiration_in_days
+          renew_before_expiration_in_days == o.renew_before_expiration_in_days &&
+          split_certificate_chain == o.split_certificate_chain
     end
 
     # @see the `==` method
@@ -261,7 +281,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, csr_pem, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, not_before, renew_before_expiration_in_days].hash
+      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, csr_pem, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, leaf_certificate_pem, not_before, renew_before_expiration_in_days, split_certificate_chain].hash
     end
 
     # Builds the object from hash

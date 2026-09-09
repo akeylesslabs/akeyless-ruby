@@ -7,6 +7,7 @@
 | **delete_remote** | **Boolean** | Delete the secret from remote secret manager (for association create/update) | [optional] |
 | **environments** | **String** | GitHub environments to sync to. Relevant only for GitHub targets. Syncs to all environments defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --environments repo1/env1,repo2/env2). | [optional] |
 | **filter_secret_value** | **String** | JQ expression to filter or transform the secret value | [optional] |
+| **gcp_project_id** | **String** | GCP project to sync the secret to. Relevant only for GCP USCs; must be a project available on the USC | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **name** | **String** | Static secret name |  |
 | **namespace** | **String** | Vault namespace, releavnt only for Hashicorp Vault Target | [optional] |
@@ -25,6 +26,7 @@ instance = Akeyless::StaticSecretSync.new(
   delete_remote: null,
   environments: null,
   filter_secret_value: null,
+  gcp_project_id: null,
   json: null,
   name: null,
   namespace: null,

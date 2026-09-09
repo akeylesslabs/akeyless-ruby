@@ -111,6 +111,9 @@ module Akeyless
 
     attr_accessor :server_flag
 
+    # SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain.
+    attr_accessor :split_certificate_chain
+
     attr_accessor :street_address
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -160,6 +163,7 @@ module Akeyless
         :'renew_before_expiration_in_days' => :'renew_before_expiration_in_days',
         :'require_cn' => :'require_cn',
         :'server_flag' => :'server_flag',
+        :'split_certificate_chain' => :'split_certificate_chain',
         :'street_address' => :'street_address'
       }
     end
@@ -216,6 +220,7 @@ module Akeyless
         :'renew_before_expiration_in_days' => :'Integer',
         :'require_cn' => :'Boolean',
         :'server_flag' => :'Boolean',
+        :'split_certificate_chain' => :'Boolean',
         :'street_address' => :'Array<String>'
       }
     end
@@ -441,6 +446,10 @@ module Akeyless
         self.server_flag = attributes[:'server_flag']
       end
 
+      if attributes.key?(:'split_certificate_chain')
+        self.split_certificate_chain = attributes[:'split_certificate_chain']
+      end
+
       if attributes.key?(:'street_address')
         if (value = attributes[:'street_address']).is_a?(Array)
           self.street_address = value
@@ -512,6 +521,7 @@ module Akeyless
           renew_before_expiration_in_days == o.renew_before_expiration_in_days &&
           require_cn == o.require_cn &&
           server_flag == o.server_flag &&
+          split_certificate_chain == o.split_certificate_chain &&
           street_address == o.street_address
     end
 
@@ -524,7 +534,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints, basic_constraints_critical, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, street_address].hash
+      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints, basic_constraints_critical, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, split_certificate_chain, street_address].hash
     end
 
     # Builds the object from hash

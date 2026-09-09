@@ -19,6 +19,10 @@ module Akeyless
 
     attr_accessor :expire_at
 
+    attr_accessor :lock_origin
+
+    attr_accessor :locked_at
+
     attr_accessor :locked_by
 
     attr_accessor :unique_identifier
@@ -28,6 +32,8 @@ module Akeyless
       {
         :'actions' => :'actions',
         :'expire_at' => :'expire_at',
+        :'lock_origin' => :'lock_origin',
+        :'locked_at' => :'locked_at',
         :'locked_by' => :'locked_by',
         :'unique_identifier' => :'unique_identifier'
       }
@@ -43,6 +49,8 @@ module Akeyless
       {
         :'actions' => :'Array<String>',
         :'expire_at' => :'Integer',
+        :'lock_origin' => :'String',
+        :'locked_at' => :'Integer',
         :'locked_by' => :'String',
         :'unique_identifier' => :'String'
       }
@@ -79,6 +87,14 @@ module Akeyless
         self.expire_at = attributes[:'expire_at']
       end
 
+      if attributes.key?(:'lock_origin')
+        self.lock_origin = attributes[:'lock_origin']
+      end
+
+      if attributes.key?(:'locked_at')
+        self.locked_at = attributes[:'locked_at']
+      end
+
       if attributes.key?(:'locked_by')
         self.locked_by = attributes[:'locked_by']
       end
@@ -110,6 +126,8 @@ module Akeyless
       self.class == o.class &&
           actions == o.actions &&
           expire_at == o.expire_at &&
+          lock_origin == o.lock_origin &&
+          locked_at == o.locked_at &&
           locked_by == o.locked_by &&
           unique_identifier == o.unique_identifier
     end
@@ -123,7 +141,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, expire_at, locked_by, unique_identifier].hash
+      [actions, expire_at, lock_origin, locked_at, locked_by, unique_identifier].hash
     end
 
     # Builds the object from hash

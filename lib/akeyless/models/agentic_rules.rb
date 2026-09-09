@@ -22,12 +22,16 @@ module Akeyless
 
     attr_accessor :output_rules
 
+    # QuorumEnabled asks for this item's policy decisions to be evaluated by every model configured on the gateway rather than the Default alone.  Also a pointer, but with the opposite nil meaning to Enabled above: nil is OFF. Enabled defaults on because it governs rules that were already being enforced before the field existed, whereas quorum is new behavior that multiplies latency and denies fail-closed - an item that never asked for it must not acquire it by upgrade.
+    attr_accessor :quorum_enabled
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'enabled' => :'enabled',
         :'input_rules' => :'input_rules',
-        :'output_rules' => :'output_rules'
+        :'output_rules' => :'output_rules',
+        :'quorum_enabled' => :'quorum_enabled'
       }
     end
 
@@ -41,7 +45,8 @@ module Akeyless
       {
         :'enabled' => :'Boolean',
         :'input_rules' => :'Array<AgenticRule>',
-        :'output_rules' => :'Array<AgenticRule>'
+        :'output_rules' => :'Array<AgenticRule>',
+        :'quorum_enabled' => :'Boolean'
       }
     end
 
@@ -81,6 +86,10 @@ module Akeyless
           self.output_rules = value
         end
       end
+
+      if attributes.key?(:'quorum_enabled')
+        self.quorum_enabled = attributes[:'quorum_enabled']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -105,7 +114,8 @@ module Akeyless
       self.class == o.class &&
           enabled == o.enabled &&
           input_rules == o.input_rules &&
-          output_rules == o.output_rules
+          output_rules == o.output_rules &&
+          quorum_enabled == o.quorum_enabled
     end
 
     # @see the `==` method
@@ -117,7 +127,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enabled, input_rules, output_rules].hash
+      [enabled, input_rules, output_rules, quorum_enabled].hash
     end
 
     # Builds the object from hash

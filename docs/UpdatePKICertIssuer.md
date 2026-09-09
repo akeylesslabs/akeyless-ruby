@@ -50,6 +50,7 @@
 | **scheduled_renew** | **Integer** | Number of days before expiration to renew certificates | [optional] |
 | **server_flag** | **Boolean** | If set, certificates will be flagged for server auth use | [optional] |
 | **signer_key_name** | **String** | A key to sign the certificate with, required in Private CA mode | [optional] |
+| **split_certificate_chain** | **Boolean** | If set, separates the leaf certificate from the certificate chain. | [optional] |
 | **street_address** | **String** | A comma-separated list of street addresses that will be set in the issued certificate | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **ttl** | **String** | The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs. Not supported for Let&#39;s Encrypt, which always uses the CA default lifetime (about 90 days). |  |
@@ -107,6 +108,7 @@ instance = Akeyless::UpdatePKICertIssuer.new(
   scheduled_renew: null,
   server_flag: null,
   signer_key_name: null,
+  split_certificate_chain: null,
   street_address: null,
   token: null,
   ttl: null,

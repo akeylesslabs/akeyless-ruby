@@ -31,6 +31,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -45,6 +51,9 @@ module Akeyless
     attr_accessor :rabbitmq_server_uri
 
     attr_accessor :rabbitmq_server_user
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -63,12 +72,15 @@ module Akeyless
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'rabbitmq_server_password' => :'rabbitmq-server-password',
         :'rabbitmq_server_uri' => :'rabbitmq-server-uri',
         :'rabbitmq_server_user' => :'rabbitmq-server-user',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'update_version' => :'update-version'
@@ -88,12 +100,15 @@ module Akeyless
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
         :'rabbitmq_server_password' => :'String',
         :'rabbitmq_server_uri' => :'String',
         :'rabbitmq_server_user' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'update_version' => :'Boolean'
@@ -143,6 +158,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -167,6 +190,10 @@ module Akeyless
 
       if attributes.key?(:'rabbitmq_server_user')
         self.rabbitmq_server_user = attributes[:'rabbitmq_server_user']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -212,12 +239,15 @@ module Akeyless
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
           rabbitmq_server_password == o.rabbitmq_server_password &&
           rabbitmq_server_uri == o.rabbitmq_server_uri &&
           rabbitmq_server_user == o.rabbitmq_server_user &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           uid_token == o.uid_token &&
           update_version == o.update_version
@@ -232,7 +262,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comment, description, json, keep_prev_version, key, max_versions, name, new_name, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, token, uid_token, update_version].hash
+      [comment, description, json, keep_prev_version, key, lock_on_read, lock_ttl, max_versions, name, new_name, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rotate_on_unlock, token, uid_token, update_version].hash
     end
 
     # Builds the object from hash

@@ -19,6 +19,7 @@
 | **dynamic_secret_max_ttl** | **Integer** | Set the maximum ttl for dynamic secrets | [optional] |
 | **dynamic_secret_max_ttl_enable** | **String** | Set a maximum ttl for dynamic secrets [true/false] | [optional] |
 | **enable_ai_insights** | **String** | Enable AI insights [true/false] | [optional] |
+| **enable_ai_quorum** | **String** | Enable AI Quorum checks account-wide [true/false] | [optional] |
 | **enable_default_certificate_expiration_event** | **String** | How many days before the expiration of the certificate would you like to be notified. [true/false] | [optional] |
 | **enable_item_sharing** | **String** | Enable sharing items [true/false] | [optional] |
 | **enable_password_expiration** | **String** | Enable password expiration policy [true/false] | [optional] |
@@ -78,6 +79,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   dynamic_secret_max_ttl: null,
   dynamic_secret_max_ttl_enable: null,
   enable_ai_insights: null,
+  enable_ai_quorum: null,
   enable_default_certificate_expiration_event: null,
   enable_item_sharing: null,
   enable_password_expiration: null,

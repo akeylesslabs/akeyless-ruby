@@ -18,11 +18,14 @@
 | **hostname** | **String** | Aerospike host address and port (e.g. url.to.aerospike.db) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **namespace** | **String** | Namespace name (relevant only for Aerospike db) | [optional] |
 | **password** | **String** | Password for the admin user | [optional] |
 | **port** | **String** | Database connection port | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **skip_server_name_validation** | **String** | Skip server name verification while still validating the certificate chain (true/false). Empty means do not skip. | [optional] |
 | **ssl** | **Boolean** | Enable SSL encryption (true/false) | [optional] |
 | **ssl_certificate** | **String** | Base64-encoded SSL CA certificate from a trusted Certificate Authority (CA) | [optional] |
@@ -49,11 +52,14 @@ instance = Akeyless::TargetCreateAerospike.new(
   hostname: null,
   json: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   namespace: null,
   password: null,
   port: null,
+  rotate_on_unlock: null,
   skip_server_name_validation: null,
   ssl: null,
   ssl_certificate: null,

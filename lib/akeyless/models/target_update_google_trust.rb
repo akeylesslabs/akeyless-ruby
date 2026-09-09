@@ -58,6 +58,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -69,6 +75,9 @@ module Akeyless
 
     # Azure resource group name. Required when DNS credentials target is Azure
     attr_accessor :resource_group
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Timeout for challenge validation
     attr_accessor :timeout
@@ -96,10 +105,13 @@ module Akeyless
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'resource_group' => :'resource-group',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'timeout' => :'timeout',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -128,10 +140,13 @@ module Akeyless
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
         :'resource_group' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'timeout' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -223,6 +238,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -239,6 +262,10 @@ module Akeyless
 
       if attributes.key?(:'resource_group')
         self.resource_group = attributes[:'resource_group']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'timeout')
@@ -300,10 +327,13 @@ module Akeyless
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
           resource_group == o.resource_group &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           timeout == o.timeout &&
           token == o.token &&
           uid_token == o.uid_token
@@ -318,7 +348,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, delete_protection, description, dns_target_creds, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, keep_prev_version, key, max_versions, name, new_name, resource_group, timeout, token, uid_token].hash
+      [acme_challenge, delete_protection, description, dns_target_creds, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, keep_prev_version, key, lock_on_read, lock_ttl, max_versions, name, new_name, resource_group, rotate_on_unlock, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

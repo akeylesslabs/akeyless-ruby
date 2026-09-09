@@ -24,6 +24,9 @@ module Akeyless
     # JQ expression to filter or transform the secret value
     attr_accessor :filter_secret_value
 
+    # GCP project to sync the secret to. Relevant only for GCP USCs; must be a project available on the USC
+    attr_accessor :gcp_project_id
+
     # Set output format to JSON
     attr_accessor :json
 
@@ -54,6 +57,7 @@ module Akeyless
         :'delete_remote' => :'delete-remote',
         :'environments' => :'environments',
         :'filter_secret_value' => :'filter-secret-value',
+        :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'name' => :'name',
         :'namespace' => :'namespace',
@@ -76,6 +80,7 @@ module Akeyless
         :'delete_remote' => :'Boolean',
         :'environments' => :'String',
         :'filter_secret_value' => :'String',
+        :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
         :'namespace' => :'String',
@@ -118,6 +123,10 @@ module Akeyless
 
       if attributes.key?(:'filter_secret_value')
         self.filter_secret_value = attributes[:'filter_secret_value']
+      end
+
+      if attributes.key?(:'gcp_project_id')
+        self.gcp_project_id = attributes[:'gcp_project_id']
       end
 
       if attributes.key?(:'json')
@@ -185,6 +194,7 @@ module Akeyless
           delete_remote == o.delete_remote &&
           environments == o.environments &&
           filter_secret_value == o.filter_secret_value &&
+          gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           name == o.name &&
           namespace == o.namespace &&
@@ -204,7 +214,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_remote, environments, filter_secret_value, json, name, namespace, remote_secret_name, repositories, token, uid_token, usc_name].hash
+      [delete_remote, environments, filter_secret_value, gcp_project_id, json, name, namespace, remote_secret_name, repositories, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

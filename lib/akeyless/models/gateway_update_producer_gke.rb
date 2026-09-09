@@ -22,6 +22,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # GKE Service Account key file path
     attr_accessor :gke_account_key
 
@@ -102,6 +108,8 @@ module Akeyless
       {
         :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'gke_account_key' => :'gke-account-key',
         :'gke_cluster_cert' => :'gke-cluster-cert',
         :'gke_cluster_endpoint' => :'gke-cluster-endpoint',
@@ -140,6 +148,8 @@ module Akeyless
       {
         :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'gke_account_key' => :'String',
         :'gke_cluster_cert' => :'String',
         :'gke_cluster_endpoint' => :'String',
@@ -195,6 +205,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'gke_account_key')
@@ -341,6 +359,8 @@ module Akeyless
       self.class == o.class &&
           ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           gke_account_key == o.gke_account_key &&
           gke_cluster_cert == o.gke_cluster_cert &&
           gke_cluster_endpoint == o.gke_cluster_endpoint &&
@@ -377,7 +397,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, delete_protection, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
+      [ara_enabled, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, gke_account_key, gke_cluster_cert, gke_cluster_endpoint, gke_cluster_name, gke_service_account_email, input_rule, item_custom_fields, json, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_delay, secure_access_enable, secure_access_web, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

@@ -68,6 +68,7 @@
 | **azure_user_programmatic_access** | **Boolean** |  | [optional] |
 | **azure_user_roles_template_id** | **String** |  | [optional] |
 | **azure_username** | **String** |  | [optional] |
+| **block_parent_target_access** | **Boolean** |  | [optional] |
 | **cassandra_creation_statements** | **String** |  | [optional] |
 | **chef_organizations** | **String** |  | [optional] |
 | **chef_server_access_mode** | **String** |  | [optional] |
@@ -372,6 +373,7 @@ instance = Akeyless::DSProducerDetails.new(
   azure_user_programmatic_access: null,
   azure_user_roles_template_id: null,
   azure_username: null,
+  block_parent_target_access: null,
   cassandra_creation_statements: null,
   chef_organizations: null,
   chef_server_access_mode: null,

@@ -9,6 +9,8 @@
 | **bearer_token** | **String** | Bearer token value | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
@@ -32,6 +34,8 @@ instance = Akeyless::CreateMcpSecretBearerToken.new(
   bearer_token: null,
   delete_protection: null,
   description: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   input_rule: null,
   json: null,
   max_versions: null,

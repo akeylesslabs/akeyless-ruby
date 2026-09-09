@@ -23,6 +23,9 @@ module Akeyless
     # List of the new tags that will be attached to this item
     attr_accessor :add_tag
 
+    # Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+    attr_accessor :ara_enabled
+
     # PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
     attr_accessor :cert_file_data
 
@@ -37,6 +40,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
 
@@ -46,6 +55,9 @@ module Akeyless
     # Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
     attr_accessor :host_provider
 
+    # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
+    attr_accessor :input_rule
+
     # Additional custom fields to associate with the item
     attr_accessor :item_custom_fields
 
@@ -54,6 +66,12 @@ module Akeyless
 
     # Lock this secret for read/update while an SRA session is active
     attr_accessor :lock_during_sra_session
+
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
 
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
@@ -67,11 +85,17 @@ module Akeyless
     # New item name
     attr_accessor :new_name
 
+    # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
+    attr_accessor :output_rule
+
     # List of the existent tags that will be removed from this item
     attr_accessor :rm_tag
 
     # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # List of the new hosts that will be attached to SRA servers host
     attr_accessor :secure_access_add_host
@@ -186,23 +210,31 @@ module Akeyless
         :'provider_type' => :'ProviderType',
         :'accessibility' => :'accessibility',
         :'add_tag' => :'add-tag',
+        :'ara_enabled' => :'ara-enabled',
         :'cert_file_data' => :'cert-file-data',
         :'certificate_format' => :'certificate-format',
         :'change_event' => :'change-event',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'expiration_event_in' => :'expiration-event-in',
         :'gcp_sm_regions' => :'gcp-sm-regions',
         :'host_provider' => :'host-provider',
+        :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
         :'lock_during_sra_session' => :'lock-during-sra-session',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_metadata' => :'new-metadata',
         :'new_name' => :'new-name',
+        :'output_rule' => :'output-rule',
         :'rm_tag' => :'rm-tag',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'secure_access_add_host' => :'secure-access-add-host',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
         :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
@@ -253,23 +285,31 @@ module Akeyless
         :'provider_type' => :'String',
         :'accessibility' => :'String',
         :'add_tag' => :'Array<String>',
+        :'ara_enabled' => :'Boolean',
         :'cert_file_data' => :'String',
         :'certificate_format' => :'String',
         :'change_event' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'expiration_event_in' => :'Array<String>',
         :'gcp_sm_regions' => :'String',
         :'host_provider' => :'String',
+        :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'lock_during_sra_session' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_metadata' => :'String',
         :'new_name' => :'String',
+        :'output_rule' => :'Array<String>',
         :'rm_tag' => :'Array<String>',
         :'rotate_after_disconnect' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'secure_access_add_host' => :'Array<String>',
         :'secure_access_allow_external_user' => :'String',
         :'secure_access_allow_port_forwading' => :'Boolean',
@@ -346,6 +386,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'ara_enabled')
+        self.ara_enabled = attributes[:'ara_enabled']
+      end
+
       if attributes.key?(:'cert_file_data')
         self.cert_file_data = attributes[:'cert_file_data']
       end
@@ -368,6 +412,14 @@ module Akeyless
         self.description = 'default_metadata'
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'expiration_event_in')
         if (value = attributes[:'expiration_event_in']).is_a?(Array)
           self.expiration_event_in = value
@@ -380,6 +432,12 @@ module Akeyless
 
       if attributes.key?(:'host_provider')
         self.host_provider = attributes[:'host_provider']
+      end
+
+      if attributes.key?(:'input_rule')
+        if (value = attributes[:'input_rule']).is_a?(Array)
+          self.input_rule = value
+        end
       end
 
       if attributes.key?(:'item_custom_fields')
@@ -396,6 +454,14 @@ module Akeyless
 
       if attributes.key?(:'lock_during_sra_session')
         self.lock_during_sra_session = attributes[:'lock_during_sra_session']
+      end
+
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
       end
 
       if attributes.key?(:'max_versions')
@@ -418,6 +484,12 @@ module Akeyless
         self.new_name = attributes[:'new_name']
       end
 
+      if attributes.key?(:'output_rule')
+        if (value = attributes[:'output_rule']).is_a?(Array)
+          self.output_rule = value
+        end
+      end
+
       if attributes.key?(:'rm_tag')
         if (value = attributes[:'rm_tag']).is_a?(Array)
           self.rm_tag = value
@@ -426,6 +498,10 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'secure_access_add_host')
@@ -609,23 +685,31 @@ module Akeyless
           provider_type == o.provider_type &&
           accessibility == o.accessibility &&
           add_tag == o.add_tag &&
+          ara_enabled == o.ara_enabled &&
           cert_file_data == o.cert_file_data &&
           certificate_format == o.certificate_format &&
           change_event == o.change_event &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           expiration_event_in == o.expiration_event_in &&
           gcp_sm_regions == o.gcp_sm_regions &&
           host_provider == o.host_provider &&
+          input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
           lock_during_sra_session == o.lock_during_sra_session &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_metadata == o.new_metadata &&
           new_name == o.new_name &&
+          output_rule == o.output_rule &&
           rm_tag == o.rm_tag &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           secure_access_add_host == o.secure_access_add_host &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
           secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
@@ -673,7 +757,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, cert_file_data, certificate_format, change_event, delete_protection, description, expiration_event_in, gcp_sm_regions, host_provider, item_custom_fields, json, lock_during_sra_session, max_versions, name, new_metadata, new_name, rm_tag, rotate_after_disconnect, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, target, token, uid_token, usc_tags, use_tags_as_filter].hash
+      [provider_type, accessibility, add_tag, ara_enabled, cert_file_data, certificate_format, change_event, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, expiration_event_in, gcp_sm_regions, host_provider, input_rule, item_custom_fields, json, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, name, new_metadata, new_name, output_rule, rm_tag, rotate_after_disconnect, rotate_on_unlock, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, target, token, uid_token, usc_tags, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

@@ -10,6 +10,8 @@
 | **bind_dn_password** | **String** | Bind DN Password | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **external_username** | **String** | Externally provided username [true/false] | [optional][default to &#39;false&#39;] |
 | **fixed_user_claim_keyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) | [optional][default to &#39;ext_username&#39;] |
 | **group_dn** | **String** | Group DN which the temporary user should be added | [optional] |
@@ -58,6 +60,8 @@ instance = Akeyless::GatewayCreateProducerLdap.new(
   bind_dn_password: null,
   custom_username_template: null,
   delete_protection: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   external_username: null,
   fixed_user_claim_keyname: null,
   group_dn: null,

@@ -27,11 +27,23 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
+    # Set the maximum number of versions, limited by the account settings defaults.
+    attr_accessor :max_versions
+
     # Target name
     attr_accessor :name
 
     # The parent Target name
     attr_accessor :parent_target_name
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -49,8 +61,12 @@ module Akeyless
         :'description' => :'description',
         :'hosts' => :'hosts',
         :'json' => :'json',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
+        :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'parent_target_name' => :'parent-target-name',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'type' => :'type',
         :'uid_token' => :'uid-token'
@@ -69,8 +85,12 @@ module Akeyless
         :'description' => :'String',
         :'hosts' => :'String',
         :'json' => :'Boolean',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
+        :'max_versions' => :'String',
         :'name' => :'String',
         :'parent_target_name' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'type' => :'String',
         :'uid_token' => :'String'
@@ -116,6 +136,18 @@ module Akeyless
         self.json = false
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
+      if attributes.key?(:'max_versions')
+        self.max_versions = attributes[:'max_versions']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -124,6 +156,10 @@ module Akeyless
 
       if attributes.key?(:'parent_target_name')
         self.parent_target_name = attributes[:'parent_target_name']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -168,8 +204,12 @@ module Akeyless
           description == o.description &&
           hosts == o.hosts &&
           json == o.json &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
+          max_versions == o.max_versions &&
           name == o.name &&
           parent_target_name == o.parent_target_name &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           type == o.type &&
           uid_token == o.uid_token
@@ -184,7 +224,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, hosts, json, name, parent_target_name, token, type, uid_token].hash
+      [delete_protection, description, hosts, json, lock_on_read, lock_ttl, max_versions, name, parent_target_name, rotate_on_unlock, token, type, uid_token].hash
     end
 
     # Builds the object from hash

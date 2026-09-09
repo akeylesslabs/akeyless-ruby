@@ -6,14 +6,14 @@
 | ---- | ---- | ----------- | ----- |
 | **access_id** | **String** | Access ID | [optional] |
 | **access_key** | **String** | Access key (relevant only for access-type&#x3D;access_key) | [optional] |
-| **access_type** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos) | [optional][default to &#39;access_key&#39;] |
+| **access_type** | **String** | Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/alicloud/universal_identity/jwt/gcp/cert/oci/kerberos) | [optional][default to &#39;access_key&#39;] |
 | **account_id** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) | [optional] |
 | **admin_email** | **String** | Email (relevant only for access-type&#x3D;password) | [optional] |
 | **admin_password** | **String** | Password (relevant only for access-type&#x3D;password) | [optional] |
 | **azure_cloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. | [optional][default to &#39;AzureCloud&#39;] |
 | **cert_challenge** | **String** | Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) | [optional] |
 | **cert_data** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) | [optional] |
-| **cloud_id** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) | [optional] |
+| **cloud_id** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,alicloud,gcp,oci) | [optional] |
 | **debug** | **Boolean** |  | [optional] |
 | **disable_pafxfast** | **String** | Disable the FAST negotiation in the Kerberos authentication method | [optional] |
 | **gateway_spn** | **String** | The service principal name of the gateway as registered in LDAP (i.e., HTTP/gateway) | [optional] |

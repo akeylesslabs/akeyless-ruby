@@ -35,7 +35,7 @@ module Akeyless
 
     attr_accessor :auth_method_roles_assoc
 
-    # BookmarkLoginURLTemplate is an OIDC login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
+    # BookmarkLoginURLTemplate is an OIDC/SAML login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
     attr_accessor :bookmark_login_url_template
 
     attr_accessor :client_permissions

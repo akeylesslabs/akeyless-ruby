@@ -7,6 +7,8 @@
 | **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **github_app_id** | **Integer** | Github app id | [optional] |
 | **github_app_private_key** | **String** | App private key | [optional] |
 | **github_base_url** | **String** | Base URL | [optional][default to &#39;https://api.github.com/&#39;] |
@@ -37,6 +39,8 @@ instance = Akeyless::DynamicSecretUpdateGithub.new(
   ara_enabled: null,
   delete_protection: null,
   description: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   github_app_id: null,
   github_app_private_key: null,
   github_base_url: null,

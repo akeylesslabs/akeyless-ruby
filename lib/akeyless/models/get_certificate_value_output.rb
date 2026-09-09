@@ -17,12 +17,15 @@ module Akeyless
   class GetCertificateValueOutput
     attr_accessor :certificate_pem
 
+    attr_accessor :encoded_certificate
+
     attr_accessor :private_key_pem
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'certificate_pem' => :'certificate_pem',
+        :'encoded_certificate' => :'encoded_certificate',
         :'private_key_pem' => :'private_key_pem'
       }
     end
@@ -36,6 +39,7 @@ module Akeyless
     def self.openapi_types
       {
         :'certificate_pem' => :'String',
+        :'encoded_certificate' => :'String',
         :'private_key_pem' => :'String'
       }
     end
@@ -65,6 +69,10 @@ module Akeyless
         self.certificate_pem = attributes[:'certificate_pem']
       end
 
+      if attributes.key?(:'encoded_certificate')
+        self.encoded_certificate = attributes[:'encoded_certificate']
+      end
+
       if attributes.key?(:'private_key_pem')
         self.private_key_pem = attributes[:'private_key_pem']
       end
@@ -91,6 +99,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           certificate_pem == o.certificate_pem &&
+          encoded_certificate == o.encoded_certificate &&
           private_key_pem == o.private_key_pem
     end
 
@@ -103,7 +112,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [certificate_pem, private_key_pem].hash
+      [certificate_pem, encoded_certificate, private_key_pem].hash
     end
 
     # Builds the object from hash

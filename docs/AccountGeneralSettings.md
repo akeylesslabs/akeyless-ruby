@@ -8,6 +8,7 @@
 | **account_default_key_name** | **String** | AccountDefaultKeyName is the name of the DFC key item configured as the default key This is here simply for the response to include the item name in addition to the display ID so the client can properly show this to the user. It will not be saved to the DB, only the AccountDefaultKeyItemID will. | [optional] |
 | **account_file_bytes_used** | **Integer** | AccountFileBytesUsed tracks active + pending file-item plain bytes for quota enforcement. | [optional] |
 | **ai_insights** | [**AiInsightsSetting**](AiInsightsSetting.md) |  | [optional] |
+| **ai_quorum** | [**AiQuorumSetting**](AiQuorumSetting.md) |  | [optional] |
 | **allow_auto_fill** | **Boolean** |  | [optional] |
 | **allow_passkeys** | **Boolean** |  | [optional] |
 | **allowed_client_types** | [**AllowedClientType**](AllowedClientType.md) |  | [optional] |
@@ -47,6 +48,7 @@ instance = Akeyless::AccountGeneralSettings.new(
   account_default_key_name: null,
   account_file_bytes_used: null,
   ai_insights: null,
+  ai_quorum: null,
   allow_auto_fill: null,
   allow_passkeys: null,
   allowed_client_types: null,

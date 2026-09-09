@@ -12,6 +12,8 @@
 | **azure_tenant_id** | **String** | Azure Tenant ID | [optional] |
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **fixed_user_claim_keyname** | **String** | FixedUserClaimKeyname | [optional][default to &#39;false&#39;] |
 | **fixed_user_only** | **Boolean** | Fixed user | [optional][default to false] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
@@ -57,6 +59,8 @@ instance = Akeyless::GatewayUpdateProducerAzure.new(
   azure_tenant_id: null,
   custom_username_template: null,
   delete_protection: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   fixed_user_claim_keyname: null,
   fixed_user_only: null,
   input_rule: null,

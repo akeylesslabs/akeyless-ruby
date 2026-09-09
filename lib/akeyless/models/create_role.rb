@@ -18,6 +18,9 @@ module Akeyless
     # Allow this role to view analytics. Currently only 'none', 'own', 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
     attr_accessor :analytics_access
 
+    # Allow this role to approve Access Requests for items. Currently only 'none', 'scoped' and 'all' values are supported. The tier controls how broadly the approver may list Auth Methods; neither tier lets them grant permissions they do not already hold on the requested item or target.
+    attr_accessor :approve_access_request
+
     # Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped', 'all' values are supported.
     attr_accessor :ara_reports_access
 
@@ -66,6 +69,9 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Allow this role to force-unlock locked secrets. Currently only 'none', 'scoped' and 'all' values are supported.
+    attr_accessor :unlock_secrets
+
     # Allow this role to view Usage Report. Currently only 'none' and 'all' values are supported.
     attr_accessor :usage_reports_access
 
@@ -73,6 +79,7 @@ module Akeyless
     def self.attribute_map
       {
         :'analytics_access' => :'analytics-access',
+        :'approve_access_request' => :'approve-access-request',
         :'ara_reports_access' => :'ara-reports-access',
         :'audit_access' => :'audit-access',
         :'comment' => :'comment',
@@ -89,6 +96,7 @@ module Akeyless
         :'sra_reports_access' => :'sra-reports-access',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
+        :'unlock_secrets' => :'unlock-secrets',
         :'usage_reports_access' => :'usage-reports-access'
       }
     end
@@ -102,6 +110,7 @@ module Akeyless
     def self.openapi_types
       {
         :'analytics_access' => :'String',
+        :'approve_access_request' => :'String',
         :'ara_reports_access' => :'String',
         :'audit_access' => :'String',
         :'comment' => :'String',
@@ -118,6 +127,7 @@ module Akeyless
         :'sra_reports_access' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
+        :'unlock_secrets' => :'String',
         :'usage_reports_access' => :'String'
       }
     end
@@ -145,6 +155,10 @@ module Akeyless
 
       if attributes.key?(:'analytics_access')
         self.analytics_access = attributes[:'analytics_access']
+      end
+
+      if attributes.key?(:'approve_access_request')
+        self.approve_access_request = attributes[:'approve_access_request']
       end
 
       if attributes.key?(:'ara_reports_access')
@@ -217,6 +231,10 @@ module Akeyless
         self.uid_token = attributes[:'uid_token']
       end
 
+      if attributes.key?(:'unlock_secrets')
+        self.unlock_secrets = attributes[:'unlock_secrets']
+      end
+
       if attributes.key?(:'usage_reports_access')
         self.usage_reports_access = attributes[:'usage_reports_access']
       end
@@ -248,6 +266,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           analytics_access == o.analytics_access &&
+          approve_access_request == o.approve_access_request &&
           ara_reports_access == o.ara_reports_access &&
           audit_access == o.audit_access &&
           comment == o.comment &&
@@ -264,6 +283,7 @@ module Akeyless
           sra_reports_access == o.sra_reports_access &&
           token == o.token &&
           uid_token == o.uid_token &&
+          unlock_secrets == o.unlock_secrets &&
           usage_reports_access == o.usage_reports_access
     end
 
@@ -276,7 +296,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analytics_access, ara_reports_access, audit_access, comment, delete_protection, description, event_center_access, event_forwarders_access, event_forwarders_name, gw_analytics_access, isi_access, json, name, reverse_rbac_access, sra_reports_access, token, uid_token, usage_reports_access].hash
+      [analytics_access, approve_access_request, ara_reports_access, audit_access, comment, delete_protection, description, event_center_access, event_forwarders_access, event_forwarders_name, gw_analytics_access, isi_access, json, name, reverse_rbac_access, sra_reports_access, token, uid_token, unlock_secrets, usage_reports_access].hash
     end
 
     # Builds the object from hash

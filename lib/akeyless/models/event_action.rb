@@ -27,6 +27,9 @@ module Akeyless
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
+    # The access TTL in minutes granted by the approver, overriding the requested one
+    attr_accessor :ttl_in_min
+
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
@@ -37,6 +40,7 @@ module Akeyless
         :'event_id' => :'event-id',
         :'json' => :'json',
         :'token' => :'token',
+        :'ttl_in_min' => :'ttl-in-min',
         :'uid_token' => :'uid-token'
       }
     end
@@ -53,6 +57,7 @@ module Akeyless
         :'event_id' => :'Integer',
         :'json' => :'Boolean',
         :'token' => :'String',
+        :'ttl_in_min' => :'Integer',
         :'uid_token' => :'String'
       }
     end
@@ -100,6 +105,10 @@ module Akeyless
         self.token = attributes[:'token']
       end
 
+      if attributes.key?(:'ttl_in_min')
+        self.ttl_in_min = attributes[:'ttl_in_min']
+      end
+
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
@@ -139,6 +148,7 @@ module Akeyless
           event_id == o.event_id &&
           json == o.json &&
           token == o.token &&
+          ttl_in_min == o.ttl_in_min &&
           uid_token == o.uid_token
     end
 
@@ -151,7 +161,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, event_id, json, token, uid_token].hash
+      [action, event_id, json, token, ttl_in_min, uid_token].hash
     end
 
     # Builds the object from hash

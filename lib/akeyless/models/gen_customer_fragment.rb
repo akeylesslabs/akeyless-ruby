@@ -18,8 +18,14 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
-    # The label of the hsm key to use for customer fragment operations (relevant for hsm_wrapped/hsm_protected customer fragments)
+    # The label of the hsm key to use for customer fragment operations (relevant for hsm wrap customer fragments)
     attr_accessor :hsm_key_label
+
+    # The HSM provider to use for hsm wrap customer fragments
+    attr_accessor :hsm_provider
+
+    # The HSM wrap algorithm to use for hsm_wrap_encrypt  default for hsm_wrap_encrypt: rsa-oaep-sha256
+    attr_accessor :hsm_wrap_alg
 
     # Set output format to JSON
     attr_accessor :json
@@ -30,7 +36,7 @@ module Akeyless
     # Customer fragment name
     attr_accessor :name
 
-    # Customer fragment type [standard/hsm_wrapped/hsm_secured]
+    # Customer fragment type [standard/hsm_wrap_hmac/hsm_wrap_encrypt/hsm_secured]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,6 +44,8 @@ module Akeyless
       {
         :'description' => :'description',
         :'hsm_key_label' => :'hsm-key-label',
+        :'hsm_provider' => :'hsm-provider',
+        :'hsm_wrap_alg' => :'hsm-wrap-alg',
         :'json' => :'json',
         :'metadata' => :'metadata',
         :'name' => :'name',
@@ -55,6 +63,8 @@ module Akeyless
       {
         :'description' => :'String',
         :'hsm_key_label' => :'String',
+        :'hsm_provider' => :'String',
+        :'hsm_wrap_alg' => :'String',
         :'json' => :'Boolean',
         :'metadata' => :'String',
         :'name' => :'String',
@@ -89,6 +99,16 @@ module Akeyless
 
       if attributes.key?(:'hsm_key_label')
         self.hsm_key_label = attributes[:'hsm_key_label']
+      end
+
+      if attributes.key?(:'hsm_provider')
+        self.hsm_provider = attributes[:'hsm_provider']
+      else
+        self.hsm_provider = 'pkcs11'
+      end
+
+      if attributes.key?(:'hsm_wrap_alg')
+        self.hsm_wrap_alg = attributes[:'hsm_wrap_alg']
       end
 
       if attributes.key?(:'json')
@@ -134,6 +154,8 @@ module Akeyless
       self.class == o.class &&
           description == o.description &&
           hsm_key_label == o.hsm_key_label &&
+          hsm_provider == o.hsm_provider &&
+          hsm_wrap_alg == o.hsm_wrap_alg &&
           json == o.json &&
           metadata == o.metadata &&
           name == o.name &&
@@ -149,7 +171,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, hsm_key_label, json, metadata, name, type].hash
+      [description, hsm_key_label, hsm_provider, hsm_wrap_alg, json, metadata, name, type].hash
     end
 
     # Builds the object from hash

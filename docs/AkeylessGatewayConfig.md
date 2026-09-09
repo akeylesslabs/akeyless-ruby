@@ -22,6 +22,7 @@
 | **producers** | [**ProducersConfigPart**](ProducersConfigPart.md) |  | [optional] |
 | **rotators** | [**RotatorsConfigPart**](RotatorsConfigPart.md) |  | [optional] |
 | **saml** | [**DefaultConfigPart**](DefaultConfigPart.md) |  | [optional] |
+| **saml_sp** | [**SamlSpConfigPart**](SamlSpConfigPart.md) |  | [optional] |
 | **version** | **Integer** |  | [optional] |
 
 ## Example
@@ -48,6 +49,7 @@ instance = Akeyless::AkeylessGatewayConfig.new(
   producers: null,
   rotators: null,
   saml: null,
+  saml_sp: null,
   version: null
 )
 ```

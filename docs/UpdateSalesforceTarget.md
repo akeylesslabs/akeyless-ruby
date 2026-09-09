@@ -16,10 +16,13 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **keep_prev_version** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings | [optional] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **name** | **String** | Target name |  |
 | **new_name** | **String** | New target name | [optional] |
 | **password** | **String** | The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow) | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **security_token** | **String** | The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow) | [optional] |
 | **tenant_url** | **String** | Url of the Salesforce tenant |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -44,10 +47,13 @@ instance = Akeyless::UpdateSalesforceTarget.new(
   json: null,
   keep_prev_version: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   name: null,
   new_name: null,
   password: null,
+  rotate_on_unlock: null,
   security_token: null,
   tenant_url: null,
   token: null,

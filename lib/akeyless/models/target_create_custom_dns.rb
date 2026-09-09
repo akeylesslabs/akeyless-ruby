@@ -30,6 +30,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -38,6 +44,9 @@ module Akeyless
 
     # Lego DNS provider code (e.g. infoblox, route53, azion). See https://go-acme.github.io/lego/dns/
     attr_accessor :provider_type
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -53,9 +62,12 @@ module Akeyless
         :'dns_parameter' => :'dns-parameter',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'provider_type' => :'provider-type',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -74,9 +86,12 @@ module Akeyless
         :'dns_parameter' => :'Hash<String, String>',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'provider_type' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -129,6 +144,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -143,6 +166,10 @@ module Akeyless
         self.provider_type = attributes[:'provider_type']
       else
         self.provider_type = nil
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -194,9 +221,12 @@ module Akeyless
           dns_parameter == o.dns_parameter &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           provider_type == o.provider_type &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -210,7 +240,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, dns_parameter, json, key, max_versions, name, provider_type, token, uid_token].hash
+      [delete_protection, description, dns_parameter, json, key, lock_on_read, lock_ttl, max_versions, name, provider_type, rotate_on_unlock, token, uid_token].hash
     end
 
     # Builds the object from hash

@@ -45,11 +45,20 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
     # Target name
     attr_accessor :name
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -72,8 +81,11 @@ module Akeyless
         :'eks_secret_access_key' => :'eks-secret-access-key',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_gw_cloud_identity' => :'use-gw-cloud-identity'
@@ -98,8 +110,11 @@ module Akeyless
         :'eks_secret_access_key' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_gw_cloud_identity' => :'Boolean'
@@ -181,6 +196,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -189,6 +212,10 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'token')
@@ -264,8 +291,11 @@ module Akeyless
           eks_secret_access_key == o.eks_secret_access_key &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
           uid_token == o.uid_token &&
           use_gw_cloud_identity == o.use_gw_cloud_identity
@@ -280,7 +310,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delete_protection, description, eks_access_key_id, eks_cluster_ca_cert, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, json, key, max_versions, name, token, uid_token, use_gw_cloud_identity].hash
+      [delete_protection, description, eks_access_key_id, eks_cluster_ca_cert, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, json, key, lock_on_read, lock_ttl, max_versions, name, rotate_on_unlock, token, uid_token, use_gw_cloud_identity].hash
     end
 
     # Builds the object from hash

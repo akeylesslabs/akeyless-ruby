@@ -19,6 +19,12 @@ module Akeyless
     # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
     attr_accessor :ara_enabled
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Host
     attr_accessor :host
 
@@ -53,6 +59,8 @@ module Akeyless
     def self.attribute_map
       {
         :'ara_enabled' => :'ara-enabled',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'host' => :'host',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
@@ -75,6 +83,8 @@ module Akeyless
     def self.openapi_types
       {
         :'ara_enabled' => :'Boolean',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'host' => :'String',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
@@ -111,6 +121,14 @@ module Akeyless
 
       if attributes.key?(:'ara_enabled')
         self.ara_enabled = attributes[:'ara_enabled']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'host')
@@ -209,6 +227,8 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           ara_enabled == o.ara_enabled &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           host == o.host &&
           input_rule == o.input_rule &&
           json == o.json &&
@@ -230,7 +250,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, host, input_rule, json, name, new_ttl_min, output_rule, skip_dry_run, tmp_creds_id, token, uid_token].hash
+      [ara_enabled, enable_agentic_runtime_authority, enable_ai_quorum, host, input_rule, json, name, new_ttl_min, output_rule, skip_dry_run, tmp_creds_id, token, uid_token].hash
     end
 
     # Builds the object from hash

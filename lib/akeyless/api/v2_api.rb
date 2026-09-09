@@ -607,6 +607,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param auth_method_create_ali_cloud [AuthMethodCreateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMethodCreateOutput]
+    def auth_method_create_ali_cloud(auth_method_create_ali_cloud, opts = {})
+      data, _status_code, _headers = auth_method_create_ali_cloud_with_http_info(auth_method_create_ali_cloud, opts)
+      data
+    end
+
+    # @param auth_method_create_ali_cloud [AuthMethodCreateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMethodCreateOutput, Integer, Hash)>] AuthMethodCreateOutput data, response status code and response headers
+    def auth_method_create_ali_cloud_with_http_info(auth_method_create_ali_cloud, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.auth_method_create_ali_cloud ...'
+      end
+      # verify the required parameter 'auth_method_create_ali_cloud' is set
+      if @api_client.config.client_side_validation && auth_method_create_ali_cloud.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_method_create_ali_cloud' when calling V2Api.auth_method_create_ali_cloud"
+      end
+      # resource path
+      local_var_path = '/auth-method-create-alicloud'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_method_create_ali_cloud)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMethodCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.auth_method_create_ali_cloud",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#auth_method_create_ali_cloud\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param auth_method_create_api_key [AuthMethodCreateApiKey] 
     # @param [Hash] opts the optional parameters
     # @return [AuthMethodCreateOutput]
@@ -1691,6 +1755,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#auth_method_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param auth_method_update_ali_cloud [AuthMethodUpdateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMethodUpdateOutput]
+    def auth_method_update_ali_cloud(auth_method_update_ali_cloud, opts = {})
+      data, _status_code, _headers = auth_method_update_ali_cloud_with_http_info(auth_method_update_ali_cloud, opts)
+      data
+    end
+
+    # @param auth_method_update_ali_cloud [AuthMethodUpdateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMethodUpdateOutput, Integer, Hash)>] AuthMethodUpdateOutput data, response status code and response headers
+    def auth_method_update_ali_cloud_with_http_info(auth_method_update_ali_cloud, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.auth_method_update_ali_cloud ...'
+      end
+      # verify the required parameter 'auth_method_update_ali_cloud' is set
+      if @api_client.config.client_side_validation && auth_method_update_ali_cloud.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_method_update_ali_cloud' when calling V2Api.auth_method_update_ali_cloud"
+      end
+      # resource path
+      local_var_path = '/auth-method-update-alicloud'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_method_update_ali_cloud)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMethodUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.auth_method_update_ali_cloud",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#auth_method_update_ali_cloud\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

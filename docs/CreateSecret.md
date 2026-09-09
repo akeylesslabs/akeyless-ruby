@@ -11,6 +11,8 @@
 | **custom_field** | **Hash&lt;String, String&gt;** | For Password Management use, additional fields | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
+| **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. | [optional] |
+| **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) | [optional][default to &#39;text&#39;] |
 | **host_provider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. | [optional] |
 | **inject_url** | **Array&lt;String&gt;** | For Password Management use, reflect the website context | [optional] |
@@ -18,6 +20,8 @@
 | **item_custom_fields** | **Hash&lt;String, String&gt;** | Additional custom fields to associate with the item | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **multiline_value** | **Boolean** | The provided value is a multiline value (separated by &#39;\\n&#39;) | [optional] |
@@ -58,6 +62,8 @@ instance = Akeyless::CreateSecret.new(
   custom_field: null,
   delete_protection: null,
   description: null,
+  enable_agentic_runtime_authority: null,
+  enable_ai_quorum: null,
   format: null,
   host_provider: null,
   inject_url: null,
@@ -65,6 +71,8 @@ instance = Akeyless::CreateSecret.new(
   item_custom_fields: null,
   json: null,
   lock_during_sra_session: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   metadata: null,
   multiline_value: null,

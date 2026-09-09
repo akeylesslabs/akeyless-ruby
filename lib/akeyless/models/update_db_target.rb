@@ -73,6 +73,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -117,6 +123,9 @@ module Akeyless
     attr_accessor :port
 
     attr_accessor :pwd
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # (Optional) Skip server name verification
     attr_accessor :skip_server_name_validation
@@ -169,6 +178,8 @@ module Akeyless
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'mongodb_atlas' => :'mongodb-atlas',
         :'mongodb_atlas_api_private_key' => :'mongodb-atlas-api-private-key',
@@ -185,6 +196,7 @@ module Akeyless
         :'parent_target_name' => :'parent-target-name',
         :'port' => :'port',
         :'pwd' => :'pwd',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'skip_server_name_validation' => :'skip-server-name-validation',
         :'snowflake_account' => :'snowflake-account',
         :'snowflake_api_private_key' => :'snowflake-api-private-key',
@@ -226,6 +238,8 @@ module Akeyless
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'mongodb_atlas' => :'Boolean',
         :'mongodb_atlas_api_private_key' => :'String',
@@ -242,6 +256,7 @@ module Akeyless
         :'parent_target_name' => :'String',
         :'port' => :'String',
         :'pwd' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'skip_server_name_validation' => :'String',
         :'snowflake_account' => :'String',
         :'snowflake_api_private_key' => :'String',
@@ -362,6 +377,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -426,6 +449,10 @@ module Akeyless
 
       if attributes.key?(:'pwd')
         self.pwd = attributes[:'pwd']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'skip_server_name_validation')
@@ -526,6 +553,8 @@ module Akeyless
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           mongodb_atlas == o.mongodb_atlas &&
           mongodb_atlas_api_private_key == o.mongodb_atlas_api_private_key &&
@@ -542,6 +571,7 @@ module Akeyless
           parent_target_name == o.parent_target_name &&
           port == o.port &&
           pwd == o.pwd &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           skip_server_name_validation == o.skip_server_name_validation &&
           snowflake_account == o.snowflake_account &&
           snowflake_api_private_key == o.snowflake_api_private_key &&
@@ -563,7 +593,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_client_id, azure_client_secret, azure_tenant_id, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, description, enable_mtls, host, json, keep_prev_version, key, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, new_name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, skip_server_name_validation, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, update_version, user_name].hash
+      [azure_client_id, azure_client_secret, azure_tenant_id, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, comment, connection_type, db_name, db_server_certificates, db_server_name, db_type, description, enable_mtls, host, json, keep_prev_version, key, lock_on_read, lock_ttl, max_versions, mongodb_atlas, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_default_auth_db, mongodb_uri_options, name, new_name, oracle_service_name, oracle_wallet_login_type, oracle_wallet_p12_file_data, oracle_wallet_sso_file_data, parent_target_name, port, pwd, rotate_on_unlock, skip_server_name_validation, snowflake_account, snowflake_api_private_key, snowflake_api_private_key_password, ssl, ssl_certificate, token, uid_token, update_version, user_name].hash
     end
 
     # Builds the object from hash

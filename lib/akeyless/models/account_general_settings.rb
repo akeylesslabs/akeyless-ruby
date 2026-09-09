@@ -27,6 +27,8 @@ module Akeyless
 
     attr_accessor :ai_insights
 
+    attr_accessor :ai_quorum
+
     attr_accessor :allow_auto_fill
 
     attr_accessor :allow_passkeys
@@ -92,6 +94,7 @@ module Akeyless
         :'account_default_key_name' => :'account_default_key_name',
         :'account_file_bytes_used' => :'account_file_bytes_used',
         :'ai_insights' => :'ai_insights',
+        :'ai_quorum' => :'ai_quorum',
         :'allow_auto_fill' => :'allow_auto_fill',
         :'allow_passkeys' => :'allow_passkeys',
         :'allowed_client_types' => :'allowed_client_types',
@@ -135,6 +138,7 @@ module Akeyless
         :'account_default_key_name' => :'String',
         :'account_file_bytes_used' => :'Integer',
         :'ai_insights' => :'AiInsightsSetting',
+        :'ai_quorum' => :'AiQuorumSetting',
         :'allow_auto_fill' => :'Boolean',
         :'allow_passkeys' => :'Boolean',
         :'allowed_client_types' => :'AllowedClientType',
@@ -201,6 +205,10 @@ module Akeyless
 
       if attributes.key?(:'ai_insights')
         self.ai_insights = attributes[:'ai_insights']
+      end
+
+      if attributes.key?(:'ai_quorum')
+        self.ai_quorum = attributes[:'ai_quorum']
       end
 
       if attributes.key?(:'allow_auto_fill')
@@ -340,6 +348,7 @@ module Akeyless
           account_default_key_name == o.account_default_key_name &&
           account_file_bytes_used == o.account_file_bytes_used &&
           ai_insights == o.ai_insights &&
+          ai_quorum == o.ai_quorum &&
           allow_auto_fill == o.allow_auto_fill &&
           allow_passkeys == o.allow_passkeys &&
           allowed_client_types == o.allowed_client_types &&
@@ -379,7 +388,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, ai_quorum, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

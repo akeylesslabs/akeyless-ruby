@@ -34,6 +34,12 @@ module Akeyless
     # The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -45,6 +51,9 @@ module Akeyless
 
     # Target name
     attr_accessor :name
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # Timeout waiting for certificate validation in Duration format (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum 1h.
     attr_accessor :timeout
@@ -64,10 +73,13 @@ module Akeyless
         :'description' => :'description',
         :'json' => :'json',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'mtls_cert_data_base64' => :'mtls-cert-data-base64',
         :'mtls_key_data_base64' => :'mtls-key-data-base64',
         :'name' => :'name',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'timeout' => :'timeout',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
@@ -88,10 +100,13 @@ module Akeyless
         :'description' => :'String',
         :'json' => :'Boolean',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'mtls_cert_data_base64' => :'String',
         :'mtls_key_data_base64' => :'String',
         :'name' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'timeout' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
@@ -149,6 +164,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -165,6 +188,10 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'timeout')
@@ -223,10 +250,13 @@ module Akeyless
           description == o.description &&
           json == o.json &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           mtls_cert_data_base64 == o.mtls_cert_data_base64 &&
           mtls_key_data_base64 == o.mtls_key_data_base64 &&
           name == o.name &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           timeout == o.timeout &&
           token == o.token &&
           uid_token == o.uid_token
@@ -241,7 +271,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_key, api_secret, comment, description, json, key, max_versions, mtls_cert_data_base64, mtls_key_data_base64, name, timeout, token, uid_token].hash
+      [api_key, api_secret, comment, description, json, key, lock_on_read, lock_ttl, max_versions, mtls_cert_data_base64, mtls_key_data_base64, name, rotate_on_unlock, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

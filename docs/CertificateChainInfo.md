@@ -21,8 +21,10 @@
 | **expiration_events** | [**Array&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  | [optional] |
 | **external_ca_id** | [**NullString**](NullString.md) |  | [optional] |
 | **issuance_status** | **String** |  | [optional] |
+| **leaf_certificate_pem** | **String** | LeafCertificatePem contains only the leaf certificate, derived from CertificatePem. Populated only when the certificate was issued with SplitCertificateChain enabled. | [optional] |
 | **not_before** | **Time** |  | [optional] |
 | **renew_before_expiration_in_days** | **Integer** |  | [optional] |
+| **split_certificate_chain** | **Boolean** | SplitCertificateChain reflects whether this certificate was issued while its PKI Cert Issuer had split-certificate-chain enabled. When true, LeafCertificatePem is populated in addition to CertificatePem (which always holds the full chain). | [optional] |
 
 ## Example
 
@@ -47,8 +49,10 @@ instance = Akeyless::CertificateChainInfo.new(
   expiration_events: null,
   external_ca_id: null,
   issuance_status: null,
+  leaf_certificate_pem: null,
   not_before: null,
-  renew_before_expiration_in_days: null
+  renew_before_expiration_in_days: null,
+  split_certificate_chain: null
 )
 ```
 

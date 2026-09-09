@@ -22,6 +22,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
     attr_accessor :input_rule
 
@@ -111,6 +117,8 @@ module Akeyless
       {
         :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
         :'json' => :'json',
@@ -152,6 +160,8 @@ module Akeyless
       {
         :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
         :'json' => :'Boolean',
@@ -210,6 +220,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'input_rule')
@@ -380,6 +398,8 @@ module Akeyless
       self.class == o.class &&
           ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
           json == o.json &&
@@ -419,7 +439,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, delete_protection, input_rule, item_custom_fields, json, name, output_rule, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
+      [ara_enabled, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, output_rule, ping_administrative_port, ping_atm_id, ping_authorization_port, ping_cert_subject_dn, ping_client_authentication_type, ping_enforce_replay_prevention, ping_grant_types, ping_issuer_dn, ping_jwks, ping_jwks_url, ping_password, ping_privileged_user, ping_redirect_uris, ping_restricted_scopes, ping_signing_algo, ping_url, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, user_ttl].hash
     end
 
     # Builds the object from hash

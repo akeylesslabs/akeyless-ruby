@@ -21,7 +21,7 @@ module Akeyless
     # Access Key
     attr_accessor :access_key
 
-    # Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert)
+    # Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/alicloud/gcp/k8s/cert/oci/kerberos)
     attr_accessor :access_type
 
     # Account id (relevant only for access-type=password where the email address is associated with more than one account)

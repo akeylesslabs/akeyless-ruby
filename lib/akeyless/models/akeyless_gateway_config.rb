@@ -51,6 +51,8 @@ module Akeyless
 
     attr_accessor :saml
 
+    attr_accessor :saml_sp
+
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -74,6 +76,7 @@ module Akeyless
         :'producers' => :'producers',
         :'rotators' => :'rotators',
         :'saml' => :'saml',
+        :'saml_sp' => :'saml_sp',
         :'version' => :'version'
       }
     end
@@ -104,6 +107,7 @@ module Akeyless
         :'producers' => :'ProducersConfigPart',
         :'rotators' => :'RotatorsConfigPart',
         :'saml' => :'DefaultConfigPart',
+        :'saml_sp' => :'SamlSpConfigPart',
         :'version' => :'Integer'
       }
     end
@@ -201,6 +205,10 @@ module Akeyless
         self.saml = attributes[:'saml']
       end
 
+      if attributes.key?(:'saml_sp')
+        self.saml_sp = attributes[:'saml_sp']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -244,6 +252,7 @@ module Akeyless
           producers == o.producers &&
           rotators == o.rotators &&
           saml == o.saml &&
+          saml_sp == o.saml_sp &&
           version == o.version
     end
 
@@ -256,7 +265,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admins, ai_insights, ca_certificates, cache, cf, config_protection_key_name, general, k8s_auths, kerberos, kmip_clients, ldap, leadership, log_forwarding, message_queue_info, migrations, producers, rotators, saml, version].hash
+      [admins, ai_insights, ca_certificates, cache, cf, config_protection_key_name, general, k8s_auths, kerberos, kmip_clients, ldap, leadership, log_forwarding, message_queue_info, migrations, producers, rotators, saml, saml_sp, version].hash
     end
 
     # Builds the object from hash

@@ -32,6 +32,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Base64-encoded service account private key text
     attr_accessor :gcp_key
 
@@ -67,6 +73,12 @@ module Akeyless
 
     attr_accessor :key
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -84,6 +96,9 @@ module Akeyless
 
     # List of the existent tags that will be removed from this item
     attr_accessor :rm_tag
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
@@ -124,6 +139,8 @@ module Akeyless
         :'auto_rotate' => :'auto-rotate',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'gcp_key' => :'gcp-key',
         :'gcp_service_account_email' => :'gcp-service-account-email',
         :'gcp_service_account_key_id' => :'gcp-service-account-key-id',
@@ -136,12 +153,15 @@ module Akeyless
         :'json' => :'json',
         :'keep_prev_version' => :'keep-prev-version',
         :'key' => :'key',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'rm_tag' => :'rm-tag',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
@@ -170,6 +190,8 @@ module Akeyless
         :'auto_rotate' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'gcp_key' => :'String',
         :'gcp_service_account_email' => :'String',
         :'gcp_service_account_key_id' => :'String',
@@ -182,12 +204,15 @@ module Akeyless
         :'json' => :'Boolean',
         :'keep_prev_version' => :'String',
         :'key' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'rm_tag' => :'Array<String>',
+        :'rotate_on_unlock' => :'String',
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
@@ -253,6 +278,14 @@ module Akeyless
         self.description = 'default_metadata'
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'gcp_key')
         self.gcp_key = attributes[:'gcp_key']
       end
@@ -307,6 +340,14 @@ module Akeyless
         self.key = attributes[:'key']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -335,6 +376,10 @@ module Akeyless
         if (value = attributes[:'rm_tag']).is_a?(Array)
           self.rm_tag = value
         end
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotation_event_in')
@@ -422,6 +467,8 @@ module Akeyless
           auto_rotate == o.auto_rotate &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           gcp_key == o.gcp_key &&
           gcp_service_account_email == o.gcp_service_account_email &&
           gcp_service_account_key_id == o.gcp_service_account_key_id &&
@@ -434,12 +481,15 @@ module Akeyless
           json == o.json &&
           keep_prev_version == o.keep_prev_version &&
           key == o.key &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           new_name == o.new_name &&
           output_rule == o.output_rule &&
           password_length == o.password_length &&
           rm_tag == o.rm_tag &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
@@ -462,7 +512,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, max_versions, name, new_name, output_rule, password_length, rm_tag, rotation_event_in, rotation_hour, rotation_interval, rotator_type, skip_dry_run, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [add_tag, ara_enabled, authentication_credentials, auto_rotate, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, gcp_key, gcp_service_account_email, gcp_service_account_key_id, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, input_rule, item_custom_fields, json, keep_prev_version, key, lock_on_read, lock_ttl, max_versions, name, new_name, output_rule, password_length, rm_tag, rotate_on_unlock, rotation_event_in, rotation_hour, rotation_interval, rotator_type, skip_dry_run, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

@@ -34,6 +34,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Enable password policy
     attr_accessor :enable_password_policy
 
@@ -54,6 +60,12 @@ module Akeyless
     # Lock this secret for read/update while an SRA session is active
     attr_accessor :lock_during_sra_session
 
+    # Lock this secret after each successful value read
+    attr_accessor :lock_on_read
+
+    # Lock TTL in minutes
+    attr_accessor :lock_ttl
+
     # Set the maximum number of versions, limited by the account settings defaults.
     attr_accessor :max_versions
 
@@ -68,6 +80,9 @@ module Akeyless
 
     # StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
     attr_accessor :rotate_after_disconnect
+
+    # Rotate this secret after it is unlocked
+    attr_accessor :rotate_on_unlock
 
     # How many days before the rotation of the item would you like to be notified
     attr_accessor :rotation_event_in
@@ -157,6 +172,8 @@ module Akeyless
         :'custom_payload' => :'custom-payload',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'enable_password_policy' => :'enable-password-policy',
         :'host_provider' => :'host-provider',
         :'input_rule' => :'input-rule',
@@ -164,11 +181,14 @@ module Akeyless
         :'json' => :'json',
         :'key' => :'key',
         :'lock_during_sra_session' => :'lock-during-sra-session',
+        :'lock_on_read' => :'lock-on-read',
+        :'lock_ttl' => :'lock-ttl',
         :'max_versions' => :'max-versions',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'rotate_after_disconnect' => :'rotate-after-disconnect',
+        :'rotate_on_unlock' => :'rotate-on-unlock',
         :'rotation_event_in' => :'rotation-event-in',
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
@@ -214,6 +234,8 @@ module Akeyless
         :'custom_payload' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'enable_password_policy' => :'String',
         :'host_provider' => :'String',
         :'input_rule' => :'Array<String>',
@@ -221,11 +243,14 @@ module Akeyless
         :'json' => :'Boolean',
         :'key' => :'String',
         :'lock_during_sra_session' => :'String',
+        :'lock_on_read' => :'String',
+        :'lock_ttl' => :'String',
         :'max_versions' => :'String',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'rotate_after_disconnect' => :'String',
+        :'rotate_on_unlock' => :'String',
         :'rotation_event_in' => :'Array<String>',
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
@@ -307,6 +332,14 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
+      end
+
       if attributes.key?(:'enable_password_policy')
         self.enable_password_policy = attributes[:'enable_password_policy']
       end
@@ -341,6 +374,14 @@ module Akeyless
         self.lock_during_sra_session = attributes[:'lock_during_sra_session']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'max_versions')
         self.max_versions = attributes[:'max_versions']
       end
@@ -363,6 +404,10 @@ module Akeyless
 
       if attributes.key?(:'rotate_after_disconnect')
         self.rotate_after_disconnect = attributes[:'rotate_after_disconnect']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotation_event_in')
@@ -531,6 +576,8 @@ module Akeyless
           custom_payload == o.custom_payload &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           enable_password_policy == o.enable_password_policy &&
           host_provider == o.host_provider &&
           input_rule == o.input_rule &&
@@ -538,11 +585,14 @@ module Akeyless
           json == o.json &&
           key == o.key &&
           lock_during_sra_session == o.lock_during_sra_session &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           max_versions == o.max_versions &&
           name == o.name &&
           output_rule == o.output_rule &&
           password_length == o.password_length &&
           rotate_after_disconnect == o.rotate_after_disconnect &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotation_event_in == o.rotation_event_in &&
           rotation_hour == o.rotation_hour &&
           rotation_interval == o.rotation_interval &&
@@ -581,7 +631,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, ara_enabled, authentication_credentials, auto_rotate, custom_payload, delete_protection, description, enable_password_policy, host_provider, input_rule, item_custom_fields, json, key, lock_during_sra_session, max_versions, name, output_rule, password_length, rotate_after_disconnect, rotation_event_in, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target, target_name, timeout_sec, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [provider_type, ara_enabled, authentication_credentials, auto_rotate, custom_payload, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, enable_password_policy, host_provider, input_rule, item_custom_fields, json, key, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, name, output_rule, password_length, rotate_after_disconnect, rotate_on_unlock, rotation_event_in, rotation_hour, rotation_interval, secure_access_allow_external_user, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_ssh_user, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target, target_name, timeout_sec, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

@@ -22,10 +22,13 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) | [optional] |
 | **lock_during_sra_session** | **String** | Lock this secret for read/update while an SRA session is active | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **metadata** | **String** | Deprecated - use description | [optional] |
 | **name** | **String** | Secret name |  |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **rotate_after_disconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **rotated_password** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotated_username** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) | [optional] |
 | **rotation_hour** | **Integer** | The Hour of the rotation in UTC. Default rotation-hour is 14:00 | [optional] |
@@ -86,10 +89,13 @@ instance = Akeyless::CreateRotatedSecret.new(
   json: null,
   key: null,
   lock_during_sra_session: null,
+  lock_on_read: null,
+  lock_ttl: null,
   metadata: null,
   name: null,
   password_length: null,
   rotate_after_disconnect: null,
+  rotate_on_unlock: null,
   rotated_password: null,
   rotated_username: null,
   rotation_hour: null,

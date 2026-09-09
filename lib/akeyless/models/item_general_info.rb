@@ -39,11 +39,19 @@ module Akeyless
 
     attr_accessor :issuer_overview_info
 
+    attr_accessor :lock_on_read
+
+    attr_accessor :lock_ttl
+
     attr_accessor :next_rotation_events
 
     attr_accessor :oidc_client_info
 
     attr_accessor :password_policy
+
+    attr_accessor :pending_rotate_on_unlock
+
+    attr_accessor :rotate_on_unlock
 
     attr_accessor :rotated_secret_details
 
@@ -68,9 +76,13 @@ module Akeyless
         :'expiration_events' => :'expiration_events',
         :'importer_info' => :'importer_info',
         :'issuer_overview_info' => :'issuer_overview_info',
+        :'lock_on_read' => :'lock_on_read',
+        :'lock_ttl' => :'lock_ttl',
         :'next_rotation_events' => :'next_rotation_events',
         :'oidc_client_info' => :'oidc_client_info',
         :'password_policy' => :'password_policy',
+        :'pending_rotate_on_unlock' => :'pending_rotate_on_unlock',
+        :'rotate_on_unlock' => :'rotate_on_unlock',
         :'rotated_secret_details' => :'rotated_secret_details',
         :'secure_remote_access_details' => :'secure_remote_access_details',
         :'static_secret_info' => :'static_secret_info',
@@ -98,9 +110,13 @@ module Akeyless
         :'expiration_events' => :'Array<CertificateExpirationEvent>',
         :'importer_info' => :'ImporterInfo',
         :'issuer_overview_info' => :'IssuerOverviewInfo',
+        :'lock_on_read' => :'Boolean',
+        :'lock_ttl' => :'Integer',
         :'next_rotation_events' => :'Array<NextAutoRotationEvent>',
         :'oidc_client_info' => :'OidcClientInfo',
         :'password_policy' => :'PasswordPolicyInfo',
+        :'pending_rotate_on_unlock' => :'Boolean',
+        :'rotate_on_unlock' => :'Boolean',
         :'rotated_secret_details' => :'RotatedSecretDetailsInfo',
         :'secure_remote_access_details' => :'SecureRemoteAccess',
         :'static_secret_info' => :'StaticSecretDetailsInfo',
@@ -179,6 +195,14 @@ module Akeyless
         self.issuer_overview_info = attributes[:'issuer_overview_info']
       end
 
+      if attributes.key?(:'lock_on_read')
+        self.lock_on_read = attributes[:'lock_on_read']
+      end
+
+      if attributes.key?(:'lock_ttl')
+        self.lock_ttl = attributes[:'lock_ttl']
+      end
+
       if attributes.key?(:'next_rotation_events')
         if (value = attributes[:'next_rotation_events']).is_a?(Array)
           self.next_rotation_events = value
@@ -191,6 +215,14 @@ module Akeyless
 
       if attributes.key?(:'password_policy')
         self.password_policy = attributes[:'password_policy']
+      end
+
+      if attributes.key?(:'pending_rotate_on_unlock')
+        self.pending_rotate_on_unlock = attributes[:'pending_rotate_on_unlock']
+      end
+
+      if attributes.key?(:'rotate_on_unlock')
+        self.rotate_on_unlock = attributes[:'rotate_on_unlock']
       end
 
       if attributes.key?(:'rotated_secret_details')
@@ -242,9 +274,13 @@ module Akeyless
           expiration_events == o.expiration_events &&
           importer_info == o.importer_info &&
           issuer_overview_info == o.issuer_overview_info &&
+          lock_on_read == o.lock_on_read &&
+          lock_ttl == o.lock_ttl &&
           next_rotation_events == o.next_rotation_events &&
           oidc_client_info == o.oidc_client_info &&
           password_policy == o.password_policy &&
+          pending_rotate_on_unlock == o.pending_rotate_on_unlock &&
+          rotate_on_unlock == o.rotate_on_unlock &&
           rotated_secret_details == o.rotated_secret_details &&
           secure_remote_access_details == o.secure_remote_access_details &&
           static_secret_info == o.static_secret_info &&
@@ -260,7 +296,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agentic_rules, cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, issuer_overview_info, next_rotation_events, oidc_client_info, password_policy, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
+      [agentic_rules, cert_issue_details, certificate_chain_info, certificate_format, certificates_template_info, classic_key_details, cluster_gw_url, display_metadata, dynamic_secret_producer_details, expiration_events, importer_info, issuer_overview_info, lock_on_read, lock_ttl, next_rotation_events, oidc_client_info, password_policy, pending_rotate_on_unlock, rotate_on_unlock, rotated_secret_details, secure_remote_access_details, static_secret_info, tokenizer_info].hash
     end
 
     # Builds the object from hash

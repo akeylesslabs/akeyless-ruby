@@ -27,6 +27,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize input)
     attr_accessor :input_rule
 
@@ -84,6 +90,8 @@ module Akeyless
         :'ara_enabled' => :'ara-enabled',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
         :'json' => :'json',
         :'max_versions' => :'max-versions',
@@ -116,6 +124,8 @@ module Akeyless
         :'ara_enabled' => :'Boolean',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
         :'json' => :'Boolean',
         :'max_versions' => :'String',
@@ -173,6 +183,14 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'input_rule')
@@ -285,6 +303,8 @@ module Akeyless
           ara_enabled == o.ara_enabled &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
           json == o.json &&
           max_versions == o.max_versions &&
@@ -313,7 +333,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accessibility, ara_enabled, delete_protection, description, input_rule, json, max_versions, metadata, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, protection_key, tags, token, uid_token, url].hash
+      [accessibility, ara_enabled, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, json, max_versions, metadata, name, oauth_client_id, oauth_client_secret, oauth_redirect_uri, oauth_refresh_token, oauth_scopes, oauth_token_url, output_rule, protection_key, tags, token, uid_token, url].hash
     end
 
     # Builds the object from hash

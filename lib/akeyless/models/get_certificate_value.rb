@@ -21,8 +21,14 @@ module Akeyless
     # Certificate display ID
     attr_accessor :display_id
 
+    # Format to download the certificate in [pem/pfx/jks], pfx/jks require a password
+    attr_accessor :format
+
     # Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
     attr_accessor :ignore_cache
+
+    # If set, includes the private key in the pfx/jks file, only relevant when format is pfx or jks
+    attr_accessor :include_private_key
 
     # Token for getting the issued certificate
     attr_accessor :issuance_token
@@ -30,8 +36,14 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # If set, downloads only the leaf certificate instead of the full chain, only available for certificates issued with split certificate chain enabled
+    attr_accessor :leaf_only
+
     # Certificate name
     attr_accessor :name
+
+    # Password to protect the pfx/jks file, required when format is pfx or jks
+    attr_accessor :password
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -47,10 +59,14 @@ module Akeyless
       {
         :'cert_issuer_name' => :'cert-issuer-name',
         :'display_id' => :'display-id',
+        :'format' => :'format',
         :'ignore_cache' => :'ignore-cache',
+        :'include_private_key' => :'include-private-key',
         :'issuance_token' => :'issuance-token',
         :'json' => :'json',
+        :'leaf_only' => :'leaf-only',
         :'name' => :'name',
+        :'password' => :'password',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'version' => :'version'
@@ -67,10 +83,14 @@ module Akeyless
       {
         :'cert_issuer_name' => :'String',
         :'display_id' => :'String',
+        :'format' => :'String',
         :'ignore_cache' => :'String',
+        :'include_private_key' => :'Boolean',
         :'issuance_token' => :'String',
         :'json' => :'Boolean',
+        :'leaf_only' => :'Boolean',
         :'name' => :'String',
+        :'password' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'version' => :'Integer'
@@ -106,10 +126,20 @@ module Akeyless
         self.display_id = attributes[:'display_id']
       end
 
+      if attributes.key?(:'format')
+        self.format = attributes[:'format']
+      else
+        self.format = 'pem'
+      end
+
       if attributes.key?(:'ignore_cache')
         self.ignore_cache = attributes[:'ignore_cache']
       else
         self.ignore_cache = 'false'
+      end
+
+      if attributes.key?(:'include_private_key')
+        self.include_private_key = attributes[:'include_private_key']
       end
 
       if attributes.key?(:'issuance_token')
@@ -122,8 +152,16 @@ module Akeyless
         self.json = false
       end
 
+      if attributes.key?(:'leaf_only')
+        self.leaf_only = attributes[:'leaf_only']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'password')
+        self.password = attributes[:'password']
       end
 
       if attributes.key?(:'token')
@@ -161,10 +199,14 @@ module Akeyless
       self.class == o.class &&
           cert_issuer_name == o.cert_issuer_name &&
           display_id == o.display_id &&
+          format == o.format &&
           ignore_cache == o.ignore_cache &&
+          include_private_key == o.include_private_key &&
           issuance_token == o.issuance_token &&
           json == o.json &&
+          leaf_only == o.leaf_only &&
           name == o.name &&
+          password == o.password &&
           token == o.token &&
           uid_token == o.uid_token &&
           version == o.version
@@ -179,7 +221,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert_issuer_name, display_id, ignore_cache, issuance_token, json, name, token, uid_token, version].hash
+      [cert_issuer_name, display_id, format, ignore_cache, include_private_key, issuance_token, json, leaf_only, name, password, token, uid_token, version].hash
     end
 
     # Builds the object from hash

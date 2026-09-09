@@ -43,6 +43,12 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # FixedUserClaimKeyname
     attr_accessor :fixed_user_claim_keyname
 
@@ -141,6 +147,8 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'fixed_user_claim_keyname' => :'fixed-user-claim-keyname',
         :'fixed_user_only' => :'fixed-user-only',
         :'input_rule' => :'input-rule',
@@ -190,6 +198,8 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'fixed_user_claim_keyname' => :'String',
         :'fixed_user_only' => :'Boolean',
         :'input_rule' => :'Array<String>',
@@ -277,6 +287,14 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'fixed_user_claim_keyname')
@@ -458,6 +476,8 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           fixed_user_claim_keyname == o.fixed_user_claim_keyname &&
           fixed_user_only == o.fixed_user_only &&
           input_rule == o.input_rule &&
@@ -498,7 +518,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_obj_id, ara_enabled, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, description, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
+      [app_obj_id, ara_enabled, azure_administrative_unit, azure_client_id, azure_client_secret, azure_tenant_id, custom_username_template, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, fixed_user_claim_keyname, fixed_user_only, input_rule, item_custom_fields, json, name, output_rule, password_length, producer_encryption_key_name, secure_access_enable, secure_access_url, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_group_obj_id, user_portal_access, user_principal_name, user_programmatic_access, user_role_template_id, user_ttl].hash
     end
 
     # Builds the object from hash

@@ -24,6 +24,8 @@
 | **host** | **String** |  | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) | [optional] |
+| **lock_on_read** | **String** | Lock this secret after each successful value read | [optional] |
+| **lock_ttl** | **String** | Lock TTL in minutes | [optional] |
 | **max_versions** | **String** | Set the maximum number of versions, limited by the account settings defaults. | [optional] |
 | **mongodb_atlas** | **Boolean** |  | [optional] |
 | **mongodb_atlas_api_private_key** | **String** | MongoDB Atlas private key | [optional] |
@@ -39,6 +41,7 @@
 | **parent_target_name** | **String** | Name of the parent target, relevant only when connection-type is parent-target | [optional] |
 | **port** | **String** |  | [optional] |
 | **pwd** | **String** |  | [optional] |
+| **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **skip_server_name_validation** | **String** | (Optional) Skip server name verification | [optional] |
 | **snowflake_account** | **String** |  | [optional] |
 | **snowflake_api_private_key** | **String** | RSA Private key (base64 encoded) | [optional] |
@@ -75,6 +78,8 @@ instance = Akeyless::TargetCreateDB.new(
   host: null,
   json: null,
   key: null,
+  lock_on_read: null,
+  lock_ttl: null,
   max_versions: null,
   mongodb_atlas: null,
   mongodb_atlas_api_private_key: null,
@@ -90,6 +95,7 @@ instance = Akeyless::TargetCreateDB.new(
   parent_target_name: null,
   port: null,
   pwd: null,
+  rotate_on_unlock: null,
   skip_server_name_validation: null,
   snowflake_account: null,
   snowflake_api_private_key: null,

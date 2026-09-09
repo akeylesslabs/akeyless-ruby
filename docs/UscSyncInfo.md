@@ -8,6 +8,7 @@
 | **jq_secret_filter** | **String** |  | [optional] |
 | **last_error** | **String** |  | [optional] |
 | **namespace** | **String** |  | [optional] |
+| **project** | **String** |  | [optional] |
 | **secret_id** | **String** |  | [optional] |
 | **secret_name** | **String** |  | [optional] |
 | **selected_environments** | **String** |  | [optional] |
@@ -23,6 +24,7 @@ instance = Akeyless::UscSyncInfo.new(
   jq_secret_filter: null,
   last_error: null,
   namespace: null,
+  project: null,
   secret_id: null,
   secret_name: null,
   selected_environments: null,

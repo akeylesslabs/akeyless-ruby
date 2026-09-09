@@ -28,6 +28,12 @@ module Akeyless
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
+    # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+    attr_accessor :enable_agentic_runtime_authority
+
+    # Turns on AI Quorum checks for this item.
+    attr_accessor :enable_ai_quorum
+
     # Redis Host
     attr_accessor :host
 
@@ -106,6 +112,8 @@ module Akeyless
         :'ara_enabled' => :'ara-enabled',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
+        :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
+        :'enable_ai_quorum' => :'enable-ai-quorum',
         :'host' => :'host',
         :'input_rule' => :'input-rule',
         :'item_custom_fields' => :'item-custom-fields',
@@ -145,6 +153,8 @@ module Akeyless
         :'ara_enabled' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
+        :'enable_agentic_runtime_authority' => :'Boolean',
+        :'enable_ai_quorum' => :'Boolean',
         :'host' => :'String',
         :'input_rule' => :'Array<String>',
         :'item_custom_fields' => :'Hash<String, String>',
@@ -207,6 +217,14 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
+      end
+
+      if attributes.key?(:'enable_agentic_runtime_authority')
+        self.enable_agentic_runtime_authority = attributes[:'enable_agentic_runtime_authority']
+      end
+
+      if attributes.key?(:'enable_ai_quorum')
+        self.enable_ai_quorum = attributes[:'enable_ai_quorum']
       end
 
       if attributes.key?(:'host')
@@ -355,6 +373,8 @@ module Akeyless
           ara_enabled == o.ara_enabled &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
+          enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
+          enable_ai_quorum == o.enable_ai_quorum &&
           host == o.host &&
           input_rule == o.input_rule &&
           item_custom_fields == o.item_custom_fields &&
@@ -390,7 +410,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acl_rules, ara_enabled, custom_username_template, delete_protection, host, input_rule, item_custom_fields, json, name, new_name, output_rule, password, password_length, port, producer_encryption_key_name, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, username].hash
+      [acl_rules, ara_enabled, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, host, input_rule, item_custom_fields, json, name, new_name, output_rule, password, password_length, port, producer_encryption_key_name, skip_dry_run, ssl, ssl_certificate, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl, username].hash
     end
 
     # Builds the object from hash
