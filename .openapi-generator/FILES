@@ -2561,14 +2561,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/ai_model_entry_spec.rb
-spec/models/ai_quorum_setting_spec.rb
-spec/models/ali_cloud_access_rules_spec.rb
-spec/models/auth_method_create_ali_cloud_spec.rb
-spec/models/auth_method_update_ali_cloud_spec.rb
-spec/models/migration_download_job_spec.rb
-spec/models/migration_download_report_spec.rb
-spec/models/migration_download_secret_spec.rb
-spec/models/migration_download_summary_spec.rb
-spec/models/saml_sp_config_part_spec.rb
 spec/spec_helper.rb

@@ -24,11 +24,14 @@ module Akeyless
 
     attr_accessor :object_type
 
-    # Optional: number of items requested per response (Azure KV). When set, response may include next_token
+    # Optional: number of items requested per response. When set, response may include next_token
     attr_accessor :page_size
 
     # Optional: continuation token returned by a previous usc list --page-size call
     attr_accessor :page_token
+
+    # Search query used to match secret names and paths.
+    attr_accessor :search
 
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
@@ -47,6 +50,7 @@ module Akeyless
         :'object_type' => :'object-type',
         :'page_size' => :'page-size',
         :'page_token' => :'page-token',
+        :'search' => :'search',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usc_name' => :'usc-name'
@@ -66,6 +70,7 @@ module Akeyless
         :'object_type' => :'String',
         :'page_size' => :'Integer',
         :'page_token' => :'String',
+        :'search' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usc_name' => :'String'
@@ -115,6 +120,10 @@ module Akeyless
         self.page_token = attributes[:'page_token']
       end
 
+      if attributes.key?(:'search')
+        self.search = attributes[:'search']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -160,6 +169,7 @@ module Akeyless
           object_type == o.object_type &&
           page_size == o.page_size &&
           page_token == o.page_token &&
+          search == o.search &&
           token == o.token &&
           uid_token == o.uid_token &&
           usc_name == o.usc_name
@@ -174,7 +184,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [gcp_project_id, json, object_type, page_size, page_token, token, uid_token, usc_name].hash
+      [gcp_project_id, json, object_type, page_size, page_token, search, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash
