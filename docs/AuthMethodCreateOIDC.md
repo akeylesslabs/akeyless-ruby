@@ -16,6 +16,7 @@
 | **description** | **String** | Auth Method description | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. | [optional] |
 | **force_sub_claims** | **Boolean** | if true: enforce role-association must include sub claims | [optional] |
+| **gateway_url** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode | [optional] |
 | **gw_bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to | [optional] |
 | **issuer** | **String** | Issuer URL | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
@@ -47,6 +48,7 @@ instance = Akeyless::AuthMethodCreateOIDC.new(
   description: null,
   expiration_event_in: null,
   force_sub_claims: null,
+  gateway_url: null,
   gw_bound_ips: null,
   issuer: null,
   json: null,

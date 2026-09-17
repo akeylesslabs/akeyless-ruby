@@ -119,7 +119,7 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -184,7 +184,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -240,7 +240,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

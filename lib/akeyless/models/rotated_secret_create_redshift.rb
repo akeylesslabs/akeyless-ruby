@@ -98,7 +98,7 @@ module Akeyless
     # Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
     attr_accessor :secure_access_host
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -156,7 +156,7 @@ module Akeyless
         :'secure_access_db_name' => :'secure-access-db-name',
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -205,7 +205,7 @@ module Akeyless
         :'secure_access_db_name' => :'String',
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

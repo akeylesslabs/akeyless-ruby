@@ -15,6 +15,7 @@
 | **cert_access_rules** | [**CertAccessRules**](CertAccessRules.md) |  | [optional] |
 | **cidr_whitelist** | **String** |  | [optional] |
 | **email_pass_access_rules** | [**EmailPassAccessRules**](EmailPassAccessRules.md) |  | [optional] |
+| **enforce_client_type** | **Boolean** | EnforceClientType mirrors the SaaS Auth client-type enforcement decision (GwAuthEligibilityReply.EnforceClientType) captured online, so Gateway-owned offline auth and cached-creds usage honor the same enforce flag SaaS uses (see base_access.AuthenticateClientType). When false, client-type mismatches are not rejected. | [optional] |
 | **force_sub_claims** | **Boolean** | if true the role associated with this auth method must include sub claims | [optional] |
 | **gcp_access_rules** | [**GCPAccessRules**](GCPAccessRules.md) |  | [optional] |
 | **gw_cidr_whitelist** | **String** |  | [optional] |
@@ -50,6 +51,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   cert_access_rules: null,
   cidr_whitelist: null,
   email_pass_access_rules: null,
+  enforce_client_type: null,
   force_sub_claims: null,
   gcp_access_rules: null,
   gw_cidr_whitelist: null,

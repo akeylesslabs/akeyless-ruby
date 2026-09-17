@@ -32,7 +32,7 @@
 | **ping_signing_algo** | **String** | The signing algorithm that the client must use to sign its request objects [RS256,RS384,RS512,ES256,ES384,ES512,PS256,PS384,PS512] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE_KEY_JWT authentication method) | [optional] |
 | **ping_url** | **String** | Ping URL | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |

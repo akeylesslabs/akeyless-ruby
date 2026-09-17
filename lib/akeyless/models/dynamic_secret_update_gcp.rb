@@ -101,7 +101,7 @@ module Akeyless
     # The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)
     attr_accessor :service_account_type
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -151,7 +151,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'service_account_type' => :'service-account-type',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -197,7 +197,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'service_account_type' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

@@ -123,7 +123,7 @@ module Akeyless
     # String of Key value session tags comma separated, relevant only for Assumed Role
     attr_accessor :session_tags
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -194,7 +194,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
         :'session_tags' => :'session-tags',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -252,7 +252,7 @@ module Akeyless
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
         :'session_tags' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

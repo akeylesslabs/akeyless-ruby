@@ -61,7 +61,7 @@ module Akeyless
     # Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask secrets)
     attr_accessor :output_rule
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -103,7 +103,7 @@ module Akeyless
         :'json' => :'json',
         :'name' => :'name',
         :'output_rule' => :'output-rule',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -137,7 +137,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

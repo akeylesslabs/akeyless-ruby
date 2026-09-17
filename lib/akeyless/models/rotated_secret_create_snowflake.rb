@@ -92,7 +92,7 @@ module Akeyless
     # The rotator type. options: [target/password/key]
     attr_accessor :rotator_type
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -148,7 +148,7 @@ module Akeyless
         :'rotation_interval' => :'rotation-interval',
         :'rotation_statement' => :'rotation-statement',
         :'rotator_type' => :'rotator-type',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -195,7 +195,7 @@ module Akeyless
         :'rotation_interval' => :'String',
         :'rotation_statement' => :'String',
         :'rotator_type' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

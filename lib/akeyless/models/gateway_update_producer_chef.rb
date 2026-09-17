@@ -67,11 +67,11 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
+    # If set, dry-run will be skipped [true/false]
+    attr_accessor :skip_dry_run
+
     # Skip SSL
     attr_accessor :skip_ssl
-
-    # If set, dry-run will be skipped
-    attr_accessor :skip_dry_run
 
     # Add tags attached to this object
     attr_accessor :tags
@@ -119,8 +119,8 @@ module Akeyless
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
+        :'skip_dry_run' => :'skip-dry-run',
         :'skip_ssl' => :'skip-ssl',
-        :'skip_dry_run' => :'skip_dry_run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -158,8 +158,8 @@ module Akeyless
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'skip_ssl' => :'Boolean',
-        :'skip_dry_run' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',
@@ -271,14 +271,14 @@ module Akeyless
         self.producer_encryption_key_name = attributes[:'producer_encryption_key_name']
       end
 
+      if attributes.key?(:'skip_dry_run')
+        self.skip_dry_run = attributes[:'skip_dry_run']
+      end
+
       if attributes.key?(:'skip_ssl')
         self.skip_ssl = attributes[:'skip_ssl']
       else
         self.skip_ssl = true
-      end
-
-      if attributes.key?(:'skip_dry_run')
-        self.skip_dry_run = attributes[:'skip_dry_run']
       end
 
       if attributes.key?(:'tags')
@@ -364,8 +364,8 @@ module Akeyless
           output_rule == o.output_rule &&
           password_length == o.password_length &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
-          skip_ssl == o.skip_ssl &&
           skip_dry_run == o.skip_dry_run &&
+          skip_ssl == o.skip_ssl &&
           tags == o.tags &&
           target_name == o.target_name &&
           token == o.token &&
@@ -386,7 +386,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, chef_orgs, chef_server_key, chef_server_url, chef_server_username, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_ssl, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [ara_enabled, chef_orgs, chef_server_key, chef_server_url, chef_server_username, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_dry_run, skip_ssl, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

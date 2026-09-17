@@ -45,7 +45,7 @@
 | **secure_access_web** | **Boolean** | Enable Web Secure Remote Access | [optional][default to false] |
 | **secure_access_web_browsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
 | **secure_access_web_proxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) | [optional][default to false] |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **storage_account_key_name** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |

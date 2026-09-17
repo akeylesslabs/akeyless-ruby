@@ -54,7 +54,7 @@ module Akeyless
     # The length of the password to be generated
     attr_accessor :password_length
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     attr_accessor :target_name
@@ -94,7 +94,7 @@ module Akeyless
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -127,7 +127,7 @@ module Akeyless
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',

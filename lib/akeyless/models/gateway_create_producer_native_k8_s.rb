@@ -115,7 +115,7 @@ module Akeyless
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -172,7 +172,7 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -223,7 +223,7 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

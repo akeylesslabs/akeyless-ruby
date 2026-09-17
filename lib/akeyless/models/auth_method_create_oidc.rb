@@ -52,6 +52,9 @@ module Akeyless
     # if true: enforce role-association must include sub claims
     attr_accessor :force_sub_claims
 
+    # Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode
+    attr_accessor :gateway_url
+
     # A CIDR whitelist with the GW IPs that the access is restricted to
     attr_accessor :gw_bound_ips
 
@@ -103,6 +106,7 @@ module Akeyless
         :'description' => :'description',
         :'expiration_event_in' => :'expiration-event-in',
         :'force_sub_claims' => :'force-sub-claims',
+        :'gateway_url' => :'gateway-url',
         :'gw_bound_ips' => :'gw-bound-ips',
         :'issuer' => :'issuer',
         :'json' => :'json',
@@ -138,6 +142,7 @@ module Akeyless
         :'description' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'force_sub_claims' => :'Boolean',
+        :'gateway_url' => :'String',
         :'gw_bound_ips' => :'Array<String>',
         :'issuer' => :'String',
         :'json' => :'Boolean',
@@ -232,6 +237,10 @@ module Akeyless
 
       if attributes.key?(:'force_sub_claims')
         self.force_sub_claims = attributes[:'force_sub_claims']
+      end
+
+      if attributes.key?(:'gateway_url')
+        self.gateway_url = attributes[:'gateway_url']
       end
 
       if attributes.key?(:'gw_bound_ips')
@@ -341,6 +350,7 @@ module Akeyless
           description == o.description &&
           expiration_event_in == o.expiration_event_in &&
           force_sub_claims == o.force_sub_claims &&
+          gateway_url == o.gateway_url &&
           gw_bound_ips == o.gw_bound_ips &&
           issuer == o.issuer &&
           json == o.json &&
@@ -364,7 +374,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_redirect_uri, audience, audit_logs_claims, bound_ips, client_id, client_secret, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, issuer, json, jwt_ttl, name, product_type, required_scopes, required_scopes_prefix, subclaims_delimiters, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_client_type, allowed_redirect_uri, audience, audit_logs_claims, bound_ips, client_id, client_secret, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, issuer, json, jwt_ttl, name, product_type, required_scopes, required_scopes_prefix, subclaims_delimiters, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

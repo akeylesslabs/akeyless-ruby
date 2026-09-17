@@ -110,7 +110,7 @@ module Akeyless
     # The rotator type. options: [target/service-account-rotator]
     attr_accessor :rotator_type
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Authentication token (see `/auth` and `/configure`)
@@ -166,7 +166,7 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -217,7 +217,7 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',

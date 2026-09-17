@@ -34,7 +34,7 @@
 | **secure_access_host** | **Array&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) | [optional] |
 | **secure_access_rd_gateway_server** | **String** | RD Gateway server | [optional] |
 | **secure_access_rdp_domain** | **String** | Required when the Dynamic Secret is used for a domain user | [optional] |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target** | **Array&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times | [optional] |
 | **target_name** | **String** | Target name | [optional] |

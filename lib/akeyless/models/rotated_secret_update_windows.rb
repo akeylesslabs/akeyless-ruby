@@ -133,7 +133,7 @@ module Akeyless
     # Override the RDP Domain username
     attr_accessor :secure_access_rdp_user
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
@@ -200,7 +200,7 @@ module Akeyless
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'target' => :'target',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -260,7 +260,7 @@ module Akeyless
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'target' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',

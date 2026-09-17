@@ -69,7 +69,7 @@ module Akeyless
     # URL of an endpoint that implements /sync/rotate method, for example https://webhook.example.com/sync/rotate
     attr_accessor :rotate_sync_url
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -108,7 +108,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'revoke_sync_url' => :'revoke-sync-url',
         :'rotate_sync_url' => :'rotate-sync-url',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'timeout_sec' => :'timeout-sec',
         :'token' => :'token',
@@ -143,7 +143,7 @@ module Akeyless
         :'producer_encryption_key_name' => :'String',
         :'revoke_sync_url' => :'String',
         :'rotate_sync_url' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'timeout_sec' => :'Integer',
         :'token' => :'String',

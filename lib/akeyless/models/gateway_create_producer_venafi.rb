@@ -70,7 +70,7 @@ module Akeyless
     # Signer key name
     attr_accessor :signer_key_name
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Store private key
@@ -133,7 +133,7 @@ module Akeyless
         :'root_first_in_chain' => :'root-first-in-chain',
         :'sign_using_akeyless_pki' => :'sign-using-akeyless-pki',
         :'signer_key_name' => :'signer-key-name',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'store_private_key' => :'store-private-key',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -176,7 +176,7 @@ module Akeyless
         :'root_first_in_chain' => :'Boolean',
         :'sign_using_akeyless_pki' => :'Boolean',
         :'signer_key_name' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'store_private_key' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',

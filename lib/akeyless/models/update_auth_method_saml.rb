@@ -43,6 +43,9 @@ module Akeyless
     # if true: enforce role-association must include sub claims
     attr_accessor :force_sub_claims
 
+    # Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode
+    attr_accessor :gateway_url
+
     # A CIDR whitelist with the GW IPs that the access is restricted to
     attr_accessor :gw_bound_ips
 
@@ -94,6 +97,7 @@ module Akeyless
         :'description' => :'description',
         :'expiration_event_in' => :'expiration-event-in',
         :'force_sub_claims' => :'force-sub-claims',
+        :'gateway_url' => :'gateway-url',
         :'gw_bound_ips' => :'gw-bound-ips',
         :'idp_metadata_url' => :'idp-metadata-url',
         :'idp_metadata_xml_data' => :'idp-metadata-xml-data',
@@ -127,6 +131,7 @@ module Akeyless
         :'description' => :'String',
         :'expiration_event_in' => :'Array<String>',
         :'force_sub_claims' => :'Boolean',
+        :'gateway_url' => :'String',
         :'gw_bound_ips' => :'Array<String>',
         :'idp_metadata_url' => :'String',
         :'idp_metadata_xml_data' => :'String',
@@ -210,6 +215,10 @@ module Akeyless
 
       if attributes.key?(:'force_sub_claims')
         self.force_sub_claims = attributes[:'force_sub_claims']
+      end
+
+      if attributes.key?(:'gateway_url')
+        self.gateway_url = attributes[:'gateway_url']
       end
 
       if attributes.key?(:'gw_bound_ips')
@@ -318,6 +327,7 @@ module Akeyless
           description == o.description &&
           expiration_event_in == o.expiration_event_in &&
           force_sub_claims == o.force_sub_claims &&
+          gateway_url == o.gateway_url &&
           gw_bound_ips == o.gw_bound_ips &&
           idp_metadata_url == o.idp_metadata_url &&
           idp_metadata_xml_data == o.idp_metadata_xml_data &&
@@ -342,7 +352,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, new_name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
+      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, new_name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

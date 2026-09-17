@@ -38,6 +38,9 @@ module Akeyless
 
     attr_accessor :email_pass_access_rules
 
+    # EnforceClientType mirrors the SaaS Auth client-type enforcement decision (GwAuthEligibilityReply.EnforceClientType) captured online, so Gateway-owned offline auth and cached-creds usage honor the same enforce flag SaaS uses (see base_access.AuthenticateClientType). When false, client-type mismatches are not rejected.
+    attr_accessor :enforce_client_type
+
     # if true the role associated with this auth method must include sub claims
     attr_accessor :force_sub_claims
 
@@ -89,6 +92,7 @@ module Akeyless
         :'cert_access_rules' => :'cert_access_rules',
         :'cidr_whitelist' => :'cidr_whitelist',
         :'email_pass_access_rules' => :'email_pass_access_rules',
+        :'enforce_client_type' => :'enforce_client_type',
         :'force_sub_claims' => :'force_sub_claims',
         :'gcp_access_rules' => :'gcp_access_rules',
         :'gw_cidr_whitelist' => :'gw_cidr_whitelist',
@@ -128,6 +132,7 @@ module Akeyless
         :'cert_access_rules' => :'CertAccessRules',
         :'cidr_whitelist' => :'String',
         :'email_pass_access_rules' => :'EmailPassAccessRules',
+        :'enforce_client_type' => :'Boolean',
         :'force_sub_claims' => :'Boolean',
         :'gcp_access_rules' => :'GCPAccessRules',
         :'gw_cidr_whitelist' => :'String',
@@ -215,6 +220,10 @@ module Akeyless
 
       if attributes.key?(:'email_pass_access_rules')
         self.email_pass_access_rules = attributes[:'email_pass_access_rules']
+      end
+
+      if attributes.key?(:'enforce_client_type')
+        self.enforce_client_type = attributes[:'enforce_client_type']
       end
 
       if attributes.key?(:'force_sub_claims')
@@ -323,6 +332,7 @@ module Akeyless
           cert_access_rules == o.cert_access_rules &&
           cidr_whitelist == o.cidr_whitelist &&
           email_pass_access_rules == o.email_pass_access_rules &&
+          enforce_client_type == o.enforce_client_type &&
           force_sub_claims == o.force_sub_claims &&
           gcp_access_rules == o.gcp_access_rules &&
           gw_cidr_whitelist == o.gw_cidr_whitelist &&
@@ -351,7 +361,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, access_id_alias, alicloud_access_rules, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, uid_expiration_events, universal_identity_access_rules].hash
+      [access_expires, access_id_alias, alicloud_access_rules, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, enforce_client_type, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, uid_expiration_events, universal_identity_access_rules].hash
     end
 
     # Builds the object from hash

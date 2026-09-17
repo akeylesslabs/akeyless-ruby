@@ -96,7 +96,7 @@ module Akeyless
     # The rotator type. options: [target/password/token/hec-token]
     attr_accessor :rotator_type
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Current Splunk authentication token to store (relevant only for rotator-type=token). If not provided, a new token will be created in Splunk.
@@ -159,7 +159,7 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotator_type' => :'rotator-type',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'splunk_token' => :'splunk-token',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -209,7 +209,7 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotator_type' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'splunk_token' => :'String',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',

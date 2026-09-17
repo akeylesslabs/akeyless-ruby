@@ -143,7 +143,7 @@ module Akeyless
     # Web-Proxy via Akeyless's Secure Remote Access (SRA)
     attr_accessor :secure_access_web_proxy
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account)
@@ -216,7 +216,7 @@ module Akeyless
         :'secure_access_web' => :'secure-access-web',
         :'secure_access_web_browsing' => :'secure-access-web-browsing',
         :'secure_access_web_proxy' => :'secure-access-web-proxy',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'storage_account_key_name' => :'storage-account-key-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -280,7 +280,7 @@ module Akeyless
         :'secure_access_web' => :'Boolean',
         :'secure_access_web_browsing' => :'Boolean',
         :'secure_access_web_proxy' => :'Boolean',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'storage_account_key_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',

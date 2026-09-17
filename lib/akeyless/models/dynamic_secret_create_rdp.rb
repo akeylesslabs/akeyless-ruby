@@ -117,7 +117,7 @@ module Akeyless
     # Override the RDP Domain username
     attr_accessor :secure_access_rdp_user
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -189,7 +189,7 @@ module Akeyless
         :'secure_access_rd_gateway_server' => :'secure-access-rd-gateway-server',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
         :'secure_access_rdp_user' => :'secure-access-rdp-user',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target' => :'target',
         :'target_name' => :'target-name',
@@ -246,7 +246,7 @@ module Akeyless
         :'secure_access_rd_gateway_server' => :'String',
         :'secure_access_rdp_domain' => :'String',
         :'secure_access_rdp_user' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target' => :'Array<String>',
         :'target_name' => :'String',

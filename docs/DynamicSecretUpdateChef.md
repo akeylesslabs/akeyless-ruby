@@ -22,8 +22,8 @@
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **password_length** | **String** | The length of the password to be generated | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **skip_ssl** | **Boolean** | Skip SSL | [optional][default to true] |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -58,8 +58,8 @@ instance = Akeyless::DynamicSecretUpdateChef.new(
   output_rule: null,
   password_length: null,
   producer_encryption_key_name: null,
-  skip_ssl: null,
   skip_dry_run: null,
+  skip_ssl: null,
   tags: null,
   target_name: null,
   token: null,

@@ -37,11 +37,17 @@ module Akeyless
 
     attr_accessor :required_mfa
 
+    # SubClaims carries the IdP-verified RBAC claims for offline placeholder creds (empty UAM JWT); parsed from the ID token at callback time.
+    attr_accessor :sub_claims
+
     # Credentials tmp token
     attr_accessor :token
 
     # Temporary credentials for accessing the UAM service
     attr_accessor :uam_creds
+
+    # UniqueId is set only on Gateway-minted offline placeholder creds (empty UAM JWT), carrying the IdP unique identifier so usage-time RBAC can resolve identity.
+    attr_accessor :unique_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -54,8 +60,10 @@ module Akeyless
         :'need_mfa_app_first_config' => :'need_mfa_app_first_config',
         :'recovery_key_id' => :'recovery_key_id',
         :'required_mfa' => :'required_mfa',
+        :'sub_claims' => :'sub_claims',
         :'token' => :'token',
-        :'uam_creds' => :'uam_creds'
+        :'uam_creds' => :'uam_creds',
+        :'unique_id' => :'unique_id'
       }
     end
 
@@ -75,8 +83,10 @@ module Akeyless
         :'need_mfa_app_first_config' => :'Boolean',
         :'recovery_key_id' => :'String',
         :'required_mfa' => :'String',
+        :'sub_claims' => :'Hash<String, Array<String>>',
         :'token' => :'String',
-        :'uam_creds' => :'String'
+        :'uam_creds' => :'String',
+        :'unique_id' => :'String'
       }
     end
 
@@ -133,12 +143,22 @@ module Akeyless
         self.required_mfa = attributes[:'required_mfa']
       end
 
+      if attributes.key?(:'sub_claims')
+        if (value = attributes[:'sub_claims']).is_a?(Hash)
+          self.sub_claims = value
+        end
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
 
       if attributes.key?(:'uam_creds')
         self.uam_creds = attributes[:'uam_creds']
+      end
+
+      if attributes.key?(:'unique_id')
+        self.unique_id = attributes[:'unique_id']
       end
     end
 
@@ -170,8 +190,10 @@ module Akeyless
           need_mfa_app_first_config == o.need_mfa_app_first_config &&
           recovery_key_id == o.recovery_key_id &&
           required_mfa == o.required_mfa &&
+          sub_claims == o.sub_claims &&
           token == o.token &&
-          uam_creds == o.uam_creds
+          uam_creds == o.uam_creds &&
+          unique_id == o.unique_id
     end
 
     # @see the `==` method
@@ -183,7 +205,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, auth_creds, csrf_token, expiry, kfm_creds, need_mfa_app_first_config, recovery_key_id, required_mfa, token, uam_creds].hash
+      [access_id, auth_creds, csrf_token, expiry, kfm_creds, need_mfa_app_first_config, recovery_key_id, required_mfa, sub_claims, token, uam_creds, unique_id].hash
     end
 
     # Builds the object from hash

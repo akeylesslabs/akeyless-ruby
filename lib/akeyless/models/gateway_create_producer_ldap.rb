@@ -102,7 +102,7 @@ module Akeyless
     # Required when the Dynamic Secret is used for a domain user
     attr_accessor :secure_access_rdp_domain
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -175,7 +175,7 @@ module Akeyless
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_rd_gateway_server' => :'secure-access-rd-gateway-server',
         :'secure_access_rdp_domain' => :'secure-access-rdp-domain',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target' => :'target',
         :'target_name' => :'target-name',
@@ -229,7 +229,7 @@ module Akeyless
         :'secure_access_host' => :'Array<String>',
         :'secure_access_rd_gateway_server' => :'String',
         :'secure_access_rdp_domain' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target' => :'Array<String>',
         :'target_name' => :'String',

@@ -31,7 +31,7 @@
 | **rotation_interval** | **String** |  | [optional] |
 | **rotation_statement** | **String** | Snowflake rotation statement | [optional] |
 | **rotator_type** | **String** | The rotator type. options: [target/password/key] |  |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | The target name to associate |  |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |

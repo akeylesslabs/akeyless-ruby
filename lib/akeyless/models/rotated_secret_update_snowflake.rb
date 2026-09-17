@@ -101,7 +101,7 @@ module Akeyless
     # Snowflake rotation statement
     attr_accessor :rotation_statement
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Authentication token (see `/auth` and `/configure`)
@@ -154,7 +154,7 @@ module Akeyless
         :'rotation_hour' => :'rotation-hour',
         :'rotation_interval' => :'rotation-interval',
         :'rotation_statement' => :'rotation-statement',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -202,7 +202,7 @@ module Akeyless
         :'rotation_hour' => :'Integer',
         :'rotation_interval' => :'String',
         :'rotation_statement' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',

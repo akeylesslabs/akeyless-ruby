@@ -43,7 +43,7 @@ module Akeyless
     # Revoke All Temp Creds
     attr_accessor :revoke_all
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Soft Delete
@@ -70,7 +70,7 @@ module Akeyless
         :'name' => :'name',
         :'output_rule' => :'output-rule',
         :'revoke_all' => :'revoke-all',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'soft_delete' => :'soft-delete',
         :'tmp_creds_id' => :'tmp-creds-id',
         :'token' => :'token',
@@ -95,7 +95,7 @@ module Akeyless
         :'name' => :'String',
         :'output_rule' => :'Array<String>',
         :'revoke_all' => :'Boolean',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'soft_delete' => :'Boolean',
         :'tmp_creds_id' => :'String',
         :'token' => :'String',

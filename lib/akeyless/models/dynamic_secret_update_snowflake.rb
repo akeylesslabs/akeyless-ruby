@@ -81,7 +81,7 @@ module Akeyless
     # User role
     attr_accessor :role
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Add tags attached to this object
@@ -138,7 +138,7 @@ module Akeyless
         :'private_key' => :'private-key',
         :'private_key_passphrase' => :'private-key-passphrase',
         :'role' => :'role',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
         :'token' => :'token',
@@ -182,7 +182,7 @@ module Akeyless
         :'private_key' => :'String',
         :'private_key_passphrase' => :'String',
         :'role' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
         :'token' => :'String',

@@ -25,7 +25,7 @@
 | **private_key** | **String** | RSA Private key (base64 encoded) | [optional] |
 | **private_key_passphrase** | **String** | The Private key passphrase | [optional] |
 | **role** | **String** | User role | [optional] |
-| **skip_dry_run** | **String** | If set, dry-run will be skipped | [optional] |
+| **skip_dry_run** | **Boolean** | If set, dry-run will be skipped [true/false] | [optional] |
 | **tags** | **Array&lt;String&gt;** | Add tags attached to this object | [optional] |
 | **target_name** | **String** | Target name | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |

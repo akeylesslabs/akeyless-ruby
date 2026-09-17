@@ -128,7 +128,7 @@ module Akeyless
     # Enable/Disable secure remote access [true/false]
     attr_accessor :secure_access_enable
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Authentication token (see `/auth` and `/configure`)
@@ -190,7 +190,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_enable' => :'secure-access-enable',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'use_capital_letters' => :'use-capital-letters',
@@ -247,7 +247,7 @@ module Akeyless
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_enable' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'use_capital_letters' => :'String',

@@ -70,7 +70,7 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Enable/Disable SSL [true/false]
@@ -126,7 +126,7 @@ module Akeyless
         :'output_rule' => :'output-rule',
         :'password_length' => :'password-length',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'ssl' => :'ssl',
         :'ssl_certificate' => :'ssl-certificate',
         :'tags' => :'tags',
@@ -167,7 +167,7 @@ module Akeyless
         :'output_rule' => :'Array<String>',
         :'password_length' => :'String',
         :'producer_encryption_key_name' => :'String',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'ssl' => :'Boolean',
         :'ssl_certificate' => :'String',
         :'tags' => :'Array<String>',

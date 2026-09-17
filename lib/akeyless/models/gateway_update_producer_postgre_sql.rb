@@ -100,7 +100,7 @@ module Akeyless
     # Enable Web Secure Remote Access
     attr_accessor :secure_access_web
 
-    # If set, dry-run will be skipped
+    # If set, dry-run will be skipped [true/false]
     attr_accessor :skip_dry_run
 
     # Enable/Disable SSL [true/false]
@@ -163,7 +163,7 @@ module Akeyless
         :'secure_access_enable' => :'secure-access-enable',
         :'secure_access_host' => :'secure-access-host',
         :'secure_access_web' => :'secure-access-web',
-        :'skip_dry_run' => :'skip_dry_run',
+        :'skip_dry_run' => :'skip-dry-run',
         :'ssl' => :'ssl',
         :'tags' => :'tags',
         :'target_name' => :'target-name',
@@ -213,7 +213,7 @@ module Akeyless
         :'secure_access_enable' => :'String',
         :'secure_access_host' => :'Array<String>',
         :'secure_access_web' => :'Boolean',
-        :'skip_dry_run' => :'String',
+        :'skip_dry_run' => :'Boolean',
         :'ssl' => :'Boolean',
         :'tags' => :'Array<String>',
         :'target_name' => :'String',
