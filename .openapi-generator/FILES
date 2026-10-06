@@ -2575,11 +2575,4 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
-spec/models/client_event_output_spec.rb
-spec/models/client_event_spec.rb
-spec/models/generate_intermediate_ca_output_spec.rb
-spec/models/generate_intermediate_ca_spec.rb
-spec/models/injector_certificate_event_spec.rb
-spec/models/rotated_secret_create_okta_spec.rb
-spec/models/rotated_secret_update_okta_spec.rb
 spec/spec_helper.rb
