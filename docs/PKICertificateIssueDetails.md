@@ -47,6 +47,8 @@
 | **province** | **Array&lt;String&gt;** |  | [optional] |
 | **renew_before_expiration_in_days** | **Integer** |  | [optional] |
 | **require_cn** | **Boolean** |  | [optional] |
+| **scep_challenge_mode** | **String** | ScepChallengeMode is the SCEP challenge mode. Stage 1 supports only \&quot;static\&quot;. | [optional] |
+| **scep_enabled** | **Boolean** | ScepEnabled turns on SCEP enrollment for this dedicated PKI issuer. | [optional] |
 | **server_flag** | **Boolean** |  | [optional] |
 | **split_certificate_chain** | **Boolean** | SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain. | [optional] |
 | **street_address** | **Array&lt;String&gt;** |  | [optional] |
@@ -100,6 +102,8 @@ instance = Akeyless::PKICertificateIssueDetails.new(
   province: null,
   renew_before_expiration_in_days: null,
   require_cn: null,
+  scep_challenge_mode: null,
+  scep_enabled: null,
   server_flag: null,
   split_certificate_chain: null,
   street_address: null

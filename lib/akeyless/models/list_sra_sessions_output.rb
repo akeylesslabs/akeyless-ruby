@@ -15,10 +15,13 @@ require 'time'
 
 module Akeyless
   class ListSraSessionsOutput
+    # Gateways whose sessions the caller may see in full. Omitted when the request asks for own sessions only, and when it carries a pagination token
     attr_accessor :allowed_gateways
 
+    # Cursor for the following page, sent back as the pagination token. Empty when the result set is exhausted, so stop when it is empty rather than waiting for the field to disappear
     attr_accessor :next_page
 
+    # The requested page of sessions, newest first by start time then session id
     attr_accessor :sessions
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -30,6 +30,9 @@ module Akeyless
     # Item name
     attr_accessor :name
 
+    # Requested access TTL in minutes. Allowed range is 1 to 1440. Defaults to 60 when omitted.
+    attr_accessor :requested_ttl
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -47,6 +50,7 @@ module Akeyless
         :'description' => :'description',
         :'json' => :'json',
         :'name' => :'name',
+        :'requested_ttl' => :'requested_ttl',
         :'token' => :'token',
         :'type' => :'type',
         :'uid_token' => :'uid-token'
@@ -66,6 +70,7 @@ module Akeyless
         :'description' => :'String',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'requested_ttl' => :'Integer',
         :'token' => :'String',
         :'type' => :'String',
         :'uid_token' => :'String'
@@ -119,6 +124,10 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'requested_ttl')
+        self.requested_ttl = attributes[:'requested_ttl']
       end
 
       if attributes.key?(:'token')
@@ -176,6 +185,7 @@ module Akeyless
           description == o.description &&
           json == o.json &&
           name == o.name &&
+          requested_ttl == o.requested_ttl &&
           token == o.token &&
           type == o.type &&
           uid_token == o.uid_token
@@ -190,7 +200,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [capability, comment, description, json, name, token, type, uid_token].hash
+      [capability, comment, description, json, name, requested_ttl, token, type, uid_token].hash
     end
 
     # Builds the object from hash

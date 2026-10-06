@@ -84,6 +84,9 @@ module Akeyless
     # If set, the cert issuer will support the acme protocol
     attr_accessor :enable_acme
 
+    # If set, the cert issuer will support the scep protocol
+    attr_accessor :enable_scep
+
     # How many days before the expiration of the certificate would you like to be notified.
     attr_accessor :expiration_event_in
 
@@ -144,6 +147,12 @@ module Akeyless
     # List of the existent tags that will be removed from this item
     attr_accessor :rm_tag
 
+    # SCEP challenge type. Only static is supported in this stage
+    attr_accessor :scep_challenge_type
+
+    # SCEP static challenge password. Request-only; never returned by Describe
+    attr_accessor :scep_password
+
     # Number of days before expiration to renew certificates
     attr_accessor :scheduled_renew
 
@@ -194,6 +203,7 @@ module Akeyless
         :'destination_path' => :'destination-path',
         :'disable_wildcards' => :'disable-wildcards',
         :'enable_acme' => :'enable-acme',
+        :'enable_scep' => :'enable-scep',
         :'expiration_event_in' => :'expiration-event-in',
         :'gw_cluster_url' => :'gw-cluster-url',
         :'is_ca' => :'is-ca',
@@ -214,6 +224,8 @@ module Akeyless
         :'protect_certificates' => :'protect-certificates',
         :'province' => :'province',
         :'rm_tag' => :'rm-tag',
+        :'scep_challenge_type' => :'scep-challenge-type',
+        :'scep_password' => :'scep-password',
         :'scheduled_renew' => :'scheduled-renew',
         :'server_flag' => :'server-flag',
         :'signer_key_name' => :'signer-key-name',
@@ -256,6 +268,7 @@ module Akeyless
         :'destination_path' => :'String',
         :'disable_wildcards' => :'Boolean',
         :'enable_acme' => :'Boolean',
+        :'enable_scep' => :'Boolean',
         :'expiration_event_in' => :'Array<String>',
         :'gw_cluster_url' => :'String',
         :'is_ca' => :'Boolean',
@@ -276,6 +289,8 @@ module Akeyless
         :'protect_certificates' => :'Boolean',
         :'province' => :'String',
         :'rm_tag' => :'Array<String>',
+        :'scep_challenge_type' => :'String',
+        :'scep_password' => :'String',
         :'scheduled_renew' => :'Integer',
         :'server_flag' => :'Boolean',
         :'signer_key_name' => :'String',
@@ -404,6 +419,10 @@ module Akeyless
         self.enable_acme = attributes[:'enable_acme']
       end
 
+      if attributes.key?(:'enable_scep')
+        self.enable_scep = attributes[:'enable_scep']
+      end
+
       if attributes.key?(:'expiration_event_in')
         if (value = attributes[:'expiration_event_in']).is_a?(Array)
           self.expiration_event_in = value
@@ -498,6 +517,14 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'scep_challenge_type')
+        self.scep_challenge_type = attributes[:'scep_challenge_type']
+      end
+
+      if attributes.key?(:'scep_password')
+        self.scep_password = attributes[:'scep_password']
+      end
+
       if attributes.key?(:'scheduled_renew')
         self.scheduled_renew = attributes[:'scheduled_renew']
       end
@@ -586,6 +613,7 @@ module Akeyless
           destination_path == o.destination_path &&
           disable_wildcards == o.disable_wildcards &&
           enable_acme == o.enable_acme &&
+          enable_scep == o.enable_scep &&
           expiration_event_in == o.expiration_event_in &&
           gw_cluster_url == o.gw_cluster_url &&
           is_ca == o.is_ca &&
@@ -606,6 +634,8 @@ module Akeyless
           protect_certificates == o.protect_certificates &&
           province == o.province &&
           rm_tag == o.rm_tag &&
+          scep_challenge_type == o.scep_challenge_type &&
+          scep_password == o.scep_password &&
           scheduled_renew == o.scheduled_renew &&
           server_flag == o.server_flag &&
           signer_key_name == o.signer_key_name &&
@@ -625,7 +655,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, basic_constraints, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scheduled_renew, server_flag, signer_key_name, split_certificate_chain, street_address, token, ttl, uid_token].hash
+      [add_tag, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew, basic_constraints, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, critical_key_usage, delete_protection, description, destination_path, disable_wildcards, enable_acme, enable_scep, expiration_event_in, gw_cluster_url, is_ca, item_custom_fields, json, key_usage, locality, max_path_len, metadata, name, new_name, not_enforce_hostnames, not_require_cn, ocsp_ttl, organizational_units, organizations, postal_code, protect_certificates, province, rm_tag, scep_challenge_type, scep_password, scheduled_renew, server_flag, signer_key_name, split_certificate_chain, street_address, token, ttl, uid_token].hash
     end
 
     # Builds the object from hash

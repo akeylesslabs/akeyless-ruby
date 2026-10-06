@@ -35,6 +35,7 @@
 | **item_targets_assoc** | [**Array&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  | [optional] |
 | **item_type** | **String** |  | [optional] |
 | **item_versions** | [**Array&lt;ItemVersion&gt;**](ItemVersion.md) |  | [optional] |
+| **last_access_request_status** | **String** |  | [optional] |
 | **last_rotation_date** | **Time** |  | [optional] |
 | **last_version** | **Integer** |  | [optional] |
 | **linked_details** | [**LinkedDetails**](LinkedDetails.md) |  | [optional] |
@@ -87,6 +88,7 @@ instance = Akeyless::Item.new(
   item_targets_assoc: null,
   item_type: null,
   item_versions: null,
+  last_access_request_status: null,
   last_rotation_date: null,
   last_version: null,
   linked_details: null,

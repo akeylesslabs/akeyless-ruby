@@ -109,6 +109,12 @@ module Akeyless
 
     attr_accessor :require_cn
 
+    # ScepChallengeMode is the SCEP challenge mode. Stage 1 supports only \"static\".
+    attr_accessor :scep_challenge_mode
+
+    # ScepEnabled turns on SCEP enrollment for this dedicated PKI issuer.
+    attr_accessor :scep_enabled
+
     attr_accessor :server_flag
 
     # SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain.
@@ -162,6 +168,8 @@ module Akeyless
         :'province' => :'province',
         :'renew_before_expiration_in_days' => :'renew_before_expiration_in_days',
         :'require_cn' => :'require_cn',
+        :'scep_challenge_mode' => :'scep_challenge_mode',
+        :'scep_enabled' => :'scep_enabled',
         :'server_flag' => :'server_flag',
         :'split_certificate_chain' => :'split_certificate_chain',
         :'street_address' => :'street_address'
@@ -219,6 +227,8 @@ module Akeyless
         :'province' => :'Array<String>',
         :'renew_before_expiration_in_days' => :'Integer',
         :'require_cn' => :'Boolean',
+        :'scep_challenge_mode' => :'String',
+        :'scep_enabled' => :'Boolean',
         :'server_flag' => :'Boolean',
         :'split_certificate_chain' => :'Boolean',
         :'street_address' => :'Array<String>'
@@ -442,6 +452,14 @@ module Akeyless
         self.require_cn = attributes[:'require_cn']
       end
 
+      if attributes.key?(:'scep_challenge_mode')
+        self.scep_challenge_mode = attributes[:'scep_challenge_mode']
+      end
+
+      if attributes.key?(:'scep_enabled')
+        self.scep_enabled = attributes[:'scep_enabled']
+      end
+
       if attributes.key?(:'server_flag')
         self.server_flag = attributes[:'server_flag']
       end
@@ -520,6 +538,8 @@ module Akeyless
           province == o.province &&
           renew_before_expiration_in_days == o.renew_before_expiration_in_days &&
           require_cn == o.require_cn &&
+          scep_challenge_mode == o.scep_challenge_mode &&
+          scep_enabled == o.scep_enabled &&
           server_flag == o.server_flag &&
           split_certificate_chain == o.split_certificate_chain &&
           street_address == o.street_address
@@ -534,7 +554,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints, basic_constraints_critical, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, server_flag, split_certificate_chain, street_address].hash
+      [acme_enabled, allow_any_name, allow_copy_ext_from_csr, allow_subdomains, allowed_domains_list, allowed_extra_extensions, allowed_ip_sans, allowed_uri_sans, auto_renew_certificate, basic_constraints, basic_constraints_critical, basic_constraints_valid_for_non_ca, certificate_authority_mode, client_flag, code_signing_flag, country, create_private_crl, create_private_ocsp, create_public_crl, create_public_ocsp, destination_path, disable_wildcards, enforce_hostnames, expiration_events, gw_cluster_id, gw_cluster_url, is_ca, key_bits, key_type, key_usage_list, locality, max_path_len, non_critical_key_usage, not_before_duration, ocsp_next_update, organization_list, organization_unit_list, pki_issuer_type, postal_code, protect_generated_certificates, province, renew_before_expiration_in_days, require_cn, scep_challenge_mode, scep_enabled, server_flag, split_certificate_chain, street_address].hash
     end
 
     # Builds the object from hash

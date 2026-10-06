@@ -25,8 +25,20 @@ module Akeyless
     # Description of the object
     attr_accessor :description
 
+    # Fixed wait after TXT publish (e.g. 30s, 2m). If omitted with pre-check on, no extra sleep (polling only). If omitted with --dns-skip-precheck, gateway uses 30s. DNS challenge only
+    attr_accessor :dns_propagation_wait
+
+    # Custom DNS resolvers (ip:port) for DNS-01. Repeat for multiple. If omitted, Lego uses /etc/resolv.conf or Google Public DNS. DNS challenge only
+    attr_accessor :dns_resolvers
+
+    # Skip DNS TXT pre-check before CA validation. If --dns-propagation-wait is omitted and this flag is set, gateway waits 30s before CA validation. DNS challenge only
+    attr_accessor :dns_skip_precheck
+
     # Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare
     attr_accessor :dns_target_creds
+
+    # Per-query DNS lookup timeout during pre-check (e.g. 10s), not total poll time. If omitted with pre-check on, Lego library default applies (10s per query on Linux). Ignored when --dns-skip-precheck is set. DNS challenge only
+    attr_accessor :dns_timeout
 
     # Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare
     attr_accessor :dns_zone
@@ -88,7 +100,11 @@ module Akeyless
         :'acme_challenge' => :'acme-challenge',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
+        :'dns_propagation_wait' => :'dns-propagation-wait',
+        :'dns_resolvers' => :'dns-resolvers',
+        :'dns_skip_precheck' => :'dns-skip-precheck',
         :'dns_target_creds' => :'dns-target-creds',
+        :'dns_timeout' => :'dns-timeout',
         :'dns_zone' => :'dns-zone',
         :'eab_hmac_key' => :'eab-hmac-key',
         :'eab_key_id' => :'eab-key-id',
@@ -121,7 +137,11 @@ module Akeyless
         :'acme_challenge' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
+        :'dns_propagation_wait' => :'String',
+        :'dns_resolvers' => :'Array<String>',
+        :'dns_skip_precheck' => :'Boolean',
         :'dns_target_creds' => :'String',
+        :'dns_timeout' => :'String',
         :'dns_zone' => :'String',
         :'eab_hmac_key' => :'String',
         :'eab_key_id' => :'String',
@@ -178,8 +198,26 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'dns_propagation_wait')
+        self.dns_propagation_wait = attributes[:'dns_propagation_wait']
+      end
+
+      if attributes.key?(:'dns_resolvers')
+        if (value = attributes[:'dns_resolvers']).is_a?(Array)
+          self.dns_resolvers = value
+        end
+      end
+
+      if attributes.key?(:'dns_skip_precheck')
+        self.dns_skip_precheck = attributes[:'dns_skip_precheck']
+      end
+
       if attributes.key?(:'dns_target_creds')
         self.dns_target_creds = attributes[:'dns_target_creds']
+      end
+
+      if attributes.key?(:'dns_timeout')
+        self.dns_timeout = attributes[:'dns_timeout']
       end
 
       if attributes.key?(:'dns_zone')
@@ -298,7 +336,11 @@ module Akeyless
           acme_challenge == o.acme_challenge &&
           delete_protection == o.delete_protection &&
           description == o.description &&
+          dns_propagation_wait == o.dns_propagation_wait &&
+          dns_resolvers == o.dns_resolvers &&
+          dns_skip_precheck == o.dns_skip_precheck &&
           dns_target_creds == o.dns_target_creds &&
+          dns_timeout == o.dns_timeout &&
           dns_zone == o.dns_zone &&
           eab_hmac_key == o.eab_hmac_key &&
           eab_key_id == o.eab_key_id &&
@@ -328,7 +370,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, delete_protection, description, dns_target_creds, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, key, lock_on_read, lock_ttl, max_versions, name, resource_group, rotate_on_unlock, timeout, token, uid_token].hash
+      [acme_challenge, delete_protection, description, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_creds, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, google_trust_url, hosted_zone, json, key, lock_on_read, lock_ttl, max_versions, name, resource_group, rotate_on_unlock, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

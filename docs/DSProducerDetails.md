@@ -205,6 +205,7 @@
 | **ldap_url** | **String** |  | [optional] |
 | **ldap_user_attr** | **String** |  | [optional] |
 | **ldap_user_dn** | **String** |  | [optional] |
+| **ldap_username** | **String** |  | [optional] |
 | **metadata** | **String** |  | [optional] |
 | **mongodb_atlas_api_private_key** | **String** |  | [optional] |
 | **mongodb_atlas_api_public_key** | **String** |  | [optional] |
@@ -510,6 +511,7 @@ instance = Akeyless::DSProducerDetails.new(
   ldap_url: null,
   ldap_user_attr: null,
   ldap_user_dn: null,
+  ldap_username: null,
   metadata: null,
   mongodb_atlas_api_private_key: null,
   mongodb_atlas_api_public_key: null,

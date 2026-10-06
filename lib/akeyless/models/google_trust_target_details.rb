@@ -28,10 +28,22 @@ module Akeyless
     # ACMEChallengeType defines ACME challenge type for Let's Encrypt
     attr_accessor :challenge_type
 
+    # A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+    attr_accessor :dns_propagation_wait
+
+    # Custom recursive DNS resolvers (ip:port) for propagation checks.
+    attr_accessor :dns_resolvers
+
+    # Skip authoritative nameserver propagation pre-check.
+    attr_accessor :dns_skip_precheck
+
     # Name of DNS target (transient field - not stored in DB) Used by CLI to pass DNS target name to SDK for creating target_object_assoc Retrieved from target_object_assoc when reading target Required when ChallengeType is \"dns\"
     attr_accessor :dns_target_name
 
     attr_accessor :dns_target_type
+
+    # A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+    attr_accessor :dns_timeout
 
     # Cloudflare zone identifier Required when DNSTargetType is Cloudflare
     attr_accessor :dns_zone
@@ -64,8 +76,12 @@ module Akeyless
         :'account_url' => :'account_url',
         :'acme_environment' => :'acme_environment',
         :'challenge_type' => :'challenge_type',
+        :'dns_propagation_wait' => :'dns_propagation_wait',
+        :'dns_resolvers' => :'dns_resolvers',
+        :'dns_skip_precheck' => :'dns_skip_precheck',
         :'dns_target_name' => :'dns_target_name',
         :'dns_target_type' => :'dns_target_type',
+        :'dns_timeout' => :'dns_timeout',
         :'dns_zone' => :'dns_zone',
         :'eab_hmac_key' => :'eab_hmac_key',
         :'eab_key_id' => :'eab_key_id',
@@ -89,8 +105,12 @@ module Akeyless
         :'account_url' => :'String',
         :'acme_environment' => :'String',
         :'challenge_type' => :'String',
+        :'dns_propagation_wait' => :'Integer',
+        :'dns_resolvers' => :'Array<String>',
+        :'dns_skip_precheck' => :'Boolean',
         :'dns_target_name' => :'String',
         :'dns_target_type' => :'String',
+        :'dns_timeout' => :'Integer',
         :'dns_zone' => :'String',
         :'eab_hmac_key' => :'String',
         :'eab_key_id' => :'String',
@@ -139,12 +159,30 @@ module Akeyless
         self.challenge_type = attributes[:'challenge_type']
       end
 
+      if attributes.key?(:'dns_propagation_wait')
+        self.dns_propagation_wait = attributes[:'dns_propagation_wait']
+      end
+
+      if attributes.key?(:'dns_resolvers')
+        if (value = attributes[:'dns_resolvers']).is_a?(Array)
+          self.dns_resolvers = value
+        end
+      end
+
+      if attributes.key?(:'dns_skip_precheck')
+        self.dns_skip_precheck = attributes[:'dns_skip_precheck']
+      end
+
       if attributes.key?(:'dns_target_name')
         self.dns_target_name = attributes[:'dns_target_name']
       end
 
       if attributes.key?(:'dns_target_type')
         self.dns_target_type = attributes[:'dns_target_type']
+      end
+
+      if attributes.key?(:'dns_timeout')
+        self.dns_timeout = attributes[:'dns_timeout']
       end
 
       if attributes.key?(:'dns_zone')
@@ -204,8 +242,12 @@ module Akeyless
           account_url == o.account_url &&
           acme_environment == o.acme_environment &&
           challenge_type == o.challenge_type &&
+          dns_propagation_wait == o.dns_propagation_wait &&
+          dns_resolvers == o.dns_resolvers &&
+          dns_skip_precheck == o.dns_skip_precheck &&
           dns_target_name == o.dns_target_name &&
           dns_target_type == o.dns_target_type &&
+          dns_timeout == o.dns_timeout &&
           dns_zone == o.dns_zone &&
           eab_hmac_key == o.eab_hmac_key &&
           eab_key_id == o.eab_key_id &&
@@ -225,7 +267,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_key_pem, account_url, acme_environment, challenge_type, dns_target_name, dns_target_type, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
+      [account_key_pem, account_url, acme_environment, challenge_type, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_name, dns_target_type, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
     end
 
     # Builds the object from hash

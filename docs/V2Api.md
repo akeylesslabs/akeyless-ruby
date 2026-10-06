@@ -49,6 +49,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**calc_password_security_info**](V2Api.md#calc_password_security_info) | **POST** /calc-password-security-info |  |
 | [**certificate_discovery**](V2Api.md#certificate_discovery) | **POST** /certificate-discovery |  |
 | [**change_admin_account_password**](V2Api.md#change_admin_account_password) | **POST** /change-admin-account-password |  |
+| [**client_event**](V2Api.md#client_event) | **POST** /client-event |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
 | [**create_artifactory_target**](V2Api.md#create_artifactory_target) | **POST** /create-artifactory-target |  |
@@ -341,6 +342,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**generate_acme_eab**](V2Api.md#generate_acme_eab) | **POST** /generate-acme-eab |  |
 | [**generate_ca**](V2Api.md#generate_ca) | **POST** /generate-ca |  |
 | [**generate_csr**](V2Api.md#generate_csr) | **POST** /generate-csr |  |
+| [**generate_intermediate_ca**](V2Api.md#generate_intermediate_ca) | **POST** /generate-intermediate-ca |  |
 | [**get_account_logo**](V2Api.md#get_account_logo) | **POST** /get-account-logo |  |
 | [**get_account_settings**](V2Api.md#get_account_settings) | **POST** /get-account-settings |  |
 | [**get_analytics_data**](V2Api.md#get_analytics_data) | **POST** /get-analytics-data |  |
@@ -402,7 +404,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**list_roles**](V2Api.md#list_roles) | **POST** /list-roles |  |
 | [**list_shared_items**](V2Api.md#list_shared_items) | **POST** /list-shared-items |  |
 | [**list_sra_bastions**](V2Api.md#list_sra_bastions) | **POST** /list-sra-bastions |  |
-| [**list_sra_sessions**](V2Api.md#list_sra_sessions) | **POST** /list-sra-sessions |  |
+| [**list_sra_sessions**](V2Api.md#list_sra_sessions) | **POST** /list-sra-sessions | Lists SRA sessions. |
 | [**list_targets**](V2Api.md#list_targets) | **POST** /list-targets |  |
 | [**lock_item**](V2Api.md#lock_item) | **POST** /lock-item |  |
 | [**lock_target**](V2Api.md#lock_target) | **POST** /lock-target |  |
@@ -439,6 +441,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_create_mongodb**](V2Api.md#rotated_secret_create_mongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotated_secret_create_mssql**](V2Api.md#rotated_secret_create_mssql) | **POST** /rotated-secret-create-mssql |  |
 | [**rotated_secret_create_mysql**](V2Api.md#rotated_secret_create_mysql) | **POST** /rotated-secret-create-mysql |  |
+| [**rotated_secret_create_okta**](V2Api.md#rotated_secret_create_okta) | **POST** /rotated-secret-create-okta |  |
 | [**rotated_secret_create_open_ai**](V2Api.md#rotated_secret_create_open_ai) | **POST** /rotated-secret-create-openai |  |
 | [**rotated_secret_create_oracledb**](V2Api.md#rotated_secret_create_oracledb) | **POST** /rotated-secret-create-oracledb |  |
 | [**rotated_secret_create_postgresql**](V2Api.md#rotated_secret_create_postgresql) | **POST** /rotated-secret-create-postgresql |  |
@@ -466,6 +469,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_update_mongodb**](V2Api.md#rotated_secret_update_mongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotated_secret_update_mssql**](V2Api.md#rotated_secret_update_mssql) | **POST** /rotated-secret-update-mssql |  |
 | [**rotated_secret_update_mysql**](V2Api.md#rotated_secret_update_mysql) | **POST** /rotated-secret-update-mysql |  |
+| [**rotated_secret_update_okta**](V2Api.md#rotated_secret_update_okta) | **POST** /rotated-secret-update-okta |  |
 | [**rotated_secret_update_open_ai**](V2Api.md#rotated_secret_update_open_ai) | **POST** /rotated-secret-update-openai |  |
 | [**rotated_secret_update_oracledb**](V2Api.md#rotated_secret_update_oracledb) | **POST** /rotated-secret-update-oracledb |  |
 | [**rotated_secret_update_postgresql**](V2Api.md#rotated_secret_update_postgresql) | **POST** /rotated-secret-update-postgresql |  |
@@ -3444,6 +3448,68 @@ end
 ### Return type
 
 **Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## client_event
+
+> <ClientEventOutput> client_event(client_event)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+client_event = Akeyless::ClientEvent.new # ClientEvent | 
+
+begin
+  
+  result = api_instance.client_event(client_event)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->client_event: #{e}"
+end
+```
+
+#### Using the client_event_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientEventOutput>, Integer, Hash)> client_event_with_http_info(client_event)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.client_event_with_http_info(client_event)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientEventOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->client_event_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **client_event** | [**ClientEvent**](ClientEvent.md) |  |  |
+
+### Return type
+
+[**ClientEventOutput**](ClientEventOutput.md)
 
 ### Authorization
 
@@ -21565,6 +21631,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## generate_intermediate_ca
+
+> <GenerateIntermediateCAOutput> generate_intermediate_ca(generate_intermediate_ca)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+generate_intermediate_ca = Akeyless::GenerateIntermediateCA.new({name: 'name_example'}) # GenerateIntermediateCA | 
+
+begin
+  
+  result = api_instance.generate_intermediate_ca(generate_intermediate_ca)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->generate_intermediate_ca: #{e}"
+end
+```
+
+#### Using the generate_intermediate_ca_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenerateIntermediateCAOutput>, Integer, Hash)> generate_intermediate_ca_with_http_info(generate_intermediate_ca)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.generate_intermediate_ca_with_http_info(generate_intermediate_ca)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenerateIntermediateCAOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->generate_intermediate_ca_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **generate_intermediate_ca** | [**GenerateIntermediateCA**](GenerateIntermediateCA.md) |  |  |
+
+### Return type
+
+[**GenerateIntermediateCAOutput**](GenerateIntermediateCAOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## get_account_logo
 
 > Hash&lt;String, String&gt; get_account_logo
@@ -25382,7 +25510,9 @@ No authorization required
 
 > <ListSraSessionsOutput> list_sra_sessions(list_sra_sessions)
 
+Lists SRA sessions.
 
+Results are returned newest first, ordered by start time, then by session ID. Responses contain up to 1000 sessions.  Pagination: Pass the response's `next_page` value as the `pagination-token` in subsequent requests to fetch the next page. Pagination is complete when `next_page` is empty. Sending an empty `pagination-token` retrieves the first page. Filters must remain identical across paginated requests to maintain cursor validity.
 
 ### Examples
 
@@ -25394,7 +25524,7 @@ api_instance = Akeyless::V2Api.new
 list_sra_sessions = Akeyless::ListSRASessions.new # ListSRASessions | 
 
 begin
-  
+  # Lists SRA sessions.
   result = api_instance.list_sra_sessions(list_sra_sessions)
   p result
 rescue Akeyless::ApiError => e
@@ -25410,7 +25540,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  
+  # Lists SRA sessions.
   data, status_code, headers = api_instance.list_sra_sessions_with_http_info(list_sra_sessions)
   p status_code # => 2xx
   p headers # => { ... }
@@ -27671,6 +27801,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_okta
+
+> <RotatedSecretCreateOutput> rotated_secret_create_okta(rotated_secret_create_okta)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_okta = Akeyless::RotatedSecretCreateOkta.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretCreateOkta | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_okta(rotated_secret_create_okta)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_okta: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_okta_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_okta_with_http_info(rotated_secret_create_okta)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_okta_with_http_info(rotated_secret_create_okta)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_okta_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_okta** | [**RotatedSecretCreateOkta**](RotatedSecretCreateOkta.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_open_ai
 
 > <RotatedSecretCreateOutput> rotated_secret_create_open_ai(rotated_secret_create_open_ai)
@@ -29330,6 +29522,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rotated_secret_update_mysql** | [**RotatedSecretUpdateMysql**](RotatedSecretUpdateMysql.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_update_okta
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_okta(rotated_secret_update_okta)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_okta = Akeyless::RotatedSecretUpdateOkta.new({name: 'name_example'}) # RotatedSecretUpdateOkta | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_okta(rotated_secret_update_okta)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_okta: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_okta_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_okta_with_http_info(rotated_secret_update_okta)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_okta_with_http_info(rotated_secret_update_okta)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_okta_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_okta** | [**RotatedSecretUpdateOkta**](RotatedSecretUpdateOkta.md) |  |  |
 
 ### Return type
 

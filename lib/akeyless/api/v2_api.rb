@@ -2911,6 +2911,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param client_event [ClientEvent] 
+    # @param [Hash] opts the optional parameters
+    # @return [ClientEventOutput]
+    def client_event(client_event, opts = {})
+      data, _status_code, _headers = client_event_with_http_info(client_event, opts)
+      data
+    end
+
+    # @param client_event [ClientEvent] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ClientEventOutput, Integer, Hash)>] ClientEventOutput data, response status code and response headers
+    def client_event_with_http_info(client_event, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.client_event ...'
+      end
+      # verify the required parameter 'client_event' is set
+      if @api_client.config.client_side_validation && client_event.nil?
+        fail ArgumentError, "Missing the required parameter 'client_event' when calling V2Api.client_event"
+      end
+      # resource path
+      local_var_path = '/client-event'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(client_event)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ClientEventOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.client_event",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#client_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param configure [Configure] 
     # @param [Hash] opts the optional parameters
     # @return [ConfigureOutput]
@@ -21579,6 +21643,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param generate_intermediate_ca [GenerateIntermediateCA] 
+    # @param [Hash] opts the optional parameters
+    # @return [GenerateIntermediateCAOutput]
+    def generate_intermediate_ca(generate_intermediate_ca, opts = {})
+      data, _status_code, _headers = generate_intermediate_ca_with_http_info(generate_intermediate_ca, opts)
+      data
+    end
+
+    # @param generate_intermediate_ca [GenerateIntermediateCA] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GenerateIntermediateCAOutput, Integer, Hash)>] GenerateIntermediateCAOutput data, response status code and response headers
+    def generate_intermediate_ca_with_http_info(generate_intermediate_ca, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.generate_intermediate_ca ...'
+      end
+      # verify the required parameter 'generate_intermediate_ca' is set
+      if @api_client.config.client_side_validation && generate_intermediate_ca.nil?
+        fail ArgumentError, "Missing the required parameter 'generate_intermediate_ca' when calling V2Api.generate_intermediate_ca"
+      end
+      # resource path
+      local_var_path = '/generate-intermediate-ca'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(generate_intermediate_ca)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GenerateIntermediateCAOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.generate_intermediate_ca",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#generate_intermediate_ca\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, String>]
     def get_account_logo(opts = {})
@@ -25385,6 +25513,8 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # Lists SRA sessions.
+    # Results are returned newest first, ordered by start time, then by session ID. Responses contain up to 1000 sessions.  Pagination: Pass the response's `next_page` value as the `pagination-token` in subsequent requests to fetch the next page. Pagination is complete when `next_page` is empty. Sending an empty `pagination-token` retrieves the first page. Filters must remain identical across paginated requests to maintain cursor validity.
     # @param list_sra_sessions [ListSRASessions] 
     # @param [Hash] opts the optional parameters
     # @return [ListSraSessionsOutput]
@@ -25393,6 +25523,8 @@ module Akeyless
       data
     end
 
+    # Lists SRA sessions.
+    # Results are returned newest first, ordered by start time, then by session ID. Responses contain up to 1000 sessions.  Pagination: Pass the response&#39;s &#x60;next_page&#x60; value as the &#x60;pagination-token&#x60; in subsequent requests to fetch the next page. Pagination is complete when &#x60;next_page&#x60; is empty. Sending an empty &#x60;pagination-token&#x60; retrieves the first page. Filters must remain identical across paginated requests to maintain cursor validity.
     # @param list_sra_sessions [ListSRASessions] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListSraSessionsOutput, Integer, Hash)>] ListSraSessionsOutput data, response status code and response headers
@@ -27738,6 +27870,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param rotated_secret_create_okta [RotatedSecretCreateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretCreateOutput]
+    def rotated_secret_create_okta(rotated_secret_create_okta, opts = {})
+      data, _status_code, _headers = rotated_secret_create_okta_with_http_info(rotated_secret_create_okta, opts)
+      data
+    end
+
+    # @param rotated_secret_create_okta [RotatedSecretCreateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretCreateOutput, Integer, Hash)>] RotatedSecretCreateOutput data, response status code and response headers
+    def rotated_secret_create_okta_with_http_info(rotated_secret_create_okta, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_create_okta ...'
+      end
+      # verify the required parameter 'rotated_secret_create_okta' is set
+      if @api_client.config.client_side_validation && rotated_secret_create_okta.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_create_okta' when calling V2Api.rotated_secret_create_okta"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-create-okta'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_create_okta)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_create_okta",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_create_okta\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param rotated_secret_create_open_ai [RotatedSecretCreateOpenAI] 
     # @param [Hash] opts the optional parameters
     # @return [RotatedSecretCreateOutput]
@@ -29462,6 +29658,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_mysql\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_update_okta [RotatedSecretUpdateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretUpdateOutput]
+    def rotated_secret_update_okta(rotated_secret_update_okta, opts = {})
+      data, _status_code, _headers = rotated_secret_update_okta_with_http_info(rotated_secret_update_okta, opts)
+      data
+    end
+
+    # @param rotated_secret_update_okta [RotatedSecretUpdateOkta] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretUpdateOutput, Integer, Hash)>] RotatedSecretUpdateOutput data, response status code and response headers
+    def rotated_secret_update_okta_with_http_info(rotated_secret_update_okta, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_update_okta ...'
+      end
+      # verify the required parameter 'rotated_secret_update_okta' is set
+      if @api_client.config.client_side_validation && rotated_secret_update_okta.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_update_okta' when calling V2Api.rotated_secret_update_okta"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-update-okta'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_update_okta)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_update_okta",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_update_okta\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

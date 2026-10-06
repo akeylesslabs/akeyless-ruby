@@ -50,6 +50,9 @@ module Akeyless
     # The Secret name (for database and AWS producers - producer name)
     attr_accessor :name
 
+    # For how long to grant the requested access, in minutes
+    attr_accessor :requested_ttl
+
     # The Bastion API path
     attr_accessor :sra_ctrl_path
 
@@ -104,6 +107,7 @@ module Akeyless
         :'json' => :'json',
         :'justification' => :'justification',
         :'name' => :'name',
+        :'requested_ttl' => :'requested-ttl',
         :'sra_ctrl_path' => :'sra-ctrl-path',
         :'sra_ctrl_port' => :'sra-ctrl-port',
         :'sra_ctrl_proto' => :'sra-ctrl-proto',
@@ -140,6 +144,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'justification' => :'String',
         :'name' => :'String',
+        :'requested_ttl' => :'Integer',
         :'sra_ctrl_path' => :'String',
         :'sra_ctrl_port' => :'String',
         :'sra_ctrl_proto' => :'String',
@@ -225,6 +230,10 @@ module Akeyless
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'requested_ttl')
+        self.requested_ttl = attributes[:'requested_ttl']
       end
 
       if attributes.key?(:'sra_ctrl_path')
@@ -318,6 +327,7 @@ module Akeyless
           json == o.json &&
           justification == o.justification &&
           name == o.name &&
+          requested_ttl == o.requested_ttl &&
           sra_ctrl_path == o.sra_ctrl_path &&
           sra_ctrl_port == o.sra_ctrl_port &&
           sra_ctrl_proto == o.sra_ctrl_proto &&
@@ -342,7 +352,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [helper, rc_file_override, bastion_ctrl_path, bastion_ctrl_port, bastion_ctrl_proto, bastion_ctrl_subdomain, cert_issuer_name, gateway_url, identity_file, json, justification, name, sra_ctrl_path, sra_ctrl_port, sra_ctrl_proto, sra_ctrl_subdomain, ssh_command, ssh_extra_args, ssh_legacy_signing_alg, target, token, uid_token, use_ssh_agent, via_bastion, via_sra].hash
+      [helper, rc_file_override, bastion_ctrl_path, bastion_ctrl_port, bastion_ctrl_proto, bastion_ctrl_subdomain, cert_issuer_name, gateway_url, identity_file, json, justification, name, requested_ttl, sra_ctrl_path, sra_ctrl_port, sra_ctrl_proto, sra_ctrl_subdomain, ssh_command, ssh_extra_args, ssh_legacy_signing_alg, target, token, uid_token, use_ssh_agent, via_bastion, via_sra].hash
     end
 
     # Builds the object from hash

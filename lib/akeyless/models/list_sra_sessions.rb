@@ -14,10 +14,13 @@ require 'date'
 require 'time'
 
 module Akeyless
-  # listSRASessions is a command that returns sra sessions of the given user
+  # listSRASessions is a command that returns the sra sessions the caller is entitled to see
   class ListSRASessions
     # Set output format to JSON
     attr_accessor :json
+
+    # Next page reference
+    attr_accessor :pagination_token
 
     # session resource type. In case it is empty, all resources type will be returned. options: [mysql, k8s, ssh, mongodb, mssql, postgres, aws, eks, gke, rdp]
     attr_accessor :resource_type
@@ -35,6 +38,7 @@ module Akeyless
     def self.attribute_map
       {
         :'json' => :'json',
+        :'pagination_token' => :'pagination-token',
         :'resource_type' => :'resource-type',
         :'status_type' => :'status-type',
         :'token' => :'token',
@@ -51,6 +55,7 @@ module Akeyless
     def self.openapi_types
       {
         :'json' => :'Boolean',
+        :'pagination_token' => :'String',
         :'resource_type' => :'Array<String>',
         :'status_type' => :'Array<String>',
         :'token' => :'String',
@@ -83,6 +88,10 @@ module Akeyless
         self.json = attributes[:'json']
       else
         self.json = false
+      end
+
+      if attributes.key?(:'pagination_token')
+        self.pagination_token = attributes[:'pagination_token']
       end
 
       if attributes.key?(:'resource_type')
@@ -127,6 +136,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           json == o.json &&
+          pagination_token == o.pagination_token &&
           resource_type == o.resource_type &&
           status_type == o.status_type &&
           token == o.token &&
@@ -142,7 +152,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [json, resource_type, status_type, token, uid_token].hash
+      [json, pagination_token, resource_type, status_type, token, uid_token].hash
     end
 
     # Builds the object from hash

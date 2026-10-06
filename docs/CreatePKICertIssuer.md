@@ -27,6 +27,7 @@
 | **destination_path** | **String** | A path in which to save generated certificates | [optional] |
 | **disable_wildcards** | **Boolean** | If set, generation of wildcard certificates will be disabled. | [optional] |
 | **enable_acme** | **Boolean** | If set, the cert issuer will support the acme protocol | [optional] |
+| **enable_scep** | **Boolean** | If set, the cert issuer will support the scep protocol | [optional] |
 | **expiration_event_in** | **Array&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. | [optional] |
 | **gw_cluster_url** | **String** | The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME | [optional] |
 | **is_ca** | **Boolean** | If set, the basic constraints extension will be added to certificate | [optional] |
@@ -45,6 +46,8 @@
 | **postal_code** | **String** | A comma-separated list of postal codes that will be set in the issued certificate | [optional] |
 | **protect_certificates** | **Boolean** | Whether to protect generated certificates from deletion | [optional] |
 | **province** | **String** | A comma-separated list of provinces that will be set in the issued certificate | [optional] |
+| **scep_challenge_type** | **String** | SCEP challenge type. Only static is supported in this stage | [optional] |
+| **scep_password** | **String** | SCEP static challenge password. Request-only; never returned by Describe | [optional] |
 | **scheduled_renew** | **Integer** | Number of days before expiration to renew certificates | [optional] |
 | **server_flag** | **Boolean** | If set, certificates will be flagged for server auth use | [optional] |
 | **signer_key_name** | **String** | A key to sign the certificate with, required in Private CA mode | [optional] |
@@ -84,6 +87,7 @@ instance = Akeyless::CreatePKICertIssuer.new(
   destination_path: null,
   disable_wildcards: null,
   enable_acme: null,
+  enable_scep: null,
   expiration_event_in: null,
   gw_cluster_url: null,
   is_ca: null,
@@ -102,6 +106,8 @@ instance = Akeyless::CreatePKICertIssuer.new(
   postal_code: null,
   protect_certificates: null,
   province: null,
+  scep_challenge_type: null,
+  scep_password: null,
   scheduled_renew: null,
   server_flag: null,
   signer_key_name: null,

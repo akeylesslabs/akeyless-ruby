@@ -76,6 +76,9 @@ module Akeyless
     # Deprecated
     attr_accessor :update_version
 
+    # Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain.
+    attr_accessor :username
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -98,7 +101,8 @@ module Akeyless
         :'token' => :'token',
         :'token_expiration' => :'token-expiration',
         :'uid_token' => :'uid-token',
-        :'update_version' => :'update-version'
+        :'update_version' => :'update-version',
+        :'username' => :'username'
       }
     end
 
@@ -129,7 +133,8 @@ module Akeyless
         :'token' => :'String',
         :'token_expiration' => :'String',
         :'uid_token' => :'String',
-        :'update_version' => :'Boolean'
+        :'update_version' => :'Boolean',
+        :'username' => :'String'
       }
     end
 
@@ -243,6 +248,10 @@ module Akeyless
       if attributes.key?(:'update_version')
         self.update_version = attributes[:'update_version']
       end
+
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -304,7 +313,8 @@ module Akeyless
           token == o.token &&
           token_expiration == o.token_expiration &&
           uid_token == o.uid_token &&
-          update_version == o.update_version
+          update_version == o.update_version &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -316,7 +326,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_dn, bind_dn_password, comment, description, json, keep_prev_version, key, ldap_ca_cert, ldap_url, lock_on_read, lock_ttl, max_versions, name, new_name, rotate_on_unlock, server_type, token, token_expiration, uid_token, update_version].hash
+      [bind_dn, bind_dn_password, comment, description, json, keep_prev_version, key, ldap_ca_cert, ldap_url, lock_on_read, lock_ttl, max_versions, name, new_name, rotate_on_unlock, server_type, token, token_expiration, uid_token, update_version, username].hash
     end
 
     # Builds the object from hash

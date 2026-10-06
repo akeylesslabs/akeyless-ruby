@@ -19,6 +19,10 @@ module Akeyless
 
     attr_accessor :last_migration
 
+    attr_accessor :last_modified
+
+    attr_accessor :message
+
     attr_accessor :name
 
     attr_accessor :new_name
@@ -26,6 +30,8 @@ module Akeyless
     attr_accessor :prefix
 
     attr_accessor :protection_key
+
+    attr_accessor :schedule
 
     attr_accessor :status
 
@@ -36,10 +42,13 @@ module Akeyless
       {
         :'id' => :'id',
         :'last_migration' => :'last_migration',
+        :'last_modified' => :'last_modified',
+        :'message' => :'message',
         :'name' => :'name',
         :'new_name' => :'new_name',
         :'prefix' => :'prefix',
         :'protection_key' => :'protection_key',
+        :'schedule' => :'schedule',
         :'status' => :'status',
         :'type' => :'type'
       }
@@ -55,10 +64,13 @@ module Akeyless
       {
         :'id' => :'String',
         :'last_migration' => :'String',
+        :'last_modified' => :'Time',
+        :'message' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
         :'prefix' => :'String',
         :'protection_key' => :'String',
+        :'schedule' => :'String',
         :'status' => :'String',
         :'type' => :'String'
       }
@@ -93,6 +105,14 @@ module Akeyless
         self.last_migration = attributes[:'last_migration']
       end
 
+      if attributes.key?(:'last_modified')
+        self.last_modified = attributes[:'last_modified']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -107,6 +127,10 @@ module Akeyless
 
       if attributes.key?(:'protection_key')
         self.protection_key = attributes[:'protection_key']
+      end
+
+      if attributes.key?(:'schedule')
+        self.schedule = attributes[:'schedule']
       end
 
       if attributes.key?(:'status')
@@ -140,10 +164,13 @@ module Akeyless
       self.class == o.class &&
           id == o.id &&
           last_migration == o.last_migration &&
+          last_modified == o.last_modified &&
+          message == o.message &&
           name == o.name &&
           new_name == o.new_name &&
           prefix == o.prefix &&
           protection_key == o.protection_key &&
+          schedule == o.schedule &&
           status == o.status &&
           type == o.type
     end
@@ -157,7 +184,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, last_migration, name, new_name, prefix, protection_key, status, type].hash
+      [id, last_migration, last_modified, message, name, new_name, prefix, protection_key, schedule, status, type].hash
     end
 
     # Builds the object from hash

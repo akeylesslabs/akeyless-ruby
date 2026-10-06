@@ -16,8 +16,11 @@ require 'time'
 module Akeyless
   # assocTargetItem is a command that creates an association between target and item.
   class AssocTargetItem
-    # Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format <type>:<partition>:<name> (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. Repeat the parameter to bind several profiles.
+    # Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format <type>:<partition>:<name> (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. For a profile in a folder, add the folder to the partition, for example client-ssl:Common/Shared:my-profile. Repeat the parameter to bind several profiles.
     attr_accessor :bind_ssl_profiles
+
+    # The format the certificate will be provisioned with, available options: pem,pfx (relevant only for certificate provisioning)
+    attr_accessor :certificate_format
 
     # A path on the target to store the certificate pem file (relevant only for certificate provisioning)
     attr_accessor :certificate_path
@@ -51,6 +54,9 @@ module Akeyless
 
     # The item to associate
     attr_accessor :name
+
+    # Password used to protect the provisioned PFX file. Required when --certificate-format=pfx (relevant only for certificate provisioning)
+    attr_accessor :pfx_password
 
     # A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
     attr_accessor :post_provision_command
@@ -92,6 +98,7 @@ module Akeyless
     def self.attribute_map
       {
         :'bind_ssl_profiles' => :'bind-ssl-profiles',
+        :'certificate_format' => :'certificate-format',
         :'certificate_path' => :'certificate-path',
         :'chain_path' => :'chain-path',
         :'disable_previous_key_version' => :'disable-previous-key-version',
@@ -103,6 +110,7 @@ module Akeyless
         :'location_id' => :'location-id',
         :'multi_region' => :'multi-region',
         :'name' => :'name',
+        :'pfx_password' => :'pfx-password',
         :'post_provision_command' => :'post-provision-command',
         :'private_key_path' => :'private-key-path',
         :'project_id' => :'project-id',
@@ -127,6 +135,7 @@ module Akeyless
     def self.openapi_types
       {
         :'bind_ssl_profiles' => :'Array<String>',
+        :'certificate_format' => :'String',
         :'certificate_path' => :'String',
         :'chain_path' => :'String',
         :'disable_previous_key_version' => :'Boolean',
@@ -138,6 +147,7 @@ module Akeyless
         :'location_id' => :'String',
         :'multi_region' => :'String',
         :'name' => :'String',
+        :'pfx_password' => :'String',
         :'post_provision_command' => :'String',
         :'private_key_path' => :'String',
         :'project_id' => :'String',
@@ -178,6 +188,12 @@ module Akeyless
         if (value = attributes[:'bind_ssl_profiles']).is_a?(Array)
           self.bind_ssl_profiles = value
         end
+      end
+
+      if attributes.key?(:'certificate_format')
+        self.certificate_format = attributes[:'certificate_format']
+      else
+        self.certificate_format = 'pem'
       end
 
       if attributes.key?(:'certificate_path')
@@ -232,6 +248,10 @@ module Akeyless
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'pfx_password')
+        self.pfx_password = attributes[:'pfx_password']
       end
 
       if attributes.key?(:'post_provision_command')
@@ -322,6 +342,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           bind_ssl_profiles == o.bind_ssl_profiles &&
+          certificate_format == o.certificate_format &&
           certificate_path == o.certificate_path &&
           chain_path == o.chain_path &&
           disable_previous_key_version == o.disable_previous_key_version &&
@@ -333,6 +354,7 @@ module Akeyless
           location_id == o.location_id &&
           multi_region == o.multi_region &&
           name == o.name &&
+          pfx_password == o.pfx_password &&
           post_provision_command == o.post_provision_command &&
           private_key_path == o.private_key_path &&
           project_id == o.project_id &&
@@ -356,7 +378,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_ssl_profiles, certificate_path, chain_path, disable_previous_key_version, external_key_name, json, key_operations, keyring_name, kms_algorithm, location_id, multi_region, name, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
+      [bind_ssl_profiles, certificate_format, certificate_path, chain_path, disable_previous_key_version, external_key_name, json, key_operations, keyring_name, kms_algorithm, location_id, multi_region, name, pfx_password, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
     end
 
     # Builds the object from hash

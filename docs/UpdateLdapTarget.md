@@ -24,6 +24,7 @@
 | **token_expiration** | **String** | Token expiration | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **update_version** | **Boolean** | Deprecated | [optional] |
+| **username** | **String** | Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain. | [optional] |
 
 ## Example
 
@@ -50,7 +51,8 @@ instance = Akeyless::UpdateLdapTarget.new(
   token: null,
   token_expiration: null,
   uid_token: null,
-  update_version: null
+  update_version: null,
+  username: null
 )
 ```
 

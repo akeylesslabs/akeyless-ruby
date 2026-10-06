@@ -21,7 +21,7 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
-    # Lock TTL in minutes
+    # Lock TTL in minutes.
     attr_accessor :lock_ttl
 
     # Item name

@@ -30,6 +30,8 @@ module Akeyless
 
     attr_accessor :ldap_url
 
+    attr_accessor :ldap_username
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -39,7 +41,8 @@ module Akeyless
         :'ldap_bind_password' => :'ldap_bind_password',
         :'ldap_certificate' => :'ldap_certificate',
         :'ldap_token_expiration' => :'ldap_token_expiration',
-        :'ldap_url' => :'ldap_url'
+        :'ldap_url' => :'ldap_url',
+        :'ldap_username' => :'ldap_username'
       }
     end
 
@@ -57,7 +60,8 @@ module Akeyless
         :'ldap_bind_password' => :'String',
         :'ldap_certificate' => :'String',
         :'ldap_token_expiration' => :'String',
-        :'ldap_url' => :'String'
+        :'ldap_url' => :'String',
+        :'ldap_username' => :'String'
       }
     end
 
@@ -109,6 +113,10 @@ module Akeyless
       if attributes.key?(:'ldap_url')
         self.ldap_url = attributes[:'ldap_url']
       end
+
+      if attributes.key?(:'ldap_username')
+        self.ldap_username = attributes[:'ldap_username']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -137,7 +145,8 @@ module Akeyless
           ldap_bind_password == o.ldap_bind_password &&
           ldap_certificate == o.ldap_certificate &&
           ldap_token_expiration == o.ldap_token_expiration &&
-          ldap_url == o.ldap_url
+          ldap_url == o.ldap_url &&
+          ldap_username == o.ldap_username
     end
 
     # @see the `==` method
@@ -149,7 +158,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [implementation_type, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_token_expiration, ldap_url].hash
+      [implementation_type, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_token_expiration, ldap_url, ldap_username].hash
     end
 
     # Builds the object from hash

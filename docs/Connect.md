@@ -16,6 +16,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **justification** | **String** |  | [optional] |
 | **name** | **String** | The Secret name (for database and AWS producers - producer name) | [optional] |
+| **requested_ttl** | **Integer** | For how long to grant the requested access, in minutes | [optional] |
 | **sra_ctrl_path** | **String** | The Bastion API path | [optional] |
 | **sra_ctrl_port** | **String** | The Bastion API Port | [optional][default to &#39;9900&#39;] |
 | **sra_ctrl_proto** | **String** | The SRA API protocol | [optional][default to &#39;http&#39;] |
@@ -48,6 +49,7 @@ instance = Akeyless::Connect.new(
   json: null,
   justification: null,
   name: null,
+  requested_ttl: null,
   sra_ctrl_path: null,
   sra_ctrl_port: null,
   sra_ctrl_proto: null,

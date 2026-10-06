@@ -8,7 +8,11 @@
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **digicert_url** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] | [optional][default to &#39;us-production&#39;] |
+| **dns_propagation_wait** | **String** | Fixed wait after TXT publish (e.g. 30s, 2m). If omitted with pre-check on, no extra sleep (polling only). If omitted with --dns-skip-precheck, gateway uses 30s. DNS challenge only | [optional] |
+| **dns_resolvers** | **Array&lt;String&gt;** | Custom DNS resolvers (ip:port) for DNS-01. Repeat for multiple. If omitted, Lego uses /etc/resolv.conf or Google Public DNS. DNS challenge only | [optional] |
+| **dns_skip_precheck** | **Boolean** | Skip DNS TXT pre-check before CA validation. If --dns-propagation-wait is omitted and this flag is set, gateway waits 30s before CA validation. DNS challenge only | [optional] |
 | **dns_target_creds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare | [optional] |
+| **dns_timeout** | **String** | Per-query DNS lookup timeout during pre-check (e.g. 10s), not total poll time. If omitted with pre-check on, Lego library default applies (10s per query on Linux). Ignored when --dns-skip-precheck is set. DNS challenge only | [optional] |
 | **dns_zone** | **String** | Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare | [optional] |
 | **eab_hmac_key** | **String** | External Account Binding HMAC key (required for ACME account bootstrap on create) | [optional] |
 | **eab_key_id** | **String** | External Account Binding key identifier (required for ACME account bootstrap on create) | [optional] |
@@ -39,7 +43,11 @@ instance = Akeyless::TargetUpdateDigiCert.new(
   delete_protection: null,
   description: null,
   digicert_url: null,
+  dns_propagation_wait: null,
+  dns_resolvers: null,
+  dns_skip_precheck: null,
   dns_target_creds: null,
+  dns_timeout: null,
   dns_zone: null,
   eab_hmac_key: null,
   eab_key_id: null,
