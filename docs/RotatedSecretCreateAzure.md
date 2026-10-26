@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_id** | **String** | API ID to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **api_key** | **String** | API key to rotate (relevant only for rotator-type&#x3D;api-key) | [optional] |
-| **application_id** | **String** | Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key &amp; authentication-credentials&#x3D;use-target-creds) | [optional] |
+| **application_id** | **String** | Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key) | [optional] |
 | **ara_enabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. | [optional] |
 | **authentication_credentials** | **String** | The credentials to connect with use-user-creds/use-target-creds | [optional][default to &#39;use-user-creds&#39;] |
 | **auto_rotate** | **String** |  | [optional] |

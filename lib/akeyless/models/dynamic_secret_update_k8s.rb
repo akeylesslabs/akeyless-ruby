@@ -91,8 +91,11 @@ module Akeyless
     # Dynamic producer encryption key
     attr_accessor :producer_encryption_key_name
 
-    # Enable Port forwarding while using CLI access
+    # Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
     attr_accessor :secure_access_allow_port_forwading
+
+    # Enable Port forwarding while using CLI access
+    attr_accessor :secure_access_allow_port_forwarding
 
     # Deprecated. use secure-access-certificate-issuer
     attr_accessor :secure_access_bastion_issuer
@@ -171,6 +174,7 @@ module Akeyless
         :'output_rule' => :'output-rule',
         :'producer_encryption_key_name' => :'producer-encryption-key-name',
         :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
+        :'secure_access_allow_port_forwarding' => :'secure-access-allow-port-forwarding',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
         :'secure_access_certificate_issuer' => :'secure-access-certificate-issuer',
         :'secure_access_cluster_endpoint' => :'secure-access-cluster-endpoint',
@@ -224,6 +228,7 @@ module Akeyless
         :'output_rule' => :'Array<String>',
         :'producer_encryption_key_name' => :'String',
         :'secure_access_allow_port_forwading' => :'Boolean',
+        :'secure_access_allow_port_forwarding' => :'Boolean',
         :'secure_access_bastion_issuer' => :'String',
         :'secure_access_certificate_issuer' => :'String',
         :'secure_access_cluster_endpoint' => :'String',
@@ -378,6 +383,10 @@ module Akeyless
         self.secure_access_allow_port_forwading = attributes[:'secure_access_allow_port_forwading']
       end
 
+      if attributes.key?(:'secure_access_allow_port_forwarding')
+        self.secure_access_allow_port_forwarding = attributes[:'secure_access_allow_port_forwarding']
+      end
+
       if attributes.key?(:'secure_access_bastion_issuer')
         self.secure_access_bastion_issuer = attributes[:'secure_access_bastion_issuer']
       end
@@ -504,6 +513,7 @@ module Akeyless
           output_rule == o.output_rule &&
           producer_encryption_key_name == o.producer_encryption_key_name &&
           secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
+          secure_access_allow_port_forwarding == o.secure_access_allow_port_forwarding &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
           secure_access_certificate_issuer == o.secure_access_certificate_issuer &&
           secure_access_cluster_endpoint == o.secure_access_cluster_endpoint &&
@@ -531,7 +541,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ara_enabled, custom_username_template, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
+      [ara_enabled, custom_username_template, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, k8s_allowed_namespaces, k8s_cluster_ca_cert, k8s_cluster_endpoint, k8s_cluster_name, k8s_cluster_token, k8s_namespace, k8s_predefined_role_name, k8s_predefined_role_type, k8s_rolebinding_yaml_data, k8s_rolebinding_yaml_def, k8s_service_account, k8s_service_account_type, name, new_name, output_rule, producer_encryption_key_name, secure_access_allow_port_forwading, secure_access_allow_port_forwarding, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, skip_dry_run, tags, target_name, token, uid_token, use_gw_service_account, user_ttl].hash
     end
 
     # Builds the object from hash

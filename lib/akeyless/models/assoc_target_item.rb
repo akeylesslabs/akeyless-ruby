@@ -19,8 +19,14 @@ module Akeyless
     # Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format <type>:<partition>:<name> (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. For a profile in a folder, add the folder to the partition, for example client-ssl:Common/Shared:my-profile. Repeat the parameter to bind several profiles.
     attr_accessor :bind_ssl_profiles
 
+    # The ARN of an existing imported ACM certificate to re-import into, which replaces its certificate and key; if empty, a new ACM certificate is created on every provisioning, including after renewal (relevant only for AWS certificate provisioning)
+    attr_accessor :certificate_arn
+
     # The format the certificate will be provisioned with, available options: pem,pfx (relevant only for certificate provisioning)
     attr_accessor :certificate_format
+
+    # The name of the certificate object in the cloud provider (relevant only for AWS, Azure, and GCP certificate provisioning)
+    attr_accessor :certificate_name
 
     # A path on the target to store the certificate pem file (relevant only for certificate provisioning)
     attr_accessor :certificate_path
@@ -34,11 +40,20 @@ module Akeyless
     # The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
     attr_accessor :external_key_name
 
+    # Save the F5 running configuration after each successful provisioning, so the certificate survives a reboot. This also saves any other unsaved change on the device (relevant only for F5 BIG-IP certificate provisioning)
+    attr_accessor :f5_save_config
+
+    # Sync the F5 configuration to this device group after each successful provisioning, so the HA peer serves the same certificate. This overwrites unsynced changes on the other members of the group. Implies f5-save-config (relevant only for F5 BIG-IP certificate provisioning)
+    attr_accessor :f5_sync_device_group
+
     # Set output format to JSON
     attr_accessor :json
 
     # A list of allowed operations for the key (required for azure targets)
     attr_accessor :key_operations
+
+    # The Azure Key Vault name to provision the certificate to (relevant only for Azure certificate provisioning)
+    attr_accessor :key_vault
 
     # Keyring name of the GCP KMS (required for gcp targets)
     attr_accessor :keyring_name
@@ -48,6 +63,9 @@ module Akeyless
 
     # Location id of the GCP KMS (required for gcp targets)
     attr_accessor :location_id
+
+    # The GCP Certificate Manager location to provision the certificate to: global or a region such as us-central1 (relevant only for GCP certificate provisioning)
+    attr_accessor :location_scope
 
     # Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
     attr_accessor :multi_region
@@ -98,16 +116,22 @@ module Akeyless
     def self.attribute_map
       {
         :'bind_ssl_profiles' => :'bind-ssl-profiles',
+        :'certificate_arn' => :'certificate-arn',
         :'certificate_format' => :'certificate-format',
+        :'certificate_name' => :'certificate-name',
         :'certificate_path' => :'certificate-path',
         :'chain_path' => :'chain-path',
         :'disable_previous_key_version' => :'disable-previous-key-version',
         :'external_key_name' => :'external-key-name',
+        :'f5_save_config' => :'f5-save-config',
+        :'f5_sync_device_group' => :'f5-sync-device-group',
         :'json' => :'json',
         :'key_operations' => :'key-operations',
+        :'key_vault' => :'key-vault',
         :'keyring_name' => :'keyring-name',
         :'kms_algorithm' => :'kms-algorithm',
         :'location_id' => :'location-id',
+        :'location_scope' => :'location-scope',
         :'multi_region' => :'multi-region',
         :'name' => :'name',
         :'pfx_password' => :'pfx-password',
@@ -135,16 +159,22 @@ module Akeyless
     def self.openapi_types
       {
         :'bind_ssl_profiles' => :'Array<String>',
+        :'certificate_arn' => :'String',
         :'certificate_format' => :'String',
+        :'certificate_name' => :'String',
         :'certificate_path' => :'String',
         :'chain_path' => :'String',
         :'disable_previous_key_version' => :'Boolean',
         :'external_key_name' => :'String',
+        :'f5_save_config' => :'Boolean',
+        :'f5_sync_device_group' => :'String',
         :'json' => :'Boolean',
         :'key_operations' => :'Array<String>',
+        :'key_vault' => :'String',
         :'keyring_name' => :'String',
         :'kms_algorithm' => :'String',
         :'location_id' => :'String',
+        :'location_scope' => :'String',
         :'multi_region' => :'String',
         :'name' => :'String',
         :'pfx_password' => :'String',
@@ -190,10 +220,18 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'certificate_arn')
+        self.certificate_arn = attributes[:'certificate_arn']
+      end
+
       if attributes.key?(:'certificate_format')
         self.certificate_format = attributes[:'certificate_format']
       else
         self.certificate_format = 'pem'
+      end
+
+      if attributes.key?(:'certificate_name')
+        self.certificate_name = attributes[:'certificate_name']
       end
 
       if attributes.key?(:'certificate_path')
@@ -214,6 +252,16 @@ module Akeyless
         self.external_key_name = attributes[:'external_key_name']
       end
 
+      if attributes.key?(:'f5_save_config')
+        self.f5_save_config = attributes[:'f5_save_config']
+      else
+        self.f5_save_config = false
+      end
+
+      if attributes.key?(:'f5_sync_device_group')
+        self.f5_sync_device_group = attributes[:'f5_sync_device_group']
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
@@ -226,6 +274,10 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'key_vault')
+        self.key_vault = attributes[:'key_vault']
+      end
+
       if attributes.key?(:'keyring_name')
         self.keyring_name = attributes[:'keyring_name']
       end
@@ -236,6 +288,10 @@ module Akeyless
 
       if attributes.key?(:'location_id')
         self.location_id = attributes[:'location_id']
+      end
+
+      if attributes.key?(:'location_scope')
+        self.location_scope = attributes[:'location_scope']
       end
 
       if attributes.key?(:'multi_region')
@@ -342,16 +398,22 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           bind_ssl_profiles == o.bind_ssl_profiles &&
+          certificate_arn == o.certificate_arn &&
           certificate_format == o.certificate_format &&
+          certificate_name == o.certificate_name &&
           certificate_path == o.certificate_path &&
           chain_path == o.chain_path &&
           disable_previous_key_version == o.disable_previous_key_version &&
           external_key_name == o.external_key_name &&
+          f5_save_config == o.f5_save_config &&
+          f5_sync_device_group == o.f5_sync_device_group &&
           json == o.json &&
           key_operations == o.key_operations &&
+          key_vault == o.key_vault &&
           keyring_name == o.keyring_name &&
           kms_algorithm == o.kms_algorithm &&
           location_id == o.location_id &&
+          location_scope == o.location_scope &&
           multi_region == o.multi_region &&
           name == o.name &&
           pfx_password == o.pfx_password &&
@@ -378,7 +440,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_ssl_profiles, certificate_format, certificate_path, chain_path, disable_previous_key_version, external_key_name, json, key_operations, keyring_name, kms_algorithm, location_id, multi_region, name, pfx_password, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
+      [bind_ssl_profiles, certificate_arn, certificate_format, certificate_name, certificate_path, chain_path, disable_previous_key_version, external_key_name, f5_save_config, f5_sync_device_group, json, key_operations, key_vault, keyring_name, kms_algorithm, location_id, location_scope, multi_region, name, pfx_password, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
     end
 
     # Builds the object from hash

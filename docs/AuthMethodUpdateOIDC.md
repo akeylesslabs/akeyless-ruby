@@ -26,6 +26,10 @@
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **required_scopes** | **Array&lt;String&gt;** | RequiredScopes is a list of required scopes that the oidc method will request from the oidc provider and the user must approve | [optional] |
 | **required_scopes_prefix** | **String** | RequiredScopesPrefix is a a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures&#39; Application ID URI) | [optional] |
+| **scim_bearer_access_id** | **String** | Access ID of the API Key auth method the IdP uses as the SCIM bearer | [optional] |
+| **scim_enabled** | **String** | Enable SCIM provisioning for this auth method [true/false] | [optional] |
+| **scim_endpoint** | **String** | Where the IdP reaches the SCIM endpoint [public/private]. public is served by Akeyless, private by your own Akeyless Gateway | [optional] |
+| **scim_gateway_url** | **String** | URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example https://gateway.example.com:8000. Required for the private endpoint | [optional] |
 | **subclaims_delimiters** | **Array&lt;String&gt;** | A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT) | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -59,6 +63,10 @@ instance = Akeyless::AuthMethodUpdateOIDC.new(
   product_type: null,
   required_scopes: null,
   required_scopes_prefix: null,
+  scim_bearer_access_id: null,
+  scim_enabled: null,
+  scim_endpoint: null,
+  scim_gateway_url: null,
   subclaims_delimiters: null,
   token: null,
   uid_token: null,

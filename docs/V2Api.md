@@ -358,6 +358,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**get_role**](V2Api.md#get_role) | **POST** /get-role |  |
 | [**get_rotated_secret_value**](V2Api.md#get_rotated_secret_value) | **POST** /get-rotated-secret-value |  |
 | [**get_rsa_public**](V2Api.md#get_rsa_public) | **POST** /get-rsa-public |  |
+| [**get_scim_status**](V2Api.md#get_scim_status) | **POST** /get-scim-status |  |
 | [**get_secret_value**](V2Api.md#get_secret_value) | **POST** /get-secret-value |  |
 | [**get_ssh_certificate**](V2Api.md#get_ssh_certificate) | **POST** /get-ssh-certificate |  |
 | [**get_tags**](V2Api.md#get_tags) | **POST** /get-tags |  |
@@ -428,6 +429,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotate_oidc_client_secret**](V2Api.md#rotate_oidc_client_secret) | **POST** /rotate-oidc-client-secret |  |
 | [**rotate_secret**](V2Api.md#rotate_secret) | **POST** /gateway-rotate-secret |  |
 | [**rotated_secret_create_aerospike**](V2Api.md#rotated_secret_create_aerospike) | **POST** /rotated-secret-create-aerospike |  |
+| [**rotated_secret_create_ali_cloud**](V2Api.md#rotated_secret_create_ali_cloud) | **POST** /rotated-secret-create-alicloud |  |
 | [**rotated_secret_create_aws**](V2Api.md#rotated_secret_create_aws) | **POST** /rotated-secret-create-aws |  |
 | [**rotated_secret_create_azure**](V2Api.md#rotated_secret_create_azure) | **POST** /rotated-secret-create-azure |  |
 | [**rotated_secret_create_cassandra**](V2Api.md#rotated_secret_create_cassandra) | **POST** /rotated-secret-create-cassandra |  |
@@ -457,6 +459,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_list**](V2Api.md#rotated_secret_list) | **POST** /rotated-secret-list |  |
 | [**rotated_secret_sync**](V2Api.md#rotated_secret_sync) | **POST** /rotated-secret-sync |  |
 | [**rotated_secret_update_aerospike**](V2Api.md#rotated_secret_update_aerospike) | **POST** /rotated-secret-update-aerospike |  |
+| [**rotated_secret_update_ali_cloud**](V2Api.md#rotated_secret_update_ali_cloud) | **POST** /rotated-secret-update-alicloud |  |
 | [**rotated_secret_update_aws**](V2Api.md#rotated_secret_update_aws) | **POST** /rotated-secret-update-aws |  |
 | [**rotated_secret_update_azure**](V2Api.md#rotated_secret_update_azure) | **POST** /rotated-secret-update-azure |  |
 | [**rotated_secret_update_cassandra**](V2Api.md#rotated_secret_update_cassandra) | **POST** /rotated-secret-update-cassandra |  |
@@ -494,6 +497,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**static_secret_delete_sync**](V2Api.md#static_secret_delete_sync) | **POST** /static-secret-delete-sync |  |
 | [**static_secret_sync**](V2Api.md#static_secret_sync) | **POST** /static-secret-sync |  |
 | [**target_create_aerospike**](V2Api.md#target_create_aerospike) | **POST** /target-create-aerospike |  |
+| [**target_create_ali_cloud**](V2Api.md#target_create_ali_cloud) | **POST** /target-create-alicloud |  |
 | [**target_create_anthropic**](V2Api.md#target_create_anthropic) | **POST** /target-create-anthropic |  |
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
@@ -538,6 +542,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_get_details**](V2Api.md#target_get_details) | **POST** /target-get-details |  |
 | [**target_list**](V2Api.md#target_list) | **POST** /target-list |  |
 | [**target_update_aerospike**](V2Api.md#target_update_aerospike) | **POST** /target-update-aerospike |  |
+| [**target_update_ali_cloud**](V2Api.md#target_update_ali_cloud) | **POST** /target-update-alicloud |  |
 | [**target_update_anthropic**](V2Api.md#target_update_anthropic) | **POST** /target-update-anthropic |  |
 | [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
@@ -22620,6 +22625,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## get_scim_status
+
+> <ScimStatus> get_scim_status(get_scim_status)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+get_scim_status = Akeyless::GetScimStatus.new({name: 'name_example'}) # GetScimStatus | 
+
+begin
+  
+  result = api_instance.get_scim_status(get_scim_status)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_scim_status: #{e}"
+end
+```
+
+#### Using the get_scim_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ScimStatus>, Integer, Hash)> get_scim_status_with_http_info(get_scim_status)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_scim_status_with_http_info(get_scim_status)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ScimStatus>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->get_scim_status_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **get_scim_status** | [**GetScimStatus**](GetScimStatus.md) |  |  |
+
+### Return type
+
+[**ScimStatus**](ScimStatus.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## get_secret_value
 
 > Hash&lt;String, Object&gt; get_secret_value(get_secret_value)
@@ -26995,6 +27062,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_create_ali_cloud
+
+> <RotatedSecretCreateOutput> rotated_secret_create_ali_cloud(rotated_secret_create_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_create_ali_cloud = Akeyless::RotatedSecretCreateAliCloud.new({name: 'name_example', rotator_type: 'rotator_type_example', target_name: 'target_name_example'}) # RotatedSecretCreateAliCloud | 
+
+begin
+  
+  result = api_instance.rotated_secret_create_ali_cloud(rotated_secret_create_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ali_cloud: #{e}"
+end
+```
+
+#### Using the rotated_secret_create_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretCreateOutput>, Integer, Hash)> rotated_secret_create_ali_cloud_with_http_info(rotated_secret_create_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_create_ali_cloud_with_http_info(rotated_secret_create_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_create_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_create_ali_cloud** | [**RotatedSecretCreateAliCloud**](RotatedSecretCreateAliCloud.md) |  |  |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_create_aws
 
 > <RotatedSecretCreateOutput> rotated_secret_create_aws(rotated_secret_create_aws)
@@ -28793,6 +28922,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_update_ali_cloud
+
+> <RotatedSecretUpdateOutput> rotated_secret_update_ali_cloud(rotated_secret_update_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_update_ali_cloud = Akeyless::RotatedSecretUpdateAliCloud.new({name: 'name_example'}) # RotatedSecretUpdateAliCloud | 
+
+begin
+  
+  result = api_instance.rotated_secret_update_ali_cloud(rotated_secret_update_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ali_cloud: #{e}"
+end
+```
+
+#### Using the rotated_secret_update_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretUpdateOutput>, Integer, Hash)> rotated_secret_update_ali_cloud_with_http_info(rotated_secret_update_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_update_ali_cloud_with_http_info(rotated_secret_update_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_update_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_update_ali_cloud** | [**RotatedSecretUpdateAliCloud**](RotatedSecretUpdateAliCloud.md) |  |  |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_update_aws
 
 > <RotatedSecretUpdateOutput> rotated_secret_update_aws(rotated_secret_update_aws)
@@ -30159,7 +30350,7 @@ No authorization required
 
 ## runtime_authority
 
-> runtime_authority(runtime_authority_command)
+> Array&lt;Integer&gt; runtime_authority(runtime_authority_command)
 
 
 
@@ -30174,7 +30365,8 @@ runtime_authority_command = Akeyless::RuntimeAuthorityCommand.new({agent_id: 'ag
 
 begin
   
-  api_instance.runtime_authority(runtime_authority_command)
+  result = api_instance.runtime_authority(runtime_authority_command)
+  p result
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->runtime_authority: #{e}"
 end
@@ -30182,9 +30374,9 @@ end
 
 #### Using the runtime_authority_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> runtime_authority_with_http_info(runtime_authority_command)
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> runtime_authority_with_http_info(runtime_authority_command)
 
 ```ruby
 begin
@@ -30192,7 +30384,7 @@ begin
   data, status_code, headers = api_instance.runtime_authority_with_http_info(runtime_authority_command)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => Array&lt;Integer&gt;
 rescue Akeyless::ApiError => e
   puts "Error when calling V2Api->runtime_authority_with_http_info: #{e}"
 end
@@ -30206,7 +30398,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+**Array&lt;Integer&gt;**
 
 ### Authorization
 
@@ -31071,6 +31263,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_aerospike** | [**TargetCreateAerospike**](TargetCreateAerospike.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_ali_cloud
+
+> <TargetCreateOutput> target_create_ali_cloud(target_create_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_ali_cloud = Akeyless::TargetCreateAliCloud.new({name: 'name_example'}) # TargetCreateAliCloud | 
+
+begin
+  
+  result = api_instance.target_create_ali_cloud(target_create_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ali_cloud: #{e}"
+end
+```
+
+#### Using the target_create_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_ali_cloud_with_http_info(target_create_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_ali_cloud_with_http_info(target_create_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_ali_cloud** | [**TargetCreateAliCloud**](TargetCreateAliCloud.md) |  |  |
 
 ### Return type
 
@@ -33799,6 +34053,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_aerospike** | [**TargetUpdateAerospike**](TargetUpdateAerospike.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_ali_cloud
+
+> <TargetUpdateOutput> target_update_ali_cloud(target_update_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_ali_cloud = Akeyless::TargetUpdateAliCloud.new({name: 'name_example'}) # TargetUpdateAliCloud | 
+
+begin
+  
+  result = api_instance.target_update_ali_cloud(target_update_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ali_cloud: #{e}"
+end
+```
+
+#### Using the target_update_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_ali_cloud_with_http_info(target_update_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_ali_cloud_with_http_info(target_update_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_ali_cloud** | [**TargetUpdateAliCloud**](TargetUpdateAliCloud.md) |  |  |
 
 ### Return type
 

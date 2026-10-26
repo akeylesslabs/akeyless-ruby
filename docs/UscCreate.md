@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_account_id** | **String** | The AWS account ID to create the secret in. Required when the connector spans multiple account IDs. | [optional] |
 | **binary_value** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary | [optional] |
 | **description** | **String** | Description of the universal secrets | [optional] |
 | **gcp_project_id** | **String** | The GCP project to create the secret in (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. | [optional] |
@@ -11,7 +12,7 @@
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
-| **region** | **String** | Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default). | [optional] |
+| **region** | **String** | AWS Organization scope region or GCP regional secret location. GCP creates a global secret when empty. | [optional] |
 | **remote_secret_activation_date** | **String** | Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **remote_secret_expires** | **String** | Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **secret_name** | **String** | Name for the new universal secrets |  |
@@ -29,6 +30,7 @@
 require 'akeyless'
 
 instance = Akeyless::UscCreate.new(
+  aws_account_id: null,
   binary_value: null,
   description: null,
   gcp_project_id: null,

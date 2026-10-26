@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://openapi-generator.tech"
   s.summary     = "Akeyless API Ruby Gem"
   s.description = "The purpose of this application is to provide access to Akeyless API."
-  s.license     = "Unlicense"
+  s.license     = "Apache-2.0"
   s.required_ruby_version = ">=3.0"
   s.metadata    = {}
 

@@ -4,11 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_account_id** | **String** | The AWS account ID to list secrets from. Required when the connector spans multiple account IDs. | [optional] |
 | **gcp_project_id** | **String** | The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **object_type** | **String** |  | [optional] |
 | **page_size** | **Integer** | Optional: number of items requested per response. When set, response may include next_token | [optional] |
 | **page_token** | **String** | Optional: continuation token returned by a previous usc list --page-size call | [optional] |
+| **region** | **String** | The AWS region to list secrets from (AWS only). If empty, the target&#39;s region is used. | [optional] |
 | **search** | **String** | Search query used to match secret names and paths. | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -20,11 +22,13 @@
 require 'akeyless'
 
 instance = Akeyless::UscList.new(
+  aws_account_id: null,
   gcp_project_id: null,
   json: null,
   object_type: null,
   page_size: null,
   page_token: null,
+  region: null,
   search: null,
   token: null,
   uid_token: null,

@@ -36,7 +36,8 @@
 | **rotator_custom_cmd** | **String** | \&quot;Custom rotation command (relevant only for ssh target) | [optional] |
 | **same_password** | **String** | Rotate same password for each host from the Linked Target (relevant only for Linked Target) | [optional] |
 | **secure_access_allow_external_user** | **String** | Allow providing external user for a domain users [true/false] | [optional] |
-| **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) | [optional] |
+| **secure_access_allow_port_forwading** | **Boolean** | Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead. | [optional] |
+| **secure_access_allow_port_forwarding** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) | [optional] |
 | **secure_access_aws_account_id** | **String** | The AWS account id (relevant only for aws) | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli (relevant only for aws) | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
@@ -103,6 +104,7 @@ instance = Akeyless::UpdateRotatedSecret.new(
   same_password: null,
   secure_access_allow_external_user: null,
   secure_access_allow_port_forwading: null,
+  secure_access_allow_port_forwarding: null,
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,
   secure_access_bastion_issuer: null,

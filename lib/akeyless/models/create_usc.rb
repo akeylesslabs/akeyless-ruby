@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # CreateUSC is a command that creates a Universal Secrets Connector
   class CreateUSC
+    # The AWS Organization ID to use for a multi-account connector. Requires a target in the AWS Management Account or a delegated administrator account.
+    attr_accessor :aws_organization_id
+
     # Azure Key Vault name (Relevant only for Azure targets)
     attr_accessor :azure_kv_name
 
@@ -93,6 +96,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_organization_id' => :'aws-organization-id',
         :'azure_kv_name' => :'azure-kv-name',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
@@ -129,6 +133,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_organization_id' => :'String',
         :'azure_kv_name' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
@@ -177,6 +182,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aws_organization_id')
+        self.aws_organization_id = attributes[:'aws_organization_id']
+      end
 
       if attributes.key?(:'azure_kv_name')
         self.azure_kv_name = attributes[:'azure_kv_name']
@@ -327,6 +336,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_organization_id == o.aws_organization_id &&
           azure_kv_name == o.azure_kv_name &&
           delete_protection == o.delete_protection &&
           description == o.description &&
@@ -363,7 +373,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [azure_kv_name, delete_protection, description, environment_names, gcp_folder_id, gcp_organization_id, gcp_project_id, gcp_scope, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, usc_tags, use_prefix_as_filter, use_tags_as_filter].hash
+      [aws_organization_id, azure_kv_name, delete_protection, description, environment_names, gcp_folder_id, gcp_organization_id, gcp_project_id, gcp_scope, gcp_sm_regions, github_scope, item_custom_fields, json, k8s_namespace, name, organization_name, repository_access, repository_names, tags, target_to_associate, token, uid_token, usc_prefix, usc_tags, use_prefix_as_filter, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

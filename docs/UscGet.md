@@ -4,10 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_account_id** | **String** | The AWS account ID that contains the secret. Required when the connector spans multiple account IDs. | [optional] |
 | **gcp_project_id** | **String** | The GCP project the secret resides in (GCP only). Used when getting a secret by name in a connector that spans multiple projects or uses folder/organization scope. | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
+| **region** | **String** | The AWS region that contains the secret (AWS only). If empty, uses the target region. | [optional] |
 | **secret_id** | **String** | The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector |  |
 | **selected_repositories** | **String** | GitHub selected repositories. For repository scope: repo name. For repository-environment scope: repo/env (format: repo-name/env-name). Required when multiple repos/envs configured. | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -21,10 +23,12 @@
 require 'akeyless'
 
 instance = Akeyless::UscGet.new(
+  aws_account_id: null,
   gcp_project_id: null,
   json: null,
   namespace: null,
   object_type: null,
+  region: null,
   secret_id: null,
   selected_repositories: null,
   token: null,

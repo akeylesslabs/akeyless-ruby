@@ -103,8 +103,11 @@ module Akeyless
     # Allow providing external user for a domain users [true/false]
     attr_accessor :secure_access_allow_external_user
 
-    # Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+    # Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
     attr_accessor :secure_access_allow_port_forwading
+
+    # Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+    attr_accessor :secure_access_allow_port_forwarding
 
     # Bastion's SSH control API endpoint. E.g. https://my.sra-server:9900 (relevant only for ssh cert issuer)
     attr_accessor :secure_access_api
@@ -238,6 +241,7 @@ module Akeyless
         :'secure_access_add_host' => :'secure-access-add-host',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
         :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
+        :'secure_access_allow_port_forwarding' => :'secure-access-allow-port-forwarding',
         :'secure_access_api' => :'secure-access-api',
         :'secure_access_aws_account_id' => :'secure-access-aws-account-id',
         :'secure_access_aws_native_cli' => :'secure-access-aws-native-cli',
@@ -313,6 +317,7 @@ module Akeyless
         :'secure_access_add_host' => :'Array<String>',
         :'secure_access_allow_external_user' => :'String',
         :'secure_access_allow_port_forwading' => :'Boolean',
+        :'secure_access_allow_port_forwarding' => :'Boolean',
         :'secure_access_api' => :'String',
         :'secure_access_aws_account_id' => :'String',
         :'secure_access_aws_native_cli' => :'Boolean',
@@ -352,6 +357,17 @@ module Akeyless
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'ara_enabled',
+        :'enable_agentic_runtime_authority',
+        :'enable_ai_quorum',
+        :'secure_access_allow_port_forwading',
+        :'secure_access_allow_port_forwarding',
+        :'secure_access_aws_native_cli',
+        :'secure_access_enforce_hosts_restriction',
+        :'secure_access_use_internal_bastion',
+        :'secure_access_use_internal_ssh_access',
+        :'secure_access_web_browsing',
+        :'secure_access_web_proxy',
       ])
     end
 
@@ -516,6 +532,10 @@ module Akeyless
 
       if attributes.key?(:'secure_access_allow_port_forwading')
         self.secure_access_allow_port_forwading = attributes[:'secure_access_allow_port_forwading']
+      end
+
+      if attributes.key?(:'secure_access_allow_port_forwarding')
+        self.secure_access_allow_port_forwarding = attributes[:'secure_access_allow_port_forwarding']
       end
 
       if attributes.key?(:'secure_access_api')
@@ -713,6 +733,7 @@ module Akeyless
           secure_access_add_host == o.secure_access_add_host &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
           secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
+          secure_access_allow_port_forwarding == o.secure_access_allow_port_forwarding &&
           secure_access_api == o.secure_access_api &&
           secure_access_aws_account_id == o.secure_access_aws_account_id &&
           secure_access_aws_native_cli == o.secure_access_aws_native_cli &&
@@ -757,7 +778,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, accessibility, add_tag, ara_enabled, cert_file_data, certificate_format, change_event, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, expiration_event_in, gcp_sm_regions, host_provider, input_rule, item_custom_fields, json, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, name, new_metadata, new_name, output_rule, rm_tag, rotate_after_disconnect, rotate_on_unlock, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, target, token, uid_token, usc_tags, use_tags_as_filter].hash
+      [provider_type, accessibility, add_tag, ara_enabled, cert_file_data, certificate_format, change_event, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, expiration_event_in, gcp_sm_regions, host_provider, input_rule, item_custom_fields, json, lock_during_sra_session, lock_on_read, lock_ttl, max_versions, name, new_metadata, new_name, output_rule, rm_tag, rotate_after_disconnect, rotate_on_unlock, secure_access_add_host, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_allow_port_forwarding, secure_access_api, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_aws_region, secure_access_bastion_api, secure_access_bastion_issuer, secure_access_bastion_ssh, secure_access_certificate_issuer, secure_access_cluster_endpoint, secure_access_dashboard_url, secure_access_db_name, secure_access_db_schema, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_gateway, secure_access_host, secure_access_rd_gateway_server, secure_access_rdp_domain, secure_access_rdp_user, secure_access_rm_host, secure_access_ssh, secure_access_ssh_creds, secure_access_ssh_creds_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web_browsing, secure_access_web_proxy, target, token, uid_token, usc_tags, use_tags_as_filter].hash
     end
 
     # Builds the object from hash

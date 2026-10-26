@@ -111,8 +111,11 @@ module Akeyless
     # Allow providing external user for a domain users [true/false]
     attr_accessor :secure_access_allow_external_user
 
-    # Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+    # Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
     attr_accessor :secure_access_allow_port_forwading
+
+    # Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+    attr_accessor :secure_access_allow_port_forwarding
 
     # The AWS account id (relevant only for aws)
     attr_accessor :secure_access_aws_account_id
@@ -228,6 +231,7 @@ module Akeyless
         :'same_password' => :'same-password',
         :'secure_access_allow_external_user' => :'secure-access-allow-external-user',
         :'secure_access_allow_port_forwading' => :'secure-access-allow-port-forwading',
+        :'secure_access_allow_port_forwarding' => :'secure-access-allow-port-forwarding',
         :'secure_access_aws_account_id' => :'secure-access-aws-account-id',
         :'secure_access_aws_native_cli' => :'secure-access-aws-native-cli',
         :'secure_access_bastion_issuer' => :'secure-access-bastion-issuer',
@@ -298,6 +302,7 @@ module Akeyless
         :'same_password' => :'String',
         :'secure_access_allow_external_user' => :'String',
         :'secure_access_allow_port_forwading' => :'Boolean',
+        :'secure_access_allow_port_forwarding' => :'Boolean',
         :'secure_access_aws_account_id' => :'String',
         :'secure_access_aws_native_cli' => :'Boolean',
         :'secure_access_bastion_issuer' => :'String',
@@ -330,6 +335,14 @@ module Akeyless
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'secure_access_allow_port_forwading',
+        :'secure_access_allow_port_forwarding',
+        :'secure_access_aws_native_cli',
+        :'secure_access_enforce_hosts_restriction',
+        :'secure_access_use_internal_bastion',
+        :'secure_access_use_internal_ssh_access',
+        :'secure_access_web_browsing',
+        :'secure_access_web_proxy',
       ])
     end
 
@@ -492,6 +505,10 @@ module Akeyless
 
       if attributes.key?(:'secure_access_allow_port_forwading')
         self.secure_access_allow_port_forwading = attributes[:'secure_access_allow_port_forwading']
+      end
+
+      if attributes.key?(:'secure_access_allow_port_forwarding')
+        self.secure_access_allow_port_forwarding = attributes[:'secure_access_allow_port_forwarding']
       end
 
       if attributes.key?(:'secure_access_aws_account_id')
@@ -665,6 +682,7 @@ module Akeyless
           same_password == o.same_password &&
           secure_access_allow_external_user == o.secure_access_allow_external_user &&
           secure_access_allow_port_forwading == o.secure_access_allow_port_forwading &&
+          secure_access_allow_port_forwarding == o.secure_access_allow_port_forwarding &&
           secure_access_aws_account_id == o.secure_access_aws_account_id &&
           secure_access_aws_native_cli == o.secure_access_aws_native_cli &&
           secure_access_bastion_issuer == o.secure_access_bastion_issuer &&
@@ -702,7 +720,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, lock_on_read, lock_ttl, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotate_on_unlock, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, target, token, uid_token, user_attribute, user_dn].hash
+      [provider_type, add_tag, api_id, api_key, auto_rotate, aws_region, custom_payload, description, gcp_key, grace_rotation, host_provider, json, keep_prev_version, key, lock_during_sra_session, lock_on_read, lock_ttl, name, new_metadata, new_name, new_version, rm_tag, rotate_after_disconnect, rotate_on_unlock, rotated_password, rotated_username, rotation_hour, rotation_interval, rotator_creds_type, rotator_custom_cmd, same_password, secure_access_allow_external_user, secure_access_allow_port_forwading, secure_access_allow_port_forwarding, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_db_name, secure_access_db_schema, secure_access_disable_concurrent_connections, secure_access_enable, secure_access_enforce_hosts_restriction, secure_access_host, secure_access_rdp_domain, secure_access_rdp_user, secure_access_url, secure_access_use_internal_bastion, secure_access_use_internal_ssh_access, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, ssh_password, ssh_username, storage_account_key_name, target, token, uid_token, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

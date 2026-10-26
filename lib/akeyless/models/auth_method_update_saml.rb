@@ -70,6 +70,18 @@ module Akeyless
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
+    # Access ID of the API Key auth method the IdP uses as the SCIM bearer
+    attr_accessor :scim_bearer_access_id
+
+    # Enable SCIM provisioning for this auth method [true/false]
+    attr_accessor :scim_enabled
+
+    # Where the IdP reaches the SCIM endpoint [public/private]. public is served by Akeyless, private by your own Akeyless Gateway
+    attr_accessor :scim_endpoint
+
+    # URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example https://gateway.example.com:8000. Required for the private endpoint
+    attr_accessor :scim_gateway_url
+
     # A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT)
     attr_accessor :subclaims_delimiters
 
@@ -106,6 +118,10 @@ module Akeyless
         :'name' => :'name',
         :'new_name' => :'new-name',
         :'product_type' => :'product-type',
+        :'scim_bearer_access_id' => :'scim-bearer-access-id',
+        :'scim_enabled' => :'scim-enabled',
+        :'scim_endpoint' => :'scim-endpoint',
+        :'scim_gateway_url' => :'scim-gateway-url',
         :'subclaims_delimiters' => :'subclaims-delimiters',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -140,6 +156,10 @@ module Akeyless
         :'name' => :'String',
         :'new_name' => :'String',
         :'product_type' => :'Array<String>',
+        :'scim_bearer_access_id' => :'String',
+        :'scim_enabled' => :'String',
+        :'scim_endpoint' => :'String',
+        :'scim_gateway_url' => :'String',
         :'subclaims_delimiters' => :'Array<String>',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -263,6 +283,22 @@ module Akeyless
         end
       end
 
+      if attributes.key?(:'scim_bearer_access_id')
+        self.scim_bearer_access_id = attributes[:'scim_bearer_access_id']
+      end
+
+      if attributes.key?(:'scim_enabled')
+        self.scim_enabled = attributes[:'scim_enabled']
+      end
+
+      if attributes.key?(:'scim_endpoint')
+        self.scim_endpoint = attributes[:'scim_endpoint']
+      end
+
+      if attributes.key?(:'scim_gateway_url')
+        self.scim_gateway_url = attributes[:'scim_gateway_url']
+      end
+
       if attributes.key?(:'subclaims_delimiters')
         if (value = attributes[:'subclaims_delimiters']).is_a?(Array)
           self.subclaims_delimiters = value
@@ -336,6 +372,10 @@ module Akeyless
           name == o.name &&
           new_name == o.new_name &&
           product_type == o.product_type &&
+          scim_bearer_access_id == o.scim_bearer_access_id &&
+          scim_enabled == o.scim_enabled &&
+          scim_endpoint == o.scim_endpoint &&
+          scim_gateway_url == o.scim_gateway_url &&
           subclaims_delimiters == o.subclaims_delimiters &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -352,7 +392,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, new_name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
+      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, new_name, product_type, scim_bearer_access_id, scim_enabled, scim_endpoint, scim_gateway_url, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

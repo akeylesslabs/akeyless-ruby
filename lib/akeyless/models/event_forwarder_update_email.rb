@@ -55,7 +55,7 @@ module Akeyless
     # New EventForwarder name
     attr_accessor :new_name
 
-    # Override Akeyless default URL with your Gateway url (port 18888)
+    # Override the Akeyless event link with the cluster URL of an active gateway in this account
     attr_accessor :override_url
 
     # Targets Event sources

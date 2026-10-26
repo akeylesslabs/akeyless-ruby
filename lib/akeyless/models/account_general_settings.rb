@@ -57,6 +57,9 @@ module Akeyless
 
     attr_accessor :enable_search_history
 
+    # EventForwarderAllowedEmailDomains lists extra recipient domains for email event forwarders. The signup email domain is always allowed as well. Account-settings updates leave this field unchanged.
+    attr_accessor :event_forwarder_allowed_email_domains
+
     attr_accessor :hide_personal_folder
 
     attr_accessor :hide_secret_reveal_copy
@@ -109,6 +112,7 @@ module Akeyless
         :'email_customization' => :'email_customization',
         :'enable_request_for_access' => :'enable_request_for_access',
         :'enable_search_history' => :'enable_search_history',
+        :'event_forwarder_allowed_email_domains' => :'event_forwarder_allowed_email_domains',
         :'hide_personal_folder' => :'hide_personal_folder',
         :'hide_secret_reveal_copy' => :'hide_secret_reveal_copy',
         :'hide_static_password' => :'hide_static_password',
@@ -153,6 +157,7 @@ module Akeyless
         :'email_customization' => :'EmailCustomization',
         :'enable_request_for_access' => :'Boolean',
         :'enable_search_history' => :'Boolean',
+        :'event_forwarder_allowed_email_domains' => :'Array<String>',
         :'hide_personal_folder' => :'Boolean',
         :'hide_secret_reveal_copy' => :'Boolean',
         :'hide_static_password' => :'Boolean',
@@ -267,6 +272,12 @@ module Akeyless
         self.enable_search_history = attributes[:'enable_search_history']
       end
 
+      if attributes.key?(:'event_forwarder_allowed_email_domains')
+        if (value = attributes[:'event_forwarder_allowed_email_domains']).is_a?(Array)
+          self.event_forwarder_allowed_email_domains = value
+        end
+      end
+
       if attributes.key?(:'hide_personal_folder')
         self.hide_personal_folder = attributes[:'hide_personal_folder']
       end
@@ -363,6 +374,7 @@ module Akeyless
           email_customization == o.email_customization &&
           enable_request_for_access == o.enable_request_for_access &&
           enable_search_history == o.enable_search_history &&
+          event_forwarder_allowed_email_domains == o.event_forwarder_allowed_email_domains &&
           hide_personal_folder == o.hide_personal_folder &&
           hide_secret_reveal_copy == o.hide_secret_reveal_copy &&
           hide_static_password == o.hide_static_password &&
@@ -388,7 +400,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, ai_quorum, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, ai_quorum, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, event_forwarder_allowed_email_domains, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash

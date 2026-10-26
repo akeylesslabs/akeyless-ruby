@@ -34,7 +34,8 @@
 | **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **secure_access_add_host** | **Array&lt;String&gt;** | List of the new hosts that will be attached to SRA servers host | [optional] |
 | **secure_access_allow_external_user** | **String** | Allow providing external user for a domain users [true/false] | [optional] |
-| **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) | [optional] |
+| **secure_access_allow_port_forwading** | **Boolean** | Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead. | [optional] |
+| **secure_access_allow_port_forwarding** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) | [optional] |
 | **secure_access_api** | **String** | Bastion&#39;s SSH control API endpoint. E.g. https://my.sra-server:9900 (relevant only for ssh cert issuer) | [optional] |
 | **secure_access_aws_account_id** | **String** | The AWS account id (relevant only for aws) | [optional] |
 | **secure_access_aws_native_cli** | **Boolean** | The AWS native cli (relevant only for aws) | [optional] |
@@ -106,6 +107,7 @@ instance = Akeyless::UpdateItem.new(
   secure_access_add_host: null,
   secure_access_allow_external_user: null,
   secure_access_allow_port_forwading: null,
+  secure_access_allow_port_forwarding: null,
   secure_access_api: null,
   secure_access_aws_account_id: null,
   secure_access_aws_native_cli: null,

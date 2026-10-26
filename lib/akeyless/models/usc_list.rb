@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscList is a command that lists the secrets of a Universal Secrets Connector
   class UscList
+    # The AWS account ID to list secrets from. Required when the connector spans multiple account IDs.
+    attr_accessor :aws_account_id
+
     # The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope.
     attr_accessor :gcp_project_id
 
@@ -29,6 +32,9 @@ module Akeyless
 
     # Optional: continuation token returned by a previous usc list --page-size call
     attr_accessor :page_token
+
+    # The AWS region to list secrets from (AWS only). If empty, the target's region is used.
+    attr_accessor :region
 
     # Search query used to match secret names and paths.
     attr_accessor :search
@@ -45,11 +51,13 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_account_id' => :'aws-account-id',
         :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'object_type' => :'object-type',
         :'page_size' => :'page-size',
         :'page_token' => :'page-token',
+        :'region' => :'region',
         :'search' => :'search',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
@@ -65,11 +73,13 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_account_id' => :'String',
         :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'object_type' => :'String',
         :'page_size' => :'Integer',
         :'page_token' => :'String',
+        :'region' => :'String',
         :'search' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
@@ -98,6 +108,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aws_account_id')
+        self.aws_account_id = attributes[:'aws_account_id']
+      end
+
       if attributes.key?(:'gcp_project_id')
         self.gcp_project_id = attributes[:'gcp_project_id']
       end
@@ -118,6 +132,10 @@ module Akeyless
 
       if attributes.key?(:'page_token')
         self.page_token = attributes[:'page_token']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'search')
@@ -164,11 +182,13 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_account_id == o.aws_account_id &&
           gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           object_type == o.object_type &&
           page_size == o.page_size &&
           page_token == o.page_token &&
+          region == o.region &&
           search == o.search &&
           token == o.token &&
           uid_token == o.uid_token &&
@@ -184,7 +204,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [gcp_project_id, json, object_type, page_size, page_token, search, token, uid_token, usc_name].hash
+      [aws_account_id, gcp_project_id, json, object_type, page_size, page_token, region, search, token, uid_token, usc_name].hash
     end
 
     # Builds the object from hash

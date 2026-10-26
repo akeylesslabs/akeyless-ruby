@@ -39,6 +39,7 @@ docs/AiModelEntry.md
 docs/AiQuorumSetting.md
 docs/AkeylessGatewayConfig.md
 docs/AliCloudAccessRules.md
+docs/AliCloudTargetDetails.md
 docs/AliasDetails.md
 docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
@@ -686,6 +687,7 @@ docs/GetRole.md
 docs/GetRotatedSecretValue.md
 docs/GetSSHCertificate.md
 docs/GetSSHCertificateOutput.md
+docs/GetScimStatus.md
 docs/GetSecretValue.md
 docs/GetTags.md
 docs/GetTarget.md
@@ -700,6 +702,7 @@ docs/GlobalSignGCCTargetDetails.md
 docs/GodaddyTargetDetails.md
 docs/GoogleChronicleForwardingConfig.md
 docs/GoogleTrustTargetDetails.md
+docs/GrantedRole.md
 docs/GrokTargetDetails.md
 docs/Group.md
 docs/GwClusterIdentity.md
@@ -911,6 +914,7 @@ docs/RotateOidcClientOutput.md
 docs/RotateOidcClientSecret.md
 docs/RotateSecret.md
 docs/RotatedSecretCreateAerospike.md
+docs/RotatedSecretCreateAliCloud.md
 docs/RotatedSecretCreateAws.md
 docs/RotatedSecretCreateAzure.md
 docs/RotatedSecretCreateCassandra.md
@@ -944,6 +948,7 @@ docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
 docs/RotatedSecretSync.md
 docs/RotatedSecretUpdateAerospike.md
+docs/RotatedSecretUpdateAliCloud.md
 docs/RotatedSecretUpdateAws.md
 docs/RotatedSecretUpdateAzure.md
 docs/RotatedSecretUpdateCassandra.md
@@ -980,6 +985,8 @@ docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SamlSpConfigPart.md
 docs/ScanResults.md
+docs/ScimSettings.md
+docs/ScimStatus.md
 docs/SecretInfo.md
 docs/SecretSyncOutput.md
 docs/SectigoTargetDetails.md
@@ -1031,6 +1038,7 @@ docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
 docs/Target.md
 docs/TargetCreateAerospike.md
+docs/TargetCreateAliCloud.md
 docs/TargetCreateAnthropic.md
 docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
@@ -1081,6 +1089,7 @@ docs/TargetList.md
 docs/TargetNameWithHosts.md
 docs/TargetTypeDetailsInput.md
 docs/TargetUpdateAerospike.md
+docs/TargetUpdateAliCloud.md
 docs/TargetUpdateAnthropic.md
 docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
@@ -1320,6 +1329,7 @@ lib/akeyless/models/ai_model_entry.rb
 lib/akeyless/models/ai_quorum_setting.rb
 lib/akeyless/models/akeyless_gateway_config.rb
 lib/akeyless/models/ali_cloud_access_rules.rb
+lib/akeyless/models/ali_cloud_target_details.rb
 lib/akeyless/models/alias_details.rb
 lib/akeyless/models/alias_details_output.rb
 lib/akeyless/models/all_analytics_data.rb
@@ -1970,6 +1980,7 @@ lib/akeyless/models/get_role.rb
 lib/akeyless/models/get_rotated_secret_value.rb
 lib/akeyless/models/get_rsa_public.rb
 lib/akeyless/models/get_rsa_public_output.rb
+lib/akeyless/models/get_scim_status.rb
 lib/akeyless/models/get_secret_value.rb
 lib/akeyless/models/get_ssh_certificate.rb
 lib/akeyless/models/get_ssh_certificate_output.rb
@@ -1987,6 +1998,7 @@ lib/akeyless/models/global_sign_gcc_target_details.rb
 lib/akeyless/models/godaddy_target_details.rb
 lib/akeyless/models/google_chronicle_forwarding_config.rb
 lib/akeyless/models/google_trust_target_details.rb
+lib/akeyless/models/granted_role.rb
 lib/akeyless/models/grok_target_details.rb
 lib/akeyless/models/group.rb
 lib/akeyless/models/gw_cluster_identity.rb
@@ -2198,6 +2210,7 @@ lib/akeyless/models/rotate_oidc_client_output.rb
 lib/akeyless/models/rotate_oidc_client_secret.rb
 lib/akeyless/models/rotate_secret.rb
 lib/akeyless/models/rotated_secret_create_aerospike.rb
+lib/akeyless/models/rotated_secret_create_ali_cloud.rb
 lib/akeyless/models/rotated_secret_create_aws.rb
 lib/akeyless/models/rotated_secret_create_azure.rb
 lib/akeyless/models/rotated_secret_create_cassandra.rb
@@ -2231,6 +2244,7 @@ lib/akeyless/models/rotated_secret_list.rb
 lib/akeyless/models/rotated_secret_output.rb
 lib/akeyless/models/rotated_secret_sync.rb
 lib/akeyless/models/rotated_secret_update_aerospike.rb
+lib/akeyless/models/rotated_secret_update_ali_cloud.rb
 lib/akeyless/models/rotated_secret_update_aws.rb
 lib/akeyless/models/rotated_secret_update_azure.rb
 lib/akeyless/models/rotated_secret_update_cassandra.rb
@@ -2265,6 +2279,8 @@ lib/akeyless/models/saml_access_rules.rb
 lib/akeyless/models/saml_attribute.rb
 lib/akeyless/models/saml_sp_config_part.rb
 lib/akeyless/models/scan_results.rb
+lib/akeyless/models/scim_settings.rb
+lib/akeyless/models/scim_status.rb
 lib/akeyless/models/secret_info.rb
 lib/akeyless/models/secret_sync_output.rb
 lib/akeyless/models/sectigo_target_details.rb
@@ -2318,6 +2334,7 @@ lib/akeyless/models/system_access_credentials_reply_obj.rb
 lib/akeyless/models/system_access_creds_settings.rb
 lib/akeyless/models/target.rb
 lib/akeyless/models/target_create_aerospike.rb
+lib/akeyless/models/target_create_ali_cloud.rb
 lib/akeyless/models/target_create_anthropic.rb
 lib/akeyless/models/target_create_artifactory.rb
 lib/akeyless/models/target_create_aws.rb
@@ -2368,6 +2385,7 @@ lib/akeyless/models/target_list.rb
 lib/akeyless/models/target_name_with_hosts.rb
 lib/akeyless/models/target_type_details_input.rb
 lib/akeyless/models/target_update_aerospike.rb
+lib/akeyless/models/target_update_ali_cloud.rb
 lib/akeyless/models/target_update_anthropic.rb
 lib/akeyless/models/target_update_artifactory.rb
 lib/akeyless/models/target_update_aws.rb
@@ -2575,4 +2593,13 @@ lib/akeyless/models/windows_service_attributes.rb
 lib/akeyless/models/windows_target_details.rb
 lib/akeyless/models/zero_ssl_target_details.rb
 lib/akeyless/version.rb
+spec/models/ali_cloud_target_details_spec.rb
+spec/models/get_scim_status_spec.rb
+spec/models/granted_role_spec.rb
+spec/models/rotated_secret_create_ali_cloud_spec.rb
+spec/models/rotated_secret_update_ali_cloud_spec.rb
+spec/models/scim_settings_spec.rb
+spec/models/scim_status_spec.rb
+spec/models/target_create_ali_cloud_spec.rb
+spec/models/target_update_ali_cloud_spec.rb
 spec/spec_helper.rb

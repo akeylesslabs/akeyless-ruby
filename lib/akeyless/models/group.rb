@@ -21,6 +21,12 @@ module Akeyless
 
     attr_accessor :description
 
+    # GrantedRoles are the roles a member of this group gets at login, through the group's akeyless_groups claim. Read-only, and filled only for the SCIM bearer that owns the group: a group name on its own says nothing about the access it carries, which is what a reviewer certifying the entitlement has to judge.
+    attr_accessor :granted_roles
+
+    # GrantedRolesKnown is set when GrantedRoles was computed, so an empty list means \"grants no role\" rather than \"not computed\" (another caller, or an older UAM).
+    attr_accessor :granted_roles_known
+
     attr_accessor :group_alias
 
     attr_accessor :group_id
@@ -31,7 +37,16 @@ module Akeyless
 
     attr_accessor :modification_date
 
+    attr_accessor :scim_external_id
+
+    attr_accessor :scim_managed
+
+    attr_accessor :scim_provisioned_access_id
+
     attr_accessor :user_assignments
+
+    # Version identifies the member assignments this group was read with. Pass it back as UpdateGroupInput.ExpectedVersion to make the update conditional.
+    attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -39,12 +54,18 @@ module Akeyless
         :'account_id' => :'account_id',
         :'creation_date' => :'creation_date',
         :'description' => :'description',
+        :'granted_roles' => :'granted_roles',
+        :'granted_roles_known' => :'granted_roles_known',
         :'group_alias' => :'group_alias',
         :'group_id' => :'group_id',
         :'group_name' => :'group_name',
         :'is_subclaims_with_operator' => :'is_subclaims_with_operator',
         :'modification_date' => :'modification_date',
-        :'user_assignments' => :'user_assignments'
+        :'scim_external_id' => :'scim_external_id',
+        :'scim_managed' => :'scim_managed',
+        :'scim_provisioned_access_id' => :'scim_provisioned_access_id',
+        :'user_assignments' => :'user_assignments',
+        :'version' => :'version'
       }
     end
 
@@ -59,12 +80,18 @@ module Akeyless
         :'account_id' => :'String',
         :'creation_date' => :'Time',
         :'description' => :'String',
+        :'granted_roles' => :'Array<GrantedRole>',
+        :'granted_roles_known' => :'Boolean',
         :'group_alias' => :'String',
         :'group_id' => :'String',
         :'group_name' => :'String',
         :'is_subclaims_with_operator' => :'Boolean',
         :'modification_date' => :'Time',
-        :'user_assignments' => :'Array<AccessPermissionAssignment>'
+        :'scim_external_id' => :'String',
+        :'scim_managed' => :'Boolean',
+        :'scim_provisioned_access_id' => :'String',
+        :'user_assignments' => :'Array<AccessPermissionAssignment>',
+        :'version' => :'String'
       }
     end
 
@@ -101,6 +128,16 @@ module Akeyless
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'granted_roles')
+        if (value = attributes[:'granted_roles']).is_a?(Array)
+          self.granted_roles = value
+        end
+      end
+
+      if attributes.key?(:'granted_roles_known')
+        self.granted_roles_known = attributes[:'granted_roles_known']
+      end
+
       if attributes.key?(:'group_alias')
         self.group_alias = attributes[:'group_alias']
       end
@@ -121,10 +158,26 @@ module Akeyless
         self.modification_date = attributes[:'modification_date']
       end
 
+      if attributes.key?(:'scim_external_id')
+        self.scim_external_id = attributes[:'scim_external_id']
+      end
+
+      if attributes.key?(:'scim_managed')
+        self.scim_managed = attributes[:'scim_managed']
+      end
+
+      if attributes.key?(:'scim_provisioned_access_id')
+        self.scim_provisioned_access_id = attributes[:'scim_provisioned_access_id']
+      end
+
       if attributes.key?(:'user_assignments')
         if (value = attributes[:'user_assignments']).is_a?(Array)
           self.user_assignments = value
         end
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -151,12 +204,18 @@ module Akeyless
           account_id == o.account_id &&
           creation_date == o.creation_date &&
           description == o.description &&
+          granted_roles == o.granted_roles &&
+          granted_roles_known == o.granted_roles_known &&
           group_alias == o.group_alias &&
           group_id == o.group_id &&
           group_name == o.group_name &&
           is_subclaims_with_operator == o.is_subclaims_with_operator &&
           modification_date == o.modification_date &&
-          user_assignments == o.user_assignments
+          scim_external_id == o.scim_external_id &&
+          scim_managed == o.scim_managed &&
+          scim_provisioned_access_id == o.scim_provisioned_access_id &&
+          user_assignments == o.user_assignments &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -168,7 +227,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, creation_date, description, group_alias, group_id, group_name, is_subclaims_with_operator, modification_date, user_assignments].hash
+      [account_id, creation_date, description, granted_roles, granted_roles_known, group_alias, group_id, group_name, is_subclaims_with_operator, modification_date, scim_external_id, scim_managed, scim_provisioned_access_id, user_assignments, version].hash
     end
 
     # Builds the object from hash

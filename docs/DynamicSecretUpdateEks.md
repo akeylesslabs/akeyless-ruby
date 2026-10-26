@@ -23,7 +23,8 @@
 | **new_name** | **String** | Dynamic secret name | [optional] |
 | **output_rule** | **Array&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) | [optional] |
 | **producer_encryption_key_name** | **String** | Dynamic producer encryption key | [optional] |
-| **secure_access_allow_port_forwading** | **Boolean** | Enable Port forwarding while using CLI access | [optional] |
+| **secure_access_allow_port_forwading** | **Boolean** | Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead. | [optional] |
+| **secure_access_allow_port_forwarding** | **Boolean** | Enable Port forwarding while using CLI access | [optional] |
 | **secure_access_bastion_issuer** | **String** | Deprecated. use secure-access-certificate-issuer | [optional] |
 | **secure_access_certificate_issuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access | [optional] |
 | **secure_access_cluster_endpoint** | **String** | The K8s cluster endpoint URL | [optional] |
@@ -63,6 +64,7 @@ instance = Akeyless::DynamicSecretUpdateEks.new(
   output_rule: null,
   producer_encryption_key_name: null,
   secure_access_allow_port_forwading: null,
+  secure_access_allow_port_forwarding: null,
   secure_access_bastion_issuer: null,
   secure_access_certificate_issuer: null,
   secure_access_cluster_endpoint: null,

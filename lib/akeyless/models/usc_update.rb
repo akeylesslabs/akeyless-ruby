@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscUpdate is a command that updates a secret in a Universal Secrets Connector
   class UscUpdate
+    # The AWS account ID that contains the secret. Required when the connector spans multiple account IDs.
+    attr_accessor :aws_account_id
+
     # Use this option if the universal secrets value is a base64 encoded binary
     attr_accessor :binary_value
 
@@ -32,6 +35,9 @@ module Akeyless
 
     # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
     attr_accessor :pfx_password
+
+    # The AWS region that contains the secret (AWS only). If empty, uses the target region.
+    attr_accessor :region
 
     # Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
     attr_accessor :remote_secret_activation_date
@@ -66,12 +72,14 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_account_id' => :'aws-account-id',
         :'binary_value' => :'binary-value',
         :'description' => :'description',
         :'json' => :'json',
         :'namespace' => :'namespace',
         :'object_type' => :'object-type',
         :'pfx_password' => :'pfx-password',
+        :'region' => :'region',
         :'remote_secret_activation_date' => :'remote-secret-activation-date',
         :'remote_secret_expires' => :'remote-secret-expires',
         :'secret_id' => :'secret-id',
@@ -93,12 +101,14 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_account_id' => :'String',
         :'binary_value' => :'Boolean',
         :'description' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
         :'object_type' => :'String',
         :'pfx_password' => :'String',
+        :'region' => :'String',
         :'remote_secret_activation_date' => :'String',
         :'remote_secret_expires' => :'String',
         :'secret_id' => :'String',
@@ -133,6 +143,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aws_account_id')
+        self.aws_account_id = attributes[:'aws_account_id']
+      end
+
       if attributes.key?(:'binary_value')
         self.binary_value = attributes[:'binary_value']
       end
@@ -157,6 +171,10 @@ module Akeyless
 
       if attributes.key?(:'pfx_password')
         self.pfx_password = attributes[:'pfx_password']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'remote_secret_activation_date')
@@ -243,12 +261,14 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_account_id == o.aws_account_id &&
           binary_value == o.binary_value &&
           description == o.description &&
           json == o.json &&
           namespace == o.namespace &&
           object_type == o.object_type &&
           pfx_password == o.pfx_password &&
+          region == o.region &&
           remote_secret_activation_date == o.remote_secret_activation_date &&
           remote_secret_expires == o.remote_secret_expires &&
           secret_id == o.secret_id &&
@@ -270,7 +290,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, json, namespace, object_type, pfx_password, remote_secret_activation_date, remote_secret_expires, secret_id, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [aws_account_id, binary_value, description, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_id, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

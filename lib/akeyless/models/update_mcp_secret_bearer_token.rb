@@ -108,6 +108,9 @@ module Akeyless
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'ara_enabled',
+        :'enable_agentic_runtime_authority',
+        :'enable_ai_quorum',
       ])
     end
 

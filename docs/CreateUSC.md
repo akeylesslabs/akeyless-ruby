@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_organization_id** | **String** | The AWS Organization ID to use for a multi-account connector. Requires a target in the AWS Management Account or a delegated administrator account. | [optional] |
 | **azure_kv_name** | **String** | Azure Key Vault name (Relevant only for Azure targets) | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the Universal Secrets Connector | [optional] |
@@ -36,6 +37,7 @@
 require 'akeyless'
 
 instance = Akeyless::CreateUSC.new(
+  aws_organization_id: null,
   azure_kv_name: null,
   delete_protection: null,
   description: null,

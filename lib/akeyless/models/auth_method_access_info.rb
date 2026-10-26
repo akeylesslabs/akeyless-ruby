@@ -71,6 +71,8 @@ module Akeyless
 
     attr_accessor :saml_access_rules
 
+    attr_accessor :scim
+
     attr_accessor :sub_claims_delimiters
 
     # Relevant only for Universal Identity auth methods: token about-to-expire notification thresholds.
@@ -107,6 +109,7 @@ module Akeyless
         :'product_types' => :'product_types',
         :'rules_type' => :'rules_type',
         :'saml_access_rules' => :'saml_access_rules',
+        :'scim' => :'scim',
         :'sub_claims_delimiters' => :'sub_claims_delimiters',
         :'uid_expiration_events' => :'uid_expiration_events',
         :'universal_identity_access_rules' => :'universal_identity_access_rules'
@@ -147,6 +150,7 @@ module Akeyless
         :'product_types' => :'Array<String>',
         :'rules_type' => :'String',
         :'saml_access_rules' => :'SAMLAccessRules',
+        :'scim' => :'ScimSettings',
         :'sub_claims_delimiters' => :'Array<String>',
         :'uid_expiration_events' => :'Array<UidExpirationEvent>',
         :'universal_identity_access_rules' => :'UniversalIdentityAccessRules'
@@ -284,6 +288,10 @@ module Akeyless
         self.saml_access_rules = attributes[:'saml_access_rules']
       end
 
+      if attributes.key?(:'scim')
+        self.scim = attributes[:'scim']
+      end
+
       if attributes.key?(:'sub_claims_delimiters')
         if (value = attributes[:'sub_claims_delimiters']).is_a?(Array)
           self.sub_claims_delimiters = value
@@ -347,6 +355,7 @@ module Akeyless
           product_types == o.product_types &&
           rules_type == o.rules_type &&
           saml_access_rules == o.saml_access_rules &&
+          scim == o.scim &&
           sub_claims_delimiters == o.sub_claims_delimiters &&
           uid_expiration_events == o.uid_expiration_events &&
           universal_identity_access_rules == o.universal_identity_access_rules
@@ -361,7 +370,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, access_id_alias, alicloud_access_rules, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, enforce_client_type, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, sub_claims_delimiters, uid_expiration_events, universal_identity_access_rules].hash
+      [access_expires, access_id_alias, alicloud_access_rules, allowed_client_type, api_key_access_rules, audit_logs_claims, aws_iam_access_rules, azure_ad_access_rules, cert_access_rules, cidr_whitelist, email_pass_access_rules, enforce_client_type, force_sub_claims, gcp_access_rules, gw_cidr_whitelist, huawei_access_rules, jwt_ttl, k8s_access_rules, kerberos_access_rules, ldap_access_rules, oauth2_access_rules, oci_access_rules, oidc_access_rules, product_types, rules_type, saml_access_rules, scim, sub_claims_delimiters, uid_expiration_events, universal_identity_access_rules].hash
     end
 
     # Builds the object from hash

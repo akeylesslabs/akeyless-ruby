@@ -4,12 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aws_account_id** | **String** | The AWS account ID that contains the secret. Required when the connector spans multiple account IDs. | [optional] |
 | **binary_value** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary | [optional] |
 | **description** | **String** | Description of the universal secrets | [optional] |
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **namespace** | **String** | The namespace (relevant for Hashi vault target) | [optional] |
 | **object_type** | **String** |  | [optional] |
 | **pfx_password** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) | [optional] |
+| **region** | **String** | The AWS region that contains the secret (AWS only). If empty, uses the target region. | [optional] |
 | **remote_secret_activation_date** | **String** | Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **remote_secret_expires** | **String** | Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ | [optional] |
 | **secret_id** | **String** | The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update |  |
@@ -27,12 +29,14 @@
 require 'akeyless'
 
 instance = Akeyless::UscUpdate.new(
+  aws_account_id: null,
   binary_value: null,
   description: null,
   json: null,
   namespace: null,
   object_type: null,
   pfx_password: null,
+  region: null,
   remote_secret_activation_date: null,
   remote_secret_expires: null,
   secret_id: null,

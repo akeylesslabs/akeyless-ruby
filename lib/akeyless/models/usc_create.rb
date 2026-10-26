@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscCreate is a command that creates a new secret in a Universal Secrets Connector
   class UscCreate
+    # The AWS account ID to create the secret in. Required when the connector spans multiple account IDs.
+    attr_accessor :aws_account_id
+
     # Use this option if the universal secrets value is a base64 encoded binary
     attr_accessor :binary_value
 
@@ -36,7 +39,7 @@ module Akeyless
     # Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
     attr_accessor :pfx_password
 
-    # Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default).
+    # AWS Organization scope region or GCP regional secret location. GCP creates a global secret when empty.
     attr_accessor :region
 
     # Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
@@ -71,6 +74,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_account_id' => :'aws-account-id',
         :'binary_value' => :'binary-value',
         :'description' => :'description',
         :'gcp_project_id' => :'gcp-project-id',
@@ -100,6 +104,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_account_id' => :'String',
         :'binary_value' => :'Boolean',
         :'description' => :'String',
         :'gcp_project_id' => :'String',
@@ -141,6 +146,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aws_account_id')
+        self.aws_account_id = attributes[:'aws_account_id']
+      end
 
       if attributes.key?(:'binary_value')
         self.binary_value = attributes[:'binary_value']
@@ -260,6 +269,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_account_id == o.aws_account_id &&
           binary_value == o.binary_value &&
           description == o.description &&
           gcp_project_id == o.gcp_project_id &&
@@ -289,7 +299,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [binary_value, description, gcp_project_id, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
+      [aws_account_id, binary_value, description, gcp_project_id, json, namespace, object_type, pfx_password, region, remote_secret_activation_date, remote_secret_expires, secret_name, selected_repositories, tags, token, uid_token, usc_encryption_key, usc_name, value].hash
     end
 
     # Builds the object from hash

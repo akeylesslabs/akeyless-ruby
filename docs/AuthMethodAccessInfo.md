@@ -30,6 +30,7 @@
 | **product_types** | **Array&lt;String&gt;** | List of product types this auth method will be in use of | [optional] |
 | **rules_type** | **String** |  | [optional] |
 | **saml_access_rules** | [**SAMLAccessRules**](SAMLAccessRules.md) |  | [optional] |
+| **scim** | [**ScimSettings**](ScimSettings.md) |  | [optional] |
 | **sub_claims_delimiters** | **Array&lt;String&gt;** |  | [optional] |
 | **uid_expiration_events** | [**Array&lt;UidExpirationEvent&gt;**](UidExpirationEvent.md) | Relevant only for Universal Identity auth methods: token about-to-expire notification thresholds. | [optional] |
 | **universal_identity_access_rules** | [**UniversalIdentityAccessRules**](UniversalIdentityAccessRules.md) |  | [optional] |
@@ -66,6 +67,7 @@ instance = Akeyless::AuthMethodAccessInfo.new(
   product_types: null,
   rules_type: null,
   saml_access_rules: null,
+  scim: null,
   sub_claims_delimiters: null,
   uid_expiration_events: null,
   universal_identity_access_rules: null

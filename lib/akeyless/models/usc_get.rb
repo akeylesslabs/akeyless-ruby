@@ -16,6 +16,9 @@ require 'time'
 module Akeyless
   # uscGet is a command that gets the value and internal details of a secret from a Universal Secrets Connector
   class UscGet
+    # The AWS account ID that contains the secret. Required when the connector spans multiple account IDs.
+    attr_accessor :aws_account_id
+
     # The GCP project the secret resides in (GCP only). Used when getting a secret by name in a connector that spans multiple projects or uses folder/organization scope.
     attr_accessor :gcp_project_id
 
@@ -26,6 +29,9 @@ module Akeyless
     attr_accessor :namespace
 
     attr_accessor :object_type
+
+    # The AWS region that contains the secret (AWS only). If empty, uses the target region.
+    attr_accessor :region
 
     # The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector
     attr_accessor :secret_id
@@ -48,10 +54,12 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aws_account_id' => :'aws-account-id',
         :'gcp_project_id' => :'gcp-project-id',
         :'json' => :'json',
         :'namespace' => :'namespace',
         :'object_type' => :'object-type',
+        :'region' => :'region',
         :'secret_id' => :'secret-id',
         :'selected_repositories' => :'selected-repositories',
         :'token' => :'token',
@@ -69,10 +77,12 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aws_account_id' => :'String',
         :'gcp_project_id' => :'String',
         :'json' => :'Boolean',
         :'namespace' => :'String',
         :'object_type' => :'String',
+        :'region' => :'String',
         :'secret_id' => :'String',
         :'selected_repositories' => :'String',
         :'token' => :'String',
@@ -103,6 +113,10 @@ module Akeyless
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aws_account_id')
+        self.aws_account_id = attributes[:'aws_account_id']
+      end
+
       if attributes.key?(:'gcp_project_id')
         self.gcp_project_id = attributes[:'gcp_project_id']
       end
@@ -119,6 +133,10 @@ module Akeyless
 
       if attributes.key?(:'object_type')
         self.object_type = attributes[:'object_type']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'secret_id')
@@ -180,10 +198,12 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aws_account_id == o.aws_account_id &&
           gcp_project_id == o.gcp_project_id &&
           json == o.json &&
           namespace == o.namespace &&
           object_type == o.object_type &&
+          region == o.region &&
           secret_id == o.secret_id &&
           selected_repositories == o.selected_repositories &&
           token == o.token &&
@@ -201,7 +221,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [gcp_project_id, json, namespace, object_type, secret_id, selected_repositories, token, uid_token, usc_name, version_id].hash
+      [aws_account_id, gcp_project_id, json, namespace, object_type, region, secret_id, selected_repositories, token, uid_token, usc_name, version_id].hash
     end
 
     # Builds the object from hash

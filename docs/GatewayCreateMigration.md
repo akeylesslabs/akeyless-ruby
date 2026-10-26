@@ -68,6 +68,7 @@
 | **password_length** | **String** | The length of the password to be generated (between 8 and 50). Relevant only for Active Directory migration when enable-password-policy is true. | [optional] |
 | **port_ranges** | **String** | A comma separated list of port ranges Examples: \&quot;80,443\&quot; or \&quot;80,443,8080-8090\&quot; or \&quot;443\&quot; | [optional][default to &#39;443&#39;] |
 | **protection_key** | **String** | The name of the key that protects the classic key value (if empty, the account default key will be used) | [optional] |
+| **schedule_sync** | **String** | Runs the migration automatically on the specified schedule in UTC. Accepts standard cron syntax. Limited to at most once every 24 hours. | [optional] |
 | **si_auto_rotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration) | [optional] |
 | **si_rotation_hour** | **Integer** | The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration) | [optional] |
 | **si_rotation_interval** | **Integer** | The number of days to wait between every automatic rotation [1-365] (Relevant only for Server Inventory migration) | [optional] |
@@ -155,6 +156,7 @@ instance = Akeyless::GatewayCreateMigration.new(
   password_length: null,
   port_ranges: null,
   protection_key: null,
+  schedule_sync: null,
   si_auto_rotate: null,
   si_rotation_hour: null,
   si_rotation_interval: null,

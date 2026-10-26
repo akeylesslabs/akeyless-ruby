@@ -23,13 +23,17 @@ module Akeyless
 
     attr_accessor :prv_key
 
+    # SCIM Base URL the IdP calls, set when SCIM flags were given
+    attr_accessor :scim_base_url
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'access_id' => :'access_id',
         :'access_key' => :'access_key',
         :'name' => :'name',
-        :'prv_key' => :'prv_key'
+        :'prv_key' => :'prv_key',
+        :'scim_base_url' => :'scim_base_url'
       }
     end
 
@@ -44,7 +48,8 @@ module Akeyless
         :'access_id' => :'String',
         :'access_key' => :'String',
         :'name' => :'String',
-        :'prv_key' => :'String'
+        :'prv_key' => :'String',
+        :'scim_base_url' => :'String'
       }
     end
 
@@ -84,6 +89,10 @@ module Akeyless
       if attributes.key?(:'prv_key')
         self.prv_key = attributes[:'prv_key']
       end
+
+      if attributes.key?(:'scim_base_url')
+        self.scim_base_url = attributes[:'scim_base_url']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -109,7 +118,8 @@ module Akeyless
           access_id == o.access_id &&
           access_key == o.access_key &&
           name == o.name &&
-          prv_key == o.prv_key
+          prv_key == o.prv_key &&
+          scim_base_url == o.scim_base_url
     end
 
     # @see the `==` method
@@ -121,7 +131,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_id, access_key, name, prv_key].hash
+      [access_id, access_key, name, prv_key, scim_base_url].hash
     end
 
     # Builds the object from hash
