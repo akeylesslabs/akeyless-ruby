@@ -8799,6 +8799,70 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param dynamic_secret_create_ali_cloud [DynamicSecretCreateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretCreateOutput]
+    def dynamic_secret_create_ali_cloud(dynamic_secret_create_ali_cloud, opts = {})
+      data, _status_code, _headers = dynamic_secret_create_ali_cloud_with_http_info(dynamic_secret_create_ali_cloud, opts)
+      data
+    end
+
+    # @param dynamic_secret_create_ali_cloud [DynamicSecretCreateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretCreateOutput, Integer, Hash)>] DynamicSecretCreateOutput data, response status code and response headers
+    def dynamic_secret_create_ali_cloud_with_http_info(dynamic_secret_create_ali_cloud, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_create_ali_cloud ...'
+      end
+      # verify the required parameter 'dynamic_secret_create_ali_cloud' is set
+      if @api_client.config.client_side_validation && dynamic_secret_create_ali_cloud.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_create_ali_cloud' when calling V2Api.dynamic_secret_create_ali_cloud"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-create-alicloud'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_create_ali_cloud)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_create_ali_cloud",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_create_ali_cloud\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param dynamic_secret_create_artifactory [DynamicSecretCreateArtifactory] 
     # @param [Hash] opts the optional parameters
     # @return [DynamicSecretCreateOutput]
@@ -11095,6 +11159,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#dynamic_secret_update_aerospike\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param dynamic_secret_update_ali_cloud [DynamicSecretUpdateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicSecretUpdateOutput]
+    def dynamic_secret_update_ali_cloud(dynamic_secret_update_ali_cloud, opts = {})
+      data, _status_code, _headers = dynamic_secret_update_ali_cloud_with_http_info(dynamic_secret_update_ali_cloud, opts)
+      data
+    end
+
+    # @param dynamic_secret_update_ali_cloud [DynamicSecretUpdateAliCloud] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicSecretUpdateOutput, Integer, Hash)>] DynamicSecretUpdateOutput data, response status code and response headers
+    def dynamic_secret_update_ali_cloud_with_http_info(dynamic_secret_update_ali_cloud, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.dynamic_secret_update_ali_cloud ...'
+      end
+      # verify the required parameter 'dynamic_secret_update_ali_cloud' is set
+      if @api_client.config.client_side_validation && dynamic_secret_update_ali_cloud.nil?
+        fail ArgumentError, "Missing the required parameter 'dynamic_secret_update_ali_cloud' when calling V2Api.dynamic_secret_update_ali_cloud"
+      end
+      # resource path
+      local_var_path = '/dynamic-secret-update-alicloud'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(dynamic_secret_update_ali_cloud)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DynamicSecretUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.dynamic_secret_update_ali_cloud",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#dynamic_secret_update_ali_cloud\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -28894,6 +29022,262 @@ module Akeyless
       return data, status_code, headers
     end
 
+    # @param rotated_secret_provision_create [RotatedSecretProvisionCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretProvisionAssocOutput]
+    def rotated_secret_provision_create(rotated_secret_provision_create, opts = {})
+      data, _status_code, _headers = rotated_secret_provision_create_with_http_info(rotated_secret_provision_create, opts)
+      data
+    end
+
+    # @param rotated_secret_provision_create [RotatedSecretProvisionCreate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretProvisionAssocOutput, Integer, Hash)>] RotatedSecretProvisionAssocOutput data, response status code and response headers
+    def rotated_secret_provision_create_with_http_info(rotated_secret_provision_create, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_provision_create ...'
+      end
+      # verify the required parameter 'rotated_secret_provision_create' is set
+      if @api_client.config.client_side_validation && rotated_secret_provision_create.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_provision_create' when calling V2Api.rotated_secret_provision_create"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-provision-create'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_provision_create)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretProvisionAssocOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_provision_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_provision_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_provision_delete [RotatedSecretProvisionDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretProvisionAssocOutput]
+    def rotated_secret_provision_delete(rotated_secret_provision_delete, opts = {})
+      data, _status_code, _headers = rotated_secret_provision_delete_with_http_info(rotated_secret_provision_delete, opts)
+      data
+    end
+
+    # @param rotated_secret_provision_delete [RotatedSecretProvisionDelete] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretProvisionAssocOutput, Integer, Hash)>] RotatedSecretProvisionAssocOutput data, response status code and response headers
+    def rotated_secret_provision_delete_with_http_info(rotated_secret_provision_delete, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_provision_delete ...'
+      end
+      # verify the required parameter 'rotated_secret_provision_delete' is set
+      if @api_client.config.client_side_validation && rotated_secret_provision_delete.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_provision_delete' when calling V2Api.rotated_secret_provision_delete"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-provision-delete'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_provision_delete)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretProvisionAssocOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_provision_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_provision_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_provision_push [RotatedSecretProvisionPush] 
+    # @param [Hash] opts the optional parameters
+    # @return [ProvisionSSHRotatedSecretOutput]
+    def rotated_secret_provision_push(rotated_secret_provision_push, opts = {})
+      data, _status_code, _headers = rotated_secret_provision_push_with_http_info(rotated_secret_provision_push, opts)
+      data
+    end
+
+    # @param rotated_secret_provision_push [RotatedSecretProvisionPush] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ProvisionSSHRotatedSecretOutput, Integer, Hash)>] ProvisionSSHRotatedSecretOutput data, response status code and response headers
+    def rotated_secret_provision_push_with_http_info(rotated_secret_provision_push, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_provision_push ...'
+      end
+      # verify the required parameter 'rotated_secret_provision_push' is set
+      if @api_client.config.client_side_validation && rotated_secret_provision_push.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_provision_push' when calling V2Api.rotated_secret_provision_push"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-provision-push'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_provision_push)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProvisionSSHRotatedSecretOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_provision_push",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_provision_push\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param rotated_secret_provision_update [RotatedSecretProvisionUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [RotatedSecretProvisionAssocOutput]
+    def rotated_secret_provision_update(rotated_secret_provision_update, opts = {})
+      data, _status_code, _headers = rotated_secret_provision_update_with_http_info(rotated_secret_provision_update, opts)
+      data
+    end
+
+    # @param rotated_secret_provision_update [RotatedSecretProvisionUpdate] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RotatedSecretProvisionAssocOutput, Integer, Hash)>] RotatedSecretProvisionAssocOutput data, response status code and response headers
+    def rotated_secret_provision_update_with_http_info(rotated_secret_provision_update, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.rotated_secret_provision_update ...'
+      end
+      # verify the required parameter 'rotated_secret_provision_update' is set
+      if @api_client.config.client_side_validation && rotated_secret_provision_update.nil?
+        fail ArgumentError, "Missing the required parameter 'rotated_secret_provision_update' when calling V2Api.rotated_secret_provision_update"
+      end
+      # resource path
+      local_var_path = '/rotated-secret-provision-update'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotated_secret_provision_update)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RotatedSecretProvisionAssocOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.rotated_secret_provision_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#rotated_secret_provision_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param rotated_secret_sync [RotatedSecretSync] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -31642,6 +32026,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_create_artifactory\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_create_atlassian [TargetCreateAtlassian] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetCreateOutput]
+    def target_create_atlassian(target_create_atlassian, opts = {})
+      data, _status_code, _headers = target_create_atlassian_with_http_info(target_create_atlassian, opts)
+      data
+    end
+
+    # @param target_create_atlassian [TargetCreateAtlassian] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetCreateOutput, Integer, Hash)>] TargetCreateOutput data, response status code and response headers
+    def target_create_atlassian_with_http_info(target_create_atlassian, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_create_atlassian ...'
+      end
+      # verify the required parameter 'target_create_atlassian' is set
+      if @api_client.config.client_side_validation && target_create_atlassian.nil?
+        fail ArgumentError, "Missing the required parameter 'target_create_atlassian' when calling V2Api.target_create_atlassian"
+      end
+      # resource path
+      local_var_path = '/target-create-atlassian'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_create_atlassian)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetCreateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_create_atlassian",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_create_atlassian\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -34522,6 +34970,70 @@ module Akeyless
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: V2Api#target_update_artifactory\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param target_update_atlassian [TargetUpdateAtlassian] 
+    # @param [Hash] opts the optional parameters
+    # @return [TargetUpdateOutput]
+    def target_update_atlassian(target_update_atlassian, opts = {})
+      data, _status_code, _headers = target_update_atlassian_with_http_info(target_update_atlassian, opts)
+      data
+    end
+
+    # @param target_update_atlassian [TargetUpdateAtlassian] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TargetUpdateOutput, Integer, Hash)>] TargetUpdateOutput data, response status code and response headers
+    def target_update_atlassian_with_http_info(target_update_atlassian, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: V2Api.target_update_atlassian ...'
+      end
+      # verify the required parameter 'target_update_atlassian' is set
+      if @api_client.config.client_side_validation && target_update_atlassian.nil?
+        fail ArgumentError, "Missing the required parameter 'target_update_atlassian' when calling V2Api.target_update_atlassian"
+      end
+      # resource path
+      local_var_path = '/target-update-atlassian'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(target_update_atlassian)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TargetUpdateOutput'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"V2Api.target_update_atlassian",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: V2Api#target_update_atlassian\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

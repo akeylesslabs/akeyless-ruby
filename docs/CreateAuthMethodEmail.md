@@ -19,6 +19,7 @@
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **mfa_type** | **String** | Enable two-factor-authentication via [email/auth app] | [optional][default to &#39;email&#39;] |
 | **name** | **String** | Auth Method name |  |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -44,6 +45,7 @@ instance = Akeyless::CreateAuthMethodEmail.new(
   jwt_ttl: null,
   mfa_type: null,
   name: null,
+  owner: null,
   product_type: null,
   token: null,
   uid_token: null

@@ -47,6 +47,9 @@ module Akeyless
 
     attr_accessor :number_of_versions_to_save
 
+    # PublicKey is the OpenSSH authorized_keys line for an SSH rotated secret. Stored in the clear on item attributes so describe-item can return it under list permission.
+    attr_accessor :public_key
+
     attr_accessor :public_key_remote_path
 
     attr_accessor :rotation_hour
@@ -88,6 +91,7 @@ module Akeyless
         :'max_versions' => :'max_versions',
         :'next_auto_rotate_type' => :'next_auto_rotate_type',
         :'number_of_versions_to_save' => :'number_of_versions_to_save',
+        :'public_key' => :'public_key',
         :'public_key_remote_path' => :'public_key_remote_path',
         :'rotation_hour' => :'rotation_hour',
         :'rotation_interval_min' => :'rotation_interval_min',
@@ -125,6 +129,7 @@ module Akeyless
         :'max_versions' => :'Integer',
         :'next_auto_rotate_type' => :'String',
         :'number_of_versions_to_save' => :'Integer',
+        :'public_key' => :'String',
         :'public_key_remote_path' => :'String',
         :'rotation_hour' => :'Integer',
         :'rotation_interval_min' => :'Boolean',
@@ -222,6 +227,10 @@ module Akeyless
         self.number_of_versions_to_save = attributes[:'number_of_versions_to_save']
       end
 
+      if attributes.key?(:'public_key')
+        self.public_key = attributes[:'public_key']
+      end
+
       if attributes.key?(:'public_key_remote_path')
         self.public_key_remote_path = attributes[:'public_key_remote_path']
       end
@@ -304,6 +313,7 @@ module Akeyless
           max_versions == o.max_versions &&
           next_auto_rotate_type == o.next_auto_rotate_type &&
           number_of_versions_to_save == o.number_of_versions_to_save &&
+          public_key == o.public_key &&
           public_key_remote_path == o.public_key_remote_path &&
           rotation_hour == o.rotation_hour &&
           rotation_interval_min == o.rotation_interval_min &&
@@ -326,7 +336,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_user_name, delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, key_algorithm, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, skip_dry_run, timeout_seconds].hash
+      [aws_user_name, delete_previous_version_in_days, enable_custom_password_policy, grace_rotation, grace_rotation_hour, grace_rotation_interval, grace_rotation_timing, gw_cluster_id, iis_apps_details, key_algorithm, last_rotation_error, managed_by_akeyless, max_versions, next_auto_rotate_type, number_of_versions_to_save, public_key, public_key_remote_path, rotation_hour, rotation_interval_min, rotation_statement, rotator_creds_type, rotator_status, rotator_type, same_password, services_details, skip_dry_run, timeout_seconds].hash
     end
 
     # Builds the object from hash

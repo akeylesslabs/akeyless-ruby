@@ -18,7 +18,7 @@ module Akeyless
   class Connect
     attr_accessor :helper
 
-    # used to override .akeyless-connect.rc in tests
+    # test only: the rc file to read instead of the home rc files
     attr_accessor :rc_file_override
 
     # Deprecated. use bastion-ctrl-path

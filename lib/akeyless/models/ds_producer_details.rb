@@ -15,6 +15,10 @@ require 'time'
 
 module Akeyless
   class DSProducerDetails
+    attr_accessor :access_key
+
+    attr_accessor :access_key_id
+
     attr_accessor :access_token_manager_id
 
     attr_accessor :acl_rules
@@ -64,6 +68,28 @@ module Akeyless
     attr_accessor :aerospike_ssl_connection_mode
 
     attr_accessor :agentic_rules
+
+    attr_accessor :alicloud_access_mode
+
+    attr_accessor :alicloud_external_id
+
+    attr_accessor :alicloud_role_arns
+
+    attr_accessor :alicloud_session_policy
+
+    attr_accessor :alicloud_set_source_identity
+
+    attr_accessor :alicloud_site
+
+    attr_accessor :alicloud_user_console_access
+
+    attr_accessor :alicloud_user_groups
+
+    attr_accessor :alicloud_user_inline_policy
+
+    attr_accessor :alicloud_user_policies
+
+    attr_accessor :alicloud_user_programmatic_access
 
     attr_accessor :api_key
 
@@ -547,6 +573,8 @@ module Akeyless
 
     attr_accessor :redshift_creation_statements
 
+    attr_accessor :region
+
     attr_accessor :restricted_scopes
 
     attr_accessor :revoke_sync_url
@@ -649,6 +677,8 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'access_key' => :'access_key',
+        :'access_key_id' => :'access_key_id',
         :'access_token_manager_id' => :'access_token_manager_id',
         :'acl_rules' => :'acl_rules',
         :'active' => :'active',
@@ -674,6 +704,17 @@ module Akeyless
         :'aerospike_ssl_connection_certificate' => :'aerospike_ssl_connection_certificate',
         :'aerospike_ssl_connection_mode' => :'aerospike_ssl_connection_mode',
         :'agentic_rules' => :'agentic_rules',
+        :'alicloud_access_mode' => :'alicloud_access_mode',
+        :'alicloud_external_id' => :'alicloud_external_id',
+        :'alicloud_role_arns' => :'alicloud_role_arns',
+        :'alicloud_session_policy' => :'alicloud_session_policy',
+        :'alicloud_set_source_identity' => :'alicloud_set_source_identity',
+        :'alicloud_site' => :'alicloud_site',
+        :'alicloud_user_console_access' => :'alicloud_user_console_access',
+        :'alicloud_user_groups' => :'alicloud_user_groups',
+        :'alicloud_user_inline_policy' => :'alicloud_user_inline_policy',
+        :'alicloud_user_policies' => :'alicloud_user_policies',
+        :'alicloud_user_programmatic_access' => :'alicloud_user_programmatic_access',
         :'api_key' => :'api_key',
         :'api_key_id' => :'api_key_id',
         :'artifactory_admin_apikey' => :'artifactory_admin_apikey',
@@ -902,6 +943,7 @@ module Akeyless
         :'rdp_fixed_user_name_sub_claim_key' => :'rdp_fixed_user_name_sub_claim_key',
         :'redirect_uris' => :'redirect_uris',
         :'redshift_creation_statements' => :'redshift_creation_statements',
+        :'region' => :'region',
         :'restricted_scopes' => :'restricted_scopes',
         :'revoke_sync_url' => :'revoke_sync_url',
         :'rotate_sync_url' => :'rotate_sync_url',
@@ -959,6 +1001,8 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'access_key' => :'String',
+        :'access_key_id' => :'String',
         :'access_token_manager_id' => :'String',
         :'acl_rules' => :'Array<String>',
         :'active' => :'Boolean',
@@ -984,6 +1028,17 @@ module Akeyless
         :'aerospike_ssl_connection_certificate' => :'String',
         :'aerospike_ssl_connection_mode' => :'Boolean',
         :'agentic_rules' => :'AgenticRules',
+        :'alicloud_access_mode' => :'String',
+        :'alicloud_external_id' => :'String',
+        :'alicloud_role_arns' => :'String',
+        :'alicloud_session_policy' => :'String',
+        :'alicloud_set_source_identity' => :'Boolean',
+        :'alicloud_site' => :'String',
+        :'alicloud_user_console_access' => :'Boolean',
+        :'alicloud_user_groups' => :'String',
+        :'alicloud_user_inline_policy' => :'String',
+        :'alicloud_user_policies' => :'String',
+        :'alicloud_user_programmatic_access' => :'Boolean',
         :'api_key' => :'String',
         :'api_key_id' => :'String',
         :'artifactory_admin_apikey' => :'String',
@@ -1212,6 +1267,7 @@ module Akeyless
         :'rdp_fixed_user_name_sub_claim_key' => :'String',
         :'redirect_uris' => :'Array<String>',
         :'redshift_creation_statements' => :'String',
+        :'region' => :'String',
         :'restricted_scopes' => :'Array<String>',
         :'revoke_sync_url' => :'String',
         :'rotate_sync_url' => :'String',
@@ -1281,6 +1337,14 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'access_key')
+        self.access_key = attributes[:'access_key']
+      end
+
+      if attributes.key?(:'access_key_id')
+        self.access_key_id = attributes[:'access_key_id']
+      end
 
       if attributes.key?(:'access_token_manager_id')
         self.access_token_manager_id = attributes[:'access_token_manager_id']
@@ -1384,6 +1448,50 @@ module Akeyless
 
       if attributes.key?(:'agentic_rules')
         self.agentic_rules = attributes[:'agentic_rules']
+      end
+
+      if attributes.key?(:'alicloud_access_mode')
+        self.alicloud_access_mode = attributes[:'alicloud_access_mode']
+      end
+
+      if attributes.key?(:'alicloud_external_id')
+        self.alicloud_external_id = attributes[:'alicloud_external_id']
+      end
+
+      if attributes.key?(:'alicloud_role_arns')
+        self.alicloud_role_arns = attributes[:'alicloud_role_arns']
+      end
+
+      if attributes.key?(:'alicloud_session_policy')
+        self.alicloud_session_policy = attributes[:'alicloud_session_policy']
+      end
+
+      if attributes.key?(:'alicloud_set_source_identity')
+        self.alicloud_set_source_identity = attributes[:'alicloud_set_source_identity']
+      end
+
+      if attributes.key?(:'alicloud_site')
+        self.alicloud_site = attributes[:'alicloud_site']
+      end
+
+      if attributes.key?(:'alicloud_user_console_access')
+        self.alicloud_user_console_access = attributes[:'alicloud_user_console_access']
+      end
+
+      if attributes.key?(:'alicloud_user_groups')
+        self.alicloud_user_groups = attributes[:'alicloud_user_groups']
+      end
+
+      if attributes.key?(:'alicloud_user_inline_policy')
+        self.alicloud_user_inline_policy = attributes[:'alicloud_user_inline_policy']
+      end
+
+      if attributes.key?(:'alicloud_user_policies')
+        self.alicloud_user_policies = attributes[:'alicloud_user_policies']
+      end
+
+      if attributes.key?(:'alicloud_user_programmatic_access')
+        self.alicloud_user_programmatic_access = attributes[:'alicloud_user_programmatic_access']
       end
 
       if attributes.key?(:'api_key')
@@ -2318,6 +2426,10 @@ module Akeyless
         self.redshift_creation_statements = attributes[:'redshift_creation_statements']
       end
 
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
+      end
+
       if attributes.key?(:'restricted_scopes')
         if (value = attributes[:'restricted_scopes']).is_a?(Array)
           self.restricted_scopes = value
@@ -2531,6 +2643,8 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          access_key == o.access_key &&
+          access_key_id == o.access_key_id &&
           access_token_manager_id == o.access_token_manager_id &&
           acl_rules == o.acl_rules &&
           active == o.active &&
@@ -2556,6 +2670,17 @@ module Akeyless
           aerospike_ssl_connection_certificate == o.aerospike_ssl_connection_certificate &&
           aerospike_ssl_connection_mode == o.aerospike_ssl_connection_mode &&
           agentic_rules == o.agentic_rules &&
+          alicloud_access_mode == o.alicloud_access_mode &&
+          alicloud_external_id == o.alicloud_external_id &&
+          alicloud_role_arns == o.alicloud_role_arns &&
+          alicloud_session_policy == o.alicloud_session_policy &&
+          alicloud_set_source_identity == o.alicloud_set_source_identity &&
+          alicloud_site == o.alicloud_site &&
+          alicloud_user_console_access == o.alicloud_user_console_access &&
+          alicloud_user_groups == o.alicloud_user_groups &&
+          alicloud_user_inline_policy == o.alicloud_user_inline_policy &&
+          alicloud_user_policies == o.alicloud_user_policies &&
+          alicloud_user_programmatic_access == o.alicloud_user_programmatic_access &&
           api_key == o.api_key &&
           api_key_id == o.api_key_id &&
           artifactory_admin_apikey == o.artifactory_admin_apikey &&
@@ -2784,6 +2909,7 @@ module Akeyless
           rdp_fixed_user_name_sub_claim_key == o.rdp_fixed_user_name_sub_claim_key &&
           redirect_uris == o.redirect_uris &&
           redshift_creation_statements == o.redshift_creation_statements &&
+          region == o.region &&
           restricted_scopes == o.restricted_scopes &&
           revoke_sync_url == o.revoke_sync_url &&
           rotate_sync_url == o.rotate_sync_url &&
@@ -2841,7 +2967,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, aerospike_admin_username, aerospike_client_certificate, aerospike_client_id, aerospike_client_private_key, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, aerospike_db_server_name, aerospike_enable_mtls, aerospike_hostname, aerospike_namespace, aerospike_password, aerospike_port, aerospike_roles, aerospike_skip_server_name_validation, aerospike_ssl_connection_certificate, aerospike_ssl_connection_mode, agentic_rules, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, auth_mode, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_name, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_cloud, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, block_parent_target_access, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enable_mtls, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_access_type, gcp_fixed_user_claim_keyname, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_role_names, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, ldap_username, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_allowed_db_names, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oauth_access_token, oauth_account_id, oauth_last_refresh, oauth_refresh_token, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, password_policy_info, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, preserve_existing_password_settings, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, skip_dry_run, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
+      [access_key, access_key_id, access_token_manager_id, acl_rules, active, admin_name, admin_pwd, admin_rotation_interval_days, administrative_port, aerospike_admin_username, aerospike_client_certificate, aerospike_client_id, aerospike_client_private_key, aerospike_client_secret, aerospike_cloud, aerospike_cluster_id, aerospike_db_server_name, aerospike_enable_mtls, aerospike_hostname, aerospike_namespace, aerospike_password, aerospike_port, aerospike_roles, aerospike_skip_server_name_validation, aerospike_ssl_connection_certificate, aerospike_ssl_connection_mode, agentic_rules, alicloud_access_mode, alicloud_external_id, alicloud_role_arns, alicloud_session_policy, alicloud_set_source_identity, alicloud_site, alicloud_user_console_access, alicloud_user_groups, alicloud_user_inline_policy, alicloud_user_policies, alicloud_user_programmatic_access, api_key, api_key_id, artifactory_admin_apikey, artifactory_admin_username, artifactory_base_url, artifactory_token_audience, artifactory_token_scope, auth_mode, authorization_port, aws_access_key_id, aws_access_mode, aws_external_id, aws_region, aws_role_arns, aws_secret_access_key, aws_session_tags, aws_session_token, aws_transitive_tag_keys, aws_user_console_access, aws_user_groups, aws_user_name, aws_user_policies, aws_user_programmatic_access, azure_administrative_unit, azure_app_object_id, azure_client_id, azure_client_secret, azure_cloud, azure_fixed_user_name_sub_claim_key, azure_fixed_user_only, azure_resource_group_name, azure_resource_name, azure_subscription_id, azure_tenant_id, azure_user_groups_obj_id, azure_user_portal_access, azure_user_programmatic_access, azure_user_roles_template_id, azure_username, block_parent_target_access, cassandra_creation_statements, chef_organizations, chef_server_access_mode, chef_server_host_name, chef_server_key, chef_server_port, chef_server_url, chef_server_username, chef_skip_ssl, client_authentication_type, client_certificate, client_key_passphrase, client_private_key, cloud_service_provider, cluster_mode, connection_type, create_sync_url, db_client_id, db_client_secret, db_host_name, db_isolation_level, db_max_idle_conns, db_max_open_conns, db_name, db_port, db_private_key, db_private_key_passphrase, db_pwd, db_server_certificates, db_server_name, db_tenant_id, db_user_name, delete_protection, dynamic_secret_id, dynamic_secret_key, dynamic_secret_name, dynamic_secret_type, eks_access_key_id, eks_assume_role, eks_cluster_ca_certificate, eks_cluster_endpoint, eks_cluster_name, eks_region, eks_secret_access_key, enable_admin_rotation, enable_mtls, enforce_replay_prevention, expiration_date, externally_provided_user, failure_message, fixed_user_only, gcp_access_type, gcp_fixed_user_claim_keyname, gcp_key_algo, gcp_project_id, gcp_role_bindings, gcp_role_names, gcp_service_account_email, gcp_service_account_key, gcp_service_account_key_base64, gcp_service_account_key_id, gcp_service_account_type, gcp_tmp_service_account_name, gcp_token_lifetime, gcp_token_scope, gcp_token_type, github_app_id, github_app_private_key, github_base_url, github_installation_id, github_installation_token_permissions, github_installation_token_repositories, github_installation_token_repositories_ids, github_organization_name, github_repository_path, gitlab_access_token, gitlab_access_type, gitlab_certificate, gitlab_group_name, gitlab_project_name, gitlab_role, gitlab_token_scope, gitlab_url, gke_cluster_ca_certificate, gke_cluster_endpoint, gke_cluster_name, gke_service_account_key, gke_service_account_name, google_workspace_access_mode, google_workspace_admin_name, google_workspace_fixed_user_name_sub_claim_key, google_workspace_group_name, google_workspace_group_role, google_workspace_role_name, google_workspace_role_scope, grace_rotated_secret_key, grant_types, groups, gw_cloud_identity_external_id_opt, hanadb_creation_statements, hanadb_revocation_statements, host_name, host_port, implementation_type, is_fixed_user, issuer, item_custom_fields_details, item_targets_assoc, jwks, jwks_url, k8s_allowed_namespaces, k8s_auth_type, k8s_bearer_token, k8s_client_cert_data, k8s_client_key_data, k8s_cluster_ca_certificate, k8s_cluster_endpoint, k8s_cluster_name, k8s_dynamic_mode, k8s_multiple_doc_yaml_temp_definition, k8s_namespace, k8s_role_name, k8s_role_type, k8s_service_account, last_admin_rotation, ldap_audience, ldap_bind_dn, ldap_bind_password, ldap_certificate, ldap_fixed_user_name_sub_claim_key, ldap_fixed_user_type, ldap_group_dn, ldap_token_expiration, ldap_url, ldap_user_attr, ldap_user_dn, ldap_username, metadata, mongodb_atlas_api_private_key, mongodb_atlas_api_public_key, mongodb_atlas_project_id, mongodb_custom_data, mongodb_db_name, mongodb_default_auth_db, mongodb_host_port, mongodb_is_atlas, mongodb_password, mongodb_roles, mongodb_scopes, mongodb_uri_connection, mongodb_uri_options, mongodb_username, mssql_allowed_db_names, mssql_creation_statements, mssql_revocation_statements, mysql_creation_statements, mysql_revocation_statements, oauth_access_token, oauth_account_id, oauth_last_refresh, oauth_refresh_token, openai_url, oracle_creation_statements, oracle_revocation_statements, oracle_wallet_details, organization_id, password, password_length, password_policy, password_policy_info, payload, ping_url, postgres_creation_statements, postgres_revocation_statements, preserve_existing_password_settings, privileged_user, project_id, rabbitmq_server_password, rabbitmq_server_uri, rabbitmq_server_user, rabbitmq_user_conf_permission, rabbitmq_user_read_permission, rabbitmq_user_tags, rabbitmq_user_vhost, rabbitmq_user_write_permission, rdp_fixed_user_name_sub_claim_key, redirect_uris, redshift_creation_statements, region, restricted_scopes, revoke_sync_url, rotate_sync_url, scopes, secure_remote_access_details, session_extension_warn_interval_min, sf_account, sf_auth_mode, sf_key_algo, sf_user_role, sf_warehouse_name, should_stop, signing_algorithm, skip_dry_run, skip_server_name_validation, ssl_connection_certificate, ssl_connection_mode, subject_dn, tags, timeout_seconds, use_gw_cloud_identity, use_gw_service_account, user_name, user_password, user_principal_name, user_ttl, username_length, username_policy, username_template, venafi_allow_subdomains, venafi_allowed_domains, venafi_api_key, venafi_auto_generated_folder, venafi_base_url, venafi_root_first_in_chain, venafi_sign_using_akeyless_pki, venafi_signer_key_name, venafi_store_private_key, venafi_tpp_access_token, venafi_tpp_client_id, venafi_tpp_password, venafi_tpp_refresh_token, venafi_tpp_username, venafi_use_tpp, venafi_zone, warn_before_user_expiration_min].hash
     end
 
     # Builds the object from hash

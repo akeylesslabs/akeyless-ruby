@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **acme_challenge** | **String** | ACME challenge type. Options: [dns] | [optional][default to &#39;dns&#39;] |
+| **cert_central_api_key** | **String** | DigiCert CertCentral API key. Optional - when set, certificate renewal reissues the existing DigiCert order instead of placing a new (billable) order. DNS challenge and production endpoints only. On target update pass it again to keep it, omitting it clears it | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
 | **digicert_url** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] | [optional][default to &#39;us-production&#39;] |
@@ -40,6 +41,7 @@ require 'akeyless'
 
 instance = Akeyless::TargetUpdateDigiCert.new(
   acme_challenge: null,
+  cert_central_api_key: null,
   delete_protection: null,
   description: null,
   digicert_url: null,

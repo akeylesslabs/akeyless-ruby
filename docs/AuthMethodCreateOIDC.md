@@ -22,6 +22,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **required_scopes** | **Array&lt;String&gt;** | RequiredScopes is a list of required scopes that the oidc method will request from the oidc provider and the user must approve | [optional] |
 | **required_scopes_prefix** | **String** | RequiredScopesPrefix is a a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures&#39; Application ID URI) | [optional] |
@@ -58,6 +59,7 @@ instance = Akeyless::AuthMethodCreateOIDC.new(
   json: null,
   jwt_ttl: null,
   name: null,
+  owner: null,
   product_type: null,
   required_scopes: null,
   required_scopes_prefix: null,

@@ -21,6 +21,9 @@ module Akeyless
     # ACME Account URL (returned after registration with DigiCert ACME). Used to retrieve existing account instead of re-registering.
     attr_accessor :account_url
 
+    # DigiCert CertCentral API key (X-DC-DEVKEY). Optional. When set, renewals look up the DigiCert order of the existing certificate and ask DigiCert to reissue it (free, uses the existing order) instead of placing a new, billable ACME order.
+    attr_accessor :cert_central_api_key
+
     # ACMEChallengeType defines ACME challenge type for Let's Encrypt
     attr_accessor :challenge_type
 
@@ -72,6 +75,7 @@ module Akeyless
       {
         :'account_key_pem' => :'account_key_pem',
         :'account_url' => :'account_url',
+        :'cert_central_api_key' => :'cert_central_api_key',
         :'challenge_type' => :'challenge_type',
         :'digicert_directory_type' => :'digicert_directory_type',
         :'dns_propagation_wait' => :'dns_propagation_wait',
@@ -101,6 +105,7 @@ module Akeyless
       {
         :'account_key_pem' => :'String',
         :'account_url' => :'String',
+        :'cert_central_api_key' => :'String',
         :'challenge_type' => :'String',
         :'digicert_directory_type' => :'String',
         :'dns_propagation_wait' => :'Integer',
@@ -147,6 +152,10 @@ module Akeyless
 
       if attributes.key?(:'account_url')
         self.account_url = attributes[:'account_url']
+      end
+
+      if attributes.key?(:'cert_central_api_key')
+        self.cert_central_api_key = attributes[:'cert_central_api_key']
       end
 
       if attributes.key?(:'challenge_type')
@@ -238,6 +247,7 @@ module Akeyless
       self.class == o.class &&
           account_key_pem == o.account_key_pem &&
           account_url == o.account_url &&
+          cert_central_api_key == o.cert_central_api_key &&
           challenge_type == o.challenge_type &&
           digicert_directory_type == o.digicert_directory_type &&
           dns_propagation_wait == o.dns_propagation_wait &&
@@ -265,7 +275,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_key_pem, account_url, challenge_type, digicert_directory_type, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_name, dns_target_type, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
+      [account_key_pem, account_url, cert_central_api_key, challenge_type, digicert_directory_type, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_name, dns_target_type, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, resource_group, timeout].hash
     end
 
     # Builds the object from hash

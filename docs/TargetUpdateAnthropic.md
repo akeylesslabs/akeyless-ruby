@@ -20,6 +20,13 @@
 | **rotate_on_unlock** | **String** | Rotate this secret after it is unlocked | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
+| **use_gw_cloud_identity** | **Boolean** | Use the Gateway&#39;s cloud identity (Anthropic Workload Identity Federation) instead of an API key | [optional] |
+| **wif_azure_audience** | **String** | Identifier URI (api://&lt;app-id&gt;) of the Entra app registration for the Claude API audience, required with the azure source | [optional] |
+| **wif_federation_rule_id** | **String** | Federation rule ID (fdrl_...), required with use-gw-cloud-identity | [optional] |
+| **wif_identity_token_source** | **String** | Where the Gateway reads its identity token: file (default), gcp, aws or azure | [optional] |
+| **wif_organization_id** | **String** | Anthropic organization ID (UUID), required with use-gw-cloud-identity | [optional] |
+| **wif_service_account_id** | **String** | Claude service account ID (svac_...), required with use-gw-cloud-identity | [optional] |
+| **wif_workspace_id** | **String** | Workspace ID (wrkspc_...), needed only when the federation rule covers more than one workspace | [optional] |
 
 ## Example
 
@@ -42,7 +49,14 @@ instance = Akeyless::TargetUpdateAnthropic.new(
   new_name: null,
   rotate_on_unlock: null,
   token: null,
-  uid_token: null
+  uid_token: null,
+  use_gw_cloud_identity: null,
+  wif_azure_audience: null,
+  wif_federation_rule_id: null,
+  wif_identity_token_source: null,
+  wif_organization_id: null,
+  wif_service_account_id: null,
+  wif_workspace_id: null
 )
 ```
 

@@ -19,6 +19,9 @@ module Akeyless
     # ACME challenge type. Options: [dns]
     attr_accessor :acme_challenge
 
+    # DigiCert CertCentral API key. Optional - when set, certificate renewal reissues the existing DigiCert order instead of placing a new (billable) order. DNS challenge and production endpoints only. On target update pass it again to keep it, omitting it clears it
+    attr_accessor :cert_central_api_key
+
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
 
@@ -98,6 +101,7 @@ module Akeyless
     def self.attribute_map
       {
         :'acme_challenge' => :'acme-challenge',
+        :'cert_central_api_key' => :'cert-central-api-key',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
         :'digicert_url' => :'digicert-url',
@@ -135,6 +139,7 @@ module Akeyless
     def self.openapi_types
       {
         :'acme_challenge' => :'String',
+        :'cert_central_api_key' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
         :'digicert_url' => :'String',
@@ -188,6 +193,10 @@ module Akeyless
         self.acme_challenge = attributes[:'acme_challenge']
       else
         self.acme_challenge = 'dns'
+      end
+
+      if attributes.key?(:'cert_central_api_key')
+        self.cert_central_api_key = attributes[:'cert_central_api_key']
       end
 
       if attributes.key?(:'delete_protection')
@@ -334,6 +343,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           acme_challenge == o.acme_challenge &&
+          cert_central_api_key == o.cert_central_api_key &&
           delete_protection == o.delete_protection &&
           description == o.description &&
           digicert_url == o.digicert_url &&
@@ -370,7 +380,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acme_challenge, delete_protection, description, digicert_url, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_creds, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, json, key, lock_on_read, lock_ttl, max_versions, name, resource_group, rotate_on_unlock, timeout, token, uid_token].hash
+      [acme_challenge, cert_central_api_key, delete_protection, description, digicert_url, dns_propagation_wait, dns_resolvers, dns_skip_precheck, dns_target_creds, dns_timeout, dns_zone, eab_hmac_key, eab_key_id, email, gcp_project, hosted_zone, json, key, lock_on_read, lock_ttl, max_versions, name, resource_group, rotate_on_unlock, timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

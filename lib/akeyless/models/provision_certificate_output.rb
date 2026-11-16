@@ -19,17 +19,28 @@ module Akeyless
 
     attr_accessor :success_message
 
+    # AssociationID and TargetName identify the row of a Results entry.
+    attr_accessor :association_id
+
     attr_accessor :host_names
 
     attr_accessor :provisioned_at
+
+    # Results holds one entry per row. It is set only when several rows were handled; the top-level fields then summarize them.
+    attr_accessor :results
+
+    attr_accessor :target_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'fail_message' => :'FailMessage',
         :'success_message' => :'SuccessMessage',
+        :'association_id' => :'association_id',
         :'host_names' => :'host_names',
-        :'provisioned_at' => :'provisioned_at'
+        :'provisioned_at' => :'provisioned_at',
+        :'results' => :'results',
+        :'target_name' => :'target_name'
       }
     end
 
@@ -43,8 +54,11 @@ module Akeyless
       {
         :'fail_message' => :'String',
         :'success_message' => :'String',
+        :'association_id' => :'String',
         :'host_names' => :'Array<String>',
-        :'provisioned_at' => :'Time'
+        :'provisioned_at' => :'Time',
+        :'results' => :'Array<ProvisionCertificateOutput>',
+        :'target_name' => :'String'
       }
     end
 
@@ -77,6 +91,10 @@ module Akeyless
         self.success_message = attributes[:'success_message']
       end
 
+      if attributes.key?(:'association_id')
+        self.association_id = attributes[:'association_id']
+      end
+
       if attributes.key?(:'host_names')
         if (value = attributes[:'host_names']).is_a?(Array)
           self.host_names = value
@@ -85,6 +103,16 @@ module Akeyless
 
       if attributes.key?(:'provisioned_at')
         self.provisioned_at = attributes[:'provisioned_at']
+      end
+
+      if attributes.key?(:'results')
+        if (value = attributes[:'results']).is_a?(Array)
+          self.results = value
+        end
+      end
+
+      if attributes.key?(:'target_name')
+        self.target_name = attributes[:'target_name']
       end
     end
 
@@ -110,8 +138,11 @@ module Akeyless
       self.class == o.class &&
           fail_message == o.fail_message &&
           success_message == o.success_message &&
+          association_id == o.association_id &&
           host_names == o.host_names &&
-          provisioned_at == o.provisioned_at
+          provisioned_at == o.provisioned_at &&
+          results == o.results &&
+          target_name == o.target_name
     end
 
     # @see the `==` method
@@ -123,7 +154,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [fail_message, success_message, host_names, provisioned_at].hash
+      [fail_message, success_message, association_id, host_names, provisioned_at, results, target_name].hash
     end
 
     # Builds the object from hash

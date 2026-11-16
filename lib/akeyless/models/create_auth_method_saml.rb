@@ -64,6 +64,9 @@ module Akeyless
     # Auth Method name
     attr_accessor :name
 
+    # Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+    attr_accessor :owner
+
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
@@ -101,6 +104,7 @@ module Akeyless
         :'json' => :'json',
         :'jwt_ttl' => :'jwt-ttl',
         :'name' => :'name',
+        :'owner' => :'owner',
         :'product_type' => :'product-type',
         :'subclaims_delimiters' => :'subclaims-delimiters',
         :'token' => :'token',
@@ -134,6 +138,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'jwt_ttl' => :'Integer',
         :'name' => :'String',
+        :'owner' => :'String',
         :'product_type' => :'Array<String>',
         :'subclaims_delimiters' => :'Array<String>',
         :'token' => :'String',
@@ -146,6 +151,7 @@ module Akeyless
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'owner',
       ])
     end
 
@@ -248,6 +254,10 @@ module Akeyless
         self.name = nil
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'product_type')
         if (value = attributes[:'product_type']).is_a?(Array)
           self.product_type = value
@@ -325,6 +335,7 @@ module Akeyless
           json == o.json &&
           jwt_ttl == o.jwt_ttl &&
           name == o.name &&
+          owner == o.owner &&
           product_type == o.product_type &&
           subclaims_delimiters == o.subclaims_delimiters &&
           token == o.token &&
@@ -342,7 +353,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
+      [access_expires, allowed_client_type, allowed_redirect_uri, audit_logs_claims, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, idp_metadata_url, idp_metadata_xml_data, json, jwt_ttl, name, owner, product_type, subclaims_delimiters, token, uid_token, unique_identifier, use_dedicated_saml_urls].hash
     end
 
     # Builds the object from hash

@@ -55,6 +55,27 @@ module Akeyless
     # The universal identity token, Required only for universal_identity authentication
     attr_accessor :uid_token
 
+    # Use the Gateway's cloud identity (Anthropic Workload Identity Federation) instead of an API key
+    attr_accessor :use_gw_cloud_identity
+
+    # Identifier URI (api://<app-id>) of the Entra app registration for the Claude API audience, required with the azure source
+    attr_accessor :wif_azure_audience
+
+    # Federation rule ID (fdrl_...), required with use-gw-cloud-identity
+    attr_accessor :wif_federation_rule_id
+
+    # Where the Gateway reads its identity token: file (default), gcp, aws or azure
+    attr_accessor :wif_identity_token_source
+
+    # Anthropic organization ID (UUID), required with use-gw-cloud-identity
+    attr_accessor :wif_organization_id
+
+    # Claude service account ID (svac_...), required with use-gw-cloud-identity
+    attr_accessor :wif_service_account_id
+
+    # Workspace ID (wrkspc_...), needed only when the federation rule covers more than one workspace
+    attr_accessor :wif_workspace_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -70,7 +91,14 @@ module Akeyless
         :'name' => :'name',
         :'rotate_on_unlock' => :'rotate-on-unlock',
         :'token' => :'token',
-        :'uid_token' => :'uid-token'
+        :'uid_token' => :'uid-token',
+        :'use_gw_cloud_identity' => :'use-gw-cloud-identity',
+        :'wif_azure_audience' => :'wif-azure-audience',
+        :'wif_federation_rule_id' => :'wif-federation-rule-id',
+        :'wif_identity_token_source' => :'wif-identity-token-source',
+        :'wif_organization_id' => :'wif-organization-id',
+        :'wif_service_account_id' => :'wif-service-account-id',
+        :'wif_workspace_id' => :'wif-workspace-id'
       }
     end
 
@@ -94,7 +122,14 @@ module Akeyless
         :'name' => :'String',
         :'rotate_on_unlock' => :'String',
         :'token' => :'String',
-        :'uid_token' => :'String'
+        :'uid_token' => :'String',
+        :'use_gw_cloud_identity' => :'Boolean',
+        :'wif_azure_audience' => :'String',
+        :'wif_federation_rule_id' => :'String',
+        :'wif_identity_token_source' => :'String',
+        :'wif_organization_id' => :'String',
+        :'wif_service_account_id' => :'String',
+        :'wif_workspace_id' => :'String'
       }
     end
 
@@ -176,6 +211,34 @@ module Akeyless
       if attributes.key?(:'uid_token')
         self.uid_token = attributes[:'uid_token']
       end
+
+      if attributes.key?(:'use_gw_cloud_identity')
+        self.use_gw_cloud_identity = attributes[:'use_gw_cloud_identity']
+      end
+
+      if attributes.key?(:'wif_azure_audience')
+        self.wif_azure_audience = attributes[:'wif_azure_audience']
+      end
+
+      if attributes.key?(:'wif_federation_rule_id')
+        self.wif_federation_rule_id = attributes[:'wif_federation_rule_id']
+      end
+
+      if attributes.key?(:'wif_identity_token_source')
+        self.wif_identity_token_source = attributes[:'wif_identity_token_source']
+      end
+
+      if attributes.key?(:'wif_organization_id')
+        self.wif_organization_id = attributes[:'wif_organization_id']
+      end
+
+      if attributes.key?(:'wif_service_account_id')
+        self.wif_service_account_id = attributes[:'wif_service_account_id']
+      end
+
+      if attributes.key?(:'wif_workspace_id')
+        self.wif_workspace_id = attributes[:'wif_workspace_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -215,7 +278,14 @@ module Akeyless
           name == o.name &&
           rotate_on_unlock == o.rotate_on_unlock &&
           token == o.token &&
-          uid_token == o.uid_token
+          uid_token == o.uid_token &&
+          use_gw_cloud_identity == o.use_gw_cloud_identity &&
+          wif_azure_audience == o.wif_azure_audience &&
+          wif_federation_rule_id == o.wif_federation_rule_id &&
+          wif_identity_token_source == o.wif_identity_token_source &&
+          wif_organization_id == o.wif_organization_id &&
+          wif_service_account_id == o.wif_service_account_id &&
+          wif_workspace_id == o.wif_workspace_id
     end
 
     # @see the `==` method
@@ -227,7 +297,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [anthropic_url, api_key, delete_protection, description, json, key, lock_on_read, lock_ttl, max_versions, name, rotate_on_unlock, token, uid_token].hash
+      [anthropic_url, api_key, delete_protection, description, json, key, lock_on_read, lock_ttl, max_versions, name, rotate_on_unlock, token, uid_token, use_gw_cloud_identity, wif_azure_audience, wif_federation_rule_id, wif_identity_token_source, wif_organization_id, wif_service_account_id, wif_workspace_id].hash
     end
 
     # Builds the object from hash

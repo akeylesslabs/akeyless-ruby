@@ -19,6 +19,7 @@
 | **max_versions** | **Integer** |  | [optional] |
 | **next_auto_rotate_type** | **String** |  | [optional] |
 | **number_of_versions_to_save** | **Integer** |  | [optional] |
+| **public_key** | **String** | PublicKey is the OpenSSH authorized_keys line for an SSH rotated secret. Stored in the clear on item attributes so describe-item can return it under list permission. | [optional] |
 | **public_key_remote_path** | **String** |  | [optional] |
 | **rotation_hour** | **Integer** |  | [optional] |
 | **rotation_interval_min** | **Boolean** |  | [optional] |
@@ -52,6 +53,7 @@ instance = Akeyless::RotatedSecretDetailsInfo.new(
   max_versions: null,
   next_auto_rotate_type: null,
   number_of_versions_to_save: null,
+  public_key: null,
   public_key_remote_path: null,
   rotation_hour: null,
   rotation_interval_min: null,

@@ -52,6 +52,8 @@ module Akeyless
 
     attr_accessor :modification_date
 
+    attr_accessor :owner
+
     attr_accessor :uid_expiration_events
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -75,6 +77,7 @@ module Akeyless
         :'expiration_events' => :'expiration_events',
         :'is_approved' => :'is_approved',
         :'modification_date' => :'modification_date',
+        :'owner' => :'owner',
         :'uid_expiration_events' => :'uid_expiration_events'
       }
     end
@@ -105,6 +108,7 @@ module Akeyless
         :'expiration_events' => :'Array<AuthExpirationEvent>',
         :'is_approved' => :'Boolean',
         :'modification_date' => :'Time',
+        :'owner' => :'String',
         :'uid_expiration_events' => :'Array<UidExpirationEvent>'
       }
     end
@@ -210,6 +214,10 @@ module Akeyless
         self.modification_date = attributes[:'modification_date']
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'uid_expiration_events')
         if (value = attributes[:'uid_expiration_events']).is_a?(Array)
           self.uid_expiration_events = value
@@ -255,6 +263,7 @@ module Akeyless
           expiration_events == o.expiration_events &&
           is_approved == o.is_approved &&
           modification_date == o.modification_date &&
+          owner == o.owner &&
           uid_expiration_events == o.uid_expiration_events
     end
 
@@ -267,7 +276,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_date, access_date_display, access_info, account_id, associated_gw_ids, auth_method_access_id, auth_method_additional_data, auth_method_id, auth_method_name, auth_method_roles_assoc, bookmark_login_url_template, client_permissions, creation_date, delete_protection, description, expiration_events, is_approved, modification_date, uid_expiration_events].hash
+      [access_date, access_date_display, access_info, account_id, associated_gw_ids, auth_method_access_id, auth_method_additional_data, auth_method_id, auth_method_name, auth_method_roles_assoc, bookmark_login_url_template, client_permissions, creation_date, delete_protection, description, expiration_events, is_approved, modification_date, owner, uid_expiration_events].hash
     end
 
     # Builds the object from hash

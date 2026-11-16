@@ -4,6 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **access_key** | **String** |  | [optional] |
+| **access_key_id** | **String** |  | [optional] |
 | **access_token_manager_id** | **String** |  | [optional] |
 | **acl_rules** | **Array&lt;String&gt;** |  | [optional] |
 | **active** | **Boolean** |  | [optional] |
@@ -29,6 +31,17 @@
 | **aerospike_ssl_connection_certificate** | **String** |  | [optional] |
 | **aerospike_ssl_connection_mode** | **Boolean** |  | [optional] |
 | **agentic_rules** | [**AgenticRules**](AgenticRules.md) |  | [optional] |
+| **alicloud_access_mode** | **String** |  | [optional] |
+| **alicloud_external_id** | **String** |  | [optional] |
+| **alicloud_role_arns** | **String** |  | [optional] |
+| **alicloud_session_policy** | **String** |  | [optional] |
+| **alicloud_set_source_identity** | **Boolean** |  | [optional] |
+| **alicloud_site** | **String** |  | [optional] |
+| **alicloud_user_console_access** | **Boolean** |  | [optional] |
+| **alicloud_user_groups** | **String** |  | [optional] |
+| **alicloud_user_inline_policy** | **String** |  | [optional] |
+| **alicloud_user_policies** | **String** |  | [optional] |
+| **alicloud_user_programmatic_access** | **Boolean** |  | [optional] |
 | **api_key** | **String** |  | [optional] |
 | **api_key_id** | **String** |  | [optional] |
 | **artifactory_admin_apikey** | **String** |  | [optional] |
@@ -257,6 +270,7 @@
 | **rdp_fixed_user_name_sub_claim_key** | **String** |  | [optional] |
 | **redirect_uris** | **Array&lt;String&gt;** |  | [optional] |
 | **redshift_creation_statements** | **String** |  | [optional] |
+| **region** | **String** |  | [optional] |
 | **restricted_scopes** | **Array&lt;String&gt;** |  | [optional] |
 | **revoke_sync_url** | **String** |  | [optional] |
 | **rotate_sync_url** | **String** |  | [optional] |
@@ -310,6 +324,8 @@
 require 'akeyless'
 
 instance = Akeyless::DSProducerDetails.new(
+  access_key: null,
+  access_key_id: null,
   access_token_manager_id: null,
   acl_rules: null,
   active: null,
@@ -335,6 +351,17 @@ instance = Akeyless::DSProducerDetails.new(
   aerospike_ssl_connection_certificate: null,
   aerospike_ssl_connection_mode: null,
   agentic_rules: null,
+  alicloud_access_mode: null,
+  alicloud_external_id: null,
+  alicloud_role_arns: null,
+  alicloud_session_policy: null,
+  alicloud_set_source_identity: null,
+  alicloud_site: null,
+  alicloud_user_console_access: null,
+  alicloud_user_groups: null,
+  alicloud_user_inline_policy: null,
+  alicloud_user_policies: null,
+  alicloud_user_programmatic_access: null,
   api_key: null,
   api_key_id: null,
   artifactory_admin_apikey: null,
@@ -563,6 +590,7 @@ instance = Akeyless::DSProducerDetails.new(
   rdp_fixed_user_name_sub_claim_key: null,
   redirect_uris: null,
   redshift_creation_statements: null,
+  region: null,
   restricted_scopes: null,
   revoke_sync_url: null,
   rotate_sync_url: null,

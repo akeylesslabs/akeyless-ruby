@@ -28,6 +28,7 @@
 | **jwks_uri** | **String** | The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. | [optional][default to &#39;https://login.microsoftonline.com/common/discovery/keys&#39;] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
@@ -63,6 +64,7 @@ instance = Akeyless::CreateAuthMethodAzureAD.new(
   jwks_uri: null,
   jwt_ttl: null,
   name: null,
+  owner: null,
   product_type: null,
   token: null,
   uid_token: null,

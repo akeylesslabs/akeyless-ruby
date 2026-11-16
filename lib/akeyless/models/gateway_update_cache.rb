@@ -19,6 +19,9 @@ module Akeyless
     # Secure backup interval in minutes. To ensure service continuity in case of power cycle and network outage secrets will be backed up periodically per backup interval
     attr_accessor :backup_interval
 
+    # Serve item metadata (describe-item and classic key details) from an on-demand cache, refreshed after the minimum fetching interval [true/false]
+    attr_accessor :cache_item_metadata
+
     # Enable cache [true/false]
     attr_accessor :enable_cache
 
@@ -44,6 +47,7 @@ module Akeyless
     def self.attribute_map
       {
         :'backup_interval' => :'backup-interval',
+        :'cache_item_metadata' => :'cache-item-metadata',
         :'enable_cache' => :'enable-cache',
         :'enable_proactive' => :'enable-proactive',
         :'json' => :'json',
@@ -63,6 +67,7 @@ module Akeyless
     def self.openapi_types
       {
         :'backup_interval' => :'String',
+        :'cache_item_metadata' => :'String',
         :'enable_cache' => :'String',
         :'enable_proactive' => :'String',
         :'json' => :'Boolean',
@@ -98,6 +103,10 @@ module Akeyless
         self.backup_interval = attributes[:'backup_interval']
       else
         self.backup_interval = '1'
+      end
+
+      if attributes.key?(:'cache_item_metadata')
+        self.cache_item_metadata = attributes[:'cache_item_metadata']
       end
 
       if attributes.key?(:'enable_cache')
@@ -156,6 +165,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           backup_interval == o.backup_interval &&
+          cache_item_metadata == o.cache_item_metadata &&
           enable_cache == o.enable_cache &&
           enable_proactive == o.enable_proactive &&
           json == o.json &&
@@ -174,7 +184,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [backup_interval, enable_cache, enable_proactive, json, minimum_fetch_interval, stale_timeout, token, uid_token].hash
+      [backup_interval, cache_item_metadata, enable_cache, enable_proactive, json, minimum_fetch_interval, stale_timeout, token, uid_token].hash
     end
 
     # Builds the object from hash

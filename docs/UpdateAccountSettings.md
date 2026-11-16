@@ -48,6 +48,7 @@
 | **password_length** | **Integer** | Password length between 5 - to 50 characters | [optional] |
 | **phone** | **String** | Phone number | [optional] |
 | **postal_code** | **String** | Postal code | [optional] |
+| **require_auth_method_owner** | **String** | Require an owner when creating or updating authentication methods [true/false] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **uid_token** | **String** | The universal identity token, Required only for universal_identity authentication | [optional] |
 | **usage_event_enable** | **String** | Enable event for objects that have not been used or changed [true/false] | [optional] |
@@ -108,6 +109,7 @@ instance = Akeyless::UpdateAccountSettings.new(
   password_length: null,
   phone: null,
   postal_code: null,
+  require_auth_method_owner: null,
   token: null,
   uid_token: null,
   usage_event_enable: null,

@@ -147,6 +147,9 @@ module Akeyless
     # Postal code
     attr_accessor :postal_code
 
+    # Require an owner when creating or updating authentication methods [true/false]
+    attr_accessor :require_auth_method_owner
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -220,6 +223,7 @@ module Akeyless
         :'password_length' => :'password-length',
         :'phone' => :'phone',
         :'postal_code' => :'postal-code',
+        :'require_auth_method_owner' => :'require-auth-method-owner',
         :'token' => :'token',
         :'uid_token' => :'uid-token',
         :'usage_event_enable' => :'usage-event-enable',
@@ -284,6 +288,7 @@ module Akeyless
         :'password_length' => :'Integer',
         :'phone' => :'String',
         :'postal_code' => :'String',
+        :'require_auth_method_owner' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String',
         :'usage_event_enable' => :'String',
@@ -507,6 +512,10 @@ module Akeyless
         self.postal_code = attributes[:'postal_code']
       end
 
+      if attributes.key?(:'require_auth_method_owner')
+        self.require_auth_method_owner = attributes[:'require_auth_method_owner']
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -608,6 +617,7 @@ module Akeyless
           password_length == o.password_length &&
           phone == o.phone &&
           postal_code == o.postal_code &&
+          require_auth_method_owner == o.require_auth_method_owner &&
           token == o.token &&
           uid_token == o.uid_token &&
           usage_event_enable == o.usage_event_enable &&
@@ -628,7 +638,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_ai_quorum, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_locking_enabled, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, lock_max_ttl, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
+      [address, allowed_client_type, allowed_email_domains, bound_ips, city, company_name, country, default_certificate_expiration_notification_days, default_key_name, default_share_link_ttl_minutes, default_versioning, dp_enable_classic_key_protection, dynamic_secret_max_ttl, dynamic_secret_max_ttl_enable, enable_ai_insights, enable_ai_quorum, enable_default_certificate_expiration_event, enable_item_sharing, enable_password_expiration, force_new_versions, gw_bound_ips, hide_personal_folder, hide_static_password, invalid_characters, item_locking_enabled, item_type, items_deletion_protection, json, jwt_ttl_default, jwt_ttl_max, jwt_ttl_min, lock_allowed_client_type, lock_bound_ips, lock_default_key, lock_gw_bound_ips, lock_max_ttl, max_rotation_interval, max_rotation_interval_enable, max_versions, password_expiration_days, password_expiration_notification_days, password_length, phone, postal_code, require_auth_method_owner, token, uid_token, usage_event_enable, usage_event_interval, usage_event_object_type, use_capital_letters, use_lower_letters, use_numbers, use_special_characters].hash
     end
 
     # Builds the object from hash

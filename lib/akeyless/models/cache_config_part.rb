@@ -19,6 +19,8 @@ module Akeyless
 
     attr_accessor :cache_encryption_key
 
+    attr_accessor :cache_item_metadata
+
     attr_accessor :cache_ttl
 
     attr_accessor :new_proactive_cache_enable
@@ -34,6 +36,7 @@ module Akeyless
       {
         :'cache_enable' => :'cache_enable',
         :'cache_encryption_key' => :'cache_encryption_key',
+        :'cache_item_metadata' => :'cache_item_metadata',
         :'cache_ttl' => :'cache_ttl',
         :'new_proactive_cache_enable' => :'new_proactive_cache_enable',
         :'proactive_cache_dump_interval' => :'proactive_cache_dump_interval',
@@ -52,6 +55,7 @@ module Akeyless
       {
         :'cache_enable' => :'Boolean',
         :'cache_encryption_key' => :'String',
+        :'cache_item_metadata' => :'Boolean',
         :'cache_ttl' => :'String',
         :'new_proactive_cache_enable' => :'Boolean',
         :'proactive_cache_dump_interval' => :'String',
@@ -87,6 +91,10 @@ module Akeyless
 
       if attributes.key?(:'cache_encryption_key')
         self.cache_encryption_key = attributes[:'cache_encryption_key']
+      end
+
+      if attributes.key?(:'cache_item_metadata')
+        self.cache_item_metadata = attributes[:'cache_item_metadata']
       end
 
       if attributes.key?(:'cache_ttl')
@@ -132,6 +140,7 @@ module Akeyless
       self.class == o.class &&
           cache_enable == o.cache_enable &&
           cache_encryption_key == o.cache_encryption_key &&
+          cache_item_metadata == o.cache_item_metadata &&
           cache_ttl == o.cache_ttl &&
           new_proactive_cache_enable == o.new_proactive_cache_enable &&
           proactive_cache_dump_interval == o.proactive_cache_dump_interval &&
@@ -148,7 +157,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cache_enable, cache_encryption_key, cache_ttl, new_proactive_cache_enable, proactive_cache_dump_interval, proactive_cache_enable, proactive_cache_minimum_fetching_time].hash
+      [cache_enable, cache_encryption_key, cache_item_metadata, cache_ttl, new_proactive_cache_enable, proactive_cache_dump_interval, proactive_cache_enable, proactive_cache_minimum_fetching_time].hash
     end
 
     # Builds the object from hash

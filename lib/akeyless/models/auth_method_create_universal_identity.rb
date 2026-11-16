@@ -28,7 +28,7 @@ module Akeyless
     # A CIDR whitelist with the IPs that the access is restricted to
     attr_accessor :bound_ips
 
-    # Maximum child token ttl allowed in uid-create-child-token
+    # Maximum child token ttl allowed in uid-create-child-token. A struct tag cannot hold a constant, so dft must stay equal to types.UniversalIdentityDefaultTTLChildLimit
     attr_accessor :child_ttl_limit
 
     # Protection from accidental deletion of this object [true/false]
@@ -60,6 +60,9 @@ module Akeyless
 
     # Auth Method name
     attr_accessor :name
+
+    # Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+    attr_accessor :owner
 
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
@@ -97,6 +100,7 @@ module Akeyless
         :'json' => :'json',
         :'jwt_ttl' => :'jwt-ttl',
         :'name' => :'name',
+        :'owner' => :'owner',
         :'product_type' => :'product-type',
         :'token' => :'token',
         :'tree_length' => :'tree-length',
@@ -129,6 +133,7 @@ module Akeyless
         :'json' => :'Boolean',
         :'jwt_ttl' => :'Integer',
         :'name' => :'String',
+        :'owner' => :'String',
         :'product_type' => :'Array<String>',
         :'token' => :'String',
         :'tree_length' => :'Integer',
@@ -239,6 +244,10 @@ module Akeyless
         self.name = nil
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'product_type')
         if (value = attributes[:'product_type']).is_a?(Array)
           self.product_type = value
@@ -312,6 +321,7 @@ module Akeyless
           json == o.json &&
           jwt_ttl == o.jwt_ttl &&
           name == o.name &&
+          owner == o.owner &&
           product_type == o.product_type &&
           token == o.token &&
           tree_length == o.tree_length &&
@@ -329,7 +339,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, child_ttl_limit, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, product_type, token, tree_length, ttl, uid_expiration_event_at, uid_token].hash
+      [access_expires, allowed_client_type, audit_logs_claims, bound_ips, child_ttl_limit, delete_protection, deny_inheritance, deny_rotate, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, owner, product_type, token, tree_length, ttl, uid_expiration_event_at, uid_token].hash
     end
 
     # Builds the object from hash

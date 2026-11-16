@@ -78,6 +78,9 @@ module Akeyless
 
     attr_accessor :new_name
 
+    # Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+    attr_accessor :owner
+
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
@@ -125,6 +128,7 @@ module Akeyless
         :'ldap_url' => :'ldap-url',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'owner' => :'owner',
         :'product_type' => :'product-type',
         :'subclaims_delimiters' => :'subclaims-delimiters',
         :'token' => :'token',
@@ -168,6 +172,7 @@ module Akeyless
         :'ldap_url' => :'String',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'owner' => :'String',
         :'product_type' => :'Array<String>',
         :'subclaims_delimiters' => :'Array<String>',
         :'token' => :'String',
@@ -317,6 +322,10 @@ module Akeyless
         self.new_name = attributes[:'new_name']
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'product_type')
         if (value = attributes[:'product_type']).is_a?(Array)
           self.product_type = value
@@ -400,6 +409,7 @@ module Akeyless
           ldap_url == o.ldap_url &&
           name == o.name &&
           new_name == o.new_name &&
+          owner == o.owner &&
           product_type == o.product_type &&
           subclaims_delimiters == o.subclaims_delimiters &&
           token == o.token &&
@@ -418,7 +428,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, audit_logs_claims, bind_dn, bind_dn_password, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, group_attr, group_dn, group_filter, gw_bound_ips, json, jwt_ttl, keytab_file_data, keytab_file_path, krb5_conf_data, krb5_conf_path, ldap_anonymous_search, ldap_ca_cert, ldap_url, name, new_name, product_type, subclaims_delimiters, token, uid_token, unique_identifier, user_attribute, user_dn].hash
+      [access_expires, allowed_client_type, audit_logs_claims, bind_dn, bind_dn_password, bound_ips, delete_protection, description, expiration_event_in, force_sub_claims, group_attr, group_dn, group_filter, gw_bound_ips, json, jwt_ttl, keytab_file_data, keytab_file_path, krb5_conf_data, krb5_conf_path, ldap_anonymous_search, ldap_ca_cert, ldap_url, name, new_name, owner, product_type, subclaims_delimiters, token, uid_token, unique_identifier, user_attribute, user_dn].hash
     end
 
     # Builds the object from hash

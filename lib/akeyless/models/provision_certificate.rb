@@ -28,6 +28,8 @@ module Akeyless
     # Certificate name
     attr_accessor :name
 
+    attr_accessor :target_name
+
     # Authentication token (see `/auth` and `/configure`)
     attr_accessor :token
 
@@ -41,6 +43,7 @@ module Akeyless
         :'item_id' => :'item-id',
         :'json' => :'json',
         :'name' => :'name',
+        :'target_name' => :'target-name',
         :'token' => :'token',
         :'uid_token' => :'uid-token'
       }
@@ -58,6 +61,7 @@ module Akeyless
         :'item_id' => :'Integer',
         :'json' => :'Boolean',
         :'name' => :'String',
+        :'target_name' => :'String',
         :'token' => :'String',
         :'uid_token' => :'String'
       }
@@ -104,6 +108,12 @@ module Akeyless
         self.name = nil
       end
 
+      if attributes.key?(:'target_name')
+        self.target_name = attributes[:'target_name']
+      else
+        self.target_name = 'all targets associated with the certificate)'
+      end
+
       if attributes.key?(:'token')
         self.token = attributes[:'token']
       end
@@ -142,6 +152,7 @@ module Akeyless
           item_id == o.item_id &&
           json == o.json &&
           name == o.name &&
+          target_name == o.target_name &&
           token == o.token &&
           uid_token == o.uid_token
     end
@@ -155,7 +166,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display_id, item_id, json, name, token, uid_token].hash
+      [display_id, item_id, json, name, target_name, token, uid_token].hash
     end
 
     # Builds the object from hash

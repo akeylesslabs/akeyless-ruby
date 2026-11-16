@@ -22,6 +22,7 @@
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
 | **new_name** | **String** | Auth Method new name | [optional] |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **public_key** | **String** | Base64-encoded or PEM formatted public key data for K8S authentication method is required [RSA2048] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -51,6 +52,7 @@ instance = Akeyless::AuthMethodUpdateK8s.new(
   jwt_ttl: null,
   name: null,
   new_name: null,
+  owner: null,
   product_type: null,
   public_key: null,
   token: null,

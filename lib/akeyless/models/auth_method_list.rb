@@ -22,6 +22,9 @@ module Akeyless
     # Set output format to JSON
     attr_accessor :json
 
+    # Filter by auth method owner or part of it
+    attr_accessor :owner
+
     # Next page reference
     attr_accessor :pagination_token
 
@@ -39,6 +42,7 @@ module Akeyless
       {
         :'filter' => :'filter',
         :'json' => :'json',
+        :'owner' => :'owner',
         :'pagination_token' => :'pagination-token',
         :'token' => :'token',
         :'type' => :'type',
@@ -56,6 +60,7 @@ module Akeyless
       {
         :'filter' => :'String',
         :'json' => :'Boolean',
+        :'owner' => :'String',
         :'pagination_token' => :'String',
         :'token' => :'String',
         :'type' => :'Array<String>',
@@ -92,6 +97,10 @@ module Akeyless
         self.json = attributes[:'json']
       else
         self.json = false
+      end
+
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
       end
 
       if attributes.key?(:'pagination_token')
@@ -135,6 +144,7 @@ module Akeyless
       self.class == o.class &&
           filter == o.filter &&
           json == o.json &&
+          owner == o.owner &&
           pagination_token == o.pagination_token &&
           token == o.token &&
           type == o.type &&
@@ -150,7 +160,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter, json, pagination_token, token, type, uid_token].hash
+      [filter, json, owner, pagination_token, token, type, uid_token].hash
     end
 
     # Builds the object from hash

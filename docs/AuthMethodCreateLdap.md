@@ -17,6 +17,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **public_key_data** | **String** | A public key generated for LDAP authentication method on Akeyless in base64 or PEM format [RSA2048] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
@@ -42,6 +43,7 @@ instance = Akeyless::AuthMethodCreateLdap.new(
   json: null,
   jwt_ttl: null,
   name: null,
+  owner: null,
   product_type: null,
   public_key_data: null,
   token: null,

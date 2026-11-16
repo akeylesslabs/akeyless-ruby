@@ -141,6 +141,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize |  |
 | [**detokenize_batch**](V2Api.md#detokenize_batch) | **POST** /detokenize-batch |  |
 | [**dynamic_secret_create_aerospike**](V2Api.md#dynamic_secret_create_aerospike) | **POST** /dynamic-secret-create-aerospike |  |
+| [**dynamic_secret_create_ali_cloud**](V2Api.md#dynamic_secret_create_ali_cloud) | **POST** /dynamic-secret-create-alicloud |  |
 | [**dynamic_secret_create_artifactory**](V2Api.md#dynamic_secret_create_artifactory) | **POST** /dynamic-secret-create-artifactory |  |
 | [**dynamic_secret_create_aws**](V2Api.md#dynamic_secret_create_aws) | **POST** /dynamic-secret-create-aws |  |
 | [**dynamic_secret_create_azure**](V2Api.md#dynamic_secret_create_azure) | **POST** /dynamic-secret-create-azure |  |
@@ -177,6 +178,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamic_secret_tmp_creds_get**](V2Api.md#dynamic_secret_tmp_creds_get) | **POST** /dynamic-secret-tmp-creds-get |  |
 | [**dynamic_secret_tmp_creds_update**](V2Api.md#dynamic_secret_tmp_creds_update) | **POST** /dynamic-secret-tmp-creds-update |  |
 | [**dynamic_secret_update_aerospike**](V2Api.md#dynamic_secret_update_aerospike) | **POST** /dynamic-secret-update-aerospike |  |
+| [**dynamic_secret_update_ali_cloud**](V2Api.md#dynamic_secret_update_ali_cloud) | **POST** /dynamic-secret-update-alicloud |  |
 | [**dynamic_secret_update_artifactory**](V2Api.md#dynamic_secret_update_artifactory) | **POST** /dynamic-secret-update-artifactory |  |
 | [**dynamic_secret_update_aws**](V2Api.md#dynamic_secret_update_aws) | **POST** /dynamic-secret-update-aws |  |
 | [**dynamic_secret_update_azure**](V2Api.md#dynamic_secret_update_azure) | **POST** /dynamic-secret-update-azure |  |
@@ -457,6 +459,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotated_secret_delete_sync**](V2Api.md#rotated_secret_delete_sync) | **POST** /rotated-secret-delete-sync |  |
 | [**rotated_secret_get_value**](V2Api.md#rotated_secret_get_value) | **POST** /rotated-secret-get-value |  |
 | [**rotated_secret_list**](V2Api.md#rotated_secret_list) | **POST** /rotated-secret-list |  |
+| [**rotated_secret_provision_create**](V2Api.md#rotated_secret_provision_create) | **POST** /rotated-secret-provision-create |  |
+| [**rotated_secret_provision_delete**](V2Api.md#rotated_secret_provision_delete) | **POST** /rotated-secret-provision-delete |  |
+| [**rotated_secret_provision_push**](V2Api.md#rotated_secret_provision_push) | **POST** /rotated-secret-provision-push |  |
+| [**rotated_secret_provision_update**](V2Api.md#rotated_secret_provision_update) | **POST** /rotated-secret-provision-update |  |
 | [**rotated_secret_sync**](V2Api.md#rotated_secret_sync) | **POST** /rotated-secret-sync |  |
 | [**rotated_secret_update_aerospike**](V2Api.md#rotated_secret_update_aerospike) | **POST** /rotated-secret-update-aerospike |  |
 | [**rotated_secret_update_ali_cloud**](V2Api.md#rotated_secret_update_ali_cloud) | **POST** /rotated-secret-update-alicloud |  |
@@ -500,6 +506,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_ali_cloud**](V2Api.md#target_create_ali_cloud) | **POST** /target-create-alicloud |  |
 | [**target_create_anthropic**](V2Api.md#target_create_anthropic) | **POST** /target-create-anthropic |  |
 | [**target_create_artifactory**](V2Api.md#target_create_artifactory) | **POST** /target-create-artifactory |  |
+| [**target_create_atlassian**](V2Api.md#target_create_atlassian) | **POST** /target-create-atlassian |  |
 | [**target_create_aws**](V2Api.md#target_create_aws) | **POST** /target-create-aws |  |
 | [**target_create_azure**](V2Api.md#target_create_azure) | **POST** /target-create-azure |  |
 | [**target_create_bedrock**](V2Api.md#target_create_bedrock) | **POST** /target-create-bedrock |  |
@@ -545,6 +552,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_ali_cloud**](V2Api.md#target_update_ali_cloud) | **POST** /target-update-alicloud |  |
 | [**target_update_anthropic**](V2Api.md#target_update_anthropic) | **POST** /target-update-anthropic |  |
 | [**target_update_artifactory**](V2Api.md#target_update_artifactory) | **POST** /target-update-artifactory |  |
+| [**target_update_atlassian**](V2Api.md#target_update_atlassian) | **POST** /target-update-atlassian |  |
 | [**target_update_aws**](V2Api.md#target_update_aws) | **POST** /target-update-aws |  |
 | [**target_update_azure**](V2Api.md#target_update_azure) | **POST** /target-update-azure |  |
 | [**target_update_bedrock**](V2Api.md#target_update_bedrock) | **POST** /target-update-bedrock |  |
@@ -9168,6 +9176,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## dynamic_secret_create_ali_cloud
+
+> <DynamicSecretCreateOutput> dynamic_secret_create_ali_cloud(dynamic_secret_create_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_create_ali_cloud = Akeyless::DynamicSecretCreateAliCloud.new({name: 'name_example'}) # DynamicSecretCreateAliCloud | 
+
+begin
+  
+  result = api_instance.dynamic_secret_create_ali_cloud(dynamic_secret_create_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ali_cloud: #{e}"
+end
+```
+
+#### Using the dynamic_secret_create_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretCreateOutput>, Integer, Hash)> dynamic_secret_create_ali_cloud_with_http_info(dynamic_secret_create_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_create_ali_cloud_with_http_info(dynamic_secret_create_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_create_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_create_ali_cloud** | [**DynamicSecretCreateAliCloud**](DynamicSecretCreateAliCloud.md) |  |  |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## dynamic_secret_create_artifactory
 
 > <DynamicSecretCreateOutput> dynamic_secret_create_artifactory(dynamic_secret_create_artifactory)
@@ -11385,6 +11455,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **dynamic_secret_update_aerospike** | [**DynamicSecretUpdateAerospike**](DynamicSecretUpdateAerospike.md) |  |  |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## dynamic_secret_update_ali_cloud
+
+> <DynamicSecretUpdateOutput> dynamic_secret_update_ali_cloud(dynamic_secret_update_ali_cloud)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+dynamic_secret_update_ali_cloud = Akeyless::DynamicSecretUpdateAliCloud.new({name: 'name_example'}) # DynamicSecretUpdateAliCloud | 
+
+begin
+  
+  result = api_instance.dynamic_secret_update_ali_cloud(dynamic_secret_update_ali_cloud)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ali_cloud: #{e}"
+end
+```
+
+#### Using the dynamic_secret_update_ali_cloud_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DynamicSecretUpdateOutput>, Integer, Hash)> dynamic_secret_update_ali_cloud_with_http_info(dynamic_secret_update_ali_cloud)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.dynamic_secret_update_ali_cloud_with_http_info(dynamic_secret_update_ali_cloud)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DynamicSecretUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->dynamic_secret_update_ali_cloud_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dynamic_secret_update_ali_cloud** | [**DynamicSecretUpdateAliCloud**](DynamicSecretUpdateAliCloud.md) |  |  |
 
 ### Return type
 
@@ -28798,6 +28930,254 @@ No authorization required
 - **Accept**: application/json
 
 
+## rotated_secret_provision_create
+
+> <RotatedSecretProvisionAssocOutput> rotated_secret_provision_create(rotated_secret_provision_create)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_provision_create = Akeyless::RotatedSecretProvisionCreate.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretProvisionCreate | 
+
+begin
+  
+  result = api_instance.rotated_secret_provision_create(rotated_secret_provision_create)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_create: #{e}"
+end
+```
+
+#### Using the rotated_secret_provision_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretProvisionAssocOutput>, Integer, Hash)> rotated_secret_provision_create_with_http_info(rotated_secret_provision_create)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_provision_create_with_http_info(rotated_secret_provision_create)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretProvisionAssocOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_provision_create** | [**RotatedSecretProvisionCreate**](RotatedSecretProvisionCreate.md) |  |  |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_provision_delete
+
+> <RotatedSecretProvisionAssocOutput> rotated_secret_provision_delete(rotated_secret_provision_delete)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_provision_delete = Akeyless::RotatedSecretProvisionDelete.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretProvisionDelete | 
+
+begin
+  
+  result = api_instance.rotated_secret_provision_delete(rotated_secret_provision_delete)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_delete: #{e}"
+end
+```
+
+#### Using the rotated_secret_provision_delete_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretProvisionAssocOutput>, Integer, Hash)> rotated_secret_provision_delete_with_http_info(rotated_secret_provision_delete)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_provision_delete_with_http_info(rotated_secret_provision_delete)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretProvisionAssocOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_provision_delete** | [**RotatedSecretProvisionDelete**](RotatedSecretProvisionDelete.md) |  |  |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_provision_push
+
+> <ProvisionSSHRotatedSecretOutput> rotated_secret_provision_push(rotated_secret_provision_push)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_provision_push = Akeyless::RotatedSecretProvisionPush.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretProvisionPush | 
+
+begin
+  
+  result = api_instance.rotated_secret_provision_push(rotated_secret_provision_push)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_push: #{e}"
+end
+```
+
+#### Using the rotated_secret_provision_push_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ProvisionSSHRotatedSecretOutput>, Integer, Hash)> rotated_secret_provision_push_with_http_info(rotated_secret_provision_push)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_provision_push_with_http_info(rotated_secret_provision_push)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ProvisionSSHRotatedSecretOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_push_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_provision_push** | [**RotatedSecretProvisionPush**](RotatedSecretProvisionPush.md) |  |  |
+
+### Return type
+
+[**ProvisionSSHRotatedSecretOutput**](ProvisionSSHRotatedSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## rotated_secret_provision_update
+
+> <RotatedSecretProvisionAssocOutput> rotated_secret_provision_update(rotated_secret_provision_update)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+rotated_secret_provision_update = Akeyless::RotatedSecretProvisionUpdate.new({name: 'name_example', target_name: 'target_name_example'}) # RotatedSecretProvisionUpdate | 
+
+begin
+  
+  result = api_instance.rotated_secret_provision_update(rotated_secret_provision_update)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_update: #{e}"
+end
+```
+
+#### Using the rotated_secret_provision_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RotatedSecretProvisionAssocOutput>, Integer, Hash)> rotated_secret_provision_update_with_http_info(rotated_secret_provision_update)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.rotated_secret_provision_update_with_http_info(rotated_secret_provision_update)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RotatedSecretProvisionAssocOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->rotated_secret_provision_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rotated_secret_provision_update** | [**RotatedSecretProvisionUpdate**](RotatedSecretProvisionUpdate.md) |  |  |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## rotated_secret_sync
 
 > Object rotated_secret_sync(rotated_secret_sync)
@@ -31449,6 +31829,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_create_artifactory** | [**TargetCreateArtifactory**](TargetCreateArtifactory.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_create_atlassian
+
+> <TargetCreateOutput> target_create_atlassian(target_create_atlassian)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_atlassian = Akeyless::TargetCreateAtlassian.new({name: 'name_example'}) # TargetCreateAtlassian | 
+
+begin
+  
+  result = api_instance.target_create_atlassian(target_create_atlassian)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_atlassian: #{e}"
+end
+```
+
+#### Using the target_create_atlassian_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_atlassian_with_http_info(target_create_atlassian)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_atlassian_with_http_info(target_create_atlassian)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_atlassian_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_atlassian** | [**TargetCreateAtlassian**](TargetCreateAtlassian.md) |  |  |
 
 ### Return type
 
@@ -34239,6 +34681,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_artifactory** | [**TargetUpdateArtifactory**](TargetUpdateArtifactory.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_atlassian
+
+> <TargetUpdateOutput> target_update_atlassian(target_update_atlassian)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_atlassian = Akeyless::TargetUpdateAtlassian.new({name: 'name_example'}) # TargetUpdateAtlassian | 
+
+begin
+  
+  result = api_instance.target_update_atlassian(target_update_atlassian)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_atlassian: #{e}"
+end
+```
+
+#### Using the target_update_atlassian_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_atlassian_with_http_info(target_update_atlassian)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_atlassian_with_http_info(target_update_atlassian)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_atlassian_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_atlassian** | [**TargetUpdateAtlassian**](TargetUpdateAtlassian.md) |  |  |
 
 ### Return type
 

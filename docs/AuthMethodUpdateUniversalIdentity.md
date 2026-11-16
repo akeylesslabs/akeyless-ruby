@@ -8,7 +8,7 @@
 | **allowed_client_type** | **Array&lt;String&gt;** | limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension] | [optional] |
 | **audit_logs_claims** | **Array&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; | [optional] |
 | **bound_ips** | **Array&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to | [optional] |
-| **child_ttl_limit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token | [optional][default to 43200] |
+| **child_ttl_limit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token. A struct tag cannot hold a constant, so dft must stay equal to types.UniversalIdentityDefaultTTLChildLimit | [optional][default to 43200] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **deny_inheritance** | **Boolean** | Deny from root to create children | [optional] |
 | **deny_rotate** | **Boolean** | Deny from the token to rotate | [optional] |
@@ -20,6 +20,7 @@
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
 | **new_name** | **String** | Auth Method new name | [optional] |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) | [optional] |
 | **tree_length** | **Integer** | Maximum UID tree depth allowed (child of child of ...) | [optional][default to 200] |
@@ -49,6 +50,7 @@ instance = Akeyless::AuthMethodUpdateUniversalIdentity.new(
   jwt_ttl: null,
   name: null,
   new_name: null,
+  owner: null,
   product_type: null,
   token: null,
   tree_length: null,

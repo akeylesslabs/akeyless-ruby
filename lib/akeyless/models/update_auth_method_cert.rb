@@ -79,6 +79,9 @@ module Akeyless
     # Auth Method new name
     attr_accessor :new_name
 
+    # Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+    attr_accessor :owner
+
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
@@ -121,6 +124,7 @@ module Akeyless
         :'jwt_ttl' => :'jwt-ttl',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'owner' => :'owner',
         :'product_type' => :'product-type',
         :'require_crl_dp' => :'require-crl-dp',
         :'revoked_cert_ids' => :'revoked-cert-ids',
@@ -159,6 +163,7 @@ module Akeyless
         :'jwt_ttl' => :'Integer',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'owner' => :'String',
         :'product_type' => :'Array<String>',
         :'require_crl_dp' => :'Boolean',
         :'revoked_cert_ids' => :'Array<String>',
@@ -171,6 +176,7 @@ module Akeyless
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'owner',
       ])
     end
 
@@ -303,6 +309,10 @@ module Akeyless
         self.new_name = attributes[:'new_name']
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'product_type')
         if (value = attributes[:'product_type']).is_a?(Array)
           self.product_type = value
@@ -385,6 +395,7 @@ module Akeyless
           jwt_ttl == o.jwt_ttl &&
           name == o.name &&
           new_name == o.new_name &&
+          owner == o.owner &&
           product_type == o.product_type &&
           require_crl_dp == o.require_crl_dp &&
           revoked_cert_ids == o.revoked_cert_ids &&
@@ -402,7 +413,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, product_type, require_crl_dp, revoked_cert_ids, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_client_type, allowed_cors, audit_logs_claims, bound_common_names, bound_dns_sans, bound_email_sans, bound_extensions, bound_ips, bound_organizational_units, bound_uri_sans, certificate_data, delete_protection, description, expiration_event_in, force_sub_claims, gw_bound_ips, json, jwt_ttl, name, new_name, owner, product_type, require_crl_dp, revoked_cert_ids, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

@@ -20,6 +20,7 @@
 | **json** | **Boolean** | Set output format to JSON | [optional][default to false] |
 | **jwt_ttl** | **Integer** | Jwt TTL | [optional][default to 0] |
 | **name** | **String** | Auth Method name |  |
+| **owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it | [optional] |
 | **product_type** | **Array&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] | [optional] |
 | **scim_bearer_access_id** | **String** | Access ID of the API Key auth method the IdP uses as the SCIM bearer | [optional] |
 | **scim_enabled** | **String** | Enable SCIM provisioning for this auth method [true/false] | [optional] |
@@ -53,6 +54,7 @@ instance = Akeyless::AuthMethodCreateSAML.new(
   json: null,
   jwt_ttl: null,
   name: null,
+  owner: null,
   product_type: null,
   scim_bearer_access_id: null,
   scim_enabled: null,

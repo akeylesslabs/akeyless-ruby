@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **helper** | **Object** |  | [optional] |
-| **rc_file_override** | **String** | used to override .akeyless-connect.rc in tests | [optional] |
+| **rc_file_override** | **String** | test only: the rc file to read instead of the home rc files | [optional] |
 | **bastion_ctrl_path** | **String** | Deprecated. use bastion-ctrl-path | [optional] |
 | **bastion_ctrl_port** | **String** | Deprecated. use sra-ctrl-port | [optional] |
 | **bastion_ctrl_proto** | **String** | Deprecated. use sra-ctrl-proto | [optional] |

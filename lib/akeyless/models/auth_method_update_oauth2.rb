@@ -79,6 +79,9 @@ module Akeyless
     # Auth Method new name
     attr_accessor :new_name
 
+    # Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+    attr_accessor :owner
+
     # Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
     attr_accessor :product_type
 
@@ -118,6 +121,7 @@ module Akeyless
         :'jwt_ttl' => :'jwt-ttl',
         :'name' => :'name',
         :'new_name' => :'new-name',
+        :'owner' => :'owner',
         :'product_type' => :'product-type',
         :'subclaims_delimiters' => :'subclaims-delimiters',
         :'token' => :'token',
@@ -155,6 +159,7 @@ module Akeyless
         :'jwt_ttl' => :'Integer',
         :'name' => :'String',
         :'new_name' => :'String',
+        :'owner' => :'String',
         :'product_type' => :'Array<String>',
         :'subclaims_delimiters' => :'Array<String>',
         :'token' => :'String',
@@ -288,6 +293,10 @@ module Akeyless
         self.new_name = attributes[:'new_name']
       end
 
+      if attributes.key?(:'owner')
+        self.owner = attributes[:'owner']
+      end
+
       if attributes.key?(:'product_type')
         if (value = attributes[:'product_type']).is_a?(Array)
           self.product_type = value
@@ -366,6 +375,7 @@ module Akeyless
           jwt_ttl == o.jwt_ttl &&
           name == o.name &&
           new_name == o.new_name &&
+          owner == o.owner &&
           product_type == o.product_type &&
           subclaims_delimiters == o.subclaims_delimiters &&
           token == o.token &&
@@ -382,7 +392,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_expires, allowed_client_type, audience, audit_logs_claims, bound_client_ids, bound_ips, cert, cert_file_data, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, issuer, json, jwks_json_data, jwks_uri, jwt_ttl, name, new_name, product_type, subclaims_delimiters, token, uid_token, unique_identifier].hash
+      [access_expires, allowed_client_type, audience, audit_logs_claims, bound_client_ids, bound_ips, cert, cert_file_data, delete_protection, description, expiration_event_in, force_sub_claims, gateway_url, gw_bound_ips, issuer, json, jwks_json_data, jwks_uri, jwt_ttl, name, new_name, owner, product_type, subclaims_delimiters, token, uid_token, unique_identifier].hash
     end
 
     # Builds the object from hash

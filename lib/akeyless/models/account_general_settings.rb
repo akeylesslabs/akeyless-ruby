@@ -86,6 +86,9 @@ module Akeyless
 
     attr_accessor :protect_items_by_default
 
+    # RequireAuthMethodOwner makes an owner mandatory when creating auth methods and on general-info updates of auth methods (see AuthMethodGeneralInfoUpdateModes).
+    attr_accessor :require_auth_method_owner
+
     attr_accessor :rotation_secret_max_interval
 
     attr_accessor :sharing_policy
@@ -125,6 +128,7 @@ module Akeyless
         :'password_score' => :'password_score',
         :'personal_folder_global_mapping' => :'personal_folder_global_mapping',
         :'protect_items_by_default' => :'protect_items_by_default',
+        :'require_auth_method_owner' => :'require_auth_method_owner',
         :'rotation_secret_max_interval' => :'rotation_secret_max_interval',
         :'sharing_policy' => :'sharing_policy'
       }
@@ -170,6 +174,7 @@ module Akeyless
         :'password_score' => :'PasswordScoreSetting',
         :'personal_folder_global_mapping' => :'PersonalFolderGlobalMappingSettings',
         :'protect_items_by_default' => :'Boolean',
+        :'require_auth_method_owner' => :'Boolean',
         :'rotation_secret_max_interval' => :'RotationSecretMaxInterval',
         :'sharing_policy' => :'SharingPolicyInfo'
       }
@@ -326,6 +331,10 @@ module Akeyless
         self.protect_items_by_default = attributes[:'protect_items_by_default']
       end
 
+      if attributes.key?(:'require_auth_method_owner')
+        self.require_auth_method_owner = attributes[:'require_auth_method_owner']
+      end
+
       if attributes.key?(:'rotation_secret_max_interval')
         self.rotation_secret_max_interval = attributes[:'rotation_secret_max_interval']
       end
@@ -387,6 +396,7 @@ module Akeyless
           password_score == o.password_score &&
           personal_folder_global_mapping == o.personal_folder_global_mapping &&
           protect_items_by_default == o.protect_items_by_default &&
+          require_auth_method_owner == o.require_auth_method_owner &&
           rotation_secret_max_interval == o.rotation_secret_max_interval &&
           sharing_policy == o.sharing_policy
     end
@@ -400,7 +410,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, ai_quorum, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, event_forwarder_allowed_email_domains, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, rotation_secret_max_interval, sharing_policy].hash
+      [account_default_key_item_id, account_default_key_name, account_file_bytes_used, ai_insights, ai_quorum, allow_auto_fill, allow_passkeys, allowed_client_types, allowed_clients_ips, allowed_gateways_ips, auth_usage_event, certificate_expiration_events, data_protection_section, default_auth_method, default_home_page, dynamic_secret_max_ttl, email_customization, enable_request_for_access, enable_search_history, event_forwarder_allowed_email_domains, hide_personal_folder, hide_secret_reveal_copy, hide_static_password, invalid_characters, item_locking, item_usage_event, lock_default_key, password_expiration_info, password_policy, password_score, personal_folder_global_mapping, protect_items_by_default, require_auth_method_owner, rotation_secret_max_interval, sharing_policy].hash
     end
 
     # Builds the object from hash
