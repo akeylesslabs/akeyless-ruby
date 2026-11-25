@@ -25,6 +25,9 @@ module Akeyless
 
     attr_accessor :private_key
 
+    # ProvisioningScheduleErrors lists the targets whose provisioning could not be scheduled, as \"<target>: <error>\". The renewal itself succeeded.
+    attr_accessor :provisioning_schedule_errors
+
     attr_accessor :reading_token
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -35,6 +38,7 @@ module Akeyless
         :'item_id' => :'item_id',
         :'parent_cert' => :'parent_cert',
         :'private_key' => :'private_key',
+        :'provisioning_schedule_errors' => :'provisioning_schedule_errors',
         :'reading_token' => :'reading_token'
       }
     end
@@ -52,6 +56,7 @@ module Akeyless
         :'item_id' => :'String',
         :'parent_cert' => :'String',
         :'private_key' => :'String',
+        :'provisioning_schedule_errors' => :'Array<String>',
         :'reading_token' => :'String'
       }
     end
@@ -97,6 +102,12 @@ module Akeyless
         self.private_key = attributes[:'private_key']
       end
 
+      if attributes.key?(:'provisioning_schedule_errors')
+        if (value = attributes[:'provisioning_schedule_errors']).is_a?(Array)
+          self.provisioning_schedule_errors = value
+        end
+      end
+
       if attributes.key?(:'reading_token')
         self.reading_token = attributes[:'reading_token']
       end
@@ -127,6 +138,7 @@ module Akeyless
           item_id == o.item_id &&
           parent_cert == o.parent_cert &&
           private_key == o.private_key &&
+          provisioning_schedule_errors == o.provisioning_schedule_errors &&
           reading_token == o.reading_token
     end
 
@@ -139,7 +151,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert, cert_display_id, item_id, parent_cert, private_key, reading_token].hash
+      [cert, cert_display_id, item_id, parent_cert, private_key, provisioning_schedule_errors, reading_token].hash
     end
 
     # Builds the object from hash

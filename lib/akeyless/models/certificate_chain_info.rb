@@ -53,6 +53,9 @@ module Akeyless
     # LeafCertificatePem contains only the leaf certificate, derived from CertificatePem. Populated only when the certificate was issued with SplitCertificateChain enabled.
     attr_accessor :leaf_certificate_pem
 
+    # NextAutoRenewalDate is when auto-renewal will next renew the certificate. It is worked out when the certificate is described and never stored, and it is empty when the certificate will not be auto-renewed.
+    attr_accessor :next_auto_renewal_date
+
     attr_accessor :not_before
 
     attr_accessor :renew_before_expiration_in_days
@@ -81,6 +84,7 @@ module Akeyless
         :'external_ca_id' => :'external_ca_id',
         :'issuance_status' => :'issuance_status',
         :'leaf_certificate_pem' => :'leaf_certificate_pem',
+        :'next_auto_renewal_date' => :'next_auto_renewal_date',
         :'not_before' => :'not_before',
         :'renew_before_expiration_in_days' => :'renew_before_expiration_in_days',
         :'split_certificate_chain' => :'split_certificate_chain'
@@ -113,6 +117,7 @@ module Akeyless
         :'external_ca_id' => :'NullString',
         :'issuance_status' => :'String',
         :'leaf_certificate_pem' => :'String',
+        :'next_auto_renewal_date' => :'Time',
         :'not_before' => :'Time',
         :'renew_before_expiration_in_days' => :'Integer',
         :'split_certificate_chain' => :'Boolean'
@@ -216,6 +221,10 @@ module Akeyless
         self.leaf_certificate_pem = attributes[:'leaf_certificate_pem']
       end
 
+      if attributes.key?(:'next_auto_renewal_date')
+        self.next_auto_renewal_date = attributes[:'next_auto_renewal_date']
+      end
+
       if attributes.key?(:'not_before')
         self.not_before = attributes[:'not_before']
       end
@@ -267,6 +276,7 @@ module Akeyless
           external_ca_id == o.external_ca_id &&
           issuance_status == o.issuance_status &&
           leaf_certificate_pem == o.leaf_certificate_pem &&
+          next_auto_renewal_date == o.next_auto_renewal_date &&
           not_before == o.not_before &&
           renew_before_expiration_in_days == o.renew_before_expiration_in_days &&
           split_certificate_chain == o.split_certificate_chain
@@ -281,7 +291,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, csr_pem, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, leaf_certificate_pem, not_before, renew_before_expiration_in_days, split_certificate_chain].hash
+      [auto_renew_certificate, certificate_chain, certificate_format, certificate_has_private_key, certificate_issuer_gw_cluster_id, certificate_issuer_gw_cluster_url, certificate_issuer_item_id, certificate_issuer_name, certificate_pem, certificate_status, common_name, csr_pem, error_message, expiration_date, expiration_events, external_ca_id, issuance_status, leaf_certificate_pem, next_auto_renewal_date, not_before, renew_before_expiration_in_days, split_certificate_chain].hash
     end
 
     # Builds the object from hash

@@ -4,7 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **admin_rotation_interval_days** | **Integer** | Admin credentials rotation interval (days) | [optional][default to 0] |
 | **alicloud_access_key_id** | **String** | AliCloud RAM access key ID | [optional] |
 | **alicloud_access_mode** | **String** |  | [optional] |
 | **alicloud_access_secret_key** | **String** | AliCloud RAM access key secret | [optional] |
@@ -23,7 +22,6 @@
 | **custom_username_template** | **String** | Customize how temporary usernames are generated using go template | [optional] |
 | **delete_protection** | **String** | Protection from accidental deletion of this object [true/false] | [optional] |
 | **description** | **String** | Description of the object | [optional] |
-| **enable_admin_rotation** | **Boolean** | Automatic admin credentials rotation | [optional][default to false] |
 | **enable_agentic_runtime_authority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. | [optional] |
 | **enable_ai_quorum** | **Boolean** | Turns on AI Quorum checks for this item. | [optional] |
 | **input_rule** | **Array&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). | [optional] |
@@ -51,7 +49,6 @@
 require 'akeyless'
 
 instance = Akeyless::DynamicSecretUpdateAliCloud.new(
-  admin_rotation_interval_days: null,
   alicloud_access_key_id: null,
   alicloud_access_mode: null,
   alicloud_access_secret_key: null,
@@ -70,7 +67,6 @@ instance = Akeyless::DynamicSecretUpdateAliCloud.new(
   custom_username_template: null,
   delete_protection: null,
   description: null,
-  enable_admin_rotation: null,
   enable_agentic_runtime_authority: null,
   enable_ai_quorum: null,
   input_rule: null,

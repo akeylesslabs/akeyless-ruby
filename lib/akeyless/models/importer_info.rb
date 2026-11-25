@@ -17,12 +17,16 @@ module Akeyless
   class ImporterInfo
     attr_accessor :external_item_id
 
+    # SourceVersion is the last version imported from the source system (Vault KV v2). 0 means not tracked.
+    attr_accessor :source_version
+
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'external_item_id' => :'external_item_id',
+        :'source_version' => :'source_version',
         :'version' => :'version'
       }
     end
@@ -36,6 +40,7 @@ module Akeyless
     def self.openapi_types
       {
         :'external_item_id' => :'String',
+        :'source_version' => :'Integer',
         :'version' => :'Integer'
       }
     end
@@ -65,6 +70,10 @@ module Akeyless
         self.external_item_id = attributes[:'external_item_id']
       end
 
+      if attributes.key?(:'source_version')
+        self.source_version = attributes[:'source_version']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -91,6 +100,7 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           external_item_id == o.external_item_id &&
+          source_version == o.source_version &&
           version == o.version
     end
 
@@ -103,7 +113,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [external_item_id, version].hash
+      [external_item_id, source_version, version].hash
     end
 
     # Builds the object from hash

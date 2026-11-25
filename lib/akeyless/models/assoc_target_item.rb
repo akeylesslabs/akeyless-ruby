@@ -22,7 +22,7 @@ module Akeyless
     # The ARN of an existing imported ACM certificate to re-import into, which replaces its certificate and key; if empty, a new ACM certificate is created on every provisioning, including after renewal (relevant only for AWS certificate provisioning)
     attr_accessor :certificate_arn
 
-    # The format the certificate will be provisioned with, available options: pem,pfx (relevant only for certificate provisioning)
+    # The format the certificate will be provisioned with, available options: pem,pfx,jks (jks uses --jks-password); pfx requires gateway version 5.5.0 or higher, and jks and pfx for Azure Key Vault require 5.8.0 or higher, or the association is rejected (relevant only for certificate provisioning)
     attr_accessor :certificate_format
 
     # The name of the certificate object in the cloud provider (relevant only for AWS, Azure, and GCP certificate provisioning)
@@ -46,8 +46,32 @@ module Akeyless
     # Sync the F5 configuration to this device group after each successful provisioning, so the HA peer serves the same certificate. This overwrites unsynced changes on the other members of the group. Implies f5-save-config (relevant only for F5 BIG-IP certificate provisioning)
     attr_accessor :f5_sync_device_group
 
+    # The optional host name of the IIS binding, which enables SNI for a binding that is created (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_binding_hostname
+
+    # Comma-separated IP addresses of the IIS bindings to update (or create with --iis-create-binding), one binding per address, or * for all unassigned addresses; required with --iis-website-name (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_binding_ip_address
+
+    # The port of the IIS binding, 443 when omitted (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_binding_port
+
+    # Create the IIS https binding if the website has none matching the given IP addresses, port and host name; without it the run fails when such a binding does not exist (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_create_binding
+
+    # Restart the IIS website after the certificate is bound (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_restart_website
+
+    # The IIS website to bind the provisioned certificate to (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\<store>, for example Cert:\\LocalMachine\\My)
+    attr_accessor :iis_website_name
+
+    # JKS file password; required when certificate-format is jks (relevant only for certificate provisioning)
+    attr_accessor :jks_password
+
     # Set output format to JSON
     attr_accessor :json
+
+    # Alias the entry is stored under in the JKS file, default certificate (max 128 characters). Only relevant when --certificate-format=jks
+    attr_accessor :key_alias
 
     # A list of allowed operations for the key (required for azure targets)
     attr_accessor :key_operations
@@ -73,7 +97,7 @@ module Akeyless
     # The item to associate
     attr_accessor :name
 
-    # Password used to protect the provisioned PFX file. Required when --certificate-format=pfx (relevant only for certificate provisioning)
+    # PFX file password; required when certificate-format is pfx (relevant only for certificate provisioning)
     attr_accessor :pfx_password
 
     # A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
@@ -87,6 +111,12 @@ module Akeyless
 
     # Protection level of the key [software/hardware] (relevant for gcp targets)
     attr_accessor :protection_level
+
+    # Comma-separated UTC weekdays (sun,mon,tue,wed,thu,fri,sat) on which the certificate is provisioned after a renewal, together with provisioning-schedule-time. Provisioning is not run when the association is created. Without a schedule, provisioning runs right away (relevant only for certificate provisioning)
+    attr_accessor :provisioning_schedule_days
+
+    # The UTC time of day, as HH:MM, at which the certificate is provisioned on the scheduled days. A renewed certificate waits for the first such time (relevant only for certificate provisioning)
+    attr_accessor :provisioning_schedule_time
 
     # Purpose of the key in GCP KMS (required for gcp targets)
     attr_accessor :purpose
@@ -125,7 +155,15 @@ module Akeyless
         :'external_key_name' => :'external-key-name',
         :'f5_save_config' => :'f5-save-config',
         :'f5_sync_device_group' => :'f5-sync-device-group',
+        :'iis_binding_hostname' => :'iis-binding-hostname',
+        :'iis_binding_ip_address' => :'iis-binding-ip-address',
+        :'iis_binding_port' => :'iis-binding-port',
+        :'iis_create_binding' => :'iis-create-binding',
+        :'iis_restart_website' => :'iis-restart-website',
+        :'iis_website_name' => :'iis-website-name',
+        :'jks_password' => :'jks-password',
         :'json' => :'json',
+        :'key_alias' => :'key-alias',
         :'key_operations' => :'key-operations',
         :'key_vault' => :'key-vault',
         :'keyring_name' => :'keyring-name',
@@ -139,6 +177,8 @@ module Akeyless
         :'private_key_path' => :'private-key-path',
         :'project_id' => :'project-id',
         :'protection_level' => :'protection-level',
+        :'provisioning_schedule_days' => :'provisioning-schedule-days',
+        :'provisioning_schedule_time' => :'provisioning-schedule-time',
         :'purpose' => :'purpose',
         :'regions' => :'regions',
         :'sra_association' => :'sra-association',
@@ -168,7 +208,15 @@ module Akeyless
         :'external_key_name' => :'String',
         :'f5_save_config' => :'Boolean',
         :'f5_sync_device_group' => :'String',
+        :'iis_binding_hostname' => :'String',
+        :'iis_binding_ip_address' => :'String',
+        :'iis_binding_port' => :'Integer',
+        :'iis_create_binding' => :'Boolean',
+        :'iis_restart_website' => :'Boolean',
+        :'iis_website_name' => :'String',
+        :'jks_password' => :'String',
         :'json' => :'Boolean',
+        :'key_alias' => :'String',
         :'key_operations' => :'Array<String>',
         :'key_vault' => :'String',
         :'keyring_name' => :'String',
@@ -182,6 +230,8 @@ module Akeyless
         :'private_key_path' => :'String',
         :'project_id' => :'String',
         :'protection_level' => :'String',
+        :'provisioning_schedule_days' => :'String',
+        :'provisioning_schedule_time' => :'String',
         :'purpose' => :'String',
         :'regions' => :'Array<String>',
         :'sra_association' => :'Boolean',
@@ -262,10 +312,46 @@ module Akeyless
         self.f5_sync_device_group = attributes[:'f5_sync_device_group']
       end
 
+      if attributes.key?(:'iis_binding_hostname')
+        self.iis_binding_hostname = attributes[:'iis_binding_hostname']
+      end
+
+      if attributes.key?(:'iis_binding_ip_address')
+        self.iis_binding_ip_address = attributes[:'iis_binding_ip_address']
+      end
+
+      if attributes.key?(:'iis_binding_port')
+        self.iis_binding_port = attributes[:'iis_binding_port']
+      end
+
+      if attributes.key?(:'iis_create_binding')
+        self.iis_create_binding = attributes[:'iis_create_binding']
+      else
+        self.iis_create_binding = false
+      end
+
+      if attributes.key?(:'iis_restart_website')
+        self.iis_restart_website = attributes[:'iis_restart_website']
+      else
+        self.iis_restart_website = false
+      end
+
+      if attributes.key?(:'iis_website_name')
+        self.iis_website_name = attributes[:'iis_website_name']
+      end
+
+      if attributes.key?(:'jks_password')
+        self.jks_password = attributes[:'jks_password']
+      end
+
       if attributes.key?(:'json')
         self.json = attributes[:'json']
       else
         self.json = false
+      end
+
+      if attributes.key?(:'key_alias')
+        self.key_alias = attributes[:'key_alias']
       end
 
       if attributes.key?(:'key_operations')
@@ -326,6 +412,14 @@ module Akeyless
         self.protection_level = attributes[:'protection_level']
       else
         self.protection_level = 'software'
+      end
+
+      if attributes.key?(:'provisioning_schedule_days')
+        self.provisioning_schedule_days = attributes[:'provisioning_schedule_days']
+      end
+
+      if attributes.key?(:'provisioning_schedule_time')
+        self.provisioning_schedule_time = attributes[:'provisioning_schedule_time']
       end
 
       if attributes.key?(:'purpose')
@@ -407,7 +501,15 @@ module Akeyless
           external_key_name == o.external_key_name &&
           f5_save_config == o.f5_save_config &&
           f5_sync_device_group == o.f5_sync_device_group &&
+          iis_binding_hostname == o.iis_binding_hostname &&
+          iis_binding_ip_address == o.iis_binding_ip_address &&
+          iis_binding_port == o.iis_binding_port &&
+          iis_create_binding == o.iis_create_binding &&
+          iis_restart_website == o.iis_restart_website &&
+          iis_website_name == o.iis_website_name &&
+          jks_password == o.jks_password &&
           json == o.json &&
+          key_alias == o.key_alias &&
           key_operations == o.key_operations &&
           key_vault == o.key_vault &&
           keyring_name == o.keyring_name &&
@@ -421,6 +523,8 @@ module Akeyless
           private_key_path == o.private_key_path &&
           project_id == o.project_id &&
           protection_level == o.protection_level &&
+          provisioning_schedule_days == o.provisioning_schedule_days &&
+          provisioning_schedule_time == o.provisioning_schedule_time &&
           purpose == o.purpose &&
           regions == o.regions &&
           sra_association == o.sra_association &&
@@ -440,7 +544,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bind_ssl_profiles, certificate_arn, certificate_format, certificate_name, certificate_path, chain_path, disable_previous_key_version, external_key_name, f5_save_config, f5_sync_device_group, json, key_operations, key_vault, keyring_name, kms_algorithm, location_id, location_scope, multi_region, name, pfx_password, post_provision_command, private_key_path, project_id, protection_level, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
+      [bind_ssl_profiles, certificate_arn, certificate_format, certificate_name, certificate_path, chain_path, disable_previous_key_version, external_key_name, f5_save_config, f5_sync_device_group, iis_binding_hostname, iis_binding_ip_address, iis_binding_port, iis_create_binding, iis_restart_website, iis_website_name, jks_password, json, key_alias, key_operations, key_vault, keyring_name, kms_algorithm, location_id, location_scope, multi_region, name, pfx_password, post_provision_command, private_key_path, project_id, protection_level, provisioning_schedule_days, provisioning_schedule_time, purpose, regions, sra_association, target_name, tenant_secret_type, token, uid_token, vault_name].hash
     end
 
     # Builds the object from hash

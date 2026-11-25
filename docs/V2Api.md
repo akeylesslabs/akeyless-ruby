@@ -512,6 +512,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_create_bedrock**](V2Api.md#target_create_bedrock) | **POST** /target-create-bedrock |  |
 | [**target_create_cloudflare**](V2Api.md#target_create_cloudflare) | **POST** /target-create-cloudflare |  |
 | [**target_create_custom_dns**](V2Api.md#target_create_custom_dns) | **POST** /target-create-custom-dns |  |
+| [**target_create_custom_llm**](V2Api.md#target_create_custom_llm) | **POST** /target-create-custom-llm |  |
 | [**target_create_db**](V2Api.md#target_create_db) | **POST** /target-create-db |  |
 | [**target_create_digi_cert**](V2Api.md#target_create_digi_cert) | **POST** /target-create-digicert |  |
 | [**target_create_dockerhub**](V2Api.md#target_create_dockerhub) | **POST** /target-create-dockerhub |  |
@@ -558,6 +559,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**target_update_bedrock**](V2Api.md#target_update_bedrock) | **POST** /target-update-bedrock |  |
 | [**target_update_cloudflare**](V2Api.md#target_update_cloudflare) | **POST** /target-update-cloudflare |  |
 | [**target_update_custom_dns**](V2Api.md#target_update_custom_dns) | **POST** /target-update-custom-dns |  |
+| [**target_update_custom_llm**](V2Api.md#target_update_custom_llm) | **POST** /target-update-custom-llm |  |
 | [**target_update_db**](V2Api.md#target_update_db) | **POST** /target-update-db |  |
 | [**target_update_digi_cert**](V2Api.md#target_update_digi_cert) | **POST** /target-update-digicert |  |
 | [**target_update_dockerhub**](V2Api.md#target_update_dockerhub) | **POST** /target-update-dockerhub |  |
@@ -32216,6 +32218,68 @@ No authorization required
 - **Accept**: application/json
 
 
+## target_create_custom_llm
+
+> <TargetCreateOutput> target_create_custom_llm(target_create_custom_llm)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_create_custom_llm = Akeyless::TargetCreateCustomLLM.new({name: 'name_example'}) # TargetCreateCustomLLM | 
+
+begin
+  
+  result = api_instance.target_create_custom_llm(target_create_custom_llm)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_custom_llm: #{e}"
+end
+```
+
+#### Using the target_create_custom_llm_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetCreateOutput>, Integer, Hash)> target_create_custom_llm_with_http_info(target_create_custom_llm)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_create_custom_llm_with_http_info(target_create_custom_llm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetCreateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_create_custom_llm_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_create_custom_llm** | [**TargetCreateCustomLLM**](TargetCreateCustomLLM.md) |  |  |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## target_create_db
 
 > <TargetCreateOutput> target_create_db(target_create_db)
@@ -35053,6 +35117,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_update_custom_dns** | [**TargetUpdateCustomDns**](TargetUpdateCustomDns.md) |  |  |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## target_update_custom_llm
+
+> <TargetUpdateOutput> target_update_custom_llm(target_update_custom_llm)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'akeyless'
+
+api_instance = Akeyless::V2Api.new
+target_update_custom_llm = Akeyless::TargetUpdateCustomLLM.new({name: 'name_example'}) # TargetUpdateCustomLLM | 
+
+begin
+  
+  result = api_instance.target_update_custom_llm(target_update_custom_llm)
+  p result
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_custom_llm: #{e}"
+end
+```
+
+#### Using the target_update_custom_llm_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TargetUpdateOutput>, Integer, Hash)> target_update_custom_llm_with_http_info(target_update_custom_llm)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.target_update_custom_llm_with_http_info(target_update_custom_llm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TargetUpdateOutput>
+rescue Akeyless::ApiError => e
+  puts "Error when calling V2Api->target_update_custom_llm_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **target_update_custom_llm** | [**TargetUpdateCustomLLM**](TargetUpdateCustomLLM.md) |  |  |
 
 ### Return type
 

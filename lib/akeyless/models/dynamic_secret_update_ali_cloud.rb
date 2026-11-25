@@ -16,9 +16,6 @@ require 'time'
 module Akeyless
   # dynamicSecretUpdateAliCloud is a command that updates AliCloud dynamic secret
   class DynamicSecretUpdateAliCloud
-    # Admin credentials rotation interval (days)
-    attr_accessor :admin_rotation_interval_days
-
     # AliCloud RAM access key ID
     attr_accessor :alicloud_access_key_id
 
@@ -71,9 +68,6 @@ module Akeyless
 
     # Description of the object
     attr_accessor :description
-
-    # Automatic admin credentials rotation
-    attr_accessor :enable_admin_rotation
 
     # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
     attr_accessor :enable_agentic_runtime_authority
@@ -137,7 +131,6 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'admin_rotation_interval_days' => :'admin-rotation-interval-days',
         :'alicloud_access_key_id' => :'alicloud-access-key-id',
         :'alicloud_access_mode' => :'alicloud-access-mode',
         :'alicloud_access_secret_key' => :'alicloud-access-secret-key',
@@ -156,7 +149,6 @@ module Akeyless
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
         :'description' => :'description',
-        :'enable_admin_rotation' => :'enable-admin-rotation',
         :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
         :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
@@ -188,7 +180,6 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'admin_rotation_interval_days' => :'Integer',
         :'alicloud_access_key_id' => :'String',
         :'alicloud_access_mode' => :'String',
         :'alicloud_access_secret_key' => :'String',
@@ -207,7 +198,6 @@ module Akeyless
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
         :'description' => :'String',
-        :'enable_admin_rotation' => :'Boolean',
         :'enable_agentic_runtime_authority' => :'Boolean',
         :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
@@ -251,12 +241,6 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'admin_rotation_interval_days')
-        self.admin_rotation_interval_days = attributes[:'admin_rotation_interval_days']
-      else
-        self.admin_rotation_interval_days = 0
-      end
 
       if attributes.key?(:'alicloud_access_key_id')
         self.alicloud_access_key_id = attributes[:'alicloud_access_key_id']
@@ -336,12 +320,6 @@ module Akeyless
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'enable_admin_rotation')
-        self.enable_admin_rotation = attributes[:'enable_admin_rotation']
-      else
-        self.enable_admin_rotation = false
       end
 
       if attributes.key?(:'enable_agentic_runtime_authority')
@@ -464,7 +442,6 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          admin_rotation_interval_days == o.admin_rotation_interval_days &&
           alicloud_access_key_id == o.alicloud_access_key_id &&
           alicloud_access_mode == o.alicloud_access_mode &&
           alicloud_access_secret_key == o.alicloud_access_secret_key &&
@@ -483,7 +460,6 @@ module Akeyless
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
           description == o.description &&
-          enable_admin_rotation == o.enable_admin_rotation &&
           enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
           enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
@@ -515,7 +491,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_rotation_interval_days, alicloud_access_key_id, alicloud_access_mode, alicloud_access_secret_key, alicloud_external_id, alicloud_region, alicloud_role_arns, alicloud_session_policy, alicloud_set_source_identity, alicloud_site, alicloud_user_console_access, alicloud_user_groups, alicloud_user_inline_policy, alicloud_user_policies, alicloud_user_programmatic_access, ara_enabled, custom_username_template, delete_protection, description, enable_admin_rotation, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [alicloud_access_key_id, alicloud_access_mode, alicloud_access_secret_key, alicloud_external_id, alicloud_region, alicloud_role_arns, alicloud_session_policy, alicloud_set_source_identity, alicloud_site, alicloud_user_console_access, alicloud_user_groups, alicloud_user_inline_policy, alicloud_user_policies, alicloud_user_programmatic_access, ara_enabled, custom_username_template, delete_protection, description, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, skip_dry_run, tags, target_name, token, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

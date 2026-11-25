@@ -37,6 +37,8 @@ module Akeyless
 
     attr_accessor :custom_dns_target_details
 
+    attr_accessor :custom_llm_target_details
+
     attr_accessor :custom_target_details
 
     attr_accessor :db_target_details
@@ -121,6 +123,7 @@ module Akeyless
         :'chef_target_details' => :'chef_target_details',
         :'cloudflare_target_details' => :'cloudflare_target_details',
         :'custom_dns_target_details' => :'custom_dns_target_details',
+        :'custom_llm_target_details' => :'custom_llm_target_details',
         :'custom_target_details' => :'custom_target_details',
         :'db_target_details' => :'db_target_details',
         :'digicert_target_details' => :'digicert_target_details',
@@ -178,6 +181,7 @@ module Akeyless
         :'chef_target_details' => :'ChefTargetDetails',
         :'cloudflare_target_details' => :'CloudflareTargetDetails',
         :'custom_dns_target_details' => :'CustomDnsTargetDetails',
+        :'custom_llm_target_details' => :'CustomLLMTargetDetails',
         :'custom_target_details' => :'CustomTargetDetails',
         :'db_target_details' => :'DbTargetDetails',
         :'digicert_target_details' => :'DigiCertTargetDetails',
@@ -279,6 +283,10 @@ module Akeyless
 
       if attributes.key?(:'custom_dns_target_details')
         self.custom_dns_target_details = attributes[:'custom_dns_target_details']
+      end
+
+      if attributes.key?(:'custom_llm_target_details')
+        self.custom_llm_target_details = attributes[:'custom_llm_target_details']
       end
 
       if attributes.key?(:'custom_target_details')
@@ -453,6 +461,7 @@ module Akeyless
           chef_target_details == o.chef_target_details &&
           cloudflare_target_details == o.cloudflare_target_details &&
           custom_dns_target_details == o.custom_dns_target_details &&
+          custom_llm_target_details == o.custom_llm_target_details &&
           custom_target_details == o.custom_target_details &&
           db_target_details == o.db_target_details &&
           digicert_target_details == o.digicert_target_details &&
@@ -499,7 +508,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aerospike_target_details, alicloud_target_details, anthropic_target_details, artifactory_target_details, atlassian_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, f5_big_ip_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
+      [aerospike_target_details, alicloud_target_details, anthropic_target_details, artifactory_target_details, atlassian_target_details, aws_target_details, azure_target_details, bedrock_target_details, chef_target_details, cloudflare_target_details, custom_dns_target_details, custom_llm_target_details, custom_target_details, db_target_details, digicert_target_details, dockerhub_target_details, eks_target_details, f5_big_ip_target_details, gcp_target_details, gemini_target_details, github_target_details, gitlab_target_details, gke_target_details, globalsign_atlas_target_details, globalsign_target_details, godaddy_target_details, google_trust_target_details, grok_target_details, hashi_vault_target_details, keycloak_target_details, ldap_target_details, letsencrypt_target_details, linked_target_details, mongo_db_target_details, native_k8s_target_details, okta_target_details, openai_target_details, ping_target_details, rabbit_mq_target_details, salesforce_target_details, sectigo_target_details, splunk_target_details, ssh_target_details, venafi_target_details, web_target_details, windows_target_details, zerossl_target_details].hash
     end
 
     # Builds the object from hash

@@ -18,9 +18,6 @@ module Akeyless
   class GatewayUpdateProducerAws
     attr_accessor :access_mode
 
-    # Admin credentials rotation interval (days)
-    attr_accessor :admin_rotation_interval_days
-
     # Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
     attr_accessor :ara_enabled
 
@@ -53,9 +50,6 @@ module Akeyless
 
     # Protection from accidental deletion of this object [true/false]
     attr_accessor :delete_protection
-
-    # Automatic admin credentials rotation
-    attr_accessor :enable_admin_rotation
 
     # EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
     attr_accessor :enable_agentic_runtime_authority
@@ -156,7 +150,6 @@ module Akeyless
     def self.attribute_map
       {
         :'access_mode' => :'access-mode',
-        :'admin_rotation_interval_days' => :'admin-rotation-interval-days',
         :'ara_enabled' => :'ara-enabled',
         :'aws_access_key_id' => :'aws-access-key-id',
         :'aws_access_secret_key' => :'aws-access-secret-key',
@@ -168,7 +161,6 @@ module Akeyless
         :'aws_user_programmatic_access' => :'aws-user-programmatic-access',
         :'custom_username_template' => :'custom-username-template',
         :'delete_protection' => :'delete_protection',
-        :'enable_admin_rotation' => :'enable-admin-rotation',
         :'enable_agentic_runtime_authority' => :'enable-agentic-runtime-authority',
         :'enable_ai_quorum' => :'enable-ai-quorum',
         :'input_rule' => :'input-rule',
@@ -213,7 +205,6 @@ module Akeyless
     def self.openapi_types
       {
         :'access_mode' => :'String',
-        :'admin_rotation_interval_days' => :'Integer',
         :'ara_enabled' => :'Boolean',
         :'aws_access_key_id' => :'String',
         :'aws_access_secret_key' => :'String',
@@ -225,7 +216,6 @@ module Akeyless
         :'aws_user_programmatic_access' => :'Boolean',
         :'custom_username_template' => :'String',
         :'delete_protection' => :'String',
-        :'enable_admin_rotation' => :'Boolean',
         :'enable_agentic_runtime_authority' => :'Boolean',
         :'enable_ai_quorum' => :'Boolean',
         :'input_rule' => :'Array<String>',
@@ -290,12 +280,6 @@ module Akeyless
         self.access_mode = attributes[:'access_mode']
       end
 
-      if attributes.key?(:'admin_rotation_interval_days')
-        self.admin_rotation_interval_days = attributes[:'admin_rotation_interval_days']
-      else
-        self.admin_rotation_interval_days = 0
-      end
-
       if attributes.key?(:'ara_enabled')
         self.ara_enabled = attributes[:'ara_enabled']
       end
@@ -342,12 +326,6 @@ module Akeyless
 
       if attributes.key?(:'delete_protection')
         self.delete_protection = attributes[:'delete_protection']
-      end
-
-      if attributes.key?(:'enable_admin_rotation')
-        self.enable_admin_rotation = attributes[:'enable_admin_rotation']
-      else
-        self.enable_admin_rotation = false
       end
 
       if attributes.key?(:'enable_agentic_runtime_authority')
@@ -527,7 +505,6 @@ module Akeyless
       return true if self.equal?(o)
       self.class == o.class &&
           access_mode == o.access_mode &&
-          admin_rotation_interval_days == o.admin_rotation_interval_days &&
           ara_enabled == o.ara_enabled &&
           aws_access_key_id == o.aws_access_key_id &&
           aws_access_secret_key == o.aws_access_secret_key &&
@@ -539,7 +516,6 @@ module Akeyless
           aws_user_programmatic_access == o.aws_user_programmatic_access &&
           custom_username_template == o.custom_username_template &&
           delete_protection == o.delete_protection &&
-          enable_admin_rotation == o.enable_admin_rotation &&
           enable_agentic_runtime_authority == o.enable_agentic_runtime_authority &&
           enable_ai_quorum == o.enable_ai_quorum &&
           input_rule == o.input_rule &&
@@ -583,7 +559,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_mode, admin_rotation_interval_days, ara_enabled, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, enable_admin_rotation, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, skip_dry_run, tags, target_name, token, transitive_tag_keys, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
+      [access_mode, ara_enabled, aws_access_key_id, aws_access_secret_key, aws_external_id, aws_role_arns, aws_user_console_access, aws_user_groups, aws_user_policies, aws_user_programmatic_access, custom_username_template, delete_protection, enable_agentic_runtime_authority, enable_ai_quorum, input_rule, item_custom_fields, json, name, new_name, output_rule, password_length, producer_encryption_key_name, region, secure_access_aws_account_id, secure_access_aws_native_cli, secure_access_bastion_issuer, secure_access_certificate_issuer, secure_access_delay, secure_access_enable, secure_access_web, secure_access_web_browsing, secure_access_web_proxy, session_tags, skip_dry_run, tags, target_name, token, transitive_tag_keys, uid_token, use_capital_letters, use_lower_letters, use_numbers, use_special_characters, user_ttl].hash
     end
 
     # Builds the object from hash

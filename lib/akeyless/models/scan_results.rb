@@ -26,6 +26,9 @@ module Akeyless
 
     attr_accessor :count_subdomains
 
+    # DomainCoverage says, per public domain, how much of it subdomain discovery managed to cover. Clients that predate it ignore it, and a scan with no public domain omits it.
+    attr_accessor :domain_coverage
+
     attr_accessor :error
 
     attr_accessor :failed_targets
@@ -40,6 +43,7 @@ module Akeyless
         :'count_hosts' => :'CountHosts',
         :'count_new' => :'CountNew',
         :'count_subdomains' => :'CountSubdomains',
+        :'domain_coverage' => :'DomainCoverage',
         :'error' => :'Error',
         :'failed_targets' => :'FailedTargets',
         :'item_names' => :'ItemNames'
@@ -59,6 +63,7 @@ module Akeyless
         :'count_hosts' => :'Integer',
         :'count_new' => :'Integer',
         :'count_subdomains' => :'Integer',
+        :'domain_coverage' => :'Array<DomainCoverage>',
         :'error' => :'String',
         :'failed_targets' => :'Array<TargetError>',
         :'item_names' => :'Array<String>'
@@ -106,6 +111,12 @@ module Akeyless
         self.count_subdomains = attributes[:'count_subdomains']
       end
 
+      if attributes.key?(:'domain_coverage')
+        if (value = attributes[:'domain_coverage']).is_a?(Array)
+          self.domain_coverage = value
+        end
+      end
+
       if attributes.key?(:'error')
         self.error = attributes[:'error']
       end
@@ -148,6 +159,7 @@ module Akeyless
           count_hosts == o.count_hosts &&
           count_new == o.count_new &&
           count_subdomains == o.count_subdomains &&
+          domain_coverage == o.domain_coverage &&
           error == o.error &&
           failed_targets == o.failed_targets &&
           item_names == o.item_names
@@ -162,7 +174,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [count_existing, count_failed, count_hosts, count_new, count_subdomains, error, failed_targets, item_names].hash
+      [count_existing, count_failed, count_hosts, count_new, count_subdomains, domain_coverage, error, failed_targets, item_names].hash
     end
 
     # Builds the object from hash

@@ -15,6 +15,9 @@ require 'time'
 
 module Akeyless
   class SSHTargetDetails
+    # AuthType is a non-secret auth indication (password | private_key). Prefer Target.Attributes[auth_type] for list responses; this field may be populated on get-target-details for convenience.
+    attr_accessor :auth_type
+
     attr_accessor :host
 
     attr_accessor :password
@@ -30,6 +33,7 @@ module Akeyless
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auth_type' => :'auth_type',
         :'host' => :'host',
         :'password' => :'password',
         :'port' => :'port',
@@ -47,6 +51,7 @@ module Akeyless
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'auth_type' => :'String',
         :'host' => :'String',
         :'password' => :'String',
         :'port' => :'String',
@@ -76,6 +81,10 @@ module Akeyless
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'auth_type')
+        self.auth_type = attributes[:'auth_type']
+      end
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
@@ -122,6 +131,7 @@ module Akeyless
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auth_type == o.auth_type &&
           host == o.host &&
           password == o.password &&
           port == o.port &&
@@ -139,7 +149,7 @@ module Akeyless
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [host, password, port, private_key, private_key_password, username].hash
+      [auth_type, host, password, port, private_key, private_key_password, username].hash
     end
 
     # Builds the object from hash
